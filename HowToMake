@@ -1,0 +1,4 @@
+$ export CC=gcc
+$ bash .travis_cmockery2.sh
+$ ./autogen.sh && ./configure && make check
+
