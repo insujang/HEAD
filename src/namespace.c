@@ -1155,6 +1155,9 @@ start_program(int argc, char **argv, char *namespace_path)
                         break;
                 }
         case reset:
+        		/*
+        			if dedup, resotre, list does not cause error, It goes to file_operation
+        		*/
                 ret = file_operation(flag, file_path, namespace_path,
                         set_namespace, set_minhash_config);
                 if (ret == -1)
