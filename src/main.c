@@ -18,6 +18,9 @@ main (int argc, char *argv[])
         char    namespace_path[FILE_SIZE] = "";
         DIR     *dp                       = NULL;
 
+		/* 
+			Create directory if (/var/lib/yadl) does not exist
+		*/
         sprintf(namespace_path, "/var/lib/yadl");
         dp = opendir(namespace_path);
         if (NULL == dp) {
