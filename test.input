@@ -1,0 +1,1770 @@
+/*BEGIN_LEGAL 
+Intel Open Source License 
+
+Copyright (c) 2002-2014 Intel Corporation. All rights reserved.
+ 
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.  Redistributions
+in binary form must reproduce the above copyright notice, this list of
+conditions and the following disclaimer in the documentation and/or
+other materials provided with the distribution.  Neither the name of
+the Intel Corporation nor the names of its contributors may be used to
+endorse or promote products derived from this software without
+specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE INTEL OR
+ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+END_LEGAL */
+/*
+ *  This file contains an ISA-portable PIN tool for tracing memory accesses.
+ */
+
+#include <stdio.h>
+#include <limits.h>
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <typeinfo>
+#include "pin.H"
+
+//BrkList brk_list_instance;
+//SegList seg_list_instance;
+using namespace std;
+//#include "/home/sylee/segment_sim/seglist.py"
+static UINT64 icount = 0;
+
+FILE * trace;
+FILE * test;
+#define	MMAP_NR	9
+#define	MMAP_ARGLEN	6
+#define MUNMAP_NR 11
+#define MUNMAP_ARGLEN	2
+#define BRK_NR 12
+#define BRK_ARGLEN	1
+#define MAX_HOLE_SIZE 10
+#define MIN_SEG_SIZE 1
+#define LIMIT_NUM_SEG 1
+#define TLB_ASSOC 4
+#define TLB_SET 32 
+#define TLB_SET_BIT 5 //set_num_bit
+//#define FF 100000000 //gups
+//#define FF 250000000000 //graph
+//#define FF 1230000000  // cg
+//#define FF 13350608000 //mcf
+//#define FF 39850608000 //calculix
+#define FF 198450608000 //gromacs
+#define AFTER_FF 100000000000
+
+
+int init_case=0;
+int expend_case =0;
+int seg_hole_fragmentation = 0;
+INT64 curr_syscall[4] = {0, 0, 0, 0};
+UINT64 miss_both_brk_mmap = 0;
+UINT64 miss_brk = 0;
+UINT64 miss_seg= 0;
+TLS_KEY tlsKey;
+
+INT64 global_time;
+INT64 last_ac_time[TLB_SET][TLB_ASSOC] = {0,}; //4x512
+unsigned long miss = 0;
+
+int integral_count =0;
+INT64  my_memory_usage;
+INT64 Basu_memory_usage;
+int my_num_of_seg;
+//============================= TLB ===========================
+class LRUPolicy{
+	public:
+		int assoc;
+		int tlb_set;
+
+		void __init__(int tlb_set, int assoc){
+			this->assoc = assoc;
+			this->tlb_set = tlb_set;
+			for(int j =0; j<TLB_ASSOC;j++){
+				for(int i =0; i<TLB_SET;i++){
+					last_ac_time[i][j] =0;
+				}
+			}
+			
+		
+		}
+		void access_hit_touch(int tlb_set, int loc, INT64 addr){//INT32 time, long long addr){// addr access 로 hit 됐을떄time
+		//	cout<<"before udpate time"<<std::endl;
+			last_ac_time[tlb_set][loc] = global_time;
+		//	cout<<"after udpate time"<<std::endl;
+		}
+		
+		void allocate_touch(int tlb_set, int loc, INT64 addr){//, INT32 time, unsigned long addr){// allocation 됐을떄 time
+		//	cout<<"before udpate time"<<std::endl;
+			last_ac_time[tlb_set][loc] = global_time;
+		//	cout<<"after udpate time"<<std::endl;
+		}	
+	
+		void touchLRU(int tlb_set, int loc){//, INT64 time){//lru policy 진행
+			int lru_index = getVictim(tlb_set);
+			last_ac_time[tlb_set][loc]=last_ac_time[tlb_set][lru_index]-1;
+		}
+
+		int getVictim(int tlb_set){
+			int smallest_index = 0;
+	//		cout<<"global time"<<global_time<<std::endl;
+			int i =0;
+			INT64 smallest_time = last_ac_time[tlb_set][0];
+			for(i=0;i<TLB_ASSOC;i++){
+				INT64 time = last_ac_time[tlb_set][i];
+				if(time<smallest_time){
+					smallest_index =i;
+					smallest_time = time;
+				}
+			}
+			return smallest_index;
+		} //evict 할 victim 찾아
+		
+	
+};
+
+//class TLBEntry{
+//	public: 
+//		INT64 Address;
+//		INT64 access_count;
+//		void __init__(){
+//			this->Address = -1;
+//	//		this->access_count = 0;
+//		}
+//};
+
+
+INT64 m_TLB[TLB_SET][TLB_ASSOC];//={-1,};//TLBEntry 타입의 array 이어야
+LRUPolicy *LRU_Policy_instance;
+class TLB{//: public TLBEntry{
+	public:
+		INT64 g_time;
+		void __init__(){
+		//	m_TLB[TLB_SET][TLB_ASSOC]={0,}INT64 addr){//;
+			global_time = 0;
+//1nn			this->g_time =0;
+		//	LRUPolicy *LRU_Policy_instance;
+			LRU_Policy_instance = new LRUPolicy();
+		}
+		//              void map_address_to_TLB(INT64 addr, int tlb_set_num){ //tlb_set_num ==cache_num_set_bits
+		//
+		//              }
+		INT64 find_proper_TLB_set(INT64 addr){
+			INT64 mask = ~(~0 << TLB_SET_BIT);
+			INT64 partial_addr = addr & mask;
+			return partial_addr;
+		}
+		void allocate(INT64 addr){
+			int tlb_set = find_proper_TLB_set(addr);
+			int i =0;
+			for (i=0; i<TLB_ASSOC;i++){
+				if(m_TLB[tlb_set][i] == -1){
+					m_TLB[tlb_set][i] = addr;
+			//		(*LRU_Policy_instance).touchLRU(tlb_set, i);// , getIncreasingTime());
+					(*LRU_Policy_instance).allocate_touch(tlb_set, i, addr);// , getIncreasingTime(), addr);
+				}
+			}
+		}
+//		INT64 getIncreasingTime(){
+//			this->g_time++;
+//			return this->g_time;
+//		}
+		void deallocate(INT64 addr){
+		//	cout<<"err(8)"<<std::endl;
+			int tlb_set = find_proper_TLB_set(addr);
+		//	cout<<"tlb set"<<tlb_set<<std::endl;
+		//	cout<<"err(9)"<<std::endl;
+			int loc = find_tag_in_set(tlb_set, addr);
+		//	cout<<"err(10)"<<std::endl;
+			if (loc != -1)
+				m_TLB[tlb_set][loc] = -1;
+			else return;
+		}
+
+	//	//void lookup(){}
+		int find_tag_in_set(INT64 addr, int tlb_set){
+			int i;
+			for(i=0 ; i< TLB_ASSOC; i++){
+				if(m_TLB[tlb_set][i] == addr)
+					return i;
+			}
+			return -1;
+		}
+		
+		bool is_tag_exist(INT64 addr){
+			int tlb_set = find_proper_TLB_set(addr); // addressToSet
+			int loc = find_tag_in_set(addr, tlb_set);
+			if(loc == -1)
+				return false;
+			return true;
+		}
+
+		bool cache_avail(INT64 line_addr){
+			int tlb_set = find_proper_TLB_set(line_addr);
+			int i;
+			for(i=0; i<TLB_ASSOC; i++){
+				if(m_TLB[tlb_set][i] == -1)
+					return true;
+			}
+			return false;
+		}
+
+		bool access(INT64 addr){//, unsigned long time){
+	//		cout<<"err(2)"<<std::endl;
+
+		//	global_time = time;
+			INT64 line_addr = addr;
+	//		bool hit = is_tag_exist(line_addr);
+			int tlb_set;
+			tlb_set = find_proper_TLB_set(line_addr);
+			int hit_tag = find_tag_in_set(line_addr, tlb_set);
+		//	cout<<"hit?"<<hit<<std::endl;
+		//	INT64 replace_addr = -1;
+		//	cout<<"replace"<<replace_addr<<std::endl;
+		//	cout<<"line"<<line_addr<<std::endl;
+			//TLBEntry replace_entry;
+	//		cout<<"err(3)"<<std::endl;
+		//	hit = false;
+			if(hit_tag>=0){//hit
+
+	//		cout<<"hit"<<std::endl;
+			//	for(i =0 ;i<TLB_ASSOC; i++){
+			//		 if (m_TLB[cacheSet][i].Address==line_addr)
+				(*LRU_Policy_instance).access_hit_touch(tlb_set, hit_tag , line_addr);
+	//		cout<<"done hit"<<std::endl;
+				return true;			
+			}
+			else{ //miss
+				
+	//		cout<<"err(4)"<<std::endl;
+				if(!cache_avail(line_addr)){
+					int victim =(*LRU_Policy_instance).getVictim(tlb_set);
+	//		cout<<"err(5)"<<std::endl;
+			//		replace_addr = m_TLB[tlb_set][victim];
+	//		cout<<"err(6)"<<std::endl;
+//			cout<<"replace addr"<<replace_addr<<std::endl;
+					m_TLB[tlb_set][victim] = -1;
+					//deallocate(replace_addr);
+	//		cout<<"err(7)"<<std::endl;
+					allocate(line_addr);
+				}
+				else allocate(line_addr);
+				return false;
+
+			}	
+		}
+};
+
+TLB *tlb;
+
+class Block{
+	public:
+		INT64 start_addr;
+		INT64 offset;
+		INT64 end_addr;
+		std::vector<unsigned int> touch_map;
+
+		void  __init__(INT64 start_address,  INT64 offset){
+			this->start_addr = start_address;
+			this->end_addr = start_address + offset;
+			this->offset = offset;
+			this->touch_map.clear();
+		}
+
+		void setEndAddress(INT64 end_address, Block *target_block){
+			if (end_address > this->end_addr){
+				expandTouchMap(end_address-this->end_addr, target_block);
+				this->end_addr = end_address;
+				this->offset = end_address - this->start_addr;
+			}
+		}
+		void setOffset(INT64 offset){
+			this->end_addr = start_addr + offset;
+			this->offset = offset;
+		}
+
+		void expandTouchMap(int expand_size, Block *target_block){
+			(*target_block).touch_map.insert(touch_map.end(),expand_size,0);
+		}
+		void print_block(){
+			cout<<"start_addr"<<this->start_addr<<std::endl;
+			cout<<"end_addr"<<this->end_addr<<std::endl;
+			cout<<"offset"<<this->offset<<std::endl;
+			cout<<"touchmap size"<<touch_map.size()<<std::endl;
+		}
+};
+
+class BlockList{
+	public:
+		vector<Block> block_list;
+		vector<Block> block_list_expand_only;
+		void __init__(){
+			this->block_list.clear();
+			this->block_list_expand_only.clear();
+		}
+		Block *find_previous_block(INT64 target_addr, vector<Block> *target_list){
+			Block *prev_block;
+			prev_block = NULL;
+			vector<Block>::iterator iter_list;
+			for(iter_list=(*target_list).begin();iter_list!=(*target_list).end(); iter_list++){
+				if(iter_list->start_addr > target_addr)	
+					break;
+				prev_block = &(*iter_list);
+			} 
+			return prev_block;
+
+		}
+
+		Block *find_next_block(INT64 target_addr, vector<Block> *target_list){
+			Block *next_block;
+			next_block = NULL;
+			vector<Block>::iterator iter_list;
+			for(iter_list=(*target_list).begin();iter_list!=(*target_list).end(); iter_list++){
+				if(iter_list->start_addr >= target_addr){      
+					next_block = &(*iter_list);
+					break;
+				}
+			}
+			return next_block;
+		}
+
+		bool touch(INT64 address, vector<Block> *target_list){
+		//			cout<<"touch addr : "<<address<<std::endl;
+			Block *block;
+			block = NULL;
+			std::vector<Block>::iterator iter_list;
+		//		cout<<"touch_map"<<std::endl;
+			for(iter_list=(*target_list).begin() ; iter_list != (*target_list).end() ; iter_list++){
+				if((iter_list->start_addr <= address) and (address < iter_list->end_addr)){
+					block = &(*iter_list);
+				}
+			}
+		//		cout<<"touch_map1"<<std::endl;
+			//	block = find_block_from_expand_only_list(address, target_list);
+		
+	//		cout<<"\n"<<"[[PRINT AT TOUCH]]"<<std::endl;
+	//		print_list(target_list);
+	//		print_list_expand_only(target_list);
+			if(block){
+		//		cout<<"touch_map2"<<std::endl;
+				((*block).touch_map).at(address - (*block).start_addr)= (*block).touch_map[address - (*block).start_addr] + 1;
+		//		cout<<"touch_map3"<<std::endl;
+				return true;
+			}
+			else{
+				//		cout<<"touch_map"<<std::endl;
+				//		vector<INT64>::iterator it_touch_map = ((*block).touch_map).begin();
+				//		
+				//		std::advance(it_touch_map, (address - (*block).start_addr));
+		//		*it_touch_map = *it_touch_map +1;
+	//			cout<<address - (*block).start_addr<<std::endl;
+		//		cout<<"touch_map size"<<(*block).touch_map.size()<<std::endl;
+			//	cout<<(*block).touch_map[address - (*block).start_addr]<<std::endl;
+		//		cout<<"touch end"<<std::endl;
+	//			cout<<"it_touch_map"<<(*block).touch_map.size()<<std::endl;
+	//			cout<<"##################"<<std::endl;
+				return false;
+			}
+		}
+
+//		Block *find_block_from_expand_only_list(INT64 address,vector<Block> *target_list){
+//			Block *block;
+////			cout<<"in find block_from bla bla"<<std::endl;
+//			std::vector<Block>::iterator iter_list;
+//			for(iter_list=(*target_list).begin() ; iter_list != (*target_list).end() ; ++iter_list){
+////				cout<<"iteration"<<std::endl;
+//				if((iter_list->start_addr <= address) && (address < iter_list->end_addr)){
+//					block = &(*iter_list);
+//					return block;
+//				}
+//			}
+//			return NULL;
+//		}
+//		
+//		bool check_hit(INT64 address, vector<Block> *target_list){
+//			std::vector<Block>::iterator iter_list;
+////			for(iter_list=(*target_list).begin() ; iter_list!=(*target_list).end() ; ++iter_list){
+//				if((iter_list->start_addr <= address) && (address < iter_list->end_addr))
+//			//	if((iter_list->start_addr <= address) || (address < iter_list->end_addr))
+//					return true;
+//			}
+//			return false;
+//		}
+		
+		void print_list(vector<Block> *target_list){
+		//	cout<<"print_list"<<std::endl;
+			vector<Block>::iterator iter_list;
+			for(iter_list = (*target_list).begin(); iter_list != (*target_list).end();iter_list++){
+				cout<<"[star_addr]"<<iter_list->start_addr<<"\t[end_addr]"<<iter_list->end_addr<<"\t[offset]"<<iter_list->offset<<std::endl;
+				fprintf(test, "[star_addr] %lu \t[end_addr] %lu \t[offset] %lu \n" ,iter_list->start_addr ,iter_list->end_addr ,iter_list->offset);
+			}
+		}
+		
+		void print_list_expand_only(vector<Block> *target_list){
+			vector<Block>::iterator iter_list;
+			for(iter_list = (*target_list).begin(); iter_list != (*target_list).end();iter_list++){
+				cout<<"[start_addr]"<<iter_list->start_addr<<"\t[end_addr]"<<iter_list->end_addr<<"\t[offset]"<<iter_list->offset<<std::endl;
+				cout<<"[touch_map_length]"<<(iter_list->touch_map).size()<<std::endl;
+				fprintf(test, "[star_addr] %lu \t[end_addr] %lu \t[offset] %lu \n" ,iter_list->start_addr ,iter_list->end_addr ,iter_list->offset);
+
+			}
+		}
+
+
+};
+class BrkList: public BlockList{
+	public:
+		struct sortfunction{
+		//	sortfunction(std::list<Block> start_addr) : start_addr(start_addr){}
+			bool operator()(const Block &i, const Block &j) const{return i.start_addr< j.start_addr;}
+		};
+
+		void add_block(INT64 start_addr){
+			Block block; 
+			block.__init__(start_addr, 0);
+		//	cout<<block.start_addr<<"\n"<<block.offset<<std::endl;
+			if(this->check_duplicated_init(start_addr)== false){ //addn new block
+				this->block_list.push_back(block);		
+			//	this->block_list_expand_only.push_back(block);		
+				
+			}
+			//Sort block_list and block_list_expand_only in order of start_addr.
+		//	std::sort(block_list.begin(), block_list.end(), sortfunction());
+
+			
+		//	this->block_list.sort(sortfunction());
+		//	this->block_list_expand_only.sort(sortfunction());
+	//		list<Block>::iterator iter_list;
+	//		for(iter_list = this->block_list.begin(); iter_list != this->block_list.end();iter_list++)
+	//			cout<<"[star_addr]"<<iter_list->start_addr<<"\t[end_addr]"<<iter_list->end_addr<<"\t[offset]"<<iter_list->offset<<std::endl;
+		}
+		
+		void modify_block(INT64 target_addr){
+		//	cout<<"brk expanded"<<std::endl;
+			Block *brk_list_last_block;
+			brk_list_last_block = find_previous_block(target_addr, &(this->block_list));
+//			cout<<"last_block"<<brk_list_last_block<<std::endl;
+			//cout<<"target_Addr"<< target_addr<<std::endl;
+			if (!brk_list_last_block) //there is no last block
+			;	
+			
+			if (target_addr <  brk_list_last_block->end_addr){
+		//		cout<<brk_list_last_block->start_addr<<std::endl;
+				shrink_block(target_addr, brk_list_last_block);
+			}
+			else if (target_addr >  brk_list_last_block->end_addr){
+//				cout<<"block exist"<<std::endl;
+				expand_block(target_addr, brk_list_last_block);
+			//	(*brk_list_last_block).print_block();
+			}
+			else;
+		//	print_list();
+		//	&(brk_list_instance)
+	//		cout<<"this->block_list(2)"<< &(block_list)<<std::endl;
+		}
+
+		void expand_block(INT64 end_addr, Block *target_block){
+//			cout<<"expand block" << std::endl;
+			(*target_block).setEndAddress(end_addr, target_block);
+//			cout<<"at expandblock"<< std::endl;
+//			(*target_block).print_block();
+		}
+
+		void shrink_block(INT64 end_addr, Block *target_block){
+		//	cout<<"shrink block" << std::endl;
+			(*target_block).setEndAddress(end_addr, target_block);
+		}
+		
+		bool check_duplicated_init(INT64 start_addr){
+			bool is_duplicated = false;
+			vector<Block>::iterator iter_list;
+			for(iter_list = this->block_list.begin(); iter_list != this->block_list.end();iter_list++){
+				if(iter_list->start_addr == start_addr){
+				       is_duplicated = true;
+				       return is_duplicated;
+				}
+			}
+		 	return is_duplicated;	
+		}
+		
+		void print_list(vector<Block> *target_list){
+			cout<<"<<BRK_LIST>>"<<std::endl;
+			fprintf(test,"<<BRK_LIST>>\n");
+			(*this).BlockList::print_list(target_list);
+		}
+		
+		void print_list_expand_only(vector<Block> *target_list){
+			cout<<"<<BRK_LIST_EXPAND_ONLY>>"<<std::endl;
+			fprintf(test,"<<BRK_LIST_EXPAND_ONLY>>\n");
+			(*this).BlockList::print_list_expand_only(target_list);
+		}
+
+};
+class SegList: public BlockList{
+	public:
+		// make a new segment with start address and end address
+		// delete whole entry between start address and end address
+		void create_segment(INT64 final_start_addr, INT64 final_end_addr, vector<Block> *target_list){
+	//		cout<<final_end_addr - final_start_addr<<std::endl;
+			int start_block_idx = 0;
+			Block  *start_block;
+			int last_block_idx = 0;
+			Block  *last_block;
+			//find the next block index of start address
+			vector<Block>::iterator iter_start_idx;
+			start_block = find_next_block(final_start_addr, target_list);
+			if (start_block){
+				for(iter_start_idx = (*target_list).begin(); iter_start_idx != (*target_list).end();iter_start_idx++, start_block_idx++){
+					if(iter_start_idx->start_addr == (*start_block).start_addr){
+		//			if(iter_start_idx == *start_block)
+						//start_block_idx = temp_idx;
+						break;
+					}
+				}
+	//			cout<<"\n[PRINT_BLOCK]"<<std::endl;
+	//			(*start_block).print_block();
+			}
+			else ;
+		//	cout<<"start block idx"<< start_block_idx<<std::endl;
+			//find the previous block index of the end address
+		//	temp_idx = 0;		
+			vector<Block>::iterator iter_last_idx;
+			last_block = find_previous_block(final_end_addr, target_list);
+			if (last_block){
+				for(iter_last_idx = (*target_list).begin(); iter_last_idx != (*target_list).end();iter_last_idx++, last_block_idx++){
+					if(iter_last_idx->start_addr == (*last_block).start_addr){
+					//	last_block_idx = temp_idx;
+						break;
+					}
+				}
+			}
+			else ;
+		//	cout<<"last block idx"<< last_block_idx<<std::endl;
+
+			// make touch map
+			std::vector<unsigned int> new_touch_map;
+			INT64 prev_end_addr = final_start_addr;
+			vector<Block>::iterator iter_block;
+
+			vector<Block>::iterator iter_idx;
+			Block  *new_block =new Block();
+
+			iter_start_idx = (*target_list).begin();
+			iter_last_idx = (*target_list).begin();
+			
+
+			std::advance(iter_start_idx, start_block_idx);
+			std::advance(iter_last_idx, last_block_idx);
+			//	temp_idx = 0;		
+			// touch map is expended when there are segments. make touch_map and apply it the end of this method
+			if( start_block && last_block){
+					cout<<start_block_idx<<"  "<<last_block_idx<<std::endl;
+				if (last_block_idx >= start_block_idx){
+					for(iter_block = iter_start_idx; iter_block <= iter_last_idx; iter_block++){
+							cout<<"where1-1"<<std::endl;
+						new_touch_map.insert(new_touch_map.end(),(iter_block->start_addr - prev_end_addr),0);
+							cout<<"where1-2"<<std::endl;
+						new_touch_map.insert(new_touch_map.end(), (iter_block->touch_map).begin(),(iter_block->touch_map).end());
+							cout<<"where1-3"<<std::endl;
+						//new_touch_map.merge((*iter_block).touch_map);
+						prev_end_addr = iter_block->end_addr;				
+					}
+					//	cout<<"i"<<i<<std::endl;
+					new_touch_map.insert(new_touch_map.end(), (final_end_addr - prev_end_addr), 0);
+					//			cout<<"touch map size"<< new_touch_map.size()<<std::endl;
+				}
+				else{ // 이 경우가 중간에 끼는 경우!!! : segment 추가되는 부분
+					cout<<"seg list size"<<(*target_list).size()<<std::endl;
+					if((*target_list).size() >= LIMIT_NUM_SEG){
+						if(final_start_addr-(*last_block).end_addr < (*start_block).start_addr - final_end_addr){ // 앞 segment 에 붙는 경우
+							cout<<"where1-4"<<std::endl;
+							new_touch_map.insert(new_touch_map.end(),(*last_block).touch_map.begin(), (*last_block).touch_map.end());
+							new_touch_map.insert(new_touch_map.end(), final_end_addr-(*last_block).end_addr ,0);
+							(*last_block).end_addr = final_end_addr;
+							(*last_block).offset = (*last_block).end_addr -(*last_block).start_addr;
+							(*last_block).touch_map.insert((*last_block).touch_map.end(),final_end_addr-(*last_block).end_addr ,0);
+							(*last_block).touch_map.clear();
+							(*last_block).touch_map = new_touch_map;
+							return;
+
+						}
+						else{ //뒤segment 에 붙는 경우 
+							cout<<"where1-5"<<std::endl;
+							new_touch_map.insert(new_touch_map.end(),(*start_block).touch_map.begin(), (*start_block).touch_map.end());
+							new_touch_map.insert(new_touch_map.end(), (*start_block).start_addr - final_start_addr ,0);
+							(*start_block).start_addr = final_start_addr;
+							(*start_block).offset = (*start_block).end_addr -(*start_block).start_addr;
+							(*start_block).touch_map.clear();
+							(*start_block).touch_map = new_touch_map;
+							return;
+						}
+					}
+					else{
+							cout<<"where1-6"<<std::endl;
+
+						(*new_block).__init__(final_start_addr, final_end_addr - final_start_addr);
+						(*new_block).touch_map.insert((*new_block).touch_map.begin(), (final_end_addr - final_start_addr),0);
+						(*target_list).insert(iter_start_idx, *new_block);
+						//		new_touch_map.insert(new_touch_map.end(),(final_end_addr - final_start_addr),0);
+						(*new_block).print_block();
+						return ;
+					}
+				}
+				//		list<INT64 int>::iterator it_touch_map = block->touch_map.begin();
+				//	        std::advance(it_touch_map, (address - block->start_addr));
+			}
+			else{
+					cout<<"where2"<<std::endl;
+				vector<unsigned int>::iterator iter_map;
+				vector<Block>::iterator it;
+				iter_map = (*new_block).touch_map.begin(); 
+				//start address is bigger than start address of the last entry	
+				if(!start_block){// 이게 새로운 segment가 맨 뒤에 들어가는 경우
+					cout<<"seg list size"<<(*target_list).size()<<std::endl;
+					if((*target_list).size() >= LIMIT_NUM_SEG){
+					cout<<"where2-1"<<std::endl;
+							new_touch_map.insert(new_touch_map.end(),(*last_block).touch_map.begin(), (*last_block).touch_map.end());
+							new_touch_map.insert(new_touch_map.end(), final_end_addr-(*last_block).end_addr ,0);
+						(*last_block).end_addr = final_end_addr;
+						(*last_block).offset = (*last_block).end_addr -(*last_block).start_addr;
+						(*last_block).touch_map.insert((*last_block).touch_map.end(),final_end_addr-(*last_block).end_addr ,0);
+							(*last_block).touch_map.clear();
+							(*last_block).touch_map = new_touch_map;
+
+						return;
+
+					}
+					else{
+					cout<<"where2-2"<<std::endl;
+						(*new_block).__init__(final_start_addr, final_end_addr - final_start_addr);
+						(*new_block).touch_map.insert(iter_map, (final_end_addr - final_start_addr),0);
+						(*target_list).push_back(*new_block);
+						(*new_block).print_block();
+						return ;
+					}
+				}
+				else{
+					cout<<"where2-3"<<std::endl;
+					for(iter_start_idx = (*target_list).begin(); iter_start_idx != (*target_list).end();iter_start_idx++, start_block_idx++){
+						if(iter_start_idx->start_addr == (*start_block).start_addr){
+							//	start_block_idx = temp_idx;
+							break;
+						}
+					}
+				}
+				iter_map = (*new_block).touch_map.begin();
+				//end address is lower then the start address of the first entry
+				//		temp_idx = 0;		
+				if(!last_block){ // 새로운 segment 가 맨 앞에 들어가는 경우
+					cout<<"seg list size"<<(*target_list).size()<<std::endl;
+					if((*target_list).size() >= LIMIT_NUM_SEG){
+						cout << "address gap " <<(*start_block).start_addr - final_start_addr<<std::endl;
+						cout<<"where2-4"<<std::endl;
+							new_touch_map.insert(new_touch_map.end(),(*start_block).touch_map.begin(), (*start_block).touch_map.end());
+							new_touch_map.insert(new_touch_map.end(), (*start_block).start_addr - final_start_addr ,0);
+						(*start_block).start_addr = final_start_addr;
+						(*start_block).offset = (*start_block).end_addr -(*start_block).start_addr;
+						cout<<"where2-4-1"<<std::endl;
+				//		(*start_block).touch_map.insert((*start_block).touch_map.begin(),(*start_block).start_addr - final_start_addr ,0);
+							(*start_block).touch_map.clear();
+							(*start_block).touch_map = new_touch_map;
+						cout<<"where2-4-2"<<std::endl;
+						return ;
+					}
+					else{
+						cout<<"where2-5"<<std::endl;
+						(*new_block).__init__(final_start_addr, final_end_addr - final_start_addr);
+						(*new_block).touch_map.insert(iter_map, (final_end_addr - final_start_addr),0);
+						(*target_list).insert((*target_list).begin(), *new_block);
+						//	(*target_list).push_front(*new_block);
+						return ;
+					}
+				}
+				else{
+					cout<<"where2-6"<<std::endl;
+					for(iter_last_idx = (*target_list).begin(); iter_last_idx != (*target_list).end();iter_last_idx++, last_block_idx++){
+						if(iter_last_idx->start_addr == (*last_block).start_addr){
+							break;
+						}
+					}
+				}
+			}
+
+			// delete entry from  start block index to last block index
+			iter_start_idx = (*target_list).begin();
+			iter_last_idx = (*target_list).begin();
+			last_block_idx++;
+			std::advance(iter_start_idx, start_block_idx);
+			std::advance(iter_last_idx, last_block_idx);
+
+			//	iter_last_idx++;
+			(*target_list).erase(iter_start_idx, iter_last_idx);
+			// insert new block at start block index
+			(*new_block).__init__(final_start_addr, final_end_addr - final_start_addr);
+			(*new_block).touch_map = new_touch_map;	
+			(*target_list).insert(iter_start_idx, *new_block);
+			//udpate touch_map to merged segment
+			//	cout<<"touah map size"<<new_touch_map.size()<<std::endl;
+			//	(*new_block).print_block();
+
+		}
+
+		void handle_mmap(INT64 start_addr, INT64 offset, vector<Block> *target_list){
+			INT64 end_addr;
+			end_addr = start_addr + offset;
+			Block *start_segment = NULL;
+			Block *end_segment = NULL;
+			Block *next_block = NULL;
+			Block *prev_block = NULL;
+
+			start_segment = get_segment_with_address(start_addr, target_list);
+			end_segment = get_segment_with_address(end_addr, target_list);
+
+			INT64 final_start_addr = 0;
+			INT64 final_end_addr = 0;
+			INT64 tmp_start_addr = 0;
+			INT64 tmp_end_addr = 0;
+			INT64 end_distance = 0;
+			INT64 start_distance = 0;
+
+			int start_block_idx = 0;
+			int end_block_idx = 0;
+
+			vector<Block>::iterator iter_start_idx;
+			vector<Block>::iterator iter_end_idx;
+			//	cout<<"mmap start in method "<<std::endl;
+			if(start_segment){
+				for(iter_start_idx = (*target_list).begin(); iter_start_idx != (*target_list).end();iter_start_idx++, start_block_idx++){
+					if(iter_start_idx->start_addr == (*start_segment).start_addr){
+						break;
+					}
+				}
+			}
+		//	cout<<"mmap start in method 1"<<std::endl;
+
+			if(end_segment){
+				for(iter_end_idx = (*target_list).begin(); iter_end_idx != (*target_list).end();iter_end_idx++, end_block_idx++){
+					if(iter_end_idx->start_addr == (*end_segment).start_addr){
+						break;
+					}
+				}
+			}
+			//	cout<<"mmap start in method 2"<<std::endl;
+
+			if(start_segment){
+				cout<<"test1"<<std::endl;
+				// a)when end address is on the segment
+				if(end_segment){
+					cout<<"test1-1"<<std::endl;
+					//1.when end address and start address are on the same segment	
+					if(start_block_idx == end_block_idx){ return;}
+					//2.when end address and start address are on the different segment
+					else{
+						cout<<"test1-1-1"<<std::endl;
+						//#check whether the segment size is bigger than MIN SEG SIZE or not
+						if((*end_segment).end_addr - (*start_segment).start_addr >= MIN_SEG_SIZE){
+							cout<<"test1-1-1-1"<<std::endl;
+							final_start_addr = (*start_segment).start_addr;
+							final_end_addr = (*end_segment).end_addr;
+
+						}
+						else ;
+					}
+				}
+				//b)when end address is not on the segment	
+				else {
+					cout<<"test1-2"<<std::endl;
+					next_block = find_next_block(end_addr, target_list);
+					if(next_block)
+						end_distance = (*next_block).end_addr - end_addr;
+					//1,3.when there is no segment after the end segment, or when distance > max hole size
+					if((!next_block) || end_distance > MAX_HOLE_SIZE){
+						cout<<"test1-2-1"<<std::endl;
+						//check whether the segment size is bigger than MIN SEG SIZE or not
+						if(end_addr - (*start_segment).start_addr >= MIN_SEG_SIZE){
+							cout<<"test1-2-1-1"<<std::endl;
+							final_start_addr = (*start_segment).start_addr;
+							final_end_addr = end_addr;
+						}
+						else ;				
+					}
+					//2.when distance < max hole size
+				//	else if(end_distance <MAX_HOLE_SIZE){
+				//		cout<<"test1-2-2"<<std::endl;
+				//		seg_hole_fragmentation += end_distance;
+				//		//check whether the segment size is bigger than MIN SEG SIZE or not
+				//		if((*next_block).end_addr - (*start_segment).start_addr >= MIN_SEG_SIZE){
+				//			cout<<"test1-2-2-1"<<std::endl;
+				//			final_start_addr = (*start_segment).start_addr;
+				//			final_end_addr = (*next_block).end_addr;
+				//		}
+				//		else ;
+				//	}
+
+				}
+			}
+
+			// 2)when start address is not on the segment
+			else if(!start_segment){
+				cout<<"test2"<<std::endl;
+				prev_block = find_previous_block(start_addr, target_list);
+				next_block = find_next_block(end_addr, target_list);
+
+				if(prev_block)
+					start_distance = start_addr - (*prev_block).end_addr;
+				if(next_block)	
+					end_distance = (*next_block).start_addr - end_addr;
+
+				//a)when end address is on the segment
+				if(end_segment){
+					cout<<"test2-1"<<std::endl;
+					//1,3.when there is no segment before the start segment, or when distance > max hole size
+					if((!prev_block) || start_distance > MAX_HOLE_SIZE){
+						if((*end_segment).end_addr - start_addr >= MIN_SEG_SIZE){
+							cout<<"test2-1-1"<<std::endl;
+							final_start_addr = start_addr;
+							final_end_addr = (*end_segment).end_addr;
+						}
+						else ;
+
+					}
+					//2.when distance < max hole size
+					else if(start_distance < MAX_HOLE_SIZE){
+						seg_hole_fragmentation = MAX_HOLE_SIZE;
+						if((*end_segment).end_addr - (*prev_block).start_addr >= MIN_SEG_SIZE){
+							cout<<"test2-1-2"<<std::endl;
+							final_start_addr = (*prev_block).start_addr;
+							final_end_addr = (*end_segment).end_addr;
+						}
+						else ;
+					}
+				}				
+				//b)when end address is not on the segment
+				else{
+					//when there is no segment before the start segment, or when start_distance > max hole size
+					cout<<"test2-2"<<std::endl;
+					if((!prev_block) || start_distance > MAX_HOLE_SIZE){
+						cout<<"test2-2-1"<<std::endl;
+						tmp_start_addr = start_addr;
+					}
+					//when start_distance < max hole size
+					else if(start_distance < MAX_HOLE_SIZE){
+						cout<<"test2-2-2"<<std::endl;
+						seg_hole_fragmentation +=start_distance;
+						tmp_start_addr = (*prev_block).start_addr;
+					}	
+					//when there is no segment after the end segment, or when end_distance > max hole size
+					if ((!next_block) || end_distance > MAX_HOLE_SIZE){
+						cout<<"test2-2-3"<<std::endl;
+						tmp_end_addr = end_addr;
+					}
+					//when end_distance < max hole size
+					else if(end_distance < MAX_HOLE_SIZE){
+						cout<<"test2-2-4"<<std::endl;
+						seg_hole_fragmentation += end_distance;
+						tmp_end_addr = (*next_block).end_addr;
+					}
+					//check whether the segment size is bigger than MIN SEG SIZE or not
+					if(tmp_end_addr - tmp_start_addr >= MIN_SEG_SIZE){
+						cout<<"test2-2-5"<<std::endl;
+						final_start_addr = tmp_start_addr;
+						final_end_addr = tmp_end_addr;
+					}
+					else ;		
+				}
+			}
+
+			if((final_end_addr != 0) && (final_start_addr != 0)){
+				cout<<"before create segment"<<std::endl;
+
+				create_segment(final_start_addr, final_end_addr, target_list);
+				//		cout<<"after create segment"<<std::endl;
+				//	print_list(target_list);
+				//		iter_start_idx->print_block();
+
+			}
+			else ;	
+		}
+
+
+
+		void handle_munmap(INT64 start_addr, INT64 offset, vector<Block> *target_list){
+			//			cout<<"start munmap"<< std::endl;
+			Block *start_segment = NULL;
+			Block *end_segment = NULL;
+			Block *next_block = NULL;
+			Block *prev_block = NULL;
+
+			INT64 end_distance = 0;
+			INT64 start_distance = 0;
+			Block  *new_block =new Block();
+
+			INT64 end_addr = start_addr + offset;
+			vector<Block>::iterator iter_start_idx;
+			vector<Block>::iterator iter_end_idx;
+			vector<Block>::iterator iter_prev_idx;
+			vector<Block>::iterator iter_next_idx;
+			vector<Block>::iterator iter_test;
+
+			int start_block_idx = 0;
+			int end_block_idx = 0;
+			int prev_block_idx = 0;
+			int next_block_idx = 0;
+			//	cout<<"munmap start in function"<<std::endl;
+
+			// segment 개수가 max 인 경우 통쨰로 뺄수 있는 경우만 삭제
+			if((*target_list).size() >= LIMIT_NUM_SEG){
+				if(end_addr < (*target_list).begin()->start_addr)
+					return;
+				if((*target_list).end()->end_addr<start_addr)
+					return;
+
+				prev_block = find_previous_block(end_addr, target_list);
+				next_block = find_next_block(start_addr, target_list);
+				if(prev_block){
+					for(iter_prev_idx = (*target_list).begin(); iter_prev_idx != (*target_list).end();iter_prev_idx++,prev_block_idx++){
+						if(iter_prev_idx->start_addr == (*prev_block).start_addr){
+						}
+					}
+				}
+				if(next_block){
+					for(iter_next_idx = (*target_list).begin(); iter_next_idx != (*target_list).end();iter_next_idx++, next_block_idx++){
+						if(iter_next_idx->start_addr == (*next_block).start_addr){
+							break;
+						}
+					}
+				}
+				if(next_block_idx <=prev_block_idx){
+					if((start_addr <= (*prev_block).start_addr) && ((*prev_block).end_addr <= end_addr)){
+
+						iter_start_idx = (*target_list).begin();
+						iter_end_idx = (*target_list).begin();
+						std::advance(iter_start_idx, prev_block_idx);
+						std::advance(iter_end_idx, next_block_idx);
+						(*target_list).erase(iter_next_idx, iter_prev_idx++);
+						return;
+					}
+				}
+				else return ;
+
+
+			}
+			else { //그냥 mumap 해도 되는 경우 limit 개수에 영향 안주는 경우
+				int prev_block_idx = 0;
+				int next_block_idx = 0;
+
+				start_segment = get_segment_with_address(start_addr, target_list);
+				end_segment = get_segment_with_address(end_addr, target_list);
+				iter_test = (*target_list).begin();
+				if(start_segment){
+					//	cout<<"start segment eixst"<<std::endl;
+					for(iter_start_idx = (*target_list).begin(); iter_start_idx != (*target_list).end();iter_start_idx++, start_block_idx++){
+						if(iter_start_idx->start_addr == (*start_segment).start_addr){
+							break;
+						}
+					}
+				}
+
+				if(end_segment){
+					for(iter_end_idx = (*target_list).begin(); iter_end_idx != (*target_list).end();iter_end_idx++, end_block_idx++){
+						if(iter_end_idx->start_addr == (*end_segment).start_addr){
+							break;
+						}
+					}
+				}
+				//1) when start addr is located on the segment
+				if(start_segment){
+					cout<<"munmap1"<<std::endl;
+					//a) when end addr is located on the segment
+					if(end_segment){
+						cout<<"munmap1(1)"<<std::endl;
+						start_distance = start_addr - (*start_segment).start_addr;
+						end_distance = (*end_segment).end_addr - end_addr;
+						cout<<"start distance :"<<start_distance<<std::endl;
+						cout<<"end distance :"<<end_distance<<std::endl;
+						//1) when start addr and end addr is located on the same segmen
+						if(start_block_idx == end_block_idx){
+							cout<<"munmap1(1)(1)"<<std::endl;
+							//[1] end distance >= min seg size
+							if(end_distance >= MIN_SEG_SIZE){
+
+								//[1.1]start distance >= min seg size
+								cout<<"munmap1-1"<<std::endl;
+								if(start_distance >= MIN_SEG_SIZE){
+									cout<<"munmap1-1-1"<<std::endl;
+									(*new_block).__init__(end_addr, (*end_segment).end_addr - end_addr);
+									start_block_idx++;
+									iter_start_idx = (*target_list).begin();
+									std::advance(iter_start_idx, start_block_idx);	
+									//	(*target_list).insert(iter_start_idx, *new_block);	
+									(*start_segment).end_addr = start_addr;
+									(*start_segment).offset = (*start_segment).end_addr - (*start_segment).start_addr;
+									(*target_list).insert(iter_start_idx, *new_block);	
+									return ;
+								}
+								//[1.2]start distance < min seg size
+								//			else{
+								//				cout<<"munmap1-1-2"<<std::endl;
+								//				(*start_segment).start_addr = end_addr;
+								//				(*start_segment).offset = (*start_segment).end_addr - (*start_segment).start_addr;
+								//				return;
+								//			}
+							}
+							// [2] end distance < min seg size
+							else{
+								cout<<"munmap1-2"<<std::endl;
+								if(start_distance >= MIN_SEG_SIZE){
+									cout<<"munmap1-2-1"<<std::endl;
+									(*start_segment).end_addr = start_addr;
+									cout<<"munmap1-2-1-1"<<std::endl;
+									(*start_segment).offset = (*start_segment).end_addr - (*start_segment).start_addr;
+									return ;
+								}
+								//			else
+								//			{
+								//				cout<<"munmap1-2-2"<<std::endl;
+								//				iter_start_idx = (*target_list).begin();
+								//				std::advance(iter_start_idx, start_block_idx);
+
+								//				(*target_list).erase(iter_start_idx);		
+								//				return;
+								//			}
+							}
+						}
+						//2)when start addr and end addr is located on the different segment
+						else{
+							cout<<"munmap1(1)(2)"<<std::endl;
+							//[1]end distance >= min seg size
+							if(end_distance >= MIN_SEG_SIZE){
+								cout<<"munmap1(1)(2)-1"<<std::endl;
+								(*end_segment).start_addr = end_addr;
+								(*start_segment).offset = (*start_segment).end_addr - (*start_segment).start_addr;
+								//[1.1]start distance >= min seg size
+								if(start_distance >= MIN_SEG_SIZE){
+									cout<<"munmap1(1)(2)-1-1"<<std::endl;
+									(*start_segment).end_addr = start_addr;
+									(*start_segment).offset = (*start_segment).end_addr - (*start_segment).start_addr;
+
+									iter_start_idx = (*target_list).begin();
+									iter_end_idx = (*target_list).begin();
+									std::advance(iter_start_idx, start_block_idx);
+									std::advance(iter_end_idx, end_block_idx);
+
+									(*target_list).erase(iter_start_idx++,iter_end_idx);
+									return;
+								}
+								//[1.2]start distance < min seg size
+								//			else{
+								//				cout<<"munmap1(1)(2)-1-2"<<std::endl;
+								//				iter_start_idx = (*target_list).begin();
+								//				iter_end_idx = (*target_list).begin();
+								//				std::advance(iter_start_idx, start_block_idx);
+								//				std::advance(iter_end_idx, end_block_idx);
+
+								//				(*target_list).erase(iter_start_idx,iter_end_idx);
+								//				return;
+								//			}
+							}
+							//[2]end distance < min seg size
+							//		else{
+							//			cout<<"munmap1(1)(2)-2"<<std::endl;
+							//			//[2.1]start distance >= min seg size
+							//			if(start_distance >=MIN_SEG_SIZE){
+							//				cout<<"munmap1(1)(2)-2-1"<<std::endl;
+							//				(*start_segment).end_addr = start_addr;
+							//				(*start_segment).offset = (*start_segment).end_addr - (*start_segment).start_addr;
+
+							//				iter_start_idx = (*target_list).begin();
+							//				iter_end_idx = (*target_list).begin();
+							//				std::advance(iter_start_idx, start_block_idx);
+							//				std::advance(iter_end_idx, end_block_idx);
+
+							//				(*target_list).erase(iter_start_idx++,iter_end_idx++);
+							//				return;
+							//			}
+							//			//[2.1]start distance < min seg siz
+							//			else{
+							//				cout<<"munmap1(1)(2)-2-2"<<std::endl;
+							//				iter_start_idx = (*target_list).begin();
+							//				iter_end_idx = (*target_list).begin();
+							//				std::advance(iter_start_idx, start_block_idx);
+							//				std::advance(iter_end_idx, end_block_idx);
+
+							//				(*target_list).erase(iter_start_idx,iter_end_idx++);
+							//				return;
+							//			}
+							//		}
+
+						}
+					}
+					//b) when end addr is located out of the segment
+					else{
+						cout<<"munmap1(2)"<<std::endl;
+						start_distance = start_addr - (*start_segment).start_addr;
+						prev_block = find_previous_block(end_addr, target_list);
+						prev_block_idx = 0;
+
+						for(iter_prev_idx = (*target_list).begin(); iter_prev_idx != (*target_list).end();iter_prev_idx++,prev_block_idx++){
+							if(iter_prev_idx->start_addr == (*prev_block).start_addr){
+							}
+						}
+						//	if(start_block_idx < prev_block_idx) return;
+
+						//1] start distance >= min seg size
+						if(start_distance >= MIN_SEG_SIZE){
+							cout<<"munmap1(2)-1"<<std::endl;
+							(*start_segment).end_addr = start_addr;
+							(*start_segment).offset = (*start_segment).end_addr - (*start_segment).start_addr;
+							iter_start_idx = (*target_list).begin();
+							iter_prev_idx = (*target_list).begin();
+							std::advance(iter_start_idx, start_block_idx);
+							std::advance(iter_prev_idx, prev_block_idx);
+
+							(*target_list).erase(iter_start_idx++, iter_prev_idx++);
+							return;
+						}
+						//2] start distance < min seg size
+						//	else{
+						//		cout<<"munmap1(2)-2"<<std::endl;
+						//		iter_start_idx = (*target_list).begin();
+						//		iter_prev_idx = (*target_list).begin();
+						//		std::advance(iter_start_idx, start_block_idx);
+						//		std::advance(iter_prev_idx, prev_block_idx);
+
+						//		(*target_list).erase(iter_start_idx, iter_prev_idx++);
+						//		return;
+						//	}
+					}
+				}
+				//2) when start addr is located out of the segment
+				else{
+					cout<<"munmap2"<<std::endl;
+					next_block = find_next_block(start_addr, target_list);
+					if(next_block){
+						//get next block index
+						if(start_segment){
+							for(iter_next_idx = (*target_list).begin(); iter_next_idx != (*target_list).end();iter_next_idx++, next_block_idx++){
+								if(iter_next_idx->start_addr == (*next_block).start_addr){
+									break;
+								}
+							}
+						}
+					}
+					else return;
+					//a) when end addr is located on the segment
+					if(end_segment){
+						cout<<"munmap2-1"<<std::endl;
+						end_distance = (*end_segment).end_addr - end_addr;
+						//1] end distance >= min seg size
+						if(end_distance >= MIN_SEG_SIZE){
+							cout<<"munmap2-1-1"<<std::endl;
+							(*end_segment).start_addr = end_addr;
+							(*end_segment).offset = (*end_segment).end_addr - (*end_segment).start_addr;
+
+							iter_next_idx = (*target_list).begin();
+							iter_end_idx = (*target_list).begin();
+							std::advance(iter_next_idx, next_block_idx);
+							std::advance(iter_end_idx, end_block_idx);
+
+							(*target_list).erase(iter_next_idx, iter_end_idx);
+							return;
+						}
+						//2] end distance < min seg size
+						//	else{ 
+						//		cout<<"munmap2-1-2"<<std::endl;
+						//		iter_next_idx = (*target_list).begin();
+						//		iter_end_idx = (*target_list).begin();
+						//		std::advance(iter_next_idx, next_block_idx);
+						//		std::advance(iter_end_idx, end_block_idx);
+
+						//		(*target_list).erase(iter_next_idx, iter_end_idx++);
+						//		return;
+						//	}
+					}
+					// b) when end addr is located out of the segment
+					else{
+						cout<<"munmap2-2"<<std::endl;
+						prev_block = find_previous_block(end_addr, target_list);
+						if(prev_block){
+							if(start_segment){
+								cout<<"munmap2-2-1"<<std::endl;
+								for(iter_prev_idx = (*target_list).begin(); iter_prev_idx != (*target_list).end();iter_prev_idx++, prev_block_idx++){
+									if(iter_prev_idx->start_addr == (*prev_block).start_addr){
+										break;
+									}
+								}
+							}
+							if(prev_block_idx >= next_block_idx){
+								cout<<"munmap2-2-2"<<std::endl;
+								iter_next_idx = (*target_list).begin();
+								iter_prev_idx = (*target_list).begin();
+								std::advance(iter_next_idx, next_block_idx);
+								std::advance(iter_prev_idx, prev_block_idx);
+
+								(*target_list).erase(iter_next_idx, iter_prev_idx++);
+							}
+							else
+								return ;
+
+						}
+						else return;
+					}
+				}
+			}
+		}
+
+		Block *get_segment_with_address(INT64 addr, vector<Block> *search_list){
+			Block *search_block = NULL;
+			search_block = find_previous_block(addr, search_list);
+			if ((search_block) && (*search_block).end_addr >= addr){ //there 
+				return search_block;
+			}
+			else{
+				return NULL;
+			}
+		}
+
+		void print_list(vector<Block> *target_list){
+			cout<<"<<SEG_LIST>>"<<std::endl;
+			fprintf(test,"<<SEG_LIST>>\n");
+			(*this).BlockList::print_list(target_list);
+		}
+
+		void print_list_expand_only(vector<Block> *target_list){
+			cout<<"<<SEG_LIST_EXPAND_ONLY>>"<<std::endl;
+			fprintf(test,"<<SEG_LIST_EXPAND_ONLY>>\n");
+			(*this).BlockList::print_list_expand_only(target_list);
+		}
+
+};
+BrkList *brk_list_instance;
+SegList *seg_list_instance;
+//=========================Integral==================================
+class Integral{
+	public:
+
+		void __init__(){
+			my_memory_usage =0;
+			Basu_memory_usage =0;
+			my_num_of_seg =0;
+			//      Basu_num_of_seg =0;
+		}
+		void integral_offset(){
+
+			//			cout<<"integral W1-1"<<std::endl;
+			vector<Block>::iterator iter_block;
+
+			Block *seg_block;
+			seg_block = NULL;
+			Block *brk_block;
+			brk_block = NULL;
+			INT64 seg_min_addr =0;
+			INT64 seg_max_addr =0;
+			INT64 brk_min_addr =0;
+			INT64 brk_max_addr =0;
+			//	vector<unsigned int>::iterator iter_touch;
+			for(iter_block = (*seg_list_instance).block_list.begin();iter_block != (*seg_list_instance).block_list.end(); iter_block++){
+				my_memory_usage += iter_block->offset;
+				seg_block = &(*iter_block);
+				//		for(iter_touch=(iter_block->touch_map).begin(); iter_touch != (iter_block->touch_map).end();iter_touch++){
+				//			if(*iter_touch ==0)
+				//				internal_fragmentation++;
+				//		}
+			}
+			for(iter_block = (*brk_list_instance).block_list.begin();iter_block != (*brk_list_instance).block_list.end(); iter_block++){
+				my_memory_usage += iter_block->offset;
+				brk_block = &(*iter_block);
+				//		for(iter_touch=(iter_block->touch_map).begin(); iter_touch != (iter_block->touch_map).end();iter_touch++){
+				//			if(*iter_touch ==0)
+				//				internal_fragmentation++;
+				//		}
+			}
+			if(seg_block){
+				iter_block = ((*seg_list_instance).block_list).begin();
+				seg_min_addr = iter_block->start_addr;
+				iter_block  = ((*seg_list_instance).block_list).end();
+				iter_block--;
+				seg_max_addr = iter_block->end_addr;
+			}
+			if(brk_block){
+				iter_block  = ((*brk_list_instance).block_list).begin();
+				brk_min_addr = iter_block->start_addr;
+				iter_block  = ((*brk_list_instance).block_list).end();
+				iter_block--;
+				brk_max_addr = iter_block->end_addr;
+			}
+
+			Basu_memory_usage += seg_max_addr - seg_min_addr + brk_max_addr - brk_min_addr;
+		}
+		void integral_num_of_seg(){        
+			my_num_of_seg += (*seg_list_instance).block_list.size()+1;
+		}
+
+};
+Integral *integral;
+
+//1:mmap 2:munmap 3:brk
+VOID RecordSyscallArgs(THREADID threadIndex, CONTEXT *ctxt, SYSCALL_STANDARD std, VOID *v)
+{
+	UINT32 i;
+	ADDRINT args[10];
+	curr_syscall[0] = 0;
+	curr_syscall[1] = 0;
+	curr_syscall[2] = 0;
+	curr_syscall[3] = 0;
+
+	ADDRINT syscallNumber = PIN_GetSyscallNumber(ctxt, std);
+	switch (syscallNumber) {
+		case MMAP_NR:
+			for (i = 0; i < MMAP_ARGLEN; i++) {
+				args[i] = PIN_GetSyscallArgument(ctxt, std, i);
+			}
+			if (args[4] > INT_MAX) {
+		//		cout<<"mmap"<<std::endl;
+			//	fprintf(trace, "mmap: addr=%p, length=%ld, fd=%ld", (void *)args[0], args[1], args[4]);
+				fprintf(trace, "mmap: addr=%ld, length=%ld, fd=%ld", (INT64)args[0]/4096, args[1]/4096, args[4]);
+				
+				curr_syscall[0] = 1; //mmap
+				curr_syscall[2] = args[1]/4096; //offset
+				PIN_SetThreadData(tlsKey, (VOID *)MMAP_NR, threadIndex);
+			}
+			break;
+		case MUNMAP_NR:
+			for (i = 0; i < MUNMAP_ARGLEN; i++) {
+				args[i] = PIN_GetSyscallArgument(ctxt, std, i);
+			}
+		//		cout<<"munmap"<<std::endl;
+			fprintf(trace, "munmap: addr=%lu, length=%ld", (INT64)args[0]/4096, args[1]/4096);
+		//	fprintf(trace, "munmap: addr=%p, length=%ld", (void *)args[0], args[1]);
+			curr_syscall[0] = 2; //munmap
+			curr_syscall[1] = args[0]/4096; //start addr
+			curr_syscall[2] = args[1]/4096; //offset
+			PIN_SetThreadData(tlsKey, (VOID *)MUNMAP_NR, threadIndex);
+			break;
+		case BRK_NR:
+			args[0] = PIN_GetSyscallArgument(ctxt, std, 0);
+		//		cout<<"brk"<<std::endl;
+			fprintf(trace, "brk: addr=%p", (void *)args[0]);
+				curr_syscall[0] = 4; //brk append
+			if ((void *)args[0] == NULL)
+				curr_syscall[0] = 3; //brk init 
+			else if((void *)args[0] != NULL)
+				curr_syscall[0] = 4; //brk append
+
+			PIN_SetThreadData(tlsKey, (VOID *)BRK_NR, threadIndex);
+			break;
+		default:
+			PIN_SetThreadData(tlsKey, NULL, threadIndex);
+			return;
+	}
+}
+
+// Print syscall
+VOID RecordSyscallResults(THREADID threadIndex, CONTEXT *ctxt, SYSCALL_STANDARD std, VOID *v)
+{
+	INT64 ret = (INT64)PIN_GetSyscallReturn(ctxt, std);
+	VOID * keyValue = PIN_GetThreadData(tlsKey, threadIndex);
+	if (ret == -1) {
+		fprintf(trace, "Syscall failed!\n");
+		return;
+	} else if (keyValue == NULL)
+		return;
+
+//	fprintf(trace, "\t=%lu, keyValue=%ld\n", (INT64)ret/4096, (INT64)keyValue);
+	fprintf(trace, "\t=%p, keyValue=%ld\n", (void *)ret, (INT64)keyValue);
+//	fprintf(test, "%p\n",ret );
+	if(curr_syscall[0] == 1){//mmap case
+		cout<<"mmap occur"<<std::endl;
+		curr_syscall[1] = ret/4096;
+		curr_syscall[3] = curr_syscall[1] + curr_syscall[2];
+		cout<<"**********[[mmap]]"<<curr_syscall[1]<<"  " <<curr_syscall[2]<< std::endl;
+	//	cout<<"mmap function start"<<std::endl;
+		(*seg_list_instance).handle_mmap(curr_syscall[1], curr_syscall[2], &((*seg_list_instance).block_list));
+		(*seg_list_instance).handle_mmap(curr_syscall[1], curr_syscall[2], &((*seg_list_instance).block_list_expand_only));
+		(*seg_list_instance).print_list(&((*seg_list_instance).block_list));
+		(*seg_list_instance).print_list_expand_only(&((*seg_list_instance).block_list_expand_only));
+	}
+	else if(curr_syscall[0] == 2){//munmap case
+		cout<<"munmap occur"<<std::endl;
+	//		cout<<"start munmap"<< std::endl;
+//		cout<<"*****munmap occur"<<std::endl;
+		cout<<curr_syscall[1]<<"  " <<curr_syscall[2]<< std::endl;
+		(*seg_list_instance).handle_munmap(curr_syscall[1], curr_syscall[2], &((*seg_list_instance).block_list));
+	//	cout<<"munmap done"<<std::endl;
+//		cout <<"<<MUNMAP PRINT>>"<<std::endl;
+		(*seg_list_instance).print_list(&((*seg_list_instance).block_list));
+	//	cout<<"munmap print list"<<std::endl;
+	} 
+	else if(curr_syscall[0] == 3){ // brk init case
+		cout<<"brk occur"<<std::endl;
+		curr_syscall[1] = ret/4096;
+		(*brk_list_instance).add_block(curr_syscall[1]);
+	}
+	else if(curr_syscall[0] == 4){ //brk extend case
+		curr_syscall[1] = ret/4096;
+	//	cout<<"offset"<<curr_syscall[1];
+                (*brk_list_instance).modify_block(curr_syscall[1]);
+	}
+	else;
+}
+
+VOID Fini(INT32 code, VOID *v)
+{
+	fprintf(trace, "#eof\n");
+
+	int internal_fragmentation =0;
+	vector<unsigned int>::iterator iter_touch;
+	vector<Block>::iterator iter_block;
+
+	for(iter_block = (*seg_list_instance).block_list_expand_only.begin();iter_block != (*seg_list_instance).block_list_expand_only.end(); iter_block++){
+		fprintf(test, "SEG TOUCH MAP\n");
+		//		my_memory_usage += iter_block->offset;
+		for(iter_touch=(iter_block->touch_map).begin(); iter_touch != (iter_block->touch_map).end();iter_touch++){
+			fprintf(test, "%d ", *iter_touch);
+			if(*iter_touch ==0)
+				internal_fragmentation++;
+		}
+		fprintf(test, "\n");
+	}
+
+	fprintf(test, "\n");
+
+	for(iter_block = (*brk_list_instance).block_list.begin();iter_block != (*brk_list_instance).block_list.end(); iter_block++){
+		fprintf(test, "BRK TOUCH MAP\n");
+		//		my_memory_usage += iter_block->offset;
+		for(iter_touch=(iter_block->touch_map).begin(); iter_touch != (iter_block->touch_map).end();iter_touch++){
+			fprintf(test, "%d ", *iter_touch);
+			if(*iter_touch ==0)
+				internal_fragmentation++;
+		}
+		fprintf(test, "\n");
+	}
+	fprintf(test, "\n");
+
+
+	//    cout<<"================================="<<std::endl;
+	//    cout<<"misses at brk and mmap : "<<miss_both_brk_mmap<<std::endl;
+	////    cout<<"total_instructions : "<<total_instruction<<std::endl;
+	//	cout<<"total_instructions :"<<icount<<std::endl;
+	//    cout<<"MPKI : " <<(float)(miss_both_brk_mmap/icount)*100*1000<<std::endl;
+	//    cout<<"fragmentation by hole : "<<seg_hole_fragmentation<<std::endl;
+	//    cout<<"\n";
+	//    cout<<"================================="<<std::endl;
+	//    cout<<"SEG LIST\n";
+	//    (*seg_list_instance).print_list();
+	//    cout<<"SEG LIST EXPAND ONLY\n";
+	//    (*seg_list_instance).print_list_expand_only();
+	//    cout<<"BRK LIST\n";
+	//    (*brk_list_instance).print_list();
+	double average_my_memory_usage = ((long double)my_memory_usage)/integral_count;
+	double average_Basu_memory_usage = ((long double)Basu_memory_usage)/integral_count;
+	double average_my_num_of_seg = ((double)my_num_of_seg)/integral_count;
+	//  
+	double fragmentation_ratio = (seg_hole_fragmentation+internal_fragmentation)/average_my_memory_usage *100;
+
+	fprintf(test, "========== # of SEG limit experiment ==========\n\n");
+
+	fprintf(test, "=============  Configuration  ============\n");
+	fprintf(test, "limit the num of segment : %d\n",LIMIT_NUM_SEG );
+	fprintf(test, "Integral epoch : 1,000,000\n\n" );
+
+	fprintf(test, "=============  Segment Info  ============\n");
+	fprintf(test, "total num of segment : %d\n",my_num_of_seg );
+	fprintf(test, "average num of segment : %f\n\n",average_my_num_of_seg );
+
+
+	fprintf(test, "===============  MPKI  ===============\n");
+	fprintf(test, "misses segment : %lu\n",miss_seg);
+	fprintf(test, "misses tlb : %lu\n",miss_seg - miss);
+	fprintf(test, "misses at seg and TLB : %lu\n",miss);
+	fprintf(test, "total instuction : %lu\n", icount);
+	fprintf(test, "MPKI %Lf\n\n",((long double)(miss)/icount)*1000);
+
+	fprintf(test, "==============  Memory Usage  ==============\n\n");
+	fprintf(test, "Basu memory usage %f\n",average_Basu_memory_usage);
+	fprintf(test, "SY memory usage %f\n",average_my_memory_usage);
+	fprintf(test, "Memory usage efficiency %f\n\n",(100-((double)(average_my_memory_usage)/average_Basu_memory_usage)*100));
+
+	fprintf(test, "==============  Fragmentation  ===============\n\n");
+	fprintf(test, "fragmentation by hole : %d\n", seg_hole_fragmentation);
+	fprintf(test, "fragmentation by touch : %d\n", internal_fragmentation);
+	fprintf(test, "fragmentation ratio : %f\n", fragmentation_ratio);
+	fprintf(test, "===============================================\n\n");
+
+	(*seg_list_instance).print_list(&((*seg_list_instance).block_list));
+	fprintf(test, "\n");
+	(*seg_list_instance).print_list_expand_only(&((*seg_list_instance).block_list_expand_only));
+	fprintf(test, "\n");
+	(*brk_list_instance).print_list(&((*brk_list_instance).block_list));
+
+
+	fclose(trace);
+	fclose(test);
+	PIN_DeleteThreadDataKey(tlsKey);
+
+}
+
+
+// Print a memory write record
+VOID RecordMemWrite(VOID * ip, VOID * addr)
+{
+	INT64 address =0;
+	curr_syscall[0] = 5; //read
+	address = ((INT64 )addr)/4096;
+	
+	if(icount < FF){
+//		cout<<FF<<std::endl;
+//		cout<<"before FF  " <<icount<<std::endl;
+		return;
+	}
+
+	if(icount >= FF + AFTER_FF){
+//		cout<<FF<<std::endl;
+//		cout<<"done FF" <<icount<<std::endl;
+		Fini(0,0);
+		exit(0);
+	}
+	if(FF <= icount && icount < FF + AFTER_FF){
+//		cout<<FF<<std::endl;
+//		cout<<"after FF" <<icount<<std::endl;
+		if (icount%1000000 == 0){
+			(*integral).integral_offset();
+			(*integral).integral_num_of_seg();
+			integral_count++;
+		}
+		bool brk_hit = (*brk_list_instance).touch(address, &((*brk_list_instance).block_list));
+		(*seg_list_instance).touch(address, &((*seg_list_instance).block_list_expand_only));
+		bool seg_hit = (*seg_list_instance).touch(address, &((*seg_list_instance).block_list));
+
+		if (seg_hit==false and brk_hit==false){
+			bool hit = (*tlb).access(address);
+			miss_seg++;
+			if( hit==false)
+				miss++;
+		}
+	}
+
+}
+
+// Print a memory read record
+VOID RecordMemRead(VOID * ip, VOID * addr)
+{
+	INT64 address =0;
+	curr_syscall[0] = 5; //read
+	address = ((INT64 )addr)/4096;
+
+	if(icount < FF){
+//		cout<<FF<<std::endl;
+//		cout<<"before FF" <<icount<<std::endl;
+		return;
+	}
+
+	if(icount >= FF + AFTER_FF){
+//		cout<<FF<<std::endl;
+//		cout<<"done FF" <<icount<<std::endl;
+		Fini(0,0);
+		exit(0);
+	}
+
+	if(FF <= icount && icount < FF + AFTER_FF){
+		if (icount%1000000 == 0){
+			(*integral).integral_offset();
+			(*integral).integral_num_of_seg();
+			integral_count++;
+		}
+
+
+		bool brk_hit = (*brk_list_instance).touch(address, &((*brk_list_instance).block_list));
+		//	cout<<"test2"<<std::endl;
+		(*seg_list_instance).touch(address, &((*seg_list_instance).block_list_expand_only));
+		//	cout<<"test3"<<std::endl;
+		bool seg_hit = (*seg_list_instance).touch(address, &((*seg_list_instance).block_list));
+		//	cout<<"test4"<<std::endl;
+
+		if (seg_hit==false and brk_hit==false){
+			bool hit = (*tlb).access(address);
+			miss_seg++;
+			if(hit==false)
+				miss++;
+		}
+	}
+}
+
+
+
+VOID docount() { icount++; }
+// Is called for every instruction and instruments reads and writes
+VOID Instruction(INS ins, VOID *v)
+{
+    // Instruments memory accesses using a predicated call, i.e.
+    // the instrumentation is called iff the instruction will actually be executed.
+    //
+    // On the IA-32 and Intel(R) 64 architectures conditional moves and REP 
+    // prefixed instructions appear as predicated instructions in Pin.
+    UINT32 memOperands = INS_MemoryOperandCount(ins);
+
+	INS_InsertCall(ins, IPOINT_BEFORE, (AFUNPTR)docount, IARG_END);
+
+    // Iterate over each memory operand of the instruction.
+    for (UINT32 memOp = 0; memOp < memOperands; memOp++)
+    {
+        if (INS_MemoryOperandIsRead(ins, memOp))
+        {
+            INS_InsertPredicatedCall(
+                ins, IPOINT_BEFORE, (AFUNPTR)RecordMemRead,
+                IARG_INST_PTR,
+                IARG_MEMORYOP_EA, memOp,
+                IARG_END);
+        }
+        // Note that in some architectures a single memory operand can be 
+        // both read and written (for instance incl (%eax) on IA-32)
+        // In that case we instrument it once for read and once for write.
+        if (INS_MemoryOperandIsWritten(ins, memOp))
+        {
+            INS_InsertPredicatedCall(
+                ins, IPOINT_BEFORE, (AFUNPTR)RecordMemWrite,
+                IARG_INST_PTR,
+                IARG_MEMORYOP_EA, memOp,
+                IARG_END);
+        }
+    }
+}
+//
+//VOID Fini(INT32 code, VOID *v)
+//{
+//	fprintf(trace, "#eof\n");
+//
+//
+//	vector<INT64>::iterator iter_touch;
+//	vector<Block>::iterator iter_block;
+//	//    cout<<"================================="<<std::endl;
+//	for(iter_block = (*seg_list_instance).block_list_expand_only.begin();iter_block != (*seg_list_instance).block_list_expand_only.end(); iter_block++){
+//		fprintf(test, "SEG TOUCH MAP\n");
+//		//	    cout<<"SEG TOUCH MAP"<<std::endl;
+//		for(iter_touch=(iter_block->touch_map).begin(); iter_touch != (iter_block->touch_map).end();iter_touch++){
+//			//		    cout<<*iter_touch<<" " ;
+//			fprintf(test, "%lu ", *iter_touch);
+//		}
+//		fprintf(test, "\n");
+//		//	    cout<<"\n";
+//	}
+//	fprintf(test, "\n");
+////    cout<<"================================="<<std::endl;
+//    for(iter_block = (*brk_list_instance).block_list.begin();iter_block != (*brk_list_instance).block_list.end(); iter_block++){
+////	    cout<<"BRK TOUCH MAP"<<std::endl;
+//	fprintf(test, "BRK TOUCH MAP\n");
+//	    for(iter_touch=(iter_block->touch_map).begin(); iter_touch != (iter_block->touch_map).end();iter_touch++){
+//		fprintf(test, "%lu ", *iter_touch);
+////		    cout<<*iter_touch<<" " ;
+//	    }
+////	    cout<<"\n";
+//    fprintf(test, "\n");
+//    }
+////    
+//    fprintf(test, "\n");
+////    cout<<"================================="<<std::endl;
+////    cout<<"misses at brk and mmap : "<<miss_both_brk_mmap<<std::endl;
+//////    cout<<"total_instructions : "<<total_instruction<<std::endl;
+////	cout<<"total_instructions :"<<icount<<std::endl;
+////    cout<<"MPKI : " <<(float)(miss_both_brk_mmap/icount)*100*1000<<std::endl;
+////    cout<<"fragmentation by hole : "<<seg_hole_fragmentation<<std::endl;
+////    cout<<"\n";
+////    cout<<"================================="<<std::endl;
+////    cout<<"SEG LIST\n";
+////    (*seg_list_instance).print_list();
+////    cout<<"SEG LIST EXPAND ONLY\n";
+////    (*seg_list_instance).print_list_expand_only();
+////    cout<<"BRK LIST\n";
+////    (*brk_list_instance).print_list();
+////  
+//
+//    fprintf(test, "=================================\n");
+//    fprintf(test, "misses segment : %lu\n",miss_seg);
+//    fprintf(test, "misses tlb : %lu\n",miss_seg - miss);
+//    fprintf(test, "misses at brk and mmap : %lu\n",miss);
+//    fprintf(test, "total instuction : %lu\n", icount);
+//   // fprintf(test, "MPKI %Lf\n",((long double)miss_both_brk_mmap/icount)*100*1000);
+//    fprintf(test, "MPKI %Lf\n",((long double)(miss)/icount)*100*1000);
+//    fprintf(test, "fragmentation by hole : %d\n", seg_hole_fragmentation);
+//    fprintf(test, "=================================\n\n");
+//	(*seg_list_instance).print_list(&((*seg_list_instance).block_list));
+//    fprintf(test, "\n");
+//	(*seg_list_instance).print_list_expand_only(&((*seg_list_instance).block_list_expand_only));
+//    fprintf(test, "\n");
+//	(*brk_list_instance).print_list(&((*brk_list_instance).block_list));
+//
+//
+//    fclose(trace);
+//    fclose(test);
+//    PIN_DeleteThreadDataKey(tlsKey);
+//    
+//}
+//
+/* ===================================================================== */
+/* Print Help Message                                                    */
+/* ===================================================================== */
+   
+INT32 Usage()
+{
+    PIN_ERROR( "This Pintool prints a trace of memory addresses\n" 
+              + KNOB_BASE::StringKnobSummary() + "\n");
+    return -1;
+}
+
+/* ===================================================================== */
+/* Main                                                                  */
+/* ===================================================================== */
+int main(int argc, char *argv[])
+{	tlb = new TLB();
+	(*tlb).__init__();
+	//	cout<<"err"<<std::endl;
+	for(int k =0;k<TLB_SET;k++){
+		for(int j =0;j<TLB_ASSOC;j++){
+			m_TLB[k][j] = -1;
+		}
+	}
+	brk_list_instance = new BrkList();
+	seg_list_instance = new SegList();
+	(*brk_list_instance).__init__();
+	(*seg_list_instance).__init__();
+
+
+//	(*seg_list_instance).create_segment(1542, 122977, &((*brk_list_instance).block_list));
+	if (PIN_Init(argc, argv)) return Usage();
+
+	trace = fopen("/home/sylee/pin/trace.out", "w");
+	test = fopen("/home/sylee/pin/statistic2.out","w");
+
+
+	INS_AddInstrumentFunction(Instruction, 0);
+	tlsKey = PIN_CreateThreadDataKey(NULL);
+	if (tlsKey == -2) {
+		PIN_ERROR( "Failed to create thread data key\n");
+		return -1;
+	}
+
+	PIN_AddSyscallEntryFunction(RecordSyscallArgs, 0);
+	PIN_AddSyscallExitFunction(RecordSyscallResults, 0);
+	PIN_AddFiniFunction(Fini, 0);
+
+	// Never returns
+	PIN_StartProgram();
+
+	return 0;
+}
