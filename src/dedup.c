@@ -96,7 +96,11 @@ dedup_file (namespace_dtl namespace_input, char *file_path)
         }
         fstat(fd_input, &st);
         size = st.st_size;
+        /*
+        	Fixed size chunkning
+        */
         if (chunk_type == 0) {
+        	printf("[chickdol] Static chunking will be performed \n");
                 while (1) {
                         list = NULL;
                         if (size <= block_size) {
@@ -130,6 +134,8 @@ dedup_file (namespace_dtl namespace_input, char *file_path)
                         clean_buff(&hash);
                 }
         } else {
+        /* Dynamic chunking*/
+        		printf("[chickdol] Dynamic chunking will be performed \n");
                 fp      = fopen("./Rabin_Karp.csv", "w+");
                 if (fp == NULL) {
                         fprintf(stderr,

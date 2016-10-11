@@ -1025,6 +1025,7 @@ start_program(int argc, char **argv, char *namespace_path)
                         break;
 
                 case 'd':
+                		printf("[chikdol] delete\n");
                         if (flag != -1) {
                                 printf("Trying to use more than one operation :"
                                 "Try $>yadl --help for more information\n");
