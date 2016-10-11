@@ -224,6 +224,9 @@ Output:int
 int
 comparepath(char out[])
 {
+	/*
+		[chikdol] Input must be ABSOLUTE PATH!
+	*/ 
 
         struct stat             st;
         int     size    =               0;
@@ -232,7 +235,9 @@ comparepath(char out[])
         char    *buffer  =               NULL;
 
         fstat(fd_cat, &st);
+        
         size = st.st_size;
+        printf("[chikdol] comparepath size: %d " , size);
         /*rewind the stream pointer to the start of catalog file*/
         if (size > 0) {
                 if (-1 == lseek(fd_cat, 0, SEEK_SET)) {
@@ -257,6 +262,7 @@ comparepath(char out[])
                         goto out;
                 }
                 buffer[length] = '\0';
+                printf("[chikdol] out - %s : buffer - %s", out, buffer);
                 if (strcmp(out, buffer) == 0) {
                         ret = 0;
                         clean_buff(&buffer);
