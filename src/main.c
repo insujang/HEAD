@@ -9,6 +9,13 @@
 #include "delete.h"
 #include "string.h"
 
+#include <unistd.h>
+#include <sys/types.h>
+#include <pwd.h>
+//#include <string.h>
+
+
+
 /*Main program!*/
 int
 main (int argc, char *argv[])
@@ -18,12 +25,32 @@ main (int argc, char *argv[])
         char    namespace_path[FILE_SIZE] = "";
         DIR     *dp                       = NULL;
 
-		/* 
-			Create directory if (/var/lib/yadl) does not exist
+        char 	namespace_dest[256];
+		char* 	dirhome;
+
+		/*		
+			[chikdol]
+			Create directory if (~/cs710/) does not exist
 		*/
-        sprintf(namespace_path, "/var/lib/yadl");
+		
+		if ((dirhome = getenv("HOME")) == NULL) {
+	    	dirhome = getpwuid(getuid())->pw_dir;
+		}
+
+		strcpy (namespace_dest,dirhome);
+		strcat (namespace_dest,"/cs710");
+
+		dp = opendir(namespace_dest);
+        if (NULL == dp) {
+        	mkdir(namespace_dest, 0777);
+        }
+        	
+        
+        //sprintf(namespace_path, "/var/lib/yadl");
+        sprintf(namespace_path, "%s", namespace_dest);
         dp = opendir(namespace_path);
         if (NULL == dp) {
+  
                 ret = mkdir(namespace_path, 0777);
                 if (ret < 0) {
                         fprintf(stderr, "%s\n", strerror(errno));
