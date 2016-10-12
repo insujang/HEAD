@@ -1,0 +1,52 @@
+Analysis of restoring a file
+Restore_file.c:65~150
+
+Based on sha1 variable chunk size based deduplication, target file README.md
+
+<yadl_store_path>/store_block/stubs/Stub.READMD.md
+
+(1) $ xxd Stub_README.md
+0000000: 0000 0000 2800 0000 6136 6238 3034 3833  ....(...a6b80483
+0000010: 6135 3565 6334 3765 6338 3866 3433 3430  a55ec47ec88f4340
+0000020: 3163 3634 3638 3764 3462 3337 6662 6565  1c64687d4b37fbee
+0000030: 1006 0000 0000 0000                      ........
+
+
+Restore_file.c:98
+ret = read(sd1, &store_type, int_size);
+: Read Stub_README.md for 32 bits (4 bytes, int_size = sizeof(int))
+In (1), the first 32 bits are 0x00000000 = 0. store_type now has value 0.
+
+Restore_file.c:104
+ret = read(sd1, &length, int_size);
+: Read Stub_README.md for 32 bits.
+In (1), the next 32 bits are 2800 0000. Reading it as little endian, length=0x28=40.
+
+Restore_file.c:110
+ret = read(sd1, buffer, length);
+: Read Stub_README.md for length bytes.
+In (1), buffer has value from 6136 6238 3034 ...
+Buffer has:
+61 36 62 38 30 34 38 33 
+61 35 35 65 63 34 37 65 
+63 38 38 66 34 33 34 30
+31 63 36 34 36 38 37 64
+34 62 33 37 66 62 65 65
+(total 40 bytes)
+Converting it to ASCII: a6b80483a55ec47ec88f43401c64687d4b37fbee
+
+Restore_file.c:115
+ret = read(sd1, &bset, int_size);
+: Read Stub_README.md for 32 bits
+1006 0000, reading it as little endian, bset=0x0610=1552.
+
+Restore_file.c:120
+ret = read(sd1, &eset, int_size);
+: Read Stub_README.md for 32 bits
+0000 0000 -> eset=0.
+
+
+Restore_file.c:127,130
+pos = getposition(buffer);
+buffer2 = get_block(pos, &l);
+: Get a position for this hashed data and find a block for this position
