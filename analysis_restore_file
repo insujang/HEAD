@@ -50,3 +50,37 @@ Restore_file.c:127,130
 pos = getposition(buffer);
 buffer2 = get_block(pos, &l);
 : Get a position for this hashed data and find a block for this position
+It returns position 63069=0xf65d.
+In <store_path>/store_block/hashs/filehashDedup.txt, the corresponding hash is saved as
+...
+0000450: 2800 0000 6136 6238 3034 3833 6135 3565  (...a6b80483a55e
+0000460: 6334 3765 6338 3866 3433 3430 3163 3634  c47ec88f43401c64
+0000470: 3638 3764 3462 3337 6662 6565 5df6 0000  687d4b37fbee]...
+Same content with Stub_README.md, but followed by 5df6, which is the position number as little endian (=0xf65d=63096) 
+
+In <store_path>/store_block/blocks/blockstore.txt, the corresponding undeduplicated plaintext is saved as
+...
+000f640: 6669 6775 7265 0a24 206d 616b 6520 6368  figure.$ make ch
+000f650: 6563 6b0a 6060 600a 1106 0000 2320 7961  eck.```.....# ya    <-- A new block starts after ```.
+Remember '000f650' this position..
+000f660: 646c 0a0a 5b21 5b4a 6f69 6e20 7468 6520  dl..[![Join the 
+000f670: 6368 6174 2061 7420 6874 7470 733a 2f2f  chat at https://
+000f680: 6769 7474 6572 2e69 6d2f 5941 444c 2f79  gitter.im/YADL/y
+000f690: 6164 6c5d 2868 7474 7073 3a2f 2f62 6164  adl](https://bad
+000f6a0: 6765 732e 6769 7474 6572 2e69 6d2f 4a6f  ges.gitter.im/Jo
+000f6b0: 696e 2532 3043 6861 742e 7376 6729 5d28  in%20Chat.svg)](
+...
+
+From 000f650,
+65: e, 63: c,    6b: k, 0a: LF, 
+60: `, 60: `,    60: `, 0a: LF,
+11: ?, 06: ?,    00: ?, 00: ??,
+23: #, 20: Space,79: y, 61: a
+...
+
+Hence, 11, 06, 00, 00 are unknown and maybe metadata. 
+As little endian, 0x00000611=1553, same as bset.
+
+Seeing the position value 63069=0xf65d. It directs the value 23, fourth byte from the right at the line 000f650, which is a starting point of the block.
+
+However, instead of directly seeking this position, the yadl implementation performs loop to find the position within the blockstore.txt file.
