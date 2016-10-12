@@ -49,7 +49,7 @@ $ src/yadl_dedup --restore -n <namespace_name> -f <absolute_file_path>
 
 File path should be exactly same with the path that you used for deduplication.
 
-# Listing deduplicated files
+### Listing deduplicated files
 
 ```
 $ src/yadl_dedup -l -n <namespace_name>
