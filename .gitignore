@@ -38,3 +38,4 @@ src/delete_test_xunit.xml
 src/test-suite.log
 test-driver
 test_dedup_result/
+.idea/

@@ -20,7 +20,9 @@ noinst_HEADERS = block.h catalog.h clean_buff.h minhash_stub.h \
 # Create a program called 'dedup' but do not install it
 bin_PROGRAMS = yadl_dedup
 yadl_dedup_SOURCES = main.c
-yadl_dedup_CFLAGS = -O2 -g
+#chikdol
+#yadl_dedup_CFLAGS = -O2 -g
+yadl_dedup_CFLAGS = -g
 yadl_dedup_LDADD = libyadl.la
 
 # --- UNIT TESTS
