@@ -38,7 +38,7 @@ Output  :  int
 int
 restorefile(char *path, char *store_path)
 {
-
+        /* [insu] restorefile() "deletes" the target file and restore it. */
         int l                   =       0;
         int ret                 =      -1;
         int size                =       0;
@@ -93,6 +93,8 @@ restorefile(char *path, char *store_path)
                 ret = -1;
                 goto out;
         }
+        /* [insu] store_type seems to be same with what we used when creating store. */
+        /* In our case, it is default (=0). */
         ret = read(sd1, &store_type, int_size);
         if (ret== -1) {
                 fprintf(stderr, "%s\n", strerror(errno));

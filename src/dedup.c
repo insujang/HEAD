@@ -252,6 +252,7 @@ Input:char *buff,char *hash,int length,int h_length,int e_offset,
 int b_offset,int fd_stub
 Output:int
 */
+/* [insu] chunks and hash are saved in chunk_store() function. */
 int
 chunk_store(vector_ptr list, char *hash, int length, int h_length, int e_offset,
 int b_offset, int fd_stub, int store_type, char *store_path)
@@ -261,6 +262,7 @@ int b_offset, int fd_stub, int store_type, char *store_path)
         int ret                 =       -1;
 
         if (store_type == 0) {
+            /* [insu] searchhash() function checks whether the hash is already saved or not. */
                 ret = searchhash(hash);
                 if (ret == -1) {
                         goto out;

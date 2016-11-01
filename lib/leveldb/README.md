@@ -14,11 +14,12 @@ $ sudo apt-get install lib32z1 lib32ncurses5
 ### 3. Load the functions file provided by Xilinx
 This command is verified with the test environment that Xilinx SDK is installed in `/opt/Xilinx` and its  version is 2016.2.
 All settings are provided by Xilinx SDK.
+** Be careful: Petalinux version should be same with Xilinx SDK to run without any errors. **
 ```
 $ source /opt/Xilinx/Vivado/2016.2/settings64.sh
 ```
 
-### Build!
+### 4. Build
 ```
 $ make clean
 $ make
