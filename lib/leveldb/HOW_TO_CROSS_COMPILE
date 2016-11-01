@@ -1,0 +1,4 @@
+sudo apt-get install lib32z1 lib32ncurses5
+source /opt/Xilinx/Vivado/2016.2/settings64.sh
+make clean;
+make
