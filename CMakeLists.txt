@@ -58,9 +58,23 @@ set(SOURCE_FILES
     src/vector.c
     src/vector.h)
 
-include_directories(/usr/local/include)
-include_directories(/usr/local/lib)
+find_library(leveldb
+        NAMES libleveldb.so
+        PATHS ${CMAKE_SOURCE_DIR}/lib/leveldb/out-shared/)
+
+find_library(openssl
+        NAMES libssl.so
+        PATHS ${CMAKE_SOURCE_DIR}/lib/openssl/build/lib)
+
+find_library(crypto
+        NAMES libcrypto.so
+        PATHS ${CMAKE_SOURCE_DIR}/lib/openssl/build/lib)
 
 add_executable(cs710_dedup_yadl ${SOURCE_FILES})
 
-target_link_libraries(cs710_dedup_yadl leveldb crypto)
+# changed from standard libraries installed in /usr/share/lib to compiled libraries
+target_link_libraries(cs710_dedup_yadl ${leveldb})
+target_link_libraries(cs710_dedup_yadl ${openssl})
+target_link_libraries(cs710_dedup_yadl ${crypto})
+
+# target_link_libraries(cs710_dedup_yadl leveldb crypto)

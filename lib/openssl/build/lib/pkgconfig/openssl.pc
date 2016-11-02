@@ -1,4 +1,4 @@
-prefix=/home/seikwon/Development/openssl/build
+prefix=/home/insujang/cs710/cs710_dedup_yadl/lib/openssl/build
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include
