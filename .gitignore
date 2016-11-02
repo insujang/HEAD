@@ -22,7 +22,6 @@ src/yadl_dedup
 *.la
 *.lo
 src/stamp-h1
-Makefile
 Makefile.in   
 src/Makefile
 src/Makefile.in
