@@ -703,7 +703,6 @@ file_operation(enum OPTIONS flag, char *filename, char *namespace_path,
 namespace_dtl set_namespace, minhash_config minhash_config_dtl)
 {
         char    *buffer         =       NULL;
-        char    *new_filename   =       NULL;
         DIR     *dp             =       NULL;
         int     ret             =       -1;
         int     fd              =       -1;
@@ -774,10 +773,6 @@ namespace_dtl set_namespace, minhash_config minhash_config_dtl)
                 ret = dedup_file(get_namespace, filename);
                 if (ret < 0)
                         goto out;
-                new_filename = (char *) calloc(strlen(filename) + 8, sizeof(char));
-                sprintf(new_filename, "%s.backup", filename);
-                rename(filename, new_filename);
-                free(new_filename);
                 break;
         case minhash:
                 if(strcmp(set_namespace.namespace_name, "default") != 0) {
