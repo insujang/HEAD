@@ -51,4 +51,15 @@ File path should be exactly same with the path that you used for deduplication.
 $ src/yadl_dedup -l -n <namespace_name>
 ```
 
+# Cross-compile for ARM (Zedboard)
+### 1. Load the functions file provided by Xilinx
+To compile the application, we need to link the libraries provided by Xilinx. To do it, load the functions file as follows.
+```
+$ source /opt/Xilinx/Vivado/2016.2/settings64.sh
+```
 
+### 2. Build
+```
+$ make
+```
+The name of the output file is `zed_yadl`, which is in the project root directory.
