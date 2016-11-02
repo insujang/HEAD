@@ -4,13 +4,16 @@ SRC_DIR := src
 # INLINE_DEDUP_DIR := inline_dedup
 # INLINE_DEDUP_LEVELDB_DIR := inline_dedup_leveldb
 
-LEVELDB_DIR := lib/leveldb
-OPENSSL_DIR := lib/openssl
+LEVELDB_DIR = lib/leveldb
+OPENSSL_DIR = lib/openssl
+XILINX_ROOT = /opt/Xilinx/SDK/2016.2/gnu/aarch32/lin/gcc-arm-linux-gnueabi/arm-linux-gnueabihf
 
-LDFLAGS :=	-L/opt/Xilinx/SDK/2016.2/gnu/aarch32/lin/gcc-arm-linux-gnueabi/arm-linux-gnueabihf/libc/lib/arm-linux-gnueabihf \
-			-L$(LEVELDB_DIR)/out-shared -L$(OPENSSL_DIR) \
-			-L/opt/Xilinx/SDK/2016.2/gnu/aarch32/lin/gcc-arm-linux-gnueabi/arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf
-LDLIBS := -lleveldb -lcrypto
+LDFLAGS =	-L$(LEVELDB_DIR)/out-shared \
+		-L$(OPENSSL_DIR) \
+		-L$(XILINX_ROOT)/libc/usr/lib/arm-linux-gnueabihf\
+		-L$(XILINX_ROOT)/lib
+
+LDLIBS = -lleveldb -lcrypto -lstdc++ -lm -lpthread -ldl
 
 CFLAGS:= -I$(LEVELDB_DIR)/include -I$(OPENSSL_DIR)/build/include
 
