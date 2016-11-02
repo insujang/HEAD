@@ -53,25 +53,37 @@ writecatalog(char *filename)
         char *real_path         =       NULL;
         int size_of_real_path   =       0;
 
+        printf("[chikdol] file_name: %s\n", filename);
+
         if (filename == '\0' || filename == NULL) {
                 goto out;
         }
+
         real_path = realpath(filename, actualpath);
+        printf("[chikdol] Real_Path: %s\n", real_path);
+
         if (real_path == NULL) {
                 fprintf(stderr, "%s\n", strerror(errno));
+                printf("[chikdol] write catalog failed: %d, %s",__LINE__, __FILE__);
                 goto out;
         }
+
         size_of_real_path = strlen(real_path);
+        printf("[chikdol] size_of_real_path: %d\n", size_of_real_path);
+
         if (-1 == write(fd_cat, &size_of_real_path, int_size)) {
                 fprintf(stderr, "%s\n", strerror(errno));
+                printf("[chikdol] write catalog failed: %d, %s",__LINE__, __FILE__);
                 goto out;
         }
         if (-1 == write(fd_cat, real_path, size_of_real_path)) {
                 fprintf(stderr, "%s\n", strerror(errno));
+                printf("[chikdol] write catalog failed: %d, %s",__LINE__, __FILE__);
                 goto out;
         }
         ret = 0;
 out:
+
         return ret;
 
 }

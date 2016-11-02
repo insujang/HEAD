@@ -151,6 +151,7 @@ dedup_file (namespace_dtl namespace_input, char *file_path)
                                 chunk_buffer = get_variable_chunk(fd_input,
                                 &ret, &size, &chunk_flag, &chunk_length);
                                 if (ret == -1) {
+                                        printf("[chikdol] %s %d  Chunking failed ", __LINE__, __FILE__);
                                         fprintf (stderr,
                                                 "Error in variable chunking\n");
                                         goto out;
@@ -180,14 +181,17 @@ dedup_file (namespace_dtl namespace_input, char *file_path)
         }
         if (confirm == -1)
                 ret = writecatalog(filename);
-        if (ret == -1)
+        if (ret == -1) {
+                printf("[chikdol] %s %d Chunking failed ", __LINE__, __FILE__);
                 goto out;
+        }
         ret = 0;
 out:
         if (fp != NULL)
                 fclose(fp);
         if (fd_input != -1)
                 close(fd_input);
+
         return ret;
 }
 
