@@ -16,33 +16,34 @@ Input:char* filename,int chunk_type,int hash_type,int block_size
 Output:int
 */
 int
-dedup_file (namespace_dtl namespace_input, char *file_path)
-{
+dedup_file (namespace_dtl namespace_input, char *file_path) {
 
-        char *filename          =       NULL;
-        int chunk_type          =       0;
-        int hash_type           =       0;
-        int block_size          =       0;
-        int store_type          =       0;
-        int ret                 =       -1;
-        int fd_input            =       -1;
-        int fd_stub             =       -1;
-        int length              =       0;
-        int h_length            =       0;
-        int b_offset            =       0;
-        int e_offset            =       0;
-        int size                =       0;
-        int chunk_flag          =       0;
-        int chunk_length        =       0;
-        char confirm             =      -1;
-        char *hash              =       NULL;
-        char *ts1               =       NULL;
-        char *filename1         =       NULL;
-        char *buffer            =       NULL;
-        char *chunk_buffer      =       NULL;
-        FILE *fp                =       NULL;
+        char *filename = NULL;
+        int chunk_type = 0;
+        int hash_type = 0;
+        int block_size = 0;
+        int store_type = 0;
+        int ret = -1;
+        int fd_input = -1;
+        int fd_stub = -1;
+        int length = 0;
+        int h_length = 0;
+        int b_offset = 0;
+        int e_offset = 0;
+        int size = 0;
+        int chunk_flag = 0;
+        int chunk_length = 0;
+        int confirm = -1;
+        char *hash = NULL;
+        char *ts1 = NULL;
+        char *filename1 = NULL;
+        char *buffer = NULL;
+        char *chunk_buffer = NULL;
+        FILE *fp = NULL;
         struct stat st;
-        vector_ptr list         =       NULL;
+        vector_ptr list = NULL;
+
+        printf("[chikdol] default confirm value: %d\n", confirm);
 
         if (strcmp(namespace_input.hash_type, "md5") == 0)
                 hash_type = 0;
@@ -65,7 +66,7 @@ dedup_file (namespace_dtl namespace_input, char *file_path)
         filename = file_path;
         ts1 = strdup(filename);
         filename1 = basename(ts1);
-        fd_input = open(filename, O_RDONLY, S_IRUSR|S_IWUSR);
+        fd_input = open(filename, O_RDONLY, S_IRUSR | S_IWUSR);
         if (fd_input < 1) {
                 fprintf(stderr, "%s\n", strerror(errno));
                 goto out;
@@ -76,7 +77,7 @@ dedup_file (namespace_dtl namespace_input, char *file_path)
         }
         if (ret == 0) {
                 printf("\nFile is already deduped."
-                        "Do you want to overwrite?[Y/N]");
+                               "Do you want to overwrite?[Y/N]");
                 if (scanf("%c", &confirm) <= 0) {
                         fprintf(stderr, "%s\n", strerror(errno));
                         goto out;
@@ -90,7 +91,7 @@ dedup_file (namespace_dtl namespace_input, char *file_path)
                 fprintf(stderr, "%s\n", strerror(errno));
                 goto out;
         }
-        if (write (fd_stub, &store_type, int_size) == -1) {
+        if (write(fd_stub, &store_type, int_size) == -1) {
                 fprintf(stderr, "%s\n", strerror(errno));
                 goto out;
         }
@@ -100,7 +101,7 @@ dedup_file (namespace_dtl namespace_input, char *file_path)
         	Fixed size chunkning
         */
         if (chunk_type == 0) {
-        	printf("[chickdol] Static chunking will be performed \n");
+                printf("[chickdol] Static chunking will be performed \n");
                 while (1) {
                         list = NULL;
                         if (size <= block_size) {
@@ -108,21 +109,21 @@ dedup_file (namespace_dtl namespace_input, char *file_path)
                         }
                         b_offset = e_offset;
                         ret = get_next_chunk(fd_input, chunk_type, block_size,
-                                &buffer, &length);
+                                             &buffer, &length);
                         if (ret <= 0)
                                 break;
                         list = insert_vector_element(buffer, list, &ret,
-                                length);
+                                                     length);
                         if (ret == -1)
                                 goto out;
-                        e_offset += length-1;
-                        size = size-length;
+                        e_offset += length - 1;
+                        size = size - length;
                         ret = get_hash(hash_type, &hash, &h_length, list);
                         if (ret == -1)
                                 goto out;
                         ret = chunk_store(list, hash, length, h_length,
-                        b_offset, e_offset, fd_stub, store_type,
-                        namespace_input.store_path);
+                                          b_offset, e_offset, fd_stub, store_type,
+                                          namespace_input.store_path);
                         if (ret == -1)
                                 goto out;
                         e_offset++;
@@ -134,9 +135,9 @@ dedup_file (namespace_dtl namespace_input, char *file_path)
                         clean_buff(&hash);
                 }
         } else {
-        /* Dynamic chunking*/
-        		printf("[chickdol] Dynamic chunking will be performed \n");
-                fp      = fopen("./Rabin_Karp.csv", "w+");
+                /* Dynamic chunking*/
+                printf("[chickdol] Dynamic chunking will be performed v2 \n");
+                fp = fopen("./Rabin_Karp.csv", "w+");
                 if (fp == NULL) {
                         fprintf(stderr,
                                 "Error in creating file Rabin_Karp.csv\n");
@@ -149,15 +150,15 @@ dedup_file (namespace_dtl namespace_input, char *file_path)
                         chunk_flag = 0;
                         while (chunk_flag == 0) {
                                 chunk_buffer = get_variable_chunk(fd_input,
-                                &ret, &size, &chunk_flag, &chunk_length);
+                                                                  &ret, &size, &chunk_flag, &chunk_length);
                                 if (ret == -1) {
                                         printf("[chikdol] %s %d  Chunking failed ", __LINE__, __FILE__);
-                                        fprintf (stderr,
+                                        fprintf(stderr,
                                                 "Error in variable chunking\n");
                                         goto out;
                                 }
                                 list = insert_vector_element(chunk_buffer, list,
-                                        &ret, chunk_length);
+                                                             &ret, chunk_length);
                                 length += chunk_length;
                                 if (ret == -1)
                                         goto out;
@@ -167,8 +168,8 @@ dedup_file (namespace_dtl namespace_input, char *file_path)
                         if (ret == -1)
                                 goto out;
                         ret = chunk_store(list, hash, length,
-                                h_length, b_offset, e_offset, fd_stub,
-                                store_type, namespace_input.store_path);
+                                          h_length, b_offset, e_offset, fd_stub,
+                                          store_type, namespace_input.store_path);
                         if (ret == -1)
                                 goto out;
                         fprintf(fp, "%d\n", length);
@@ -179,8 +180,14 @@ dedup_file (namespace_dtl namespace_input, char *file_path)
                                 break;
                 }
         }
-        if (confirm == -1)
+        printf("[chikdol] dedup loop end. confirm: %d\n", confirm);
+
+        int a = -1;
+        printf("[chikdol] A Value: %d", a);
+        if (confirm == -1) {
+                printf("[chikdol] writecatalog function called\n");
                 ret = writecatalog(filename);
+        }
         if (ret == -1) {
                 printf("[chikdol] %s %d Chunking failed ", __LINE__, __FILE__);
                 goto out;
