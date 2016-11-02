@@ -8,12 +8,12 @@ LEVELDB_DIR = lib/leveldb
 OPENSSL_DIR = lib/openssl
 XILINX_ROOT = /opt/Xilinx/SDK/2016.2/gnu/aarch32/lin/gcc-arm-linux-gnueabi/arm-linux-gnueabihf
 
-LDFLAGS =	-L$(LEVELDB_DIR)/out-shared \
+LDFLAGS =	-L$(LEVELDB_DIR)/out-static \
 		-L$(OPENSSL_DIR) \
 		-L$(XILINX_ROOT)/libc/usr/lib/arm-linux-gnueabihf\
 		-L$(XILINX_ROOT)/lib
 
-LDLIBS = -lleveldb -lcrypto -lstdc++ -lm -lpthread -ldl
+LDLIBS = -l:libleveldb.a -l:libcrypto.a -lstdc++ -lm -lpthread -ldl
 
 CFLAGS:= -I$(LEVELDB_DIR)/include -I$(OPENSSL_DIR)/build/include
 
