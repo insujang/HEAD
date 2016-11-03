@@ -20,7 +20,6 @@ set(SOURCE_FILES
     src/catalog.h
     src/clean_buff.c
     src/clean_buff.h
-    src/config.h
     src/dedup.c
     src/dedup.h
 #    src/dedup_test.c
