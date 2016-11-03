@@ -6,10 +6,12 @@
  *      vector<string> values;
  *      string key = "abc";
  *      string value = "aaaaa";
+ *      leveldb_t* ptrDb;
  *
  *      ldb = LevelDBWrapper::getInstance();
- *      ldb->writeDB(key, value);
- *      ldb->readDB(key, values);
+ *      ptrDb = ldb->getFileRestoreDB();
+ *      ldb->writeDB(ptrDb, key, value);
+ *      ldb->readDB(ptrDb, key, values);
  *
  */
 
@@ -29,18 +31,18 @@ class LevelDBWrapper{
         LevelDBWrapper();
         LevelDBWrapper(const LevelDBWrapper& other);
         ~LevelDBWrapper();
-
+        void splitString(string &s, char delimeter, vector <string>& elems);
 
         static LevelDBWrapper* instance;
-        leveldb_t *db = NULL;
+        leveldb_t *fileRestoreDB = NULL, *hashListDB = NULL;
         leveldb_writeoptions_t *write_opt = NULL;
         leveldb_readoptions_t *read_opt = NULL;
 
     public:
-        int writeDB(string key, string value);
-        int readDB(string key, string& values);
-
-//        void splitString(string &s, char delimeter, vector <string>& elems);
+        int writeDB(leveldb_t* db ,string key, string value);
+        int readDB(leveldb_t* db, string key, vector<string>& values, char delimeter = NULL);
+        leveldb_t* getFileRestoreDB(){ return fileRestoreDB; }
+        leveldb_t* getHashListDB(){ return hashListDB; }
 
         static LevelDBWrapper* GetInstance() {
             if (instance == NULL) instance = new LevelDBWrapper();

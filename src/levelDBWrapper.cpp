@@ -16,7 +16,8 @@ LevelDBWrapper::LevelDBWrapper() {
     option = leveldb_options_create();
     leveldb_options_set_create_if_missing(option, 1);
 
-    db = leveldb_open(option, "db_test", &ret_value);
+    fileRestoreDB = leveldb_open(option, "fileRestoreDB", &ret_value);
+    hashListDB = leveldb_open(option, "hashListDB", &ret_value);
 
     if (ret_value != NULL) {
         fprintf(stderr, "Error in opening\n");
@@ -27,12 +28,13 @@ LevelDBWrapper::LevelDBWrapper() {
 }
 
 LevelDBWrapper::~LevelDBWrapper() {
-    leveldb_close(db);
+    leveldb_close(fileRestoreDB);
+    leveldb_close(hashListDB);
     delete LevelDBWrapper::instance;
     LevelDBWrapper::instance = NULL;
 };
 
-int LevelDBWrapper::writeDB(string key, string value) {
+int LevelDBWrapper::writeDB(leveldb_t* db ,string key, string value) {
     char *ret_value = NULL;
 
     leveldb_put(db, write_opt, key.c_str(), key.length(), value.c_str(), value.length(),
@@ -46,27 +48,30 @@ int LevelDBWrapper::writeDB(string key, string value) {
     return 0;
 }
 
-int LevelDBWrapper::readDB(string key, string& values) {
+int LevelDBWrapper::readDB(leveldb_t* db, string key, vector<string>& values, char delimeter) {
     char *ret_value                 =       NULL;
     char *read                      =       NULL;
     size_t read_len                 =          0;
 
     read = leveldb_get(db, read_opt, key.c_str(), key.length(), &read_len, &ret_value);
 
-    values = read;
-  //  string strRet(read);
-  //  splitString(strRet, ',', values);
+    string strRet(read);
+    if(delimeter != NULL) {
+        splitString(strRet, delimeter, values);
+    }else{
+        values.push_back(strRet);
+    }
 
     return 0;
 }
-//
-//void LevelDBWrapper::splitString(string &str, char delimeter, vector<string>& values){
-//    stringstream ss;
-//    ss.str(str);
-//    string item;
-//    while (getline(ss, item, delimeter)) {
-//        values.push_back(item);
-//    }
-//}
-//
+
+void LevelDBWrapper::splitString(string &str, char delimeter, vector<string>& values){
+    stringstream ss;
+    ss.str(str);
+    string item;
+    while (getline(ss, item, delimeter)) {
+        values.push_back(item);
+    }
+}
+
 
