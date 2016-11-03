@@ -6,8 +6,6 @@
 #include <assert.h>
 #include <iterator>
 
-#include <iostream>
-
 LevelDBWrapper* LevelDBWrapper::instance = NULL;
 
 LevelDBWrapper::LevelDBWrapper() {

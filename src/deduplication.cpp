@@ -4,8 +4,6 @@
 
 #include "deduplication.h"
 #include "levelDBWrapper.h"
-#include <vector>
-#include <algorithm>
 #include <iostream>
 #include <cassert>
 #include "sha1.h"
