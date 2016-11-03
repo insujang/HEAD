@@ -33,13 +33,17 @@ main (int argc, char *argv[])
     leveldb_t* ptrDB =  ldb->getFileListDB();
     ldb->writeDB(ptrDB, fileName, string("1,2,3,4"));
 
+
     ptrDB =  ldb->getHashListDB();
     ldb->writeDB(ptrDB, string("1"), string("abc"));
     ldb->writeDB(ptrDB, string("2"), string("def"));
     ldb->writeDB(ptrDB, string("3"), string("ghi"));
     ldb->writeDB(ptrDB, string("4"), string("FINISH!!"));
 
-    restoreFile->RestoreFile(fileName);
+    vector<string> keys;
+    ldb->getKeyList(ptrDB, keys);
+
+    restoreFile->restoreFile(fileName);
 
 //
     return 0;
