@@ -5,6 +5,7 @@
 #include "levelDBWrapper.h"
 #include <assert.h>
 
+#include <iostream>
 
 LevelDBWrapper* LevelDBWrapper::instance = NULL;
 
@@ -58,7 +59,7 @@ int LevelDBWrapper::readDB(leveldb_t* db, string key, vector<string>& values, ch
         return -1;
     }
 
-    string strRet(read);
+    string strRet(read, read_len);
     if(delimeter != NULL) {
         splitString(strRet, delimeter, values);
     }else{
@@ -76,6 +77,7 @@ int LevelDBWrapper::getKeyList(leveldb_t* db, vector<string>& keylist){
     while(leveldb_iter_valid(dbItr)){
         string fileName = string(leveldb_iter_key(dbItr, &strLength));
         keylist.push_back(fileName);
+        leveldb_iter_next(dbItr);
     }
     return 0;
 

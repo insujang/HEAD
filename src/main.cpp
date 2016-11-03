@@ -17,6 +17,8 @@ extern "C" {
 }
 
 #include "levelDBWrapper.h"
+#include "RestoreFileDedup.h"
+
 #include <iostream>
 
 /*Main program!*/
@@ -24,19 +26,20 @@ int
 main (int argc, char *argv[])
 {
     LevelDBWrapper* ldb;
+    RestoreFileDedup* restoreFile = new RestoreFileDedup();
+    string fileName("/home/seikwon/Development/testDedup.txt");
 
     ldb = LevelDBWrapper::getInstance();
-    leveldb_t* ptrDB =  ldb->getFileRestoreDB();
+    leveldb_t* ptrDB =  ldb->getFileListDB();
+    ldb->writeDB(ptrDB, fileName, string("1,2,3,4"));
 
-    ldb->writeDB(ptrDB, "12345", string("abc"));
-    ldb->writeDB(ptrDB, "2345", string("def"));
-    ldb->writeDB(ptrDB, "abcd", string("asdf"));
+    ptrDB =  ldb->getHashListDB();
+    ldb->writeDB(ptrDB, string("1"), string("abc"));
+    ldb->writeDB(ptrDB, string("2"), string("def"));
+    ldb->writeDB(ptrDB, string("3"), string("ghi"));
+    ldb->writeDB(ptrDB, string("4"), string("FINISH!!"));
 
-    vector<string> keyList;
-    ldb->getKeyList(ptrDB, keyList);
-    for (vector<string>::iterator it = keyList.begin() ; it != keyList.end(); ++it){
-        std::cout << *it << endl;
-    }
+    restoreFile->RestoreFile(fileName);
 
 //
     return 0;
