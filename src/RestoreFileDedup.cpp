@@ -25,7 +25,7 @@ int RestoreFileDedup::restoreFile(string fileName){
 int RestoreFileDedup::restoreAllFiles(){
 
     LevelDBWrapper* ldb;
-    leveldb_t* ptrFileDb;
+    DB* ptrFileDb;
     vector<string> fileList;
 
     ldb = LevelDBWrapper::getInstance();
@@ -38,7 +38,7 @@ int RestoreFileDedup::restoreAllFiles(){
 
 int RestoreFileDedup::getFileHashValue(string fileName, vector<string>& values){
     LevelDBWrapper* ldb;
-    leveldb_t* ptrFileDb;
+    DB* ptrFileDb;
     ldb = LevelDBWrapper::getInstance();
     ptrFileDb = ldb->getFileListDB();
     if(ldb->readDB(ptrFileDb, fileName, values, DELIMITER) == -1){
@@ -50,7 +50,7 @@ int RestoreFileDedup::getFileHashValue(string fileName, vector<string>& values){
 
 int RestoreFileDedup::restoreContent(string fileName, vector<string>& values){
     LevelDBWrapper* ldb;
-    leveldb_t* ptrHashDB;
+    DB* ptrHashDB;
     ofstream ofs(fileName, ofstream::out);
 
     ldb = LevelDBWrapper::getInstance();

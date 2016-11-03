@@ -21,30 +21,32 @@
 #include <string>
 #include <vector>
 #include <sstream>
-#include <leveldb/c.h>
+#include <leveldb/db.h>
 
 using namespace std;
 using std::vector;
+using namespace leveldb;
 
 class LevelDBWrapper{
     private:
         LevelDBWrapper();
         LevelDBWrapper(const LevelDBWrapper& other);
         ~LevelDBWrapper();
-        void splitString(string &s, char delimeter, vector <string>& elems);
+        void splitString(string &s, char delimiter, vector <string>& elems);
 
         static LevelDBWrapper* instance;
-        leveldb_t *fileRestoreDB = NULL, *hashListDB = NULL;
-        leveldb_writeoptions_t *write_opt = NULL;
-        leveldb_readoptions_t *read_opt = NULL;
+        DB *fileRestoreDB = NULL, *hashListDB = NULL;
+        WriteOptions writeOptions;
+        ReadOptions readOptions;
 
     public:
-        int writeDB(leveldb_t* db ,string key, string value);
-        int readDB(leveldb_t* db, string key, vector<string>& values, char delimeter = '\0');
-        int getKeyList(leveldb_t* db, vector<string>& keylist);
+        int writeDB(DB* db, Slice key, Slice value);
+        int readDB(DB* db, Slice key, vector<string>& values, char delimeter = '\0');
+        int getKeyList(DB* db, vector<string>& keylist);
+        static string joinString(vector<string>& values, const char delimiter);
 
-        leveldb_t* getFileListDB(){ return fileRestoreDB; }
-        leveldb_t* getHashListDB(){ return hashListDB; }
+        DB* getFileListDB(){ return fileRestoreDB; }
+        DB* getHashListDB(){ return hashListDB; }
 
         static LevelDBWrapper* getInstance() {
             if (instance == NULL) instance = new LevelDBWrapper();

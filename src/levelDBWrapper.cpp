@@ -4,6 +4,7 @@
 
 #include "levelDBWrapper.h"
 #include <assert.h>
+#include <iterator>
 
 #include <iostream>
 
@@ -11,86 +12,68 @@ LevelDBWrapper* LevelDBWrapper::instance = NULL;
 
 LevelDBWrapper::LevelDBWrapper() {
 
-    leveldb_options_t *option       =       NULL;
-    char *ret_value                 =       NULL;
+    Options options;
+    options.create_if_missing = true;
 
-    option = leveldb_options_create();
-    leveldb_options_set_create_if_missing(option, 1);
-
-    fileRestoreDB = leveldb_open(option, "fileRestoreDB", &ret_value);
-    hashListDB = leveldb_open(option, "hashListDB", &ret_value);
-
-    if (ret_value != NULL) {
-        fprintf(stderr, "Error in opening\n");
-
-    }
-    write_opt = leveldb_writeoptions_create();
-    read_opt = leveldb_readoptions_create();
+    DB::Open(options, "fileRestoreDB", &fileRestoreDB);
+    DB::Open(options, "hashListDB", &hashListDB);
 }
 
 LevelDBWrapper::~LevelDBWrapper() {
-    leveldb_close(fileRestoreDB);
-    leveldb_close(hashListDB);
+    delete fileRestoreDB;
+    delete hashListDB;
     delete LevelDBWrapper::instance;
     LevelDBWrapper::instance = NULL;
 };
 
-int LevelDBWrapper::writeDB(leveldb_t* db ,string key, string value) {
-    char *ret_value = NULL;
-
-    leveldb_put(db, write_opt, key.c_str(), key.length(), value.c_str(), value.length(),
-                &ret_value);
-
-    if (ret_value != NULL) {
-        fprintf(stderr, "Write fail.\n");
-        assert(0);
-    }
+int LevelDBWrapper::writeDB(DB* db, Slice key, Slice value) {
+    Status status = db->Put(writeOptions, key, value);
+    assert(status.ok());
 
     return 0;
 }
 
-int LevelDBWrapper::readDB(leveldb_t* db, string key, vector<string>& values, char delimeter) {
-    char *ret_value                 =       NULL;
-    char *read                      =       NULL;
-    size_t read_len                 =          0;
+int LevelDBWrapper::readDB(DB* db, Slice key, vector<string>& values, char delimeter) {
+    string value;
+    Status status = db->Get(readOptions, key, &value);
+    assert(status.ok());
 
-    read = leveldb_get(db, read_opt, key.c_str(), key.length(), &read_len, &ret_value);
-    if(read == NULL){
-        return -1;
-    }
-
-    string strRet(read, read_len);
     if(delimeter != '\0') {
-        splitString(strRet, delimeter, values);
+        splitString(value, delimeter, values);
     }else{
-        values.push_back(strRet);
+        values.push_back(value);
     }
 
     return 0;
 }
 
-int LevelDBWrapper::getKeyList(leveldb_t* db, vector<string>& keylist){
+int LevelDBWrapper::getKeyList(DB* db, vector<string>& keylist){
 
-    leveldb_iterator_t* dbItr = leveldb_create_iterator(db,read_opt);
-    leveldb_iter_seek_to_first(dbItr);
-    size_t strLength;
+    Iterator* it = db->NewIterator(readOptions);
+
     string keyData;
-    while(leveldb_iter_valid(dbItr)){
-        keyData = leveldb_iter_key(dbItr, &strLength);
-        keylist.push_back(keyData.substr(0,strLength));
-        leveldb_iter_next(dbItr);
+    for(it->SeekToFirst(); it->Valid(); it->Next()){
+        keyData = it->key().ToString();
+        keylist.push_back(keyData);
     }
-    return 0;
+    assert(it->status().ok());
 
+    return 0;
 }
 
-void LevelDBWrapper::splitString(string &str, char delimeter, vector<string>& values){
+void LevelDBWrapper::splitString(string &str, char delimiter, vector<string>& values){
     stringstream ss;
     ss.str(str);
     string item;
-    while (getline(ss, item, delimeter)) {
+    while (getline(ss, item, delimiter)) {
         values.push_back(item);
     }
+}
+
+string LevelDBWrapper::joinString(vector<string>& values, const char delimiter){
+    stringstream ss;
+    copy(values.begin(), values.end(), ostream_iterator<string>(ss, &delimiter));
+    return ss.str();
 }
 
 

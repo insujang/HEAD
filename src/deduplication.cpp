@@ -6,22 +6,15 @@
 #include "levelDBWrapper.h"
 #include <vector>
 #include <algorithm>
-#include <iterator>
 #include <iostream>
 #include <cassert>
 #include "sha1.h"
+#include <leveldb/write_batch.h>
 
 using namespace std;
 
 extern "C" {
 #include "Rabin_Karp.h"
-}
-
-
-string join(vector<string> &vec, const char delim) {
-    stringstream ss;
-    copy(vec.begin(), vec.end(), ostream_iterator<string>(ss, &delim));
-    return ss.str();
 }
 
 /**
@@ -34,13 +27,9 @@ string join(vector<string> &vec, const char delim) {
 int
 dedup_file (string file_path)
 {
-    int chunk_type  = 1;        // variable chunk size
-    int hash_type   = 1;        // sha1
-    int block_size  = 0;        // should be 0 in variable chunk size mode
-    int store_type  = 0;        // default store
     LevelDBWrapper* ldb = LevelDBWrapper::getInstance();
-    leveldb_t* hashListDB = ldb->getHashListDB();
-    leveldb_t* fileListDB = ldb->getFileListDB();
+    DB* hashListDB = ldb->getHashListDB();
+    DB* fileListDB = ldb->getFileListDB();
 
     cout << "Deduplication is in progress..." << endl;
 
@@ -54,42 +43,43 @@ dedup_file (string file_path)
     int size = st.st_size;
 
     /* Dynamic chunking */
-    if(chunk_type == 1) {
-        cout << "[INFO] Dynamic chunking computation starts" << endl;
-        FILE* fp = fopen("./Rabin_Karp.csv", "w+");
-        assert(fp != NULL);
+    cout << "[INFO] Dynamic chunking computation starts" << endl;
+    FILE* fp = fopen("./Rabin_Karp.csv", "w+");
+    assert(fp != NULL);
 
-        char* chunk_buffer;
-        int ret;
-        int chunk_flag;
-        int chunk_length;
+    char* chunk_buffer;
+    int ret;
+    int chunk_flag;
+    int chunk_length;
 
-        // This is the list of hashes in this file.
-        vector<string> hash_list;
+    // This is the list of hashes in this file.
+    vector<string> hash_list;
 
-        while (true) {
-            // get variable chunk by using Rabin-Karp
-            chunk_buffer = get_variable_chunk(fd_input,
-            &ret, &size, &chunk_flag, &chunk_length);
+    while (true) {
+        // get variable chunk by using Rabin-Karp
+        chunk_buffer = get_variable_chunk(fd_input,
+        &ret, &size, &chunk_flag, &chunk_length);
 
-            if(chunk_buffer == NULL) break;
+        if(chunk_buffer == NULL) break;
 
-            // calculate sha1 hash algorithm
-            string hash = sha1(chunk_buffer, chunk_length);
+        // calculate sha1 hash algorithm
+        string hash = sha1(chunk_buffer, chunk_length);
 
-            // add the hash into hash_list
-            hash_list.push_back(hash);
+        // add the hash into hash_list
+        hash_list.push_back(hash);
 
-            // add <hash, chunk> key-value pair to hashListDB
-            ldb->writeDB(hashListDB, hash, string(chunk_buffer));
-        }
-
-        // join hash_list vector to a string
-        string hash_list_str = join(hash_list, ',');
-
-        // add <filename, hash_list> key-value pair to fileListDB
-        ldb->writeDB(fileListDB, file_path, hash_list_str);
+        // add <hash, chunk> key-value pair to hashListDB
+        ldb->writeDB(hashListDB, hash, string(chunk_buffer));
     }
+
+    // join hash_list vector to a string
+    string hash_list_str = LevelDBWrapper::joinString(hash_list, ',');
+
+    // add <filename, hash_list> key-value pair to fileListDB
+    ldb->writeDB(fileListDB, file_path, hash_list_str);
+
+    cout << "[INFO] Dynamic chunking computation is finshed" << endl;
+
 
     return 0;
 }
