@@ -75,14 +75,15 @@ dedup_file (namespace_dtl namespace_input, char *file_path)
                 goto out;
         }
         if (ret == 0) {
-                printf("\nFile is already deduped."
-                        "Do you want to overwrite?[Y/N]");
-                if (scanf("%c", &confirm) <= 0) {
-                        fprintf(stderr, "%s\n", strerror(errno));
-                        goto out;
-                }
-                if (confirm != 'y' && confirm != 'Y')
-                        goto out;
+                printf("[insu][Warning] File is alreay deduped. will be overwritten.");
+//                printf("\nFile is already deduped."
+//                        "Do you want to overwrite?[Y/N]");
+//                if (scanf("%c", &confirm) <= 0) {
+//                        fprintf(stderr, "%s\n", strerror(errno));
+//                        goto out;
+//                }
+//                if (confirm != 'y' && confirm != 'Y')
+//                        goto out;
         }
         printf("\nDeduplication in progress...\n");
         ret = init_stub_store(namespace_input.store_path, filename1, &fd_stub);
@@ -151,7 +152,6 @@ dedup_file (namespace_dtl namespace_input, char *file_path)
                                 chunk_buffer = get_variable_chunk(fd_input,
                                 &ret, &size, &chunk_flag, &chunk_length);
                                 if (ret == -1) {
-                                        printf("[chikdol] %s %d  Chunking failed ", __LINE__, __FILE__);
                                         fprintf (stderr,
                                                 "Error in variable chunking\n");
                                         goto out;
@@ -182,7 +182,6 @@ dedup_file (namespace_dtl namespace_input, char *file_path)
         if (confirm == -1)
                 ret = writecatalog(filename);
         if (ret == -1) {
-                printf("[chikdol] %s %d Chunking failed ", __LINE__, __FILE__);
                 goto out;
         }
         ret = 0;
