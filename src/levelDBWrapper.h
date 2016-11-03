@@ -38,9 +38,9 @@ class LevelDBWrapper{
 
     public:
         int writeDB(string key, string value);
-        int readDB(string key, vector <string>& values);
+        int readDB(string key, string& values);
 
-        void splitString(string &s, char delimeter, vector <string>& elems);
+//        void splitString(string &s, char delimeter, vector <string>& elems);
 
         static LevelDBWrapper* GetInstance() {
             if (instance == NULL) instance = new LevelDBWrapper();

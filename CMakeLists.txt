@@ -31,7 +31,7 @@ set(SOURCE_FILES
     src/hash.h
     src/ldb.c
     src/ldb.h
-    src/main.c
+        src/main.cpp
     src/main.h
     src/md5.c
     src/md5.h
@@ -56,7 +56,9 @@ set(SOURCE_FILES
     src/stub.c
     src/stub.h
     src/vector.c
-    src/vector.h)
+    src/vector.h
+    src/levelDBWrapper.h
+    src/levelDBWrapper.cpp)
 
 
 # find_library(leveldb
