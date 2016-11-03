@@ -5,6 +5,7 @@
 #include "restore.h"
 #include "stub.h"
 #include "minhash_restore.h"
+#include "deduplication.h"
 
 
 /*Function to to give correct instruction to use the various information.

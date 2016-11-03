@@ -20,17 +20,19 @@ set(SOURCE_FILES
     src/catalog.h
     src/clean_buff.c
     src/clean_buff.h
-    src/dedup.c
-    src/dedup.h
+#    src/dedup.c
+#    src/dedup.h
 #    src/dedup_test.c
     src/delete.c
     src/delete.h
 #    src/delete_test.c
     src/hash.c
     src/hash.h
+    src/deduplication.cpp
+    src/deduplication.h
     src/ldb.c
     src/ldb.h
-        src/main.cpp
+    src/main.cpp
     src/main.h
     src/md5.c
     src/md5.h
@@ -40,8 +42,8 @@ set(SOURCE_FILES
     src/minhash_restore.h
     src/minhash_stub.c
     src/minhash_stub.h
-    src/namespace.c
-    src/namespace.h
+#    src/namespace.c
+#    src/namespace.h
     src/object_store.c
     src/object_store.h
     src/parsing.c
@@ -50,7 +52,7 @@ set(SOURCE_FILES
     src/Rabin_Karp.h
     src/restore.h
     src/Restore_file.c
-    src/sha1.c
+    src/sha1.cpp
     src/sha1.h
     src/stub.c
     src/stub.h

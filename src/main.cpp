@@ -5,7 +5,6 @@ extern "C" {
 #include "catalog.h"
 #include "block.h"
 #include "hash.h"
-#include "dedup.h"
 #include "restore.h"
 #include "delete.h"
 #include "string.h"
@@ -18,6 +17,7 @@ extern "C" {
 
 #include "levelDBWrapper.h"
 #include "RestoreFileDedup.h"
+#include "deduplication.h"
 
 #include <iostream>
 
@@ -27,19 +27,23 @@ main (int argc, char *argv[])
 {
     LevelDBWrapper* ldb;
     RestoreFileDedup* restoreFile = new RestoreFileDedup();
-    string fileName("/home/seikwon/Development/testDedup.txt");
+//    string fileName("/home/insujang/testDedup.txt");
+//
+//    ldb = LevelDBWrapper::getInstance();
+//    leveldb_t* ptrDB =  ldb->getFileListDB();
+//    ldb->writeDB(ptrDB, fileName, string("1,2,3,4"));
+//
+//    ptrDB =  ldb->getHashListDB();
+//    ldb->writeDB(ptrDB, string("1"), string("abc"));
+//    ldb->writeDB(ptrDB, string("2"), string("def"));
+//    ldb->writeDB(ptrDB, string("3"), string("ghi"));
+//    ldb->writeDB(ptrDB, string("4"), string("FINISH!!"));
+//
+//    restoreFile->RestoreFile(fileName);
+//
+//    dedup_file("/home/insujang/cs710/cs710_dedup_yadl/test.input");
 
-    ldb = LevelDBWrapper::getInstance();
-    leveldb_t* ptrDB =  ldb->getFileListDB();
-    ldb->writeDB(ptrDB, fileName, string("1,2,3,4"));
-
-    ptrDB =  ldb->getHashListDB();
-    ldb->writeDB(ptrDB, string("1"), string("abc"));
-    ldb->writeDB(ptrDB, string("2"), string("def"));
-    ldb->writeDB(ptrDB, string("3"), string("ghi"));
-    ldb->writeDB(ptrDB, string("4"), string("FINISH!!"));
-
-    restoreFile->RestoreFile(fileName);
+    restoreFile->RestoreFile("/home/insujang/cs710/cs710_dedup_yadl/test.input");
 
 //
     return 0;
