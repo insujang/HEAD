@@ -76,6 +76,7 @@ int LevelDBWrapper::getKeyList(leveldb_t* db, vector<string>& keylist){
     while(leveldb_iter_valid(dbItr)){
         string fileName = string(leveldb_iter_key(dbItr, &strLength));
         keylist.push_back(fileName);
+        leveldb_iter_next(dbItr);
     }
     return 0;
 
