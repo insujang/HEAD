@@ -44,7 +44,7 @@ class LevelDBWrapper{
         leveldb_t* getFileRestoreDB(){ return fileRestoreDB; }
         leveldb_t* getHashListDB(){ return hashListDB; }
 
-        static LevelDBWrapper* GetInstance() {
+        static LevelDBWrapper* getInstance() {
             if (instance == NULL) instance = new LevelDBWrapper();
             return instance;
         }
