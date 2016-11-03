@@ -43,7 +43,7 @@ main (int argc, char *argv[])
 //
 //    dedup_file("/home/insujang/cs710/cs710_dedup_yadl/test.input");
 
-    restoreFile->RestoreFile("/home/insujang/cs710/cs710_dedup_yadl/test.input");
+    restoreFile->restoreFile("/home/insujang/cs710/cs710_dedup_yadl/test.input");
 
 //
     return 0;
