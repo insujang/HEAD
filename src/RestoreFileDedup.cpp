@@ -12,7 +12,7 @@
 
 #define DELIMITER ','
 
-int RestoreFileDedup::RestoreFile(string fileName){
+int RestoreFileDedup::restoreFile(string fileName){
 
     vector<string> f2hashValues;
     if(getFileHashValue(fileName, f2hashValues) == -1){
@@ -20,6 +20,20 @@ int RestoreFileDedup::RestoreFile(string fileName){
     }
     restoreContent(fileName, f2hashValues);
     return 0;
+}
+
+int RestoreFileDedup::restoreAllFiles(){
+
+    LevelDBWrapper* ldb;
+    leveldb_t* ptrFileDb;
+    vector<string> fileList;
+
+    ldb = LevelDBWrapper::getInstance();
+    ldb->getKeyList(ptrFileDb, fileList);
+
+    for (vector<string>::iterator it = fileList.begin() ; it != fileList.end(); ++it){
+        this->restoreFile(*it);
+    }
 }
 
 int RestoreFileDedup::getFileHashValue(string fileName, vector<string>& values){

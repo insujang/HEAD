@@ -24,7 +24,8 @@ class RestoreFileDedup{
         RestoreFileDedup(){}
         ~RestoreFileDedup(){}
 
-        int RestoreFile(string fileName);
+        int restoreFile(string fileName);
+        int restoreAllFiles();
 
     private:
         int getFileHashValue(string fileName, vector<string>& values);

@@ -60,7 +60,7 @@ int LevelDBWrapper::readDB(leveldb_t* db, string key, vector<string>& values, ch
     }
 
     string strRet(read, read_len);
-    if(delimeter != NULL) {
+    if(delimeter != '\0') {
         splitString(strRet, delimeter, values);
     }else{
         values.push_back(strRet);
