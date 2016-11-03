@@ -57,7 +57,7 @@ set(SOURCE_FILES
     src/vector.c
     src/vector.h
     src/levelDBWrapper.h
-    src/levelDBWrapper.cpp)
+    src/levelDBWrapper.cpp src/RestoreFileDedup.cpp src/RestoreFileDedup.h)
 
 
 # find_library(leveldb

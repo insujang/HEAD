@@ -54,6 +54,9 @@ int LevelDBWrapper::readDB(leveldb_t* db, string key, vector<string>& values, ch
     size_t read_len                 =          0;
 
     read = leveldb_get(db, read_opt, key.c_str(), key.length(), &read_len, &ret_value);
+    if(read == NULL){
+        return -1;
+    }
 
     string strRet(read);
     if(delimeter != NULL) {
@@ -63,6 +66,19 @@ int LevelDBWrapper::readDB(leveldb_t* db, string key, vector<string>& values, ch
     }
 
     return 0;
+}
+
+int LevelDBWrapper::getKeyList(leveldb_t* db, vector<string>& keylist){
+
+    leveldb_iterator_t* dbItr = leveldb_create_iterator(db,read_opt);
+    leveldb_iter_seek_to_first(dbItr);
+    size_t strLength;
+    while(leveldb_iter_valid(dbItr)){
+        string fileName = string(leveldb_iter_key(dbItr, &strLength));
+        keylist.push_back(fileName);
+    }
+    return 0;
+
 }
 
 void LevelDBWrapper::splitString(string &str, char delimeter, vector<string>& values){

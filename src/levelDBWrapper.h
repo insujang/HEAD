@@ -41,6 +41,8 @@ class LevelDBWrapper{
     public:
         int writeDB(leveldb_t* db ,string key, string value);
         int readDB(leveldb_t* db, string key, vector<string>& values, char delimeter = NULL);
+        int getKeyList(leveldb_t* db, vector<string>& keylist);
+
         leveldb_t* getFileRestoreDB(){ return fileRestoreDB; }
         leveldb_t* getHashListDB(){ return hashListDB; }
 

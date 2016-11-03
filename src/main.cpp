@@ -17,24 +17,29 @@ extern "C" {
 }
 
 #include "levelDBWrapper.h"
-
+#include <iostream>
 
 /*Main program!*/
 int
 main (int argc, char *argv[])
 {
-//    cout << "Hello" << endl;
-//    LevelDBWrapper* ldb;
-//    string value("qwetrt");
+    LevelDBWrapper* ldb;
+
+    ldb = LevelDBWrapper::getInstance();
+    leveldb_t* ptrDB =  ldb->getFileRestoreDB();
+
+    ldb->writeDB(ptrDB, "12345", string("abc"));
+    ldb->writeDB(ptrDB, "2345", string("def"));
+    ldb->writeDB(ptrDB, "abcd", string("asdf"));
+
+    vector<string> keyList;
+    ldb->getKeyList(ptrDB, keyList);
+    for (vector<string>::iterator it = keyList.begin() ; it != keyList.end(); ++it){
+        std::cout << *it << endl;
+    }
+
 //
-//    ldb = LevelDBWrapper::GetInstance();
-//
-//    string values2;
-//    ldb->writeDB("12345", value);
-//
-//    ldb->readDB("12345", values2);
-//
-//    return 0;
+    return 0;
         int     ret                       = -1;
         char    namespace_path[FILE_SIZE] = "";
         DIR     *dp                       = NULL;
