@@ -13,6 +13,8 @@ extern "C" {
 #include <sys/types.h>
 #include <pwd.h>
 //#include <string.h>
+#include <sys/time.h>
+#include <unistd.h>
 }
 
 #include "levelDBWrapper.h"
@@ -25,6 +27,7 @@ extern "C" {
 int
 main (int argc, char *argv[])
 {
+    struct timeval start, end;
     LevelDBWrapper* ldb;
     RestoreFileDedup* restoreFile = new RestoreFileDedup();
 //    string fileName("/home/insujang/testDedup.txt");
@@ -42,8 +45,14 @@ main (int argc, char *argv[])
 //    restoreFile->RestoreFile(fileName);
 //
 //    dedup_file("/home/insujang/cs710/cs710_dedup_yadl/test.input");
+    gettimeofday(&start, NULL);
+//    dedup_file("/home/insujang/Downloads/cudnn-8.0-linux-x64-v5.1.tgz");
+    restoreFile->restoreFile("/home/insujang/Downloads/cudnn-8.0-linux-x64-v5.1.tgz");
+    gettimeofday(&end, NULL);
 
-    restoreFile->restoreFile("/home/insujang/cs710/cs710_dedup_yadl/test.input");
+    printf("Processing time: %lds\n", end.tv_sec - start.tv_sec);
+
+
 
 //
     return 0;

@@ -5,6 +5,9 @@
 #include "levelDBWrapper.h"
 #include <assert.h>
 #include <iterator>
+#include <iostream>
+
+using namespace std;
 
 LevelDBWrapper* LevelDBWrapper::instance = NULL;
 
@@ -50,10 +53,12 @@ int LevelDBWrapper::getKeyList(DB* db, vector<string>& keylist){
     Iterator* it = db->NewIterator(readOptions);
 
     string keyData;
+
     for(it->SeekToFirst(); it->Valid(); it->Next()){
         keyData = it->key().ToString();
         keylist.push_back(keyData);
     }
+    cout << "KeyData: " << keyData << endl;
     assert(it->status().ok());
 
     return 0;
@@ -69,9 +74,13 @@ void LevelDBWrapper::splitString(string &str, char delimiter, vector<string>& va
 }
 
 string LevelDBWrapper::joinString(vector<string>& values, const char delimiter){
-    stringstream ss;
-    copy(values.begin(), values.end(), ostream_iterator<string>(ss, &delimiter));
-    return ss.str();
+    string str;
+    for(vector<string>::const_iterator p = values.begin();
+            p != values.end(); p++){
+        str += *p;
+        if(p != values.end() - 1) str += delimiter;
+    }
+    return str;
 }
 
 

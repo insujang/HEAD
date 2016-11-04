@@ -39,20 +39,20 @@ set(SOURCE_FILES
     src/main.h
     src/md5.c
     src/md5.h
-    src/min_hash.c
-    src/min_hash.h
-    src/minhash_restore.c
-    src/minhash_restore.h
-    src/minhash_stub.c
-    src/minhash_stub.h
+#    src/min_hash.c
+#    src/min_hash.h
+#    src/minhash_restore.c
+#    src/minhash_restore.h
+#    src/minhash_stub.c
+#    src/minhash_stub.h
 #    src/namespace.c
 #    src/namespace.h
     src/object_store.c
     src/object_store.h
     src/parsing.c
     src/parsing.h
-    src/Rabin_Karp.c
-    src/Rabin_Karp.h
+#    src/Rabin_Karp.c
+#    src/Rabin_Karp.h
     src/restore.h
     src/Restore_file.c
     src/sha1.cpp
@@ -62,7 +62,11 @@ set(SOURCE_FILES
     src/vector.c
     src/vector.h
     src/levelDBWrapper.h
-    src/levelDBWrapper.cpp src/RestoreFileDedup.cpp src/RestoreFileDedup.h)
+    src/levelDBWrapper.cpp
+    src/RestoreFileDedup.cpp
+    src/RestoreFileDedup.h
+    src/rabinKarp.cpp
+    src/rabinKarp.h)
 
 
 # find_library(leveldb
