@@ -35,6 +35,8 @@ int RestoreFileDedup::restoreAllFiles(){
     for (vector<string>::iterator it = fileList.begin() ; it != fileList.end(); ++it){
         this->restoreFile(*it);
     }
+
+    return 0;
 }
 
 int RestoreFileDedup::getFileHashValue(string fileName, vector<string>& values){

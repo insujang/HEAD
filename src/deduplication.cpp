@@ -4,10 +4,10 @@
 
 #include "deduplication.h"
 #include "levelDBWrapper.h"
-#include <iostream>
-#include <cassert>
 #include "sha1.h"
 #include "rabinKarp.h"
+#include <iostream>
+#include <cassert>
 #include <leveldb/write_batch.h>
 #include <fstream>
 

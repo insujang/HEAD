@@ -1,6 +1,0 @@
-
-./lt-yadl_dedup -c -n test_result --store_path /home/seikwon/Development/cs710_dedup_yadl/test_dedup_result/ --hash_type sha1 --chunk_scheme variable --store_type default
-./lt-yadl_dedup --dedup -n test_result -f ../../test_dedup/a.txt
-
-./yadl_dedup -r -n test_result -f /home/seikwon/Development/cs710_dedup_yadl/test_dedup/a.txt
-

@@ -1,18 +1,4 @@
 extern "C" {
-#include "main.h"
-#include "string.h"
-#include "namespace.h"
-#include "catalog.h"
-#include "block.h"
-#include "hash.h"
-#include "restore.h"
-#include "delete.h"
-#include "string.h"
-
-#include <unistd.h>
-#include <sys/types.h>
-#include <pwd.h>
-//#include <string.h>
 #include <sys/time.h>
 #include <unistd.h>
 }
@@ -20,7 +6,6 @@ extern "C" {
 #include "levelDBWrapper.h"
 #include "RestoreFileDedup.h"
 #include "deduplication.h"
-
 #include <iostream>
 
 /*Main program!*/
@@ -30,80 +15,13 @@ main (int argc, char *argv[])
     struct timeval start, end;
     LevelDBWrapper* ldb;
     RestoreFileDedup* restoreFile = new RestoreFileDedup();
-//    string fileName("/home/insujang/testDedup.txt");
-//
-//    ldb = LevelDBWrapper::getInstance();
-//    leveldb_t* ptrDB =  ldb->getFileListDB();
-//    ldb->writeDB(ptrDB, fileName, string("1,2,3,4"));
-//
-//    ptrDB =  ldb->getHashListDB();
-//    ldb->writeDB(ptrDB, string("1"), string("abc"));
-//    ldb->writeDB(ptrDB, string("2"), string("def"));
-//    ldb->writeDB(ptrDB, string("3"), string("ghi"));
-//    ldb->writeDB(ptrDB, string("4"), string("FINISH!!"));
-//
-//    restoreFile->RestoreFile(fileName);
-//
-//    dedup_file("/home/insujang/cs710/cs710_dedup_yadl/test.input");
+
     gettimeofday(&start, NULL);
-//    dedup_file("/home/insujang/Downloads/cudnn-8.0-linux-x64-v5.1.tgz");
-    restoreFile->restoreFile("/home/insujang/Downloads/cudnn-8.0-linux-x64-v5.1.tgz");
+    dedup_file("/Users/jeffreychang/Downloads/The_Zynq_Book_ebook_3.pdf");
+//    restoreFile->restoreFile("/home/insujang/Downloads/cudnn-8.0-linux-x64-v5.1.tgz");
     gettimeofday(&end, NULL);
 
-    printf("Processing time: %lds\n", end.tv_sec - start.tv_sec);
+    cout << "Processing time: " << (end.tv_sec - start.tv_sec) << " seconds" << endl;
 
-
-
-//
     return 0;
-        int     ret                       = -1;
-        char    namespace_path[FILE_SIZE] = "";
-        DIR     *dp                       = NULL;
-
-        char 	namespace_dest[256];
-		char* 	dirhome;
-
-		/*
-			[chikdol]
-			Create directory if (~/cs710/) does not exist
-		*/
-
-		if ((dirhome = getenv("HOME")) == NULL) {
-	    	dirhome = getpwuid(getuid())->pw_dir;
-		}
-
-		strcpy (namespace_dest,dirhome);
-		strcat (namespace_dest,"/cs710");
-
-		dp = opendir(namespace_dest);
-        if (NULL == dp) {
-        	mkdir(namespace_dest, 0777);
-        }
-
-
-        //sprintf(namespace_path, "/var/lib/yadl");
-        sprintf(namespace_path, "%s", namespace_dest);
-        dp = opendir(namespace_path);
-        if (NULL == dp) {
-
-                ret = mkdir(namespace_path, 0777);
-                if (ret < 0) {
-                        fprintf(stderr, "%s\n", strerror(errno));
-                        goto out;
-                }
-                ret = create_default_namespace(namespace_path);
-                if (ret < 0) {
-                        fprintf(stderr, "%s\n", strerror(errno));
-                        goto out;
-                }
-        }
-        ret = start_program(argc, argv, namespace_path);
-        if (ret == -1) {
-                goto out;
-        }
-        ret = 0;
-out:
-        if (dp != NULL)
-                closedir(dp);
-        return ret;
 }

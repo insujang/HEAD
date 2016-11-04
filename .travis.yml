@@ -1,19 +1,12 @@
-language: c
+language: cpp
 sudo: true
 compiler:
-    - gcc
+    - g++
 before_install:
-    - bash .travis_cmockery2.sh
-    - code_path=$(pwd)
-    - sudo apt-get install libsnappy-dev
-    - wget https://leveldb.googlecode.com/files/leveldb-1.9.0.tar.gz
-    - tar -xzf leveldb-1.9.0.tar.gz
-    - cd leveldb-1.9.0
+    - wget https://github.com/google/leveldb
+    - cd leveldb
     - make
-    - sudo mv libleveldb.* /usr/local/lib
-    - cd include
-    - sudo cp -R leveldb /usr/local/include
-    - sudo ldconfig
-    - cd $code_path
+    - sudo mv out-shared/libleveldb.* /usr/local/lib
+    - cd ..
 script:
-    - ./autogen.sh && ./configure && make check
+    - cmake && make
