@@ -1,0 +1,612 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+ no time accumulated
+
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+  0.00      0.00     0.00   229119     0.00     0.00  std::string const& std::forward<std::string const&>(std::remove_reference<std::string const&>::type&)
+  0.00      0.00     0.00   163725     0.00     0.00  std::vector<std::string, std::allocator<std::string> >::size() const
+  0.00      0.00     0.00   131059     0.00     0.00  std::string* std::__addressof<std::string>(std::string&)
+  0.00      0.00     0.00   131024     0.00     0.00  std::move_iterator<std::string*>::base() const
+  0.00      0.00     0.00    98292     0.00     0.00  void std::_Destroy<std::string>(std::string*)
+  0.00      0.00     0.00    98235     0.00     0.00  __gnu_cxx::new_allocator<std::string>::max_size() const
+  0.00      0.00     0.00    98225     0.00     0.00  operator new(unsigned long, void*)
+  0.00      0.00     0.00    98222     0.00     0.00  std::_Vector_base<std::string, std::allocator<std::string> >::_M_get_Tp_allocator()
+  0.00      0.00     0.00    65512     0.00     0.00  bool std::operator==<std::string*>(std::move_iterator<std::string*> const&, std::move_iterator<std::string*> const&)
+  0.00      0.00     0.00    65512     0.00     0.00  bool std::operator!=<std::string*>(std::move_iterator<std::string*> const&, std::move_iterator<std::string*> const&)
+  0.00      0.00     0.00    65490     0.00     0.00  std::_Vector_base<std::string, std::allocator<std::string> >::_M_get_Tp_allocator() const
+  0.00      0.00     0.00    65490     0.00     0.00  std::vector<std::string, std::allocator<std::string> >::max_size() const
+  0.00      0.00     0.00    65490     0.00     0.00  std::move_iterator<std::string*>::move_iterator(std::string*)
+  0.00      0.00     0.00    65490     0.00     0.00  std::enable_if<std::allocator_traits<std::allocator<std::string> >::__maxsize_helper<std::allocator<std::string> const>::value, unsigned long>::type std::allocator_traits<std::allocator<std::string> >::_S_max_size<std::allocator<std::string> const>(std::allocator<std::string> const&)
+  0.00      0.00     0.00    65490     0.00     0.00  std::allocator_traits<std::allocator<std::string> >::max_size(std::allocator<std::string> const&)
+  0.00      0.00     0.00    65490     0.00     0.00  std::move_iterator<std::string*> std::__make_move_if_noexcept_iterator<std::string*, std::move_iterator<std::string*> >(std::string*)
+  0.00      0.00     0.00    65477     0.00     0.00  void std::_Destroy_aux<false>::__destroy<std::string*>(std::string*, std::string*)
+  0.00      0.00     0.00    65477     0.00     0.00  std::_Vector_base<std::string, std::allocator<std::string> >::_M_deallocate(std::string*, unsigned long)
+  0.00      0.00     0.00    65477     0.00     0.00  void std::_Destroy<std::string*>(std::string*, std::string*)
+  0.00      0.00     0.00    65477     0.00     0.00  void std::_Destroy<std::string*, std::string>(std::string*, std::string*, std::allocator<std::string>&)
+  0.00      0.00     0.00    65460     0.00     0.00  __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > >::base() const
+  0.00      0.00     0.00    65458     0.00     0.00  _ZN9__gnu_cxx13new_allocatorISsE9constructISsIRKSsEEEvPT_DpOT0_
+  0.00      0.00     0.00    65458     0.00     0.00  std::enable_if<std::allocator_traits<std::allocator<std::string> >::__construct_helper<std::string, std::string const&>::value, void>::type std::allocator_traits<std::allocator<std::string> >::_S_construct<std::string, std::string const&>(std::allocator<std::string>&, std::string*, std::string const&)
+  0.00      0.00     0.00    65458     0.00     0.00  _ZNSt16allocator_traitsISaISsEE9constructISsIRKSsEEEDTcl12_S_constructfp_fp0_spcl7forwardIT0_Efp1_EEERS0_PT_DpOS5_
+  0.00      0.00     0.00    65458     0.00     0.00  std::vector<std::string, std::allocator<std::string> >::push_back(std::string const&)
+  0.00      0.00     0.00    65458     0.00     0.00  std::vector<std::string, std::allocator<std::string> >::operator[](unsigned long)
+  0.00      0.00     0.00    32767     0.00     0.00  std::move_iterator<std::string*>::operator*() const
+  0.00      0.00     0.00    32767     0.00     0.00  std::move_iterator<std::string*>::operator++()
+  0.00      0.00     0.00    32767     0.00     0.00  void std::_Construct<std::string, std::string>(std::string*, std::string&&)
+  0.00      0.00     0.00    32767     0.00     0.00  std::remove_reference<std::string&>::type&& std::move<std::string&>(std::string&)
+  0.00      0.00     0.00    32767     0.00     0.00  std::string&& std::forward<std::string>(std::remove_reference<std::string>::type&)
+  0.00      0.00     0.00    32747     0.00     0.00  __gnu_cxx::new_allocator<std::string>::deallocate(std::string*, unsigned long)
+  0.00      0.00     0.00    32745     0.00     0.00  __gnu_cxx::new_allocator<std::string>::allocate(unsigned long, void const*)
+  0.00      0.00     0.00    32745     0.00     0.00  std::vector<std::string, std::allocator<std::string> >::_M_check_len(unsigned long, char const*) const
+  0.00      0.00     0.00    32745     0.00     0.00  std::_Vector_base<std::string, std::allocator<std::string> >::_M_allocate(unsigned long)
+  0.00      0.00     0.00    32745     0.00     0.00  std::string* std::__uninitialized_copy<false>::__uninit_copy<std::move_iterator<std::string*>, std::string*>(std::move_iterator<std::string*>, std::move_iterator<std::string*>, std::string*)
+  0.00      0.00     0.00    32745     0.00     0.00  void std::vector<std::string, std::allocator<std::string> >::_M_emplace_back_aux<std::string const&>(std::string const&)
+  0.00      0.00     0.00    32745     0.00     0.00  std::string* std::uninitialized_copy<std::move_iterator<std::string*>, std::string*>(std::move_iterator<std::string*>, std::move_iterator<std::string*>, std::string*)
+  0.00      0.00     0.00    32745     0.00     0.00  std::string* std::__uninitialized_copy_a<std::move_iterator<std::string*>, std::string*, std::string>(std::move_iterator<std::string*>, std::move_iterator<std::string*>, std::string*, std::allocator<std::string>&)
+  0.00      0.00     0.00    32745     0.00     0.00  std::string* std::__uninitialized_move_if_noexcept_a<std::string*, std::string*, std::allocator<std::string> >(std::string*, std::string*, std::string*, std::allocator<std::string>&)
+  0.00      0.00     0.00    32745     0.00     0.00  unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&)
+  0.00      0.00     0.00    32732     0.00     0.00  leveldb::Status::~Status()
+  0.00      0.00     0.00    32732     0.00     0.00  __gnu_cxx::new_allocator<std::string>::~new_allocator()
+  0.00      0.00     0.00    32732     0.00     0.00  std::allocator<std::string>::~allocator()
+  0.00      0.00     0.00    32732     0.00     0.00  std::_Vector_base<std::string, std::allocator<std::string> >::_Vector_impl::~_Vector_impl()
+  0.00      0.00     0.00    32732     0.00     0.00  std::_Vector_base<std::string, std::allocator<std::string> >::~_Vector_base()
+  0.00      0.00     0.00    32731     0.00     0.00  __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > >::__normal_iterator(std::string* const&)
+  0.00      0.00     0.00    32730     0.00     0.00  LevelDBWrapper::readDB(leveldb::DB*, leveldb::Slice, std::vector<std::string, std::allocator<std::string> >&, char)
+  0.00      0.00     0.00    32730     0.00     0.00  leveldb::Slice::Slice(std::string const&)
+  0.00      0.00     0.00    32730     0.00     0.00  __gnu_cxx::new_allocator<std::string>::new_allocator()
+  0.00      0.00     0.00    32730     0.00     0.00  bool __gnu_cxx::operator!=<std::string*, std::vector<std::string, std::allocator<std::string> > >(__gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > > const&, __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > > const&)
+  0.00      0.00     0.00    32730     0.00     0.00  leveldb::Status::ok() const
+  0.00      0.00     0.00    32730     0.00     0.00  std::allocator<std::string>::allocator()
+  0.00      0.00     0.00    32730     0.00     0.00  std::_Vector_base<std::string, std::allocator<std::string> >::_Vector_impl::_Vector_impl()
+  0.00      0.00     0.00    32730     0.00     0.00  std::_Vector_base<std::string, std::allocator<std::string> >::_Vector_base()
+  0.00      0.00     0.00    32730     0.00     0.00  std::vector<std::string, std::allocator<std::string> >::end()
+  0.00      0.00     0.00    32730     0.00     0.00  std::vector<std::string, std::allocator<std::string> >::vector()
+  0.00      0.00     0.00    32730     0.00     0.00  std::vector<std::string, std::allocator<std::string> >::~vector()
+  0.00      0.00     0.00    32729     0.00     0.00  __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > >::operator++()
+  0.00      0.00     0.00    32729     0.00     0.00  __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > >::operator*() const
+  0.00      0.00     0.00        2     0.00     0.00  LevelDBWrapper::getInstance()
+  0.00      0.00     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z13get_file_sizeRSs
+  0.00      0.00     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z18get_variable_chunkPci
+  0.00      0.00     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN14LevelDBWrapper8instanceE
+  0.00      0.00     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN16RestoreFileDedup11restoreFileESs
+  0.00      0.00     0.00        1     0.00     0.00  _GLOBAL__sub_I_main
+  0.00      0.00     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00      0.00     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00      0.00     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00      0.00     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00      0.00     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00      0.00     0.00        1     0.00     0.00  LevelDBWrapper::splitString(std::string&, char, std::vector<std::string, std::allocator<std::string> >&)
+  0.00      0.00     0.00        1     0.00     0.00  LevelDBWrapper::getFileListDB()
+  0.00      0.00     0.00        1     0.00     0.00  LevelDBWrapper::getHashListDB()
+  0.00      0.00     0.00        1     0.00     0.00  LevelDBWrapper::LevelDBWrapper()
+  0.00      0.00     0.00        1     0.00     0.00  RestoreFileDedup::restoreFile(std::string)
+  0.00      0.00     0.00        1     0.00     0.00  RestoreFileDedup::restoreContent(std::string, std::vector<std::string, std::allocator<std::string> >&)
+  0.00      0.00     0.00        1     0.00     0.00  RestoreFileDedup::getFileHashValue(std::string, std::vector<std::string, std::allocator<std::string> >&)
+  0.00      0.00     0.00        1     0.00     0.00  RestoreFileDedup::RestoreFileDedup()
+  0.00      0.00     0.00        1     0.00     0.00  leveldb::ReadOptions::ReadOptions()
+  0.00      0.00     0.00        1     0.00     0.00  leveldb::WriteOptions::WriteOptions()
+  0.00      0.00     0.00        1     0.00     0.00  std::vector<std::string, std::allocator<std::string> >::begin()
+  0.00      0.00     0.00        1     0.00     0.00  std::operator|(std::_Ios_Openmode, std::_Ios_Openmode)
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+ 
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this 
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) no time propagated
+
+index % time    self  children    called     name
+                0.00    0.00   32745/229119      void std::vector<std::string, std::allocator<std::string> >::_M_emplace_back_aux<std::string const&>(std::string const&) [82]
+                0.00    0.00   65458/229119      _ZNSt16allocator_traitsISaISsEE9constructISsIRKSsEEEDTcl12_S_constructfp_fp0_spcl7forwardIT0_Efp1_EEERS0_PT_DpOS5_ [69]
+                0.00    0.00   65458/229119      std::enable_if<std::allocator_traits<std::allocator<std::string> >::__construct_helper<std::string, std::string const&>::value, void>::type std::allocator_traits<std::allocator<std::string> >::_S_construct<std::string, std::string const&>(std::allocator<std::string>&, std::string*, std::string const&) [68]
+                0.00    0.00   65458/229119      _ZN9__gnu_cxx13new_allocatorISsE9constructISsIRKSsEEEvPT_DpOT0_ [67]
+[46]     0.0    0.00    0.00  229119         std::string const& std::forward<std::string const&>(std::remove_reference<std::string const&>::type&) [46]
+-----------------------------------------------
+                0.00    0.00   32745/163725      void std::vector<std::string, std::allocator<std::string> >::_M_emplace_back_aux<std::string const&>(std::string const&) [82]
+                0.00    0.00  130980/163725      std::vector<std::string, std::allocator<std::string> >::_M_check_len(unsigned long, char const*) const [79]
+[47]     0.0    0.00    0.00  163725         std::vector<std::string, std::allocator<std::string> >::size() const [47]
+-----------------------------------------------
+                0.00    0.00   32767/131059      std::string* std::__uninitialized_copy<false>::__uninit_copy<std::move_iterator<std::string*>, std::string*>(std::move_iterator<std::string*>, std::move_iterator<std::string*>, std::string*) [81]
+                0.00    0.00   98292/131059      void std::_Destroy_aux<false>::__destroy<std::string*>(std::string*, std::string*) [62]
+[48]     0.0    0.00    0.00  131059         std::string* std::__addressof<std::string>(std::string&) [48]
+-----------------------------------------------
+                0.00    0.00  131024/131024      bool std::operator==<std::string*>(std::move_iterator<std::string*> const&, std::move_iterator<std::string*> const&) [54]
+[49]     0.0    0.00    0.00  131024         std::move_iterator<std::string*>::base() const [49]
+-----------------------------------------------
+                0.00    0.00   98292/98292       void std::_Destroy_aux<false>::__destroy<std::string*>(std::string*, std::string*) [62]
+[50]     0.0    0.00    0.00   98292         void std::_Destroy<std::string>(std::string*) [50]
+-----------------------------------------------
+                0.00    0.00   32745/98235       __gnu_cxx::new_allocator<std::string>::allocate(unsigned long, void const*) [78]
+                0.00    0.00   65490/98235       std::enable_if<std::allocator_traits<std::allocator<std::string> >::__maxsize_helper<std::allocator<std::string> const>::value, unsigned long>::type std::allocator_traits<std::allocator<std::string> >::_S_max_size<std::allocator<std::string> const>(std::allocator<std::string> const&) [59]
+[51]     0.0    0.00    0.00   98235         __gnu_cxx::new_allocator<std::string>::max_size() const [51]
+-----------------------------------------------
+                0.00    0.00   32767/98225       void std::_Construct<std::string, std::string>(std::string*, std::string&&) [74]
+                0.00    0.00   65458/98225       _ZN9__gnu_cxx13new_allocatorISsE9constructISsIRKSsEEEvPT_DpOT0_ [67]
+[52]     0.0    0.00    0.00   98225         operator new(unsigned long, void*) [52]
+-----------------------------------------------
+                0.00    0.00   32732/98222       std::vector<std::string, std::allocator<std::string> >::~vector() [103]
+                0.00    0.00   65490/98222       void std::vector<std::string, std::allocator<std::string> >::_M_emplace_back_aux<std::string const&>(std::string const&) [82]
+[53]     0.0    0.00    0.00   98222         std::_Vector_base<std::string, std::allocator<std::string> >::_M_get_Tp_allocator() [53]
+-----------------------------------------------
+                0.00    0.00   65512/65512       bool std::operator!=<std::string*>(std::move_iterator<std::string*> const&, std::move_iterator<std::string*> const&) [55]
+[54]     0.0    0.00    0.00   65512         bool std::operator==<std::string*>(std::move_iterator<std::string*> const&, std::move_iterator<std::string*> const&) [54]
+                0.00    0.00  131024/131024      std::move_iterator<std::string*>::base() const [49]
+-----------------------------------------------
+                0.00    0.00   65512/65512       std::string* std::__uninitialized_copy<false>::__uninit_copy<std::move_iterator<std::string*>, std::string*>(std::move_iterator<std::string*>, std::move_iterator<std::string*>, std::string*) [81]
+[55]     0.0    0.00    0.00   65512         bool std::operator!=<std::string*>(std::move_iterator<std::string*> const&, std::move_iterator<std::string*> const&) [55]
+                0.00    0.00   65512/65512       bool std::operator==<std::string*>(std::move_iterator<std::string*> const&, std::move_iterator<std::string*> const&) [54]
+-----------------------------------------------
+                0.00    0.00   65490/65490       std::vector<std::string, std::allocator<std::string> >::max_size() const [57]
+[56]     0.0    0.00    0.00   65490         std::_Vector_base<std::string, std::allocator<std::string> >::_M_get_Tp_allocator() const [56]
+-----------------------------------------------
+                0.00    0.00   65490/65490       std::vector<std::string, std::allocator<std::string> >::_M_check_len(unsigned long, char const*) const [79]
+[57]     0.0    0.00    0.00   65490         std::vector<std::string, std::allocator<std::string> >::max_size() const [57]
+                0.00    0.00   65490/65490       std::_Vector_base<std::string, std::allocator<std::string> >::_M_get_Tp_allocator() const [56]
+                0.00    0.00   65490/65490       std::allocator_traits<std::allocator<std::string> >::max_size(std::allocator<std::string> const&) [60]
+-----------------------------------------------
+                0.00    0.00   65490/65490       std::move_iterator<std::string*> std::__make_move_if_noexcept_iterator<std::string*, std::move_iterator<std::string*> >(std::string*) [61]
+[58]     0.0    0.00    0.00   65490         std::move_iterator<std::string*>::move_iterator(std::string*) [58]
+-----------------------------------------------
+                0.00    0.00   65490/65490       std::allocator_traits<std::allocator<std::string> >::max_size(std::allocator<std::string> const&) [60]
+[59]     0.0    0.00    0.00   65490         std::enable_if<std::allocator_traits<std::allocator<std::string> >::__maxsize_helper<std::allocator<std::string> const>::value, unsigned long>::type std::allocator_traits<std::allocator<std::string> >::_S_max_size<std::allocator<std::string> const>(std::allocator<std::string> const&) [59]
+                0.00    0.00   65490/98235       __gnu_cxx::new_allocator<std::string>::max_size() const [51]
+-----------------------------------------------
+                0.00    0.00   65490/65490       std::vector<std::string, std::allocator<std::string> >::max_size() const [57]
+[60]     0.0    0.00    0.00   65490         std::allocator_traits<std::allocator<std::string> >::max_size(std::allocator<std::string> const&) [60]
+                0.00    0.00   65490/65490       std::enable_if<std::allocator_traits<std::allocator<std::string> >::__maxsize_helper<std::allocator<std::string> const>::value, unsigned long>::type std::allocator_traits<std::allocator<std::string> >::_S_max_size<std::allocator<std::string> const>(std::allocator<std::string> const&) [59]
+-----------------------------------------------
+                0.00    0.00   65490/65490       std::string* std::__uninitialized_move_if_noexcept_a<std::string*, std::string*, std::allocator<std::string> >(std::string*, std::string*, std::string*, std::allocator<std::string>&) [85]
+[61]     0.0    0.00    0.00   65490         std::move_iterator<std::string*> std::__make_move_if_noexcept_iterator<std::string*, std::move_iterator<std::string*> >(std::string*) [61]
+                0.00    0.00   65490/65490       std::move_iterator<std::string*>::move_iterator(std::string*) [58]
+-----------------------------------------------
+                0.00    0.00   65477/65477       void std::_Destroy<std::string*>(std::string*, std::string*) [64]
+[62]     0.0    0.00    0.00   65477         void std::_Destroy_aux<false>::__destroy<std::string*>(std::string*, std::string*) [62]
+                0.00    0.00   98292/131059      std::string* std::__addressof<std::string>(std::string&) [48]
+                0.00    0.00   98292/98292       void std::_Destroy<std::string>(std::string*) [50]
+-----------------------------------------------
+                0.00    0.00   32732/65477       std::_Vector_base<std::string, std::allocator<std::string> >::~_Vector_base() [91]
+                0.00    0.00   32745/65477       void std::vector<std::string, std::allocator<std::string> >::_M_emplace_back_aux<std::string const&>(std::string const&) [82]
+[63]     0.0    0.00    0.00   65477         std::_Vector_base<std::string, std::allocator<std::string> >::_M_deallocate(std::string*, unsigned long) [63]
+                0.00    0.00   32747/32747       __gnu_cxx::new_allocator<std::string>::deallocate(std::string*, unsigned long) [77]
+-----------------------------------------------
+                0.00    0.00   65477/65477       void std::_Destroy<std::string*, std::string>(std::string*, std::string*, std::allocator<std::string>&) [65]
+[64]     0.0    0.00    0.00   65477         void std::_Destroy<std::string*>(std::string*, std::string*) [64]
+                0.00    0.00   65477/65477       void std::_Destroy_aux<false>::__destroy<std::string*>(std::string*, std::string*) [62]
+-----------------------------------------------
+                0.00    0.00   32732/65477       std::vector<std::string, std::allocator<std::string> >::~vector() [103]
+                0.00    0.00   32745/65477       void std::vector<std::string, std::allocator<std::string> >::_M_emplace_back_aux<std::string const&>(std::string const&) [82]
+[65]     0.0    0.00    0.00   65477         void std::_Destroy<std::string*, std::string>(std::string*, std::string*, std::allocator<std::string>&) [65]
+                0.00    0.00   65477/65477       void std::_Destroy<std::string*>(std::string*, std::string*) [64]
+-----------------------------------------------
+                0.00    0.00   65460/65460       bool __gnu_cxx::operator!=<std::string*, std::vector<std::string, std::allocator<std::string> > >(__gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > > const&, __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > > const&) [96]
+[66]     0.0    0.00    0.00   65460         __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > >::base() const [66]
+-----------------------------------------------
+                0.00    0.00   65458/65458       std::enable_if<std::allocator_traits<std::allocator<std::string> >::__construct_helper<std::string, std::string const&>::value, void>::type std::allocator_traits<std::allocator<std::string> >::_S_construct<std::string, std::string const&>(std::allocator<std::string>&, std::string*, std::string const&) [68]
+[67]     0.0    0.00    0.00   65458         _ZN9__gnu_cxx13new_allocatorISsE9constructISsIRKSsEEEvPT_DpOT0_ [67]
+                0.00    0.00   65458/229119      std::string const& std::forward<std::string const&>(std::remove_reference<std::string const&>::type&) [46]
+                0.00    0.00   65458/98225       operator new(unsigned long, void*) [52]
+-----------------------------------------------
+                0.00    0.00   65458/65458       _ZNSt16allocator_traitsISaISsEE9constructISsIRKSsEEEDTcl12_S_constructfp_fp0_spcl7forwardIT0_Efp1_EEERS0_PT_DpOS5_ [69]
+[68]     0.0    0.00    0.00   65458         std::enable_if<std::allocator_traits<std::allocator<std::string> >::__construct_helper<std::string, std::string const&>::value, void>::type std::allocator_traits<std::allocator<std::string> >::_S_construct<std::string, std::string const&>(std::allocator<std::string>&, std::string*, std::string const&) [68]
+                0.00    0.00   65458/229119      std::string const& std::forward<std::string const&>(std::remove_reference<std::string const&>::type&) [46]
+                0.00    0.00   65458/65458       _ZN9__gnu_cxx13new_allocatorISsE9constructISsIRKSsEEEvPT_DpOT0_ [67]
+-----------------------------------------------
+                0.00    0.00   32713/65458       std::vector<std::string, std::allocator<std::string> >::push_back(std::string const&) [70]
+                0.00    0.00   32745/65458       void std::vector<std::string, std::allocator<std::string> >::_M_emplace_back_aux<std::string const&>(std::string const&) [82]
+[69]     0.0    0.00    0.00   65458         _ZNSt16allocator_traitsISaISsEE9constructISsIRKSsEEEDTcl12_S_constructfp_fp0_spcl7forwardIT0_Efp1_EEERS0_PT_DpOS5_ [69]
+                0.00    0.00   65458/229119      std::string const& std::forward<std::string const&>(std::remove_reference<std::string const&>::type&) [46]
+                0.00    0.00   65458/65458       std::enable_if<std::allocator_traits<std::allocator<std::string> >::__construct_helper<std::string, std::string const&>::value, void>::type std::allocator_traits<std::allocator<std::string> >::_S_construct<std::string, std::string const&>(std::allocator<std::string>&, std::string*, std::string const&) [68]
+-----------------------------------------------
+                0.00    0.00   32729/65458       LevelDBWrapper::readDB(leveldb::DB*, leveldb::Slice, std::vector<std::string, std::allocator<std::string> >&, char) [93]
+                0.00    0.00   32729/65458       LevelDBWrapper::splitString(std::string&, char, std::vector<std::string, std::allocator<std::string> >&) [117]
+[70]     0.0    0.00    0.00   65458         std::vector<std::string, std::allocator<std::string> >::push_back(std::string const&) [70]
+                0.00    0.00   32745/32745       void std::vector<std::string, std::allocator<std::string> >::_M_emplace_back_aux<std::string const&>(std::string const&) [82]
+                0.00    0.00   32713/65458       _ZNSt16allocator_traitsISaISsEE9constructISsIRKSsEEEDTcl12_S_constructfp_fp0_spcl7forwardIT0_Efp1_EEERS0_PT_DpOS5_ [69]
+-----------------------------------------------
+                0.00    0.00   65458/65458       RestoreFileDedup::restoreContent(std::string, std::vector<std::string, std::allocator<std::string> >&) [122]
+[71]     0.0    0.00    0.00   65458         std::vector<std::string, std::allocator<std::string> >::operator[](unsigned long) [71]
+-----------------------------------------------
+                0.00    0.00   32767/32767       std::string* std::__uninitialized_copy<false>::__uninit_copy<std::move_iterator<std::string*>, std::string*>(std::move_iterator<std::string*>, std::move_iterator<std::string*>, std::string*) [81]
+[72]     0.0    0.00    0.00   32767         std::move_iterator<std::string*>::operator*() const [72]
+                0.00    0.00   32767/32767       std::remove_reference<std::string&>::type&& std::move<std::string&>(std::string&) [75]
+-----------------------------------------------
+                0.00    0.00   32767/32767       std::string* std::__uninitialized_copy<false>::__uninit_copy<std::move_iterator<std::string*>, std::string*>(std::move_iterator<std::string*>, std::move_iterator<std::string*>, std::string*) [81]
+[73]     0.0    0.00    0.00   32767         std::move_iterator<std::string*>::operator++() [73]
+-----------------------------------------------
+                0.00    0.00   32767/32767       std::string* std::__uninitialized_copy<false>::__uninit_copy<std::move_iterator<std::string*>, std::string*>(std::move_iterator<std::string*>, std::move_iterator<std::string*>, std::string*) [81]
+[74]     0.0    0.00    0.00   32767         void std::_Construct<std::string, std::string>(std::string*, std::string&&) [74]
+                0.00    0.00   32767/32767       std::string&& std::forward<std::string>(std::remove_reference<std::string>::type&) [76]
+                0.00    0.00   32767/98225       operator new(unsigned long, void*) [52]
+-----------------------------------------------
+                0.00    0.00   32767/32767       std::move_iterator<std::string*>::operator*() const [72]
+[75]     0.0    0.00    0.00   32767         std::remove_reference<std::string&>::type&& std::move<std::string&>(std::string&) [75]
+-----------------------------------------------
+                0.00    0.00   32767/32767       void std::_Construct<std::string, std::string>(std::string*, std::string&&) [74]
+[76]     0.0    0.00    0.00   32767         std::string&& std::forward<std::string>(std::remove_reference<std::string>::type&) [76]
+-----------------------------------------------
+                0.00    0.00   32747/32747       std::_Vector_base<std::string, std::allocator<std::string> >::_M_deallocate(std::string*, unsigned long) [63]
+[77]     0.0    0.00    0.00   32747         __gnu_cxx::new_allocator<std::string>::deallocate(std::string*, unsigned long) [77]
+-----------------------------------------------
+                0.00    0.00   32745/32745       std::_Vector_base<std::string, std::allocator<std::string> >::_M_allocate(unsigned long) [80]
+[78]     0.0    0.00    0.00   32745         __gnu_cxx::new_allocator<std::string>::allocate(unsigned long, void const*) [78]
+                0.00    0.00   32745/98235       __gnu_cxx::new_allocator<std::string>::max_size() const [51]
+-----------------------------------------------
+                0.00    0.00   32745/32745       void std::vector<std::string, std::allocator<std::string> >::_M_emplace_back_aux<std::string const&>(std::string const&) [82]
+[79]     0.0    0.00    0.00   32745         std::vector<std::string, std::allocator<std::string> >::_M_check_len(unsigned long, char const*) const [79]
+                0.00    0.00  130980/163725      std::vector<std::string, std::allocator<std::string> >::size() const [47]
+                0.00    0.00   65490/65490       std::vector<std::string, std::allocator<std::string> >::max_size() const [57]
+                0.00    0.00   32745/32745       unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&) [86]
+-----------------------------------------------
+                0.00    0.00   32745/32745       void std::vector<std::string, std::allocator<std::string> >::_M_emplace_back_aux<std::string const&>(std::string const&) [82]
+[80]     0.0    0.00    0.00   32745         std::_Vector_base<std::string, std::allocator<std::string> >::_M_allocate(unsigned long) [80]
+                0.00    0.00   32745/32745       __gnu_cxx::new_allocator<std::string>::allocate(unsigned long, void const*) [78]
+-----------------------------------------------
+                0.00    0.00   32745/32745       std::string* std::uninitialized_copy<std::move_iterator<std::string*>, std::string*>(std::move_iterator<std::string*>, std::move_iterator<std::string*>, std::string*) [83]
+[81]     0.0    0.00    0.00   32745         std::string* std::__uninitialized_copy<false>::__uninit_copy<std::move_iterator<std::string*>, std::string*>(std::move_iterator<std::string*>, std::move_iterator<std::string*>, std::string*) [81]
+                0.00    0.00   65512/65512       bool std::operator!=<std::string*>(std::move_iterator<std::string*> const&, std::move_iterator<std::string*> const&) [55]
+                0.00    0.00   32767/32767       std::move_iterator<std::string*>::operator*() const [72]
+                0.00    0.00   32767/131059      std::string* std::__addressof<std::string>(std::string&) [48]
+                0.00    0.00   32767/32767       void std::_Construct<std::string, std::string>(std::string*, std::string&&) [74]
+                0.00    0.00   32767/32767       std::move_iterator<std::string*>::operator++() [73]
+-----------------------------------------------
+                0.00    0.00   32745/32745       std::vector<std::string, std::allocator<std::string> >::push_back(std::string const&) [70]
+[82]     0.0    0.00    0.00   32745         void std::vector<std::string, std::allocator<std::string> >::_M_emplace_back_aux<std::string const&>(std::string const&) [82]
+                0.00    0.00   65490/98222       std::_Vector_base<std::string, std::allocator<std::string> >::_M_get_Tp_allocator() [53]
+                0.00    0.00   32745/32745       std::vector<std::string, std::allocator<std::string> >::_M_check_len(unsigned long, char const*) const [79]
+                0.00    0.00   32745/32745       std::_Vector_base<std::string, std::allocator<std::string> >::_M_allocate(unsigned long) [80]
+                0.00    0.00   32745/229119      std::string const& std::forward<std::string const&>(std::remove_reference<std::string const&>::type&) [46]
+                0.00    0.00   32745/163725      std::vector<std::string, std::allocator<std::string> >::size() const [47]
+                0.00    0.00   32745/65458       _ZNSt16allocator_traitsISaISsEE9constructISsIRKSsEEEDTcl12_S_constructfp_fp0_spcl7forwardIT0_Efp1_EEERS0_PT_DpOS5_ [69]
+                0.00    0.00   32745/32745       std::string* std::__uninitialized_move_if_noexcept_a<std::string*, std::string*, std::allocator<std::string> >(std::string*, std::string*, std::string*, std::allocator<std::string>&) [85]
+                0.00    0.00   32745/65477       void std::_Destroy<std::string*, std::string>(std::string*, std::string*, std::allocator<std::string>&) [65]
+                0.00    0.00   32745/65477       std::_Vector_base<std::string, std::allocator<std::string> >::_M_deallocate(std::string*, unsigned long) [63]
+-----------------------------------------------
+                0.00    0.00   32745/32745       std::string* std::__uninitialized_copy_a<std::move_iterator<std::string*>, std::string*, std::string>(std::move_iterator<std::string*>, std::move_iterator<std::string*>, std::string*, std::allocator<std::string>&) [84]
+[83]     0.0    0.00    0.00   32745         std::string* std::uninitialized_copy<std::move_iterator<std::string*>, std::string*>(std::move_iterator<std::string*>, std::move_iterator<std::string*>, std::string*) [83]
+                0.00    0.00   32745/32745       std::string* std::__uninitialized_copy<false>::__uninit_copy<std::move_iterator<std::string*>, std::string*>(std::move_iterator<std::string*>, std::move_iterator<std::string*>, std::string*) [81]
+-----------------------------------------------
+                0.00    0.00   32745/32745       std::string* std::__uninitialized_move_if_noexcept_a<std::string*, std::string*, std::allocator<std::string> >(std::string*, std::string*, std::string*, std::allocator<std::string>&) [85]
+[84]     0.0    0.00    0.00   32745         std::string* std::__uninitialized_copy_a<std::move_iterator<std::string*>, std::string*, std::string>(std::move_iterator<std::string*>, std::move_iterator<std::string*>, std::string*, std::allocator<std::string>&) [84]
+                0.00    0.00   32745/32745       std::string* std::uninitialized_copy<std::move_iterator<std::string*>, std::string*>(std::move_iterator<std::string*>, std::move_iterator<std::string*>, std::string*) [83]
+-----------------------------------------------
+                0.00    0.00   32745/32745       void std::vector<std::string, std::allocator<std::string> >::_M_emplace_back_aux<std::string const&>(std::string const&) [82]
+[85]     0.0    0.00    0.00   32745         std::string* std::__uninitialized_move_if_noexcept_a<std::string*, std::string*, std::allocator<std::string> >(std::string*, std::string*, std::string*, std::allocator<std::string>&) [85]
+                0.00    0.00   65490/65490       std::move_iterator<std::string*> std::__make_move_if_noexcept_iterator<std::string*, std::move_iterator<std::string*> >(std::string*) [61]
+                0.00    0.00   32745/32745       std::string* std::__uninitialized_copy_a<std::move_iterator<std::string*>, std::string*, std::string>(std::move_iterator<std::string*>, std::move_iterator<std::string*>, std::string*, std::allocator<std::string>&) [84]
+-----------------------------------------------
+                0.00    0.00   32745/32745       std::vector<std::string, std::allocator<std::string> >::_M_check_len(unsigned long, char const*) const [79]
+[86]     0.0    0.00    0.00   32745         unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&) [86]
+-----------------------------------------------
+                0.00    0.00       2/32732       LevelDBWrapper::LevelDBWrapper() [120]
+                0.00    0.00   32730/32732       LevelDBWrapper::readDB(leveldb::DB*, leveldb::Slice, std::vector<std::string, std::allocator<std::string> >&, char) [93]
+[87]     0.0    0.00    0.00   32732         leveldb::Status::~Status() [87]
+-----------------------------------------------
+                0.00    0.00   32732/32732       std::allocator<std::string>::~allocator() [89]
+[88]     0.0    0.00    0.00   32732         __gnu_cxx::new_allocator<std::string>::~new_allocator() [88]
+-----------------------------------------------
+                0.00    0.00   32732/32732       std::_Vector_base<std::string, std::allocator<std::string> >::_Vector_impl::~_Vector_impl() [90]
+[89]     0.0    0.00    0.00   32732         std::allocator<std::string>::~allocator() [89]
+                0.00    0.00   32732/32732       __gnu_cxx::new_allocator<std::string>::~new_allocator() [88]
+-----------------------------------------------
+                0.00    0.00   32732/32732       std::_Vector_base<std::string, std::allocator<std::string> >::~_Vector_base() [91]
+[90]     0.0    0.00    0.00   32732         std::_Vector_base<std::string, std::allocator<std::string> >::_Vector_impl::~_Vector_impl() [90]
+                0.00    0.00   32732/32732       std::allocator<std::string>::~allocator() [89]
+-----------------------------------------------
+                0.00    0.00   32732/32732       std::vector<std::string, std::allocator<std::string> >::~vector() [103]
+[91]     0.0    0.00    0.00   32732         std::_Vector_base<std::string, std::allocator<std::string> >::~_Vector_base() [91]
+                0.00    0.00   32732/32732       std::_Vector_base<std::string, std::allocator<std::string> >::_Vector_impl::~_Vector_impl() [90]
+                0.00    0.00   32732/65477       std::_Vector_base<std::string, std::allocator<std::string> >::_M_deallocate(std::string*, unsigned long) [63]
+-----------------------------------------------
+                0.00    0.00       1/32731       std::vector<std::string, std::allocator<std::string> >::begin() [127]
+                0.00    0.00   32730/32731       std::vector<std::string, std::allocator<std::string> >::end() [101]
+[92]     0.0    0.00    0.00   32731         __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > >::__normal_iterator(std::string* const&) [92]
+-----------------------------------------------
+                0.00    0.00       1/32730       RestoreFileDedup::getFileHashValue(std::string, std::vector<std::string, std::allocator<std::string> >&) [123]
+                0.00    0.00   32729/32730       RestoreFileDedup::restoreContent(std::string, std::vector<std::string, std::allocator<std::string> >&) [122]
+[93]     0.0    0.00    0.00   32730         LevelDBWrapper::readDB(leveldb::DB*, leveldb::Slice, std::vector<std::string, std::allocator<std::string> >&, char) [93]
+                0.00    0.00   32730/32730       leveldb::Status::ok() const [97]
+                0.00    0.00   32730/32732       leveldb::Status::~Status() [87]
+                0.00    0.00   32729/65458       std::vector<std::string, std::allocator<std::string> >::push_back(std::string const&) [70]
+                0.00    0.00       1/1           LevelDBWrapper::splitString(std::string&, char, std::vector<std::string, std::allocator<std::string> >&) [117]
+-----------------------------------------------
+                0.00    0.00       1/32730       RestoreFileDedup::getFileHashValue(std::string, std::vector<std::string, std::allocator<std::string> >&) [123]
+                0.00    0.00   32729/32730       RestoreFileDedup::restoreContent(std::string, std::vector<std::string, std::allocator<std::string> >&) [122]
+[94]     0.0    0.00    0.00   32730         leveldb::Slice::Slice(std::string const&) [94]
+-----------------------------------------------
+                0.00    0.00   32730/32730       std::allocator<std::string>::allocator() [98]
+[95]     0.0    0.00    0.00   32730         __gnu_cxx::new_allocator<std::string>::new_allocator() [95]
+-----------------------------------------------
+                0.00    0.00   32730/32730       RestoreFileDedup::restoreContent(std::string, std::vector<std::string, std::allocator<std::string> >&) [122]
+[96]     0.0    0.00    0.00   32730         bool __gnu_cxx::operator!=<std::string*, std::vector<std::string, std::allocator<std::string> > >(__gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > > const&, __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > > const&) [96]
+                0.00    0.00   65460/65460       __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > >::base() const [66]
+-----------------------------------------------
+                0.00    0.00   32730/32730       LevelDBWrapper::readDB(leveldb::DB*, leveldb::Slice, std::vector<std::string, std::allocator<std::string> >&, char) [93]
+[97]     0.0    0.00    0.00   32730         leveldb::Status::ok() const [97]
+-----------------------------------------------
+                0.00    0.00   32730/32730       std::_Vector_base<std::string, std::allocator<std::string> >::_Vector_impl::_Vector_impl() [99]
+[98]     0.0    0.00    0.00   32730         std::allocator<std::string>::allocator() [98]
+                0.00    0.00   32730/32730       __gnu_cxx::new_allocator<std::string>::new_allocator() [95]
+-----------------------------------------------
+                0.00    0.00   32730/32730       std::_Vector_base<std::string, std::allocator<std::string> >::_Vector_base() [100]
+[99]     0.0    0.00    0.00   32730         std::_Vector_base<std::string, std::allocator<std::string> >::_Vector_impl::_Vector_impl() [99]
+                0.00    0.00   32730/32730       std::allocator<std::string>::allocator() [98]
+-----------------------------------------------
+                0.00    0.00   32730/32730       std::vector<std::string, std::allocator<std::string> >::vector() [102]
+[100]    0.0    0.00    0.00   32730         std::_Vector_base<std::string, std::allocator<std::string> >::_Vector_base() [100]
+                0.00    0.00   32730/32730       std::_Vector_base<std::string, std::allocator<std::string> >::_Vector_impl::_Vector_impl() [99]
+-----------------------------------------------
+                0.00    0.00   32730/32730       RestoreFileDedup::restoreContent(std::string, std::vector<std::string, std::allocator<std::string> >&) [122]
+[101]    0.0    0.00    0.00   32730         std::vector<std::string, std::allocator<std::string> >::end() [101]
+                0.00    0.00   32730/32731       __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > >::__normal_iterator(std::string* const&) [92]
+-----------------------------------------------
+                0.00    0.00       1/32730       RestoreFileDedup::restoreFile(std::string) [121]
+                0.00    0.00   32729/32730       RestoreFileDedup::restoreContent(std::string, std::vector<std::string, std::allocator<std::string> >&) [122]
+[102]    0.0    0.00    0.00   32730         std::vector<std::string, std::allocator<std::string> >::vector() [102]
+                0.00    0.00   32730/32730       std::_Vector_base<std::string, std::allocator<std::string> >::_Vector_base() [100]
+-----------------------------------------------
+                0.00    0.00       1/32730       RestoreFileDedup::restoreFile(std::string) [121]
+                0.00    0.00   32729/32730       RestoreFileDedup::restoreContent(std::string, std::vector<std::string, std::allocator<std::string> >&) [122]
+[103]    0.0    0.00    0.00   32730         std::vector<std::string, std::allocator<std::string> >::~vector() [103]
+                0.00    0.00   32732/98222       std::_Vector_base<std::string, std::allocator<std::string> >::_M_get_Tp_allocator() [53]
+                0.00    0.00   32732/65477       void std::_Destroy<std::string*, std::string>(std::string*, std::string*, std::allocator<std::string>&) [65]
+                0.00    0.00   32732/32732       std::_Vector_base<std::string, std::allocator<std::string> >::~_Vector_base() [91]
+-----------------------------------------------
+                0.00    0.00   32729/32729       RestoreFileDedup::restoreContent(std::string, std::vector<std::string, std::allocator<std::string> >&) [122]
+[104]    0.0    0.00    0.00   32729         __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > >::operator++() [104]
+-----------------------------------------------
+                0.00    0.00   32729/32729       RestoreFileDedup::restoreContent(std::string, std::vector<std::string, std::allocator<std::string> >&) [122]
+[105]    0.0    0.00    0.00   32729         __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > >::operator*() const [105]
+-----------------------------------------------
+                0.00    0.00       1/2           RestoreFileDedup::getFileHashValue(std::string, std::vector<std::string, std::allocator<std::string> >&) [123]
+                0.00    0.00       1/2           RestoreFileDedup::restoreContent(std::string, std::vector<std::string, std::allocator<std::string> >&) [122]
+[106]    0.0    0.00    0.00       2         LevelDBWrapper::getInstance() [106]
+                0.00    0.00       1/1           LevelDBWrapper::LevelDBWrapper() [120]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [156]
+[107]    0.0    0.00    0.00       1         _GLOBAL__sub_I__Z13get_file_sizeRSs [107]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [112]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [156]
+[108]    0.0    0.00    0.00       1         _GLOBAL__sub_I__Z18get_variable_chunkPci [108]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [116]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [156]
+[109]    0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN14LevelDBWrapper8instanceE [109]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [114]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [156]
+[110]    0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN16RestoreFileDedup11restoreFileESs [110]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [115]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [156]
+[111]    0.0    0.00    0.00       1         _GLOBAL__sub_I_main [111]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [113]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__sub_I__Z13get_file_sizeRSs [107]
+[112]    0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [112]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__sub_I_main [111]
+[113]    0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [113]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__sub_I__ZN14LevelDBWrapper8instanceE [109]
+[114]    0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [114]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__sub_I__ZN16RestoreFileDedup11restoreFileESs [110]
+[115]    0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [115]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__sub_I__Z18get_variable_chunkPci [108]
+[116]    0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [116]
+-----------------------------------------------
+                0.00    0.00       1/1           LevelDBWrapper::readDB(leveldb::DB*, leveldb::Slice, std::vector<std::string, std::allocator<std::string> >&, char) [93]
+[117]    0.0    0.00    0.00       1         LevelDBWrapper::splitString(std::string&, char, std::vector<std::string, std::allocator<std::string> >&) [117]
+                0.00    0.00   32729/65458       std::vector<std::string, std::allocator<std::string> >::push_back(std::string const&) [70]
+                0.00    0.00       1/1           std::operator|(std::_Ios_Openmode, std::_Ios_Openmode) [128]
+-----------------------------------------------
+                0.00    0.00       1/1           RestoreFileDedup::getFileHashValue(std::string, std::vector<std::string, std::allocator<std::string> >&) [123]
+[118]    0.0    0.00    0.00       1         LevelDBWrapper::getFileListDB() [118]
+-----------------------------------------------
+                0.00    0.00       1/1           RestoreFileDedup::restoreContent(std::string, std::vector<std::string, std::allocator<std::string> >&) [122]
+[119]    0.0    0.00    0.00       1         LevelDBWrapper::getHashListDB() [119]
+-----------------------------------------------
+                0.00    0.00       1/1           LevelDBWrapper::getInstance() [106]
+[120]    0.0    0.00    0.00       1         LevelDBWrapper::LevelDBWrapper() [120]
+                0.00    0.00       2/32732       leveldb::Status::~Status() [87]
+                0.00    0.00       1/1           leveldb::WriteOptions::WriteOptions() [126]
+                0.00    0.00       1/1           leveldb::ReadOptions::ReadOptions() [125]
+-----------------------------------------------
+                0.00    0.00       1/1           main [30]
+[121]    0.0    0.00    0.00       1         RestoreFileDedup::restoreFile(std::string) [121]
+                0.00    0.00       1/32730       std::vector<std::string, std::allocator<std::string> >::vector() [102]
+                0.00    0.00       1/1           RestoreFileDedup::getFileHashValue(std::string, std::vector<std::string, std::allocator<std::string> >&) [123]
+                0.00    0.00       1/1           RestoreFileDedup::restoreContent(std::string, std::vector<std::string, std::allocator<std::string> >&) [122]
+                0.00    0.00       1/32730       std::vector<std::string, std::allocator<std::string> >::~vector() [103]
+-----------------------------------------------
+                0.00    0.00       1/1           RestoreFileDedup::restoreFile(std::string) [121]
+[122]    0.0    0.00    0.00       1         RestoreFileDedup::restoreContent(std::string, std::vector<std::string, std::allocator<std::string> >&) [122]
+                0.00    0.00   65458/65458       std::vector<std::string, std::allocator<std::string> >::operator[](unsigned long) [71]
+                0.00    0.00   32730/32730       std::vector<std::string, std::allocator<std::string> >::end() [101]
+                0.00    0.00   32730/32730       bool __gnu_cxx::operator!=<std::string*, std::vector<std::string, std::allocator<std::string> > >(__gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > > const&, __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > > const&) [96]
+                0.00    0.00   32729/32729       __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > >::operator*() const [105]
+                0.00    0.00   32729/32730       std::vector<std::string, std::allocator<std::string> >::vector() [102]
+                0.00    0.00   32729/32730       leveldb::Slice::Slice(std::string const&) [94]
+                0.00    0.00   32729/32730       LevelDBWrapper::readDB(leveldb::DB*, leveldb::Slice, std::vector<std::string, std::allocator<std::string> >&, char) [93]
+                0.00    0.00   32729/32730       std::vector<std::string, std::allocator<std::string> >::~vector() [103]
+                0.00    0.00   32729/32729       __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > >::operator++() [104]
+                0.00    0.00       1/2           LevelDBWrapper::getInstance() [106]
+                0.00    0.00       1/1           LevelDBWrapper::getHashListDB() [119]
+                0.00    0.00       1/1           std::vector<std::string, std::allocator<std::string> >::begin() [127]
+-----------------------------------------------
+                0.00    0.00       1/1           RestoreFileDedup::restoreFile(std::string) [121]
+[123]    0.0    0.00    0.00       1         RestoreFileDedup::getFileHashValue(std::string, std::vector<std::string, std::allocator<std::string> >&) [123]
+                0.00    0.00       1/2           LevelDBWrapper::getInstance() [106]
+                0.00    0.00       1/1           LevelDBWrapper::getFileListDB() [118]
+                0.00    0.00       1/32730       leveldb::Slice::Slice(std::string const&) [94]
+                0.00    0.00       1/32730       LevelDBWrapper::readDB(leveldb::DB*, leveldb::Slice, std::vector<std::string, std::allocator<std::string> >&, char) [93]
+-----------------------------------------------
+                0.00    0.00       1/1           main [30]
+[124]    0.0    0.00    0.00       1         RestoreFileDedup::RestoreFileDedup() [124]
+-----------------------------------------------
+                0.00    0.00       1/1           LevelDBWrapper::LevelDBWrapper() [120]
+[125]    0.0    0.00    0.00       1         leveldb::ReadOptions::ReadOptions() [125]
+-----------------------------------------------
+                0.00    0.00       1/1           LevelDBWrapper::LevelDBWrapper() [120]
+[126]    0.0    0.00    0.00       1         leveldb::WriteOptions::WriteOptions() [126]
+-----------------------------------------------
+                0.00    0.00       1/1           RestoreFileDedup::restoreContent(std::string, std::vector<std::string, std::allocator<std::string> >&) [122]
+[127]    0.0    0.00    0.00       1         std::vector<std::string, std::allocator<std::string> >::begin() [127]
+                0.00    0.00       1/32731       __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > >::__normal_iterator(std::string* const&) [92]
+-----------------------------------------------
+                0.00    0.00       1/1           LevelDBWrapper::splitString(std::string&, char, std::vector<std::string, std::allocator<std::string> >&) [117]
+[128]    0.0    0.00    0.00       1         std::operator|(std::_Ios_Openmode, std::_Ios_Openmode) [128]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+ [107] _GLOBAL__sub_I__Z13get_file_sizeRSs (deduplication.cpp) [88] __gnu_cxx::new_allocator<std::string>::~new_allocator() [60] std::allocator_traits<std::allocator<std::string> >::max_size(std::allocator<std::string> const&)
+ [108] _GLOBAL__sub_I__Z18get_variable_chunkPci (rabinKarp.cpp) [92] __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > >::__normal_iterator(std::string* const&) [69] _ZNSt16allocator_traitsISaISsEE9constructISsIRKSsEEEDTcl12_S_constructfp_fp0_spcl7forwardIT0_Efp1_EEERS0_PT_DpOS5_
+ [109] _GLOBAL__sub_I__ZN14LevelDBWrapper8instanceE (levelDBWrapper.cpp) [104] __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > >::operator++() [81] std::string* std::__uninitialized_copy<false>::__uninit_copy<std::move_iterator<std::string*>, std::string*>(std::move_iterator<std::string*>, std::move_iterator<std::string*>, std::string*)
+ [110] _GLOBAL__sub_I__ZN16RestoreFileDedup11restoreFileESs (RestoreFileDedup.cpp) [96] bool __gnu_cxx::operator!=<std::string*, std::vector<std::string, std::allocator<std::string> > >(__gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > > const&, __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > > const&) [82] void std::vector<std::string, std::allocator<std::string> >::_M_emplace_back_aux<std::string const&>(std::string const&)
+ [111] _GLOBAL__sub_I_main (main.cpp) [97] leveldb::Status::ok() const [101] std::vector<std::string, std::allocator<std::string> >::end()
+ [112] __static_initialization_and_destruction_0(int, int) (deduplication.cpp) [51] __gnu_cxx::new_allocator<std::string>::max_size() const [127] std::vector<std::string, std::allocator<std::string> >::begin()
+ [113] __static_initialization_and_destruction_0(int, int) (main.cpp) [66] __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > >::base() const [70] std::vector<std::string, std::allocator<std::string> >::push_back(std::string const&)
+ [114] __static_initialization_and_destruction_0(int, int) (levelDBWrapper.cpp) [105] __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > >::operator*() const [102] std::vector<std::string, std::allocator<std::string> >::vector()
+ [115] __static_initialization_and_destruction_0(int, int) (RestoreFileDedup.cpp) [56] std::_Vector_base<std::string, std::allocator<std::string> >::_M_get_Tp_allocator() const [103] std::vector<std::string, std::allocator<std::string> >::~vector()
+ [116] __static_initialization_and_destruction_0(int, int) (rabinKarp.cpp) [49] std::move_iterator<std::string*>::base() const [71] std::vector<std::string, std::allocator<std::string> >::operator[](unsigned long)
+ [106] LevelDBWrapper::getInstance() [72] std::move_iterator<std::string*>::operator*() const [74] void std::_Construct<std::string, std::string>(std::string*, std::string&&)
+ [117] LevelDBWrapper::splitString(std::string&, char, std::vector<std::string, std::allocator<std::string> >&) [79] std::vector<std::string, std::allocator<std::string> >::_M_check_len(unsigned long, char const*) const [48] std::string* std::__addressof<std::string>(std::string&)
+ [118] LevelDBWrapper::getFileListDB() [47] std::vector<std::string, std::allocator<std::string> >::size() const [83] std::string* std::uninitialized_copy<std::move_iterator<std::string*>, std::string*>(std::move_iterator<std::string*>, std::move_iterator<std::string*>, std::string*)
+ [119] LevelDBWrapper::getHashListDB() [57] std::vector<std::string, std::allocator<std::string> >::max_size() const [84] std::string* std::__uninitialized_copy_a<std::move_iterator<std::string*>, std::string*, std::string>(std::move_iterator<std::string*>, std::move_iterator<std::string*>, std::string*, std::allocator<std::string>&)
+  [93] LevelDBWrapper::readDB(leveldb::DB*, leveldb::Slice, std::vector<std::string, std::allocator<std::string> >&, char) [98] std::allocator<std::string>::allocator() [61] std::move_iterator<std::string*> std::__make_move_if_noexcept_iterator<std::string*, std::move_iterator<std::string*> >(std::string*)
+ [120] LevelDBWrapper::LevelDBWrapper() [89] std::allocator<std::string>::~allocator() [85] std::string* std::__uninitialized_move_if_noexcept_a<std::string*, std::string*, std::allocator<std::string> >(std::string*, std::string*, std::string*, std::allocator<std::string>&)
+ [121] RestoreFileDedup::restoreFile(std::string) [62] void std::_Destroy_aux<false>::__destroy<std::string*>(std::string*, std::string*) [86] unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&)
+ [122] RestoreFileDedup::restoreContent(std::string, std::vector<std::string, std::allocator<std::string> >&) [80] std::_Vector_base<std::string, std::allocator<std::string> >::_M_allocate(unsigned long) [75] std::remove_reference<std::string&>::type&& std::move<std::string&>(std::string&)
+ [123] RestoreFileDedup::getFileHashValue(std::string, std::vector<std::string, std::allocator<std::string> >&) [99] std::_Vector_base<std::string, std::allocator<std::string> >::_Vector_impl::_Vector_impl() [46] std::string const& std::forward<std::string const&>(std::remove_reference<std::string const&>::type&)
+ [124] RestoreFileDedup::RestoreFileDedup() [90] std::_Vector_base<std::string, std::allocator<std::string> >::_Vector_impl::~_Vector_impl() [76] std::string&& std::forward<std::string>(std::remove_reference<std::string>::type&)
+ [125] leveldb::ReadOptions::ReadOptions() [63] std::_Vector_base<std::string, std::allocator<std::string> >::_M_deallocate(std::string*, unsigned long) [64] void std::_Destroy<std::string*>(std::string*, std::string*)
+ [126] leveldb::WriteOptions::WriteOptions() [53] std::_Vector_base<std::string, std::allocator<std::string> >::_M_get_Tp_allocator() [65] void std::_Destroy<std::string*, std::string>(std::string*, std::string*, std::allocator<std::string>&)
+  [94] leveldb::Slice::Slice(std::string const&) [100] std::_Vector_base<std::string, std::allocator<std::string> >::_Vector_base() [50] void std::_Destroy<std::string>(std::string*)
+  [87] leveldb::Status::~Status() [91] std::_Vector_base<std::string, std::allocator<std::string> >::~_Vector_base() [54] bool std::operator==<std::string*>(std::move_iterator<std::string*> const&, std::move_iterator<std::string*> const&)
+  [77] __gnu_cxx::new_allocator<std::string>::deallocate(std::string*, unsigned long) [58] std::move_iterator<std::string*>::move_iterator(std::string*) [55] bool std::operator!=<std::string*>(std::move_iterator<std::string*> const&, std::move_iterator<std::string*> const&)
+  [78] __gnu_cxx::new_allocator<std::string>::allocate(unsigned long, void const*) [73] std::move_iterator<std::string*>::operator++() [128] std::operator|(std::_Ios_Openmode, std::_Ios_Openmode)
+  [67] _ZN9__gnu_cxx13new_allocatorISsE9constructISsIRKSsEEEvPT_DpOT0_ [59] std::enable_if<std::allocator_traits<std::allocator<std::string> >::__maxsize_helper<std::allocator<std::string> const>::value, unsigned long>::type std::allocator_traits<std::allocator<std::string> >::_S_max_size<std::allocator<std::string> const>(std::allocator<std::string> const&) [52] operator new(unsigned long, void*)
+  [95] __gnu_cxx::new_allocator<std::string>::new_allocator() [68] std::enable_if<std::allocator_traits<std::allocator<std::string> >::__construct_helper<std::string, std::string const&>::value, void>::type std::allocator_traits<std::allocator<std::string> >::_S_construct<std::string, std::string const&>(std::allocator<std::string>&, std::string*, std::string const&)
