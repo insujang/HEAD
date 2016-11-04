@@ -73,13 +73,10 @@ dedup_file (string file_path)
         // If stream reaches EOF,
         // just do chunking from the remaining buffer.
         else if(ifStream.eof()){
-            cout << "Test" << endl;
             memmove(buffer, &buffer[chunkLength],
                     (readLength - chunkLength) * sizeof(char));
             // no read
             readLength -= chunkLength;
-            cout << "[DEBUG] readLength: " << readLength
-                 << ", chunkLength: " << chunkLength << endl;
         }
         // append additional data to the tail of the buffer.
         else{
@@ -105,9 +102,6 @@ dedup_file (string file_path)
 
         accumulatedChunkLength += chunkLength;
     }
-
-    cout << "[DEBUG] result, readLength: " << readLength
-           << ", chunkLength: " << chunkLength << endl;
 
     cout << "[DEBUG] Accumulated chunk length: " << accumulatedChunkLength
         << " bytes" << endl;
