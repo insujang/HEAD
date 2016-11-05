@@ -1,83 +1,54 @@
 cmake_minimum_required(VERSION 3.6)
 project(cs710_dedup_yadl)
 
-set(CMAKE_C_FLAGS  "${CMAKE_C_FLAGS} -pg")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -pg")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pg")
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pg")
 set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -pg")
 
 set(SOURCE_FILES
-#    inline_dedup/client.c
-#    inline_dedup/ydl_clean_buff.c
-#    inline_dedup/ydl_clean_buff.h
-#    inline_dedup/ydl_namespace.c
-#    inline_dedup/ydl_namespace.h
-#    inline_dedup_leveldb/client.c
-#    inline_dedup_leveldb/ydl_clean_buff.c
-#    inline_dedup_leveldb/ydl_clean_buff.h
-#    inline_dedup_leveldb/ydl_namespace.c
-#    inline_dedup_leveldb/ydl_namespace.h
-    src/block.c
-    src/block.h
-    src/catalog.c
-    src/catalog.h
-    src/clean_buff.c
-    src/clean_buff.h
-    src/dedup.c
-    src/dedup.h
-#    src/dedup_test.c
-    src/delete.c
-    src/delete.h
-#    src/delete_test.c
-    src/hash.c
-    src/hash.h
-    src/ldb.c
-    src/ldb.h
-    src/main.c
-    src/main.h
-    src/md5.c
-    src/md5.h
-    src/min_hash.c
-    src/min_hash.h
-    src/minhash_restore.c
-    src/minhash_restore.h
-    src/minhash_stub.c
-    src/minhash_stub.h
-    src/namespace.c
-    src/namespace.h
-    src/object_store.c
-    src/object_store.h
-    src/parsing.c
-    src/parsing.h
-    src/Rabin_Karp.c
-    src/Rabin_Karp.h
-    src/restore.h
-    src/Restore_file.c
-    src/sha1.c
+    src/main.cpp
+    src/deduplication.cpp
+    src/deduplication.h
+    src/sha1.cpp
     src/sha1.h
-    src/stub.c
-    src/stub.h
-    src/vector.c
-    src/vector.h)
+    src/levelDBWrapper.h
+    src/levelDBWrapper.cpp
+    src/RestoreFileDedup.cpp
+    src/RestoreFileDedup.h
+    src/rabinKarp.cpp
+    src/rabinKarp.h)
 
+set(LIB_DIR ${CMAKE_SOURCE_DIR}/lib)
 
-# find_library(leveldb
-#        NAMES libleveldb.so
-#        PATHS ${CMAKE_SOURCE_DIR}/lib/leveldb/out-shared/)
+add_custom_command(OUTPUT ${LIB_DIR}/x86_64/libleveldb.a
+        COMMAND $(MAKE) clean &> /dev/null
+        COMMAND $(MAKE) 2> /dev/null
+        COMMAND mv out-static/libleveldb.a ../x86_64
+        COMMAND $(MAKE) clean &> /dev/null
+        COMMENT "Generating libleveldb.a static library.."
+        WORKING_DIRECTORY ${LIB_DIR}/leveldb)
+add_custom_target(libleveldb ALL
+        DEPENDS ${LIB_DIR}/x86_64/libleveldb.a)
 
-#find_library(openssl
-#        NAMES libssl.so
-#        PATHS ${CMAKE_SOURCE_DIR}/lib/openssl/build/lib)
+add_custom_command(OUTPUT ${LIB_DIR}/x86_64/libcrypto.a
+        COMMAND $(MAKE) clean &> /dev/null
+        COMMAND ./config --prefix=${LIB_DIR}/openssl/out 
+        COMMAND $(MAKE) depend 2> /dev/null
+        COMMAND $(MAKE) 2> /dev/null
+        COMMAND $(MAKE) install_sw 2> /dev/null
+        COMMAND mv out/lib/libcrypto.a ../x86_64
+        COMMAND $(MAKE) clean &> /dev/null
+        COMMAND rm -rf out
+        COMMENT "Generating libcrypto.a static library.."
+        WORKING_DIRECTORY ${LIB_DIR}/openssl)
+add_custom_target(libcrypto ALL
+        DEPENDS ${LIB_DIR}/x86_64/libcrypto.a)
 
-#find_library(crypto
-#        NAMES libcrypto.so
-#        PATHS ${CMAKE_SOURCE_DIR}/lib/openssl/build/lib)
-
+include_directories(${CMAKE_SOURCE_DIR}/lib/leveldb/include
+        ${CMAKE_SOURCE_DIR}/lib/openssl/include)
 add_executable(cs710_dedup_yadl ${SOURCE_FILES})
+add_dependencies(cs710_dedup_yadl libleveldb)
+add_dependencies(cs710_dedup_yadl libcrypto)
 
-# changed from standard libraries installed in /usr/share/lib to compiled libraries
-# target_link_libraries(cs710_dedup_yadl ${leveldb})
-# target_link_libraries(cs710_dedup_yadl ${openssl})
-# target_link_libraries(cs710_dedup_yadl ${crypto})
-
-target_link_libraries(cs710_dedup_yadl leveldb crypto)
+target_link_libraries(cs710_dedup_yadl ${LIB_DIR}/x86_64/libcrypto.a ${LIB_DIR}/x86_64/libleveldb.a)
