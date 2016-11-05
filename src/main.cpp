@@ -17,7 +17,7 @@ main (int argc, char *argv[])
     RestoreFileDedup* restoreFile = new RestoreFileDedup();
 
     gettimeofday(&start, NULL);
-    dedup_file("/Users/jeffreychang/Downloads/The_Zynq_Book_ebook_3.pdf");
+    dedup_file("/home/insujang/Downloads/openssl-1.0.2j.tar.gz");
 //    restoreFile->restoreFile("/home/insujang/Downloads/cudnn-8.0-linux-x64-v5.1.tgz");
     gettimeofday(&end, NULL);
 

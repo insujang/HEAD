@@ -19,24 +19,36 @@ set(SOURCE_FILES
     src/rabinKarp.cpp
     src/rabinKarp.h)
 
+set(LIB_DIR ${CMAKE_SOURCE_DIR}/lib)
 
-# find_library(leveldb
-#        NAMES libleveldb.so
-#        PATHS ${CMAKE_SOURCE_DIR}/lib/leveldb/out-shared/)
+add_custom_command(OUTPUT ${LIB_DIR}/x86_64/libleveldb.a
+        COMMAND $(MAKE) clean &> /dev/null
+        COMMAND $(MAKE) 2> /dev/null
+        COMMAND mv out-static/libleveldb.a ../x86_64
+        COMMAND $(MAKE) clean &> /dev/null
+        COMMENT "Generating libleveldb.a static library.."
+        WORKING_DIRECTORY ${LIB_DIR}/leveldb)
+add_custom_target(libleveldb ALL
+        DEPENDS ${LIB_DIR}/x86_64/libleveldb.a)
 
-#find_library(openssl
-#        NAMES libssl.so
-#        PATHS ${CMAKE_SOURCE_DIR}/lib/openssl/build/lib)
+add_custom_command(OUTPUT ${LIB_DIR}/x86_64/libcrypto.a
+        COMMAND $(MAKE) clean &> /dev/null
+        COMMAND ./config --prefix=${LIB_DIR}/openssl/out 
+        COMMAND $(MAKE) depend 2> /dev/null
+        COMMAND $(MAKE) 2> /dev/null
+        COMMAND $(MAKE) install_sw 2> /dev/null
+        COMMAND mv out/lib/libcrypto.a ../x86_64
+        COMMAND $(MAKE) clean &> /dev/null
+        COMMAND rm -rf out
+        COMMENT "Generating libcrypto.a static library.."
+        WORKING_DIRECTORY ${LIB_DIR}/openssl)
+add_custom_target(libcrypto ALL
+        DEPENDS ${LIB_DIR}/x86_64/libcrypto.a)
 
-#find_library(crypto
-#        NAMES libcrypto.so
-#        PATHS ${CMAKE_SOURCE_DIR}/lib/openssl/build/lib)
-
+include_directories(${CMAKE_SOURCE_DIR}/lib/leveldb/include
+        ${CMAKE_SOURCE_DIR}/lib/openssl/include)
 add_executable(cs710_dedup_yadl ${SOURCE_FILES})
-
-# changed from standard libraries installed in /usr/share/lib to compiled libraries
-# target_link_libraries(cs710_dedup_yadl ${leveldb})
-# target_link_libraries(cs710_dedup_yadl ${openssl})
-# target_link_libraries(cs710_dedup_yadl ${crypto})
+add_dependencies(cs710_dedup_yadl libleveldb)
+add_dependencies(cs710_dedup_yadl libcrypto)
 
 target_link_libraries(cs710_dedup_yadl leveldb crypto)

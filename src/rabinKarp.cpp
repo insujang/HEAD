@@ -2,7 +2,6 @@
 // Created by insujang on 16. 11. 4.
 //
 
-#include <iostream>
 #include "rabinKarp.h"
 
 #define windowLen 2048

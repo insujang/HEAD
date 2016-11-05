@@ -24,7 +24,7 @@ CRYPTO := lib/arm/libcrypto.a
 
 all: $(LEVELDB) $(CRYPTO) $(OBJS)
 	source $(XILINX_DIR)/Vivado/$(XILINX_VER)/settings64.sh && \
-	$(CXX) -o zed_yadl $(OBJS) $(LDFLAGS) $(LDLIBS)
+	$(CXX) -o zed_dedup $(OBJS) $(LDFLAGS) $(LDLIBS)
 
 $(SRC_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
@@ -46,7 +46,7 @@ $(CRYPTO):
 	source $(XILINX_DIR)/Vivado/$(XILINX_VER)/settings64.sh && \
 	cd lib/openssl && \
 	./Configure linux-generic32 --prefix=`pwd`/out && \
-	make install CC=$(CC) RANLIB=$(TARGET)-ranlib LD=$(TARGET)-ld \
+	make install -j 8 CC=$(CC) RANLIB=$(TARGET)-ranlib LD=$(TARGET)-ld \
 			MAKEDEPPROF=$(CC) PROCESSOR=ARM && \
 	mv out/lib/libcrypto.a ../arm && \
 	make clean && \
