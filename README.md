@@ -19,7 +19,9 @@ Faster, Easier to use, Easier to read the source code.
 # Building
 
 ### x86_64 Compile
-You may use CLion to build the project, or use cmake manually. If you use cmake, perform the following instructions in an arbitrary directory. Assume the project is in `/home/user/ldedup` and you are currently in that project directory.
+You may use [CLion](https://www.jetbrains.com/clion/) IDE or any other IDEs that support cmake to build the project, or use cmake alone. 
+
+If you use standalone cmake, perform the following instructions in an arbitrary directory. Assume the project is in `/home/user/ldedup` and you are currently in that directory.
 
 ```
 $ mkdir bin && cd bin
@@ -31,7 +33,7 @@ The name of output file will be `cs710_dedup_yadl`.
 ### ARM Zedboard Compile
 `Makefile.arm` in the root directory of the project is to compile this project for Xilinx Zynq 7000 Zedboard.
 
-Assume you installed Xilinx Vivado Design Suite version 2016.2 **including Xilinx SDK** in `/opt/Xilinx`.
+Assume you installed Xilinx Vivado Design Suite version **2016.2 including Xilinx SDK** in `/opt/Xilinx`.
 
 ```
 $ make -f Makefile.arm
