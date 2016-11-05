@@ -2,5 +2,5 @@
 *.la
 *.lo
 *.so
+*.save
 .idea/
-/lib/x86_64/*

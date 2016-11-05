@@ -48,12 +48,6 @@ if test -z "$TMPDIR"; then
     TMPDIR=/tmp
 fi
 
-#[Chikdol] Used for Cross Compile
-CC=arm-linux-gnueabihf-gcc
-CXX=arm-linux-gnueabihf-g++
-
-#TARGET_OS=Xilinx
-
 # Detect OS
 if test -z "$TARGET_OS"; then
     TARGET_OS=`uname -s`
