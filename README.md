@@ -40,3 +40,19 @@ $ make -f Makefile.arm
 ```
 The name of output file will be `zed_dedup`.
 
+
+# Usage
+
+```
+Deduplicate a file:
+<app_name> -t/--type dedup -f/--filepath <file_path>
+
+Restore a file:
+<app_name> -t/--type restore -f/--filepath <file_path>
+
+Restore all files from the DB:
+<app_name> -t/--type restore_all
+
+Show usage:
+<app_name> -h/--help
+```

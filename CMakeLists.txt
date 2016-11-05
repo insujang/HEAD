@@ -17,7 +17,9 @@ set(SOURCE_FILES
     src/RestoreFileDedup.cpp
     src/RestoreFileDedup.h
     src/rabinKarp.cpp
-    src/rabinKarp.h)
+    src/rabinKarp.h
+    src/getopt_pp.cpp
+    src/getopt_pp.h)
 
 set(LIB_DIR ${CMAKE_SOURCE_DIR}/lib)
 
