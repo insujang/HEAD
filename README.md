@@ -1,65 +1,40 @@
-# yadl
+# C++ Deduplication Library
 
-<!--
-[![Build Status](https://travis-ci.org/YADL/yadl.svg?branch=master)](https://travis-ci.org/YADL/yadl)
--->
-Documentation is available in the [Wiki](https://github.com/YADL/yadl/wiki)
+This deduplication library is a totally refined version of [yadl (Yet Another Deduplication Library)](https://github.com/YADL/yadl).
+
+Faster, Easier to use, Easier to read the source code.
+
+## Performance Comparision vs YADL
+* System: Intel Core i7-6700, 16GB DDR4-2133 DRAM, Micron Crusial MX200 SSD 500GB
+* Target file: cudnn-8.0-linux-x64-v5.1.tgz (100504805 bytes, 95.8MB)
+* Evaluation: delete all previous data, perform deduplication once, restore the file with the deduped data right before.
+* Measurement unit: seconds
+
+|  | ours | yadl |
+|:-------|:----:|:-----:|
+| dedup | **4** | 339 |
+| restore | **1** | 843 |
+
 
 # Building
 
-Instruction to install yadl in [here](https://travis-ci.org/YADL/yadl/jobs/93469413)
+### x86_64 Compile
+You may use CLion to build the project, or use cmake manually. If you use cmake, perform the following instructions in an arbitrary directory. Assume the project is in `/home/user/ldedup` and you are currently in that project directory.
 
 ```
-$ bash .travis_cmockery2.sh
-$ git clone https://github.com/google/leveldb.git
-$ cd leveldb
-$ make
-$ sudo cp --preserve=links out-shared/libleveldb.* /usr/local/lib
-$ sudo cp -rf include/leveldb /usr/local/include
-$ sudo ldconfig
-$ ./autogen.sh && ./configure && make check
-```
-
-Now you have yadl_dedup file in src directory.
-Once you run ./yadl_dedup, shared library linked binary is created in src/.libs/lt-yadl_dedup.
-
-# Usage
-
-### Creating a namespace
-
-```
-$ src/yadl_dedup --create -n <namespace_name> --store_path <absolute_path> --hash_type sha1 --chunk_scheme variable --store_type default
-```
-
-### Deduplicating a file
-
-```
-$ src/yadl_dedup --dedup -n <namespace_name> -f <absolute_file_path>
-```
-
-### Restoring a file
-
-```
-$ src/yadl_dedup --restore -n <namespace_name> -f <absolute_file_path>
-```
-
-File path should be exactly same with the path that you used for deduplication.
-
-### Listing deduplicated files
-
-```
-$ src/yadl_dedup -l -n <namespace_name>
-```
-
-# Cross-compile for ARM (Zedboard)
-### 1. Load the functions file provided by Xilinx
-To compile the application, we need to link the libraries provided by Xilinx. To do it, load the functions file as follows.
-```
-$ source /opt/Xilinx/Vivado/2016.2/settings64.sh
-```
-
-### 2. Build
-```
+$ mkdir bin && cd bin
+$ cmake ..
 $ make
 ```
-The name of the output file is `zed_yadl`, which is in the project root directory.
+The name of output file will be `cs710_dedup_yadl`.
+
+### ARM Zedboard Compile
+`Makefile.arm` in the root directory of the project is to compile this project for Xilinx Zynq 7000 Zedboard.
+
+Assume you installed Xilinx Vivado Design Suite version 2016.2 **including Xilinx SDK** in `/opt/Xilinx`.
+
+```
+$ make -f Makefile.arm
+```
+The name of output file will be `zed_dedup`.
+
