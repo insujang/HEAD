@@ -40,7 +40,18 @@ dedup_file (string file_path)
     DB* hashListDB = ldb->getHashListDB();
     DB* fileListDB = ldb->getFileListDB();
 
-    cout << "Deduplication is in progress..." << endl;
+    cout << "[INFO] Deduplication is in progress..." << endl;
+
+    cout << "[INFO] Checking file information..." << endl;
+
+    // File stream for the input file
+    ifstream ifStream;
+    ifStream.open(file_path, ios::in|ios::binary);
+    // If you fail assertion in here, the file_path is inappropriate.
+    assert(ifStream.is_open());
+
+    // This is the list of hashes in this file.
+    vector<string> hash_list;
 
     int fileSize = get_file_size(file_path);
     cout << "[DEBUG] Target: " << file_path << endl;
@@ -48,14 +59,6 @@ dedup_file (string file_path)
 
     /* Dynamic chunking */
     cout << "[INFO] Dynamic chunking computation starts" << endl;
-
-    // This is the list of hashes in this file.
-    vector<string> hash_list;
-
-    // File stream for the input file
-    ifstream ifStream;
-    ifStream.open(file_path, ios::in|ios::binary);
-    assert(ifStream.is_open());
 
     // 10KB buffer for Rabin Karp hash algorithm
     char* buffer = new char[BUFFER_LEN];

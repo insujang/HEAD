@@ -1,6 +1,6 @@
-TARGET = arm-linux-gnueabihf
-CC = $(TARGET)-gcc
-CXX = $(TARGET)-g++
+TARGET := arm-linux-gnueabihf
+CC := $(TARGET)-gcc
+CXX := $(TARGET)-g++
 
 XILINX_DIR := /opt/Xilinx
 XILINX_VER := 2016.2
@@ -35,7 +35,7 @@ $(LEVELDB):
 	source $(XILINX_DIR)/Vivado/$(XILINX_VER)/settings64.sh && \
 	cd lib/leveldb && \
 	make clean && \
-	make CC=$(CC) -j 8 && \
+	make CC=$(CC) CXX=$(CXX) -j 8 && \
 	mv out-static/libleveldb.a ../arm && \
 	make clean && \
 	cd -
@@ -46,8 +46,9 @@ $(CRYPTO):
 	source $(XILINX_DIR)/Vivado/$(XILINX_VER)/settings64.sh && \
 	cd lib/openssl && \
 	./Configure linux-generic32 --prefix=`pwd`/out && \
-	make install -j 8 CC=$(CC) RANLIB=$(TARGET)-ranlib LD=$(TARGET)-ld \
+	make -j 8 CC=$(CC) RANLIB=$(TARGET)-ranlib LD=$(TARGET)-ld \
 			MAKEDEPPROF=$(CC) PROCESSOR=ARM && \
+	make install_sw && \
 	mv out/lib/libcrypto.a ../arm && \
 	make clean && \
 	rm -rf out && \

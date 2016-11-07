@@ -54,3 +54,4 @@ add_dependencies(cs710_dedup_yadl libleveldb)
 add_dependencies(cs710_dedup_yadl libcrypto)
 
 target_link_libraries(cs710_dedup_yadl ${LIB_DIR}/x86_64/libcrypto.a ${LIB_DIR}/x86_64/libleveldb.a)
+target_link_libraries(cs710_dedup_yadl -lstdc++ -lm -lpthread -ldl)
