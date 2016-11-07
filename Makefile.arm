@@ -56,6 +56,6 @@ $(CRYPTO):
 
 clean:
 	rm -f $(SRC_DIR)/*.o
-	rm -f zed_yadl
+	rm -f zed_dedup
 	rm -f $(LEVELDB)
 	rm -f $(CRYPTO)
