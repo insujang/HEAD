@@ -26,7 +26,7 @@ int get_variable_chunk(char *str, int strLen) {
         if(strHash == targetHash)
             return i;
 
-        strHash = (prime * strHash - power * str[i-1] + str[i]) % modulo;
+        strHash = (prime * strHash - power * str[i-windowLen] + str[i]) % modulo;
         power = (power * prime) % modulo;
     }
 
