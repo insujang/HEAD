@@ -4,8 +4,9 @@ dist: trusty
 compiler:
   - g++
 
-before-install:
-  - sudo apt-get install libsnappy-dev
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y libsnappy-dev
   - git submodule update --init --recursive
 
 install:
