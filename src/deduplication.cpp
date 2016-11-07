@@ -10,6 +10,7 @@
 #include <cassert>
 #include <leveldb/write_batch.h>
 #include <fstream>
+#include "global.h"
 
 extern "C" {
 #include <sys/stat.h>
@@ -111,7 +112,7 @@ dedup_file (string file_path)
     assert(accumulatedChunkLength == fileSize);
 
     // join hash_list vector to a string
-    string hash_list_str = LevelDBWrapper::joinString(hash_list, ',');
+    string hash_list_str = LevelDBWrapper::joinString(hash_list, DEDUP_DB_HASH_VALUE_DELIMETER);
 
     // add <filename, hash_list> key-value pair to fileListDB
     ldb->writeDB(fileListDB, file_path, hash_list_str);

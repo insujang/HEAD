@@ -10,8 +10,8 @@
 #include <vector>
 #include <cassert>
 #include <iostream>
+#include "global.h"
 
-#define DELIMITER ','
 
 int RestoreFileDedup::restoreFile(string fileName){
 
@@ -44,7 +44,7 @@ int RestoreFileDedup::getFileHashValue(string fileName, vector<string>& values){
     DB* ptrFileDb;
     ldb = LevelDBWrapper::getInstance();
     ptrFileDb = ldb->getFileListDB();
-    if(ldb->readDB(ptrFileDb, fileName, values, DELIMITER) == -1){
+    if(ldb->readDB(ptrFileDb, fileName, values, DEDUP_DB_HASH_VALUE_DELIMETER) == -1){
         return -1;
     }
 
