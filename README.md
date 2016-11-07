@@ -4,9 +4,15 @@ This deduplication library is a totally refined version of [yadl (Yet Another De
 
 Faster, Easier to use, Easier to read the source code.
 
+## Profile Result with gprof
+Profiling is done with the target file cuda_7.5.18_linux.run (1,195,424,633 bytes, 1.2GB)
+- [Deduplication result](./analysis_dedup.txt)
+- [Restore result](./analysis_restore.txt)
+
+
 ## Performance Comparision vs YADL
-* System: Intel Core i7-6700, 16GB DDR4-2133 DRAM, Micron Crusial MX200 SSD 500GB
-* Target file: cudnn-8.0-linux-x64-v5.1.tgz (100504805 bytes, 95.8MB)
+* System: Intel Core i7-6700, 16GB DDR4-2133 DRAM, Micron Crusial MX200 SSD 500GB, Ubuntu 14.04.5 LTS 64-bit
+* Target file: cudnn-8.0-linux-x64-v5.1.tgz (100,504,805 bytes, 95.8MB)
 * Evaluation: delete all previous data, perform deduplication once, restore the file with the deduped data right before.
 * Measurement unit: seconds
 
