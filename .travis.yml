@@ -4,10 +4,8 @@ dist: trusty
 compiler:
   - g++
 
-before-install:
-  - apt-get install libsnappy-dev
-  - git submodule update --init --recursive
-
 install:
-  - cmake .
-  - make
+	- apt-get install libsnappy-dev
+	- git submodule update --init --recursive
+	- cmake .
+	- make
