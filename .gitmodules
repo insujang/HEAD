@@ -5,6 +5,3 @@
 	path = lib/openssl
 	url = https://github.com/openssl/openssl
 	branch = OpenSSL_1_0_2-stable
-[submodule "lib/snappy"]
-	path = lib/snappy
-	url = https://github.com/google/snappy

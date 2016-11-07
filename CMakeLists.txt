@@ -23,14 +23,14 @@ set(SOURCE_FILES
 
 set(LIB_DIR ${CMAKE_SOURCE_DIR}/lib)
 
-add_custom_command(OUTPUT ${LIB_DIR}/x86_64/libsnappy.a
-        COMMAND ./autogen.sh
-        COMMAND ./configure
-        COMMAND $(MAKE)
-        COMMAND mv .libs/libsnappy.a ../x86_64
-        WORKING_DIRECTORY ${LIB_DIR}/snappy)
-add_custom_target(libsnappy ALL
-        DEPENDS ${LIB_DIR}/x86_64/libsnappy.a)
+#add_custom_command(OUTPUT ${LIB_DIR}/x86_64/libsnappy.a
+#        COMMAND ./autogen.sh
+#        COMMAND ./configure
+#        COMMAND $(MAKE)
+#        COMMAND mv .libs/libsnappy.a ../x86_64
+#        WORKING_DIRECTORY ${LIB_DIR}/snappy)
+#add_custom_target(libsnappy ALL
+#        DEPENDS ${LIB_DIR}/x86_64/libsnappy.a)
 
 add_custom_command(OUTPUT ${LIB_DIR}/x86_64/libleveldb.a
         COMMAND $(MAKE) 2> /dev/null
@@ -51,7 +51,7 @@ include_directories(${CMAKE_SOURCE_DIR}/lib/leveldb/include
         ${CMAKE_SOURCE_DIR}/lib/openssl/include
         ${CMAKE_C_FLAGS}/lib/snappy)
 add_executable(cs710_dedup_yadl ${SOURCE_FILES})
-add_dependencies(libleveldb libsnappy)
+#add_dependencies(libleveldb libsnappy)
 add_dependencies(cs710_dedup_yadl libleveldb)
 add_dependencies(cs710_dedup_yadl libcrypto)
 
