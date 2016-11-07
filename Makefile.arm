@@ -14,7 +14,7 @@ LDFLAGS =-Llib/arm \
 		 -L$(XILINX_ROOT)/libc/usr/lib/arm-linux-gnueabihf \
 		 -L$(XILINX_ROOT)/lib
 
-LDLIBS = -l:libleveldb.a -l:libcrypto.a -lstdc++ -lm -lpthread -ldl
+LDLIBS = -l:libleveldb.a -l:libcrypto.a -lpthread
 CXXFLAGS:= -I$(LEVELDB_DIR)/include -I$(OPENSSL_DIR)/include -std=c++11
 
 SRCS =  $(wildcard $(SRC_DIR)/*.cpp)

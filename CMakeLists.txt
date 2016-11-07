@@ -23,35 +23,38 @@ set(SOURCE_FILES
 
 set(LIB_DIR ${CMAKE_SOURCE_DIR}/lib)
 
+add_custom_command(OUTPUT ${LIB_DIR}/x86_64/libsnappy.a
+        COMMAND ./autogen.sh
+        COMMAND ./configure
+        COMMAND $(MAKE)
+        COMMAND mv .libs/libsnappy.a ../x86_64
+        WORKING_DIRECTORY ${LIB_DIR}/snappy)
+add_custom_target(libsnappy ALL
+        DEPENDS ${LIB_DIR}/x86_64/libsnappy.a)
+
 add_custom_command(OUTPUT ${LIB_DIR}/x86_64/libleveldb.a
-        COMMAND $(MAKE) clean &> /dev/null
         COMMAND $(MAKE) 2> /dev/null
         COMMAND mv out-static/libleveldb.a ../x86_64
-        COMMAND $(MAKE) clean &> /dev/null
-        COMMENT "Generating libleveldb.a static library.."
         WORKING_DIRECTORY ${LIB_DIR}/leveldb)
 add_custom_target(libleveldb ALL
         DEPENDS ${LIB_DIR}/x86_64/libleveldb.a)
 
 add_custom_command(OUTPUT ${LIB_DIR}/x86_64/libcrypto.a
-        COMMAND $(MAKE) clean &> /dev/null
-        COMMAND ./config --prefix=${LIB_DIR}/openssl/out 
-        COMMAND $(MAKE) depend 2> /dev/null
+        COMMAND ./config --prefix=${LIB_DIR}/openssl/out
         COMMAND $(MAKE) 2> /dev/null
-        COMMAND $(MAKE) install_sw 2> /dev/null
-        COMMAND mv out/lib/libcrypto.a ../x86_64
-        COMMAND $(MAKE) clean &> /dev/null
-        COMMAND rm -rf out
-        COMMENT "Generating libcrypto.a static library.."
+        COMMAND mv libcrypto.a ../x86_64
         WORKING_DIRECTORY ${LIB_DIR}/openssl)
 add_custom_target(libcrypto ALL
         DEPENDS ${LIB_DIR}/x86_64/libcrypto.a)
 
 include_directories(${CMAKE_SOURCE_DIR}/lib/leveldb/include
-        ${CMAKE_SOURCE_DIR}/lib/openssl/include)
+        ${CMAKE_SOURCE_DIR}/lib/openssl/include
+        ${CMAKE_C_FLAGS}/lib/snappy)
 add_executable(cs710_dedup_yadl ${SOURCE_FILES})
+add_dependencies(libleveldb libsnappy)
 add_dependencies(cs710_dedup_yadl libleveldb)
 add_dependencies(cs710_dedup_yadl libcrypto)
+
 
 target_link_libraries(cs710_dedup_yadl ${LIB_DIR}/x86_64/libcrypto.a ${LIB_DIR}/x86_64/libleveldb.a)
 target_link_libraries(cs710_dedup_yadl -lstdc++ -lm -lpthread -ldl)
