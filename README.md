@@ -1,5 +1,7 @@
 # HEAD: HardwarE Accelerated Deduplication
 
+### This is a project of CS710, Computing Acceleration with FPGA.
+
 This deduplication program is a totally refined version of [yadl (Yet Another Deduplication Library)](https://github.com/YADL/yadl).
 
 Faster, Easier to use, Easier to read the source code.
