@@ -1,6 +1,6 @@
-# C++ Deduplication Library
+# HEAD: HardwarE Accelerated Deduplication
 
-This deduplication library is a totally refined version of [yadl (Yet Another Deduplication Library)](https://github.com/YADL/yadl).
+This deduplication program is a totally refined version of [yadl (Yet Another Deduplication Library)](https://github.com/YADL/yadl).
 
 Faster, Easier to use, Easier to read the source code.
 
