@@ -59,9 +59,7 @@ int RestoreFileDedup::restoreContent(string fileName, vector<string>& values){
     ldb = LevelDBWrapper::getInstance();
     ptrHashDB = ldb->getHashListDB();
 
-    int test = 0;
     for (vector<string>::iterator it = values.begin() ; it != values.end(); ++it){
-        test++;
         vector<string> content;
         if(ldb->readDB(ptrHashDB, *it, content) == -1){
             assert(0);
@@ -70,7 +68,6 @@ int RestoreFileDedup::restoreContent(string fileName, vector<string>& values){
 
         if(content[0].length() == 0)
         {
-            cout << test << endl;
             assert(0);
         }
     }
