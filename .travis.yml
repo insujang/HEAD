@@ -5,9 +5,9 @@ compiler:
   - g++
 
 before-install:
-  apt-get install libsnappy-dev
-  git submodule update --init --recursive
+  - apt-get install libsnappy-dev
+  - git submodule update --init --recursive
 
 install:
-  cmake . && \
-  make
+  - cmake .
+  - make
