@@ -2,5 +2,5 @@
 	path = lib/leveldb
 	url = https://github.com/google/leveldb
 [submodule "lib/sha1"]
-	path = lib/getSHA1
+	path = lib/sha1
 	url = https://github.com/mohaps/TinySHA1
