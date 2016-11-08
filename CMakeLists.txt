@@ -40,12 +40,13 @@ add_custom_target(libleveldb ALL
 #        DEPENDS ${LIB_DIR}/x86_64/libcrypto.a)
 
 include_directories(${CMAKE_SOURCE_DIR}/lib/leveldb/include
-        ${CMAKE_SOURCE_DIR}/lib/openssl/include
-        ${CMAKE_C_FLAGS}/lib/snappy)
+        # ${CMAKE_SOURCE_DIR}/lib/openssl/include
+        # ${CMAKE_C_FLAGS}/lib/snappy
+        )
 add_executable(dedup ${SOURCE_FILES})
 add_dependencies(dedup libleveldb)
 #add_dependencies(cs710_dedup_yadl libcrypto)
 
 
-target_link_libraries(dedup ${LIB_DIR}/x86_64/libcrypto.a ${LIB_DIR}/x86_64/libleveldb.a)
+target_link_libraries(dedup ${LIB_DIR}/x86_64/libleveldb.a)
 target_link_libraries(dedup -lstdc++ -lm -lpthread -ldl -lsnappy)

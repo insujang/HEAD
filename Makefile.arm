@@ -60,8 +60,6 @@ $(LEVELDB):
 
 clean:
 	rm -f $(SRC_DIR)/*.o
-	rm -f lib/getoptpp/*.o
 	rm -f lib/sha1/*.o
 	rm -f zed_dedup
 	rm -f $(LEVELDB)
-#	rm -f $(CRYPTO)
