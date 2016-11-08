@@ -95,8 +95,8 @@ dedup_file (string file_path)
         // get a chunk with variable length
         chunkLength = get_variable_chunk(buffer, readLength);
 
-        // calculate sha1 hash algorithm
-        string hash = sha1(buffer, chunkLength);
+        // calculate getSHA1 hash algorithm
+        string hash = getSHA1(buffer, chunkLength);
 
         // add the hash into hash_list
         hash_list.push_back(hash);

@@ -1,7 +1,6 @@
 [submodule "lib/leveldb"]
 	path = lib/leveldb
 	url = https://github.com/google/leveldb
-[submodule "lib/openssl"]
-	path = lib/openssl
-	url = https://github.com/openssl/openssl
-	branch = OpenSSL_1_0_2-stable
+[submodule "lib/sha1"]
+	path = lib/getSHA1
+	url = https://github.com/mohaps/TinySHA1

@@ -8,7 +8,6 @@ extern "C" {
 #include "deduplication.h"
 #include "getopt_pp.h"
 #include <iostream>
-#include <string>
 
 using namespace GetOpt;
 using namespace std;

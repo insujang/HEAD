@@ -1,7 +1,7 @@
 Analysis of restoring a file
 Restore_file.c:65~150
 
-Based on sha1 variable chunk size based deduplication, target file README.md
+Based on getSHA1 variable chunk size based deduplication, target file README.md
 
 <yadl_store_path>/store_block/stubs/Stub.READMD.md
 

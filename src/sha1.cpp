@@ -1,17 +1,18 @@
 #include <cstdlib>
 #include "sha1.h"
 
-string sha1(char *str, int len) {
-    char *out = (char *) malloc(41);
-    unsigned char hash[SHA_DIGEST_LENGTH];
-    SHA_CTX sha;
-    SHA_Init(&sha);
-    SHA_Update(&sha, str, len);
-    SHA_Final(hash, &sha);
+string getSHA1(char *str, int len) {
+    sha1::SHA1 s;
+    uint32_t digest[5];
+    char out[41];
 
-    for(int i=0; i<SHA_DIGEST_LENGTH; i++){
-        sprintf(&out[i<<1], "%02x", (unsigned int)hash[i]);
-    }
+    s.processBytes(str, len);
+    s.getDigest(digest);
+
+    snprintf(out, 40, "%08x%08x%08x%08x%08x",
+        digest[0], digest[1], digest[2], digest[3], digest[4]);
+
     out[40] = '\0';
+
     return string(out);
 }

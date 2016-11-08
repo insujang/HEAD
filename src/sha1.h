@@ -1,6 +1,6 @@
-#include <openssl/sha.h>
 #include <string>
+#include "../lib/sha1/TinySHA1.hpp"
 
 using namespace std;
 
-string sha1(char *str, int len);
+string getSHA1(char *str, int len);

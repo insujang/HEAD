@@ -14,15 +14,15 @@ LDFLAGS =-Llib/arm \
 		 -L$(XILINX_ROOT)/libc/usr/lib/arm-linux-gnueabihf \
 		 -L$(XILINX_ROOT)/lib
 
-LDLIBS = -l:libleveldb.a -l:libcrypto.a -lpthread
+LDLIBS = -l:libleveldb.a -lpthread
 CXXFLAGS:= -I$(LEVELDB_DIR)/include -I$(OPENSSL_DIR)/include -std=c++11
 
 SRCS =  $(wildcard $(SRC_DIR)/*.cpp)
 OBJS = $(SRCS:.cpp=.o)
 LEVELDB := lib/arm/libleveldb.a
-CRYPTO := lib/arm/libcrypto.a
+# CRYPTO := lib/arm/libcrypto.a
 
-all: $(LEVELDB) $(CRYPTO) $(OBJS)
+all: $(LEVELDB) $(OBJS) # $(CRYPTO)
 	source $(XILINX_DIR)/Vivado/$(XILINX_VER)/settings64.sh && \
 	$(CXX) -o zed_dedup $(OBJS) $(LDFLAGS) $(LDLIBS)
 
@@ -32,6 +32,9 @@ $(SRC_DIR)/%.o: $(SRC_DIR)/%.cpp
 # Cross-compile leveldb library and
 # extract the static library libleveldb.a to lib/arm
 $(LEVELDB):
+	if [[ ! -e lib/arm ]]; then \
+		mkdir lib/arm; \
+	fi
 	source $(XILINX_DIR)/Vivado/$(XILINX_VER)/settings64.sh && \
 	cd lib/leveldb && \
 	make clean && \
@@ -42,21 +45,23 @@ $(LEVELDB):
 
 # Cross-compile openssl library and
 # extract the static library libcrypto.a to lib/arm
-$(CRYPTO):
-	source $(XILINX_DIR)/Vivado/$(XILINX_VER)/settings64.sh && \
-	cd lib/openssl && \
-	./Configure linux-generic32 --prefix=`pwd`/out && \
-	make -j 8 CC=$(CC) RANLIB=$(TARGET)-ranlib LD=$(TARGET)-ld \
-			MAKEDEPPROF=$(CC) PROCESSOR=ARM && \
-	make install_sw && \
-	mv out/lib/libcrypto.a ../arm && \
-	make clean && \
-	rm -rf out && \
-	cd -
+# $(CRYPTO):
+#	source $(XILINX_DIR)/Vivado/$(XILINX_VER)/settings64.sh && \
+#	cd lib/openssl && \
+#	./Configure linux-generic32 --prefix=`pwd`/out && \
+#	make -j 8 CC=$(CC) RANLIB=$(TARGET)-ranlib LD=$(TARGET)-ld \
+#			MAKEDEPPROF=$(CC) PROCESSOR=ARM && \
+#	make install_sw && \
+#	mv out/lib/libcrypto.a ../arm && \
+#	make clean && \
+#	rm -rf out && \
+#	cd -
 
 
 clean:
 	rm -f $(SRC_DIR)/*.o
+	rm -f lib/getoptpp/*.o
+	rm -f lib/sha1/*.o
 	rm -f zed_dedup
 	rm -f $(LEVELDB)
-	rm -f $(CRYPTO)
+#	rm -f $(CRYPTO)
