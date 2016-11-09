@@ -2,10 +2,9 @@
 // Created by insujang on 16. 11. 3.
 //
 
-#include "deduplication.h"
+#include "DeduplicateFile.h"
 #include "levelDBWrapper.h"
-#include "sha1.h"
-#include "rabinKarp.h"
+#include "../lib/sha1/TinySHA1.hpp"
 #include <iostream>
 #include <cassert>
 #include <leveldb/write_batch.h>
@@ -20,10 +19,52 @@ using namespace std;
 
 #define BUFFER_LEN 10240
 
-unsigned int get_file_size(string& file_path){
+unsigned int
+DeduplicateFile::getFileSize(string &file_path){
     struct stat status;
     stat(file_path.c_str(), &status);
     return (unsigned int) status.st_size;
+}
+
+string
+DeduplicateFile::getSHA1(char *str, int len) {
+    sha1::SHA1 s;
+    uint32_t digest[5];
+    char out[41];
+
+    s.processBytes(str, len);
+    s.getDigest(digest);
+
+    snprintf(out, 40, "%08x%08x%08x%08x%08x",
+             digest[0], digest[1], digest[2], digest[3], digest[4]);
+
+    out[40] = '\0';
+
+    return string(out);
+}
+
+int
+DeduplicateFile::getVariableChunk(char *str, int strLen) {
+    int i;
+
+    unsigned int strHash = 0;
+    unsigned int power = 1;
+
+    if(windowLen > strLen) return strLen;
+
+    for(i = 0; i < windowLen; i++){
+        strHash = (prime * strHash + str[i]) % modulo;
+        power = (power * prime) % modulo;
+    }
+
+    for(i = windowLen; i < strLen; i++){
+        if(strHash == targetHash) return i;
+
+        strHash = (prime * strHash - power * str[i-windowLen] + str[i]) % modulo;
+        power = (power * prime) % modulo;
+    }
+
+    return strLen;
 }
 
 
@@ -31,11 +72,11 @@ unsigned int get_file_size(string& file_path){
  * hash_type: sha1
  * store_type: default
  * chunk_scheme: variable
- * @param file_path absolute filepath to dedup
+ * @param filePath absolute filepath to dedup
  * @return
  */
 int
-dedup_file (string file_path)
+DeduplicateFile::dedupFile(string filePath)
 {
     LevelDBWrapper* ldb = LevelDBWrapper::getInstance();
     DB* hashListDB = ldb->getHashListDB();
@@ -47,15 +88,15 @@ dedup_file (string file_path)
 
     // File stream for the input file
     ifstream ifStream;
-    ifStream.open(file_path, ios::in|ios::binary);
-    // If you fail assertion in here, the file_path is inappropriate.
+    ifStream.open(filePath, ios::in|ios::binary);
+    // If you fail assertion in here, the filePath is inappropriate.
     assert(ifStream.is_open());
 
     // This is the list of hashes in this file.
     vector<string> hash_list;
 
-    int fileSize = get_file_size(file_path);
-    cout << "[DEBUG] Target: " << file_path << endl;
+    int fileSize = getFileSize(filePath);
+    cout << "[DEBUG] Target: " << filePath << endl;
     cout << "        Size: " << fileSize << " bytes" << endl;
 
     /* Dynamic chunking */
@@ -93,7 +134,7 @@ dedup_file (string file_path)
         }
 
         // get a chunk with variable length
-        chunkLength = get_variable_chunk(buffer, readLength);
+        chunkLength = getVariableChunk(buffer, readLength);
 
         // calculate getSHA1 hash algorithm
         string hash = getSHA1(buffer, chunkLength);
@@ -115,7 +156,7 @@ dedup_file (string file_path)
     string hash_list_str = LevelDBWrapper::joinString(hash_list, DEDUP_DB_HASH_VALUE_DELIMETER);
 
     // add <filename, hash_list> key-value pair to fileListDB
-    ldb->writeDB(fileListDB, file_path, hash_list_str);
+    ldb->writeDB(fileListDB, filePath, hash_list_str);
 
     cout << "[INFO] Dynamic chunking computation is finshed" << endl;
 

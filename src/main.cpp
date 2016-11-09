@@ -1,11 +1,10 @@
 extern "C" {
 #include <sys/time.h>
-#include <unistd.h>
 }
 
 #include "levelDBWrapper.h"
 #include "RestoreFileDedup.h"
-#include "deduplication.h"
+#include "DeduplicateFile.h"
 #include "getopt_pp.h"
 #include <iostream>
 
@@ -31,6 +30,7 @@ main (const int argc, const char **argv)
 {
     struct timeval start, end;
     RestoreFileDedup* restoreFile = new RestoreFileDedup();
+    DeduplicateFile* dedupFile = new DeduplicateFile();
 
     GetOpt_pp ops(argc, argv);
     string type;        // should be either "dedup" or "restore"
@@ -43,13 +43,16 @@ main (const int argc, const char **argv)
        (type.compare("dedup") != 0 && type.compare("restore") != 0 && type.compare("restore_all") != 0)) usage();
 
     gettimeofday(&start, NULL);
-    if(type.compare("dedup") == 0) dedup_file(filepath);
+    if(type.compare("dedup") == 0) dedupFile->dedupFile(filepath);
     else if(type.compare("restore") == 0) restoreFile->restoreFile(filepath);
     else if(type.compare("restore_all") == 0) restoreFile->restoreAllFiles();
 
     gettimeofday(&end, NULL);
 
     cout << "Processing time: " << (end.tv_sec - start.tv_sec) << " seconds" << endl;
+
+    delete restoreFile;
+    delete dedupFile;
 
     return 0;
 }

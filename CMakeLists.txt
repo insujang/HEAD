@@ -7,20 +7,16 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pg")
 set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -pg")
 
 set(SOURCE_FILES
-    src/main.cpp
-    src/deduplication.cpp
-    src/deduplication.h
-    src/sha1.cpp
-    src/sha1.h
-    src/levelDBWrapper.h
-    src/levelDBWrapper.cpp
-    src/RestoreFileDedup.cpp
-    src/RestoreFileDedup.h
-    src/rabinKarp.cpp
-    src/rabinKarp.h
-    src/getopt_pp.cpp
-    src/getopt_pp.h
-    lib/sha1/TinySHA1.hpp)
+        src/main.cpp
+        src/DeduplicateFile.cpp
+        src/DeduplicateFile.h
+        src/levelDBWrapper.h
+        src/levelDBWrapper.cpp
+        src/RestoreFileDedup.cpp
+        src/RestoreFileDedup.h
+        src/getopt_pp.cpp
+        src/getopt_pp.h
+        lib/sha1/TinySHA1.hpp)
 
 set(LIB_DIR ${CMAKE_SOURCE_DIR}/lib)
 

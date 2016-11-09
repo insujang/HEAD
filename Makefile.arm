@@ -5,7 +5,6 @@ CXX := $(TARGET)-g++
 XILINX_DIR := /opt/Xilinx
 XILINX_VER := 2016.2
 LEVELDB_DIR := lib/leveldb
-OPENSSL_DIR := lib/openssl
 
 SRC_DIR := src
 XILINX_ROOT = $(XILINX_DIR)/SDK/$(XILINX_VER)/gnu/aarch32/lin/gcc-arm-linux-gnueabi/arm-linux-gnueabihf
@@ -20,7 +19,6 @@ CXXFLAGS:= -I$(LEVELDB_DIR)/include -I$(OPENSSL_DIR)/include -std=c++11
 SRCS =  $(wildcard $(SRC_DIR)/*.cpp)
 OBJS = $(SRCS:.cpp=.o)
 LEVELDB := lib/arm/libleveldb.a
-# CRYPTO := lib/arm/libcrypto.a
 
 all: $(LEVELDB) $(OBJS) # $(CRYPTO)
 	source $(XILINX_DIR)/Vivado/$(XILINX_VER)/settings64.sh && \
