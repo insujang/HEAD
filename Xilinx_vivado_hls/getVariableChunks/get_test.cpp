@@ -16,12 +16,12 @@ int main(){
 		test_str_stream.write(test_str[i]);
 	}
 
-	hls::stream<int> test_indices_output;
+	hls::stream<ap_item> test_indices_output;
 
 	calcHash(test_str_stream, test_indices_output);
 
 	for(int i=0; i<3; i++){
-		int result = test_indices_output.read();
+		int result = ((ap_item)test_indices_output.read()).data;
 		if(result != indices_answer[i]){
 			cout << "[ERROR] expected " << indices_answer[i] << ", but got " << result << endl;
 			return 1;

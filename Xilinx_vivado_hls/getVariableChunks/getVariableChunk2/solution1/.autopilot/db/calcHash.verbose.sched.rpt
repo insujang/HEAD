@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'calcHash'
 ================================================================
-* Date:           Sun Nov 13 04:20:47 2016
+* Date:           Sun Nov 13 20:58:27 2016
 
 * Version:        2016.2 (Build 1577090 on Thu Jun 02 16:59:10 MDT 2016)
 * Project:        getVariableChunk2
@@ -29,7 +29,7 @@
     |   Latency   |   Interval  | Pipeline|
     |  min |  max |  min |  max |   Type  |
     +------+------+------+------+---------+
-    |  5728|  5728|  5729|  5729|   none  |
+    |  5729|  5729|  5730|  5730|   none  |
     +------+------+------+------+---------+
 
     + Detail: 
@@ -57,7 +57,7 @@ IsTopModel: 1
 ResetActiveHigh: 1
 IsCombinational: 0
 IsDatapathOnly: 0
-HasWiredReturn: 1
+HasWiredReturn: 2
 HasMFsm: 0
 HasVarLatency: 1
 IsPipeline: 0
@@ -75,7 +75,7 @@ IsGatedGlobalClock: 0
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states: 7
+* Number of FSM states: 8
 * Pipeline: 2
   Pipeline-0: II = 1, D = 1, States = { 2 }
   Pipeline-1: II = 1, D = 2, States = { 5 6 }
@@ -85,8 +85,8 @@ IsGatedGlobalClock: 0
 1 --> 
 	2  / true
 2 --> 
-	3  / (exitcond4)
-	2  / (!exitcond4)
+	3  / (exitcond1)
+	2  / (!exitcond1)
 3 --> 
 	4  / true
 4 --> 
@@ -97,435 +97,443 @@ IsGatedGlobalClock: 0
 6 --> 
 	5  / true
 7 --> 
+	8  / true
+8 --> 
 * FSM state operations: 
 
  <State 1>: 1.57ns
-ST_1: stg_8 [1/1] 0.00ns
-:0  call void (...)* @_ssdm_op_SpecBitsMap(i8* %strStream_V), !map !23
-
 ST_1: stg_9 [1/1] 0.00ns
-:1  call void (...)* @_ssdm_op_SpecBitsMap(i32* %indicesStream_V), !map !29
+:0  call void (...)* @_ssdm_op_SpecBitsMap(i8* %strStream_V), !map !36
 
 ST_1: stg_10 [1/1] 0.00ns
-:2  call void (...)* @_ssdm_op_SpecTopModule([9 x i8]* @calcHash_str) nounwind
+:1  call void (...)* @_ssdm_op_SpecBitsMap(i32* %indicesStream_V_data), !map !40
+
+ST_1: stg_11 [1/1] 0.00ns
+:2  call void (...)* @_ssdm_op_SpecBitsMap(i1* %indicesStream_V_last_V), !map !44
+
+ST_1: stg_12 [1/1] 0.00ns
+:3  call void (...)* @_ssdm_op_SpecTopModule([9 x i8]* @calcHash_str) nounwind
 
 ST_1: str_0 [1/1] 0.00ns
-:3  %str_0 = alloca [32 x i8], align 1
+:4  %str_0 = alloca [32 x i8], align 1
 
 ST_1: str_1 [1/1] 0.00ns
-:4  %str_1 = alloca [32 x i8], align 1
+:5  %str_1 = alloca [32 x i8], align 1
 
 ST_1: str_2 [1/1] 0.00ns
-:5  %str_2 = alloca [32 x i8], align 1
+:6  %str_2 = alloca [32 x i8], align 1
 
 ST_1: str_3 [1/1] 0.00ns
-:6  %str_3 = alloca [32 x i8], align 1
+:7  %str_3 = alloca [32 x i8], align 1
 
 ST_1: str_4 [1/1] 0.00ns
-:7  %str_4 = alloca [32 x i8], align 1
+:8  %str_4 = alloca [32 x i8], align 1
 
 ST_1: str_5 [1/1] 0.00ns
-:8  %str_5 = alloca [32 x i8], align 1
+:9  %str_5 = alloca [32 x i8], align 1
 
 ST_1: str_6 [1/1] 0.00ns
-:9  %str_6 = alloca [32 x i8], align 1
+:10  %str_6 = alloca [32 x i8], align 1
 
 ST_1: str_7 [1/1] 0.00ns
-:10  %str_7 = alloca [32 x i8], align 1
+:11  %str_7 = alloca [32 x i8], align 1
 
 ST_1: str_8 [1/1] 0.00ns
-:11  %str_8 = alloca [32 x i8], align 1
+:12  %str_8 = alloca [32 x i8], align 1
 
 ST_1: str_9 [1/1] 0.00ns
-:12  %str_9 = alloca [32 x i8], align 1
+:13  %str_9 = alloca [32 x i8], align 1
 
 ST_1: str_10 [1/1] 0.00ns
-:13  %str_10 = alloca [32 x i8], align 1
+:14  %str_10 = alloca [32 x i8], align 1
 
 ST_1: str_11 [1/1] 0.00ns
-:14  %str_11 = alloca [32 x i8], align 1
+:15  %str_11 = alloca [32 x i8], align 1
 
 ST_1: str_12 [1/1] 0.00ns
-:15  %str_12 = alloca [32 x i8], align 1
+:16  %str_12 = alloca [32 x i8], align 1
 
 ST_1: str_13 [1/1] 0.00ns
-:16  %str_13 = alloca [32 x i8], align 1
+:17  %str_13 = alloca [32 x i8], align 1
 
 ST_1: str_14 [1/1] 0.00ns
-:17  %str_14 = alloca [32 x i8], align 1
+:18  %str_14 = alloca [32 x i8], align 1
 
 ST_1: str_15 [1/1] 0.00ns
-:18  %str_15 = alloca [32 x i8], align 1
+:19  %str_15 = alloca [32 x i8], align 1
 
 ST_1: str_16 [1/1] 0.00ns
-:19  %str_16 = alloca [32 x i8], align 1
+:20  %str_16 = alloca [32 x i8], align 1
 
 ST_1: str_17 [1/1] 0.00ns
-:20  %str_17 = alloca [32 x i8], align 1
+:21  %str_17 = alloca [32 x i8], align 1
 
 ST_1: str_18 [1/1] 0.00ns
-:21  %str_18 = alloca [32 x i8], align 1
+:22  %str_18 = alloca [32 x i8], align 1
 
 ST_1: str_19 [1/1] 0.00ns
-:22  %str_19 = alloca [32 x i8], align 1
+:23  %str_19 = alloca [32 x i8], align 1
 
 ST_1: str_20 [1/1] 0.00ns
-:23  %str_20 = alloca [32 x i8], align 1
+:24  %str_20 = alloca [32 x i8], align 1
 
 ST_1: str_21 [1/1] 0.00ns
-:24  %str_21 = alloca [32 x i8], align 1
+:25  %str_21 = alloca [32 x i8], align 1
 
 ST_1: str_22 [1/1] 0.00ns
-:25  %str_22 = alloca [32 x i8], align 1
+:26  %str_22 = alloca [32 x i8], align 1
 
 ST_1: str_23 [1/1] 0.00ns
-:26  %str_23 = alloca [32 x i8], align 1
+:27  %str_23 = alloca [32 x i8], align 1
 
 ST_1: str_24 [1/1] 0.00ns
-:27  %str_24 = alloca [32 x i8], align 1
+:28  %str_24 = alloca [32 x i8], align 1
 
 ST_1: str_25 [1/1] 0.00ns
-:28  %str_25 = alloca [32 x i8], align 1
+:29  %str_25 = alloca [32 x i8], align 1
 
 ST_1: str_26 [1/1] 0.00ns
-:29  %str_26 = alloca [32 x i8], align 1
+:30  %str_26 = alloca [32 x i8], align 1
 
 ST_1: str_27 [1/1] 0.00ns
-:30  %str_27 = alloca [32 x i8], align 1
+:31  %str_27 = alloca [32 x i8], align 1
 
 ST_1: str_28 [1/1] 0.00ns
-:31  %str_28 = alloca [32 x i8], align 1
+:32  %str_28 = alloca [32 x i8], align 1
 
 ST_1: str_29 [1/1] 0.00ns
-:32  %str_29 = alloca [32 x i8], align 1
+:33  %str_29 = alloca [32 x i8], align 1
 
 ST_1: str_30 [1/1] 0.00ns
-:33  %str_30 = alloca [32 x i8], align 1
+:34  %str_30 = alloca [32 x i8], align 1
 
 ST_1: str_31 [1/1] 0.00ns
-:34  %str_31 = alloca [32 x i8], align 1
+:35  %str_31 = alloca [32 x i8], align 1
 
 ST_1: str_32 [1/1] 0.00ns
-:35  %str_32 = alloca [32 x i8], align 1
+:36  %str_32 = alloca [32 x i8], align 1
 
 ST_1: str_33 [1/1] 0.00ns
-:36  %str_33 = alloca [32 x i8], align 1
+:37  %str_33 = alloca [32 x i8], align 1
 
 ST_1: str_34 [1/1] 0.00ns
-:37  %str_34 = alloca [32 x i8], align 1
+:38  %str_34 = alloca [32 x i8], align 1
 
 ST_1: str_35 [1/1] 0.00ns
-:38  %str_35 = alloca [32 x i8], align 1
+:39  %str_35 = alloca [32 x i8], align 1
 
 ST_1: str_36 [1/1] 0.00ns
-:39  %str_36 = alloca [32 x i8], align 1
+:40  %str_36 = alloca [32 x i8], align 1
 
 ST_1: str_37 [1/1] 0.00ns
-:40  %str_37 = alloca [32 x i8], align 1
+:41  %str_37 = alloca [32 x i8], align 1
 
 ST_1: str_38 [1/1] 0.00ns
-:41  %str_38 = alloca [32 x i8], align 1
+:42  %str_38 = alloca [32 x i8], align 1
 
 ST_1: str_39 [1/1] 0.00ns
-:42  %str_39 = alloca [32 x i8], align 1
+:43  %str_39 = alloca [32 x i8], align 1
 
 ST_1: str_40 [1/1] 0.00ns
-:43  %str_40 = alloca [32 x i8], align 1
+:44  %str_40 = alloca [32 x i8], align 1
 
 ST_1: str_41 [1/1] 0.00ns
-:44  %str_41 = alloca [32 x i8], align 1
+:45  %str_41 = alloca [32 x i8], align 1
 
 ST_1: str_42 [1/1] 0.00ns
-:45  %str_42 = alloca [32 x i8], align 1
+:46  %str_42 = alloca [32 x i8], align 1
 
 ST_1: str_43 [1/1] 0.00ns
-:46  %str_43 = alloca [32 x i8], align 1
+:47  %str_43 = alloca [32 x i8], align 1
 
 ST_1: str_44 [1/1] 0.00ns
-:47  %str_44 = alloca [32 x i8], align 1
+:48  %str_44 = alloca [32 x i8], align 1
 
 ST_1: str_45 [1/1] 0.00ns
-:48  %str_45 = alloca [32 x i8], align 1
+:49  %str_45 = alloca [32 x i8], align 1
 
 ST_1: str_46 [1/1] 0.00ns
-:49  %str_46 = alloca [32 x i8], align 1
+:50  %str_46 = alloca [32 x i8], align 1
 
 ST_1: str_47 [1/1] 0.00ns
-:50  %str_47 = alloca [32 x i8], align 1
+:51  %str_47 = alloca [32 x i8], align 1
 
 ST_1: str_48 [1/1] 0.00ns
-:51  %str_48 = alloca [32 x i8], align 1
+:52  %str_48 = alloca [32 x i8], align 1
 
 ST_1: str_49 [1/1] 0.00ns
-:52  %str_49 = alloca [32 x i8], align 1
+:53  %str_49 = alloca [32 x i8], align 1
 
 ST_1: str_50 [1/1] 0.00ns
-:53  %str_50 = alloca [32 x i8], align 1
+:54  %str_50 = alloca [32 x i8], align 1
 
 ST_1: str_51 [1/1] 0.00ns
-:54  %str_51 = alloca [32 x i8], align 1
+:55  %str_51 = alloca [32 x i8], align 1
 
 ST_1: str_52 [1/1] 0.00ns
-:55  %str_52 = alloca [32 x i8], align 1
+:56  %str_52 = alloca [32 x i8], align 1
 
 ST_1: str_53 [1/1] 0.00ns
-:56  %str_53 = alloca [32 x i8], align 1
+:57  %str_53 = alloca [32 x i8], align 1
 
 ST_1: str_54 [1/1] 0.00ns
-:57  %str_54 = alloca [32 x i8], align 1
+:58  %str_54 = alloca [32 x i8], align 1
 
 ST_1: str_55 [1/1] 0.00ns
-:58  %str_55 = alloca [32 x i8], align 1
+:59  %str_55 = alloca [32 x i8], align 1
 
 ST_1: str_56 [1/1] 0.00ns
-:59  %str_56 = alloca [32 x i8], align 1
+:60  %str_56 = alloca [32 x i8], align 1
 
 ST_1: str_57 [1/1] 0.00ns
-:60  %str_57 = alloca [32 x i8], align 1
+:61  %str_57 = alloca [32 x i8], align 1
 
 ST_1: str_58 [1/1] 0.00ns
-:61  %str_58 = alloca [32 x i8], align 1
+:62  %str_58 = alloca [32 x i8], align 1
 
 ST_1: str_59 [1/1] 0.00ns
-:62  %str_59 = alloca [32 x i8], align 1
+:63  %str_59 = alloca [32 x i8], align 1
 
 ST_1: str_60 [1/1] 0.00ns
-:63  %str_60 = alloca [32 x i8], align 1
+:64  %str_60 = alloca [32 x i8], align 1
 
 ST_1: str_61 [1/1] 0.00ns
-:64  %str_61 = alloca [32 x i8], align 1
+:65  %str_61 = alloca [32 x i8], align 1
 
 ST_1: str_62 [1/1] 0.00ns
-:65  %str_62 = alloca [32 x i8], align 1
+:66  %str_62 = alloca [32 x i8], align 1
 
 ST_1: str_63 [1/1] 0.00ns
-:66  %str_63 = alloca [32 x i8], align 1
+:67  %str_63 = alloca [32 x i8], align 1
 
 ST_1: str_64 [1/1] 0.00ns
-:67  %str_64 = alloca [32 x i8], align 1
+:68  %str_64 = alloca [32 x i8], align 1
 
 ST_1: str_65 [1/1] 0.00ns
-:68  %str_65 = alloca [32 x i8], align 1
+:69  %str_65 = alloca [32 x i8], align 1
 
 ST_1: str_66 [1/1] 0.00ns
-:69  %str_66 = alloca [32 x i8], align 1
+:70  %str_66 = alloca [32 x i8], align 1
 
 ST_1: str_67 [1/1] 0.00ns
-:70  %str_67 = alloca [32 x i8], align 1
+:71  %str_67 = alloca [32 x i8], align 1
 
 ST_1: str_68 [1/1] 0.00ns
-:71  %str_68 = alloca [32 x i8], align 1
+:72  %str_68 = alloca [32 x i8], align 1
 
 ST_1: str_69 [1/1] 0.00ns
-:72  %str_69 = alloca [32 x i8], align 1
+:73  %str_69 = alloca [32 x i8], align 1
 
 ST_1: str_70 [1/1] 0.00ns
-:73  %str_70 = alloca [32 x i8], align 1
+:74  %str_70 = alloca [32 x i8], align 1
 
 ST_1: str_71 [1/1] 0.00ns
-:74  %str_71 = alloca [32 x i8], align 1
+:75  %str_71 = alloca [32 x i8], align 1
 
 ST_1: str_72 [1/1] 0.00ns
-:75  %str_72 = alloca [32 x i8], align 1
+:76  %str_72 = alloca [32 x i8], align 1
 
 ST_1: str_73 [1/1] 0.00ns
-:76  %str_73 = alloca [32 x i8], align 1
+:77  %str_73 = alloca [32 x i8], align 1
 
 ST_1: str_74 [1/1] 0.00ns
-:77  %str_74 = alloca [32 x i8], align 1
+:78  %str_74 = alloca [32 x i8], align 1
 
 ST_1: str_75 [1/1] 0.00ns
-:78  %str_75 = alloca [32 x i8], align 1
+:79  %str_75 = alloca [32 x i8], align 1
 
 ST_1: str_76 [1/1] 0.00ns
-:79  %str_76 = alloca [32 x i8], align 1
+:80  %str_76 = alloca [32 x i8], align 1
 
 ST_1: str_77 [1/1] 0.00ns
-:80  %str_77 = alloca [32 x i8], align 1
+:81  %str_77 = alloca [32 x i8], align 1
 
 ST_1: str_78 [1/1] 0.00ns
-:81  %str_78 = alloca [32 x i8], align 1
+:82  %str_78 = alloca [32 x i8], align 1
 
 ST_1: str_79 [1/1] 0.00ns
-:82  %str_79 = alloca [32 x i8], align 1
+:83  %str_79 = alloca [32 x i8], align 1
 
 ST_1: str_80 [1/1] 0.00ns
-:83  %str_80 = alloca [32 x i8], align 1
+:84  %str_80 = alloca [32 x i8], align 1
 
 ST_1: str_81 [1/1] 0.00ns
-:84  %str_81 = alloca [32 x i8], align 1
+:85  %str_81 = alloca [32 x i8], align 1
 
 ST_1: str_82 [1/1] 0.00ns
-:85  %str_82 = alloca [32 x i8], align 1
+:86  %str_82 = alloca [32 x i8], align 1
 
 ST_1: str_83 [1/1] 0.00ns
-:86  %str_83 = alloca [32 x i8], align 1
+:87  %str_83 = alloca [32 x i8], align 1
 
 ST_1: str_84 [1/1] 0.00ns
-:87  %str_84 = alloca [32 x i8], align 1
+:88  %str_84 = alloca [32 x i8], align 1
 
 ST_1: str_85 [1/1] 0.00ns
-:88  %str_85 = alloca [32 x i8], align 1
+:89  %str_85 = alloca [32 x i8], align 1
 
 ST_1: str_86 [1/1] 0.00ns
-:89  %str_86 = alloca [32 x i8], align 1
+:90  %str_86 = alloca [32 x i8], align 1
 
 ST_1: str_87 [1/1] 0.00ns
-:90  %str_87 = alloca [32 x i8], align 1
+:91  %str_87 = alloca [32 x i8], align 1
 
 ST_1: str_88 [1/1] 0.00ns
-:91  %str_88 = alloca [32 x i8], align 1
+:92  %str_88 = alloca [32 x i8], align 1
 
 ST_1: str_89 [1/1] 0.00ns
-:92  %str_89 = alloca [32 x i8], align 1
+:93  %str_89 = alloca [32 x i8], align 1
 
 ST_1: str_90 [1/1] 0.00ns
-:93  %str_90 = alloca [32 x i8], align 1
+:94  %str_90 = alloca [32 x i8], align 1
 
 ST_1: str_91 [1/1] 0.00ns
-:94  %str_91 = alloca [32 x i8], align 1
+:95  %str_91 = alloca [32 x i8], align 1
 
 ST_1: str_92 [1/1] 0.00ns
-:95  %str_92 = alloca [32 x i8], align 1
+:96  %str_92 = alloca [32 x i8], align 1
 
 ST_1: str_93 [1/1] 0.00ns
-:96  %str_93 = alloca [32 x i8], align 1
+:97  %str_93 = alloca [32 x i8], align 1
 
 ST_1: str_94 [1/1] 0.00ns
-:97  %str_94 = alloca [32 x i8], align 1
+:98  %str_94 = alloca [32 x i8], align 1
 
 ST_1: str_95 [1/1] 0.00ns
-:98  %str_95 = alloca [32 x i8], align 1
+:99  %str_95 = alloca [32 x i8], align 1
 
 ST_1: str_96 [1/1] 0.00ns
-:99  %str_96 = alloca [32 x i8], align 1
+:100  %str_96 = alloca [32 x i8], align 1
 
 ST_1: str_97 [1/1] 0.00ns
-:100  %str_97 = alloca [32 x i8], align 1
+:101  %str_97 = alloca [32 x i8], align 1
 
 ST_1: str_98 [1/1] 0.00ns
-:101  %str_98 = alloca [32 x i8], align 1
+:102  %str_98 = alloca [32 x i8], align 1
 
 ST_1: str_99 [1/1] 0.00ns
-:102  %str_99 = alloca [32 x i8], align 1
+:103  %str_99 = alloca [32 x i8], align 1
 
 ST_1: str_100 [1/1] 0.00ns
-:103  %str_100 = alloca [32 x i8], align 1
+:104  %str_100 = alloca [32 x i8], align 1
 
 ST_1: str_101 [1/1] 0.00ns
-:104  %str_101 = alloca [32 x i8], align 1
+:105  %str_101 = alloca [32 x i8], align 1
 
 ST_1: str_102 [1/1] 0.00ns
-:105  %str_102 = alloca [32 x i8], align 1
+:106  %str_102 = alloca [32 x i8], align 1
 
 ST_1: str_103 [1/1] 0.00ns
-:106  %str_103 = alloca [32 x i8], align 1
+:107  %str_103 = alloca [32 x i8], align 1
 
 ST_1: str_104 [1/1] 0.00ns
-:107  %str_104 = alloca [32 x i8], align 1
+:108  %str_104 = alloca [32 x i8], align 1
 
 ST_1: str_105 [1/1] 0.00ns
-:108  %str_105 = alloca [32 x i8], align 1
+:109  %str_105 = alloca [32 x i8], align 1
 
 ST_1: str_106 [1/1] 0.00ns
-:109  %str_106 = alloca [32 x i8], align 1
+:110  %str_106 = alloca [32 x i8], align 1
 
 ST_1: str_107 [1/1] 0.00ns
-:110  %str_107 = alloca [32 x i8], align 1
+:111  %str_107 = alloca [32 x i8], align 1
 
 ST_1: str_108 [1/1] 0.00ns
-:111  %str_108 = alloca [32 x i8], align 1
+:112  %str_108 = alloca [32 x i8], align 1
 
 ST_1: str_109 [1/1] 0.00ns
-:112  %str_109 = alloca [32 x i8], align 1
+:113  %str_109 = alloca [32 x i8], align 1
 
 ST_1: str_110 [1/1] 0.00ns
-:113  %str_110 = alloca [32 x i8], align 1
+:114  %str_110 = alloca [32 x i8], align 1
 
 ST_1: str_111 [1/1] 0.00ns
-:114  %str_111 = alloca [32 x i8], align 1
+:115  %str_111 = alloca [32 x i8], align 1
 
 ST_1: str_112 [1/1] 0.00ns
-:115  %str_112 = alloca [32 x i8], align 1
+:116  %str_112 = alloca [32 x i8], align 1
 
 ST_1: str_113 [1/1] 0.00ns
-:116  %str_113 = alloca [32 x i8], align 1
+:117  %str_113 = alloca [32 x i8], align 1
 
 ST_1: str_114 [1/1] 0.00ns
-:117  %str_114 = alloca [32 x i8], align 1
+:118  %str_114 = alloca [32 x i8], align 1
 
 ST_1: str_115 [1/1] 0.00ns
-:118  %str_115 = alloca [32 x i8], align 1
+:119  %str_115 = alloca [32 x i8], align 1
 
 ST_1: str_116 [1/1] 0.00ns
-:119  %str_116 = alloca [32 x i8], align 1
+:120  %str_116 = alloca [32 x i8], align 1
 
 ST_1: str_117 [1/1] 0.00ns
-:120  %str_117 = alloca [32 x i8], align 1
+:121  %str_117 = alloca [32 x i8], align 1
 
 ST_1: str_118 [1/1] 0.00ns
-:121  %str_118 = alloca [32 x i8], align 1
+:122  %str_118 = alloca [32 x i8], align 1
 
 ST_1: str_119 [1/1] 0.00ns
-:122  %str_119 = alloca [32 x i8], align 1
+:123  %str_119 = alloca [32 x i8], align 1
 
 ST_1: str_120 [1/1] 0.00ns
-:123  %str_120 = alloca [32 x i8], align 1
+:124  %str_120 = alloca [32 x i8], align 1
 
 ST_1: str_121 [1/1] 0.00ns
-:124  %str_121 = alloca [32 x i8], align 1
+:125  %str_121 = alloca [32 x i8], align 1
 
 ST_1: str_122 [1/1] 0.00ns
-:125  %str_122 = alloca [32 x i8], align 1
+:126  %str_122 = alloca [32 x i8], align 1
 
 ST_1: str_123 [1/1] 0.00ns
-:126  %str_123 = alloca [32 x i8], align 1
+:127  %str_123 = alloca [32 x i8], align 1
 
 ST_1: str_124 [1/1] 0.00ns
-:127  %str_124 = alloca [32 x i8], align 1
+:128  %str_124 = alloca [32 x i8], align 1
 
 ST_1: str_125 [1/1] 0.00ns
-:128  %str_125 = alloca [32 x i8], align 1
+:129  %str_125 = alloca [32 x i8], align 1
 
 ST_1: str_126 [1/1] 0.00ns
-:129  %str_126 = alloca [32 x i8], align 1
+:130  %str_126 = alloca [32 x i8], align 1
 
 ST_1: str_127 [1/1] 0.00ns
-:130  %str_127 = alloca [32 x i8], align 1
-
-ST_1: stg_139 [1/1] 0.00ns
-:131  call void (...)* @_ssdm_op_SpecInterface(i32* %indicesStream_V, [5 x i8]* @p_str7, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str) nounwind
-
-ST_1: stg_140 [1/1] 0.00ns
-:132  call void (...)* @_ssdm_op_SpecInterface(i8* %strStream_V, [5 x i8]* @p_str7, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str) nounwind
+:131  %str_127 = alloca [32 x i8], align 1
 
 ST_1: stg_141 [1/1] 0.00ns
-:133  call void (...)* @_ssdm_op_SpecMemCore([32 x i8]* %str_0, [32 x i8]* %str_1, [32 x i8]* %str_2, [32 x i8]* %str_3, [32 x i8]* %str_4, [32 x i8]* %str_5, [32 x i8]* %str_6, [32 x i8]* %str_7, [32 x i8]* %str_8, [32 x i8]* %str_9, [32 x i8]* %str_10, [32 x i8]* %str_11, [32 x i8]* %str_12, [32 x i8]* %str_13, [32 x i8]* %str_14, [32 x i8]* %str_15, [32 x i8]* %str_16, [32 x i8]* %str_17, [32 x i8]* %str_18, [32 x i8]* %str_19, [32 x i8]* %str_20, [32 x i8]* %str_21, [32 x i8]* %str_22, [32 x i8]* %str_23, [32 x i8]* %str_24, [32 x i8]* %str_25, [32 x i8]* %str_26, [32 x i8]* %str_27, [32 x i8]* %str_28, [32 x i8]* %str_29, [32 x i8]* %str_30, [32 x i8]* %str_31, [32 x i8]* %str_32, [32 x i8]* %str_33, [32 x i8]* %str_34, [32 x i8]* %str_35, [32 x i8]* %str_36, [32 x i8]* %str_37, [32 x i8]* %str_38, [32 x i8]* %str_39, [32 x i8]* %str_40, [32 x i8]* %str_41, [32 x i8]* %str_42, [32 x i8]* %str_43, [32 x i8]* %str_44, [32 x i8]* %str_45, [32 x i8]* %str_46, [32 x i8]* %str_47, [32 x i8]* %str_48, [32 x i8]* %str_49, [32 x i8]* %str_50, [32 x i8]* %str_51, [32 x i8]* %str_52, [32 x i8]* %str_53, [32 x i8]* %str_54, [32 x i8]* %str_55, [32 x i8]* %str_56, [32 x i8]* %str_57, [32 x i8]* %str_58, [32 x i8]* %str_59, [32 x i8]* %str_60, [32 x i8]* %str_61, [32 x i8]* %str_62, [32 x i8]* %str_63, [32 x i8]* %str_64, [32 x i8]* %str_65, [32 x i8]* %str_66, [32 x i8]* %str_67, [32 x i8]* %str_68, [32 x i8]* %str_69, [32 x i8]* %str_70, [32 x i8]* %str_71, [32 x i8]* %str_72, [32 x i8]* %str_73, [32 x i8]* %str_74, [32 x i8]* %str_75, [32 x i8]* %str_76, [32 x i8]* %str_77, [32 x i8]* %str_78, [32 x i8]* %str_79, [32 x i8]* %str_80, [32 x i8]* %str_81, [32 x i8]* %str_82, [32 x i8]* %str_83, [32 x i8]* %str_84, [32 x i8]* %str_85, [32 x i8]* %str_86, [32 x i8]* %str_87, [32 x i8]* %str_88, [32 x i8]* %str_89, [32 x i8]* %str_90, [32 x i8]* %str_91, [32 x i8]* %str_92, [32 x i8]* %str_93, [32 x i8]* %str_94, [32 x i8]* %str_95, [32 x i8]* %str_96, [32 x i8]* %str_97, [32 x i8]* %str_98, [32 x i8]* %str_99, [32 x i8]* %str_100, [32 x i8]* %str_101, [32 x i8]* %str_102, [32 x i8]* %str_103, [32 x i8]* %str_104, [32 x i8]* %str_105, [32 x i8]* %str_106, [32 x i8]* %str_107, [32 x i8]* %str_108, [32 x i8]* %str_109, [32 x i8]* %str_110, [32 x i8]* %str_111, [32 x i8]* %str_112, [32 x i8]* %str_113, [32 x i8]* %str_114, [32 x i8]* %str_115, [32 x i8]* %str_116, [32 x i8]* %str_117, [32 x i8]* %str_118, [32 x i8]* %str_119, [32 x i8]* %str_120, [32 x i8]* %str_121, [32 x i8]* %str_122, [32 x i8]* %str_123, [32 x i8]* %str_124, [32 x i8]* %str_125, [32 x i8]* %str_126, [32 x i8]* %str_127, [1 x i8]* @p_str, [12 x i8]* @p_str1, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)
+:132  call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str7, i32 1, i32 1, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str) nounwind
 
-ST_1: stg_142 [1/1] 1.57ns
-:134  br label %1
+ST_1: stg_142 [1/1] 0.00ns
+:133  call void (...)* @_ssdm_op_SpecInterface(i32* %indicesStream_V_data, i1* %indicesStream_V_last_V, [5 x i8]* @p_str8, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str) nounwind
+
+ST_1: stg_143 [1/1] 0.00ns
+:134  call void (...)* @_ssdm_op_SpecInterface(i8* %strStream_V, [5 x i8]* @p_str8, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str) nounwind
+
+ST_1: stg_144 [1/1] 0.00ns
+:135  call void (...)* @_ssdm_op_SpecMemCore([32 x i8]* %str_0, [32 x i8]* %str_1, [32 x i8]* %str_2, [32 x i8]* %str_3, [32 x i8]* %str_4, [32 x i8]* %str_5, [32 x i8]* %str_6, [32 x i8]* %str_7, [32 x i8]* %str_8, [32 x i8]* %str_9, [32 x i8]* %str_10, [32 x i8]* %str_11, [32 x i8]* %str_12, [32 x i8]* %str_13, [32 x i8]* %str_14, [32 x i8]* %str_15, [32 x i8]* %str_16, [32 x i8]* %str_17, [32 x i8]* %str_18, [32 x i8]* %str_19, [32 x i8]* %str_20, [32 x i8]* %str_21, [32 x i8]* %str_22, [32 x i8]* %str_23, [32 x i8]* %str_24, [32 x i8]* %str_25, [32 x i8]* %str_26, [32 x i8]* %str_27, [32 x i8]* %str_28, [32 x i8]* %str_29, [32 x i8]* %str_30, [32 x i8]* %str_31, [32 x i8]* %str_32, [32 x i8]* %str_33, [32 x i8]* %str_34, [32 x i8]* %str_35, [32 x i8]* %str_36, [32 x i8]* %str_37, [32 x i8]* %str_38, [32 x i8]* %str_39, [32 x i8]* %str_40, [32 x i8]* %str_41, [32 x i8]* %str_42, [32 x i8]* %str_43, [32 x i8]* %str_44, [32 x i8]* %str_45, [32 x i8]* %str_46, [32 x i8]* %str_47, [32 x i8]* %str_48, [32 x i8]* %str_49, [32 x i8]* %str_50, [32 x i8]* %str_51, [32 x i8]* %str_52, [32 x i8]* %str_53, [32 x i8]* %str_54, [32 x i8]* %str_55, [32 x i8]* %str_56, [32 x i8]* %str_57, [32 x i8]* %str_58, [32 x i8]* %str_59, [32 x i8]* %str_60, [32 x i8]* %str_61, [32 x i8]* %str_62, [32 x i8]* %str_63, [32 x i8]* %str_64, [32 x i8]* %str_65, [32 x i8]* %str_66, [32 x i8]* %str_67, [32 x i8]* %str_68, [32 x i8]* %str_69, [32 x i8]* %str_70, [32 x i8]* %str_71, [32 x i8]* %str_72, [32 x i8]* %str_73, [32 x i8]* %str_74, [32 x i8]* %str_75, [32 x i8]* %str_76, [32 x i8]* %str_77, [32 x i8]* %str_78, [32 x i8]* %str_79, [32 x i8]* %str_80, [32 x i8]* %str_81, [32 x i8]* %str_82, [32 x i8]* %str_83, [32 x i8]* %str_84, [32 x i8]* %str_85, [32 x i8]* %str_86, [32 x i8]* %str_87, [32 x i8]* %str_88, [32 x i8]* %str_89, [32 x i8]* %str_90, [32 x i8]* %str_91, [32 x i8]* %str_92, [32 x i8]* %str_93, [32 x i8]* %str_94, [32 x i8]* %str_95, [32 x i8]* %str_96, [32 x i8]* %str_97, [32 x i8]* %str_98, [32 x i8]* %str_99, [32 x i8]* %str_100, [32 x i8]* %str_101, [32 x i8]* %str_102, [32 x i8]* %str_103, [32 x i8]* %str_104, [32 x i8]* %str_105, [32 x i8]* %str_106, [32 x i8]* %str_107, [32 x i8]* %str_108, [32 x i8]* %str_109, [32 x i8]* %str_110, [32 x i8]* %str_111, [32 x i8]* %str_112, [32 x i8]* %str_113, [32 x i8]* %str_114, [32 x i8]* %str_115, [32 x i8]* %str_116, [32 x i8]* %str_117, [32 x i8]* %str_118, [32 x i8]* %str_119, [32 x i8]* %str_120, [32 x i8]* %str_121, [32 x i8]* %str_122, [32 x i8]* %str_123, [32 x i8]* %str_124, [32 x i8]* %str_125, [32 x i8]* %str_126, [32 x i8]* %str_127, [1 x i8]* @p_str, [12 x i8]* @p_str1, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)
+
+ST_1: stg_145 [1/1] 1.57ns
+:136  br label %1
 
 
  <State 2>: 2.39ns
 ST_2: i [1/1] 0.00ns
 :0  %i = phi i13 [ 0, %0 ], [ %i_2, %3 ]
 
-ST_2: exitcond4 [1/1] 2.18ns
-:1  %exitcond4 = icmp eq i13 %i, -4096
+ST_2: exitcond1 [1/1] 2.18ns
+:1  %exitcond1 = icmp eq i13 %i, -4096
 
 ST_2: i_2 [1/1] 1.96ns
 :2  %i_2 = add i13 %i, 1
 
-ST_2: stg_146 [1/1] 0.00ns
-:3  br i1 %exitcond4, label %4, label %2
+ST_2: stg_149 [1/1] 0.00ns
+:3  br i1 %exitcond1, label %4, label %2
 
 ST_2: empty [1/1] 0.00ns
 :0  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4096, i64 4096, i64 4096)
 
 ST_2: tmp_s [1/1] 0.00ns
-:1  %tmp_s = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str9)
+:1  %tmp_s = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str10)
 
-ST_2: stg_149 [1/1] 0.00ns
+ST_2: stg_152 [1/1] 0.00ns
 :2  call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str) nounwind
 
 ST_2: tmp [1/1] 0.00ns
@@ -924,7 +932,7 @@ ST_2: str_126_addr [1/1] 0.00ns
 ST_2: str_127_addr [1/1] 0.00ns
 :134  %str_127_addr = getelementptr [32 x i8]* %str_127, i64 0, i64 %newIndex3
 
-ST_2: stg_282 [1/1] 2.03ns
+ST_2: stg_285 [1/1] 2.03ns
 :135  switch i7 %tmp_1818, label %branch127 [
     i7 0, label %branch0
     i7 1, label %branch1
@@ -1055,778 +1063,778 @@ ST_2: stg_282 [1/1] 2.03ns
     i7 -2, label %branch126
   ]
 
-ST_2: stg_283 [1/1] 2.39ns
+ST_2: stg_286 [1/1] 2.39ns
 branch126:0  store i8 %tmp, i8* %str_126_addr, align 1
 
-ST_2: stg_284 [1/1] 0.00ns
+ST_2: stg_287 [1/1] 0.00ns
 branch126:1  br label %3
 
-ST_2: stg_285 [1/1] 2.39ns
+ST_2: stg_288 [1/1] 2.39ns
 branch125:0  store i8 %tmp, i8* %str_125_addr, align 1
 
-ST_2: stg_286 [1/1] 0.00ns
+ST_2: stg_289 [1/1] 0.00ns
 branch125:1  br label %3
 
-ST_2: stg_287 [1/1] 2.39ns
+ST_2: stg_290 [1/1] 2.39ns
 branch124:0  store i8 %tmp, i8* %str_124_addr, align 1
 
-ST_2: stg_288 [1/1] 0.00ns
+ST_2: stg_291 [1/1] 0.00ns
 branch124:1  br label %3
 
-ST_2: stg_289 [1/1] 2.39ns
+ST_2: stg_292 [1/1] 2.39ns
 branch123:0  store i8 %tmp, i8* %str_123_addr, align 1
 
-ST_2: stg_290 [1/1] 0.00ns
+ST_2: stg_293 [1/1] 0.00ns
 branch123:1  br label %3
 
-ST_2: stg_291 [1/1] 2.39ns
+ST_2: stg_294 [1/1] 2.39ns
 branch122:0  store i8 %tmp, i8* %str_122_addr, align 1
 
-ST_2: stg_292 [1/1] 0.00ns
+ST_2: stg_295 [1/1] 0.00ns
 branch122:1  br label %3
 
-ST_2: stg_293 [1/1] 2.39ns
+ST_2: stg_296 [1/1] 2.39ns
 branch121:0  store i8 %tmp, i8* %str_121_addr, align 1
 
-ST_2: stg_294 [1/1] 0.00ns
+ST_2: stg_297 [1/1] 0.00ns
 branch121:1  br label %3
 
-ST_2: stg_295 [1/1] 2.39ns
+ST_2: stg_298 [1/1] 2.39ns
 branch120:0  store i8 %tmp, i8* %str_120_addr, align 1
 
-ST_2: stg_296 [1/1] 0.00ns
+ST_2: stg_299 [1/1] 0.00ns
 branch120:1  br label %3
 
-ST_2: stg_297 [1/1] 2.39ns
+ST_2: stg_300 [1/1] 2.39ns
 branch119:0  store i8 %tmp, i8* %str_119_addr, align 1
 
-ST_2: stg_298 [1/1] 0.00ns
+ST_2: stg_301 [1/1] 0.00ns
 branch119:1  br label %3
 
-ST_2: stg_299 [1/1] 2.39ns
+ST_2: stg_302 [1/1] 2.39ns
 branch118:0  store i8 %tmp, i8* %str_118_addr, align 1
 
-ST_2: stg_300 [1/1] 0.00ns
+ST_2: stg_303 [1/1] 0.00ns
 branch118:1  br label %3
 
-ST_2: stg_301 [1/1] 2.39ns
+ST_2: stg_304 [1/1] 2.39ns
 branch117:0  store i8 %tmp, i8* %str_117_addr, align 1
 
-ST_2: stg_302 [1/1] 0.00ns
+ST_2: stg_305 [1/1] 0.00ns
 branch117:1  br label %3
 
-ST_2: stg_303 [1/1] 2.39ns
+ST_2: stg_306 [1/1] 2.39ns
 branch116:0  store i8 %tmp, i8* %str_116_addr, align 1
 
-ST_2: stg_304 [1/1] 0.00ns
+ST_2: stg_307 [1/1] 0.00ns
 branch116:1  br label %3
 
-ST_2: stg_305 [1/1] 2.39ns
+ST_2: stg_308 [1/1] 2.39ns
 branch115:0  store i8 %tmp, i8* %str_115_addr, align 1
 
-ST_2: stg_306 [1/1] 0.00ns
+ST_2: stg_309 [1/1] 0.00ns
 branch115:1  br label %3
 
-ST_2: stg_307 [1/1] 2.39ns
+ST_2: stg_310 [1/1] 2.39ns
 branch114:0  store i8 %tmp, i8* %str_114_addr, align 1
 
-ST_2: stg_308 [1/1] 0.00ns
+ST_2: stg_311 [1/1] 0.00ns
 branch114:1  br label %3
 
-ST_2: stg_309 [1/1] 2.39ns
+ST_2: stg_312 [1/1] 2.39ns
 branch113:0  store i8 %tmp, i8* %str_113_addr, align 1
 
-ST_2: stg_310 [1/1] 0.00ns
+ST_2: stg_313 [1/1] 0.00ns
 branch113:1  br label %3
 
-ST_2: stg_311 [1/1] 2.39ns
+ST_2: stg_314 [1/1] 2.39ns
 branch112:0  store i8 %tmp, i8* %str_112_addr, align 1
 
-ST_2: stg_312 [1/1] 0.00ns
+ST_2: stg_315 [1/1] 0.00ns
 branch112:1  br label %3
 
-ST_2: stg_313 [1/1] 2.39ns
+ST_2: stg_316 [1/1] 2.39ns
 branch111:0  store i8 %tmp, i8* %str_111_addr, align 1
 
-ST_2: stg_314 [1/1] 0.00ns
+ST_2: stg_317 [1/1] 0.00ns
 branch111:1  br label %3
 
-ST_2: stg_315 [1/1] 2.39ns
+ST_2: stg_318 [1/1] 2.39ns
 branch110:0  store i8 %tmp, i8* %str_110_addr, align 1
 
-ST_2: stg_316 [1/1] 0.00ns
+ST_2: stg_319 [1/1] 0.00ns
 branch110:1  br label %3
 
-ST_2: stg_317 [1/1] 2.39ns
+ST_2: stg_320 [1/1] 2.39ns
 branch109:0  store i8 %tmp, i8* %str_109_addr, align 1
 
-ST_2: stg_318 [1/1] 0.00ns
+ST_2: stg_321 [1/1] 0.00ns
 branch109:1  br label %3
 
-ST_2: stg_319 [1/1] 2.39ns
+ST_2: stg_322 [1/1] 2.39ns
 branch108:0  store i8 %tmp, i8* %str_108_addr, align 1
 
-ST_2: stg_320 [1/1] 0.00ns
+ST_2: stg_323 [1/1] 0.00ns
 branch108:1  br label %3
 
-ST_2: stg_321 [1/1] 2.39ns
+ST_2: stg_324 [1/1] 2.39ns
 branch107:0  store i8 %tmp, i8* %str_107_addr, align 1
 
-ST_2: stg_322 [1/1] 0.00ns
+ST_2: stg_325 [1/1] 0.00ns
 branch107:1  br label %3
 
-ST_2: stg_323 [1/1] 2.39ns
+ST_2: stg_326 [1/1] 2.39ns
 branch106:0  store i8 %tmp, i8* %str_106_addr, align 1
 
-ST_2: stg_324 [1/1] 0.00ns
+ST_2: stg_327 [1/1] 0.00ns
 branch106:1  br label %3
 
-ST_2: stg_325 [1/1] 2.39ns
+ST_2: stg_328 [1/1] 2.39ns
 branch105:0  store i8 %tmp, i8* %str_105_addr, align 1
 
-ST_2: stg_326 [1/1] 0.00ns
+ST_2: stg_329 [1/1] 0.00ns
 branch105:1  br label %3
 
-ST_2: stg_327 [1/1] 2.39ns
+ST_2: stg_330 [1/1] 2.39ns
 branch104:0  store i8 %tmp, i8* %str_104_addr, align 1
 
-ST_2: stg_328 [1/1] 0.00ns
+ST_2: stg_331 [1/1] 0.00ns
 branch104:1  br label %3
 
-ST_2: stg_329 [1/1] 2.39ns
+ST_2: stg_332 [1/1] 2.39ns
 branch103:0  store i8 %tmp, i8* %str_103_addr, align 1
 
-ST_2: stg_330 [1/1] 0.00ns
+ST_2: stg_333 [1/1] 0.00ns
 branch103:1  br label %3
 
-ST_2: stg_331 [1/1] 2.39ns
+ST_2: stg_334 [1/1] 2.39ns
 branch102:0  store i8 %tmp, i8* %str_102_addr, align 1
 
-ST_2: stg_332 [1/1] 0.00ns
+ST_2: stg_335 [1/1] 0.00ns
 branch102:1  br label %3
 
-ST_2: stg_333 [1/1] 2.39ns
+ST_2: stg_336 [1/1] 2.39ns
 branch101:0  store i8 %tmp, i8* %str_101_addr, align 1
 
-ST_2: stg_334 [1/1] 0.00ns
+ST_2: stg_337 [1/1] 0.00ns
 branch101:1  br label %3
 
-ST_2: stg_335 [1/1] 2.39ns
+ST_2: stg_338 [1/1] 2.39ns
 branch100:0  store i8 %tmp, i8* %str_100_addr, align 1
 
-ST_2: stg_336 [1/1] 0.00ns
+ST_2: stg_339 [1/1] 0.00ns
 branch100:1  br label %3
 
-ST_2: stg_337 [1/1] 2.39ns
+ST_2: stg_340 [1/1] 2.39ns
 branch99:0  store i8 %tmp, i8* %str_99_addr, align 1
 
-ST_2: stg_338 [1/1] 0.00ns
+ST_2: stg_341 [1/1] 0.00ns
 branch99:1  br label %3
 
-ST_2: stg_339 [1/1] 2.39ns
+ST_2: stg_342 [1/1] 2.39ns
 branch98:0  store i8 %tmp, i8* %str_98_addr, align 1
 
-ST_2: stg_340 [1/1] 0.00ns
+ST_2: stg_343 [1/1] 0.00ns
 branch98:1  br label %3
 
-ST_2: stg_341 [1/1] 2.39ns
+ST_2: stg_344 [1/1] 2.39ns
 branch97:0  store i8 %tmp, i8* %str_97_addr, align 1
 
-ST_2: stg_342 [1/1] 0.00ns
+ST_2: stg_345 [1/1] 0.00ns
 branch97:1  br label %3
 
-ST_2: stg_343 [1/1] 2.39ns
+ST_2: stg_346 [1/1] 2.39ns
 branch96:0  store i8 %tmp, i8* %str_96_addr, align 1
 
-ST_2: stg_344 [1/1] 0.00ns
+ST_2: stg_347 [1/1] 0.00ns
 branch96:1  br label %3
 
-ST_2: stg_345 [1/1] 2.39ns
+ST_2: stg_348 [1/1] 2.39ns
 branch95:0  store i8 %tmp, i8* %str_95_addr, align 1
 
-ST_2: stg_346 [1/1] 0.00ns
+ST_2: stg_349 [1/1] 0.00ns
 branch95:1  br label %3
 
-ST_2: stg_347 [1/1] 2.39ns
+ST_2: stg_350 [1/1] 2.39ns
 branch94:0  store i8 %tmp, i8* %str_94_addr, align 1
 
-ST_2: stg_348 [1/1] 0.00ns
+ST_2: stg_351 [1/1] 0.00ns
 branch94:1  br label %3
 
-ST_2: stg_349 [1/1] 2.39ns
+ST_2: stg_352 [1/1] 2.39ns
 branch93:0  store i8 %tmp, i8* %str_93_addr, align 1
 
-ST_2: stg_350 [1/1] 0.00ns
+ST_2: stg_353 [1/1] 0.00ns
 branch93:1  br label %3
 
-ST_2: stg_351 [1/1] 2.39ns
+ST_2: stg_354 [1/1] 2.39ns
 branch92:0  store i8 %tmp, i8* %str_92_addr, align 1
 
-ST_2: stg_352 [1/1] 0.00ns
+ST_2: stg_355 [1/1] 0.00ns
 branch92:1  br label %3
 
-ST_2: stg_353 [1/1] 2.39ns
+ST_2: stg_356 [1/1] 2.39ns
 branch91:0  store i8 %tmp, i8* %str_91_addr, align 1
 
-ST_2: stg_354 [1/1] 0.00ns
+ST_2: stg_357 [1/1] 0.00ns
 branch91:1  br label %3
 
-ST_2: stg_355 [1/1] 2.39ns
+ST_2: stg_358 [1/1] 2.39ns
 branch90:0  store i8 %tmp, i8* %str_90_addr, align 1
 
-ST_2: stg_356 [1/1] 0.00ns
+ST_2: stg_359 [1/1] 0.00ns
 branch90:1  br label %3
 
-ST_2: stg_357 [1/1] 2.39ns
+ST_2: stg_360 [1/1] 2.39ns
 branch89:0  store i8 %tmp, i8* %str_89_addr, align 1
 
-ST_2: stg_358 [1/1] 0.00ns
+ST_2: stg_361 [1/1] 0.00ns
 branch89:1  br label %3
 
-ST_2: stg_359 [1/1] 2.39ns
+ST_2: stg_362 [1/1] 2.39ns
 branch88:0  store i8 %tmp, i8* %str_88_addr, align 1
 
-ST_2: stg_360 [1/1] 0.00ns
+ST_2: stg_363 [1/1] 0.00ns
 branch88:1  br label %3
 
-ST_2: stg_361 [1/1] 2.39ns
+ST_2: stg_364 [1/1] 2.39ns
 branch87:0  store i8 %tmp, i8* %str_87_addr, align 1
 
-ST_2: stg_362 [1/1] 0.00ns
+ST_2: stg_365 [1/1] 0.00ns
 branch87:1  br label %3
 
-ST_2: stg_363 [1/1] 2.39ns
+ST_2: stg_366 [1/1] 2.39ns
 branch86:0  store i8 %tmp, i8* %str_86_addr, align 1
 
-ST_2: stg_364 [1/1] 0.00ns
+ST_2: stg_367 [1/1] 0.00ns
 branch86:1  br label %3
 
-ST_2: stg_365 [1/1] 2.39ns
+ST_2: stg_368 [1/1] 2.39ns
 branch85:0  store i8 %tmp, i8* %str_85_addr, align 1
 
-ST_2: stg_366 [1/1] 0.00ns
+ST_2: stg_369 [1/1] 0.00ns
 branch85:1  br label %3
 
-ST_2: stg_367 [1/1] 2.39ns
+ST_2: stg_370 [1/1] 2.39ns
 branch84:0  store i8 %tmp, i8* %str_84_addr, align 1
 
-ST_2: stg_368 [1/1] 0.00ns
+ST_2: stg_371 [1/1] 0.00ns
 branch84:1  br label %3
 
-ST_2: stg_369 [1/1] 2.39ns
+ST_2: stg_372 [1/1] 2.39ns
 branch83:0  store i8 %tmp, i8* %str_83_addr, align 1
 
-ST_2: stg_370 [1/1] 0.00ns
+ST_2: stg_373 [1/1] 0.00ns
 branch83:1  br label %3
 
-ST_2: stg_371 [1/1] 2.39ns
+ST_2: stg_374 [1/1] 2.39ns
 branch82:0  store i8 %tmp, i8* %str_82_addr, align 1
 
-ST_2: stg_372 [1/1] 0.00ns
+ST_2: stg_375 [1/1] 0.00ns
 branch82:1  br label %3
 
-ST_2: stg_373 [1/1] 2.39ns
+ST_2: stg_376 [1/1] 2.39ns
 branch81:0  store i8 %tmp, i8* %str_81_addr, align 1
 
-ST_2: stg_374 [1/1] 0.00ns
+ST_2: stg_377 [1/1] 0.00ns
 branch81:1  br label %3
 
-ST_2: stg_375 [1/1] 2.39ns
+ST_2: stg_378 [1/1] 2.39ns
 branch80:0  store i8 %tmp, i8* %str_80_addr, align 1
 
-ST_2: stg_376 [1/1] 0.00ns
+ST_2: stg_379 [1/1] 0.00ns
 branch80:1  br label %3
 
-ST_2: stg_377 [1/1] 2.39ns
+ST_2: stg_380 [1/1] 2.39ns
 branch79:0  store i8 %tmp, i8* %str_79_addr, align 1
 
-ST_2: stg_378 [1/1] 0.00ns
+ST_2: stg_381 [1/1] 0.00ns
 branch79:1  br label %3
 
-ST_2: stg_379 [1/1] 2.39ns
+ST_2: stg_382 [1/1] 2.39ns
 branch78:0  store i8 %tmp, i8* %str_78_addr, align 1
 
-ST_2: stg_380 [1/1] 0.00ns
+ST_2: stg_383 [1/1] 0.00ns
 branch78:1  br label %3
 
-ST_2: stg_381 [1/1] 2.39ns
+ST_2: stg_384 [1/1] 2.39ns
 branch77:0  store i8 %tmp, i8* %str_77_addr, align 1
 
-ST_2: stg_382 [1/1] 0.00ns
+ST_2: stg_385 [1/1] 0.00ns
 branch77:1  br label %3
 
-ST_2: stg_383 [1/1] 2.39ns
+ST_2: stg_386 [1/1] 2.39ns
 branch76:0  store i8 %tmp, i8* %str_76_addr, align 1
 
-ST_2: stg_384 [1/1] 0.00ns
+ST_2: stg_387 [1/1] 0.00ns
 branch76:1  br label %3
 
-ST_2: stg_385 [1/1] 2.39ns
+ST_2: stg_388 [1/1] 2.39ns
 branch75:0  store i8 %tmp, i8* %str_75_addr, align 1
 
-ST_2: stg_386 [1/1] 0.00ns
+ST_2: stg_389 [1/1] 0.00ns
 branch75:1  br label %3
 
-ST_2: stg_387 [1/1] 2.39ns
+ST_2: stg_390 [1/1] 2.39ns
 branch74:0  store i8 %tmp, i8* %str_74_addr, align 1
 
-ST_2: stg_388 [1/1] 0.00ns
+ST_2: stg_391 [1/1] 0.00ns
 branch74:1  br label %3
 
-ST_2: stg_389 [1/1] 2.39ns
+ST_2: stg_392 [1/1] 2.39ns
 branch73:0  store i8 %tmp, i8* %str_73_addr, align 1
 
-ST_2: stg_390 [1/1] 0.00ns
+ST_2: stg_393 [1/1] 0.00ns
 branch73:1  br label %3
 
-ST_2: stg_391 [1/1] 2.39ns
+ST_2: stg_394 [1/1] 2.39ns
 branch72:0  store i8 %tmp, i8* %str_72_addr, align 1
 
-ST_2: stg_392 [1/1] 0.00ns
+ST_2: stg_395 [1/1] 0.00ns
 branch72:1  br label %3
 
-ST_2: stg_393 [1/1] 2.39ns
+ST_2: stg_396 [1/1] 2.39ns
 branch71:0  store i8 %tmp, i8* %str_71_addr, align 1
 
-ST_2: stg_394 [1/1] 0.00ns
+ST_2: stg_397 [1/1] 0.00ns
 branch71:1  br label %3
 
-ST_2: stg_395 [1/1] 2.39ns
+ST_2: stg_398 [1/1] 2.39ns
 branch70:0  store i8 %tmp, i8* %str_70_addr, align 1
 
-ST_2: stg_396 [1/1] 0.00ns
+ST_2: stg_399 [1/1] 0.00ns
 branch70:1  br label %3
 
-ST_2: stg_397 [1/1] 2.39ns
+ST_2: stg_400 [1/1] 2.39ns
 branch69:0  store i8 %tmp, i8* %str_69_addr, align 1
 
-ST_2: stg_398 [1/1] 0.00ns
+ST_2: stg_401 [1/1] 0.00ns
 branch69:1  br label %3
 
-ST_2: stg_399 [1/1] 2.39ns
+ST_2: stg_402 [1/1] 2.39ns
 branch68:0  store i8 %tmp, i8* %str_68_addr, align 1
 
-ST_2: stg_400 [1/1] 0.00ns
+ST_2: stg_403 [1/1] 0.00ns
 branch68:1  br label %3
 
-ST_2: stg_401 [1/1] 2.39ns
+ST_2: stg_404 [1/1] 2.39ns
 branch67:0  store i8 %tmp, i8* %str_67_addr, align 1
 
-ST_2: stg_402 [1/1] 0.00ns
+ST_2: stg_405 [1/1] 0.00ns
 branch67:1  br label %3
 
-ST_2: stg_403 [1/1] 2.39ns
+ST_2: stg_406 [1/1] 2.39ns
 branch66:0  store i8 %tmp, i8* %str_66_addr, align 1
 
-ST_2: stg_404 [1/1] 0.00ns
+ST_2: stg_407 [1/1] 0.00ns
 branch66:1  br label %3
 
-ST_2: stg_405 [1/1] 2.39ns
+ST_2: stg_408 [1/1] 2.39ns
 branch65:0  store i8 %tmp, i8* %str_65_addr, align 1
 
-ST_2: stg_406 [1/1] 0.00ns
+ST_2: stg_409 [1/1] 0.00ns
 branch65:1  br label %3
 
-ST_2: stg_407 [1/1] 2.39ns
+ST_2: stg_410 [1/1] 2.39ns
 branch64:0  store i8 %tmp, i8* %str_64_addr, align 1
 
-ST_2: stg_408 [1/1] 0.00ns
+ST_2: stg_411 [1/1] 0.00ns
 branch64:1  br label %3
 
-ST_2: stg_409 [1/1] 2.39ns
+ST_2: stg_412 [1/1] 2.39ns
 branch63:0  store i8 %tmp, i8* %str_63_addr, align 1
 
-ST_2: stg_410 [1/1] 0.00ns
+ST_2: stg_413 [1/1] 0.00ns
 branch63:1  br label %3
 
-ST_2: stg_411 [1/1] 2.39ns
+ST_2: stg_414 [1/1] 2.39ns
 branch62:0  store i8 %tmp, i8* %str_62_addr, align 1
 
-ST_2: stg_412 [1/1] 0.00ns
+ST_2: stg_415 [1/1] 0.00ns
 branch62:1  br label %3
 
-ST_2: stg_413 [1/1] 2.39ns
+ST_2: stg_416 [1/1] 2.39ns
 branch61:0  store i8 %tmp, i8* %str_61_addr, align 1
 
-ST_2: stg_414 [1/1] 0.00ns
+ST_2: stg_417 [1/1] 0.00ns
 branch61:1  br label %3
 
-ST_2: stg_415 [1/1] 2.39ns
+ST_2: stg_418 [1/1] 2.39ns
 branch60:0  store i8 %tmp, i8* %str_60_addr, align 1
 
-ST_2: stg_416 [1/1] 0.00ns
+ST_2: stg_419 [1/1] 0.00ns
 branch60:1  br label %3
 
-ST_2: stg_417 [1/1] 2.39ns
+ST_2: stg_420 [1/1] 2.39ns
 branch59:0  store i8 %tmp, i8* %str_59_addr, align 1
 
-ST_2: stg_418 [1/1] 0.00ns
+ST_2: stg_421 [1/1] 0.00ns
 branch59:1  br label %3
 
-ST_2: stg_419 [1/1] 2.39ns
+ST_2: stg_422 [1/1] 2.39ns
 branch58:0  store i8 %tmp, i8* %str_58_addr, align 1
 
-ST_2: stg_420 [1/1] 0.00ns
+ST_2: stg_423 [1/1] 0.00ns
 branch58:1  br label %3
 
-ST_2: stg_421 [1/1] 2.39ns
+ST_2: stg_424 [1/1] 2.39ns
 branch57:0  store i8 %tmp, i8* %str_57_addr, align 1
 
-ST_2: stg_422 [1/1] 0.00ns
+ST_2: stg_425 [1/1] 0.00ns
 branch57:1  br label %3
 
-ST_2: stg_423 [1/1] 2.39ns
+ST_2: stg_426 [1/1] 2.39ns
 branch56:0  store i8 %tmp, i8* %str_56_addr, align 1
 
-ST_2: stg_424 [1/1] 0.00ns
+ST_2: stg_427 [1/1] 0.00ns
 branch56:1  br label %3
 
-ST_2: stg_425 [1/1] 2.39ns
+ST_2: stg_428 [1/1] 2.39ns
 branch55:0  store i8 %tmp, i8* %str_55_addr, align 1
 
-ST_2: stg_426 [1/1] 0.00ns
+ST_2: stg_429 [1/1] 0.00ns
 branch55:1  br label %3
 
-ST_2: stg_427 [1/1] 2.39ns
+ST_2: stg_430 [1/1] 2.39ns
 branch54:0  store i8 %tmp, i8* %str_54_addr, align 1
 
-ST_2: stg_428 [1/1] 0.00ns
+ST_2: stg_431 [1/1] 0.00ns
 branch54:1  br label %3
 
-ST_2: stg_429 [1/1] 2.39ns
+ST_2: stg_432 [1/1] 2.39ns
 branch53:0  store i8 %tmp, i8* %str_53_addr, align 1
 
-ST_2: stg_430 [1/1] 0.00ns
+ST_2: stg_433 [1/1] 0.00ns
 branch53:1  br label %3
 
-ST_2: stg_431 [1/1] 2.39ns
+ST_2: stg_434 [1/1] 2.39ns
 branch52:0  store i8 %tmp, i8* %str_52_addr, align 1
 
-ST_2: stg_432 [1/1] 0.00ns
+ST_2: stg_435 [1/1] 0.00ns
 branch52:1  br label %3
 
-ST_2: stg_433 [1/1] 2.39ns
+ST_2: stg_436 [1/1] 2.39ns
 branch51:0  store i8 %tmp, i8* %str_51_addr, align 1
 
-ST_2: stg_434 [1/1] 0.00ns
+ST_2: stg_437 [1/1] 0.00ns
 branch51:1  br label %3
 
-ST_2: stg_435 [1/1] 2.39ns
+ST_2: stg_438 [1/1] 2.39ns
 branch50:0  store i8 %tmp, i8* %str_50_addr, align 1
 
-ST_2: stg_436 [1/1] 0.00ns
+ST_2: stg_439 [1/1] 0.00ns
 branch50:1  br label %3
 
-ST_2: stg_437 [1/1] 2.39ns
+ST_2: stg_440 [1/1] 2.39ns
 branch49:0  store i8 %tmp, i8* %str_49_addr, align 1
 
-ST_2: stg_438 [1/1] 0.00ns
+ST_2: stg_441 [1/1] 0.00ns
 branch49:1  br label %3
 
-ST_2: stg_439 [1/1] 2.39ns
+ST_2: stg_442 [1/1] 2.39ns
 branch48:0  store i8 %tmp, i8* %str_48_addr, align 1
 
-ST_2: stg_440 [1/1] 0.00ns
+ST_2: stg_443 [1/1] 0.00ns
 branch48:1  br label %3
 
-ST_2: stg_441 [1/1] 2.39ns
+ST_2: stg_444 [1/1] 2.39ns
 branch47:0  store i8 %tmp, i8* %str_47_addr, align 1
 
-ST_2: stg_442 [1/1] 0.00ns
+ST_2: stg_445 [1/1] 0.00ns
 branch47:1  br label %3
 
-ST_2: stg_443 [1/1] 2.39ns
+ST_2: stg_446 [1/1] 2.39ns
 branch46:0  store i8 %tmp, i8* %str_46_addr, align 1
 
-ST_2: stg_444 [1/1] 0.00ns
+ST_2: stg_447 [1/1] 0.00ns
 branch46:1  br label %3
 
-ST_2: stg_445 [1/1] 2.39ns
+ST_2: stg_448 [1/1] 2.39ns
 branch45:0  store i8 %tmp, i8* %str_45_addr, align 1
 
-ST_2: stg_446 [1/1] 0.00ns
+ST_2: stg_449 [1/1] 0.00ns
 branch45:1  br label %3
 
-ST_2: stg_447 [1/1] 2.39ns
+ST_2: stg_450 [1/1] 2.39ns
 branch44:0  store i8 %tmp, i8* %str_44_addr, align 1
 
-ST_2: stg_448 [1/1] 0.00ns
+ST_2: stg_451 [1/1] 0.00ns
 branch44:1  br label %3
 
-ST_2: stg_449 [1/1] 2.39ns
+ST_2: stg_452 [1/1] 2.39ns
 branch43:0  store i8 %tmp, i8* %str_43_addr, align 1
 
-ST_2: stg_450 [1/1] 0.00ns
+ST_2: stg_453 [1/1] 0.00ns
 branch43:1  br label %3
 
-ST_2: stg_451 [1/1] 2.39ns
+ST_2: stg_454 [1/1] 2.39ns
 branch42:0  store i8 %tmp, i8* %str_42_addr, align 1
 
-ST_2: stg_452 [1/1] 0.00ns
+ST_2: stg_455 [1/1] 0.00ns
 branch42:1  br label %3
 
-ST_2: stg_453 [1/1] 2.39ns
+ST_2: stg_456 [1/1] 2.39ns
 branch41:0  store i8 %tmp, i8* %str_41_addr, align 1
 
-ST_2: stg_454 [1/1] 0.00ns
+ST_2: stg_457 [1/1] 0.00ns
 branch41:1  br label %3
 
-ST_2: stg_455 [1/1] 2.39ns
+ST_2: stg_458 [1/1] 2.39ns
 branch40:0  store i8 %tmp, i8* %str_40_addr, align 1
 
-ST_2: stg_456 [1/1] 0.00ns
+ST_2: stg_459 [1/1] 0.00ns
 branch40:1  br label %3
 
-ST_2: stg_457 [1/1] 2.39ns
+ST_2: stg_460 [1/1] 2.39ns
 branch39:0  store i8 %tmp, i8* %str_39_addr, align 1
 
-ST_2: stg_458 [1/1] 0.00ns
+ST_2: stg_461 [1/1] 0.00ns
 branch39:1  br label %3
 
-ST_2: stg_459 [1/1] 2.39ns
+ST_2: stg_462 [1/1] 2.39ns
 branch38:0  store i8 %tmp, i8* %str_38_addr, align 1
 
-ST_2: stg_460 [1/1] 0.00ns
+ST_2: stg_463 [1/1] 0.00ns
 branch38:1  br label %3
 
-ST_2: stg_461 [1/1] 2.39ns
+ST_2: stg_464 [1/1] 2.39ns
 branch37:0  store i8 %tmp, i8* %str_37_addr, align 1
 
-ST_2: stg_462 [1/1] 0.00ns
+ST_2: stg_465 [1/1] 0.00ns
 branch37:1  br label %3
 
-ST_2: stg_463 [1/1] 2.39ns
+ST_2: stg_466 [1/1] 2.39ns
 branch36:0  store i8 %tmp, i8* %str_36_addr, align 1
 
-ST_2: stg_464 [1/1] 0.00ns
+ST_2: stg_467 [1/1] 0.00ns
 branch36:1  br label %3
 
-ST_2: stg_465 [1/1] 2.39ns
+ST_2: stg_468 [1/1] 2.39ns
 branch35:0  store i8 %tmp, i8* %str_35_addr, align 1
 
-ST_2: stg_466 [1/1] 0.00ns
+ST_2: stg_469 [1/1] 0.00ns
 branch35:1  br label %3
 
-ST_2: stg_467 [1/1] 2.39ns
+ST_2: stg_470 [1/1] 2.39ns
 branch34:0  store i8 %tmp, i8* %str_34_addr, align 1
 
-ST_2: stg_468 [1/1] 0.00ns
+ST_2: stg_471 [1/1] 0.00ns
 branch34:1  br label %3
 
-ST_2: stg_469 [1/1] 2.39ns
+ST_2: stg_472 [1/1] 2.39ns
 branch33:0  store i8 %tmp, i8* %str_33_addr, align 1
 
-ST_2: stg_470 [1/1] 0.00ns
+ST_2: stg_473 [1/1] 0.00ns
 branch33:1  br label %3
 
-ST_2: stg_471 [1/1] 2.39ns
+ST_2: stg_474 [1/1] 2.39ns
 branch32:0  store i8 %tmp, i8* %str_32_addr, align 1
 
-ST_2: stg_472 [1/1] 0.00ns
+ST_2: stg_475 [1/1] 0.00ns
 branch32:1  br label %3
 
-ST_2: stg_473 [1/1] 2.39ns
+ST_2: stg_476 [1/1] 2.39ns
 branch31:0  store i8 %tmp, i8* %str_31_addr, align 1
 
-ST_2: stg_474 [1/1] 0.00ns
+ST_2: stg_477 [1/1] 0.00ns
 branch31:1  br label %3
 
-ST_2: stg_475 [1/1] 2.39ns
+ST_2: stg_478 [1/1] 2.39ns
 branch30:0  store i8 %tmp, i8* %str_30_addr, align 1
 
-ST_2: stg_476 [1/1] 0.00ns
+ST_2: stg_479 [1/1] 0.00ns
 branch30:1  br label %3
 
-ST_2: stg_477 [1/1] 2.39ns
+ST_2: stg_480 [1/1] 2.39ns
 branch29:0  store i8 %tmp, i8* %str_29_addr, align 1
 
-ST_2: stg_478 [1/1] 0.00ns
+ST_2: stg_481 [1/1] 0.00ns
 branch29:1  br label %3
 
-ST_2: stg_479 [1/1] 2.39ns
+ST_2: stg_482 [1/1] 2.39ns
 branch28:0  store i8 %tmp, i8* %str_28_addr, align 1
 
-ST_2: stg_480 [1/1] 0.00ns
+ST_2: stg_483 [1/1] 0.00ns
 branch28:1  br label %3
 
-ST_2: stg_481 [1/1] 2.39ns
+ST_2: stg_484 [1/1] 2.39ns
 branch27:0  store i8 %tmp, i8* %str_27_addr, align 1
 
-ST_2: stg_482 [1/1] 0.00ns
+ST_2: stg_485 [1/1] 0.00ns
 branch27:1  br label %3
 
-ST_2: stg_483 [1/1] 2.39ns
+ST_2: stg_486 [1/1] 2.39ns
 branch26:0  store i8 %tmp, i8* %str_26_addr, align 1
 
-ST_2: stg_484 [1/1] 0.00ns
+ST_2: stg_487 [1/1] 0.00ns
 branch26:1  br label %3
 
-ST_2: stg_485 [1/1] 2.39ns
+ST_2: stg_488 [1/1] 2.39ns
 branch25:0  store i8 %tmp, i8* %str_25_addr, align 1
 
-ST_2: stg_486 [1/1] 0.00ns
+ST_2: stg_489 [1/1] 0.00ns
 branch25:1  br label %3
 
-ST_2: stg_487 [1/1] 2.39ns
+ST_2: stg_490 [1/1] 2.39ns
 branch24:0  store i8 %tmp, i8* %str_24_addr, align 1
 
-ST_2: stg_488 [1/1] 0.00ns
+ST_2: stg_491 [1/1] 0.00ns
 branch24:1  br label %3
 
-ST_2: stg_489 [1/1] 2.39ns
+ST_2: stg_492 [1/1] 2.39ns
 branch23:0  store i8 %tmp, i8* %str_23_addr, align 1
 
-ST_2: stg_490 [1/1] 0.00ns
+ST_2: stg_493 [1/1] 0.00ns
 branch23:1  br label %3
 
-ST_2: stg_491 [1/1] 2.39ns
+ST_2: stg_494 [1/1] 2.39ns
 branch22:0  store i8 %tmp, i8* %str_22_addr, align 1
 
-ST_2: stg_492 [1/1] 0.00ns
+ST_2: stg_495 [1/1] 0.00ns
 branch22:1  br label %3
 
-ST_2: stg_493 [1/1] 2.39ns
+ST_2: stg_496 [1/1] 2.39ns
 branch21:0  store i8 %tmp, i8* %str_21_addr, align 1
 
-ST_2: stg_494 [1/1] 0.00ns
+ST_2: stg_497 [1/1] 0.00ns
 branch21:1  br label %3
 
-ST_2: stg_495 [1/1] 2.39ns
+ST_2: stg_498 [1/1] 2.39ns
 branch20:0  store i8 %tmp, i8* %str_20_addr, align 1
 
-ST_2: stg_496 [1/1] 0.00ns
+ST_2: stg_499 [1/1] 0.00ns
 branch20:1  br label %3
 
-ST_2: stg_497 [1/1] 2.39ns
+ST_2: stg_500 [1/1] 2.39ns
 branch19:0  store i8 %tmp, i8* %str_19_addr, align 1
 
-ST_2: stg_498 [1/1] 0.00ns
+ST_2: stg_501 [1/1] 0.00ns
 branch19:1  br label %3
 
-ST_2: stg_499 [1/1] 2.39ns
+ST_2: stg_502 [1/1] 2.39ns
 branch18:0  store i8 %tmp, i8* %str_18_addr, align 1
 
-ST_2: stg_500 [1/1] 0.00ns
+ST_2: stg_503 [1/1] 0.00ns
 branch18:1  br label %3
 
-ST_2: stg_501 [1/1] 2.39ns
+ST_2: stg_504 [1/1] 2.39ns
 branch17:0  store i8 %tmp, i8* %str_17_addr, align 1
 
-ST_2: stg_502 [1/1] 0.00ns
+ST_2: stg_505 [1/1] 0.00ns
 branch17:1  br label %3
 
-ST_2: stg_503 [1/1] 2.39ns
+ST_2: stg_506 [1/1] 2.39ns
 branch16:0  store i8 %tmp, i8* %str_16_addr, align 1
 
-ST_2: stg_504 [1/1] 0.00ns
+ST_2: stg_507 [1/1] 0.00ns
 branch16:1  br label %3
 
-ST_2: stg_505 [1/1] 2.39ns
+ST_2: stg_508 [1/1] 2.39ns
 branch15:0  store i8 %tmp, i8* %str_15_addr, align 1
 
-ST_2: stg_506 [1/1] 0.00ns
+ST_2: stg_509 [1/1] 0.00ns
 branch15:1  br label %3
 
-ST_2: stg_507 [1/1] 2.39ns
+ST_2: stg_510 [1/1] 2.39ns
 branch14:0  store i8 %tmp, i8* %str_14_addr, align 1
 
-ST_2: stg_508 [1/1] 0.00ns
+ST_2: stg_511 [1/1] 0.00ns
 branch14:1  br label %3
 
-ST_2: stg_509 [1/1] 2.39ns
+ST_2: stg_512 [1/1] 2.39ns
 branch13:0  store i8 %tmp, i8* %str_13_addr, align 1
 
-ST_2: stg_510 [1/1] 0.00ns
+ST_2: stg_513 [1/1] 0.00ns
 branch13:1  br label %3
 
-ST_2: stg_511 [1/1] 2.39ns
+ST_2: stg_514 [1/1] 2.39ns
 branch12:0  store i8 %tmp, i8* %str_12_addr, align 1
 
-ST_2: stg_512 [1/1] 0.00ns
+ST_2: stg_515 [1/1] 0.00ns
 branch12:1  br label %3
 
-ST_2: stg_513 [1/1] 2.39ns
+ST_2: stg_516 [1/1] 2.39ns
 branch11:0  store i8 %tmp, i8* %str_11_addr, align 1
 
-ST_2: stg_514 [1/1] 0.00ns
+ST_2: stg_517 [1/1] 0.00ns
 branch11:1  br label %3
 
-ST_2: stg_515 [1/1] 2.39ns
+ST_2: stg_518 [1/1] 2.39ns
 branch10:0  store i8 %tmp, i8* %str_10_addr, align 1
 
-ST_2: stg_516 [1/1] 0.00ns
+ST_2: stg_519 [1/1] 0.00ns
 branch10:1  br label %3
 
-ST_2: stg_517 [1/1] 2.39ns
+ST_2: stg_520 [1/1] 2.39ns
 branch9:0  store i8 %tmp, i8* %str_9_addr, align 1
 
-ST_2: stg_518 [1/1] 0.00ns
+ST_2: stg_521 [1/1] 0.00ns
 branch9:1  br label %3
 
-ST_2: stg_519 [1/1] 2.39ns
+ST_2: stg_522 [1/1] 2.39ns
 branch8:0  store i8 %tmp, i8* %str_8_addr, align 1
 
-ST_2: stg_520 [1/1] 0.00ns
+ST_2: stg_523 [1/1] 0.00ns
 branch8:1  br label %3
 
-ST_2: stg_521 [1/1] 2.39ns
+ST_2: stg_524 [1/1] 2.39ns
 branch7:0  store i8 %tmp, i8* %str_7_addr, align 1
 
-ST_2: stg_522 [1/1] 0.00ns
+ST_2: stg_525 [1/1] 0.00ns
 branch7:1  br label %3
 
-ST_2: stg_523 [1/1] 2.39ns
+ST_2: stg_526 [1/1] 2.39ns
 branch6:0  store i8 %tmp, i8* %str_6_addr, align 1
 
-ST_2: stg_524 [1/1] 0.00ns
+ST_2: stg_527 [1/1] 0.00ns
 branch6:1  br label %3
 
-ST_2: stg_525 [1/1] 2.39ns
+ST_2: stg_528 [1/1] 2.39ns
 branch5:0  store i8 %tmp, i8* %str_5_addr, align 1
 
-ST_2: stg_526 [1/1] 0.00ns
+ST_2: stg_529 [1/1] 0.00ns
 branch5:1  br label %3
 
-ST_2: stg_527 [1/1] 2.39ns
+ST_2: stg_530 [1/1] 2.39ns
 branch4:0  store i8 %tmp, i8* %str_4_addr, align 1
 
-ST_2: stg_528 [1/1] 0.00ns
+ST_2: stg_531 [1/1] 0.00ns
 branch4:1  br label %3
 
-ST_2: stg_529 [1/1] 2.39ns
+ST_2: stg_532 [1/1] 2.39ns
 branch3:0  store i8 %tmp, i8* %str_3_addr, align 1
 
-ST_2: stg_530 [1/1] 0.00ns
+ST_2: stg_533 [1/1] 0.00ns
 branch3:1  br label %3
 
-ST_2: stg_531 [1/1] 2.39ns
+ST_2: stg_534 [1/1] 2.39ns
 branch2:0  store i8 %tmp, i8* %str_2_addr, align 1
 
-ST_2: stg_532 [1/1] 0.00ns
+ST_2: stg_535 [1/1] 0.00ns
 branch2:1  br label %3
 
-ST_2: stg_533 [1/1] 2.39ns
+ST_2: stg_536 [1/1] 2.39ns
 branch1:0  store i8 %tmp, i8* %str_1_addr, align 1
 
-ST_2: stg_534 [1/1] 0.00ns
+ST_2: stg_537 [1/1] 0.00ns
 branch1:1  br label %3
 
-ST_2: stg_535 [1/1] 2.39ns
+ST_2: stg_538 [1/1] 2.39ns
 branch0:0  store i8 %tmp, i8* %str_0_addr, align 1
 
-ST_2: stg_536 [1/1] 0.00ns
+ST_2: stg_539 [1/1] 0.00ns
 branch0:1  br label %3
 
-ST_2: stg_537 [1/1] 2.39ns
+ST_2: stg_540 [1/1] 2.39ns
 branch127:0  store i8 %tmp, i8* %str_127_addr, align 1
 
-ST_2: stg_538 [1/1] 0.00ns
+ST_2: stg_541 [1/1] 0.00ns
 branch127:1  br label %3
 
 ST_2: empty_151 [1/1] 0.00ns
-:0  %empty_151 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str9, i32 %tmp_s)
+:0  %empty_151 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str10, i32 %tmp_s)
 
-ST_2: stg_540 [1/1] 0.00ns
+ST_2: stg_543 [1/1] 0.00ns
 :1  br label %1
 
 
@@ -1848,7 +1856,7 @@ ST_4: indices_1 [1/1] 0.00ns
 ST_4: indices_2 [1/1] 0.00ns
 :3  %indices_2 = extractvalue { i32, i32, i32 } %call_ret, 2
 
-ST_4: stg_546 [1/1] 1.57ns
+ST_4: stg_549 [1/1] 1.57ns
 :4  br label %5
 
 
@@ -1862,7 +1870,7 @@ ST_5: exitcond [1/1] 1.36ns
 ST_5: i_1 [1/1] 0.80ns
 :2  %i_1 = add i2 %i1, 1
 
-ST_5: stg_550 [1/1] 0.00ns
+ST_5: stg_553 [1/1] 0.00ns
 :3  br i1 %exitcond, label %7, label %6
 
 
@@ -1871,26 +1879,31 @@ ST_6: empty_152 [1/1] 0.00ns
 :0  %empty_152 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3)
 
 ST_6: tmp_15 [1/1] 0.00ns
-:1  %tmp_15 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str10)
+:1  %tmp_15 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str11)
 
-ST_6: stg_553 [1/1] 0.00ns
+ST_6: stg_556 [1/1] 0.00ns
 :2  call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str) nounwind
 
-ST_6: tmp_20 [1/1] 1.57ns
-:3  %tmp_20 = call i32 @_ssdm_op_Mux.ap_auto.3i32.i2(i32 %indices_0, i32 %indices_1, i32 %indices_2, i2 %i1)
+ST_6: tmp_data [1/1] 1.57ns
+:3  %tmp_data = call i32 @_ssdm_op_Mux.ap_auto.3i32.i2(i32 %indices_0, i32 %indices_1, i32 %indices_2, i2 %i1)
 
-ST_6: stg_555 [1/1] 0.00ns
-:4  call void @_ssdm_op_Write.axis.volatile.i32P(i32* %indicesStream_V, i32 %tmp_20)
+ST_6: stg_558 [1/1] 0.00ns
+:4  call void @_ssdm_op_Write.axis.volatile.i32P.i1P(i32* %indicesStream_V_data, i1* %indicesStream_V_last_V, i32 %tmp_data, i1 true)
 
 ST_6: empty_153 [1/1] 0.00ns
-:5  %empty_153 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str10, i32 %tmp_15)
+:5  %empty_153 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str11, i32 %tmp_15)
 
-ST_6: stg_557 [1/1] 0.00ns
+ST_6: stg_560 [1/1] 0.00ns
 :6  br label %5
 
 
  <State 7>: 0.00ns
-ST_7: stg_558 [1/1] 0.00ns
+ST_7: stg_561 [2/2] 0.00ns
+:0  ret void
+
+
+ <State 8>: 0.00ns
+ST_8: stg_562 [1/2] 0.00ns
 :0  ret void
 
 
@@ -1918,6 +1931,7 @@ N/A
 	State 5
 	State 6
 	State 7
+	State 8
 
 
 ============================================================

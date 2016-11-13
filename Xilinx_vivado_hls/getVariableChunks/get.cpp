@@ -52,7 +52,9 @@ void rollingHash(char str[BUFFER_LEN], int indices[3]){
 }
 
 
-void calcHash(hls::stream<char> &strStream, hls::stream<int> &indicesStream){
+void calcHash(hls::stream<char> &strStream,
+		hls::stream<ap_item> &indicesStream){
+#pragma HLS INTERFACE s_axilite register port=return
 #pragma HLS INTERFACE axis port=indicesStream
 #pragma HLS INTERFACE axis port=strStream
 	char str[BUFFER_LEN];
@@ -70,6 +72,9 @@ void calcHash(hls::stream<char> &strStream, hls::stream<int> &indicesStream){
 
 	for(int i=0; i<3; i++){
 #pragma HLS PIPELINE II=1
-		indicesStream.write(indices[i]);
+		struct ap_item item;
+		item.data = indices[i];
+		item.last = 1;
+		indicesStream.write(item);
 	}
 }

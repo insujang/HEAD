@@ -12,7 +12,7 @@ open_solution "solution1"
 set_part {xc7z020clg484-1} -tool vivado
 create_clock -period 10 -name default
 source "./getVariableChunk2/solution1/directives.tcl"
-csim_design
+csim_design -clean
 csynth_design
 cosim_design
 export_design -format ip_catalog

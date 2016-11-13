@@ -1,0 +1,7 @@
+Running: xsim.dir/calcHash/xsimk -simmode gui -wdb calcHash.wdb -simrunnum 0 -socket 56824
+Design successfully loaded
+Design Loading Memory Usage: 59880 KB (Peak: 64560 KB)
+Design Loading CPU Usage: 10 ms
+Simulation completed
+Simulation Memory Usage: 145784 KB (Peak: 199156 KB)
+Simulation CPU Usage: 510 ms

@@ -1,5 +1,5 @@
 INFO: [HLS 200-10] Running '/opt/Xilinx/Vivado_HLS/2016.2/bin/unwrapped/lnx64.o/vivado_hls'
-INFO: [HLS 200-10] For user 'root' on host 'insujang-CALab-Linux' (Linux_x86_64 version 4.4.0-45-generic) on Sun Nov 13 04:21:22 KST 2016
+INFO: [HLS 200-10] For user 'root' on host 'insujang-CALab-Linux' (Linux_x86_64 version 4.4.0-45-generic) on Sun Nov 13 20:59:49 KST 2016
 INFO: [HLS 200-10] On os Ubuntu 14.04.5 LTS
 INFO: [HLS 200-10] In directory '/home/insujang/cs710/xilinx_hls_workspace/getVariableChunk_2'
 INFO: [HLS 200-10] Opening project '/home/insujang/cs710/xilinx_hls_workspace/getVariableChunk_2/getVariableChunk2'.
@@ -17,4 +17,4 @@ source run_ippack.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2016.2/data/ip'.
-INFO: [Common 17-206] Exiting Vivado at Sun Nov 13 04:21:28 2016...
+INFO: [Common 17-206] Exiting Vivado at Sun Nov 13 20:59:54 2016...

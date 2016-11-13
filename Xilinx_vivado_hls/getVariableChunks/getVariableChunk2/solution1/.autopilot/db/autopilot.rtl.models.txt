@@ -2,5 +2,6 @@ calcHash_rollingHash_hash_0
 calcHash_rollingHash_hash_1
 calcHash_mux_3to1_sel2_32_1
 calcHash_str_0
+calcHash_AXILiteS_s_axi
 calcHash_rollingHash
 calcHash

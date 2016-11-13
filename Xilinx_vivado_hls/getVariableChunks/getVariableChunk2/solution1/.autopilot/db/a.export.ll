@@ -2,12 +2,15 @@
 target datalayout = "e-p:64:64:64-i1:8:8-i8:8:8-i16:16:16-i32:32:32-i64:64:64-f32:32:32-f64:64:64-v64:64:64-v128:128:128-a0:0:64-s0:64:64-f80:128:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
+@llvm_global_ctors_1 = appending global [1 x void ()*] [void ()* @_GLOBAL__I_a]
+@llvm_global_ctors_0 = appending global [1 x i32] [i32 65535]
 @calcHash_str = internal unnamed_addr constant [9 x i8] c"calcHash\00"
-@p_str9 = private unnamed_addr constant [12 x i8] c"hls_label_4\00", align 1
-@p_str7 = private unnamed_addr constant [5 x i8] c"axis\00", align 1
+@p_str8 = private unnamed_addr constant [5 x i8] c"axis\00", align 1
+@p_str7 = private unnamed_addr constant [10 x i8] c"s_axilite\00", align 1
 @p_str6 = private unnamed_addr constant [12 x i8] c"hls_label_2\00", align 1
 @p_str5 = private unnamed_addr constant [12 x i8] c"hls_label_0\00", align 1
-@p_str4 = private unnamed_addr constant [12 x i8] c"hls_label_3\00", align 1
+@p_str4 = private unnamed_addr constant [12 x i8] c"hls_label_1\00", align 1
+@p_str11 = private unnamed_addr constant [12 x i8] c"hls_label_4\00", align 1
 @p_str10 = private unnamed_addr constant [12 x i8] c"hls_label_5\00", align 1
 @p_str1 = private unnamed_addr constant [12 x i8] c"RAM_2P_BRAM\00", align 1
 @p_str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -12309,9 +12312,10 @@ declare void @llvm.dbg.value(metadata, i64, metadata) nounwind readnone
 
 declare void @llvm.dbg.declare(metadata, metadata) nounwind readnone
 
-define void @calcHash(i8* %strStream_V, i32* %indicesStream_V) {
-  call void (...)* @_ssdm_op_SpecBitsMap(i8* %strStream_V), !map !23
-  call void (...)* @_ssdm_op_SpecBitsMap(i32* %indicesStream_V), !map !29
+define void @calcHash(i8* %strStream_V, i32* %indicesStream_V_data, i1* %indicesStream_V_last_V) {
+  call void (...)* @_ssdm_op_SpecBitsMap(i8* %strStream_V), !map !36
+  call void (...)* @_ssdm_op_SpecBitsMap(i32* %indicesStream_V_data), !map !40
+  call void (...)* @_ssdm_op_SpecBitsMap(i1* %indicesStream_V_last_V), !map !44
   call void (...)* @_ssdm_op_SpecTopModule([9 x i8]* @calcHash_str) nounwind
   %str_0 = alloca [32 x i8], align 1
   %str_1 = alloca [32 x i8], align 1
@@ -12441,20 +12445,21 @@ define void @calcHash(i8* %strStream_V, i32* %indicesStream_V) {
   %str_125 = alloca [32 x i8], align 1
   %str_126 = alloca [32 x i8], align 1
   %str_127 = alloca [32 x i8], align 1
-  call void (...)* @_ssdm_op_SpecInterface(i32* %indicesStream_V, [5 x i8]* @p_str7, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str) nounwind
-  call void (...)* @_ssdm_op_SpecInterface(i8* %strStream_V, [5 x i8]* @p_str7, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str) nounwind
+  call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str7, i32 1, i32 1, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str) nounwind
+  call void (...)* @_ssdm_op_SpecInterface(i32* %indicesStream_V_data, i1* %indicesStream_V_last_V, [5 x i8]* @p_str8, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str) nounwind
+  call void (...)* @_ssdm_op_SpecInterface(i8* %strStream_V, [5 x i8]* @p_str8, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str) nounwind
   call void (...)* @_ssdm_op_SpecMemCore([32 x i8]* %str_0, [32 x i8]* %str_1, [32 x i8]* %str_2, [32 x i8]* %str_3, [32 x i8]* %str_4, [32 x i8]* %str_5, [32 x i8]* %str_6, [32 x i8]* %str_7, [32 x i8]* %str_8, [32 x i8]* %str_9, [32 x i8]* %str_10, [32 x i8]* %str_11, [32 x i8]* %str_12, [32 x i8]* %str_13, [32 x i8]* %str_14, [32 x i8]* %str_15, [32 x i8]* %str_16, [32 x i8]* %str_17, [32 x i8]* %str_18, [32 x i8]* %str_19, [32 x i8]* %str_20, [32 x i8]* %str_21, [32 x i8]* %str_22, [32 x i8]* %str_23, [32 x i8]* %str_24, [32 x i8]* %str_25, [32 x i8]* %str_26, [32 x i8]* %str_27, [32 x i8]* %str_28, [32 x i8]* %str_29, [32 x i8]* %str_30, [32 x i8]* %str_31, [32 x i8]* %str_32, [32 x i8]* %str_33, [32 x i8]* %str_34, [32 x i8]* %str_35, [32 x i8]* %str_36, [32 x i8]* %str_37, [32 x i8]* %str_38, [32 x i8]* %str_39, [32 x i8]* %str_40, [32 x i8]* %str_41, [32 x i8]* %str_42, [32 x i8]* %str_43, [32 x i8]* %str_44, [32 x i8]* %str_45, [32 x i8]* %str_46, [32 x i8]* %str_47, [32 x i8]* %str_48, [32 x i8]* %str_49, [32 x i8]* %str_50, [32 x i8]* %str_51, [32 x i8]* %str_52, [32 x i8]* %str_53, [32 x i8]* %str_54, [32 x i8]* %str_55, [32 x i8]* %str_56, [32 x i8]* %str_57, [32 x i8]* %str_58, [32 x i8]* %str_59, [32 x i8]* %str_60, [32 x i8]* %str_61, [32 x i8]* %str_62, [32 x i8]* %str_63, [32 x i8]* %str_64, [32 x i8]* %str_65, [32 x i8]* %str_66, [32 x i8]* %str_67, [32 x i8]* %str_68, [32 x i8]* %str_69, [32 x i8]* %str_70, [32 x i8]* %str_71, [32 x i8]* %str_72, [32 x i8]* %str_73, [32 x i8]* %str_74, [32 x i8]* %str_75, [32 x i8]* %str_76, [32 x i8]* %str_77, [32 x i8]* %str_78, [32 x i8]* %str_79, [32 x i8]* %str_80, [32 x i8]* %str_81, [32 x i8]* %str_82, [32 x i8]* %str_83, [32 x i8]* %str_84, [32 x i8]* %str_85, [32 x i8]* %str_86, [32 x i8]* %str_87, [32 x i8]* %str_88, [32 x i8]* %str_89, [32 x i8]* %str_90, [32 x i8]* %str_91, [32 x i8]* %str_92, [32 x i8]* %str_93, [32 x i8]* %str_94, [32 x i8]* %str_95, [32 x i8]* %str_96, [32 x i8]* %str_97, [32 x i8]* %str_98, [32 x i8]* %str_99, [32 x i8]* %str_100, [32 x i8]* %str_101, [32 x i8]* %str_102, [32 x i8]* %str_103, [32 x i8]* %str_104, [32 x i8]* %str_105, [32 x i8]* %str_106, [32 x i8]* %str_107, [32 x i8]* %str_108, [32 x i8]* %str_109, [32 x i8]* %str_110, [32 x i8]* %str_111, [32 x i8]* %str_112, [32 x i8]* %str_113, [32 x i8]* %str_114, [32 x i8]* %str_115, [32 x i8]* %str_116, [32 x i8]* %str_117, [32 x i8]* %str_118, [32 x i8]* %str_119, [32 x i8]* %str_120, [32 x i8]* %str_121, [32 x i8]* %str_122, [32 x i8]* %str_123, [32 x i8]* %str_124, [32 x i8]* %str_125, [32 x i8]* %str_126, [32 x i8]* %str_127, [1 x i8]* @p_str, [12 x i8]* @p_str1, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)
   br label %1
 
 ; <label>:1                                       ; preds = %3, %0
   %i = phi i13 [ 0, %0 ], [ %i_2, %3 ]
-  %exitcond4 = icmp eq i13 %i, -4096
+  %exitcond1 = icmp eq i13 %i, -4096
   %i_2 = add i13 %i, 1
-  br i1 %exitcond4, label %4, label %2
+  br i1 %exitcond1, label %4, label %2
 
 ; <label>:2                                       ; preds = %1
   %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4096, i64 4096, i64 4096)
-  %tmp_s = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str9)
+  %tmp_s = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str10)
   call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str) nounwind
   %tmp = call i8 @_ssdm_op_Read.axis.volatile.i8P(i8* %strStream_V)
   %tmp_1818 = trunc i13 %i to i7
@@ -12719,7 +12724,7 @@ define void @calcHash(i8* %strStream_V, i32* %indicesStream_V) {
   ]
 
 ; <label>:3                                       ; preds = %branch127, %branch126, %branch125, %branch124, %branch123, %branch122, %branch121, %branch120, %branch119, %branch118, %branch117, %branch116, %branch115, %branch114, %branch113, %branch112, %branch111, %branch110, %branch109, %branch108, %branch107, %branch106, %branch105, %branch104, %branch103, %branch102, %branch101, %branch100, %branch99, %branch98, %branch97, %branch96, %branch95, %branch94, %branch93, %branch92, %branch91, %branch90, %branch89, %branch88, %branch87, %branch86, %branch85, %branch84, %branch83, %branch82, %branch81, %branch80, %branch79, %branch78, %branch77, %branch76, %branch75, %branch74, %branch73, %branch72, %branch71, %branch70, %branch69, %branch68, %branch67, %branch66, %branch65, %branch64, %branch63, %branch62, %branch61, %branch60, %branch59, %branch58, %branch57, %branch56, %branch55, %branch54, %branch53, %branch52, %branch51, %branch50, %branch49, %branch48, %branch47, %branch46, %branch45, %branch44, %branch43, %branch42, %branch41, %branch40, %branch39, %branch38, %branch37, %branch36, %branch35, %branch34, %branch33, %branch32, %branch31, %branch30, %branch29, %branch28, %branch27, %branch26, %branch25, %branch24, %branch23, %branch22, %branch21, %branch20, %branch19, %branch18, %branch17, %branch16, %branch15, %branch14, %branch13, %branch12, %branch11, %branch10, %branch9, %branch8, %branch7, %branch6, %branch5, %branch4, %branch3, %branch2, %branch1, %branch0
-  %empty_151 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str9, i32 %tmp_s)
+  %empty_151 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str10, i32 %tmp_s)
   br label %1
 
 ; <label>:4                                       ; preds = %1
@@ -12737,11 +12742,11 @@ define void @calcHash(i8* %strStream_V, i32* %indicesStream_V) {
 
 ; <label>:6                                       ; preds = %5
   %empty_152 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3)
-  %tmp_15 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str10)
+  %tmp_15 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str11)
   call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str) nounwind
-  %tmp_20 = call i32 @_ssdm_op_Mux.ap_auto.3i32.i2(i32 %indices_0, i32 %indices_1, i32 %indices_2, i2 %i1)
-  call void @_ssdm_op_Write.axis.volatile.i32P(i32* %indicesStream_V, i32 %tmp_20)
-  %empty_153 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str10, i32 %tmp_15)
+  %tmp_data = call i32 @_ssdm_op_Mux.ap_auto.3i32.i2(i32 %indices_0, i32 %indices_1, i32 %indices_2, i2 %i1)
+  call void @_ssdm_op_Write.axis.volatile.i32P.i1P(i32* %indicesStream_V_data, i1* %indicesStream_V_last_V, i32 %tmp_data, i1 true)
+  %empty_153 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str11, i32 %tmp_15)
   br label %5
 
 ; <label>:7                                       ; preds = %5
@@ -13260,9 +13265,10 @@ branch127:                                        ; preds = %2
   br label %3
 }
 
-define weak void @_ssdm_op_Write.axis.volatile.i32P(i32*, i32) {
+define weak void @_ssdm_op_Write.axis.volatile.i32P.i1P(i32*, i1*, i32, i1) {
 entry:
-  store i32 %1, i32* %0
+  store i32 %2, i32* %0
+  store i1 %3, i1* %1
   ret void
 }
 
@@ -13508,9 +13514,11 @@ entry:
   ret i10 %empty_211
 }
 
-!opencl.kernels = !{!0, !7, !11, !17}
+declare void @_GLOBAL__I_a() nounwind section ".text.startup"
+
+!opencl.kernels = !{!0, !7, !11, !17, !17, !20, !20, !26, !20, !20, !20, !20, !20}
 !hls.encrypted.func = !{}
-!llvm.map.gv = !{}
+!llvm.map.gv = !{!29}
 
 !0 = metadata !{null, metadata !1, metadata !2, metadata !3, metadata !4, metadata !5, metadata !6}
 !1 = metadata !{metadata !"kernel_arg_addr_space", i32 1, i32 1}
@@ -13521,27 +13529,42 @@ entry:
 !6 = metadata !{metadata !"reqd_work_group_size", i32 1, i32 1, i32 1}
 !7 = metadata !{null, metadata !8, metadata !2, metadata !9, metadata !4, metadata !10, metadata !6}
 !8 = metadata !{metadata !"kernel_arg_addr_space", i32 0, i32 0}
-!9 = metadata !{metadata !"kernel_arg_type", metadata !"hls::stream<char> &", metadata !"hls::stream<int> &"}
+!9 = metadata !{metadata !"kernel_arg_type", metadata !"hls::stream<char> &", metadata !"hls::stream<ap_item> &"}
 !10 = metadata !{metadata !"kernel_arg_name", metadata !"strStream", metadata !"indicesStream"}
 !11 = metadata !{null, metadata !12, metadata !13, metadata !14, metadata !15, metadata !16, metadata !6}
 !12 = metadata !{metadata !"kernel_arg_addr_space", i32 0}
 !13 = metadata !{metadata !"kernel_arg_access_qual", metadata !"none"}
-!14 = metadata !{metadata !"kernel_arg_type", metadata !"const int &"}
+!14 = metadata !{metadata !"kernel_arg_type", metadata !"const struct ap_item &"}
 !15 = metadata !{metadata !"kernel_arg_type_qual", metadata !""}
 !16 = metadata !{metadata !"kernel_arg_name", metadata !"din"}
-!17 = metadata !{null, metadata !18, metadata !19, metadata !20, metadata !21, metadata !22, metadata !6}
-!18 = metadata !{metadata !"kernel_arg_addr_space"}
-!19 = metadata !{metadata !"kernel_arg_access_qual"}
-!20 = metadata !{metadata !"kernel_arg_type"}
-!21 = metadata !{metadata !"kernel_arg_type_qual"}
-!22 = metadata !{metadata !"kernel_arg_name"}
-!23 = metadata !{metadata !24}
-!24 = metadata !{i32 0, i32 7, metadata !25}
-!25 = metadata !{metadata !26}
-!26 = metadata !{metadata !"strStream.V", metadata !27, metadata !"char", i32 0, i32 7}
-!27 = metadata !{metadata !28}
-!28 = metadata !{i32 0, i32 0, i32 1}
-!29 = metadata !{metadata !30}
-!30 = metadata !{i32 0, i32 31, metadata !31}
-!31 = metadata !{metadata !32}
-!32 = metadata !{metadata !"indicesStream.V", metadata !27, metadata !"int", i32 0, i32 31}
+!17 = metadata !{null, metadata !12, metadata !13, metadata !18, metadata !15, metadata !19, metadata !6}
+!18 = metadata !{metadata !"kernel_arg_type", metadata !"int"}
+!19 = metadata !{metadata !"kernel_arg_name", metadata !"val"}
+!20 = metadata !{null, metadata !21, metadata !22, metadata !23, metadata !24, metadata !25, metadata !6}
+!21 = metadata !{metadata !"kernel_arg_addr_space"}
+!22 = metadata !{metadata !"kernel_arg_access_qual"}
+!23 = metadata !{metadata !"kernel_arg_type"}
+!24 = metadata !{metadata !"kernel_arg_type_qual"}
+!25 = metadata !{metadata !"kernel_arg_name"}
+!26 = metadata !{null, metadata !12, metadata !13, metadata !27, metadata !15, metadata !28, metadata !6}
+!27 = metadata !{metadata !"kernel_arg_type", metadata !"const ap_uint<1> &"}
+!28 = metadata !{metadata !"kernel_arg_name", metadata !"op2"}
+!29 = metadata !{metadata !30, [1 x i32]* @llvm_global_ctors_0}
+!30 = metadata !{metadata !31}
+!31 = metadata !{i32 0, i32 31, metadata !32}
+!32 = metadata !{metadata !33}
+!33 = metadata !{metadata !"llvm.global_ctors.0", metadata !34, metadata !"", i32 0, i32 31}
+!34 = metadata !{metadata !35}
+!35 = metadata !{i32 0, i32 0, i32 1}
+!36 = metadata !{metadata !37}
+!37 = metadata !{i32 0, i32 7, metadata !38}
+!38 = metadata !{metadata !39}
+!39 = metadata !{metadata !"strStream.V", metadata !34, metadata !"char", i32 0, i32 7}
+!40 = metadata !{metadata !41}
+!41 = metadata !{i32 0, i32 31, metadata !42}
+!42 = metadata !{metadata !43}
+!43 = metadata !{metadata !"indicesStream.V.data", metadata !34, metadata !"int", i32 0, i32 31}
+!44 = metadata !{metadata !45}
+!45 = metadata !{i32 0, i32 0, metadata !46}
+!46 = metadata !{metadata !47}
+!47 = metadata !{metadata !"indicesStream.V.last.V", metadata !34, metadata !"uint1", i32 0, i32 0}
