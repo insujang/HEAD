@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="calcHash" xd:componentRef="calcHash" xd:initiationInterval="5730" xd:clockPeriod="10.000000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
-  <xd:controlReg xd:name="control" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:type="generic_axi_lite" xd:offset="0x0"/>
   <xd:arg xd:name="strStream" xd:originalName="strStream" xd:direction="in" xd:interfaceRef="strStream_V" xd:busTypeRef="axis" xd:dataWidth="8"/>
   <xd:arg xd:name="indicesStream.data" xd:originalName="indicesStream" xd:direction="out" xd:interfaceRef="indicesStream" xd:busTypeRef="axis" xd:dataWidth="32"/>
   <xd:arg xd:name="indicesStream.last" xd:originalName="indicesStream" xd:direction="out" xd:interfaceRef="indicesStream" xd:busTypeRef="axis" xd:dataWidth="1"/>
   <xd:latencyEstimates xd:best-case="5729" xd:worst-case="5729" xd:average-case="5729"/>
-  <xd:resourceEstimates xd:LUT="27098" xd:FF="8621" xd:BRAM="256" xd:DSP="0"/>
+  <xd:resourceEstimates xd:LUT="27058" xd:FF="8585" xd:BRAM="256" xd:DSP="0"/>
 </xd:acceleratorMap>

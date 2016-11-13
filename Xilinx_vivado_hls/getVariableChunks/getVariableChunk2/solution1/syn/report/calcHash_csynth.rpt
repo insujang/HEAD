@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'calcHash'
 ================================================================
-* Date:           Sun Nov 13 20:58:47 2016
+* Date:           Sun Nov 13 23:38:22 2016
 
 * Version:        2016.2 (Build 1577090 on Thu Jun 02 16:59:10 MDT 2016)
 * Project:        getVariableChunk2
@@ -62,12 +62,12 @@
 |DSP              |        -|      -|       -|      -|
 |Expression       |        -|      -|       0|     22|
 |FIFO             |        -|      -|       -|      -|
-|Instance         |      128|      -|    8496|  26158|
+|Instance         |      128|      -|    8460|  26118|
 |Memory           |      128|      -|       0|      0|
 |Multiplexer      |        -|      -|       -|    918|
 |Register         |        -|      -|     125|      -|
 +-----------------+---------+-------+--------+-------+
-|Total            |      256|      0|    8621|  27098|
+|Total            |      256|      0|    8585|  27058|
 +-----------------+---------+-------+--------+-------+
 |Available        |      280|    220|  106400|  53200|
 +-----------------+---------+-------+--------+-------+
@@ -79,11 +79,10 @@
     +----------------------------------+-----------------------------+---------+-------+------+-------+
     |             Instance             |            Module           | BRAM_18K| DSP48E|  FF  |  LUT  |
     +----------------------------------+-----------------------------+---------+-------+------+-------+
-    |calcHash_AXILiteS_s_axi_U         |calcHash_AXILiteS_s_axi      |        0|      0|    36|     40|
     |calcHash_mux_3to1_sel2_32_1_U131  |calcHash_mux_3to1_sel2_32_1  |        0|      0|     0|     32|
     |grp_calcHash_rollingHash_fu_2804  |calcHash_rollingHash         |      128|      0|  8460|  26086|
     +----------------------------------+-----------------------------+---------+-------+------+-------+
-    |Total                             |                             |      128|      0|  8496|  26158|
+    |Total                             |                             |      128|      0|  8460|  26118|
     +----------------------------------+-----------------------------+---------+-------+------+-------+
 
     * DSP48: 
@@ -234,7 +233,7 @@
     +----------------------+----------+-------+---+----+------------+------------+
     |i_1_fu_3112_p2        |     +    |      0|  0|   2|           2|           1|
     |i_2_fu_2942_p2        |     +    |      0|  0|  13|          13|           1|
-    |ap_sig_108            |    and   |      0|  0|   1|           1|           1|
+    |ap_sig_59             |    and   |      0|  0|   1|           1|           1|
     |exitcond1_fu_2936_p2  |   icmp   |      0|  0|   5|          13|          14|
     |exitcond_fu_3106_p2   |   icmp   |      0|  0|   1|           2|           2|
     +----------------------+----------+-------+---+----+------------+------------+
@@ -666,35 +665,17 @@
 == Interface
 ================================================================
 * Summary: 
-+------------------------+-----+-----+------------+------------------------+--------------+
-|        RTL Ports       | Dir | Bits|  Protocol  |      Source Object     |    C Type    |
-+------------------------+-----+-----+------------+------------------------+--------------+
-|s_axi_AXILiteS_AWVALID  |  in |    1|    s_axi   |        AXILiteS        |  return void |
-|s_axi_AXILiteS_AWREADY  | out |    1|    s_axi   |        AXILiteS        |  return void |
-|s_axi_AXILiteS_AWADDR   |  in |    4|    s_axi   |        AXILiteS        |  return void |
-|s_axi_AXILiteS_WVALID   |  in |    1|    s_axi   |        AXILiteS        |  return void |
-|s_axi_AXILiteS_WREADY   | out |    1|    s_axi   |        AXILiteS        |  return void |
-|s_axi_AXILiteS_WDATA    |  in |   32|    s_axi   |        AXILiteS        |  return void |
-|s_axi_AXILiteS_WSTRB    |  in |    4|    s_axi   |        AXILiteS        |  return void |
-|s_axi_AXILiteS_ARVALID  |  in |    1|    s_axi   |        AXILiteS        |  return void |
-|s_axi_AXILiteS_ARREADY  | out |    1|    s_axi   |        AXILiteS        |  return void |
-|s_axi_AXILiteS_ARADDR   |  in |    4|    s_axi   |        AXILiteS        |  return void |
-|s_axi_AXILiteS_RVALID   | out |    1|    s_axi   |        AXILiteS        |  return void |
-|s_axi_AXILiteS_RREADY   |  in |    1|    s_axi   |        AXILiteS        |  return void |
-|s_axi_AXILiteS_RDATA    | out |   32|    s_axi   |        AXILiteS        |  return void |
-|s_axi_AXILiteS_RRESP    | out |    2|    s_axi   |        AXILiteS        |  return void |
-|s_axi_AXILiteS_BVALID   | out |    1|    s_axi   |        AXILiteS        |  return void |
-|s_axi_AXILiteS_BREADY   |  in |    1|    s_axi   |        AXILiteS        |  return void |
-|s_axi_AXILiteS_BRESP    | out |    2|    s_axi   |        AXILiteS        |  return void |
-|ap_clk                  |  in |    1| ap_ctrl_hs |        calcHash        | return value |
-|ap_rst_n                |  in |    1| ap_ctrl_hs |        calcHash        | return value |
-|interrupt               | out |    1| ap_ctrl_hs |        calcHash        | return value |
-|strStream_V_TDATA       |  in |    8|    axis    |       strStream_V      |    pointer   |
-|strStream_V_TVALID      |  in |    1|    axis    |       strStream_V      |    pointer   |
-|strStream_V_TREADY      | out |    1|    axis    |       strStream_V      |    pointer   |
-|indicesStream_TDATA     | out |   32|    axis    |  indicesStream_V_data  |    pointer   |
-|indicesStream_TVALID    | out |    1|    axis    | indicesStream_V_last_V |    pointer   |
-|indicesStream_TREADY    |  in |    1|    axis    | indicesStream_V_last_V |    pointer   |
-|indicesStream_TLAST     | out |    1|    axis    | indicesStream_V_last_V |    pointer   |
-+------------------------+-----+-----+------------+------------------------+--------------+
++----------------------+-----+-----+--------------+------------------------+--------------+
+|       RTL Ports      | Dir | Bits|   Protocol   |      Source Object     |    C Type    |
++----------------------+-----+-----+--------------+------------------------+--------------+
+|ap_clk                |  in |    1| ap_ctrl_none |        calcHash        | return value |
+|ap_rst_n              |  in |    1| ap_ctrl_none |        calcHash        | return value |
+|strStream_V_TDATA     |  in |    8|     axis     |       strStream_V      |    pointer   |
+|strStream_V_TVALID    |  in |    1|     axis     |       strStream_V      |    pointer   |
+|strStream_V_TREADY    | out |    1|     axis     |       strStream_V      |    pointer   |
+|indicesStream_TDATA   | out |   32|     axis     |  indicesStream_V_data  |    pointer   |
+|indicesStream_TVALID  | out |    1|     axis     | indicesStream_V_last_V |    pointer   |
+|indicesStream_TREADY  |  in |    1|     axis     | indicesStream_V_last_V |    pointer   |
+|indicesStream_TLAST   | out |    1|     axis     | indicesStream_V_last_V |    pointer   |
++----------------------+-----+-----+--------------+------------------------+--------------+
 

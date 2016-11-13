@@ -5,8 +5,8 @@
 ############################################################
 open_project getVariableChunk2
 set_top calcHash
-add_files get.cpp
 add_files get.h
+add_files get.cpp
 add_files -tb get_test.cpp
 open_solution "solution1"
 set_part {xc7z020clg484-1} -tool vivado

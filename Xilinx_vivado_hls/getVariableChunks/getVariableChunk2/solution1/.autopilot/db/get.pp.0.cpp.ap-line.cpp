@@ -43043,7 +43043,7 @@ void rollingHash(char str[4096], int indices[3]){
 #pragma empty_line
 void calcHash(hls::stream<char> &strStream,
   hls::stream<ap_item> &indicesStream){
-#pragma HLS INTERFACE s_axilite register port=return
+#pragma HLS INTERFACE ap_ctrl_none register port=return
 #pragma HLS INTERFACE axis port=indicesStream
 #pragma HLS INTERFACE axis port=strStream
  char str[4096];

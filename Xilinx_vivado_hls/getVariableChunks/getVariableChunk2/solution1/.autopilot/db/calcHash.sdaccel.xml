@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'calcHash'" level="0">
-<item name = "Date">Sun Nov 13 20:58:47 2016
+<item name = "Date">Sun Nov 13 23:38:22 2016
 </item>
 <item name = "Version">2016.2 (Build 1577090 on Thu Jun 02 16:59:10 MDT 2016)</item>
 <item name = "Project">getVariableChunk2</item>
@@ -50,7 +50,7 @@
 <column name="DSP">-, -, -, -</column>
 <column name="Expression">-, -, 0, 22</column>
 <column name="FIFO">-, -, -, -</column>
-<column name="Instance">128, -, 8496, 26158</column>
+<column name="Instance">128, -, 8460, 26118</column>
 <column name="Memory">128, -, 0, 0</column>
 <column name="Multiplexer">-, -, -, 918</column>
 <column name="Register">-, -, 125, -</column>
@@ -62,7 +62,6 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
-<column name="calcHash_AXILiteS_s_axi_U">calcHash_AXILiteS_s_axi, 0, 0, 36, 40</column>
 <column name="calcHash_mux_3to1_sel2_32_1_U131">calcHash_mux_3to1_sel2_32_1, 0, 0, 0, 32</column>
 <column name="grp_calcHash_rollingHash_fu_2804">calcHash_rollingHash, 128, 0, 8460, 26086</column>
 </table>
@@ -211,7 +210,7 @@
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
 <column name="i_1_fu_3112_p2">+, 0, 0, 2, 2, 1</column>
 <column name="i_2_fu_2942_p2">+, 0, 0, 13, 13, 1</column>
-<column name="ap_sig_108">and, 0, 0, 1, 1, 1</column>
+<column name="ap_sig_59">and, 0, 0, 1, 1, 1</column>
 <column name="exitcond1_fu_2936_p2">icmp, 0, 0, 5, 13, 14</column>
 <column name="exitcond_fu_3106_p2">icmp, 0, 0, 1, 2, 2</column>
 </table>
@@ -634,26 +633,8 @@
 <section name = "Interface" level="0">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
-<column name="s_axi_AXILiteS_AWVALID">in, 1, s_axi, AXILiteS, return void</column>
-<column name="s_axi_AXILiteS_AWREADY">out, 1, s_axi, AXILiteS, return void</column>
-<column name="s_axi_AXILiteS_AWADDR">in, 4, s_axi, AXILiteS, return void</column>
-<column name="s_axi_AXILiteS_WVALID">in, 1, s_axi, AXILiteS, return void</column>
-<column name="s_axi_AXILiteS_WREADY">out, 1, s_axi, AXILiteS, return void</column>
-<column name="s_axi_AXILiteS_WDATA">in, 32, s_axi, AXILiteS, return void</column>
-<column name="s_axi_AXILiteS_WSTRB">in, 4, s_axi, AXILiteS, return void</column>
-<column name="s_axi_AXILiteS_ARVALID">in, 1, s_axi, AXILiteS, return void</column>
-<column name="s_axi_AXILiteS_ARREADY">out, 1, s_axi, AXILiteS, return void</column>
-<column name="s_axi_AXILiteS_ARADDR">in, 4, s_axi, AXILiteS, return void</column>
-<column name="s_axi_AXILiteS_RVALID">out, 1, s_axi, AXILiteS, return void</column>
-<column name="s_axi_AXILiteS_RREADY">in, 1, s_axi, AXILiteS, return void</column>
-<column name="s_axi_AXILiteS_RDATA">out, 32, s_axi, AXILiteS, return void</column>
-<column name="s_axi_AXILiteS_RRESP">out, 2, s_axi, AXILiteS, return void</column>
-<column name="s_axi_AXILiteS_BVALID">out, 1, s_axi, AXILiteS, return void</column>
-<column name="s_axi_AXILiteS_BREADY">in, 1, s_axi, AXILiteS, return void</column>
-<column name="s_axi_AXILiteS_BRESP">out, 2, s_axi, AXILiteS, return void</column>
-<column name="ap_clk">in, 1, ap_ctrl_hs, calcHash, return value</column>
-<column name="ap_rst_n">in, 1, ap_ctrl_hs, calcHash, return value</column>
-<column name="interrupt">out, 1, ap_ctrl_hs, calcHash, return value</column>
+<column name="ap_clk">in, 1, ap_ctrl_none, calcHash, return value</column>
+<column name="ap_rst_n">in, 1, ap_ctrl_none, calcHash, return value</column>
 <column name="strStream_V_TDATA">in, 8, axis, strStream_V, pointer</column>
 <column name="strStream_V_TVALID">in, 1, axis, strStream_V, pointer</column>
 <column name="strStream_V_TREADY">out, 1, axis, strStream_V, pointer</column>
@@ -670,7 +651,6 @@
 <item name = "Critical Path Table"><table name="Critical Path Table" hasTotal="0">
 <keys size="15">Name, Operator, Delay, Accumulated Delay, Store Source, Resource, Core, Interface, Type, Port, Array, Scope, Pointer, Callee, Phi Node</keys>
 <column name="'str[0]', get.cpp:60">alloca, 2.39, 2.39, -, -, -, -, -, -, -, -, -, -, -</column>
-<column name="get.cpp:61">specmemcore, 0.00, 2.39, -, memory, RAM_2P_BRAM, -, -, -, -, -, -, -, -</column>
 </table>
 </item>
 </section>

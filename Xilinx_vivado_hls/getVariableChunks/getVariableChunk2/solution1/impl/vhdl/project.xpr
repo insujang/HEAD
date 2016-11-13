@@ -6,7 +6,7 @@
 <Project Version="7" Minor="14" Path="/home/insujang/cs710/xilinx_hls_workspace/getVariableChunk_2/getVariableChunk2/solution1/impl/vhdl/project.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="4fc23dfdeccb4307a89a4e4e4e97b222"/>
+    <Option Name="Id" Val="70d97bd9b7b64c66bff387d1f865c934"/>
     <Option Name="Part" Val="xc7z020clg484-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -68,12 +68,6 @@
         </FileInfo>
       </File>
       <File Path="$PPRDIR/calcHash_rollingHash.vhd">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/calcHash_AXILiteS_s_axi.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>

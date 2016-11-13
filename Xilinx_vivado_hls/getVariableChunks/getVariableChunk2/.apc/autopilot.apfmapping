@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="get.cpp" path="/home/insujang/cs710/xilinx_hls_workspace/getVariableChunk_2/get.cpp"/>
     <originFiles name="get.h" path="/home/insujang/cs710/xilinx_hls_workspace/getVariableChunk_2/get.h"/>
+    <originFiles name="get.cpp" path="/home/insujang/cs710/xilinx_hls_workspace/getVariableChunk_2/get.cpp"/>
   </source>
   <testbench>
     <originFiles name="get_test.cpp" path="/home/insujang/cs710/xilinx_hls_workspace/getVariableChunk_2/get_test.cpp"/>

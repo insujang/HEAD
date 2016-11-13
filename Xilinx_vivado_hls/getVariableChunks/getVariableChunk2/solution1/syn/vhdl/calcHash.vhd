@@ -10,9 +10,6 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 entity calcHash is
-generic (
-    C_S_AXI_AXILITES_ADDR_WIDTH : INTEGER := 4;
-    C_S_AXI_AXILITES_DATA_WIDTH : INTEGER := 32 );
 port (
     ap_clk : IN STD_LOGIC;
     ap_rst_n : IN STD_LOGIC;
@@ -22,32 +19,14 @@ port (
     indicesStream_TDATA : OUT STD_LOGIC_VECTOR (31 downto 0);
     indicesStream_TVALID : OUT STD_LOGIC;
     indicesStream_TREADY : IN STD_LOGIC;
-    indicesStream_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
-    s_axi_AXILiteS_AWVALID : IN STD_LOGIC;
-    s_axi_AXILiteS_AWREADY : OUT STD_LOGIC;
-    s_axi_AXILiteS_AWADDR : IN STD_LOGIC_VECTOR (C_S_AXI_AXILITES_ADDR_WIDTH-1 downto 0);
-    s_axi_AXILiteS_WVALID : IN STD_LOGIC;
-    s_axi_AXILiteS_WREADY : OUT STD_LOGIC;
-    s_axi_AXILiteS_WDATA : IN STD_LOGIC_VECTOR (C_S_AXI_AXILITES_DATA_WIDTH-1 downto 0);
-    s_axi_AXILiteS_WSTRB : IN STD_LOGIC_VECTOR (C_S_AXI_AXILITES_DATA_WIDTH/8-1 downto 0);
-    s_axi_AXILiteS_ARVALID : IN STD_LOGIC;
-    s_axi_AXILiteS_ARREADY : OUT STD_LOGIC;
-    s_axi_AXILiteS_ARADDR : IN STD_LOGIC_VECTOR (C_S_AXI_AXILITES_ADDR_WIDTH-1 downto 0);
-    s_axi_AXILiteS_RVALID : OUT STD_LOGIC;
-    s_axi_AXILiteS_RREADY : IN STD_LOGIC;
-    s_axi_AXILiteS_RDATA : OUT STD_LOGIC_VECTOR (C_S_AXI_AXILITES_DATA_WIDTH-1 downto 0);
-    s_axi_AXILiteS_RRESP : OUT STD_LOGIC_VECTOR (1 downto 0);
-    s_axi_AXILiteS_BVALID : OUT STD_LOGIC;
-    s_axi_AXILiteS_BREADY : IN STD_LOGIC;
-    s_axi_AXILiteS_BRESP : OUT STD_LOGIC_VECTOR (1 downto 0);
-    interrupt : OUT STD_LOGIC );
+    indicesStream_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0) );
 end;
 
 
 architecture behav of calcHash is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "calcHash,hls_ip_2016_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020clg484-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.569500,HLS_SYN_LAT=5729,HLS_SYN_TPT=none,HLS_SYN_MEM=256,HLS_SYN_DSP=0,HLS_SYN_FF=8621,HLS_SYN_LUT=27098}";
+    "calcHash,hls_ip_2016_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020clg484-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.569500,HLS_SYN_LAT=5729,HLS_SYN_TPT=none,HLS_SYN_MEM=256,HLS_SYN_DSP=0,HLS_SYN_FF=8585,HLS_SYN_LUT=27058}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
     constant ap_ST_st1_fsm_0 : STD_LOGIC_VECTOR (6 downto 0) := "0000001";
@@ -57,14 +36,13 @@ architecture behav of calcHash is
     constant ap_ST_pp1_stg0_fsm_4 : STD_LOGIC_VECTOR (6 downto 0) := "0010000";
     constant ap_ST_st7_fsm_5 : STD_LOGIC_VECTOR (6 downto 0) := "0100000";
     constant ap_ST_st8_fsm_6 : STD_LOGIC_VECTOR (6 downto 0) := "1000000";
-    constant ap_const_lv32_0 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
-    constant ap_const_lv1_1 : STD_LOGIC_VECTOR (0 downto 0) := "1";
     constant ap_const_lv32_1 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000001";
+    constant ap_const_lv1_1 : STD_LOGIC_VECTOR (0 downto 0) := "1";
     constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
     constant ap_const_lv32_4 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000100";
-    constant C_S_AXI_DATA_WIDTH : INTEGER range 63 downto 0 := 20;
     constant ap_const_lv32_3 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000011";
     constant ap_const_lv13_0 : STD_LOGIC_VECTOR (12 downto 0) := "0000000000000";
+    constant ap_const_lv32_0 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
     constant ap_const_lv2_0 : STD_LOGIC_VECTOR (1 downto 0) := "00";
     constant ap_const_lv32_2 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000010";
     constant ap_const_lv7_7E : STD_LOGIC_VECTOR (6 downto 0) := "1111110";
@@ -201,34 +179,27 @@ architecture behav of calcHash is
     constant ap_const_lv32_C : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001100";
     constant ap_const_lv2_3 : STD_LOGIC_VECTOR (1 downto 0) := "11";
     constant ap_const_lv2_1 : STD_LOGIC_VECTOR (1 downto 0) := "01";
-    constant ap_const_lv32_6 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000110";
 
     signal ap_rst_n_inv : STD_LOGIC;
-    signal ap_start : STD_LOGIC;
-    signal ap_done : STD_LOGIC;
-    signal ap_idle : STD_LOGIC;
+    signal strStream_V_TDATA_blk_n : STD_LOGIC;
     signal ap_CS_fsm : STD_LOGIC_VECTOR (6 downto 0) := "0000001";
     attribute fsm_encoding : string;
     attribute fsm_encoding of ap_CS_fsm : signal is "none";
-    signal ap_sig_cseq_ST_st1_fsm_0 : STD_LOGIC;
-    signal ap_sig_24 : BOOLEAN;
-    signal ap_ready : STD_LOGIC;
-    signal strStream_V_TDATA_blk_n : STD_LOGIC;
     signal ap_sig_cseq_ST_st2_fsm_1 : STD_LOGIC;
-    signal ap_sig_44 : BOOLEAN;
+    signal ap_sig_31 : BOOLEAN;
     signal exitcond1_fu_2936_p2 : STD_LOGIC_VECTOR (0 downto 0);
     signal indicesStream_TDATA_blk_n : STD_LOGIC;
     signal ap_sig_cseq_ST_pp1_stg0_fsm_4 : STD_LOGIC;
-    signal ap_sig_56 : BOOLEAN;
+    signal ap_sig_43 : BOOLEAN;
     signal ap_reg_ppiten_pp1_it1 : STD_LOGIC := '0';
     signal ap_reg_ppiten_pp1_it0 : STD_LOGIC := '0';
     signal exitcond_reg_3154 : STD_LOGIC_VECTOR (0 downto 0);
     signal i1_reg_2792 : STD_LOGIC_VECTOR (1 downto 0);
     signal i_2_fu_2942_p2 : STD_LOGIC_VECTOR (12 downto 0);
-    signal ap_sig_108 : BOOLEAN;
+    signal ap_sig_59 : BOOLEAN;
     signal indices_0_reg_3139 : STD_LOGIC_VECTOR (31 downto 0);
     signal ap_sig_cseq_ST_st4_fsm_3 : STD_LOGIC;
-    signal ap_sig_118 : BOOLEAN;
+    signal ap_sig_69 : BOOLEAN;
     signal grp_calcHash_rollingHash_fu_2804_ap_done : STD_LOGIC;
     signal indices_1_reg_3144 : STD_LOGIC_VECTOR (31 downto 0);
     signal indices_2_reg_3149 : STD_LOGIC_VECTOR (31 downto 0);
@@ -1523,17 +1494,17 @@ architecture behav of calcHash is
     signal grp_calcHash_rollingHash_fu_2804_ap_return_1 : STD_LOGIC_VECTOR (31 downto 0);
     signal grp_calcHash_rollingHash_fu_2804_ap_return_2 : STD_LOGIC_VECTOR (31 downto 0);
     signal i_reg_2781 : STD_LOGIC_VECTOR (12 downto 0);
+    signal ap_sig_cseq_ST_st1_fsm_0 : STD_LOGIC;
+    signal ap_sig_2416 : BOOLEAN;
     signal i1_phi_fu_2796_p4 : STD_LOGIC_VECTOR (1 downto 0);
     signal ap_reg_grp_calcHash_rollingHash_fu_2804_ap_start : STD_LOGIC := '0';
     signal ap_sig_cseq_ST_st3_fsm_2 : STD_LOGIC;
-    signal ap_sig_2475 : BOOLEAN;
+    signal ap_sig_2430 : BOOLEAN;
     signal newIndex3_fu_2962_p1 : STD_LOGIC_VECTOR (63 downto 0);
     signal tmp_data_fu_3118_p5 : STD_LOGIC_VECTOR (31 downto 0);
     signal ap_reg_ioackin_indicesStream_TREADY : STD_LOGIC := '0';
     signal tmp_1818_fu_2948_p1 : STD_LOGIC_VECTOR (6 downto 0);
     signal newIndex_fu_2952_p4 : STD_LOGIC_VECTOR (5 downto 0);
-    signal ap_sig_cseq_ST_st8_fsm_6 : STD_LOGIC;
-    signal ap_sig_3309 : BOOLEAN;
     signal ap_NS_fsm : STD_LOGIC_VECTOR (6 downto 0);
 
     component calcHash_rollingHash IS
@@ -2355,72 +2326,8 @@ architecture behav of calcHash is
     end component;
 
 
-    component calcHash_AXILiteS_s_axi IS
-    generic (
-        C_S_AXI_ADDR_WIDTH : INTEGER;
-        C_S_AXI_DATA_WIDTH : INTEGER );
-    port (
-        AWVALID : IN STD_LOGIC;
-        AWREADY : OUT STD_LOGIC;
-        AWADDR : IN STD_LOGIC_VECTOR (C_S_AXI_ADDR_WIDTH-1 downto 0);
-        WVALID : IN STD_LOGIC;
-        WREADY : OUT STD_LOGIC;
-        WDATA : IN STD_LOGIC_VECTOR (C_S_AXI_DATA_WIDTH-1 downto 0);
-        WSTRB : IN STD_LOGIC_VECTOR (C_S_AXI_DATA_WIDTH/8-1 downto 0);
-        ARVALID : IN STD_LOGIC;
-        ARREADY : OUT STD_LOGIC;
-        ARADDR : IN STD_LOGIC_VECTOR (C_S_AXI_ADDR_WIDTH-1 downto 0);
-        RVALID : OUT STD_LOGIC;
-        RREADY : IN STD_LOGIC;
-        RDATA : OUT STD_LOGIC_VECTOR (C_S_AXI_DATA_WIDTH-1 downto 0);
-        RRESP : OUT STD_LOGIC_VECTOR (1 downto 0);
-        BVALID : OUT STD_LOGIC;
-        BREADY : IN STD_LOGIC;
-        BRESP : OUT STD_LOGIC_VECTOR (1 downto 0);
-        ACLK : IN STD_LOGIC;
-        ARESET : IN STD_LOGIC;
-        ACLK_EN : IN STD_LOGIC;
-        ap_start : OUT STD_LOGIC;
-        interrupt : OUT STD_LOGIC;
-        ap_ready : IN STD_LOGIC;
-        ap_done : IN STD_LOGIC;
-        ap_idle : IN STD_LOGIC );
-    end component;
-
-
 
 begin
-    calcHash_AXILiteS_s_axi_U : component calcHash_AXILiteS_s_axi
-    generic map (
-        C_S_AXI_ADDR_WIDTH => C_S_AXI_AXILITES_ADDR_WIDTH,
-        C_S_AXI_DATA_WIDTH => C_S_AXI_AXILITES_DATA_WIDTH)
-    port map (
-        AWVALID => s_axi_AXILiteS_AWVALID,
-        AWREADY => s_axi_AXILiteS_AWREADY,
-        AWADDR => s_axi_AXILiteS_AWADDR,
-        WVALID => s_axi_AXILiteS_WVALID,
-        WREADY => s_axi_AXILiteS_WREADY,
-        WDATA => s_axi_AXILiteS_WDATA,
-        WSTRB => s_axi_AXILiteS_WSTRB,
-        ARVALID => s_axi_AXILiteS_ARVALID,
-        ARREADY => s_axi_AXILiteS_ARREADY,
-        ARADDR => s_axi_AXILiteS_ARADDR,
-        RVALID => s_axi_AXILiteS_RVALID,
-        RREADY => s_axi_AXILiteS_RREADY,
-        RDATA => s_axi_AXILiteS_RDATA,
-        RRESP => s_axi_AXILiteS_RRESP,
-        BVALID => s_axi_AXILiteS_BVALID,
-        BREADY => s_axi_AXILiteS_BREADY,
-        BRESP => s_axi_AXILiteS_BRESP,
-        ACLK => ap_clk,
-        ARESET => ap_rst_n_inv,
-        ACLK_EN => ap_const_logic_1,
-        ap_start => ap_start,
-        interrupt => interrupt,
-        ap_ready => ap_ready,
-        ap_done => ap_done,
-        ap_idle => ap_idle);
-
     str_0_U : component calcHash_str_0
     generic map (
         DataWidth => 8,
@@ -5487,9 +5394,9 @@ begin
     i_reg_2781_assign_proc : process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
-            if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108))) then 
+            if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59))) then 
                 i_reg_2781 <= i_2_fu_2942_p2;
-            elsif (((ap_const_logic_1 = ap_sig_cseq_ST_st1_fsm_0) and not((ap_start = ap_const_logic_0)))) then 
+            elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st1_fsm_0)) then 
                 i_reg_2781 <= ap_const_lv13_0;
             end if; 
         end if;
@@ -5521,19 +5428,15 @@ begin
         end if;
     end process;
 
-    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, exitcond1_fu_2936_p2, ap_reg_ppiten_pp1_it1, ap_reg_ppiten_pp1_it0, exitcond_reg_3154, ap_sig_108, grp_calcHash_rollingHash_fu_2804_ap_done, exitcond_fu_3106_p2, ap_sig_ioackin_indicesStream_TREADY)
+    ap_NS_fsm_assign_proc : process (ap_CS_fsm, exitcond1_fu_2936_p2, ap_reg_ppiten_pp1_it1, ap_reg_ppiten_pp1_it0, exitcond_reg_3154, ap_sig_59, grp_calcHash_rollingHash_fu_2804_ap_done, exitcond_fu_3106_p2, ap_sig_ioackin_indicesStream_TREADY)
     begin
         case ap_CS_fsm is
             when ap_ST_st1_fsm_0 => 
-                if (not((ap_start = ap_const_logic_0))) then
-                    ap_NS_fsm <= ap_ST_st2_fsm_1;
-                else
-                    ap_NS_fsm <= ap_ST_st1_fsm_0;
-                end if;
+                ap_NS_fsm <= ap_ST_st2_fsm_1;
             when ap_ST_st2_fsm_1 => 
-                if (((exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108))) then
+                if (((exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59))) then
                     ap_NS_fsm <= ap_ST_st2_fsm_1;
-                elsif ((not(ap_sig_108) and not((exitcond1_fu_2936_p2 = ap_const_lv1_0)))) then
+                elsif ((not(ap_sig_59) and not((exitcond1_fu_2936_p2 = ap_const_lv1_0)))) then
                     ap_NS_fsm <= ap_ST_st3_fsm_2;
                 else
                     ap_NS_fsm <= ap_ST_st2_fsm_1;
@@ -5563,87 +5466,51 @@ begin
         end case;
     end process;
 
-    ap_done_assign_proc : process(ap_sig_cseq_ST_st8_fsm_6)
-    begin
-        if ((ap_const_logic_1 = ap_sig_cseq_ST_st8_fsm_6)) then 
-            ap_done <= ap_const_logic_1;
-        else 
-            ap_done <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    ap_idle_assign_proc : process(ap_start, ap_sig_cseq_ST_st1_fsm_0)
-    begin
-        if (((ap_const_logic_0 = ap_start) and (ap_const_logic_1 = ap_sig_cseq_ST_st1_fsm_0))) then 
-            ap_idle <= ap_const_logic_1;
-        else 
-            ap_idle <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    ap_ready_assign_proc : process(ap_sig_cseq_ST_st8_fsm_6)
-    begin
-        if ((ap_const_logic_1 = ap_sig_cseq_ST_st8_fsm_6)) then 
-            ap_ready <= ap_const_logic_1;
-        else 
-            ap_ready <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
     ap_rst_n_inv_assign_proc : process(ap_rst_n)
     begin
                 ap_rst_n_inv <= not(ap_rst_n);
     end process;
 
 
-    ap_sig_108_assign_proc : process(strStream_V_TVALID, exitcond1_fu_2936_p2)
+    ap_sig_2416_assign_proc : process(ap_CS_fsm)
     begin
-                ap_sig_108 <= ((exitcond1_fu_2936_p2 = ap_const_lv1_0) and (strStream_V_TVALID = ap_const_logic_0));
+                ap_sig_2416 <= (ap_const_lv1_1 = ap_CS_fsm(0 downto 0));
     end process;
 
 
-    ap_sig_118_assign_proc : process(ap_CS_fsm)
+    ap_sig_2430_assign_proc : process(ap_CS_fsm)
     begin
-                ap_sig_118 <= (ap_const_lv1_1 = ap_CS_fsm(3 downto 3));
+                ap_sig_2430 <= (ap_const_lv1_1 = ap_CS_fsm(2 downto 2));
     end process;
 
 
-    ap_sig_24_assign_proc : process(ap_CS_fsm)
+    ap_sig_31_assign_proc : process(ap_CS_fsm)
     begin
-                ap_sig_24 <= (ap_CS_fsm(0 downto 0) = ap_const_lv1_1);
+                ap_sig_31 <= (ap_CS_fsm(1 downto 1) = ap_const_lv1_1);
     end process;
 
 
-    ap_sig_2475_assign_proc : process(ap_CS_fsm)
+    ap_sig_43_assign_proc : process(ap_CS_fsm)
     begin
-                ap_sig_2475 <= (ap_const_lv1_1 = ap_CS_fsm(2 downto 2));
+                ap_sig_43 <= (ap_const_lv1_1 = ap_CS_fsm(4 downto 4));
     end process;
 
 
-    ap_sig_3309_assign_proc : process(ap_CS_fsm)
+    ap_sig_59_assign_proc : process(strStream_V_TVALID, exitcond1_fu_2936_p2)
     begin
-                ap_sig_3309 <= (ap_const_lv1_1 = ap_CS_fsm(6 downto 6));
+                ap_sig_59 <= ((exitcond1_fu_2936_p2 = ap_const_lv1_0) and (strStream_V_TVALID = ap_const_logic_0));
     end process;
 
 
-    ap_sig_44_assign_proc : process(ap_CS_fsm)
+    ap_sig_69_assign_proc : process(ap_CS_fsm)
     begin
-                ap_sig_44 <= (ap_const_lv1_1 = ap_CS_fsm(1 downto 1));
+                ap_sig_69 <= (ap_const_lv1_1 = ap_CS_fsm(3 downto 3));
     end process;
 
 
-    ap_sig_56_assign_proc : process(ap_CS_fsm)
+    ap_sig_cseq_ST_pp1_stg0_fsm_4_assign_proc : process(ap_sig_43)
     begin
-                ap_sig_56 <= (ap_const_lv1_1 = ap_CS_fsm(4 downto 4));
-    end process;
-
-
-    ap_sig_cseq_ST_pp1_stg0_fsm_4_assign_proc : process(ap_sig_56)
-    begin
-        if (ap_sig_56) then 
+        if (ap_sig_43) then 
             ap_sig_cseq_ST_pp1_stg0_fsm_4 <= ap_const_logic_1;
         else 
             ap_sig_cseq_ST_pp1_stg0_fsm_4 <= ap_const_logic_0;
@@ -5651,9 +5518,9 @@ begin
     end process;
 
 
-    ap_sig_cseq_ST_st1_fsm_0_assign_proc : process(ap_sig_24)
+    ap_sig_cseq_ST_st1_fsm_0_assign_proc : process(ap_sig_2416)
     begin
-        if (ap_sig_24) then 
+        if (ap_sig_2416) then 
             ap_sig_cseq_ST_st1_fsm_0 <= ap_const_logic_1;
         else 
             ap_sig_cseq_ST_st1_fsm_0 <= ap_const_logic_0;
@@ -5661,9 +5528,9 @@ begin
     end process;
 
 
-    ap_sig_cseq_ST_st2_fsm_1_assign_proc : process(ap_sig_44)
+    ap_sig_cseq_ST_st2_fsm_1_assign_proc : process(ap_sig_31)
     begin
-        if (ap_sig_44) then 
+        if (ap_sig_31) then 
             ap_sig_cseq_ST_st2_fsm_1 <= ap_const_logic_1;
         else 
             ap_sig_cseq_ST_st2_fsm_1 <= ap_const_logic_0;
@@ -5671,9 +5538,9 @@ begin
     end process;
 
 
-    ap_sig_cseq_ST_st3_fsm_2_assign_proc : process(ap_sig_2475)
+    ap_sig_cseq_ST_st3_fsm_2_assign_proc : process(ap_sig_2430)
     begin
-        if (ap_sig_2475) then 
+        if (ap_sig_2430) then 
             ap_sig_cseq_ST_st3_fsm_2 <= ap_const_logic_1;
         else 
             ap_sig_cseq_ST_st3_fsm_2 <= ap_const_logic_0;
@@ -5681,22 +5548,12 @@ begin
     end process;
 
 
-    ap_sig_cseq_ST_st4_fsm_3_assign_proc : process(ap_sig_118)
+    ap_sig_cseq_ST_st4_fsm_3_assign_proc : process(ap_sig_69)
     begin
-        if (ap_sig_118) then 
+        if (ap_sig_69) then 
             ap_sig_cseq_ST_st4_fsm_3 <= ap_const_logic_1;
         else 
             ap_sig_cseq_ST_st4_fsm_3 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    ap_sig_cseq_ST_st8_fsm_6_assign_proc : process(ap_sig_3309)
-    begin
-        if (ap_sig_3309) then 
-            ap_sig_cseq_ST_st8_fsm_6 <= ap_const_logic_1;
-        else 
-            ap_sig_cseq_ST_st8_fsm_6 <= ap_const_logic_0;
         end if; 
     end process;
 
@@ -5760,9 +5617,9 @@ begin
     end process;
 
 
-    strStream_V_TREADY_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108)
+    strStream_V_TREADY_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59))) then 
             strStream_V_TREADY <= ap_const_logic_1;
         else 
             strStream_V_TREADY <= ap_const_logic_0;
@@ -5792,9 +5649,9 @@ begin
     end process;
 
 
-    str_0_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_0_ce1)
+    str_0_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_0_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_0_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_0_ce1 <= grp_calcHash_rollingHash_fu_2804_str_0_ce1;
@@ -5804,9 +5661,9 @@ begin
     end process;
 
 
-    str_0_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_0_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_0)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_0)))) then 
             str_0_we1 <= ap_const_logic_1;
         else 
             str_0_we1 <= ap_const_logic_0;
@@ -5836,9 +5693,9 @@ begin
     end process;
 
 
-    str_100_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_100_ce1)
+    str_100_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_100_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_100_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_100_ce1 <= grp_calcHash_rollingHash_fu_2804_str_100_ce1;
@@ -5848,9 +5705,9 @@ begin
     end process;
 
 
-    str_100_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_100_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_64)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_64)))) then 
             str_100_we1 <= ap_const_logic_1;
         else 
             str_100_we1 <= ap_const_logic_0;
@@ -5880,9 +5737,9 @@ begin
     end process;
 
 
-    str_101_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_101_ce1)
+    str_101_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_101_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_101_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_101_ce1 <= grp_calcHash_rollingHash_fu_2804_str_101_ce1;
@@ -5892,9 +5749,9 @@ begin
     end process;
 
 
-    str_101_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_101_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_65)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_65)))) then 
             str_101_we1 <= ap_const_logic_1;
         else 
             str_101_we1 <= ap_const_logic_0;
@@ -5924,9 +5781,9 @@ begin
     end process;
 
 
-    str_102_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_102_ce1)
+    str_102_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_102_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_102_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_102_ce1 <= grp_calcHash_rollingHash_fu_2804_str_102_ce1;
@@ -5936,9 +5793,9 @@ begin
     end process;
 
 
-    str_102_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_102_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_66)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_66)))) then 
             str_102_we1 <= ap_const_logic_1;
         else 
             str_102_we1 <= ap_const_logic_0;
@@ -5968,9 +5825,9 @@ begin
     end process;
 
 
-    str_103_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_103_ce1)
+    str_103_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_103_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_103_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_103_ce1 <= grp_calcHash_rollingHash_fu_2804_str_103_ce1;
@@ -5980,9 +5837,9 @@ begin
     end process;
 
 
-    str_103_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_103_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_67)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_67)))) then 
             str_103_we1 <= ap_const_logic_1;
         else 
             str_103_we1 <= ap_const_logic_0;
@@ -6012,9 +5869,9 @@ begin
     end process;
 
 
-    str_104_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_104_ce1)
+    str_104_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_104_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_104_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_104_ce1 <= grp_calcHash_rollingHash_fu_2804_str_104_ce1;
@@ -6024,9 +5881,9 @@ begin
     end process;
 
 
-    str_104_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_104_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_68)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_68)))) then 
             str_104_we1 <= ap_const_logic_1;
         else 
             str_104_we1 <= ap_const_logic_0;
@@ -6056,9 +5913,9 @@ begin
     end process;
 
 
-    str_105_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_105_ce1)
+    str_105_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_105_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_105_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_105_ce1 <= grp_calcHash_rollingHash_fu_2804_str_105_ce1;
@@ -6068,9 +5925,9 @@ begin
     end process;
 
 
-    str_105_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_105_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_69)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_69)))) then 
             str_105_we1 <= ap_const_logic_1;
         else 
             str_105_we1 <= ap_const_logic_0;
@@ -6100,9 +5957,9 @@ begin
     end process;
 
 
-    str_106_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_106_ce1)
+    str_106_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_106_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_106_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_106_ce1 <= grp_calcHash_rollingHash_fu_2804_str_106_ce1;
@@ -6112,9 +5969,9 @@ begin
     end process;
 
 
-    str_106_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_106_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_6A)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_6A)))) then 
             str_106_we1 <= ap_const_logic_1;
         else 
             str_106_we1 <= ap_const_logic_0;
@@ -6144,9 +6001,9 @@ begin
     end process;
 
 
-    str_107_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_107_ce1)
+    str_107_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_107_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_107_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_107_ce1 <= grp_calcHash_rollingHash_fu_2804_str_107_ce1;
@@ -6156,9 +6013,9 @@ begin
     end process;
 
 
-    str_107_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_107_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_6B)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_6B)))) then 
             str_107_we1 <= ap_const_logic_1;
         else 
             str_107_we1 <= ap_const_logic_0;
@@ -6188,9 +6045,9 @@ begin
     end process;
 
 
-    str_108_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_108_ce1)
+    str_108_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_108_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_108_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_108_ce1 <= grp_calcHash_rollingHash_fu_2804_str_108_ce1;
@@ -6200,9 +6057,9 @@ begin
     end process;
 
 
-    str_108_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_108_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_6C)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_6C)))) then 
             str_108_we1 <= ap_const_logic_1;
         else 
             str_108_we1 <= ap_const_logic_0;
@@ -6232,9 +6089,9 @@ begin
     end process;
 
 
-    str_109_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_109_ce1)
+    str_109_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_109_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_109_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_109_ce1 <= grp_calcHash_rollingHash_fu_2804_str_109_ce1;
@@ -6244,9 +6101,9 @@ begin
     end process;
 
 
-    str_109_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_109_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_6D)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_6D)))) then 
             str_109_we1 <= ap_const_logic_1;
         else 
             str_109_we1 <= ap_const_logic_0;
@@ -6276,9 +6133,9 @@ begin
     end process;
 
 
-    str_10_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_10_ce1)
+    str_10_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_10_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_10_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_10_ce1 <= grp_calcHash_rollingHash_fu_2804_str_10_ce1;
@@ -6288,9 +6145,9 @@ begin
     end process;
 
 
-    str_10_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_10_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_A)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_A)))) then 
             str_10_we1 <= ap_const_logic_1;
         else 
             str_10_we1 <= ap_const_logic_0;
@@ -6320,9 +6177,9 @@ begin
     end process;
 
 
-    str_110_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_110_ce1)
+    str_110_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_110_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_110_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_110_ce1 <= grp_calcHash_rollingHash_fu_2804_str_110_ce1;
@@ -6332,9 +6189,9 @@ begin
     end process;
 
 
-    str_110_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_110_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_6E)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_6E)))) then 
             str_110_we1 <= ap_const_logic_1;
         else 
             str_110_we1 <= ap_const_logic_0;
@@ -6364,9 +6221,9 @@ begin
     end process;
 
 
-    str_111_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_111_ce1)
+    str_111_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_111_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_111_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_111_ce1 <= grp_calcHash_rollingHash_fu_2804_str_111_ce1;
@@ -6376,9 +6233,9 @@ begin
     end process;
 
 
-    str_111_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_111_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_6F)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_6F)))) then 
             str_111_we1 <= ap_const_logic_1;
         else 
             str_111_we1 <= ap_const_logic_0;
@@ -6408,9 +6265,9 @@ begin
     end process;
 
 
-    str_112_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_112_ce1)
+    str_112_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_112_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_112_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_112_ce1 <= grp_calcHash_rollingHash_fu_2804_str_112_ce1;
@@ -6420,9 +6277,9 @@ begin
     end process;
 
 
-    str_112_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_112_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_70)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_70)))) then 
             str_112_we1 <= ap_const_logic_1;
         else 
             str_112_we1 <= ap_const_logic_0;
@@ -6452,9 +6309,9 @@ begin
     end process;
 
 
-    str_113_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_113_ce1)
+    str_113_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_113_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_113_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_113_ce1 <= grp_calcHash_rollingHash_fu_2804_str_113_ce1;
@@ -6464,9 +6321,9 @@ begin
     end process;
 
 
-    str_113_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_113_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_71)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_71)))) then 
             str_113_we1 <= ap_const_logic_1;
         else 
             str_113_we1 <= ap_const_logic_0;
@@ -6496,9 +6353,9 @@ begin
     end process;
 
 
-    str_114_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_114_ce1)
+    str_114_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_114_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_114_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_114_ce1 <= grp_calcHash_rollingHash_fu_2804_str_114_ce1;
@@ -6508,9 +6365,9 @@ begin
     end process;
 
 
-    str_114_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_114_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_72)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_72)))) then 
             str_114_we1 <= ap_const_logic_1;
         else 
             str_114_we1 <= ap_const_logic_0;
@@ -6540,9 +6397,9 @@ begin
     end process;
 
 
-    str_115_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_115_ce1)
+    str_115_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_115_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_115_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_115_ce1 <= grp_calcHash_rollingHash_fu_2804_str_115_ce1;
@@ -6552,9 +6409,9 @@ begin
     end process;
 
 
-    str_115_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_115_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_73)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_73)))) then 
             str_115_we1 <= ap_const_logic_1;
         else 
             str_115_we1 <= ap_const_logic_0;
@@ -6584,9 +6441,9 @@ begin
     end process;
 
 
-    str_116_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_116_ce1)
+    str_116_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_116_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_116_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_116_ce1 <= grp_calcHash_rollingHash_fu_2804_str_116_ce1;
@@ -6596,9 +6453,9 @@ begin
     end process;
 
 
-    str_116_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_116_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_74)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_74)))) then 
             str_116_we1 <= ap_const_logic_1;
         else 
             str_116_we1 <= ap_const_logic_0;
@@ -6628,9 +6485,9 @@ begin
     end process;
 
 
-    str_117_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_117_ce1)
+    str_117_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_117_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_117_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_117_ce1 <= grp_calcHash_rollingHash_fu_2804_str_117_ce1;
@@ -6640,9 +6497,9 @@ begin
     end process;
 
 
-    str_117_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_117_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_75)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_75)))) then 
             str_117_we1 <= ap_const_logic_1;
         else 
             str_117_we1 <= ap_const_logic_0;
@@ -6672,9 +6529,9 @@ begin
     end process;
 
 
-    str_118_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_118_ce1)
+    str_118_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_118_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_118_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_118_ce1 <= grp_calcHash_rollingHash_fu_2804_str_118_ce1;
@@ -6684,9 +6541,9 @@ begin
     end process;
 
 
-    str_118_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_118_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_76)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_76)))) then 
             str_118_we1 <= ap_const_logic_1;
         else 
             str_118_we1 <= ap_const_logic_0;
@@ -6716,9 +6573,9 @@ begin
     end process;
 
 
-    str_119_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_119_ce1)
+    str_119_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_119_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_119_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_119_ce1 <= grp_calcHash_rollingHash_fu_2804_str_119_ce1;
@@ -6728,9 +6585,9 @@ begin
     end process;
 
 
-    str_119_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_119_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_77)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_77)))) then 
             str_119_we1 <= ap_const_logic_1;
         else 
             str_119_we1 <= ap_const_logic_0;
@@ -6760,9 +6617,9 @@ begin
     end process;
 
 
-    str_11_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_11_ce1)
+    str_11_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_11_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_11_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_11_ce1 <= grp_calcHash_rollingHash_fu_2804_str_11_ce1;
@@ -6772,9 +6629,9 @@ begin
     end process;
 
 
-    str_11_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_11_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_B)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_B)))) then 
             str_11_we1 <= ap_const_logic_1;
         else 
             str_11_we1 <= ap_const_logic_0;
@@ -6804,9 +6661,9 @@ begin
     end process;
 
 
-    str_120_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_120_ce1)
+    str_120_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_120_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_120_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_120_ce1 <= grp_calcHash_rollingHash_fu_2804_str_120_ce1;
@@ -6816,9 +6673,9 @@ begin
     end process;
 
 
-    str_120_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_120_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_78)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_78)))) then 
             str_120_we1 <= ap_const_logic_1;
         else 
             str_120_we1 <= ap_const_logic_0;
@@ -6848,9 +6705,9 @@ begin
     end process;
 
 
-    str_121_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_121_ce1)
+    str_121_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_121_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_121_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_121_ce1 <= grp_calcHash_rollingHash_fu_2804_str_121_ce1;
@@ -6860,9 +6717,9 @@ begin
     end process;
 
 
-    str_121_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_121_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_79)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_79)))) then 
             str_121_we1 <= ap_const_logic_1;
         else 
             str_121_we1 <= ap_const_logic_0;
@@ -6892,9 +6749,9 @@ begin
     end process;
 
 
-    str_122_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_122_ce1)
+    str_122_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_122_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_122_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_122_ce1 <= grp_calcHash_rollingHash_fu_2804_str_122_ce1;
@@ -6904,9 +6761,9 @@ begin
     end process;
 
 
-    str_122_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_122_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_7A)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_7A)))) then 
             str_122_we1 <= ap_const_logic_1;
         else 
             str_122_we1 <= ap_const_logic_0;
@@ -6936,9 +6793,9 @@ begin
     end process;
 
 
-    str_123_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_123_ce1)
+    str_123_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_123_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_123_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_123_ce1 <= grp_calcHash_rollingHash_fu_2804_str_123_ce1;
@@ -6948,9 +6805,9 @@ begin
     end process;
 
 
-    str_123_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_123_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_7B)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_7B)))) then 
             str_123_we1 <= ap_const_logic_1;
         else 
             str_123_we1 <= ap_const_logic_0;
@@ -6980,9 +6837,9 @@ begin
     end process;
 
 
-    str_124_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_124_ce1)
+    str_124_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_124_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_124_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_124_ce1 <= grp_calcHash_rollingHash_fu_2804_str_124_ce1;
@@ -6992,9 +6849,9 @@ begin
     end process;
 
 
-    str_124_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_124_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_7C)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_7C)))) then 
             str_124_we1 <= ap_const_logic_1;
         else 
             str_124_we1 <= ap_const_logic_0;
@@ -7024,9 +6881,9 @@ begin
     end process;
 
 
-    str_125_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_125_ce1)
+    str_125_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_125_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_125_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_125_ce1 <= grp_calcHash_rollingHash_fu_2804_str_125_ce1;
@@ -7036,9 +6893,9 @@ begin
     end process;
 
 
-    str_125_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_125_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_7D)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_7D)))) then 
             str_125_we1 <= ap_const_logic_1;
         else 
             str_125_we1 <= ap_const_logic_0;
@@ -7068,9 +6925,9 @@ begin
     end process;
 
 
-    str_126_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_126_ce1)
+    str_126_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_126_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_126_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_126_ce1 <= grp_calcHash_rollingHash_fu_2804_str_126_ce1;
@@ -7080,9 +6937,9 @@ begin
     end process;
 
 
-    str_126_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_126_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_7E)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_7E)))) then 
             str_126_we1 <= ap_const_logic_1;
         else 
             str_126_we1 <= ap_const_logic_0;
@@ -7112,9 +6969,9 @@ begin
     end process;
 
 
-    str_127_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_127_ce1)
+    str_127_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_127_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_127_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_127_ce1 <= grp_calcHash_rollingHash_fu_2804_str_127_ce1;
@@ -7124,9 +6981,9 @@ begin
     end process;
 
 
-    str_127_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_127_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_7F)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_7F)))) then 
             str_127_we1 <= ap_const_logic_1;
         else 
             str_127_we1 <= ap_const_logic_0;
@@ -7156,9 +7013,9 @@ begin
     end process;
 
 
-    str_12_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_12_ce1)
+    str_12_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_12_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_12_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_12_ce1 <= grp_calcHash_rollingHash_fu_2804_str_12_ce1;
@@ -7168,9 +7025,9 @@ begin
     end process;
 
 
-    str_12_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_12_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_C)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_C)))) then 
             str_12_we1 <= ap_const_logic_1;
         else 
             str_12_we1 <= ap_const_logic_0;
@@ -7200,9 +7057,9 @@ begin
     end process;
 
 
-    str_13_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_13_ce1)
+    str_13_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_13_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_13_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_13_ce1 <= grp_calcHash_rollingHash_fu_2804_str_13_ce1;
@@ -7212,9 +7069,9 @@ begin
     end process;
 
 
-    str_13_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_13_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_D)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_D)))) then 
             str_13_we1 <= ap_const_logic_1;
         else 
             str_13_we1 <= ap_const_logic_0;
@@ -7244,9 +7101,9 @@ begin
     end process;
 
 
-    str_14_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_14_ce1)
+    str_14_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_14_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_14_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_14_ce1 <= grp_calcHash_rollingHash_fu_2804_str_14_ce1;
@@ -7256,9 +7113,9 @@ begin
     end process;
 
 
-    str_14_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_14_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_E)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_E)))) then 
             str_14_we1 <= ap_const_logic_1;
         else 
             str_14_we1 <= ap_const_logic_0;
@@ -7288,9 +7145,9 @@ begin
     end process;
 
 
-    str_15_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_15_ce1)
+    str_15_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_15_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_15_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_15_ce1 <= grp_calcHash_rollingHash_fu_2804_str_15_ce1;
@@ -7300,9 +7157,9 @@ begin
     end process;
 
 
-    str_15_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_15_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_F)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_F)))) then 
             str_15_we1 <= ap_const_logic_1;
         else 
             str_15_we1 <= ap_const_logic_0;
@@ -7332,9 +7189,9 @@ begin
     end process;
 
 
-    str_16_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_16_ce1)
+    str_16_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_16_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_16_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_16_ce1 <= grp_calcHash_rollingHash_fu_2804_str_16_ce1;
@@ -7344,9 +7201,9 @@ begin
     end process;
 
 
-    str_16_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_16_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_10)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_10)))) then 
             str_16_we1 <= ap_const_logic_1;
         else 
             str_16_we1 <= ap_const_logic_0;
@@ -7376,9 +7233,9 @@ begin
     end process;
 
 
-    str_17_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_17_ce1)
+    str_17_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_17_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_17_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_17_ce1 <= grp_calcHash_rollingHash_fu_2804_str_17_ce1;
@@ -7388,9 +7245,9 @@ begin
     end process;
 
 
-    str_17_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_17_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_11)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_11)))) then 
             str_17_we1 <= ap_const_logic_1;
         else 
             str_17_we1 <= ap_const_logic_0;
@@ -7420,9 +7277,9 @@ begin
     end process;
 
 
-    str_18_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_18_ce1)
+    str_18_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_18_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_18_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_18_ce1 <= grp_calcHash_rollingHash_fu_2804_str_18_ce1;
@@ -7432,9 +7289,9 @@ begin
     end process;
 
 
-    str_18_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_18_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_12)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_12)))) then 
             str_18_we1 <= ap_const_logic_1;
         else 
             str_18_we1 <= ap_const_logic_0;
@@ -7464,9 +7321,9 @@ begin
     end process;
 
 
-    str_19_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_19_ce1)
+    str_19_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_19_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_19_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_19_ce1 <= grp_calcHash_rollingHash_fu_2804_str_19_ce1;
@@ -7476,9 +7333,9 @@ begin
     end process;
 
 
-    str_19_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_19_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_13)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_13)))) then 
             str_19_we1 <= ap_const_logic_1;
         else 
             str_19_we1 <= ap_const_logic_0;
@@ -7508,9 +7365,9 @@ begin
     end process;
 
 
-    str_1_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_1_ce1)
+    str_1_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_1_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_1_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_1_ce1 <= grp_calcHash_rollingHash_fu_2804_str_1_ce1;
@@ -7520,9 +7377,9 @@ begin
     end process;
 
 
-    str_1_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_1_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_1)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_1)))) then 
             str_1_we1 <= ap_const_logic_1;
         else 
             str_1_we1 <= ap_const_logic_0;
@@ -7552,9 +7409,9 @@ begin
     end process;
 
 
-    str_20_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_20_ce1)
+    str_20_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_20_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_20_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_20_ce1 <= grp_calcHash_rollingHash_fu_2804_str_20_ce1;
@@ -7564,9 +7421,9 @@ begin
     end process;
 
 
-    str_20_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_20_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_14)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_14)))) then 
             str_20_we1 <= ap_const_logic_1;
         else 
             str_20_we1 <= ap_const_logic_0;
@@ -7596,9 +7453,9 @@ begin
     end process;
 
 
-    str_21_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_21_ce1)
+    str_21_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_21_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_21_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_21_ce1 <= grp_calcHash_rollingHash_fu_2804_str_21_ce1;
@@ -7608,9 +7465,9 @@ begin
     end process;
 
 
-    str_21_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_21_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_15)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_15)))) then 
             str_21_we1 <= ap_const_logic_1;
         else 
             str_21_we1 <= ap_const_logic_0;
@@ -7640,9 +7497,9 @@ begin
     end process;
 
 
-    str_22_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_22_ce1)
+    str_22_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_22_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_22_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_22_ce1 <= grp_calcHash_rollingHash_fu_2804_str_22_ce1;
@@ -7652,9 +7509,9 @@ begin
     end process;
 
 
-    str_22_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_22_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_16)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_16)))) then 
             str_22_we1 <= ap_const_logic_1;
         else 
             str_22_we1 <= ap_const_logic_0;
@@ -7684,9 +7541,9 @@ begin
     end process;
 
 
-    str_23_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_23_ce1)
+    str_23_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_23_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_23_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_23_ce1 <= grp_calcHash_rollingHash_fu_2804_str_23_ce1;
@@ -7696,9 +7553,9 @@ begin
     end process;
 
 
-    str_23_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_23_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_17)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_17)))) then 
             str_23_we1 <= ap_const_logic_1;
         else 
             str_23_we1 <= ap_const_logic_0;
@@ -7728,9 +7585,9 @@ begin
     end process;
 
 
-    str_24_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_24_ce1)
+    str_24_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_24_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_24_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_24_ce1 <= grp_calcHash_rollingHash_fu_2804_str_24_ce1;
@@ -7740,9 +7597,9 @@ begin
     end process;
 
 
-    str_24_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_24_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_18)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_18)))) then 
             str_24_we1 <= ap_const_logic_1;
         else 
             str_24_we1 <= ap_const_logic_0;
@@ -7772,9 +7629,9 @@ begin
     end process;
 
 
-    str_25_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_25_ce1)
+    str_25_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_25_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_25_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_25_ce1 <= grp_calcHash_rollingHash_fu_2804_str_25_ce1;
@@ -7784,9 +7641,9 @@ begin
     end process;
 
 
-    str_25_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_25_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_19)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_19)))) then 
             str_25_we1 <= ap_const_logic_1;
         else 
             str_25_we1 <= ap_const_logic_0;
@@ -7816,9 +7673,9 @@ begin
     end process;
 
 
-    str_26_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_26_ce1)
+    str_26_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_26_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_26_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_26_ce1 <= grp_calcHash_rollingHash_fu_2804_str_26_ce1;
@@ -7828,9 +7685,9 @@ begin
     end process;
 
 
-    str_26_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_26_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_1A)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_1A)))) then 
             str_26_we1 <= ap_const_logic_1;
         else 
             str_26_we1 <= ap_const_logic_0;
@@ -7860,9 +7717,9 @@ begin
     end process;
 
 
-    str_27_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_27_ce1)
+    str_27_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_27_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_27_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_27_ce1 <= grp_calcHash_rollingHash_fu_2804_str_27_ce1;
@@ -7872,9 +7729,9 @@ begin
     end process;
 
 
-    str_27_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_27_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_1B)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_1B)))) then 
             str_27_we1 <= ap_const_logic_1;
         else 
             str_27_we1 <= ap_const_logic_0;
@@ -7904,9 +7761,9 @@ begin
     end process;
 
 
-    str_28_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_28_ce1)
+    str_28_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_28_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_28_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_28_ce1 <= grp_calcHash_rollingHash_fu_2804_str_28_ce1;
@@ -7916,9 +7773,9 @@ begin
     end process;
 
 
-    str_28_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_28_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_1C)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_1C)))) then 
             str_28_we1 <= ap_const_logic_1;
         else 
             str_28_we1 <= ap_const_logic_0;
@@ -7948,9 +7805,9 @@ begin
     end process;
 
 
-    str_29_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_29_ce1)
+    str_29_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_29_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_29_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_29_ce1 <= grp_calcHash_rollingHash_fu_2804_str_29_ce1;
@@ -7960,9 +7817,9 @@ begin
     end process;
 
 
-    str_29_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_29_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_1D)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_1D)))) then 
             str_29_we1 <= ap_const_logic_1;
         else 
             str_29_we1 <= ap_const_logic_0;
@@ -7992,9 +7849,9 @@ begin
     end process;
 
 
-    str_2_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_2_ce1)
+    str_2_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_2_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_2_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_2_ce1 <= grp_calcHash_rollingHash_fu_2804_str_2_ce1;
@@ -8004,9 +7861,9 @@ begin
     end process;
 
 
-    str_2_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_2_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_2)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_2)))) then 
             str_2_we1 <= ap_const_logic_1;
         else 
             str_2_we1 <= ap_const_logic_0;
@@ -8036,9 +7893,9 @@ begin
     end process;
 
 
-    str_30_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_30_ce1)
+    str_30_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_30_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_30_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_30_ce1 <= grp_calcHash_rollingHash_fu_2804_str_30_ce1;
@@ -8048,9 +7905,9 @@ begin
     end process;
 
 
-    str_30_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_30_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_1E)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_1E)))) then 
             str_30_we1 <= ap_const_logic_1;
         else 
             str_30_we1 <= ap_const_logic_0;
@@ -8080,9 +7937,9 @@ begin
     end process;
 
 
-    str_31_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_31_ce1)
+    str_31_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_31_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_31_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_31_ce1 <= grp_calcHash_rollingHash_fu_2804_str_31_ce1;
@@ -8092,9 +7949,9 @@ begin
     end process;
 
 
-    str_31_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_31_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_1F)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_1F)))) then 
             str_31_we1 <= ap_const_logic_1;
         else 
             str_31_we1 <= ap_const_logic_0;
@@ -8124,9 +7981,9 @@ begin
     end process;
 
 
-    str_32_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_32_ce1)
+    str_32_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_32_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_32_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_32_ce1 <= grp_calcHash_rollingHash_fu_2804_str_32_ce1;
@@ -8136,9 +7993,9 @@ begin
     end process;
 
 
-    str_32_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_32_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_20)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_20)))) then 
             str_32_we1 <= ap_const_logic_1;
         else 
             str_32_we1 <= ap_const_logic_0;
@@ -8168,9 +8025,9 @@ begin
     end process;
 
 
-    str_33_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_33_ce1)
+    str_33_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_33_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_33_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_33_ce1 <= grp_calcHash_rollingHash_fu_2804_str_33_ce1;
@@ -8180,9 +8037,9 @@ begin
     end process;
 
 
-    str_33_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_33_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_21)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_21)))) then 
             str_33_we1 <= ap_const_logic_1;
         else 
             str_33_we1 <= ap_const_logic_0;
@@ -8212,9 +8069,9 @@ begin
     end process;
 
 
-    str_34_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_34_ce1)
+    str_34_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_34_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_34_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_34_ce1 <= grp_calcHash_rollingHash_fu_2804_str_34_ce1;
@@ -8224,9 +8081,9 @@ begin
     end process;
 
 
-    str_34_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_34_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_22)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_22)))) then 
             str_34_we1 <= ap_const_logic_1;
         else 
             str_34_we1 <= ap_const_logic_0;
@@ -8256,9 +8113,9 @@ begin
     end process;
 
 
-    str_35_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_35_ce1)
+    str_35_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_35_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_35_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_35_ce1 <= grp_calcHash_rollingHash_fu_2804_str_35_ce1;
@@ -8268,9 +8125,9 @@ begin
     end process;
 
 
-    str_35_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_35_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_23)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_23)))) then 
             str_35_we1 <= ap_const_logic_1;
         else 
             str_35_we1 <= ap_const_logic_0;
@@ -8300,9 +8157,9 @@ begin
     end process;
 
 
-    str_36_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_36_ce1)
+    str_36_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_36_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_36_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_36_ce1 <= grp_calcHash_rollingHash_fu_2804_str_36_ce1;
@@ -8312,9 +8169,9 @@ begin
     end process;
 
 
-    str_36_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_36_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_24)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_24)))) then 
             str_36_we1 <= ap_const_logic_1;
         else 
             str_36_we1 <= ap_const_logic_0;
@@ -8344,9 +8201,9 @@ begin
     end process;
 
 
-    str_37_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_37_ce1)
+    str_37_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_37_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_37_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_37_ce1 <= grp_calcHash_rollingHash_fu_2804_str_37_ce1;
@@ -8356,9 +8213,9 @@ begin
     end process;
 
 
-    str_37_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_37_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_25)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_25)))) then 
             str_37_we1 <= ap_const_logic_1;
         else 
             str_37_we1 <= ap_const_logic_0;
@@ -8388,9 +8245,9 @@ begin
     end process;
 
 
-    str_38_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_38_ce1)
+    str_38_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_38_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_38_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_38_ce1 <= grp_calcHash_rollingHash_fu_2804_str_38_ce1;
@@ -8400,9 +8257,9 @@ begin
     end process;
 
 
-    str_38_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_38_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_26)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_26)))) then 
             str_38_we1 <= ap_const_logic_1;
         else 
             str_38_we1 <= ap_const_logic_0;
@@ -8432,9 +8289,9 @@ begin
     end process;
 
 
-    str_39_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_39_ce1)
+    str_39_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_39_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_39_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_39_ce1 <= grp_calcHash_rollingHash_fu_2804_str_39_ce1;
@@ -8444,9 +8301,9 @@ begin
     end process;
 
 
-    str_39_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_39_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_27)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_27)))) then 
             str_39_we1 <= ap_const_logic_1;
         else 
             str_39_we1 <= ap_const_logic_0;
@@ -8476,9 +8333,9 @@ begin
     end process;
 
 
-    str_3_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_3_ce1)
+    str_3_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_3_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_3_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_3_ce1 <= grp_calcHash_rollingHash_fu_2804_str_3_ce1;
@@ -8488,9 +8345,9 @@ begin
     end process;
 
 
-    str_3_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_3_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_3)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_3)))) then 
             str_3_we1 <= ap_const_logic_1;
         else 
             str_3_we1 <= ap_const_logic_0;
@@ -8520,9 +8377,9 @@ begin
     end process;
 
 
-    str_40_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_40_ce1)
+    str_40_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_40_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_40_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_40_ce1 <= grp_calcHash_rollingHash_fu_2804_str_40_ce1;
@@ -8532,9 +8389,9 @@ begin
     end process;
 
 
-    str_40_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_40_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_28)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_28)))) then 
             str_40_we1 <= ap_const_logic_1;
         else 
             str_40_we1 <= ap_const_logic_0;
@@ -8564,9 +8421,9 @@ begin
     end process;
 
 
-    str_41_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_41_ce1)
+    str_41_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_41_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_41_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_41_ce1 <= grp_calcHash_rollingHash_fu_2804_str_41_ce1;
@@ -8576,9 +8433,9 @@ begin
     end process;
 
 
-    str_41_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_41_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_29)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_29)))) then 
             str_41_we1 <= ap_const_logic_1;
         else 
             str_41_we1 <= ap_const_logic_0;
@@ -8608,9 +8465,9 @@ begin
     end process;
 
 
-    str_42_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_42_ce1)
+    str_42_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_42_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_42_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_42_ce1 <= grp_calcHash_rollingHash_fu_2804_str_42_ce1;
@@ -8620,9 +8477,9 @@ begin
     end process;
 
 
-    str_42_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_42_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_2A)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_2A)))) then 
             str_42_we1 <= ap_const_logic_1;
         else 
             str_42_we1 <= ap_const_logic_0;
@@ -8652,9 +8509,9 @@ begin
     end process;
 
 
-    str_43_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_43_ce1)
+    str_43_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_43_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_43_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_43_ce1 <= grp_calcHash_rollingHash_fu_2804_str_43_ce1;
@@ -8664,9 +8521,9 @@ begin
     end process;
 
 
-    str_43_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_43_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_2B)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_2B)))) then 
             str_43_we1 <= ap_const_logic_1;
         else 
             str_43_we1 <= ap_const_logic_0;
@@ -8696,9 +8553,9 @@ begin
     end process;
 
 
-    str_44_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_44_ce1)
+    str_44_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_44_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_44_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_44_ce1 <= grp_calcHash_rollingHash_fu_2804_str_44_ce1;
@@ -8708,9 +8565,9 @@ begin
     end process;
 
 
-    str_44_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_44_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_2C)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_2C)))) then 
             str_44_we1 <= ap_const_logic_1;
         else 
             str_44_we1 <= ap_const_logic_0;
@@ -8740,9 +8597,9 @@ begin
     end process;
 
 
-    str_45_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_45_ce1)
+    str_45_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_45_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_45_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_45_ce1 <= grp_calcHash_rollingHash_fu_2804_str_45_ce1;
@@ -8752,9 +8609,9 @@ begin
     end process;
 
 
-    str_45_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_45_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_2D)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_2D)))) then 
             str_45_we1 <= ap_const_logic_1;
         else 
             str_45_we1 <= ap_const_logic_0;
@@ -8784,9 +8641,9 @@ begin
     end process;
 
 
-    str_46_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_46_ce1)
+    str_46_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_46_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_46_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_46_ce1 <= grp_calcHash_rollingHash_fu_2804_str_46_ce1;
@@ -8796,9 +8653,9 @@ begin
     end process;
 
 
-    str_46_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_46_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_2E)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_2E)))) then 
             str_46_we1 <= ap_const_logic_1;
         else 
             str_46_we1 <= ap_const_logic_0;
@@ -8828,9 +8685,9 @@ begin
     end process;
 
 
-    str_47_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_47_ce1)
+    str_47_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_47_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_47_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_47_ce1 <= grp_calcHash_rollingHash_fu_2804_str_47_ce1;
@@ -8840,9 +8697,9 @@ begin
     end process;
 
 
-    str_47_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_47_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_2F)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_2F)))) then 
             str_47_we1 <= ap_const_logic_1;
         else 
             str_47_we1 <= ap_const_logic_0;
@@ -8872,9 +8729,9 @@ begin
     end process;
 
 
-    str_48_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_48_ce1)
+    str_48_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_48_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_48_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_48_ce1 <= grp_calcHash_rollingHash_fu_2804_str_48_ce1;
@@ -8884,9 +8741,9 @@ begin
     end process;
 
 
-    str_48_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_48_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_30)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_30)))) then 
             str_48_we1 <= ap_const_logic_1;
         else 
             str_48_we1 <= ap_const_logic_0;
@@ -8916,9 +8773,9 @@ begin
     end process;
 
 
-    str_49_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_49_ce1)
+    str_49_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_49_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_49_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_49_ce1 <= grp_calcHash_rollingHash_fu_2804_str_49_ce1;
@@ -8928,9 +8785,9 @@ begin
     end process;
 
 
-    str_49_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_49_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_31)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_31)))) then 
             str_49_we1 <= ap_const_logic_1;
         else 
             str_49_we1 <= ap_const_logic_0;
@@ -8960,9 +8817,9 @@ begin
     end process;
 
 
-    str_4_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_4_ce1)
+    str_4_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_4_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_4_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_4_ce1 <= grp_calcHash_rollingHash_fu_2804_str_4_ce1;
@@ -8972,9 +8829,9 @@ begin
     end process;
 
 
-    str_4_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_4_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_4)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_4)))) then 
             str_4_we1 <= ap_const_logic_1;
         else 
             str_4_we1 <= ap_const_logic_0;
@@ -9004,9 +8861,9 @@ begin
     end process;
 
 
-    str_50_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_50_ce1)
+    str_50_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_50_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_50_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_50_ce1 <= grp_calcHash_rollingHash_fu_2804_str_50_ce1;
@@ -9016,9 +8873,9 @@ begin
     end process;
 
 
-    str_50_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_50_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_32)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_32)))) then 
             str_50_we1 <= ap_const_logic_1;
         else 
             str_50_we1 <= ap_const_logic_0;
@@ -9048,9 +8905,9 @@ begin
     end process;
 
 
-    str_51_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_51_ce1)
+    str_51_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_51_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_51_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_51_ce1 <= grp_calcHash_rollingHash_fu_2804_str_51_ce1;
@@ -9060,9 +8917,9 @@ begin
     end process;
 
 
-    str_51_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_51_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_33)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_33)))) then 
             str_51_we1 <= ap_const_logic_1;
         else 
             str_51_we1 <= ap_const_logic_0;
@@ -9092,9 +8949,9 @@ begin
     end process;
 
 
-    str_52_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_52_ce1)
+    str_52_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_52_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_52_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_52_ce1 <= grp_calcHash_rollingHash_fu_2804_str_52_ce1;
@@ -9104,9 +8961,9 @@ begin
     end process;
 
 
-    str_52_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_52_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_34)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_34)))) then 
             str_52_we1 <= ap_const_logic_1;
         else 
             str_52_we1 <= ap_const_logic_0;
@@ -9136,9 +8993,9 @@ begin
     end process;
 
 
-    str_53_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_53_ce1)
+    str_53_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_53_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_53_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_53_ce1 <= grp_calcHash_rollingHash_fu_2804_str_53_ce1;
@@ -9148,9 +9005,9 @@ begin
     end process;
 
 
-    str_53_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_53_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_35)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_35)))) then 
             str_53_we1 <= ap_const_logic_1;
         else 
             str_53_we1 <= ap_const_logic_0;
@@ -9180,9 +9037,9 @@ begin
     end process;
 
 
-    str_54_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_54_ce1)
+    str_54_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_54_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_54_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_54_ce1 <= grp_calcHash_rollingHash_fu_2804_str_54_ce1;
@@ -9192,9 +9049,9 @@ begin
     end process;
 
 
-    str_54_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_54_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_36)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_36)))) then 
             str_54_we1 <= ap_const_logic_1;
         else 
             str_54_we1 <= ap_const_logic_0;
@@ -9224,9 +9081,9 @@ begin
     end process;
 
 
-    str_55_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_55_ce1)
+    str_55_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_55_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_55_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_55_ce1 <= grp_calcHash_rollingHash_fu_2804_str_55_ce1;
@@ -9236,9 +9093,9 @@ begin
     end process;
 
 
-    str_55_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_55_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_37)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_37)))) then 
             str_55_we1 <= ap_const_logic_1;
         else 
             str_55_we1 <= ap_const_logic_0;
@@ -9268,9 +9125,9 @@ begin
     end process;
 
 
-    str_56_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_56_ce1)
+    str_56_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_56_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_56_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_56_ce1 <= grp_calcHash_rollingHash_fu_2804_str_56_ce1;
@@ -9280,9 +9137,9 @@ begin
     end process;
 
 
-    str_56_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_56_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_38)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_38)))) then 
             str_56_we1 <= ap_const_logic_1;
         else 
             str_56_we1 <= ap_const_logic_0;
@@ -9312,9 +9169,9 @@ begin
     end process;
 
 
-    str_57_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_57_ce1)
+    str_57_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_57_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_57_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_57_ce1 <= grp_calcHash_rollingHash_fu_2804_str_57_ce1;
@@ -9324,9 +9181,9 @@ begin
     end process;
 
 
-    str_57_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_57_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_39)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_39)))) then 
             str_57_we1 <= ap_const_logic_1;
         else 
             str_57_we1 <= ap_const_logic_0;
@@ -9356,9 +9213,9 @@ begin
     end process;
 
 
-    str_58_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_58_ce1)
+    str_58_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_58_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_58_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_58_ce1 <= grp_calcHash_rollingHash_fu_2804_str_58_ce1;
@@ -9368,9 +9225,9 @@ begin
     end process;
 
 
-    str_58_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_58_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_3A)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_3A)))) then 
             str_58_we1 <= ap_const_logic_1;
         else 
             str_58_we1 <= ap_const_logic_0;
@@ -9400,9 +9257,9 @@ begin
     end process;
 
 
-    str_59_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_59_ce1)
+    str_59_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_59_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_59_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_59_ce1 <= grp_calcHash_rollingHash_fu_2804_str_59_ce1;
@@ -9412,9 +9269,9 @@ begin
     end process;
 
 
-    str_59_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_59_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_3B)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_3B)))) then 
             str_59_we1 <= ap_const_logic_1;
         else 
             str_59_we1 <= ap_const_logic_0;
@@ -9444,9 +9301,9 @@ begin
     end process;
 
 
-    str_5_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_5_ce1)
+    str_5_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_5_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_5_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_5_ce1 <= grp_calcHash_rollingHash_fu_2804_str_5_ce1;
@@ -9456,9 +9313,9 @@ begin
     end process;
 
 
-    str_5_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_5_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_5)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_5)))) then 
             str_5_we1 <= ap_const_logic_1;
         else 
             str_5_we1 <= ap_const_logic_0;
@@ -9488,9 +9345,9 @@ begin
     end process;
 
 
-    str_60_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_60_ce1)
+    str_60_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_60_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_60_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_60_ce1 <= grp_calcHash_rollingHash_fu_2804_str_60_ce1;
@@ -9500,9 +9357,9 @@ begin
     end process;
 
 
-    str_60_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_60_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_3C)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_3C)))) then 
             str_60_we1 <= ap_const_logic_1;
         else 
             str_60_we1 <= ap_const_logic_0;
@@ -9532,9 +9389,9 @@ begin
     end process;
 
 
-    str_61_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_61_ce1)
+    str_61_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_61_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_61_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_61_ce1 <= grp_calcHash_rollingHash_fu_2804_str_61_ce1;
@@ -9544,9 +9401,9 @@ begin
     end process;
 
 
-    str_61_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_61_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_3D)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_3D)))) then 
             str_61_we1 <= ap_const_logic_1;
         else 
             str_61_we1 <= ap_const_logic_0;
@@ -9576,9 +9433,9 @@ begin
     end process;
 
 
-    str_62_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_62_ce1)
+    str_62_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_62_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_62_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_62_ce1 <= grp_calcHash_rollingHash_fu_2804_str_62_ce1;
@@ -9588,9 +9445,9 @@ begin
     end process;
 
 
-    str_62_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_62_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_3E)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_3E)))) then 
             str_62_we1 <= ap_const_logic_1;
         else 
             str_62_we1 <= ap_const_logic_0;
@@ -9620,9 +9477,9 @@ begin
     end process;
 
 
-    str_63_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_63_ce1)
+    str_63_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_63_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_63_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_63_ce1 <= grp_calcHash_rollingHash_fu_2804_str_63_ce1;
@@ -9632,9 +9489,9 @@ begin
     end process;
 
 
-    str_63_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_63_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_3F)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_3F)))) then 
             str_63_we1 <= ap_const_logic_1;
         else 
             str_63_we1 <= ap_const_logic_0;
@@ -9664,9 +9521,9 @@ begin
     end process;
 
 
-    str_64_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_64_ce1)
+    str_64_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_64_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_64_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_64_ce1 <= grp_calcHash_rollingHash_fu_2804_str_64_ce1;
@@ -9676,9 +9533,9 @@ begin
     end process;
 
 
-    str_64_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_64_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_40)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_40)))) then 
             str_64_we1 <= ap_const_logic_1;
         else 
             str_64_we1 <= ap_const_logic_0;
@@ -9708,9 +9565,9 @@ begin
     end process;
 
 
-    str_65_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_65_ce1)
+    str_65_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_65_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_65_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_65_ce1 <= grp_calcHash_rollingHash_fu_2804_str_65_ce1;
@@ -9720,9 +9577,9 @@ begin
     end process;
 
 
-    str_65_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_65_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_41)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_41)))) then 
             str_65_we1 <= ap_const_logic_1;
         else 
             str_65_we1 <= ap_const_logic_0;
@@ -9752,9 +9609,9 @@ begin
     end process;
 
 
-    str_66_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_66_ce1)
+    str_66_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_66_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_66_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_66_ce1 <= grp_calcHash_rollingHash_fu_2804_str_66_ce1;
@@ -9764,9 +9621,9 @@ begin
     end process;
 
 
-    str_66_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_66_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_42)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_42)))) then 
             str_66_we1 <= ap_const_logic_1;
         else 
             str_66_we1 <= ap_const_logic_0;
@@ -9796,9 +9653,9 @@ begin
     end process;
 
 
-    str_67_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_67_ce1)
+    str_67_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_67_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_67_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_67_ce1 <= grp_calcHash_rollingHash_fu_2804_str_67_ce1;
@@ -9808,9 +9665,9 @@ begin
     end process;
 
 
-    str_67_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_67_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_43)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_43)))) then 
             str_67_we1 <= ap_const_logic_1;
         else 
             str_67_we1 <= ap_const_logic_0;
@@ -9840,9 +9697,9 @@ begin
     end process;
 
 
-    str_68_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_68_ce1)
+    str_68_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_68_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_68_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_68_ce1 <= grp_calcHash_rollingHash_fu_2804_str_68_ce1;
@@ -9852,9 +9709,9 @@ begin
     end process;
 
 
-    str_68_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_68_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_44)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_44)))) then 
             str_68_we1 <= ap_const_logic_1;
         else 
             str_68_we1 <= ap_const_logic_0;
@@ -9884,9 +9741,9 @@ begin
     end process;
 
 
-    str_69_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_69_ce1)
+    str_69_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_69_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_69_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_69_ce1 <= grp_calcHash_rollingHash_fu_2804_str_69_ce1;
@@ -9896,9 +9753,9 @@ begin
     end process;
 
 
-    str_69_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_69_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_45)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_45)))) then 
             str_69_we1 <= ap_const_logic_1;
         else 
             str_69_we1 <= ap_const_logic_0;
@@ -9928,9 +9785,9 @@ begin
     end process;
 
 
-    str_6_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_6_ce1)
+    str_6_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_6_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_6_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_6_ce1 <= grp_calcHash_rollingHash_fu_2804_str_6_ce1;
@@ -9940,9 +9797,9 @@ begin
     end process;
 
 
-    str_6_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_6_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_6)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_6)))) then 
             str_6_we1 <= ap_const_logic_1;
         else 
             str_6_we1 <= ap_const_logic_0;
@@ -9972,9 +9829,9 @@ begin
     end process;
 
 
-    str_70_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_70_ce1)
+    str_70_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_70_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_70_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_70_ce1 <= grp_calcHash_rollingHash_fu_2804_str_70_ce1;
@@ -9984,9 +9841,9 @@ begin
     end process;
 
 
-    str_70_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_70_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_46)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_46)))) then 
             str_70_we1 <= ap_const_logic_1;
         else 
             str_70_we1 <= ap_const_logic_0;
@@ -10016,9 +9873,9 @@ begin
     end process;
 
 
-    str_71_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_71_ce1)
+    str_71_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_71_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_71_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_71_ce1 <= grp_calcHash_rollingHash_fu_2804_str_71_ce1;
@@ -10028,9 +9885,9 @@ begin
     end process;
 
 
-    str_71_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_71_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_47)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_47)))) then 
             str_71_we1 <= ap_const_logic_1;
         else 
             str_71_we1 <= ap_const_logic_0;
@@ -10060,9 +9917,9 @@ begin
     end process;
 
 
-    str_72_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_72_ce1)
+    str_72_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_72_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_72_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_72_ce1 <= grp_calcHash_rollingHash_fu_2804_str_72_ce1;
@@ -10072,9 +9929,9 @@ begin
     end process;
 
 
-    str_72_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_72_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_48)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_48)))) then 
             str_72_we1 <= ap_const_logic_1;
         else 
             str_72_we1 <= ap_const_logic_0;
@@ -10104,9 +9961,9 @@ begin
     end process;
 
 
-    str_73_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_73_ce1)
+    str_73_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_73_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_73_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_73_ce1 <= grp_calcHash_rollingHash_fu_2804_str_73_ce1;
@@ -10116,9 +9973,9 @@ begin
     end process;
 
 
-    str_73_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_73_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_49)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_49)))) then 
             str_73_we1 <= ap_const_logic_1;
         else 
             str_73_we1 <= ap_const_logic_0;
@@ -10148,9 +10005,9 @@ begin
     end process;
 
 
-    str_74_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_74_ce1)
+    str_74_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_74_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_74_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_74_ce1 <= grp_calcHash_rollingHash_fu_2804_str_74_ce1;
@@ -10160,9 +10017,9 @@ begin
     end process;
 
 
-    str_74_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_74_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_4A)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_4A)))) then 
             str_74_we1 <= ap_const_logic_1;
         else 
             str_74_we1 <= ap_const_logic_0;
@@ -10192,9 +10049,9 @@ begin
     end process;
 
 
-    str_75_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_75_ce1)
+    str_75_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_75_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_75_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_75_ce1 <= grp_calcHash_rollingHash_fu_2804_str_75_ce1;
@@ -10204,9 +10061,9 @@ begin
     end process;
 
 
-    str_75_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_75_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_4B)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_4B)))) then 
             str_75_we1 <= ap_const_logic_1;
         else 
             str_75_we1 <= ap_const_logic_0;
@@ -10236,9 +10093,9 @@ begin
     end process;
 
 
-    str_76_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_76_ce1)
+    str_76_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_76_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_76_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_76_ce1 <= grp_calcHash_rollingHash_fu_2804_str_76_ce1;
@@ -10248,9 +10105,9 @@ begin
     end process;
 
 
-    str_76_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_76_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_4C)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_4C)))) then 
             str_76_we1 <= ap_const_logic_1;
         else 
             str_76_we1 <= ap_const_logic_0;
@@ -10280,9 +10137,9 @@ begin
     end process;
 
 
-    str_77_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_77_ce1)
+    str_77_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_77_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_77_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_77_ce1 <= grp_calcHash_rollingHash_fu_2804_str_77_ce1;
@@ -10292,9 +10149,9 @@ begin
     end process;
 
 
-    str_77_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_77_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_4D)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_4D)))) then 
             str_77_we1 <= ap_const_logic_1;
         else 
             str_77_we1 <= ap_const_logic_0;
@@ -10324,9 +10181,9 @@ begin
     end process;
 
 
-    str_78_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_78_ce1)
+    str_78_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_78_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_78_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_78_ce1 <= grp_calcHash_rollingHash_fu_2804_str_78_ce1;
@@ -10336,9 +10193,9 @@ begin
     end process;
 
 
-    str_78_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_78_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_4E)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_4E)))) then 
             str_78_we1 <= ap_const_logic_1;
         else 
             str_78_we1 <= ap_const_logic_0;
@@ -10368,9 +10225,9 @@ begin
     end process;
 
 
-    str_79_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_79_ce1)
+    str_79_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_79_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_79_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_79_ce1 <= grp_calcHash_rollingHash_fu_2804_str_79_ce1;
@@ -10380,9 +10237,9 @@ begin
     end process;
 
 
-    str_79_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_79_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_4F)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_4F)))) then 
             str_79_we1 <= ap_const_logic_1;
         else 
             str_79_we1 <= ap_const_logic_0;
@@ -10412,9 +10269,9 @@ begin
     end process;
 
 
-    str_7_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_7_ce1)
+    str_7_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_7_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_7_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_7_ce1 <= grp_calcHash_rollingHash_fu_2804_str_7_ce1;
@@ -10424,9 +10281,9 @@ begin
     end process;
 
 
-    str_7_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_7_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_7)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_7)))) then 
             str_7_we1 <= ap_const_logic_1;
         else 
             str_7_we1 <= ap_const_logic_0;
@@ -10456,9 +10313,9 @@ begin
     end process;
 
 
-    str_80_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_80_ce1)
+    str_80_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_80_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_80_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_80_ce1 <= grp_calcHash_rollingHash_fu_2804_str_80_ce1;
@@ -10468,9 +10325,9 @@ begin
     end process;
 
 
-    str_80_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_80_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_50)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_50)))) then 
             str_80_we1 <= ap_const_logic_1;
         else 
             str_80_we1 <= ap_const_logic_0;
@@ -10500,9 +10357,9 @@ begin
     end process;
 
 
-    str_81_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_81_ce1)
+    str_81_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_81_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_81_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_81_ce1 <= grp_calcHash_rollingHash_fu_2804_str_81_ce1;
@@ -10512,9 +10369,9 @@ begin
     end process;
 
 
-    str_81_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_81_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_51)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_51)))) then 
             str_81_we1 <= ap_const_logic_1;
         else 
             str_81_we1 <= ap_const_logic_0;
@@ -10544,9 +10401,9 @@ begin
     end process;
 
 
-    str_82_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_82_ce1)
+    str_82_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_82_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_82_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_82_ce1 <= grp_calcHash_rollingHash_fu_2804_str_82_ce1;
@@ -10556,9 +10413,9 @@ begin
     end process;
 
 
-    str_82_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_82_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_52)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_52)))) then 
             str_82_we1 <= ap_const_logic_1;
         else 
             str_82_we1 <= ap_const_logic_0;
@@ -10588,9 +10445,9 @@ begin
     end process;
 
 
-    str_83_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_83_ce1)
+    str_83_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_83_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_83_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_83_ce1 <= grp_calcHash_rollingHash_fu_2804_str_83_ce1;
@@ -10600,9 +10457,9 @@ begin
     end process;
 
 
-    str_83_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_83_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_53)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_53)))) then 
             str_83_we1 <= ap_const_logic_1;
         else 
             str_83_we1 <= ap_const_logic_0;
@@ -10632,9 +10489,9 @@ begin
     end process;
 
 
-    str_84_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_84_ce1)
+    str_84_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_84_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_84_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_84_ce1 <= grp_calcHash_rollingHash_fu_2804_str_84_ce1;
@@ -10644,9 +10501,9 @@ begin
     end process;
 
 
-    str_84_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_84_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_54)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_54)))) then 
             str_84_we1 <= ap_const_logic_1;
         else 
             str_84_we1 <= ap_const_logic_0;
@@ -10676,9 +10533,9 @@ begin
     end process;
 
 
-    str_85_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_85_ce1)
+    str_85_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_85_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_85_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_85_ce1 <= grp_calcHash_rollingHash_fu_2804_str_85_ce1;
@@ -10688,9 +10545,9 @@ begin
     end process;
 
 
-    str_85_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_85_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_55)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_55)))) then 
             str_85_we1 <= ap_const_logic_1;
         else 
             str_85_we1 <= ap_const_logic_0;
@@ -10720,9 +10577,9 @@ begin
     end process;
 
 
-    str_86_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_86_ce1)
+    str_86_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_86_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_86_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_86_ce1 <= grp_calcHash_rollingHash_fu_2804_str_86_ce1;
@@ -10732,9 +10589,9 @@ begin
     end process;
 
 
-    str_86_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_86_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_56)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_56)))) then 
             str_86_we1 <= ap_const_logic_1;
         else 
             str_86_we1 <= ap_const_logic_0;
@@ -10764,9 +10621,9 @@ begin
     end process;
 
 
-    str_87_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_87_ce1)
+    str_87_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_87_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_87_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_87_ce1 <= grp_calcHash_rollingHash_fu_2804_str_87_ce1;
@@ -10776,9 +10633,9 @@ begin
     end process;
 
 
-    str_87_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_87_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_57)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_57)))) then 
             str_87_we1 <= ap_const_logic_1;
         else 
             str_87_we1 <= ap_const_logic_0;
@@ -10808,9 +10665,9 @@ begin
     end process;
 
 
-    str_88_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_88_ce1)
+    str_88_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_88_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_88_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_88_ce1 <= grp_calcHash_rollingHash_fu_2804_str_88_ce1;
@@ -10820,9 +10677,9 @@ begin
     end process;
 
 
-    str_88_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_88_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_58)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_58)))) then 
             str_88_we1 <= ap_const_logic_1;
         else 
             str_88_we1 <= ap_const_logic_0;
@@ -10852,9 +10709,9 @@ begin
     end process;
 
 
-    str_89_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_89_ce1)
+    str_89_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_89_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_89_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_89_ce1 <= grp_calcHash_rollingHash_fu_2804_str_89_ce1;
@@ -10864,9 +10721,9 @@ begin
     end process;
 
 
-    str_89_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_89_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_59)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_59)))) then 
             str_89_we1 <= ap_const_logic_1;
         else 
             str_89_we1 <= ap_const_logic_0;
@@ -10896,9 +10753,9 @@ begin
     end process;
 
 
-    str_8_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_8_ce1)
+    str_8_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_8_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_8_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_8_ce1 <= grp_calcHash_rollingHash_fu_2804_str_8_ce1;
@@ -10908,9 +10765,9 @@ begin
     end process;
 
 
-    str_8_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_8_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_8)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_8)))) then 
             str_8_we1 <= ap_const_logic_1;
         else 
             str_8_we1 <= ap_const_logic_0;
@@ -10940,9 +10797,9 @@ begin
     end process;
 
 
-    str_90_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_90_ce1)
+    str_90_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_90_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_90_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_90_ce1 <= grp_calcHash_rollingHash_fu_2804_str_90_ce1;
@@ -10952,9 +10809,9 @@ begin
     end process;
 
 
-    str_90_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_90_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_5A)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_5A)))) then 
             str_90_we1 <= ap_const_logic_1;
         else 
             str_90_we1 <= ap_const_logic_0;
@@ -10984,9 +10841,9 @@ begin
     end process;
 
 
-    str_91_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_91_ce1)
+    str_91_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_91_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_91_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_91_ce1 <= grp_calcHash_rollingHash_fu_2804_str_91_ce1;
@@ -10996,9 +10853,9 @@ begin
     end process;
 
 
-    str_91_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_91_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_5B)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_5B)))) then 
             str_91_we1 <= ap_const_logic_1;
         else 
             str_91_we1 <= ap_const_logic_0;
@@ -11028,9 +10885,9 @@ begin
     end process;
 
 
-    str_92_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_92_ce1)
+    str_92_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_92_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_92_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_92_ce1 <= grp_calcHash_rollingHash_fu_2804_str_92_ce1;
@@ -11040,9 +10897,9 @@ begin
     end process;
 
 
-    str_92_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_92_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_5C)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_5C)))) then 
             str_92_we1 <= ap_const_logic_1;
         else 
             str_92_we1 <= ap_const_logic_0;
@@ -11072,9 +10929,9 @@ begin
     end process;
 
 
-    str_93_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_93_ce1)
+    str_93_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_93_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_93_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_93_ce1 <= grp_calcHash_rollingHash_fu_2804_str_93_ce1;
@@ -11084,9 +10941,9 @@ begin
     end process;
 
 
-    str_93_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_93_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_5D)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_5D)))) then 
             str_93_we1 <= ap_const_logic_1;
         else 
             str_93_we1 <= ap_const_logic_0;
@@ -11116,9 +10973,9 @@ begin
     end process;
 
 
-    str_94_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_94_ce1)
+    str_94_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_94_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_94_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_94_ce1 <= grp_calcHash_rollingHash_fu_2804_str_94_ce1;
@@ -11128,9 +10985,9 @@ begin
     end process;
 
 
-    str_94_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_94_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_5E)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_5E)))) then 
             str_94_we1 <= ap_const_logic_1;
         else 
             str_94_we1 <= ap_const_logic_0;
@@ -11160,9 +11017,9 @@ begin
     end process;
 
 
-    str_95_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_95_ce1)
+    str_95_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_95_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_95_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_95_ce1 <= grp_calcHash_rollingHash_fu_2804_str_95_ce1;
@@ -11172,9 +11029,9 @@ begin
     end process;
 
 
-    str_95_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_95_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_5F)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_5F)))) then 
             str_95_we1 <= ap_const_logic_1;
         else 
             str_95_we1 <= ap_const_logic_0;
@@ -11204,9 +11061,9 @@ begin
     end process;
 
 
-    str_96_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_96_ce1)
+    str_96_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_96_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_96_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_96_ce1 <= grp_calcHash_rollingHash_fu_2804_str_96_ce1;
@@ -11216,9 +11073,9 @@ begin
     end process;
 
 
-    str_96_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_96_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_60)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_60)))) then 
             str_96_we1 <= ap_const_logic_1;
         else 
             str_96_we1 <= ap_const_logic_0;
@@ -11248,9 +11105,9 @@ begin
     end process;
 
 
-    str_97_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_97_ce1)
+    str_97_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_97_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_97_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_97_ce1 <= grp_calcHash_rollingHash_fu_2804_str_97_ce1;
@@ -11260,9 +11117,9 @@ begin
     end process;
 
 
-    str_97_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_97_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_61)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_61)))) then 
             str_97_we1 <= ap_const_logic_1;
         else 
             str_97_we1 <= ap_const_logic_0;
@@ -11292,9 +11149,9 @@ begin
     end process;
 
 
-    str_98_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_98_ce1)
+    str_98_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_98_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_98_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_98_ce1 <= grp_calcHash_rollingHash_fu_2804_str_98_ce1;
@@ -11304,9 +11161,9 @@ begin
     end process;
 
 
-    str_98_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_98_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_62)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_62)))) then 
             str_98_we1 <= ap_const_logic_1;
         else 
             str_98_we1 <= ap_const_logic_0;
@@ -11336,9 +11193,9 @@ begin
     end process;
 
 
-    str_99_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_99_ce1)
+    str_99_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_99_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_99_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_99_ce1 <= grp_calcHash_rollingHash_fu_2804_str_99_ce1;
@@ -11348,9 +11205,9 @@ begin
     end process;
 
 
-    str_99_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_99_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_63)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_63)))) then 
             str_99_we1 <= ap_const_logic_1;
         else 
             str_99_we1 <= ap_const_logic_0;
@@ -11380,9 +11237,9 @@ begin
     end process;
 
 
-    str_9_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_108, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_9_ce1)
+    str_9_ce1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, ap_sig_59, ap_sig_cseq_ST_st4_fsm_3, grp_calcHash_rollingHash_fu_2804_str_9_ce1)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_108))) then 
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not(ap_sig_59))) then 
             str_9_ce1 <= ap_const_logic_1;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3)) then 
             str_9_ce1 <= grp_calcHash_rollingHash_fu_2804_str_9_ce1;
@@ -11392,9 +11249,9 @@ begin
     end process;
 
 
-    str_9_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_108, tmp_1818_fu_2948_p1)
+    str_9_we1_assign_proc : process(ap_sig_cseq_ST_st2_fsm_1, exitcond1_fu_2936_p2, ap_sig_59, tmp_1818_fu_2948_p1)
     begin
-        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_108) and (tmp_1818_fu_2948_p1 = ap_const_lv7_9)))) then 
+        if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (exitcond1_fu_2936_p2 = ap_const_lv1_0) and not(ap_sig_59) and (tmp_1818_fu_2948_p1 = ap_const_lv7_9)))) then 
             str_9_we1 <= ap_const_logic_1;
         else 
             str_9_we1 <= ap_const_logic_0;

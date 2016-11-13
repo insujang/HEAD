@@ -43063,7 +43063,7 @@ _ssdm_op_SpecPipeline(128, 1, 1, 0, "");
 
 void calcHash(hls::stream<char> &strStream,
   hls::stream<ap_item> &indicesStream){
-_ssdm_op_SpecInterface(0, "s_axilite", 1, 1, 0, 0, "", "", "", 0, 0, 0, 0, "");
+_ssdm_op_SpecInterface(0, "ap_ctrl_none", 1, 1, 0, 0, "", "", "", 0, 0, 0, 0, "");
 _ssdm_op_SpecInterface(&indicesStream, "axis", 0, 0, 0, 0, "", "", "", 0, 0, 0, 0, "");
 _ssdm_op_SpecInterface(&strStream, "axis", 0, 0, 0, 0, "", "", "", 0, 0, 0, 0, "");
  char str[4096];

@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="calcHash,hls_ip_2016_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020clg484-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.569500,HLS_SYN_LAT=5729,HLS_SYN_TPT=none,HLS_SYN_MEM=256,HLS_SYN_DSP=0,HLS_SYN_FF=8621,HLS_SYN_LUT=27098}" *)
+(* CORE_GENERATION_INFO="calcHash,hls_ip_2016_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020clg484-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.569500,HLS_SYN_LAT=5729,HLS_SYN_TPT=none,HLS_SYN_MEM=256,HLS_SYN_DSP=0,HLS_SYN_FF=8585,HLS_SYN_LUT=27058}" *)
 
 module calcHash (
         ap_clk,
@@ -18,25 +18,7 @@ module calcHash (
         indicesStream_TDATA,
         indicesStream_TVALID,
         indicesStream_TREADY,
-        indicesStream_TLAST,
-        s_axi_AXILiteS_AWVALID,
-        s_axi_AXILiteS_AWREADY,
-        s_axi_AXILiteS_AWADDR,
-        s_axi_AXILiteS_WVALID,
-        s_axi_AXILiteS_WREADY,
-        s_axi_AXILiteS_WDATA,
-        s_axi_AXILiteS_WSTRB,
-        s_axi_AXILiteS_ARVALID,
-        s_axi_AXILiteS_ARREADY,
-        s_axi_AXILiteS_ARADDR,
-        s_axi_AXILiteS_RVALID,
-        s_axi_AXILiteS_RREADY,
-        s_axi_AXILiteS_RDATA,
-        s_axi_AXILiteS_RRESP,
-        s_axi_AXILiteS_BVALID,
-        s_axi_AXILiteS_BREADY,
-        s_axi_AXILiteS_BRESP,
-        interrupt
+        indicesStream_TLAST
 );
 
 parameter    ap_ST_st1_fsm_0 = 7'b1;
@@ -46,15 +28,11 @@ parameter    ap_ST_st4_fsm_3 = 7'b1000;
 parameter    ap_ST_pp1_stg0_fsm_4 = 7'b10000;
 parameter    ap_ST_st7_fsm_5 = 7'b100000;
 parameter    ap_ST_st8_fsm_6 = 7'b1000000;
-parameter    ap_const_lv32_0 = 32'b00000000000000000000000000000000;
 parameter    ap_const_lv32_1 = 32'b1;
 parameter    ap_const_lv32_4 = 32'b100;
-parameter    C_S_AXI_AXILITES_DATA_WIDTH = 32;
-parameter    ap_const_int64_8 = 8;
-parameter    C_S_AXI_AXILITES_ADDR_WIDTH = 4;
-parameter    C_S_AXI_DATA_WIDTH = 32;
 parameter    ap_const_lv32_3 = 32'b11;
 parameter    ap_const_lv13_0 = 13'b0000000000000;
+parameter    ap_const_lv32_0 = 32'b00000000000000000000000000000000;
 parameter    ap_const_lv2_0 = 2'b00;
 parameter    ap_const_lv32_2 = 32'b10;
 parameter    ap_const_lv7_7E = 7'b1111110;
@@ -191,10 +169,6 @@ parameter    ap_const_lv32_7 = 32'b111;
 parameter    ap_const_lv32_C = 32'b1100;
 parameter    ap_const_lv2_3 = 2'b11;
 parameter    ap_const_lv2_1 = 2'b1;
-parameter    ap_const_lv32_6 = 32'b110;
-
-parameter C_S_AXI_AXILITES_WSTRB_WIDTH = (C_S_AXI_AXILITES_DATA_WIDTH / ap_const_int64_8);
-parameter C_S_AXI_WSTRB_WIDTH = (C_S_AXI_DATA_WIDTH / ap_const_int64_8);
 
 input   ap_clk;
 input   ap_rst_n;
@@ -205,52 +179,28 @@ output  [31:0] indicesStream_TDATA;
 output   indicesStream_TVALID;
 input   indicesStream_TREADY;
 output  [0:0] indicesStream_TLAST;
-input   s_axi_AXILiteS_AWVALID;
-output   s_axi_AXILiteS_AWREADY;
-input  [C_S_AXI_AXILITES_ADDR_WIDTH - 1 : 0] s_axi_AXILiteS_AWADDR;
-input   s_axi_AXILiteS_WVALID;
-output   s_axi_AXILiteS_WREADY;
-input  [C_S_AXI_AXILITES_DATA_WIDTH - 1 : 0] s_axi_AXILiteS_WDATA;
-input  [C_S_AXI_AXILITES_WSTRB_WIDTH - 1 : 0] s_axi_AXILiteS_WSTRB;
-input   s_axi_AXILiteS_ARVALID;
-output   s_axi_AXILiteS_ARREADY;
-input  [C_S_AXI_AXILITES_ADDR_WIDTH - 1 : 0] s_axi_AXILiteS_ARADDR;
-output   s_axi_AXILiteS_RVALID;
-input   s_axi_AXILiteS_RREADY;
-output  [C_S_AXI_AXILITES_DATA_WIDTH - 1 : 0] s_axi_AXILiteS_RDATA;
-output  [1:0] s_axi_AXILiteS_RRESP;
-output   s_axi_AXILiteS_BVALID;
-input   s_axi_AXILiteS_BREADY;
-output  [1:0] s_axi_AXILiteS_BRESP;
-output   interrupt;
 
 reg strStream_V_TREADY;
 reg indicesStream_TVALID;
 
 reg    ap_rst_n_inv;
-wire    ap_start;
-reg    ap_done;
-reg    ap_idle;
-(* fsm_encoding = "none" *) reg   [6:0] ap_CS_fsm;
-reg    ap_sig_cseq_ST_st1_fsm_0;
-reg    ap_sig_24;
-reg    ap_ready;
 reg    strStream_V_TDATA_blk_n;
+(* fsm_encoding = "none" *) reg   [6:0] ap_CS_fsm;
 reg    ap_sig_cseq_ST_st2_fsm_1;
-reg    ap_sig_44;
+reg    ap_sig_31;
 wire   [0:0] exitcond1_fu_2936_p2;
 reg    indicesStream_TDATA_blk_n;
 reg    ap_sig_cseq_ST_pp1_stg0_fsm_4;
-reg    ap_sig_56;
+reg    ap_sig_43;
 reg    ap_reg_ppiten_pp1_it1;
 reg    ap_reg_ppiten_pp1_it0;
 reg   [0:0] exitcond_reg_3154;
 reg   [1:0] i1_reg_2792;
 wire   [12:0] i_2_fu_2942_p2;
-reg    ap_sig_108;
+reg    ap_sig_59;
 reg   [31:0] indices_0_reg_3139;
 reg    ap_sig_cseq_ST_st4_fsm_3;
-reg    ap_sig_118;
+reg    ap_sig_69;
 wire    grp_calcHash_rollingHash_fu_2804_ap_done;
 reg   [31:0] indices_1_reg_3144;
 reg   [31:0] indices_2_reg_3149;
@@ -1545,17 +1495,17 @@ wire   [31:0] grp_calcHash_rollingHash_fu_2804_ap_return_0;
 wire   [31:0] grp_calcHash_rollingHash_fu_2804_ap_return_1;
 wire   [31:0] grp_calcHash_rollingHash_fu_2804_ap_return_2;
 reg   [12:0] i_reg_2781;
+reg    ap_sig_cseq_ST_st1_fsm_0;
+reg    ap_sig_2416;
 reg   [1:0] i1_phi_fu_2796_p4;
 reg    ap_reg_grp_calcHash_rollingHash_fu_2804_ap_start;
 reg    ap_sig_cseq_ST_st3_fsm_2;
-reg    ap_sig_2475;
+reg    ap_sig_2430;
 wire   [63:0] newIndex3_fu_2962_p1;
 wire   [31:0] tmp_data_fu_3118_p5;
 reg    ap_reg_ioackin_indicesStream_TREADY;
 wire   [6:0] tmp_1818_fu_2948_p1;
 wire   [5:0] newIndex_fu_2952_p4;
-reg    ap_sig_cseq_ST_st8_fsm_6;
-reg    ap_sig_3309;
 reg   [6:0] ap_NS_fsm;
 
 // power-on initialization
@@ -1566,37 +1516,6 @@ initial begin
 #0 ap_reg_grp_calcHash_rollingHash_fu_2804_ap_start = 1'b0;
 #0 ap_reg_ioackin_indicesStream_TREADY = 1'b0;
 end
-
-calcHash_AXILiteS_s_axi #(
-    .C_S_AXI_ADDR_WIDTH( C_S_AXI_AXILITES_ADDR_WIDTH ),
-    .C_S_AXI_DATA_WIDTH( C_S_AXI_AXILITES_DATA_WIDTH ))
-calcHash_AXILiteS_s_axi_U(
-    .AWVALID(s_axi_AXILiteS_AWVALID),
-    .AWREADY(s_axi_AXILiteS_AWREADY),
-    .AWADDR(s_axi_AXILiteS_AWADDR),
-    .WVALID(s_axi_AXILiteS_WVALID),
-    .WREADY(s_axi_AXILiteS_WREADY),
-    .WDATA(s_axi_AXILiteS_WDATA),
-    .WSTRB(s_axi_AXILiteS_WSTRB),
-    .ARVALID(s_axi_AXILiteS_ARVALID),
-    .ARREADY(s_axi_AXILiteS_ARREADY),
-    .ARADDR(s_axi_AXILiteS_ARADDR),
-    .RVALID(s_axi_AXILiteS_RVALID),
-    .RREADY(s_axi_AXILiteS_RREADY),
-    .RDATA(s_axi_AXILiteS_RDATA),
-    .RRESP(s_axi_AXILiteS_RRESP),
-    .BVALID(s_axi_AXILiteS_BVALID),
-    .BREADY(s_axi_AXILiteS_BREADY),
-    .BRESP(s_axi_AXILiteS_BRESP),
-    .ACLK(ap_clk),
-    .ARESET(ap_rst_n_inv),
-    .ACLK_EN(1'b1),
-    .ap_start(ap_start),
-    .interrupt(interrupt),
-    .ap_ready(ap_ready),
-    .ap_done(ap_done),
-    .ap_idle(ap_idle)
-);
 
 calcHash_str_0 #(
     .DataWidth( 8 ),
@@ -4635,9 +4554,9 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59)) begin
         i_reg_2781 <= i_2_fu_2942_p2;
-    end else if (((1'b1 == ap_sig_cseq_ST_st1_fsm_0) & ~(ap_start == 1'b0))) begin
+    end else if ((1'b1 == ap_sig_cseq_ST_st1_fsm_0)) begin
         i_reg_2781 <= ap_const_lv13_0;
     end
 end
@@ -4663,31 +4582,7 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_6)) begin
-        ap_done = 1'b1;
-    end else begin
-        ap_done = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b0 == ap_start) & (1'b1 == ap_sig_cseq_ST_st1_fsm_0))) begin
-        ap_idle = 1'b1;
-    end else begin
-        ap_idle = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_6)) begin
-        ap_ready = 1'b1;
-    end else begin
-        ap_ready = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (ap_sig_56) begin
+    if (ap_sig_43) begin
         ap_sig_cseq_ST_pp1_stg0_fsm_4 = 1'b1;
     end else begin
         ap_sig_cseq_ST_pp1_stg0_fsm_4 = 1'b0;
@@ -4695,7 +4590,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (ap_sig_24) begin
+    if (ap_sig_2416) begin
         ap_sig_cseq_ST_st1_fsm_0 = 1'b1;
     end else begin
         ap_sig_cseq_ST_st1_fsm_0 = 1'b0;
@@ -4703,7 +4598,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (ap_sig_44) begin
+    if (ap_sig_31) begin
         ap_sig_cseq_ST_st2_fsm_1 = 1'b1;
     end else begin
         ap_sig_cseq_ST_st2_fsm_1 = 1'b0;
@@ -4711,7 +4606,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (ap_sig_2475) begin
+    if (ap_sig_2430) begin
         ap_sig_cseq_ST_st3_fsm_2 = 1'b1;
     end else begin
         ap_sig_cseq_ST_st3_fsm_2 = 1'b0;
@@ -4719,18 +4614,10 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (ap_sig_118) begin
+    if (ap_sig_69) begin
         ap_sig_cseq_ST_st4_fsm_3 = 1'b1;
     end else begin
         ap_sig_cseq_ST_st4_fsm_3 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (ap_sig_3309) begin
-        ap_sig_cseq_ST_st8_fsm_6 = 1'b1;
-    end else begin
-        ap_sig_cseq_ST_st8_fsm_6 = 1'b0;
     end
 end
 
@@ -4775,7 +4662,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59)) begin
         strStream_V_TREADY = 1'b1;
     end else begin
         strStream_V_TREADY = 1'b0;
@@ -4801,7 +4688,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_0_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_0_ce1 = grp_calcHash_rollingHash_fu_2804_str_0_ce1;
@@ -4811,7 +4698,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_0))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_0))) begin
         str_0_we1 = 1'b1;
     end else begin
         str_0_we1 = 1'b0;
@@ -4837,7 +4724,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_100_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_100_ce1 = grp_calcHash_rollingHash_fu_2804_str_100_ce1;
@@ -4847,7 +4734,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_64))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_64))) begin
         str_100_we1 = 1'b1;
     end else begin
         str_100_we1 = 1'b0;
@@ -4873,7 +4760,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_101_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_101_ce1 = grp_calcHash_rollingHash_fu_2804_str_101_ce1;
@@ -4883,7 +4770,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_65))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_65))) begin
         str_101_we1 = 1'b1;
     end else begin
         str_101_we1 = 1'b0;
@@ -4909,7 +4796,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_102_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_102_ce1 = grp_calcHash_rollingHash_fu_2804_str_102_ce1;
@@ -4919,7 +4806,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_66))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_66))) begin
         str_102_we1 = 1'b1;
     end else begin
         str_102_we1 = 1'b0;
@@ -4945,7 +4832,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_103_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_103_ce1 = grp_calcHash_rollingHash_fu_2804_str_103_ce1;
@@ -4955,7 +4842,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_67))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_67))) begin
         str_103_we1 = 1'b1;
     end else begin
         str_103_we1 = 1'b0;
@@ -4981,7 +4868,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_104_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_104_ce1 = grp_calcHash_rollingHash_fu_2804_str_104_ce1;
@@ -4991,7 +4878,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_68))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_68))) begin
         str_104_we1 = 1'b1;
     end else begin
         str_104_we1 = 1'b0;
@@ -5017,7 +4904,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_105_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_105_ce1 = grp_calcHash_rollingHash_fu_2804_str_105_ce1;
@@ -5027,7 +4914,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_69))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_69))) begin
         str_105_we1 = 1'b1;
     end else begin
         str_105_we1 = 1'b0;
@@ -5053,7 +4940,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_106_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_106_ce1 = grp_calcHash_rollingHash_fu_2804_str_106_ce1;
@@ -5063,7 +4950,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_6A))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_6A))) begin
         str_106_we1 = 1'b1;
     end else begin
         str_106_we1 = 1'b0;
@@ -5089,7 +4976,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_107_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_107_ce1 = grp_calcHash_rollingHash_fu_2804_str_107_ce1;
@@ -5099,7 +4986,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_6B))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_6B))) begin
         str_107_we1 = 1'b1;
     end else begin
         str_107_we1 = 1'b0;
@@ -5125,7 +5012,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_108_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_108_ce1 = grp_calcHash_rollingHash_fu_2804_str_108_ce1;
@@ -5135,7 +5022,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_6C))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_6C))) begin
         str_108_we1 = 1'b1;
     end else begin
         str_108_we1 = 1'b0;
@@ -5161,7 +5048,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_109_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_109_ce1 = grp_calcHash_rollingHash_fu_2804_str_109_ce1;
@@ -5171,7 +5058,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_6D))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_6D))) begin
         str_109_we1 = 1'b1;
     end else begin
         str_109_we1 = 1'b0;
@@ -5197,7 +5084,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_10_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_10_ce1 = grp_calcHash_rollingHash_fu_2804_str_10_ce1;
@@ -5207,7 +5094,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_A))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_A))) begin
         str_10_we1 = 1'b1;
     end else begin
         str_10_we1 = 1'b0;
@@ -5233,7 +5120,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_110_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_110_ce1 = grp_calcHash_rollingHash_fu_2804_str_110_ce1;
@@ -5243,7 +5130,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_6E))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_6E))) begin
         str_110_we1 = 1'b1;
     end else begin
         str_110_we1 = 1'b0;
@@ -5269,7 +5156,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_111_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_111_ce1 = grp_calcHash_rollingHash_fu_2804_str_111_ce1;
@@ -5279,7 +5166,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_6F))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_6F))) begin
         str_111_we1 = 1'b1;
     end else begin
         str_111_we1 = 1'b0;
@@ -5305,7 +5192,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_112_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_112_ce1 = grp_calcHash_rollingHash_fu_2804_str_112_ce1;
@@ -5315,7 +5202,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_70))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_70))) begin
         str_112_we1 = 1'b1;
     end else begin
         str_112_we1 = 1'b0;
@@ -5341,7 +5228,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_113_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_113_ce1 = grp_calcHash_rollingHash_fu_2804_str_113_ce1;
@@ -5351,7 +5238,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_71))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_71))) begin
         str_113_we1 = 1'b1;
     end else begin
         str_113_we1 = 1'b0;
@@ -5377,7 +5264,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_114_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_114_ce1 = grp_calcHash_rollingHash_fu_2804_str_114_ce1;
@@ -5387,7 +5274,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_72))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_72))) begin
         str_114_we1 = 1'b1;
     end else begin
         str_114_we1 = 1'b0;
@@ -5413,7 +5300,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_115_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_115_ce1 = grp_calcHash_rollingHash_fu_2804_str_115_ce1;
@@ -5423,7 +5310,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_73))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_73))) begin
         str_115_we1 = 1'b1;
     end else begin
         str_115_we1 = 1'b0;
@@ -5449,7 +5336,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_116_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_116_ce1 = grp_calcHash_rollingHash_fu_2804_str_116_ce1;
@@ -5459,7 +5346,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_74))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_74))) begin
         str_116_we1 = 1'b1;
     end else begin
         str_116_we1 = 1'b0;
@@ -5485,7 +5372,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_117_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_117_ce1 = grp_calcHash_rollingHash_fu_2804_str_117_ce1;
@@ -5495,7 +5382,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_75))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_75))) begin
         str_117_we1 = 1'b1;
     end else begin
         str_117_we1 = 1'b0;
@@ -5521,7 +5408,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_118_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_118_ce1 = grp_calcHash_rollingHash_fu_2804_str_118_ce1;
@@ -5531,7 +5418,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_76))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_76))) begin
         str_118_we1 = 1'b1;
     end else begin
         str_118_we1 = 1'b0;
@@ -5557,7 +5444,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_119_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_119_ce1 = grp_calcHash_rollingHash_fu_2804_str_119_ce1;
@@ -5567,7 +5454,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_77))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_77))) begin
         str_119_we1 = 1'b1;
     end else begin
         str_119_we1 = 1'b0;
@@ -5593,7 +5480,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_11_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_11_ce1 = grp_calcHash_rollingHash_fu_2804_str_11_ce1;
@@ -5603,7 +5490,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_B))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_B))) begin
         str_11_we1 = 1'b1;
     end else begin
         str_11_we1 = 1'b0;
@@ -5629,7 +5516,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_120_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_120_ce1 = grp_calcHash_rollingHash_fu_2804_str_120_ce1;
@@ -5639,7 +5526,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_78))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_78))) begin
         str_120_we1 = 1'b1;
     end else begin
         str_120_we1 = 1'b0;
@@ -5665,7 +5552,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_121_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_121_ce1 = grp_calcHash_rollingHash_fu_2804_str_121_ce1;
@@ -5675,7 +5562,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_79))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_79))) begin
         str_121_we1 = 1'b1;
     end else begin
         str_121_we1 = 1'b0;
@@ -5701,7 +5588,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_122_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_122_ce1 = grp_calcHash_rollingHash_fu_2804_str_122_ce1;
@@ -5711,7 +5598,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_7A))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_7A))) begin
         str_122_we1 = 1'b1;
     end else begin
         str_122_we1 = 1'b0;
@@ -5737,7 +5624,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_123_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_123_ce1 = grp_calcHash_rollingHash_fu_2804_str_123_ce1;
@@ -5747,7 +5634,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_7B))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_7B))) begin
         str_123_we1 = 1'b1;
     end else begin
         str_123_we1 = 1'b0;
@@ -5773,7 +5660,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_124_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_124_ce1 = grp_calcHash_rollingHash_fu_2804_str_124_ce1;
@@ -5783,7 +5670,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_7C))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_7C))) begin
         str_124_we1 = 1'b1;
     end else begin
         str_124_we1 = 1'b0;
@@ -5809,7 +5696,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_125_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_125_ce1 = grp_calcHash_rollingHash_fu_2804_str_125_ce1;
@@ -5819,7 +5706,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_7D))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_7D))) begin
         str_125_we1 = 1'b1;
     end else begin
         str_125_we1 = 1'b0;
@@ -5845,7 +5732,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_126_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_126_ce1 = grp_calcHash_rollingHash_fu_2804_str_126_ce1;
@@ -5855,7 +5742,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_7E))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_7E))) begin
         str_126_we1 = 1'b1;
     end else begin
         str_126_we1 = 1'b0;
@@ -5881,7 +5768,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_127_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_127_ce1 = grp_calcHash_rollingHash_fu_2804_str_127_ce1;
@@ -5891,7 +5778,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_7F))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_7F))) begin
         str_127_we1 = 1'b1;
     end else begin
         str_127_we1 = 1'b0;
@@ -5917,7 +5804,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_12_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_12_ce1 = grp_calcHash_rollingHash_fu_2804_str_12_ce1;
@@ -5927,7 +5814,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_C))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_C))) begin
         str_12_we1 = 1'b1;
     end else begin
         str_12_we1 = 1'b0;
@@ -5953,7 +5840,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_13_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_13_ce1 = grp_calcHash_rollingHash_fu_2804_str_13_ce1;
@@ -5963,7 +5850,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_D))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_D))) begin
         str_13_we1 = 1'b1;
     end else begin
         str_13_we1 = 1'b0;
@@ -5989,7 +5876,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_14_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_14_ce1 = grp_calcHash_rollingHash_fu_2804_str_14_ce1;
@@ -5999,7 +5886,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_E))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_E))) begin
         str_14_we1 = 1'b1;
     end else begin
         str_14_we1 = 1'b0;
@@ -6025,7 +5912,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_15_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_15_ce1 = grp_calcHash_rollingHash_fu_2804_str_15_ce1;
@@ -6035,7 +5922,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_F))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_F))) begin
         str_15_we1 = 1'b1;
     end else begin
         str_15_we1 = 1'b0;
@@ -6061,7 +5948,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_16_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_16_ce1 = grp_calcHash_rollingHash_fu_2804_str_16_ce1;
@@ -6071,7 +5958,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_10))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_10))) begin
         str_16_we1 = 1'b1;
     end else begin
         str_16_we1 = 1'b0;
@@ -6097,7 +5984,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_17_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_17_ce1 = grp_calcHash_rollingHash_fu_2804_str_17_ce1;
@@ -6107,7 +5994,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_11))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_11))) begin
         str_17_we1 = 1'b1;
     end else begin
         str_17_we1 = 1'b0;
@@ -6133,7 +6020,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_18_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_18_ce1 = grp_calcHash_rollingHash_fu_2804_str_18_ce1;
@@ -6143,7 +6030,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_12))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_12))) begin
         str_18_we1 = 1'b1;
     end else begin
         str_18_we1 = 1'b0;
@@ -6169,7 +6056,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_19_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_19_ce1 = grp_calcHash_rollingHash_fu_2804_str_19_ce1;
@@ -6179,7 +6066,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_13))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_13))) begin
         str_19_we1 = 1'b1;
     end else begin
         str_19_we1 = 1'b0;
@@ -6205,7 +6092,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_1_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_1_ce1 = grp_calcHash_rollingHash_fu_2804_str_1_ce1;
@@ -6215,7 +6102,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_1))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_1))) begin
         str_1_we1 = 1'b1;
     end else begin
         str_1_we1 = 1'b0;
@@ -6241,7 +6128,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_20_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_20_ce1 = grp_calcHash_rollingHash_fu_2804_str_20_ce1;
@@ -6251,7 +6138,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_14))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_14))) begin
         str_20_we1 = 1'b1;
     end else begin
         str_20_we1 = 1'b0;
@@ -6277,7 +6164,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_21_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_21_ce1 = grp_calcHash_rollingHash_fu_2804_str_21_ce1;
@@ -6287,7 +6174,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_15))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_15))) begin
         str_21_we1 = 1'b1;
     end else begin
         str_21_we1 = 1'b0;
@@ -6313,7 +6200,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_22_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_22_ce1 = grp_calcHash_rollingHash_fu_2804_str_22_ce1;
@@ -6323,7 +6210,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_16))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_16))) begin
         str_22_we1 = 1'b1;
     end else begin
         str_22_we1 = 1'b0;
@@ -6349,7 +6236,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_23_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_23_ce1 = grp_calcHash_rollingHash_fu_2804_str_23_ce1;
@@ -6359,7 +6246,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_17))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_17))) begin
         str_23_we1 = 1'b1;
     end else begin
         str_23_we1 = 1'b0;
@@ -6385,7 +6272,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_24_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_24_ce1 = grp_calcHash_rollingHash_fu_2804_str_24_ce1;
@@ -6395,7 +6282,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_18))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_18))) begin
         str_24_we1 = 1'b1;
     end else begin
         str_24_we1 = 1'b0;
@@ -6421,7 +6308,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_25_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_25_ce1 = grp_calcHash_rollingHash_fu_2804_str_25_ce1;
@@ -6431,7 +6318,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_19))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_19))) begin
         str_25_we1 = 1'b1;
     end else begin
         str_25_we1 = 1'b0;
@@ -6457,7 +6344,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_26_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_26_ce1 = grp_calcHash_rollingHash_fu_2804_str_26_ce1;
@@ -6467,7 +6354,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_1A))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_1A))) begin
         str_26_we1 = 1'b1;
     end else begin
         str_26_we1 = 1'b0;
@@ -6493,7 +6380,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_27_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_27_ce1 = grp_calcHash_rollingHash_fu_2804_str_27_ce1;
@@ -6503,7 +6390,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_1B))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_1B))) begin
         str_27_we1 = 1'b1;
     end else begin
         str_27_we1 = 1'b0;
@@ -6529,7 +6416,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_28_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_28_ce1 = grp_calcHash_rollingHash_fu_2804_str_28_ce1;
@@ -6539,7 +6426,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_1C))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_1C))) begin
         str_28_we1 = 1'b1;
     end else begin
         str_28_we1 = 1'b0;
@@ -6565,7 +6452,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_29_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_29_ce1 = grp_calcHash_rollingHash_fu_2804_str_29_ce1;
@@ -6575,7 +6462,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_1D))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_1D))) begin
         str_29_we1 = 1'b1;
     end else begin
         str_29_we1 = 1'b0;
@@ -6601,7 +6488,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_2_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_2_ce1 = grp_calcHash_rollingHash_fu_2804_str_2_ce1;
@@ -6611,7 +6498,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_2))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_2))) begin
         str_2_we1 = 1'b1;
     end else begin
         str_2_we1 = 1'b0;
@@ -6637,7 +6524,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_30_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_30_ce1 = grp_calcHash_rollingHash_fu_2804_str_30_ce1;
@@ -6647,7 +6534,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_1E))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_1E))) begin
         str_30_we1 = 1'b1;
     end else begin
         str_30_we1 = 1'b0;
@@ -6673,7 +6560,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_31_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_31_ce1 = grp_calcHash_rollingHash_fu_2804_str_31_ce1;
@@ -6683,7 +6570,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_1F))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_1F))) begin
         str_31_we1 = 1'b1;
     end else begin
         str_31_we1 = 1'b0;
@@ -6709,7 +6596,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_32_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_32_ce1 = grp_calcHash_rollingHash_fu_2804_str_32_ce1;
@@ -6719,7 +6606,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_20))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_20))) begin
         str_32_we1 = 1'b1;
     end else begin
         str_32_we1 = 1'b0;
@@ -6745,7 +6632,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_33_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_33_ce1 = grp_calcHash_rollingHash_fu_2804_str_33_ce1;
@@ -6755,7 +6642,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_21))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_21))) begin
         str_33_we1 = 1'b1;
     end else begin
         str_33_we1 = 1'b0;
@@ -6781,7 +6668,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_34_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_34_ce1 = grp_calcHash_rollingHash_fu_2804_str_34_ce1;
@@ -6791,7 +6678,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_22))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_22))) begin
         str_34_we1 = 1'b1;
     end else begin
         str_34_we1 = 1'b0;
@@ -6817,7 +6704,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_35_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_35_ce1 = grp_calcHash_rollingHash_fu_2804_str_35_ce1;
@@ -6827,7 +6714,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_23))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_23))) begin
         str_35_we1 = 1'b1;
     end else begin
         str_35_we1 = 1'b0;
@@ -6853,7 +6740,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_36_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_36_ce1 = grp_calcHash_rollingHash_fu_2804_str_36_ce1;
@@ -6863,7 +6750,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_24))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_24))) begin
         str_36_we1 = 1'b1;
     end else begin
         str_36_we1 = 1'b0;
@@ -6889,7 +6776,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_37_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_37_ce1 = grp_calcHash_rollingHash_fu_2804_str_37_ce1;
@@ -6899,7 +6786,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_25))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_25))) begin
         str_37_we1 = 1'b1;
     end else begin
         str_37_we1 = 1'b0;
@@ -6925,7 +6812,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_38_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_38_ce1 = grp_calcHash_rollingHash_fu_2804_str_38_ce1;
@@ -6935,7 +6822,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_26))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_26))) begin
         str_38_we1 = 1'b1;
     end else begin
         str_38_we1 = 1'b0;
@@ -6961,7 +6848,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_39_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_39_ce1 = grp_calcHash_rollingHash_fu_2804_str_39_ce1;
@@ -6971,7 +6858,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_27))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_27))) begin
         str_39_we1 = 1'b1;
     end else begin
         str_39_we1 = 1'b0;
@@ -6997,7 +6884,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_3_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_3_ce1 = grp_calcHash_rollingHash_fu_2804_str_3_ce1;
@@ -7007,7 +6894,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_3))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_3))) begin
         str_3_we1 = 1'b1;
     end else begin
         str_3_we1 = 1'b0;
@@ -7033,7 +6920,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_40_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_40_ce1 = grp_calcHash_rollingHash_fu_2804_str_40_ce1;
@@ -7043,7 +6930,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_28))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_28))) begin
         str_40_we1 = 1'b1;
     end else begin
         str_40_we1 = 1'b0;
@@ -7069,7 +6956,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_41_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_41_ce1 = grp_calcHash_rollingHash_fu_2804_str_41_ce1;
@@ -7079,7 +6966,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_29))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_29))) begin
         str_41_we1 = 1'b1;
     end else begin
         str_41_we1 = 1'b0;
@@ -7105,7 +6992,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_42_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_42_ce1 = grp_calcHash_rollingHash_fu_2804_str_42_ce1;
@@ -7115,7 +7002,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_2A))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_2A))) begin
         str_42_we1 = 1'b1;
     end else begin
         str_42_we1 = 1'b0;
@@ -7141,7 +7028,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_43_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_43_ce1 = grp_calcHash_rollingHash_fu_2804_str_43_ce1;
@@ -7151,7 +7038,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_2B))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_2B))) begin
         str_43_we1 = 1'b1;
     end else begin
         str_43_we1 = 1'b0;
@@ -7177,7 +7064,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_44_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_44_ce1 = grp_calcHash_rollingHash_fu_2804_str_44_ce1;
@@ -7187,7 +7074,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_2C))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_2C))) begin
         str_44_we1 = 1'b1;
     end else begin
         str_44_we1 = 1'b0;
@@ -7213,7 +7100,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_45_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_45_ce1 = grp_calcHash_rollingHash_fu_2804_str_45_ce1;
@@ -7223,7 +7110,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_2D))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_2D))) begin
         str_45_we1 = 1'b1;
     end else begin
         str_45_we1 = 1'b0;
@@ -7249,7 +7136,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_46_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_46_ce1 = grp_calcHash_rollingHash_fu_2804_str_46_ce1;
@@ -7259,7 +7146,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_2E))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_2E))) begin
         str_46_we1 = 1'b1;
     end else begin
         str_46_we1 = 1'b0;
@@ -7285,7 +7172,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_47_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_47_ce1 = grp_calcHash_rollingHash_fu_2804_str_47_ce1;
@@ -7295,7 +7182,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_2F))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_2F))) begin
         str_47_we1 = 1'b1;
     end else begin
         str_47_we1 = 1'b0;
@@ -7321,7 +7208,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_48_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_48_ce1 = grp_calcHash_rollingHash_fu_2804_str_48_ce1;
@@ -7331,7 +7218,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_30))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_30))) begin
         str_48_we1 = 1'b1;
     end else begin
         str_48_we1 = 1'b0;
@@ -7357,7 +7244,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_49_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_49_ce1 = grp_calcHash_rollingHash_fu_2804_str_49_ce1;
@@ -7367,7 +7254,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_31))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_31))) begin
         str_49_we1 = 1'b1;
     end else begin
         str_49_we1 = 1'b0;
@@ -7393,7 +7280,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_4_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_4_ce1 = grp_calcHash_rollingHash_fu_2804_str_4_ce1;
@@ -7403,7 +7290,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_4))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_4))) begin
         str_4_we1 = 1'b1;
     end else begin
         str_4_we1 = 1'b0;
@@ -7429,7 +7316,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_50_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_50_ce1 = grp_calcHash_rollingHash_fu_2804_str_50_ce1;
@@ -7439,7 +7326,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_32))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_32))) begin
         str_50_we1 = 1'b1;
     end else begin
         str_50_we1 = 1'b0;
@@ -7465,7 +7352,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_51_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_51_ce1 = grp_calcHash_rollingHash_fu_2804_str_51_ce1;
@@ -7475,7 +7362,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_33))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_33))) begin
         str_51_we1 = 1'b1;
     end else begin
         str_51_we1 = 1'b0;
@@ -7501,7 +7388,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_52_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_52_ce1 = grp_calcHash_rollingHash_fu_2804_str_52_ce1;
@@ -7511,7 +7398,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_34))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_34))) begin
         str_52_we1 = 1'b1;
     end else begin
         str_52_we1 = 1'b0;
@@ -7537,7 +7424,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_53_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_53_ce1 = grp_calcHash_rollingHash_fu_2804_str_53_ce1;
@@ -7547,7 +7434,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_35))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_35))) begin
         str_53_we1 = 1'b1;
     end else begin
         str_53_we1 = 1'b0;
@@ -7573,7 +7460,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_54_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_54_ce1 = grp_calcHash_rollingHash_fu_2804_str_54_ce1;
@@ -7583,7 +7470,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_36))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_36))) begin
         str_54_we1 = 1'b1;
     end else begin
         str_54_we1 = 1'b0;
@@ -7609,7 +7496,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_55_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_55_ce1 = grp_calcHash_rollingHash_fu_2804_str_55_ce1;
@@ -7619,7 +7506,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_37))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_37))) begin
         str_55_we1 = 1'b1;
     end else begin
         str_55_we1 = 1'b0;
@@ -7645,7 +7532,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_56_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_56_ce1 = grp_calcHash_rollingHash_fu_2804_str_56_ce1;
@@ -7655,7 +7542,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_38))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_38))) begin
         str_56_we1 = 1'b1;
     end else begin
         str_56_we1 = 1'b0;
@@ -7681,7 +7568,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_57_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_57_ce1 = grp_calcHash_rollingHash_fu_2804_str_57_ce1;
@@ -7691,7 +7578,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_39))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_39))) begin
         str_57_we1 = 1'b1;
     end else begin
         str_57_we1 = 1'b0;
@@ -7717,7 +7604,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_58_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_58_ce1 = grp_calcHash_rollingHash_fu_2804_str_58_ce1;
@@ -7727,7 +7614,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_3A))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_3A))) begin
         str_58_we1 = 1'b1;
     end else begin
         str_58_we1 = 1'b0;
@@ -7753,7 +7640,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_59_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_59_ce1 = grp_calcHash_rollingHash_fu_2804_str_59_ce1;
@@ -7763,7 +7650,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_3B))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_3B))) begin
         str_59_we1 = 1'b1;
     end else begin
         str_59_we1 = 1'b0;
@@ -7789,7 +7676,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_5_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_5_ce1 = grp_calcHash_rollingHash_fu_2804_str_5_ce1;
@@ -7799,7 +7686,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_5))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_5))) begin
         str_5_we1 = 1'b1;
     end else begin
         str_5_we1 = 1'b0;
@@ -7825,7 +7712,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_60_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_60_ce1 = grp_calcHash_rollingHash_fu_2804_str_60_ce1;
@@ -7835,7 +7722,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_3C))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_3C))) begin
         str_60_we1 = 1'b1;
     end else begin
         str_60_we1 = 1'b0;
@@ -7861,7 +7748,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_61_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_61_ce1 = grp_calcHash_rollingHash_fu_2804_str_61_ce1;
@@ -7871,7 +7758,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_3D))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_3D))) begin
         str_61_we1 = 1'b1;
     end else begin
         str_61_we1 = 1'b0;
@@ -7897,7 +7784,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_62_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_62_ce1 = grp_calcHash_rollingHash_fu_2804_str_62_ce1;
@@ -7907,7 +7794,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_3E))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_3E))) begin
         str_62_we1 = 1'b1;
     end else begin
         str_62_we1 = 1'b0;
@@ -7933,7 +7820,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_63_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_63_ce1 = grp_calcHash_rollingHash_fu_2804_str_63_ce1;
@@ -7943,7 +7830,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_3F))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_3F))) begin
         str_63_we1 = 1'b1;
     end else begin
         str_63_we1 = 1'b0;
@@ -7969,7 +7856,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_64_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_64_ce1 = grp_calcHash_rollingHash_fu_2804_str_64_ce1;
@@ -7979,7 +7866,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_40))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_40))) begin
         str_64_we1 = 1'b1;
     end else begin
         str_64_we1 = 1'b0;
@@ -8005,7 +7892,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_65_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_65_ce1 = grp_calcHash_rollingHash_fu_2804_str_65_ce1;
@@ -8015,7 +7902,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_41))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_41))) begin
         str_65_we1 = 1'b1;
     end else begin
         str_65_we1 = 1'b0;
@@ -8041,7 +7928,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_66_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_66_ce1 = grp_calcHash_rollingHash_fu_2804_str_66_ce1;
@@ -8051,7 +7938,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_42))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_42))) begin
         str_66_we1 = 1'b1;
     end else begin
         str_66_we1 = 1'b0;
@@ -8077,7 +7964,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_67_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_67_ce1 = grp_calcHash_rollingHash_fu_2804_str_67_ce1;
@@ -8087,7 +7974,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_43))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_43))) begin
         str_67_we1 = 1'b1;
     end else begin
         str_67_we1 = 1'b0;
@@ -8113,7 +8000,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_68_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_68_ce1 = grp_calcHash_rollingHash_fu_2804_str_68_ce1;
@@ -8123,7 +8010,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_44))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_44))) begin
         str_68_we1 = 1'b1;
     end else begin
         str_68_we1 = 1'b0;
@@ -8149,7 +8036,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_69_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_69_ce1 = grp_calcHash_rollingHash_fu_2804_str_69_ce1;
@@ -8159,7 +8046,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_45))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_45))) begin
         str_69_we1 = 1'b1;
     end else begin
         str_69_we1 = 1'b0;
@@ -8185,7 +8072,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_6_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_6_ce1 = grp_calcHash_rollingHash_fu_2804_str_6_ce1;
@@ -8195,7 +8082,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_6))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_6))) begin
         str_6_we1 = 1'b1;
     end else begin
         str_6_we1 = 1'b0;
@@ -8221,7 +8108,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_70_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_70_ce1 = grp_calcHash_rollingHash_fu_2804_str_70_ce1;
@@ -8231,7 +8118,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_46))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_46))) begin
         str_70_we1 = 1'b1;
     end else begin
         str_70_we1 = 1'b0;
@@ -8257,7 +8144,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_71_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_71_ce1 = grp_calcHash_rollingHash_fu_2804_str_71_ce1;
@@ -8267,7 +8154,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_47))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_47))) begin
         str_71_we1 = 1'b1;
     end else begin
         str_71_we1 = 1'b0;
@@ -8293,7 +8180,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_72_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_72_ce1 = grp_calcHash_rollingHash_fu_2804_str_72_ce1;
@@ -8303,7 +8190,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_48))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_48))) begin
         str_72_we1 = 1'b1;
     end else begin
         str_72_we1 = 1'b0;
@@ -8329,7 +8216,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_73_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_73_ce1 = grp_calcHash_rollingHash_fu_2804_str_73_ce1;
@@ -8339,7 +8226,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_49))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_49))) begin
         str_73_we1 = 1'b1;
     end else begin
         str_73_we1 = 1'b0;
@@ -8365,7 +8252,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_74_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_74_ce1 = grp_calcHash_rollingHash_fu_2804_str_74_ce1;
@@ -8375,7 +8262,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_4A))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_4A))) begin
         str_74_we1 = 1'b1;
     end else begin
         str_74_we1 = 1'b0;
@@ -8401,7 +8288,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_75_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_75_ce1 = grp_calcHash_rollingHash_fu_2804_str_75_ce1;
@@ -8411,7 +8298,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_4B))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_4B))) begin
         str_75_we1 = 1'b1;
     end else begin
         str_75_we1 = 1'b0;
@@ -8437,7 +8324,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_76_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_76_ce1 = grp_calcHash_rollingHash_fu_2804_str_76_ce1;
@@ -8447,7 +8334,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_4C))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_4C))) begin
         str_76_we1 = 1'b1;
     end else begin
         str_76_we1 = 1'b0;
@@ -8473,7 +8360,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_77_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_77_ce1 = grp_calcHash_rollingHash_fu_2804_str_77_ce1;
@@ -8483,7 +8370,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_4D))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_4D))) begin
         str_77_we1 = 1'b1;
     end else begin
         str_77_we1 = 1'b0;
@@ -8509,7 +8396,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_78_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_78_ce1 = grp_calcHash_rollingHash_fu_2804_str_78_ce1;
@@ -8519,7 +8406,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_4E))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_4E))) begin
         str_78_we1 = 1'b1;
     end else begin
         str_78_we1 = 1'b0;
@@ -8545,7 +8432,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_79_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_79_ce1 = grp_calcHash_rollingHash_fu_2804_str_79_ce1;
@@ -8555,7 +8442,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_4F))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_4F))) begin
         str_79_we1 = 1'b1;
     end else begin
         str_79_we1 = 1'b0;
@@ -8581,7 +8468,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_7_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_7_ce1 = grp_calcHash_rollingHash_fu_2804_str_7_ce1;
@@ -8591,7 +8478,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_7))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_7))) begin
         str_7_we1 = 1'b1;
     end else begin
         str_7_we1 = 1'b0;
@@ -8617,7 +8504,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_80_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_80_ce1 = grp_calcHash_rollingHash_fu_2804_str_80_ce1;
@@ -8627,7 +8514,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_50))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_50))) begin
         str_80_we1 = 1'b1;
     end else begin
         str_80_we1 = 1'b0;
@@ -8653,7 +8540,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_81_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_81_ce1 = grp_calcHash_rollingHash_fu_2804_str_81_ce1;
@@ -8663,7 +8550,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_51))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_51))) begin
         str_81_we1 = 1'b1;
     end else begin
         str_81_we1 = 1'b0;
@@ -8689,7 +8576,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_82_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_82_ce1 = grp_calcHash_rollingHash_fu_2804_str_82_ce1;
@@ -8699,7 +8586,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_52))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_52))) begin
         str_82_we1 = 1'b1;
     end else begin
         str_82_we1 = 1'b0;
@@ -8725,7 +8612,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_83_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_83_ce1 = grp_calcHash_rollingHash_fu_2804_str_83_ce1;
@@ -8735,7 +8622,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_53))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_53))) begin
         str_83_we1 = 1'b1;
     end else begin
         str_83_we1 = 1'b0;
@@ -8761,7 +8648,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_84_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_84_ce1 = grp_calcHash_rollingHash_fu_2804_str_84_ce1;
@@ -8771,7 +8658,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_54))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_54))) begin
         str_84_we1 = 1'b1;
     end else begin
         str_84_we1 = 1'b0;
@@ -8797,7 +8684,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_85_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_85_ce1 = grp_calcHash_rollingHash_fu_2804_str_85_ce1;
@@ -8807,7 +8694,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_55))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_55))) begin
         str_85_we1 = 1'b1;
     end else begin
         str_85_we1 = 1'b0;
@@ -8833,7 +8720,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_86_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_86_ce1 = grp_calcHash_rollingHash_fu_2804_str_86_ce1;
@@ -8843,7 +8730,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_56))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_56))) begin
         str_86_we1 = 1'b1;
     end else begin
         str_86_we1 = 1'b0;
@@ -8869,7 +8756,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_87_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_87_ce1 = grp_calcHash_rollingHash_fu_2804_str_87_ce1;
@@ -8879,7 +8766,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_57))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_57))) begin
         str_87_we1 = 1'b1;
     end else begin
         str_87_we1 = 1'b0;
@@ -8905,7 +8792,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_88_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_88_ce1 = grp_calcHash_rollingHash_fu_2804_str_88_ce1;
@@ -8915,7 +8802,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_58))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_58))) begin
         str_88_we1 = 1'b1;
     end else begin
         str_88_we1 = 1'b0;
@@ -8941,7 +8828,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_89_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_89_ce1 = grp_calcHash_rollingHash_fu_2804_str_89_ce1;
@@ -8951,7 +8838,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_59))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_59))) begin
         str_89_we1 = 1'b1;
     end else begin
         str_89_we1 = 1'b0;
@@ -8977,7 +8864,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_8_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_8_ce1 = grp_calcHash_rollingHash_fu_2804_str_8_ce1;
@@ -8987,7 +8874,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_8))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_8))) begin
         str_8_we1 = 1'b1;
     end else begin
         str_8_we1 = 1'b0;
@@ -9013,7 +8900,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_90_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_90_ce1 = grp_calcHash_rollingHash_fu_2804_str_90_ce1;
@@ -9023,7 +8910,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_5A))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_5A))) begin
         str_90_we1 = 1'b1;
     end else begin
         str_90_we1 = 1'b0;
@@ -9049,7 +8936,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_91_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_91_ce1 = grp_calcHash_rollingHash_fu_2804_str_91_ce1;
@@ -9059,7 +8946,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_5B))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_5B))) begin
         str_91_we1 = 1'b1;
     end else begin
         str_91_we1 = 1'b0;
@@ -9085,7 +8972,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_92_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_92_ce1 = grp_calcHash_rollingHash_fu_2804_str_92_ce1;
@@ -9095,7 +8982,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_5C))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_5C))) begin
         str_92_we1 = 1'b1;
     end else begin
         str_92_we1 = 1'b0;
@@ -9121,7 +9008,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_93_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_93_ce1 = grp_calcHash_rollingHash_fu_2804_str_93_ce1;
@@ -9131,7 +9018,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_5D))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_5D))) begin
         str_93_we1 = 1'b1;
     end else begin
         str_93_we1 = 1'b0;
@@ -9157,7 +9044,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_94_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_94_ce1 = grp_calcHash_rollingHash_fu_2804_str_94_ce1;
@@ -9167,7 +9054,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_5E))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_5E))) begin
         str_94_we1 = 1'b1;
     end else begin
         str_94_we1 = 1'b0;
@@ -9193,7 +9080,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_95_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_95_ce1 = grp_calcHash_rollingHash_fu_2804_str_95_ce1;
@@ -9203,7 +9090,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_5F))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_5F))) begin
         str_95_we1 = 1'b1;
     end else begin
         str_95_we1 = 1'b0;
@@ -9229,7 +9116,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_96_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_96_ce1 = grp_calcHash_rollingHash_fu_2804_str_96_ce1;
@@ -9239,7 +9126,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_60))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_60))) begin
         str_96_we1 = 1'b1;
     end else begin
         str_96_we1 = 1'b0;
@@ -9265,7 +9152,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_97_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_97_ce1 = grp_calcHash_rollingHash_fu_2804_str_97_ce1;
@@ -9275,7 +9162,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_61))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_61))) begin
         str_97_we1 = 1'b1;
     end else begin
         str_97_we1 = 1'b0;
@@ -9301,7 +9188,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_98_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_98_ce1 = grp_calcHash_rollingHash_fu_2804_str_98_ce1;
@@ -9311,7 +9198,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_62))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_62))) begin
         str_98_we1 = 1'b1;
     end else begin
         str_98_we1 = 1'b0;
@@ -9337,7 +9224,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_99_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_99_ce1 = grp_calcHash_rollingHash_fu_2804_str_99_ce1;
@@ -9347,7 +9234,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_63))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_63))) begin
         str_99_we1 = 1'b1;
     end else begin
         str_99_we1 = 1'b0;
@@ -9373,7 +9260,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_108)) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~ap_sig_59)) begin
         str_9_ce1 = 1'b1;
     end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
         str_9_ce1 = grp_calcHash_rollingHash_fu_2804_str_9_ce1;
@@ -9383,7 +9270,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108 & (tmp_1818_fu_2948_p1 == ap_const_lv7_9))) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59 & (tmp_1818_fu_2948_p1 == ap_const_lv7_9))) begin
         str_9_we1 = 1'b1;
     end else begin
         str_9_we1 = 1'b0;
@@ -9393,16 +9280,12 @@ end
 always @ (*) begin
     case (ap_CS_fsm)
         ap_ST_st1_fsm_0 : begin
-            if (~(ap_start == 1'b0)) begin
-                ap_NS_fsm = ap_ST_st2_fsm_1;
-            end else begin
-                ap_NS_fsm = ap_ST_st1_fsm_0;
-            end
+            ap_NS_fsm = ap_ST_st2_fsm_1;
         end
         ap_ST_st2_fsm_1 : begin
-            if (((exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_108)) begin
+            if (((exitcond1_fu_2936_p2 == 1'b0) & ~ap_sig_59)) begin
                 ap_NS_fsm = ap_ST_st2_fsm_1;
-            end else if ((~ap_sig_108 & ~(exitcond1_fu_2936_p2 == 1'b0))) begin
+            end else if ((~ap_sig_59 & ~(exitcond1_fu_2936_p2 == 1'b0))) begin
                 ap_NS_fsm = ap_ST_st3_fsm_2;
             end else begin
                 ap_NS_fsm = ap_ST_st2_fsm_1;
@@ -9444,31 +9327,27 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    ap_sig_108 = ((exitcond1_fu_2936_p2 == 1'b0) & (strStream_V_TVALID == 1'b0));
+    ap_sig_2416 = (1'b1 == ap_CS_fsm[ap_const_lv32_0]);
 end
 
 always @ (*) begin
-    ap_sig_118 = (1'b1 == ap_CS_fsm[ap_const_lv32_3]);
+    ap_sig_2430 = (1'b1 == ap_CS_fsm[ap_const_lv32_2]);
 end
 
 always @ (*) begin
-    ap_sig_24 = (ap_CS_fsm[ap_const_lv32_0] == 1'b1);
+    ap_sig_31 = (ap_CS_fsm[ap_const_lv32_1] == 1'b1);
 end
 
 always @ (*) begin
-    ap_sig_2475 = (1'b1 == ap_CS_fsm[ap_const_lv32_2]);
+    ap_sig_43 = (1'b1 == ap_CS_fsm[ap_const_lv32_4]);
 end
 
 always @ (*) begin
-    ap_sig_3309 = (1'b1 == ap_CS_fsm[ap_const_lv32_6]);
+    ap_sig_59 = ((exitcond1_fu_2936_p2 == 1'b0) & (strStream_V_TVALID == 1'b0));
 end
 
 always @ (*) begin
-    ap_sig_44 = (1'b1 == ap_CS_fsm[ap_const_lv32_1]);
-end
-
-always @ (*) begin
-    ap_sig_56 = (1'b1 == ap_CS_fsm[ap_const_lv32_4]);
+    ap_sig_69 = (1'b1 == ap_CS_fsm[ap_const_lv32_3]);
 end
 
 assign exitcond1_fu_2936_p2 = ((i_reg_2781 == ap_const_lv13_1000) ? 1'b1 : 1'b0);

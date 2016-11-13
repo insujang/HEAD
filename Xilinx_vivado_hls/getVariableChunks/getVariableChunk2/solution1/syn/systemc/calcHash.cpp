@@ -21,14 +21,13 @@ const sc_lv<7> calcHash::ap_ST_st4_fsm_3 = "1000";
 const sc_lv<7> calcHash::ap_ST_pp1_stg0_fsm_4 = "10000";
 const sc_lv<7> calcHash::ap_ST_st7_fsm_5 = "100000";
 const sc_lv<7> calcHash::ap_ST_st8_fsm_6 = "1000000";
-const sc_lv<32> calcHash::ap_const_lv32_0 = "00000000000000000000000000000000";
-const sc_lv<1> calcHash::ap_const_lv1_1 = "1";
 const sc_lv<32> calcHash::ap_const_lv32_1 = "1";
+const sc_lv<1> calcHash::ap_const_lv1_1 = "1";
 const sc_lv<1> calcHash::ap_const_lv1_0 = "0";
 const sc_lv<32> calcHash::ap_const_lv32_4 = "100";
-const int calcHash::C_S_AXI_DATA_WIDTH = "100000";
 const sc_lv<32> calcHash::ap_const_lv32_3 = "11";
 const sc_lv<13> calcHash::ap_const_lv13_0 = "0000000000000";
+const sc_lv<32> calcHash::ap_const_lv32_0 = "00000000000000000000000000000000";
 const sc_lv<2> calcHash::ap_const_lv2_0 = "00";
 const sc_lv<32> calcHash::ap_const_lv32_2 = "10";
 const sc_lv<7> calcHash::ap_const_lv7_7E = "1111110";
@@ -165,35 +164,8 @@ const sc_lv<32> calcHash::ap_const_lv32_7 = "111";
 const sc_lv<32> calcHash::ap_const_lv32_C = "1100";
 const sc_lv<2> calcHash::ap_const_lv2_3 = "11";
 const sc_lv<2> calcHash::ap_const_lv2_1 = "1";
-const sc_lv<32> calcHash::ap_const_lv32_6 = "110";
 
 calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
-    calcHash_AXILiteS_s_axi_U = new calcHash_AXILiteS_s_axi<C_S_AXI_AXILITES_ADDR_WIDTH,C_S_AXI_AXILITES_DATA_WIDTH>("calcHash_AXILiteS_s_axi_U");
-    calcHash_AXILiteS_s_axi_U->AWVALID(s_axi_AXILiteS_AWVALID);
-    calcHash_AXILiteS_s_axi_U->AWREADY(s_axi_AXILiteS_AWREADY);
-    calcHash_AXILiteS_s_axi_U->AWADDR(s_axi_AXILiteS_AWADDR);
-    calcHash_AXILiteS_s_axi_U->WVALID(s_axi_AXILiteS_WVALID);
-    calcHash_AXILiteS_s_axi_U->WREADY(s_axi_AXILiteS_WREADY);
-    calcHash_AXILiteS_s_axi_U->WDATA(s_axi_AXILiteS_WDATA);
-    calcHash_AXILiteS_s_axi_U->WSTRB(s_axi_AXILiteS_WSTRB);
-    calcHash_AXILiteS_s_axi_U->ARVALID(s_axi_AXILiteS_ARVALID);
-    calcHash_AXILiteS_s_axi_U->ARREADY(s_axi_AXILiteS_ARREADY);
-    calcHash_AXILiteS_s_axi_U->ARADDR(s_axi_AXILiteS_ARADDR);
-    calcHash_AXILiteS_s_axi_U->RVALID(s_axi_AXILiteS_RVALID);
-    calcHash_AXILiteS_s_axi_U->RREADY(s_axi_AXILiteS_RREADY);
-    calcHash_AXILiteS_s_axi_U->RDATA(s_axi_AXILiteS_RDATA);
-    calcHash_AXILiteS_s_axi_U->RRESP(s_axi_AXILiteS_RRESP);
-    calcHash_AXILiteS_s_axi_U->BVALID(s_axi_AXILiteS_BVALID);
-    calcHash_AXILiteS_s_axi_U->BREADY(s_axi_AXILiteS_BREADY);
-    calcHash_AXILiteS_s_axi_U->BRESP(s_axi_AXILiteS_BRESP);
-    calcHash_AXILiteS_s_axi_U->ACLK(ap_clk);
-    calcHash_AXILiteS_s_axi_U->ARESET(ap_rst_n_inv);
-    calcHash_AXILiteS_s_axi_U->ACLK_EN(ap_var_for_const0);
-    calcHash_AXILiteS_s_axi_U->ap_start(ap_start);
-    calcHash_AXILiteS_s_axi_U->interrupt(interrupt);
-    calcHash_AXILiteS_s_axi_U->ap_ready(ap_ready);
-    calcHash_AXILiteS_s_axi_U->ap_done(ap_done);
-    calcHash_AXILiteS_s_axi_U->ap_idle(ap_idle);
     str_0_U = new calcHash_str_0("str_0_U");
     str_0_U->clk(ap_clk);
     str_0_U->reset(ap_rst_n_inv);
@@ -2391,58 +2363,42 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
     dont_initialize();
     sensitive << ( ap_clk.pos() );
 
-    SC_METHOD(thread_ap_done);
-    sensitive << ( ap_sig_cseq_ST_st8_fsm_6 );
-
-    SC_METHOD(thread_ap_idle);
-    sensitive << ( ap_start );
-    sensitive << ( ap_sig_cseq_ST_st1_fsm_0 );
-
-    SC_METHOD(thread_ap_ready);
-    sensitive << ( ap_sig_cseq_ST_st8_fsm_6 );
-
     SC_METHOD(thread_ap_rst_n_inv);
     sensitive << ( ap_rst_n );
 
-    SC_METHOD(thread_ap_sig_108);
+    SC_METHOD(thread_ap_sig_2416);
+    sensitive << ( ap_CS_fsm );
+
+    SC_METHOD(thread_ap_sig_2430);
+    sensitive << ( ap_CS_fsm );
+
+    SC_METHOD(thread_ap_sig_31);
+    sensitive << ( ap_CS_fsm );
+
+    SC_METHOD(thread_ap_sig_43);
+    sensitive << ( ap_CS_fsm );
+
+    SC_METHOD(thread_ap_sig_59);
     sensitive << ( strStream_V_TVALID );
     sensitive << ( exitcond1_fu_2936_p2 );
 
-    SC_METHOD(thread_ap_sig_118);
-    sensitive << ( ap_CS_fsm );
-
-    SC_METHOD(thread_ap_sig_24);
-    sensitive << ( ap_CS_fsm );
-
-    SC_METHOD(thread_ap_sig_2475);
-    sensitive << ( ap_CS_fsm );
-
-    SC_METHOD(thread_ap_sig_3309);
-    sensitive << ( ap_CS_fsm );
-
-    SC_METHOD(thread_ap_sig_44);
-    sensitive << ( ap_CS_fsm );
-
-    SC_METHOD(thread_ap_sig_56);
+    SC_METHOD(thread_ap_sig_69);
     sensitive << ( ap_CS_fsm );
 
     SC_METHOD(thread_ap_sig_cseq_ST_pp1_stg0_fsm_4);
-    sensitive << ( ap_sig_56 );
+    sensitive << ( ap_sig_43 );
 
     SC_METHOD(thread_ap_sig_cseq_ST_st1_fsm_0);
-    sensitive << ( ap_sig_24 );
+    sensitive << ( ap_sig_2416 );
 
     SC_METHOD(thread_ap_sig_cseq_ST_st2_fsm_1);
-    sensitive << ( ap_sig_44 );
+    sensitive << ( ap_sig_31 );
 
     SC_METHOD(thread_ap_sig_cseq_ST_st3_fsm_2);
-    sensitive << ( ap_sig_2475 );
+    sensitive << ( ap_sig_2430 );
 
     SC_METHOD(thread_ap_sig_cseq_ST_st4_fsm_3);
-    sensitive << ( ap_sig_118 );
-
-    SC_METHOD(thread_ap_sig_cseq_ST_st8_fsm_6);
-    sensitive << ( ap_sig_3309 );
+    sensitive << ( ap_sig_69 );
 
     SC_METHOD(thread_ap_sig_ioackin_indicesStream_TREADY);
     sensitive << ( indicesStream_TREADY );
@@ -2450,7 +2406,7 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_exitcond1_fu_2936_p2);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( i_reg_2781 );
 
     SC_METHOD(thread_exitcond_fu_3106_p2);
@@ -2514,7 +2470,7 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
     SC_METHOD(thread_strStream_V_TREADY);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
 
     SC_METHOD(thread_str_0_address1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
@@ -2528,14 +2484,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_0_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_0_ce1 );
 
     SC_METHOD(thread_str_0_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_100_address1);
@@ -2550,14 +2506,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_100_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_100_ce1 );
 
     SC_METHOD(thread_str_100_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_101_address1);
@@ -2572,14 +2528,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_101_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_101_ce1 );
 
     SC_METHOD(thread_str_101_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_102_address1);
@@ -2594,14 +2550,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_102_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_102_ce1 );
 
     SC_METHOD(thread_str_102_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_103_address1);
@@ -2616,14 +2572,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_103_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_103_ce1 );
 
     SC_METHOD(thread_str_103_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_104_address1);
@@ -2638,14 +2594,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_104_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_104_ce1 );
 
     SC_METHOD(thread_str_104_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_105_address1);
@@ -2660,14 +2616,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_105_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_105_ce1 );
 
     SC_METHOD(thread_str_105_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_106_address1);
@@ -2682,14 +2638,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_106_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_106_ce1 );
 
     SC_METHOD(thread_str_106_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_107_address1);
@@ -2704,14 +2660,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_107_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_107_ce1 );
 
     SC_METHOD(thread_str_107_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_108_address1);
@@ -2726,14 +2682,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_108_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_108_ce1 );
 
     SC_METHOD(thread_str_108_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_109_address1);
@@ -2748,14 +2704,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_109_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_109_ce1 );
 
     SC_METHOD(thread_str_109_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_10_address1);
@@ -2770,14 +2726,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_10_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_10_ce1 );
 
     SC_METHOD(thread_str_10_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_110_address1);
@@ -2792,14 +2748,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_110_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_110_ce1 );
 
     SC_METHOD(thread_str_110_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_111_address1);
@@ -2814,14 +2770,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_111_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_111_ce1 );
 
     SC_METHOD(thread_str_111_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_112_address1);
@@ -2836,14 +2792,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_112_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_112_ce1 );
 
     SC_METHOD(thread_str_112_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_113_address1);
@@ -2858,14 +2814,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_113_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_113_ce1 );
 
     SC_METHOD(thread_str_113_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_114_address1);
@@ -2880,14 +2836,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_114_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_114_ce1 );
 
     SC_METHOD(thread_str_114_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_115_address1);
@@ -2902,14 +2858,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_115_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_115_ce1 );
 
     SC_METHOD(thread_str_115_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_116_address1);
@@ -2924,14 +2880,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_116_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_116_ce1 );
 
     SC_METHOD(thread_str_116_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_117_address1);
@@ -2946,14 +2902,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_117_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_117_ce1 );
 
     SC_METHOD(thread_str_117_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_118_address1);
@@ -2968,14 +2924,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_118_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_118_ce1 );
 
     SC_METHOD(thread_str_118_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_119_address1);
@@ -2990,14 +2946,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_119_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_119_ce1 );
 
     SC_METHOD(thread_str_119_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_11_address1);
@@ -3012,14 +2968,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_11_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_11_ce1 );
 
     SC_METHOD(thread_str_11_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_120_address1);
@@ -3034,14 +2990,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_120_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_120_ce1 );
 
     SC_METHOD(thread_str_120_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_121_address1);
@@ -3056,14 +3012,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_121_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_121_ce1 );
 
     SC_METHOD(thread_str_121_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_122_address1);
@@ -3078,14 +3034,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_122_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_122_ce1 );
 
     SC_METHOD(thread_str_122_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_123_address1);
@@ -3100,14 +3056,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_123_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_123_ce1 );
 
     SC_METHOD(thread_str_123_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_124_address1);
@@ -3122,14 +3078,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_124_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_124_ce1 );
 
     SC_METHOD(thread_str_124_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_125_address1);
@@ -3144,14 +3100,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_125_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_125_ce1 );
 
     SC_METHOD(thread_str_125_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_126_address1);
@@ -3166,14 +3122,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_126_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_126_ce1 );
 
     SC_METHOD(thread_str_126_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_127_address1);
@@ -3188,14 +3144,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_127_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_127_ce1 );
 
     SC_METHOD(thread_str_127_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_12_address1);
@@ -3210,14 +3166,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_12_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_12_ce1 );
 
     SC_METHOD(thread_str_12_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_13_address1);
@@ -3232,14 +3188,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_13_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_13_ce1 );
 
     SC_METHOD(thread_str_13_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_14_address1);
@@ -3254,14 +3210,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_14_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_14_ce1 );
 
     SC_METHOD(thread_str_14_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_15_address1);
@@ -3276,14 +3232,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_15_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_15_ce1 );
 
     SC_METHOD(thread_str_15_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_16_address1);
@@ -3298,14 +3254,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_16_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_16_ce1 );
 
     SC_METHOD(thread_str_16_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_17_address1);
@@ -3320,14 +3276,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_17_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_17_ce1 );
 
     SC_METHOD(thread_str_17_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_18_address1);
@@ -3342,14 +3298,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_18_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_18_ce1 );
 
     SC_METHOD(thread_str_18_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_19_address1);
@@ -3364,14 +3320,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_19_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_19_ce1 );
 
     SC_METHOD(thread_str_19_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_1_address1);
@@ -3386,14 +3342,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_1_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_1_ce1 );
 
     SC_METHOD(thread_str_1_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_20_address1);
@@ -3408,14 +3364,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_20_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_20_ce1 );
 
     SC_METHOD(thread_str_20_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_21_address1);
@@ -3430,14 +3386,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_21_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_21_ce1 );
 
     SC_METHOD(thread_str_21_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_22_address1);
@@ -3452,14 +3408,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_22_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_22_ce1 );
 
     SC_METHOD(thread_str_22_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_23_address1);
@@ -3474,14 +3430,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_23_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_23_ce1 );
 
     SC_METHOD(thread_str_23_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_24_address1);
@@ -3496,14 +3452,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_24_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_24_ce1 );
 
     SC_METHOD(thread_str_24_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_25_address1);
@@ -3518,14 +3474,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_25_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_25_ce1 );
 
     SC_METHOD(thread_str_25_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_26_address1);
@@ -3540,14 +3496,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_26_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_26_ce1 );
 
     SC_METHOD(thread_str_26_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_27_address1);
@@ -3562,14 +3518,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_27_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_27_ce1 );
 
     SC_METHOD(thread_str_27_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_28_address1);
@@ -3584,14 +3540,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_28_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_28_ce1 );
 
     SC_METHOD(thread_str_28_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_29_address1);
@@ -3606,14 +3562,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_29_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_29_ce1 );
 
     SC_METHOD(thread_str_29_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_2_address1);
@@ -3628,14 +3584,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_2_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_2_ce1 );
 
     SC_METHOD(thread_str_2_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_30_address1);
@@ -3650,14 +3606,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_30_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_30_ce1 );
 
     SC_METHOD(thread_str_30_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_31_address1);
@@ -3672,14 +3628,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_31_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_31_ce1 );
 
     SC_METHOD(thread_str_31_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_32_address1);
@@ -3694,14 +3650,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_32_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_32_ce1 );
 
     SC_METHOD(thread_str_32_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_33_address1);
@@ -3716,14 +3672,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_33_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_33_ce1 );
 
     SC_METHOD(thread_str_33_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_34_address1);
@@ -3738,14 +3694,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_34_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_34_ce1 );
 
     SC_METHOD(thread_str_34_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_35_address1);
@@ -3760,14 +3716,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_35_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_35_ce1 );
 
     SC_METHOD(thread_str_35_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_36_address1);
@@ -3782,14 +3738,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_36_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_36_ce1 );
 
     SC_METHOD(thread_str_36_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_37_address1);
@@ -3804,14 +3760,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_37_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_37_ce1 );
 
     SC_METHOD(thread_str_37_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_38_address1);
@@ -3826,14 +3782,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_38_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_38_ce1 );
 
     SC_METHOD(thread_str_38_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_39_address1);
@@ -3848,14 +3804,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_39_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_39_ce1 );
 
     SC_METHOD(thread_str_39_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_3_address1);
@@ -3870,14 +3826,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_3_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_3_ce1 );
 
     SC_METHOD(thread_str_3_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_40_address1);
@@ -3892,14 +3848,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_40_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_40_ce1 );
 
     SC_METHOD(thread_str_40_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_41_address1);
@@ -3914,14 +3870,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_41_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_41_ce1 );
 
     SC_METHOD(thread_str_41_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_42_address1);
@@ -3936,14 +3892,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_42_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_42_ce1 );
 
     SC_METHOD(thread_str_42_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_43_address1);
@@ -3958,14 +3914,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_43_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_43_ce1 );
 
     SC_METHOD(thread_str_43_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_44_address1);
@@ -3980,14 +3936,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_44_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_44_ce1 );
 
     SC_METHOD(thread_str_44_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_45_address1);
@@ -4002,14 +3958,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_45_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_45_ce1 );
 
     SC_METHOD(thread_str_45_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_46_address1);
@@ -4024,14 +3980,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_46_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_46_ce1 );
 
     SC_METHOD(thread_str_46_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_47_address1);
@@ -4046,14 +4002,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_47_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_47_ce1 );
 
     SC_METHOD(thread_str_47_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_48_address1);
@@ -4068,14 +4024,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_48_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_48_ce1 );
 
     SC_METHOD(thread_str_48_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_49_address1);
@@ -4090,14 +4046,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_49_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_49_ce1 );
 
     SC_METHOD(thread_str_49_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_4_address1);
@@ -4112,14 +4068,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_4_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_4_ce1 );
 
     SC_METHOD(thread_str_4_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_50_address1);
@@ -4134,14 +4090,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_50_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_50_ce1 );
 
     SC_METHOD(thread_str_50_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_51_address1);
@@ -4156,14 +4112,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_51_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_51_ce1 );
 
     SC_METHOD(thread_str_51_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_52_address1);
@@ -4178,14 +4134,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_52_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_52_ce1 );
 
     SC_METHOD(thread_str_52_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_53_address1);
@@ -4200,14 +4156,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_53_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_53_ce1 );
 
     SC_METHOD(thread_str_53_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_54_address1);
@@ -4222,14 +4178,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_54_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_54_ce1 );
 
     SC_METHOD(thread_str_54_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_55_address1);
@@ -4244,14 +4200,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_55_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_55_ce1 );
 
     SC_METHOD(thread_str_55_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_56_address1);
@@ -4266,14 +4222,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_56_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_56_ce1 );
 
     SC_METHOD(thread_str_56_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_57_address1);
@@ -4288,14 +4244,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_57_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_57_ce1 );
 
     SC_METHOD(thread_str_57_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_58_address1);
@@ -4310,14 +4266,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_58_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_58_ce1 );
 
     SC_METHOD(thread_str_58_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_59_address1);
@@ -4332,14 +4288,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_59_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_59_ce1 );
 
     SC_METHOD(thread_str_59_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_5_address1);
@@ -4354,14 +4310,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_5_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_5_ce1 );
 
     SC_METHOD(thread_str_5_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_60_address1);
@@ -4376,14 +4332,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_60_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_60_ce1 );
 
     SC_METHOD(thread_str_60_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_61_address1);
@@ -4398,14 +4354,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_61_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_61_ce1 );
 
     SC_METHOD(thread_str_61_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_62_address1);
@@ -4420,14 +4376,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_62_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_62_ce1 );
 
     SC_METHOD(thread_str_62_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_63_address1);
@@ -4442,14 +4398,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_63_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_63_ce1 );
 
     SC_METHOD(thread_str_63_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_64_address1);
@@ -4464,14 +4420,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_64_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_64_ce1 );
 
     SC_METHOD(thread_str_64_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_65_address1);
@@ -4486,14 +4442,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_65_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_65_ce1 );
 
     SC_METHOD(thread_str_65_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_66_address1);
@@ -4508,14 +4464,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_66_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_66_ce1 );
 
     SC_METHOD(thread_str_66_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_67_address1);
@@ -4530,14 +4486,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_67_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_67_ce1 );
 
     SC_METHOD(thread_str_67_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_68_address1);
@@ -4552,14 +4508,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_68_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_68_ce1 );
 
     SC_METHOD(thread_str_68_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_69_address1);
@@ -4574,14 +4530,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_69_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_69_ce1 );
 
     SC_METHOD(thread_str_69_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_6_address1);
@@ -4596,14 +4552,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_6_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_6_ce1 );
 
     SC_METHOD(thread_str_6_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_70_address1);
@@ -4618,14 +4574,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_70_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_70_ce1 );
 
     SC_METHOD(thread_str_70_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_71_address1);
@@ -4640,14 +4596,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_71_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_71_ce1 );
 
     SC_METHOD(thread_str_71_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_72_address1);
@@ -4662,14 +4618,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_72_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_72_ce1 );
 
     SC_METHOD(thread_str_72_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_73_address1);
@@ -4684,14 +4640,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_73_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_73_ce1 );
 
     SC_METHOD(thread_str_73_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_74_address1);
@@ -4706,14 +4662,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_74_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_74_ce1 );
 
     SC_METHOD(thread_str_74_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_75_address1);
@@ -4728,14 +4684,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_75_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_75_ce1 );
 
     SC_METHOD(thread_str_75_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_76_address1);
@@ -4750,14 +4706,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_76_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_76_ce1 );
 
     SC_METHOD(thread_str_76_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_77_address1);
@@ -4772,14 +4728,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_77_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_77_ce1 );
 
     SC_METHOD(thread_str_77_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_78_address1);
@@ -4794,14 +4750,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_78_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_78_ce1 );
 
     SC_METHOD(thread_str_78_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_79_address1);
@@ -4816,14 +4772,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_79_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_79_ce1 );
 
     SC_METHOD(thread_str_79_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_7_address1);
@@ -4838,14 +4794,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_7_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_7_ce1 );
 
     SC_METHOD(thread_str_7_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_80_address1);
@@ -4860,14 +4816,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_80_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_80_ce1 );
 
     SC_METHOD(thread_str_80_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_81_address1);
@@ -4882,14 +4838,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_81_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_81_ce1 );
 
     SC_METHOD(thread_str_81_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_82_address1);
@@ -4904,14 +4860,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_82_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_82_ce1 );
 
     SC_METHOD(thread_str_82_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_83_address1);
@@ -4926,14 +4882,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_83_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_83_ce1 );
 
     SC_METHOD(thread_str_83_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_84_address1);
@@ -4948,14 +4904,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_84_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_84_ce1 );
 
     SC_METHOD(thread_str_84_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_85_address1);
@@ -4970,14 +4926,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_85_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_85_ce1 );
 
     SC_METHOD(thread_str_85_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_86_address1);
@@ -4992,14 +4948,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_86_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_86_ce1 );
 
     SC_METHOD(thread_str_86_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_87_address1);
@@ -5014,14 +4970,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_87_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_87_ce1 );
 
     SC_METHOD(thread_str_87_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_88_address1);
@@ -5036,14 +4992,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_88_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_88_ce1 );
 
     SC_METHOD(thread_str_88_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_89_address1);
@@ -5058,14 +5014,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_89_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_89_ce1 );
 
     SC_METHOD(thread_str_89_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_8_address1);
@@ -5080,14 +5036,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_8_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_8_ce1 );
 
     SC_METHOD(thread_str_8_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_90_address1);
@@ -5102,14 +5058,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_90_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_90_ce1 );
 
     SC_METHOD(thread_str_90_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_91_address1);
@@ -5124,14 +5080,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_91_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_91_ce1 );
 
     SC_METHOD(thread_str_91_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_92_address1);
@@ -5146,14 +5102,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_92_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_92_ce1 );
 
     SC_METHOD(thread_str_92_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_93_address1);
@@ -5168,14 +5124,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_93_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_93_ce1 );
 
     SC_METHOD(thread_str_93_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_94_address1);
@@ -5190,14 +5146,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_94_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_94_ce1 );
 
     SC_METHOD(thread_str_94_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_95_address1);
@@ -5212,14 +5168,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_95_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_95_ce1 );
 
     SC_METHOD(thread_str_95_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_96_address1);
@@ -5234,14 +5190,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_96_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_96_ce1 );
 
     SC_METHOD(thread_str_96_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_97_address1);
@@ -5256,14 +5212,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_97_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_97_ce1 );
 
     SC_METHOD(thread_str_97_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_98_address1);
@@ -5278,14 +5234,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_98_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_98_ce1 );
 
     SC_METHOD(thread_str_98_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_99_address1);
@@ -5300,14 +5256,14 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_99_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_99_ce1 );
 
     SC_METHOD(thread_str_99_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_str_9_address1);
@@ -5322,35 +5278,32 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_str_9_ce1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( ap_sig_cseq_ST_st4_fsm_3 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_str_9_ce1 );
 
     SC_METHOD(thread_str_9_we1);
     sensitive << ( ap_sig_cseq_ST_st2_fsm_1 );
     sensitive << ( exitcond1_fu_2936_p2 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( tmp_1818_fu_2948_p1 );
 
     SC_METHOD(thread_tmp_1818_fu_2948_p1);
     sensitive << ( i_reg_2781 );
 
     SC_METHOD(thread_ap_NS_fsm);
-    sensitive << ( ap_start );
     sensitive << ( ap_CS_fsm );
     sensitive << ( exitcond1_fu_2936_p2 );
     sensitive << ( ap_reg_ppiten_pp1_it1 );
     sensitive << ( ap_reg_ppiten_pp1_it0 );
     sensitive << ( exitcond_reg_3154 );
-    sensitive << ( ap_sig_108 );
+    sensitive << ( ap_sig_59 );
     sensitive << ( grp_calcHash_rollingHash_fu_2804_ap_done );
     sensitive << ( exitcond_fu_3106_p2 );
     sensitive << ( ap_sig_ioackin_indicesStream_TREADY );
 
     SC_THREAD(thread_hdltv_gen);
     sensitive << ( ap_clk.pos() );
-
-    SC_THREAD(thread_ap_var_for_const0);
 
     ap_CS_fsm = "0000001";
     ap_reg_ppiten_pp1_it1 = SC_LOGIC_0;
@@ -5374,50 +5327,26 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sc_trace(mVcdFile, indicesStream_TVALID, "(port)indicesStream_TVALID");
     sc_trace(mVcdFile, indicesStream_TREADY, "(port)indicesStream_TREADY");
     sc_trace(mVcdFile, indicesStream_TLAST, "(port)indicesStream_TLAST");
-    sc_trace(mVcdFile, s_axi_AXILiteS_AWVALID, "(port)s_axi_AXILiteS_AWVALID");
-    sc_trace(mVcdFile, s_axi_AXILiteS_AWREADY, "(port)s_axi_AXILiteS_AWREADY");
-    sc_trace(mVcdFile, s_axi_AXILiteS_AWADDR, "(port)s_axi_AXILiteS_AWADDR");
-    sc_trace(mVcdFile, s_axi_AXILiteS_WVALID, "(port)s_axi_AXILiteS_WVALID");
-    sc_trace(mVcdFile, s_axi_AXILiteS_WREADY, "(port)s_axi_AXILiteS_WREADY");
-    sc_trace(mVcdFile, s_axi_AXILiteS_WDATA, "(port)s_axi_AXILiteS_WDATA");
-    sc_trace(mVcdFile, s_axi_AXILiteS_WSTRB, "(port)s_axi_AXILiteS_WSTRB");
-    sc_trace(mVcdFile, s_axi_AXILiteS_ARVALID, "(port)s_axi_AXILiteS_ARVALID");
-    sc_trace(mVcdFile, s_axi_AXILiteS_ARREADY, "(port)s_axi_AXILiteS_ARREADY");
-    sc_trace(mVcdFile, s_axi_AXILiteS_ARADDR, "(port)s_axi_AXILiteS_ARADDR");
-    sc_trace(mVcdFile, s_axi_AXILiteS_RVALID, "(port)s_axi_AXILiteS_RVALID");
-    sc_trace(mVcdFile, s_axi_AXILiteS_RREADY, "(port)s_axi_AXILiteS_RREADY");
-    sc_trace(mVcdFile, s_axi_AXILiteS_RDATA, "(port)s_axi_AXILiteS_RDATA");
-    sc_trace(mVcdFile, s_axi_AXILiteS_RRESP, "(port)s_axi_AXILiteS_RRESP");
-    sc_trace(mVcdFile, s_axi_AXILiteS_BVALID, "(port)s_axi_AXILiteS_BVALID");
-    sc_trace(mVcdFile, s_axi_AXILiteS_BREADY, "(port)s_axi_AXILiteS_BREADY");
-    sc_trace(mVcdFile, s_axi_AXILiteS_BRESP, "(port)s_axi_AXILiteS_BRESP");
-    sc_trace(mVcdFile, interrupt, "(port)interrupt");
 #endif
 #ifdef __HLS_TRACE_LEVEL_INT__
     sc_trace(mVcdFile, ap_rst_n_inv, "ap_rst_n_inv");
-    sc_trace(mVcdFile, ap_start, "ap_start");
-    sc_trace(mVcdFile, ap_done, "ap_done");
-    sc_trace(mVcdFile, ap_idle, "ap_idle");
-    sc_trace(mVcdFile, ap_CS_fsm, "ap_CS_fsm");
-    sc_trace(mVcdFile, ap_sig_cseq_ST_st1_fsm_0, "ap_sig_cseq_ST_st1_fsm_0");
-    sc_trace(mVcdFile, ap_sig_24, "ap_sig_24");
-    sc_trace(mVcdFile, ap_ready, "ap_ready");
     sc_trace(mVcdFile, strStream_V_TDATA_blk_n, "strStream_V_TDATA_blk_n");
+    sc_trace(mVcdFile, ap_CS_fsm, "ap_CS_fsm");
     sc_trace(mVcdFile, ap_sig_cseq_ST_st2_fsm_1, "ap_sig_cseq_ST_st2_fsm_1");
-    sc_trace(mVcdFile, ap_sig_44, "ap_sig_44");
+    sc_trace(mVcdFile, ap_sig_31, "ap_sig_31");
     sc_trace(mVcdFile, exitcond1_fu_2936_p2, "exitcond1_fu_2936_p2");
     sc_trace(mVcdFile, indicesStream_TDATA_blk_n, "indicesStream_TDATA_blk_n");
     sc_trace(mVcdFile, ap_sig_cseq_ST_pp1_stg0_fsm_4, "ap_sig_cseq_ST_pp1_stg0_fsm_4");
-    sc_trace(mVcdFile, ap_sig_56, "ap_sig_56");
+    sc_trace(mVcdFile, ap_sig_43, "ap_sig_43");
     sc_trace(mVcdFile, ap_reg_ppiten_pp1_it1, "ap_reg_ppiten_pp1_it1");
     sc_trace(mVcdFile, ap_reg_ppiten_pp1_it0, "ap_reg_ppiten_pp1_it0");
     sc_trace(mVcdFile, exitcond_reg_3154, "exitcond_reg_3154");
     sc_trace(mVcdFile, i1_reg_2792, "i1_reg_2792");
     sc_trace(mVcdFile, i_2_fu_2942_p2, "i_2_fu_2942_p2");
-    sc_trace(mVcdFile, ap_sig_108, "ap_sig_108");
+    sc_trace(mVcdFile, ap_sig_59, "ap_sig_59");
     sc_trace(mVcdFile, indices_0_reg_3139, "indices_0_reg_3139");
     sc_trace(mVcdFile, ap_sig_cseq_ST_st4_fsm_3, "ap_sig_cseq_ST_st4_fsm_3");
-    sc_trace(mVcdFile, ap_sig_118, "ap_sig_118");
+    sc_trace(mVcdFile, ap_sig_69, "ap_sig_69");
     sc_trace(mVcdFile, grp_calcHash_rollingHash_fu_2804_ap_done, "grp_calcHash_rollingHash_fu_2804_ap_done");
     sc_trace(mVcdFile, indices_1_reg_3144, "indices_1_reg_3144");
     sc_trace(mVcdFile, indices_2_reg_3149, "indices_2_reg_3149");
@@ -6712,17 +6641,17 @@ calcHash::calcHash(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sc_trace(mVcdFile, grp_calcHash_rollingHash_fu_2804_ap_return_1, "grp_calcHash_rollingHash_fu_2804_ap_return_1");
     sc_trace(mVcdFile, grp_calcHash_rollingHash_fu_2804_ap_return_2, "grp_calcHash_rollingHash_fu_2804_ap_return_2");
     sc_trace(mVcdFile, i_reg_2781, "i_reg_2781");
+    sc_trace(mVcdFile, ap_sig_cseq_ST_st1_fsm_0, "ap_sig_cseq_ST_st1_fsm_0");
+    sc_trace(mVcdFile, ap_sig_2416, "ap_sig_2416");
     sc_trace(mVcdFile, i1_phi_fu_2796_p4, "i1_phi_fu_2796_p4");
     sc_trace(mVcdFile, ap_reg_grp_calcHash_rollingHash_fu_2804_ap_start, "ap_reg_grp_calcHash_rollingHash_fu_2804_ap_start");
     sc_trace(mVcdFile, ap_sig_cseq_ST_st3_fsm_2, "ap_sig_cseq_ST_st3_fsm_2");
-    sc_trace(mVcdFile, ap_sig_2475, "ap_sig_2475");
+    sc_trace(mVcdFile, ap_sig_2430, "ap_sig_2430");
     sc_trace(mVcdFile, newIndex3_fu_2962_p1, "newIndex3_fu_2962_p1");
     sc_trace(mVcdFile, tmp_data_fu_3118_p5, "tmp_data_fu_3118_p5");
     sc_trace(mVcdFile, ap_reg_ioackin_indicesStream_TREADY, "ap_reg_ioackin_indicesStream_TREADY");
     sc_trace(mVcdFile, tmp_1818_fu_2948_p1, "tmp_1818_fu_2948_p1");
     sc_trace(mVcdFile, newIndex_fu_2952_p4, "newIndex_fu_2952_p4");
-    sc_trace(mVcdFile, ap_sig_cseq_ST_st8_fsm_6, "ap_sig_cseq_ST_st8_fsm_6");
-    sc_trace(mVcdFile, ap_sig_3309, "ap_sig_3309");
     sc_trace(mVcdFile, ap_NS_fsm, "ap_NS_fsm");
 #endif
 
@@ -6739,7 +6668,6 @@ calcHash::~calcHash() {
     mHdltvoutHandle << "] " << endl;
     mHdltvinHandle.close();
     mHdltvoutHandle.close();
-    delete calcHash_AXILiteS_s_axi_U;
     delete str_0_U;
     delete str_1_U;
     delete str_2_U;
@@ -6872,10 +6800,6 @@ calcHash::~calcHash() {
     delete calcHash_mux_3to1_sel2_32_1_U131;
 }
 
-void calcHash::thread_ap_var_for_const0() {
-    ap_var_for_const0 = ap_const_logic_1;
-}
-
 void calcHash::thread_ap_clk_no_reset_() {
     if ( ap_rst_n_inv.read() == ap_const_logic_1) {
         ap_CS_fsm = ap_ST_st1_fsm_0;
@@ -6944,10 +6868,9 @@ void calcHash::thread_ap_clk_no_reset_() {
     }
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
          esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         i_reg_2781 = i_2_fu_2942_p2.read();
-    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st1_fsm_0.read()) && 
-                !esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0))) {
+    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st1_fsm_0.read())) {
         i_reg_2781 = ap_const_lv13_0;
     }
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_pp1_stg0_fsm_4.read()) && !(esl_seteq<1,1,1>(ap_const_logic_1, ap_reg_ppiten_pp1_it1.read()) && esl_seteq<1,1,1>(ap_const_lv1_0, exitcond_reg_3154.read()) && esl_seteq<1,1,1>(ap_const_logic_0, ap_sig_ioackin_indicesStream_TREADY.read())))) {
@@ -6963,65 +6886,36 @@ void calcHash::thread_ap_clk_no_reset_() {
     }
 }
 
-void calcHash::thread_ap_done() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st8_fsm_6.read())) {
-        ap_done = ap_const_logic_1;
-    } else {
-        ap_done = ap_const_logic_0;
-    }
-}
-
-void calcHash::thread_ap_idle() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_0, ap_start.read()) && 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st1_fsm_0.read()))) {
-        ap_idle = ap_const_logic_1;
-    } else {
-        ap_idle = ap_const_logic_0;
-    }
-}
-
-void calcHash::thread_ap_ready() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st8_fsm_6.read())) {
-        ap_ready = ap_const_logic_1;
-    } else {
-        ap_ready = ap_const_logic_0;
-    }
-}
-
 void calcHash::thread_ap_rst_n_inv() {
     ap_rst_n_inv =  (sc_logic) (~ap_rst_n.read());
 }
 
-void calcHash::thread_ap_sig_108() {
-    ap_sig_108 = (esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && esl_seteq<1,1,1>(strStream_V_TVALID.read(), ap_const_logic_0));
+void calcHash::thread_ap_sig_2416() {
+    ap_sig_2416 = esl_seteq<1,1,1>(ap_const_lv1_1, ap_CS_fsm.read().range(0, 0));
 }
 
-void calcHash::thread_ap_sig_118() {
-    ap_sig_118 = esl_seteq<1,1,1>(ap_const_lv1_1, ap_CS_fsm.read().range(3, 3));
+void calcHash::thread_ap_sig_2430() {
+    ap_sig_2430 = esl_seteq<1,1,1>(ap_const_lv1_1, ap_CS_fsm.read().range(2, 2));
 }
 
-void calcHash::thread_ap_sig_24() {
-    ap_sig_24 = esl_seteq<1,1,1>(ap_CS_fsm.read().range(0, 0), ap_const_lv1_1);
+void calcHash::thread_ap_sig_31() {
+    ap_sig_31 = esl_seteq<1,1,1>(ap_CS_fsm.read().range(1, 1), ap_const_lv1_1);
 }
 
-void calcHash::thread_ap_sig_2475() {
-    ap_sig_2475 = esl_seteq<1,1,1>(ap_const_lv1_1, ap_CS_fsm.read().range(2, 2));
+void calcHash::thread_ap_sig_43() {
+    ap_sig_43 = esl_seteq<1,1,1>(ap_const_lv1_1, ap_CS_fsm.read().range(4, 4));
 }
 
-void calcHash::thread_ap_sig_3309() {
-    ap_sig_3309 = esl_seteq<1,1,1>(ap_const_lv1_1, ap_CS_fsm.read().range(6, 6));
+void calcHash::thread_ap_sig_59() {
+    ap_sig_59 = (esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && esl_seteq<1,1,1>(strStream_V_TVALID.read(), ap_const_logic_0));
 }
 
-void calcHash::thread_ap_sig_44() {
-    ap_sig_44 = esl_seteq<1,1,1>(ap_const_lv1_1, ap_CS_fsm.read().range(1, 1));
-}
-
-void calcHash::thread_ap_sig_56() {
-    ap_sig_56 = esl_seteq<1,1,1>(ap_const_lv1_1, ap_CS_fsm.read().range(4, 4));
+void calcHash::thread_ap_sig_69() {
+    ap_sig_69 = esl_seteq<1,1,1>(ap_const_lv1_1, ap_CS_fsm.read().range(3, 3));
 }
 
 void calcHash::thread_ap_sig_cseq_ST_pp1_stg0_fsm_4() {
-    if (ap_sig_56.read()) {
+    if (ap_sig_43.read()) {
         ap_sig_cseq_ST_pp1_stg0_fsm_4 = ap_const_logic_1;
     } else {
         ap_sig_cseq_ST_pp1_stg0_fsm_4 = ap_const_logic_0;
@@ -7029,7 +6923,7 @@ void calcHash::thread_ap_sig_cseq_ST_pp1_stg0_fsm_4() {
 }
 
 void calcHash::thread_ap_sig_cseq_ST_st1_fsm_0() {
-    if (ap_sig_24.read()) {
+    if (ap_sig_2416.read()) {
         ap_sig_cseq_ST_st1_fsm_0 = ap_const_logic_1;
     } else {
         ap_sig_cseq_ST_st1_fsm_0 = ap_const_logic_0;
@@ -7037,7 +6931,7 @@ void calcHash::thread_ap_sig_cseq_ST_st1_fsm_0() {
 }
 
 void calcHash::thread_ap_sig_cseq_ST_st2_fsm_1() {
-    if (ap_sig_44.read()) {
+    if (ap_sig_31.read()) {
         ap_sig_cseq_ST_st2_fsm_1 = ap_const_logic_1;
     } else {
         ap_sig_cseq_ST_st2_fsm_1 = ap_const_logic_0;
@@ -7045,7 +6939,7 @@ void calcHash::thread_ap_sig_cseq_ST_st2_fsm_1() {
 }
 
 void calcHash::thread_ap_sig_cseq_ST_st3_fsm_2() {
-    if (ap_sig_2475.read()) {
+    if (ap_sig_2430.read()) {
         ap_sig_cseq_ST_st3_fsm_2 = ap_const_logic_1;
     } else {
         ap_sig_cseq_ST_st3_fsm_2 = ap_const_logic_0;
@@ -7053,18 +6947,10 @@ void calcHash::thread_ap_sig_cseq_ST_st3_fsm_2() {
 }
 
 void calcHash::thread_ap_sig_cseq_ST_st4_fsm_3() {
-    if (ap_sig_118.read()) {
+    if (ap_sig_69.read()) {
         ap_sig_cseq_ST_st4_fsm_3 = ap_const_logic_1;
     } else {
         ap_sig_cseq_ST_st4_fsm_3 = ap_const_logic_0;
-    }
-}
-
-void calcHash::thread_ap_sig_cseq_ST_st8_fsm_6() {
-    if (ap_sig_3309.read()) {
-        ap_sig_cseq_ST_st8_fsm_6 = ap_const_logic_1;
-    } else {
-        ap_sig_cseq_ST_st8_fsm_6 = ap_const_logic_0;
     }
 }
 
@@ -7155,7 +7041,7 @@ void calcHash::thread_strStream_V_TDATA_blk_n() {
 void calcHash::thread_strStream_V_TREADY() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
          esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         strStream_V_TREADY = ap_const_logic_1;
     } else {
         strStream_V_TREADY = ap_const_logic_0;
@@ -7182,7 +7068,7 @@ void calcHash::thread_str_0_ce0() {
 
 void calcHash::thread_str_0_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_0_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_0_ce1 = grp_calcHash_rollingHash_fu_2804_str_0_ce1.read();
@@ -7194,7 +7080,7 @@ void calcHash::thread_str_0_ce1() {
 void calcHash::thread_str_0_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_0)))) {
         str_0_we1 = ap_const_logic_1;
     } else {
@@ -7222,7 +7108,7 @@ void calcHash::thread_str_100_ce0() {
 
 void calcHash::thread_str_100_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_100_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_100_ce1 = grp_calcHash_rollingHash_fu_2804_str_100_ce1.read();
@@ -7234,7 +7120,7 @@ void calcHash::thread_str_100_ce1() {
 void calcHash::thread_str_100_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_64)))) {
         str_100_we1 = ap_const_logic_1;
     } else {
@@ -7262,7 +7148,7 @@ void calcHash::thread_str_101_ce0() {
 
 void calcHash::thread_str_101_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_101_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_101_ce1 = grp_calcHash_rollingHash_fu_2804_str_101_ce1.read();
@@ -7274,7 +7160,7 @@ void calcHash::thread_str_101_ce1() {
 void calcHash::thread_str_101_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_65)))) {
         str_101_we1 = ap_const_logic_1;
     } else {
@@ -7302,7 +7188,7 @@ void calcHash::thread_str_102_ce0() {
 
 void calcHash::thread_str_102_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_102_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_102_ce1 = grp_calcHash_rollingHash_fu_2804_str_102_ce1.read();
@@ -7314,7 +7200,7 @@ void calcHash::thread_str_102_ce1() {
 void calcHash::thread_str_102_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_66)))) {
         str_102_we1 = ap_const_logic_1;
     } else {
@@ -7342,7 +7228,7 @@ void calcHash::thread_str_103_ce0() {
 
 void calcHash::thread_str_103_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_103_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_103_ce1 = grp_calcHash_rollingHash_fu_2804_str_103_ce1.read();
@@ -7354,7 +7240,7 @@ void calcHash::thread_str_103_ce1() {
 void calcHash::thread_str_103_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_67)))) {
         str_103_we1 = ap_const_logic_1;
     } else {
@@ -7382,7 +7268,7 @@ void calcHash::thread_str_104_ce0() {
 
 void calcHash::thread_str_104_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_104_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_104_ce1 = grp_calcHash_rollingHash_fu_2804_str_104_ce1.read();
@@ -7394,7 +7280,7 @@ void calcHash::thread_str_104_ce1() {
 void calcHash::thread_str_104_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_68)))) {
         str_104_we1 = ap_const_logic_1;
     } else {
@@ -7422,7 +7308,7 @@ void calcHash::thread_str_105_ce0() {
 
 void calcHash::thread_str_105_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_105_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_105_ce1 = grp_calcHash_rollingHash_fu_2804_str_105_ce1.read();
@@ -7434,7 +7320,7 @@ void calcHash::thread_str_105_ce1() {
 void calcHash::thread_str_105_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_69)))) {
         str_105_we1 = ap_const_logic_1;
     } else {
@@ -7462,7 +7348,7 @@ void calcHash::thread_str_106_ce0() {
 
 void calcHash::thread_str_106_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_106_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_106_ce1 = grp_calcHash_rollingHash_fu_2804_str_106_ce1.read();
@@ -7474,7 +7360,7 @@ void calcHash::thread_str_106_ce1() {
 void calcHash::thread_str_106_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_6A)))) {
         str_106_we1 = ap_const_logic_1;
     } else {
@@ -7502,7 +7388,7 @@ void calcHash::thread_str_107_ce0() {
 
 void calcHash::thread_str_107_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_107_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_107_ce1 = grp_calcHash_rollingHash_fu_2804_str_107_ce1.read();
@@ -7514,7 +7400,7 @@ void calcHash::thread_str_107_ce1() {
 void calcHash::thread_str_107_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_6B)))) {
         str_107_we1 = ap_const_logic_1;
     } else {
@@ -7542,7 +7428,7 @@ void calcHash::thread_str_108_ce0() {
 
 void calcHash::thread_str_108_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_108_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_108_ce1 = grp_calcHash_rollingHash_fu_2804_str_108_ce1.read();
@@ -7554,7 +7440,7 @@ void calcHash::thread_str_108_ce1() {
 void calcHash::thread_str_108_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_6C)))) {
         str_108_we1 = ap_const_logic_1;
     } else {
@@ -7582,7 +7468,7 @@ void calcHash::thread_str_109_ce0() {
 
 void calcHash::thread_str_109_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_109_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_109_ce1 = grp_calcHash_rollingHash_fu_2804_str_109_ce1.read();
@@ -7594,7 +7480,7 @@ void calcHash::thread_str_109_ce1() {
 void calcHash::thread_str_109_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_6D)))) {
         str_109_we1 = ap_const_logic_1;
     } else {
@@ -7622,7 +7508,7 @@ void calcHash::thread_str_10_ce0() {
 
 void calcHash::thread_str_10_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_10_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_10_ce1 = grp_calcHash_rollingHash_fu_2804_str_10_ce1.read();
@@ -7634,7 +7520,7 @@ void calcHash::thread_str_10_ce1() {
 void calcHash::thread_str_10_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_A)))) {
         str_10_we1 = ap_const_logic_1;
     } else {
@@ -7662,7 +7548,7 @@ void calcHash::thread_str_110_ce0() {
 
 void calcHash::thread_str_110_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_110_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_110_ce1 = grp_calcHash_rollingHash_fu_2804_str_110_ce1.read();
@@ -7674,7 +7560,7 @@ void calcHash::thread_str_110_ce1() {
 void calcHash::thread_str_110_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_6E)))) {
         str_110_we1 = ap_const_logic_1;
     } else {
@@ -7702,7 +7588,7 @@ void calcHash::thread_str_111_ce0() {
 
 void calcHash::thread_str_111_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_111_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_111_ce1 = grp_calcHash_rollingHash_fu_2804_str_111_ce1.read();
@@ -7714,7 +7600,7 @@ void calcHash::thread_str_111_ce1() {
 void calcHash::thread_str_111_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_6F)))) {
         str_111_we1 = ap_const_logic_1;
     } else {
@@ -7742,7 +7628,7 @@ void calcHash::thread_str_112_ce0() {
 
 void calcHash::thread_str_112_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_112_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_112_ce1 = grp_calcHash_rollingHash_fu_2804_str_112_ce1.read();
@@ -7754,7 +7640,7 @@ void calcHash::thread_str_112_ce1() {
 void calcHash::thread_str_112_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_70)))) {
         str_112_we1 = ap_const_logic_1;
     } else {
@@ -7782,7 +7668,7 @@ void calcHash::thread_str_113_ce0() {
 
 void calcHash::thread_str_113_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_113_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_113_ce1 = grp_calcHash_rollingHash_fu_2804_str_113_ce1.read();
@@ -7794,7 +7680,7 @@ void calcHash::thread_str_113_ce1() {
 void calcHash::thread_str_113_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_71)))) {
         str_113_we1 = ap_const_logic_1;
     } else {
@@ -7822,7 +7708,7 @@ void calcHash::thread_str_114_ce0() {
 
 void calcHash::thread_str_114_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_114_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_114_ce1 = grp_calcHash_rollingHash_fu_2804_str_114_ce1.read();
@@ -7834,7 +7720,7 @@ void calcHash::thread_str_114_ce1() {
 void calcHash::thread_str_114_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_72)))) {
         str_114_we1 = ap_const_logic_1;
     } else {
@@ -7862,7 +7748,7 @@ void calcHash::thread_str_115_ce0() {
 
 void calcHash::thread_str_115_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_115_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_115_ce1 = grp_calcHash_rollingHash_fu_2804_str_115_ce1.read();
@@ -7874,7 +7760,7 @@ void calcHash::thread_str_115_ce1() {
 void calcHash::thread_str_115_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_73)))) {
         str_115_we1 = ap_const_logic_1;
     } else {
@@ -7902,7 +7788,7 @@ void calcHash::thread_str_116_ce0() {
 
 void calcHash::thread_str_116_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_116_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_116_ce1 = grp_calcHash_rollingHash_fu_2804_str_116_ce1.read();
@@ -7914,7 +7800,7 @@ void calcHash::thread_str_116_ce1() {
 void calcHash::thread_str_116_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_74)))) {
         str_116_we1 = ap_const_logic_1;
     } else {
@@ -7942,7 +7828,7 @@ void calcHash::thread_str_117_ce0() {
 
 void calcHash::thread_str_117_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_117_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_117_ce1 = grp_calcHash_rollingHash_fu_2804_str_117_ce1.read();
@@ -7954,7 +7840,7 @@ void calcHash::thread_str_117_ce1() {
 void calcHash::thread_str_117_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_75)))) {
         str_117_we1 = ap_const_logic_1;
     } else {
@@ -7982,7 +7868,7 @@ void calcHash::thread_str_118_ce0() {
 
 void calcHash::thread_str_118_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_118_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_118_ce1 = grp_calcHash_rollingHash_fu_2804_str_118_ce1.read();
@@ -7994,7 +7880,7 @@ void calcHash::thread_str_118_ce1() {
 void calcHash::thread_str_118_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_76)))) {
         str_118_we1 = ap_const_logic_1;
     } else {
@@ -8022,7 +7908,7 @@ void calcHash::thread_str_119_ce0() {
 
 void calcHash::thread_str_119_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_119_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_119_ce1 = grp_calcHash_rollingHash_fu_2804_str_119_ce1.read();
@@ -8034,7 +7920,7 @@ void calcHash::thread_str_119_ce1() {
 void calcHash::thread_str_119_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_77)))) {
         str_119_we1 = ap_const_logic_1;
     } else {
@@ -8062,7 +7948,7 @@ void calcHash::thread_str_11_ce0() {
 
 void calcHash::thread_str_11_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_11_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_11_ce1 = grp_calcHash_rollingHash_fu_2804_str_11_ce1.read();
@@ -8074,7 +7960,7 @@ void calcHash::thread_str_11_ce1() {
 void calcHash::thread_str_11_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_B)))) {
         str_11_we1 = ap_const_logic_1;
     } else {
@@ -8102,7 +7988,7 @@ void calcHash::thread_str_120_ce0() {
 
 void calcHash::thread_str_120_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_120_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_120_ce1 = grp_calcHash_rollingHash_fu_2804_str_120_ce1.read();
@@ -8114,7 +8000,7 @@ void calcHash::thread_str_120_ce1() {
 void calcHash::thread_str_120_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_78)))) {
         str_120_we1 = ap_const_logic_1;
     } else {
@@ -8142,7 +8028,7 @@ void calcHash::thread_str_121_ce0() {
 
 void calcHash::thread_str_121_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_121_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_121_ce1 = grp_calcHash_rollingHash_fu_2804_str_121_ce1.read();
@@ -8154,7 +8040,7 @@ void calcHash::thread_str_121_ce1() {
 void calcHash::thread_str_121_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_79)))) {
         str_121_we1 = ap_const_logic_1;
     } else {
@@ -8182,7 +8068,7 @@ void calcHash::thread_str_122_ce0() {
 
 void calcHash::thread_str_122_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_122_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_122_ce1 = grp_calcHash_rollingHash_fu_2804_str_122_ce1.read();
@@ -8194,7 +8080,7 @@ void calcHash::thread_str_122_ce1() {
 void calcHash::thread_str_122_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_7A)))) {
         str_122_we1 = ap_const_logic_1;
     } else {
@@ -8222,7 +8108,7 @@ void calcHash::thread_str_123_ce0() {
 
 void calcHash::thread_str_123_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_123_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_123_ce1 = grp_calcHash_rollingHash_fu_2804_str_123_ce1.read();
@@ -8234,7 +8120,7 @@ void calcHash::thread_str_123_ce1() {
 void calcHash::thread_str_123_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_7B)))) {
         str_123_we1 = ap_const_logic_1;
     } else {
@@ -8262,7 +8148,7 @@ void calcHash::thread_str_124_ce0() {
 
 void calcHash::thread_str_124_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_124_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_124_ce1 = grp_calcHash_rollingHash_fu_2804_str_124_ce1.read();
@@ -8274,7 +8160,7 @@ void calcHash::thread_str_124_ce1() {
 void calcHash::thread_str_124_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_7C)))) {
         str_124_we1 = ap_const_logic_1;
     } else {
@@ -8302,7 +8188,7 @@ void calcHash::thread_str_125_ce0() {
 
 void calcHash::thread_str_125_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_125_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_125_ce1 = grp_calcHash_rollingHash_fu_2804_str_125_ce1.read();
@@ -8314,7 +8200,7 @@ void calcHash::thread_str_125_ce1() {
 void calcHash::thread_str_125_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_7D)))) {
         str_125_we1 = ap_const_logic_1;
     } else {
@@ -8342,7 +8228,7 @@ void calcHash::thread_str_126_ce0() {
 
 void calcHash::thread_str_126_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_126_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_126_ce1 = grp_calcHash_rollingHash_fu_2804_str_126_ce1.read();
@@ -8354,7 +8240,7 @@ void calcHash::thread_str_126_ce1() {
 void calcHash::thread_str_126_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_7E)))) {
         str_126_we1 = ap_const_logic_1;
     } else {
@@ -8382,7 +8268,7 @@ void calcHash::thread_str_127_ce0() {
 
 void calcHash::thread_str_127_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_127_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_127_ce1 = grp_calcHash_rollingHash_fu_2804_str_127_ce1.read();
@@ -8394,7 +8280,7 @@ void calcHash::thread_str_127_ce1() {
 void calcHash::thread_str_127_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_7F)))) {
         str_127_we1 = ap_const_logic_1;
     } else {
@@ -8422,7 +8308,7 @@ void calcHash::thread_str_12_ce0() {
 
 void calcHash::thread_str_12_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_12_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_12_ce1 = grp_calcHash_rollingHash_fu_2804_str_12_ce1.read();
@@ -8434,7 +8320,7 @@ void calcHash::thread_str_12_ce1() {
 void calcHash::thread_str_12_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_C)))) {
         str_12_we1 = ap_const_logic_1;
     } else {
@@ -8462,7 +8348,7 @@ void calcHash::thread_str_13_ce0() {
 
 void calcHash::thread_str_13_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_13_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_13_ce1 = grp_calcHash_rollingHash_fu_2804_str_13_ce1.read();
@@ -8474,7 +8360,7 @@ void calcHash::thread_str_13_ce1() {
 void calcHash::thread_str_13_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_D)))) {
         str_13_we1 = ap_const_logic_1;
     } else {
@@ -8502,7 +8388,7 @@ void calcHash::thread_str_14_ce0() {
 
 void calcHash::thread_str_14_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_14_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_14_ce1 = grp_calcHash_rollingHash_fu_2804_str_14_ce1.read();
@@ -8514,7 +8400,7 @@ void calcHash::thread_str_14_ce1() {
 void calcHash::thread_str_14_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_E)))) {
         str_14_we1 = ap_const_logic_1;
     } else {
@@ -8542,7 +8428,7 @@ void calcHash::thread_str_15_ce0() {
 
 void calcHash::thread_str_15_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_15_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_15_ce1 = grp_calcHash_rollingHash_fu_2804_str_15_ce1.read();
@@ -8554,7 +8440,7 @@ void calcHash::thread_str_15_ce1() {
 void calcHash::thread_str_15_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_F)))) {
         str_15_we1 = ap_const_logic_1;
     } else {
@@ -8582,7 +8468,7 @@ void calcHash::thread_str_16_ce0() {
 
 void calcHash::thread_str_16_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_16_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_16_ce1 = grp_calcHash_rollingHash_fu_2804_str_16_ce1.read();
@@ -8594,7 +8480,7 @@ void calcHash::thread_str_16_ce1() {
 void calcHash::thread_str_16_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_10)))) {
         str_16_we1 = ap_const_logic_1;
     } else {
@@ -8622,7 +8508,7 @@ void calcHash::thread_str_17_ce0() {
 
 void calcHash::thread_str_17_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_17_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_17_ce1 = grp_calcHash_rollingHash_fu_2804_str_17_ce1.read();
@@ -8634,7 +8520,7 @@ void calcHash::thread_str_17_ce1() {
 void calcHash::thread_str_17_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_11)))) {
         str_17_we1 = ap_const_logic_1;
     } else {
@@ -8662,7 +8548,7 @@ void calcHash::thread_str_18_ce0() {
 
 void calcHash::thread_str_18_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_18_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_18_ce1 = grp_calcHash_rollingHash_fu_2804_str_18_ce1.read();
@@ -8674,7 +8560,7 @@ void calcHash::thread_str_18_ce1() {
 void calcHash::thread_str_18_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_12)))) {
         str_18_we1 = ap_const_logic_1;
     } else {
@@ -8702,7 +8588,7 @@ void calcHash::thread_str_19_ce0() {
 
 void calcHash::thread_str_19_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_19_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_19_ce1 = grp_calcHash_rollingHash_fu_2804_str_19_ce1.read();
@@ -8714,7 +8600,7 @@ void calcHash::thread_str_19_ce1() {
 void calcHash::thread_str_19_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_13)))) {
         str_19_we1 = ap_const_logic_1;
     } else {
@@ -8742,7 +8628,7 @@ void calcHash::thread_str_1_ce0() {
 
 void calcHash::thread_str_1_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_1_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_1_ce1 = grp_calcHash_rollingHash_fu_2804_str_1_ce1.read();
@@ -8754,7 +8640,7 @@ void calcHash::thread_str_1_ce1() {
 void calcHash::thread_str_1_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_1)))) {
         str_1_we1 = ap_const_logic_1;
     } else {
@@ -8782,7 +8668,7 @@ void calcHash::thread_str_20_ce0() {
 
 void calcHash::thread_str_20_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_20_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_20_ce1 = grp_calcHash_rollingHash_fu_2804_str_20_ce1.read();
@@ -8794,7 +8680,7 @@ void calcHash::thread_str_20_ce1() {
 void calcHash::thread_str_20_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_14)))) {
         str_20_we1 = ap_const_logic_1;
     } else {
@@ -8822,7 +8708,7 @@ void calcHash::thread_str_21_ce0() {
 
 void calcHash::thread_str_21_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_21_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_21_ce1 = grp_calcHash_rollingHash_fu_2804_str_21_ce1.read();
@@ -8834,7 +8720,7 @@ void calcHash::thread_str_21_ce1() {
 void calcHash::thread_str_21_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_15)))) {
         str_21_we1 = ap_const_logic_1;
     } else {
@@ -8862,7 +8748,7 @@ void calcHash::thread_str_22_ce0() {
 
 void calcHash::thread_str_22_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_22_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_22_ce1 = grp_calcHash_rollingHash_fu_2804_str_22_ce1.read();
@@ -8874,7 +8760,7 @@ void calcHash::thread_str_22_ce1() {
 void calcHash::thread_str_22_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_16)))) {
         str_22_we1 = ap_const_logic_1;
     } else {
@@ -8902,7 +8788,7 @@ void calcHash::thread_str_23_ce0() {
 
 void calcHash::thread_str_23_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_23_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_23_ce1 = grp_calcHash_rollingHash_fu_2804_str_23_ce1.read();
@@ -8914,7 +8800,7 @@ void calcHash::thread_str_23_ce1() {
 void calcHash::thread_str_23_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_17)))) {
         str_23_we1 = ap_const_logic_1;
     } else {
@@ -8942,7 +8828,7 @@ void calcHash::thread_str_24_ce0() {
 
 void calcHash::thread_str_24_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_24_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_24_ce1 = grp_calcHash_rollingHash_fu_2804_str_24_ce1.read();
@@ -8954,7 +8840,7 @@ void calcHash::thread_str_24_ce1() {
 void calcHash::thread_str_24_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_18)))) {
         str_24_we1 = ap_const_logic_1;
     } else {
@@ -8982,7 +8868,7 @@ void calcHash::thread_str_25_ce0() {
 
 void calcHash::thread_str_25_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_25_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_25_ce1 = grp_calcHash_rollingHash_fu_2804_str_25_ce1.read();
@@ -8994,7 +8880,7 @@ void calcHash::thread_str_25_ce1() {
 void calcHash::thread_str_25_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_19)))) {
         str_25_we1 = ap_const_logic_1;
     } else {
@@ -9022,7 +8908,7 @@ void calcHash::thread_str_26_ce0() {
 
 void calcHash::thread_str_26_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_26_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_26_ce1 = grp_calcHash_rollingHash_fu_2804_str_26_ce1.read();
@@ -9034,7 +8920,7 @@ void calcHash::thread_str_26_ce1() {
 void calcHash::thread_str_26_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_1A)))) {
         str_26_we1 = ap_const_logic_1;
     } else {
@@ -9062,7 +8948,7 @@ void calcHash::thread_str_27_ce0() {
 
 void calcHash::thread_str_27_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_27_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_27_ce1 = grp_calcHash_rollingHash_fu_2804_str_27_ce1.read();
@@ -9074,7 +8960,7 @@ void calcHash::thread_str_27_ce1() {
 void calcHash::thread_str_27_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_1B)))) {
         str_27_we1 = ap_const_logic_1;
     } else {
@@ -9102,7 +8988,7 @@ void calcHash::thread_str_28_ce0() {
 
 void calcHash::thread_str_28_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_28_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_28_ce1 = grp_calcHash_rollingHash_fu_2804_str_28_ce1.read();
@@ -9114,7 +9000,7 @@ void calcHash::thread_str_28_ce1() {
 void calcHash::thread_str_28_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_1C)))) {
         str_28_we1 = ap_const_logic_1;
     } else {
@@ -9142,7 +9028,7 @@ void calcHash::thread_str_29_ce0() {
 
 void calcHash::thread_str_29_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_29_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_29_ce1 = grp_calcHash_rollingHash_fu_2804_str_29_ce1.read();
@@ -9154,7 +9040,7 @@ void calcHash::thread_str_29_ce1() {
 void calcHash::thread_str_29_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_1D)))) {
         str_29_we1 = ap_const_logic_1;
     } else {
@@ -9182,7 +9068,7 @@ void calcHash::thread_str_2_ce0() {
 
 void calcHash::thread_str_2_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_2_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_2_ce1 = grp_calcHash_rollingHash_fu_2804_str_2_ce1.read();
@@ -9194,7 +9080,7 @@ void calcHash::thread_str_2_ce1() {
 void calcHash::thread_str_2_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_2)))) {
         str_2_we1 = ap_const_logic_1;
     } else {
@@ -9222,7 +9108,7 @@ void calcHash::thread_str_30_ce0() {
 
 void calcHash::thread_str_30_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_30_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_30_ce1 = grp_calcHash_rollingHash_fu_2804_str_30_ce1.read();
@@ -9234,7 +9120,7 @@ void calcHash::thread_str_30_ce1() {
 void calcHash::thread_str_30_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_1E)))) {
         str_30_we1 = ap_const_logic_1;
     } else {
@@ -9262,7 +9148,7 @@ void calcHash::thread_str_31_ce0() {
 
 void calcHash::thread_str_31_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_31_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_31_ce1 = grp_calcHash_rollingHash_fu_2804_str_31_ce1.read();
@@ -9274,7 +9160,7 @@ void calcHash::thread_str_31_ce1() {
 void calcHash::thread_str_31_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_1F)))) {
         str_31_we1 = ap_const_logic_1;
     } else {
@@ -9302,7 +9188,7 @@ void calcHash::thread_str_32_ce0() {
 
 void calcHash::thread_str_32_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_32_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_32_ce1 = grp_calcHash_rollingHash_fu_2804_str_32_ce1.read();
@@ -9314,7 +9200,7 @@ void calcHash::thread_str_32_ce1() {
 void calcHash::thread_str_32_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_20)))) {
         str_32_we1 = ap_const_logic_1;
     } else {
@@ -9342,7 +9228,7 @@ void calcHash::thread_str_33_ce0() {
 
 void calcHash::thread_str_33_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_33_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_33_ce1 = grp_calcHash_rollingHash_fu_2804_str_33_ce1.read();
@@ -9354,7 +9240,7 @@ void calcHash::thread_str_33_ce1() {
 void calcHash::thread_str_33_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_21)))) {
         str_33_we1 = ap_const_logic_1;
     } else {
@@ -9382,7 +9268,7 @@ void calcHash::thread_str_34_ce0() {
 
 void calcHash::thread_str_34_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_34_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_34_ce1 = grp_calcHash_rollingHash_fu_2804_str_34_ce1.read();
@@ -9394,7 +9280,7 @@ void calcHash::thread_str_34_ce1() {
 void calcHash::thread_str_34_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_22)))) {
         str_34_we1 = ap_const_logic_1;
     } else {
@@ -9422,7 +9308,7 @@ void calcHash::thread_str_35_ce0() {
 
 void calcHash::thread_str_35_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_35_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_35_ce1 = grp_calcHash_rollingHash_fu_2804_str_35_ce1.read();
@@ -9434,7 +9320,7 @@ void calcHash::thread_str_35_ce1() {
 void calcHash::thread_str_35_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_23)))) {
         str_35_we1 = ap_const_logic_1;
     } else {
@@ -9462,7 +9348,7 @@ void calcHash::thread_str_36_ce0() {
 
 void calcHash::thread_str_36_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_36_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_36_ce1 = grp_calcHash_rollingHash_fu_2804_str_36_ce1.read();
@@ -9474,7 +9360,7 @@ void calcHash::thread_str_36_ce1() {
 void calcHash::thread_str_36_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_24)))) {
         str_36_we1 = ap_const_logic_1;
     } else {
@@ -9502,7 +9388,7 @@ void calcHash::thread_str_37_ce0() {
 
 void calcHash::thread_str_37_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_37_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_37_ce1 = grp_calcHash_rollingHash_fu_2804_str_37_ce1.read();
@@ -9514,7 +9400,7 @@ void calcHash::thread_str_37_ce1() {
 void calcHash::thread_str_37_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_25)))) {
         str_37_we1 = ap_const_logic_1;
     } else {
@@ -9542,7 +9428,7 @@ void calcHash::thread_str_38_ce0() {
 
 void calcHash::thread_str_38_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_38_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_38_ce1 = grp_calcHash_rollingHash_fu_2804_str_38_ce1.read();
@@ -9554,7 +9440,7 @@ void calcHash::thread_str_38_ce1() {
 void calcHash::thread_str_38_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_26)))) {
         str_38_we1 = ap_const_logic_1;
     } else {
@@ -9582,7 +9468,7 @@ void calcHash::thread_str_39_ce0() {
 
 void calcHash::thread_str_39_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_39_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_39_ce1 = grp_calcHash_rollingHash_fu_2804_str_39_ce1.read();
@@ -9594,7 +9480,7 @@ void calcHash::thread_str_39_ce1() {
 void calcHash::thread_str_39_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_27)))) {
         str_39_we1 = ap_const_logic_1;
     } else {
@@ -9622,7 +9508,7 @@ void calcHash::thread_str_3_ce0() {
 
 void calcHash::thread_str_3_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_3_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_3_ce1 = grp_calcHash_rollingHash_fu_2804_str_3_ce1.read();
@@ -9634,7 +9520,7 @@ void calcHash::thread_str_3_ce1() {
 void calcHash::thread_str_3_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_3)))) {
         str_3_we1 = ap_const_logic_1;
     } else {
@@ -9662,7 +9548,7 @@ void calcHash::thread_str_40_ce0() {
 
 void calcHash::thread_str_40_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_40_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_40_ce1 = grp_calcHash_rollingHash_fu_2804_str_40_ce1.read();
@@ -9674,7 +9560,7 @@ void calcHash::thread_str_40_ce1() {
 void calcHash::thread_str_40_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_28)))) {
         str_40_we1 = ap_const_logic_1;
     } else {
@@ -9702,7 +9588,7 @@ void calcHash::thread_str_41_ce0() {
 
 void calcHash::thread_str_41_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_41_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_41_ce1 = grp_calcHash_rollingHash_fu_2804_str_41_ce1.read();
@@ -9714,7 +9600,7 @@ void calcHash::thread_str_41_ce1() {
 void calcHash::thread_str_41_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_29)))) {
         str_41_we1 = ap_const_logic_1;
     } else {
@@ -9742,7 +9628,7 @@ void calcHash::thread_str_42_ce0() {
 
 void calcHash::thread_str_42_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_42_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_42_ce1 = grp_calcHash_rollingHash_fu_2804_str_42_ce1.read();
@@ -9754,7 +9640,7 @@ void calcHash::thread_str_42_ce1() {
 void calcHash::thread_str_42_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_2A)))) {
         str_42_we1 = ap_const_logic_1;
     } else {
@@ -9782,7 +9668,7 @@ void calcHash::thread_str_43_ce0() {
 
 void calcHash::thread_str_43_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_43_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_43_ce1 = grp_calcHash_rollingHash_fu_2804_str_43_ce1.read();
@@ -9794,7 +9680,7 @@ void calcHash::thread_str_43_ce1() {
 void calcHash::thread_str_43_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_2B)))) {
         str_43_we1 = ap_const_logic_1;
     } else {
@@ -9822,7 +9708,7 @@ void calcHash::thread_str_44_ce0() {
 
 void calcHash::thread_str_44_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_44_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_44_ce1 = grp_calcHash_rollingHash_fu_2804_str_44_ce1.read();
@@ -9834,7 +9720,7 @@ void calcHash::thread_str_44_ce1() {
 void calcHash::thread_str_44_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_2C)))) {
         str_44_we1 = ap_const_logic_1;
     } else {
@@ -9862,7 +9748,7 @@ void calcHash::thread_str_45_ce0() {
 
 void calcHash::thread_str_45_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_45_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_45_ce1 = grp_calcHash_rollingHash_fu_2804_str_45_ce1.read();
@@ -9874,7 +9760,7 @@ void calcHash::thread_str_45_ce1() {
 void calcHash::thread_str_45_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_2D)))) {
         str_45_we1 = ap_const_logic_1;
     } else {
@@ -9902,7 +9788,7 @@ void calcHash::thread_str_46_ce0() {
 
 void calcHash::thread_str_46_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_46_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_46_ce1 = grp_calcHash_rollingHash_fu_2804_str_46_ce1.read();
@@ -9914,7 +9800,7 @@ void calcHash::thread_str_46_ce1() {
 void calcHash::thread_str_46_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_2E)))) {
         str_46_we1 = ap_const_logic_1;
     } else {
@@ -9942,7 +9828,7 @@ void calcHash::thread_str_47_ce0() {
 
 void calcHash::thread_str_47_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_47_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_47_ce1 = grp_calcHash_rollingHash_fu_2804_str_47_ce1.read();
@@ -9954,7 +9840,7 @@ void calcHash::thread_str_47_ce1() {
 void calcHash::thread_str_47_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_2F)))) {
         str_47_we1 = ap_const_logic_1;
     } else {
@@ -9982,7 +9868,7 @@ void calcHash::thread_str_48_ce0() {
 
 void calcHash::thread_str_48_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_48_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_48_ce1 = grp_calcHash_rollingHash_fu_2804_str_48_ce1.read();
@@ -9994,7 +9880,7 @@ void calcHash::thread_str_48_ce1() {
 void calcHash::thread_str_48_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_30)))) {
         str_48_we1 = ap_const_logic_1;
     } else {
@@ -10022,7 +9908,7 @@ void calcHash::thread_str_49_ce0() {
 
 void calcHash::thread_str_49_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_49_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_49_ce1 = grp_calcHash_rollingHash_fu_2804_str_49_ce1.read();
@@ -10034,7 +9920,7 @@ void calcHash::thread_str_49_ce1() {
 void calcHash::thread_str_49_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_31)))) {
         str_49_we1 = ap_const_logic_1;
     } else {
@@ -10062,7 +9948,7 @@ void calcHash::thread_str_4_ce0() {
 
 void calcHash::thread_str_4_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_4_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_4_ce1 = grp_calcHash_rollingHash_fu_2804_str_4_ce1.read();
@@ -10074,7 +9960,7 @@ void calcHash::thread_str_4_ce1() {
 void calcHash::thread_str_4_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_4)))) {
         str_4_we1 = ap_const_logic_1;
     } else {
@@ -10102,7 +9988,7 @@ void calcHash::thread_str_50_ce0() {
 
 void calcHash::thread_str_50_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_50_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_50_ce1 = grp_calcHash_rollingHash_fu_2804_str_50_ce1.read();
@@ -10114,7 +10000,7 @@ void calcHash::thread_str_50_ce1() {
 void calcHash::thread_str_50_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_32)))) {
         str_50_we1 = ap_const_logic_1;
     } else {
@@ -10142,7 +10028,7 @@ void calcHash::thread_str_51_ce0() {
 
 void calcHash::thread_str_51_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_51_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_51_ce1 = grp_calcHash_rollingHash_fu_2804_str_51_ce1.read();
@@ -10154,7 +10040,7 @@ void calcHash::thread_str_51_ce1() {
 void calcHash::thread_str_51_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_33)))) {
         str_51_we1 = ap_const_logic_1;
     } else {
@@ -10182,7 +10068,7 @@ void calcHash::thread_str_52_ce0() {
 
 void calcHash::thread_str_52_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_52_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_52_ce1 = grp_calcHash_rollingHash_fu_2804_str_52_ce1.read();
@@ -10194,7 +10080,7 @@ void calcHash::thread_str_52_ce1() {
 void calcHash::thread_str_52_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_34)))) {
         str_52_we1 = ap_const_logic_1;
     } else {
@@ -10222,7 +10108,7 @@ void calcHash::thread_str_53_ce0() {
 
 void calcHash::thread_str_53_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_53_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_53_ce1 = grp_calcHash_rollingHash_fu_2804_str_53_ce1.read();
@@ -10234,7 +10120,7 @@ void calcHash::thread_str_53_ce1() {
 void calcHash::thread_str_53_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_35)))) {
         str_53_we1 = ap_const_logic_1;
     } else {
@@ -10262,7 +10148,7 @@ void calcHash::thread_str_54_ce0() {
 
 void calcHash::thread_str_54_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_54_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_54_ce1 = grp_calcHash_rollingHash_fu_2804_str_54_ce1.read();
@@ -10274,7 +10160,7 @@ void calcHash::thread_str_54_ce1() {
 void calcHash::thread_str_54_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_36)))) {
         str_54_we1 = ap_const_logic_1;
     } else {
@@ -10302,7 +10188,7 @@ void calcHash::thread_str_55_ce0() {
 
 void calcHash::thread_str_55_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_55_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_55_ce1 = grp_calcHash_rollingHash_fu_2804_str_55_ce1.read();
@@ -10314,7 +10200,7 @@ void calcHash::thread_str_55_ce1() {
 void calcHash::thread_str_55_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_37)))) {
         str_55_we1 = ap_const_logic_1;
     } else {
@@ -10342,7 +10228,7 @@ void calcHash::thread_str_56_ce0() {
 
 void calcHash::thread_str_56_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_56_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_56_ce1 = grp_calcHash_rollingHash_fu_2804_str_56_ce1.read();
@@ -10354,7 +10240,7 @@ void calcHash::thread_str_56_ce1() {
 void calcHash::thread_str_56_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_38)))) {
         str_56_we1 = ap_const_logic_1;
     } else {
@@ -10382,7 +10268,7 @@ void calcHash::thread_str_57_ce0() {
 
 void calcHash::thread_str_57_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_57_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_57_ce1 = grp_calcHash_rollingHash_fu_2804_str_57_ce1.read();
@@ -10394,7 +10280,7 @@ void calcHash::thread_str_57_ce1() {
 void calcHash::thread_str_57_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_39)))) {
         str_57_we1 = ap_const_logic_1;
     } else {
@@ -10422,7 +10308,7 @@ void calcHash::thread_str_58_ce0() {
 
 void calcHash::thread_str_58_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_58_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_58_ce1 = grp_calcHash_rollingHash_fu_2804_str_58_ce1.read();
@@ -10434,7 +10320,7 @@ void calcHash::thread_str_58_ce1() {
 void calcHash::thread_str_58_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_3A)))) {
         str_58_we1 = ap_const_logic_1;
     } else {
@@ -10462,7 +10348,7 @@ void calcHash::thread_str_59_ce0() {
 
 void calcHash::thread_str_59_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_59_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_59_ce1 = grp_calcHash_rollingHash_fu_2804_str_59_ce1.read();
@@ -10474,7 +10360,7 @@ void calcHash::thread_str_59_ce1() {
 void calcHash::thread_str_59_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_3B)))) {
         str_59_we1 = ap_const_logic_1;
     } else {
@@ -10502,7 +10388,7 @@ void calcHash::thread_str_5_ce0() {
 
 void calcHash::thread_str_5_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_5_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_5_ce1 = grp_calcHash_rollingHash_fu_2804_str_5_ce1.read();
@@ -10514,7 +10400,7 @@ void calcHash::thread_str_5_ce1() {
 void calcHash::thread_str_5_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_5)))) {
         str_5_we1 = ap_const_logic_1;
     } else {
@@ -10542,7 +10428,7 @@ void calcHash::thread_str_60_ce0() {
 
 void calcHash::thread_str_60_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_60_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_60_ce1 = grp_calcHash_rollingHash_fu_2804_str_60_ce1.read();
@@ -10554,7 +10440,7 @@ void calcHash::thread_str_60_ce1() {
 void calcHash::thread_str_60_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_3C)))) {
         str_60_we1 = ap_const_logic_1;
     } else {
@@ -10582,7 +10468,7 @@ void calcHash::thread_str_61_ce0() {
 
 void calcHash::thread_str_61_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_61_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_61_ce1 = grp_calcHash_rollingHash_fu_2804_str_61_ce1.read();
@@ -10594,7 +10480,7 @@ void calcHash::thread_str_61_ce1() {
 void calcHash::thread_str_61_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_3D)))) {
         str_61_we1 = ap_const_logic_1;
     } else {
@@ -10622,7 +10508,7 @@ void calcHash::thread_str_62_ce0() {
 
 void calcHash::thread_str_62_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_62_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_62_ce1 = grp_calcHash_rollingHash_fu_2804_str_62_ce1.read();
@@ -10634,7 +10520,7 @@ void calcHash::thread_str_62_ce1() {
 void calcHash::thread_str_62_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_3E)))) {
         str_62_we1 = ap_const_logic_1;
     } else {
@@ -10662,7 +10548,7 @@ void calcHash::thread_str_63_ce0() {
 
 void calcHash::thread_str_63_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_63_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_63_ce1 = grp_calcHash_rollingHash_fu_2804_str_63_ce1.read();
@@ -10674,7 +10560,7 @@ void calcHash::thread_str_63_ce1() {
 void calcHash::thread_str_63_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_3F)))) {
         str_63_we1 = ap_const_logic_1;
     } else {
@@ -10702,7 +10588,7 @@ void calcHash::thread_str_64_ce0() {
 
 void calcHash::thread_str_64_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_64_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_64_ce1 = grp_calcHash_rollingHash_fu_2804_str_64_ce1.read();
@@ -10714,7 +10600,7 @@ void calcHash::thread_str_64_ce1() {
 void calcHash::thread_str_64_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_40)))) {
         str_64_we1 = ap_const_logic_1;
     } else {
@@ -10742,7 +10628,7 @@ void calcHash::thread_str_65_ce0() {
 
 void calcHash::thread_str_65_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_65_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_65_ce1 = grp_calcHash_rollingHash_fu_2804_str_65_ce1.read();
@@ -10754,7 +10640,7 @@ void calcHash::thread_str_65_ce1() {
 void calcHash::thread_str_65_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_41)))) {
         str_65_we1 = ap_const_logic_1;
     } else {
@@ -10782,7 +10668,7 @@ void calcHash::thread_str_66_ce0() {
 
 void calcHash::thread_str_66_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_66_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_66_ce1 = grp_calcHash_rollingHash_fu_2804_str_66_ce1.read();
@@ -10794,7 +10680,7 @@ void calcHash::thread_str_66_ce1() {
 void calcHash::thread_str_66_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_42)))) {
         str_66_we1 = ap_const_logic_1;
     } else {
@@ -10822,7 +10708,7 @@ void calcHash::thread_str_67_ce0() {
 
 void calcHash::thread_str_67_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_67_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_67_ce1 = grp_calcHash_rollingHash_fu_2804_str_67_ce1.read();
@@ -10834,7 +10720,7 @@ void calcHash::thread_str_67_ce1() {
 void calcHash::thread_str_67_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_43)))) {
         str_67_we1 = ap_const_logic_1;
     } else {
@@ -10862,7 +10748,7 @@ void calcHash::thread_str_68_ce0() {
 
 void calcHash::thread_str_68_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_68_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_68_ce1 = grp_calcHash_rollingHash_fu_2804_str_68_ce1.read();
@@ -10874,7 +10760,7 @@ void calcHash::thread_str_68_ce1() {
 void calcHash::thread_str_68_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_44)))) {
         str_68_we1 = ap_const_logic_1;
     } else {
@@ -10902,7 +10788,7 @@ void calcHash::thread_str_69_ce0() {
 
 void calcHash::thread_str_69_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_69_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_69_ce1 = grp_calcHash_rollingHash_fu_2804_str_69_ce1.read();
@@ -10914,7 +10800,7 @@ void calcHash::thread_str_69_ce1() {
 void calcHash::thread_str_69_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_45)))) {
         str_69_we1 = ap_const_logic_1;
     } else {
@@ -10942,7 +10828,7 @@ void calcHash::thread_str_6_ce0() {
 
 void calcHash::thread_str_6_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_6_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_6_ce1 = grp_calcHash_rollingHash_fu_2804_str_6_ce1.read();
@@ -10954,7 +10840,7 @@ void calcHash::thread_str_6_ce1() {
 void calcHash::thread_str_6_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_6)))) {
         str_6_we1 = ap_const_logic_1;
     } else {
@@ -10982,7 +10868,7 @@ void calcHash::thread_str_70_ce0() {
 
 void calcHash::thread_str_70_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_70_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_70_ce1 = grp_calcHash_rollingHash_fu_2804_str_70_ce1.read();
@@ -10994,7 +10880,7 @@ void calcHash::thread_str_70_ce1() {
 void calcHash::thread_str_70_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_46)))) {
         str_70_we1 = ap_const_logic_1;
     } else {
@@ -11022,7 +10908,7 @@ void calcHash::thread_str_71_ce0() {
 
 void calcHash::thread_str_71_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_71_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_71_ce1 = grp_calcHash_rollingHash_fu_2804_str_71_ce1.read();
@@ -11034,7 +10920,7 @@ void calcHash::thread_str_71_ce1() {
 void calcHash::thread_str_71_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_47)))) {
         str_71_we1 = ap_const_logic_1;
     } else {
@@ -11062,7 +10948,7 @@ void calcHash::thread_str_72_ce0() {
 
 void calcHash::thread_str_72_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_72_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_72_ce1 = grp_calcHash_rollingHash_fu_2804_str_72_ce1.read();
@@ -11074,7 +10960,7 @@ void calcHash::thread_str_72_ce1() {
 void calcHash::thread_str_72_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_48)))) {
         str_72_we1 = ap_const_logic_1;
     } else {
@@ -11102,7 +10988,7 @@ void calcHash::thread_str_73_ce0() {
 
 void calcHash::thread_str_73_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_73_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_73_ce1 = grp_calcHash_rollingHash_fu_2804_str_73_ce1.read();
@@ -11114,7 +11000,7 @@ void calcHash::thread_str_73_ce1() {
 void calcHash::thread_str_73_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_49)))) {
         str_73_we1 = ap_const_logic_1;
     } else {
@@ -11142,7 +11028,7 @@ void calcHash::thread_str_74_ce0() {
 
 void calcHash::thread_str_74_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_74_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_74_ce1 = grp_calcHash_rollingHash_fu_2804_str_74_ce1.read();
@@ -11154,7 +11040,7 @@ void calcHash::thread_str_74_ce1() {
 void calcHash::thread_str_74_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_4A)))) {
         str_74_we1 = ap_const_logic_1;
     } else {
@@ -11182,7 +11068,7 @@ void calcHash::thread_str_75_ce0() {
 
 void calcHash::thread_str_75_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_75_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_75_ce1 = grp_calcHash_rollingHash_fu_2804_str_75_ce1.read();
@@ -11194,7 +11080,7 @@ void calcHash::thread_str_75_ce1() {
 void calcHash::thread_str_75_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_4B)))) {
         str_75_we1 = ap_const_logic_1;
     } else {
@@ -11222,7 +11108,7 @@ void calcHash::thread_str_76_ce0() {
 
 void calcHash::thread_str_76_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_76_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_76_ce1 = grp_calcHash_rollingHash_fu_2804_str_76_ce1.read();
@@ -11234,7 +11120,7 @@ void calcHash::thread_str_76_ce1() {
 void calcHash::thread_str_76_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_4C)))) {
         str_76_we1 = ap_const_logic_1;
     } else {
@@ -11262,7 +11148,7 @@ void calcHash::thread_str_77_ce0() {
 
 void calcHash::thread_str_77_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_77_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_77_ce1 = grp_calcHash_rollingHash_fu_2804_str_77_ce1.read();
@@ -11274,7 +11160,7 @@ void calcHash::thread_str_77_ce1() {
 void calcHash::thread_str_77_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_4D)))) {
         str_77_we1 = ap_const_logic_1;
     } else {
@@ -11302,7 +11188,7 @@ void calcHash::thread_str_78_ce0() {
 
 void calcHash::thread_str_78_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_78_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_78_ce1 = grp_calcHash_rollingHash_fu_2804_str_78_ce1.read();
@@ -11314,7 +11200,7 @@ void calcHash::thread_str_78_ce1() {
 void calcHash::thread_str_78_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_4E)))) {
         str_78_we1 = ap_const_logic_1;
     } else {
@@ -11342,7 +11228,7 @@ void calcHash::thread_str_79_ce0() {
 
 void calcHash::thread_str_79_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_79_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_79_ce1 = grp_calcHash_rollingHash_fu_2804_str_79_ce1.read();
@@ -11354,7 +11240,7 @@ void calcHash::thread_str_79_ce1() {
 void calcHash::thread_str_79_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_4F)))) {
         str_79_we1 = ap_const_logic_1;
     } else {
@@ -11382,7 +11268,7 @@ void calcHash::thread_str_7_ce0() {
 
 void calcHash::thread_str_7_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_7_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_7_ce1 = grp_calcHash_rollingHash_fu_2804_str_7_ce1.read();
@@ -11394,7 +11280,7 @@ void calcHash::thread_str_7_ce1() {
 void calcHash::thread_str_7_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_7)))) {
         str_7_we1 = ap_const_logic_1;
     } else {
@@ -11422,7 +11308,7 @@ void calcHash::thread_str_80_ce0() {
 
 void calcHash::thread_str_80_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_80_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_80_ce1 = grp_calcHash_rollingHash_fu_2804_str_80_ce1.read();
@@ -11434,7 +11320,7 @@ void calcHash::thread_str_80_ce1() {
 void calcHash::thread_str_80_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_50)))) {
         str_80_we1 = ap_const_logic_1;
     } else {
@@ -11462,7 +11348,7 @@ void calcHash::thread_str_81_ce0() {
 
 void calcHash::thread_str_81_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_81_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_81_ce1 = grp_calcHash_rollingHash_fu_2804_str_81_ce1.read();
@@ -11474,7 +11360,7 @@ void calcHash::thread_str_81_ce1() {
 void calcHash::thread_str_81_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_51)))) {
         str_81_we1 = ap_const_logic_1;
     } else {
@@ -11502,7 +11388,7 @@ void calcHash::thread_str_82_ce0() {
 
 void calcHash::thread_str_82_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_82_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_82_ce1 = grp_calcHash_rollingHash_fu_2804_str_82_ce1.read();
@@ -11514,7 +11400,7 @@ void calcHash::thread_str_82_ce1() {
 void calcHash::thread_str_82_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_52)))) {
         str_82_we1 = ap_const_logic_1;
     } else {
@@ -11542,7 +11428,7 @@ void calcHash::thread_str_83_ce0() {
 
 void calcHash::thread_str_83_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_83_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_83_ce1 = grp_calcHash_rollingHash_fu_2804_str_83_ce1.read();
@@ -11554,7 +11440,7 @@ void calcHash::thread_str_83_ce1() {
 void calcHash::thread_str_83_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_53)))) {
         str_83_we1 = ap_const_logic_1;
     } else {
@@ -11582,7 +11468,7 @@ void calcHash::thread_str_84_ce0() {
 
 void calcHash::thread_str_84_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_84_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_84_ce1 = grp_calcHash_rollingHash_fu_2804_str_84_ce1.read();
@@ -11594,7 +11480,7 @@ void calcHash::thread_str_84_ce1() {
 void calcHash::thread_str_84_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_54)))) {
         str_84_we1 = ap_const_logic_1;
     } else {
@@ -11622,7 +11508,7 @@ void calcHash::thread_str_85_ce0() {
 
 void calcHash::thread_str_85_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_85_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_85_ce1 = grp_calcHash_rollingHash_fu_2804_str_85_ce1.read();
@@ -11634,7 +11520,7 @@ void calcHash::thread_str_85_ce1() {
 void calcHash::thread_str_85_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_55)))) {
         str_85_we1 = ap_const_logic_1;
     } else {
@@ -11662,7 +11548,7 @@ void calcHash::thread_str_86_ce0() {
 
 void calcHash::thread_str_86_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_86_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_86_ce1 = grp_calcHash_rollingHash_fu_2804_str_86_ce1.read();
@@ -11674,7 +11560,7 @@ void calcHash::thread_str_86_ce1() {
 void calcHash::thread_str_86_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_56)))) {
         str_86_we1 = ap_const_logic_1;
     } else {
@@ -11702,7 +11588,7 @@ void calcHash::thread_str_87_ce0() {
 
 void calcHash::thread_str_87_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_87_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_87_ce1 = grp_calcHash_rollingHash_fu_2804_str_87_ce1.read();
@@ -11714,7 +11600,7 @@ void calcHash::thread_str_87_ce1() {
 void calcHash::thread_str_87_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_57)))) {
         str_87_we1 = ap_const_logic_1;
     } else {
@@ -11742,7 +11628,7 @@ void calcHash::thread_str_88_ce0() {
 
 void calcHash::thread_str_88_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_88_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_88_ce1 = grp_calcHash_rollingHash_fu_2804_str_88_ce1.read();
@@ -11754,7 +11640,7 @@ void calcHash::thread_str_88_ce1() {
 void calcHash::thread_str_88_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_58)))) {
         str_88_we1 = ap_const_logic_1;
     } else {
@@ -11782,7 +11668,7 @@ void calcHash::thread_str_89_ce0() {
 
 void calcHash::thread_str_89_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_89_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_89_ce1 = grp_calcHash_rollingHash_fu_2804_str_89_ce1.read();
@@ -11794,7 +11680,7 @@ void calcHash::thread_str_89_ce1() {
 void calcHash::thread_str_89_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_59)))) {
         str_89_we1 = ap_const_logic_1;
     } else {
@@ -11822,7 +11708,7 @@ void calcHash::thread_str_8_ce0() {
 
 void calcHash::thread_str_8_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_8_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_8_ce1 = grp_calcHash_rollingHash_fu_2804_str_8_ce1.read();
@@ -11834,7 +11720,7 @@ void calcHash::thread_str_8_ce1() {
 void calcHash::thread_str_8_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_8)))) {
         str_8_we1 = ap_const_logic_1;
     } else {
@@ -11862,7 +11748,7 @@ void calcHash::thread_str_90_ce0() {
 
 void calcHash::thread_str_90_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_90_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_90_ce1 = grp_calcHash_rollingHash_fu_2804_str_90_ce1.read();
@@ -11874,7 +11760,7 @@ void calcHash::thread_str_90_ce1() {
 void calcHash::thread_str_90_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_5A)))) {
         str_90_we1 = ap_const_logic_1;
     } else {
@@ -11902,7 +11788,7 @@ void calcHash::thread_str_91_ce0() {
 
 void calcHash::thread_str_91_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_91_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_91_ce1 = grp_calcHash_rollingHash_fu_2804_str_91_ce1.read();
@@ -11914,7 +11800,7 @@ void calcHash::thread_str_91_ce1() {
 void calcHash::thread_str_91_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_5B)))) {
         str_91_we1 = ap_const_logic_1;
     } else {
@@ -11942,7 +11828,7 @@ void calcHash::thread_str_92_ce0() {
 
 void calcHash::thread_str_92_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_92_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_92_ce1 = grp_calcHash_rollingHash_fu_2804_str_92_ce1.read();
@@ -11954,7 +11840,7 @@ void calcHash::thread_str_92_ce1() {
 void calcHash::thread_str_92_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_5C)))) {
         str_92_we1 = ap_const_logic_1;
     } else {
@@ -11982,7 +11868,7 @@ void calcHash::thread_str_93_ce0() {
 
 void calcHash::thread_str_93_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_93_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_93_ce1 = grp_calcHash_rollingHash_fu_2804_str_93_ce1.read();
@@ -11994,7 +11880,7 @@ void calcHash::thread_str_93_ce1() {
 void calcHash::thread_str_93_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_5D)))) {
         str_93_we1 = ap_const_logic_1;
     } else {
@@ -12022,7 +11908,7 @@ void calcHash::thread_str_94_ce0() {
 
 void calcHash::thread_str_94_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_94_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_94_ce1 = grp_calcHash_rollingHash_fu_2804_str_94_ce1.read();
@@ -12034,7 +11920,7 @@ void calcHash::thread_str_94_ce1() {
 void calcHash::thread_str_94_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_5E)))) {
         str_94_we1 = ap_const_logic_1;
     } else {
@@ -12062,7 +11948,7 @@ void calcHash::thread_str_95_ce0() {
 
 void calcHash::thread_str_95_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_95_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_95_ce1 = grp_calcHash_rollingHash_fu_2804_str_95_ce1.read();
@@ -12074,7 +11960,7 @@ void calcHash::thread_str_95_ce1() {
 void calcHash::thread_str_95_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_5F)))) {
         str_95_we1 = ap_const_logic_1;
     } else {
@@ -12102,7 +11988,7 @@ void calcHash::thread_str_96_ce0() {
 
 void calcHash::thread_str_96_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_96_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_96_ce1 = grp_calcHash_rollingHash_fu_2804_str_96_ce1.read();
@@ -12114,7 +12000,7 @@ void calcHash::thread_str_96_ce1() {
 void calcHash::thread_str_96_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_60)))) {
         str_96_we1 = ap_const_logic_1;
     } else {
@@ -12142,7 +12028,7 @@ void calcHash::thread_str_97_ce0() {
 
 void calcHash::thread_str_97_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_97_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_97_ce1 = grp_calcHash_rollingHash_fu_2804_str_97_ce1.read();
@@ -12154,7 +12040,7 @@ void calcHash::thread_str_97_ce1() {
 void calcHash::thread_str_97_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_61)))) {
         str_97_we1 = ap_const_logic_1;
     } else {
@@ -12182,7 +12068,7 @@ void calcHash::thread_str_98_ce0() {
 
 void calcHash::thread_str_98_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_98_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_98_ce1 = grp_calcHash_rollingHash_fu_2804_str_98_ce1.read();
@@ -12194,7 +12080,7 @@ void calcHash::thread_str_98_ce1() {
 void calcHash::thread_str_98_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_62)))) {
         str_98_we1 = ap_const_logic_1;
     } else {
@@ -12222,7 +12108,7 @@ void calcHash::thread_str_99_ce0() {
 
 void calcHash::thread_str_99_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_99_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_99_ce1 = grp_calcHash_rollingHash_fu_2804_str_99_ce1.read();
@@ -12234,7 +12120,7 @@ void calcHash::thread_str_99_ce1() {
 void calcHash::thread_str_99_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_63)))) {
         str_99_we1 = ap_const_logic_1;
     } else {
@@ -12262,7 +12148,7 @@ void calcHash::thread_str_9_ce0() {
 
 void calcHash::thread_str_9_ce1() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
-         !ap_sig_108.read())) {
+         !ap_sig_59.read())) {
         str_9_ce1 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st4_fsm_3.read())) {
         str_9_ce1 = grp_calcHash_rollingHash_fu_2804_str_9_ce1.read();
@@ -12274,7 +12160,7 @@ void calcHash::thread_str_9_ce1() {
 void calcHash::thread_str_9_we1() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_sig_cseq_ST_st2_fsm_1.read()) && 
           esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && 
-          !ap_sig_108.read() && 
+          !ap_sig_59.read() && 
           esl_seteq<1,7,7>(tmp_1818_fu_2948_p1.read(), ap_const_lv7_9)))) {
         str_9_we1 = ap_const_logic_1;
     } else {
@@ -12289,16 +12175,12 @@ void calcHash::thread_tmp_1818_fu_2948_p1() {
 void calcHash::thread_ap_NS_fsm() {
     switch (ap_CS_fsm.read().to_uint64()) {
         case 1 : 
-            if (!esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0)) {
-                ap_NS_fsm = ap_ST_st2_fsm_1;
-            } else {
-                ap_NS_fsm = ap_ST_st1_fsm_0;
-            }
+            ap_NS_fsm = ap_ST_st2_fsm_1;
             break;
         case 2 : 
-            if ((esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && !ap_sig_108.read())) {
+            if ((esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0) && !ap_sig_59.read())) {
                 ap_NS_fsm = ap_ST_st2_fsm_1;
-            } else if ((!ap_sig_108.read() && !esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0))) {
+            } else if ((!ap_sig_59.read() && !esl_seteq<1,1,1>(exitcond1_fu_2936_p2.read(), ap_const_lv1_0))) {
                 ap_NS_fsm = ap_ST_st3_fsm_2;
             } else {
                 ap_NS_fsm = ap_ST_st2_fsm_1;
@@ -12355,24 +12237,6 @@ void calcHash::thread_hdltv_gen() {
         mHdltvoutHandle << " , " <<  " \"indicesStream_TVALID\" :  \"" << indicesStream_TVALID.read() << "\" ";
         mHdltvinHandle << " , " <<  " \"indicesStream_TREADY\" :  \"" << indicesStream_TREADY.read() << "\" ";
         mHdltvoutHandle << " , " <<  " \"indicesStream_TLAST\" :  \"" << indicesStream_TLAST.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_AXILiteS_AWVALID\" :  \"" << s_axi_AXILiteS_AWVALID.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"s_axi_AXILiteS_AWREADY\" :  \"" << s_axi_AXILiteS_AWREADY.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_AXILiteS_AWADDR\" :  \"" << s_axi_AXILiteS_AWADDR.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_AXILiteS_WVALID\" :  \"" << s_axi_AXILiteS_WVALID.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"s_axi_AXILiteS_WREADY\" :  \"" << s_axi_AXILiteS_WREADY.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_AXILiteS_WDATA\" :  \"" << s_axi_AXILiteS_WDATA.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_AXILiteS_WSTRB\" :  \"" << s_axi_AXILiteS_WSTRB.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_AXILiteS_ARVALID\" :  \"" << s_axi_AXILiteS_ARVALID.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"s_axi_AXILiteS_ARREADY\" :  \"" << s_axi_AXILiteS_ARREADY.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_AXILiteS_ARADDR\" :  \"" << s_axi_AXILiteS_ARADDR.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"s_axi_AXILiteS_RVALID\" :  \"" << s_axi_AXILiteS_RVALID.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_AXILiteS_RREADY\" :  \"" << s_axi_AXILiteS_RREADY.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"s_axi_AXILiteS_RDATA\" :  \"" << s_axi_AXILiteS_RDATA.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"s_axi_AXILiteS_RRESP\" :  \"" << s_axi_AXILiteS_RRESP.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"s_axi_AXILiteS_BVALID\" :  \"" << s_axi_AXILiteS_BVALID.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_AXILiteS_BREADY\" :  \"" << s_axi_AXILiteS_BREADY.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"s_axi_AXILiteS_BRESP\" :  \"" << s_axi_AXILiteS_BRESP.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"interrupt\" :  \"" << interrupt.read() << "\" ";
         mHdltvinHandle << "}" << std::endl;
         mHdltvoutHandle << "}" << std::endl;
         ap_cycleNo++;

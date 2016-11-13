@@ -54,7 +54,7 @@ void rollingHash(char str[BUFFER_LEN], int indices[3]){
 
 void calcHash(hls::stream<char> &strStream,
 		hls::stream<ap_item> &indicesStream){
-#pragma HLS INTERFACE s_axilite register port=return
+#pragma HLS INTERFACE ap_ctrl_none register port=return
 #pragma HLS INTERFACE axis port=indicesStream
 #pragma HLS INTERFACE axis port=strStream
 	char str[BUFFER_LEN];
