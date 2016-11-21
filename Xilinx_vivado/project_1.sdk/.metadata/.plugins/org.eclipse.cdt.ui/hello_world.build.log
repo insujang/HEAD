@@ -1,0 +1,21 @@
+15:10:28 **** Auto Build of configuration Debug for project hello_world ****
+make all 
+Building file: ../src/main.cc
+Invoking: ARM v7 Linux g++ compiler
+arm-linux-gnueabihf-g++ -Wall -O0 -g3 -I"/home/insujang/cs710/petalinux/petalinux_customip/customip_integration/build/linux/rootfs/stage/lib" -c -fmessage-length=0 -MT"src/main.o" -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cc"
+Finished building: ../src/main.cc
+ 
+Building target: hello_world.elf
+Invoking: ARM v7 Linux g++ linker
+arm-linux-gnueabihf-g++ -L"/home/insujang/cs710/petalinux/petalinux_customip/customip_integration/build/linux/rootfs/stage/lib" -o "hello_world.elf"  ./src/main.o   
+Finished building target: hello_world.elf
+ 
+Invoking: ARM v7 Linux Print Size
+arm-linux-gnueabihf-size hello_world.elf  |tee "hello_world.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   1853	    332	    148	   2333	    91d	hello_world.elf
+Finished building: hello_world.elf.size
+ 
+
+15:10:28 Build Finished (took 227ms)
+
