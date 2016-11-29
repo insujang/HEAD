@@ -114,3 +114,19 @@ This command will create `BOOT.BIN` file in the same directory.
 ### 8. Booting from SD card
 Copy `BOOT.BIN` and `image.ub` into your SD card and boot Zedboard with it.
 You should set jumpers JP9 and JP10 up to make your Zedboard boot from SD card.
+
+### 9. Import our kernel module
+After booting it, initialize our `hello` module via the following command.
+```
+$ modprobe hello
+```
+You should see some kind of messages similar to:
+```
+<1>Hello module word.
+Successfully get a range of minor numbers.
+Successfully created device class.
+Successfully created a device.
+Successfully created a character device.
+hello 43c00000.adder: Device Tree Probing
+hello 43c00000.adder: hello at 0x43c00000 mapped to 0xe09c0000, irq=164
+```
