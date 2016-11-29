@@ -275,7 +275,9 @@ static int __init hello_init(void)
 static void __exit hello_exit(void)
 {
     cdev_del(&cdevice);
-    unregister_chrdev(dev, DRIVER_NAME);
+    device_destroy(chardevice_class, dev);
+    class_destroy(chardevice_class);
+    unregister_chrdev_region(dev, 1);
 	platform_driver_unregister(&hello_driver);
 	printk(KERN_ALERT "Goodbye module world.\n");
 }
