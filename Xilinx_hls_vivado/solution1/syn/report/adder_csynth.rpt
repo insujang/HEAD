@@ -1,0 +1,164 @@
+
+
+================================================================
+== Vivado HLS Report for 'adder'
+================================================================
+* Date:           Tue Nov 29 15:36:52 2016
+
+* Version:        2016.2 (Build 1577090 on Thu Jun 02 16:59:10 MDT 2016)
+* Project:        sum
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      2.44|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    7|    7|    8|    8|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |    5|    5|         1|          -|          -|     5|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
++-----------------+---------+-------+--------+-------+
+|DSP              |        -|      -|       -|      -|
+|Expression       |        -|      -|       0|     38|
+|FIFO             |        -|      -|       -|      -|
+|Instance         |        0|      -|      36|     40|
+|Memory           |        -|      -|       -|      -|
+|Multiplexer      |        -|      -|       -|      7|
+|Register         |        -|      -|       7|      -|
++-----------------+---------+-------+--------+-------+
+|Total            |        0|      0|      43|     85|
++-----------------+---------+-------+--------+-------+
+|Available        |      280|    220|  106400|  53200|
++-----------------+---------+-------+--------+-------+
+|Utilization (%)  |        0|      0|   ~0   |   ~0  |
++-----------------+---------+-------+--------+-------+
+
++ Detail: 
+    * Instance: 
+    +------------------------+----------------------+---------+-------+----+----+
+    |        Instance        |        Module        | BRAM_18K| DSP48E| FF | LUT|
+    +------------------------+----------------------+---------+-------+----+----+
+    |adder_AXILiteS_s_axi_U  |adder_AXILiteS_s_axi  |        0|      0|  36|  40|
+    +------------------------+----------------------+---------+-------+----+----+
+    |Total                   |                      |        0|      0|  36|  40|
+    +------------------------+----------------------+---------+-------+----+----+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-------------------+----------+-------+---+----+------------+------------+
+    |   Variable Name   | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-------------------+----------+-------+---+----+------------+------------+
+    |i_1_fu_79_p2       |     +    |      0|  0|   3|           3|           1|
+    |outStream_TDATA    |     +    |      0|  0|  32|          32|          32|
+    |ap_sig_88          |    and   |      0|  0|   1|           1|           1|
+    |exitcond_fu_73_p2  |   icmp   |      0|  0|   2|           3|           3|
+    +-------------------+----------+-------+---+----+------------+------------+
+    |Total              |          |      0|  0|  38|          39|          37|
+    +-------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +---------------------------------+----+-----------+-----+-----------+
+    |               Name              | LUT| Input Size| Bits| Total Bits|
+    +---------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                        |   1|          4|    1|          4|
+    |ap_sig_ioackin_outStream_TREADY  |   1|          2|    1|          2|
+    |i_reg_58                         |   3|          2|    3|          6|
+    |inStream_TDATA_blk_n             |   1|          2|    1|          2|
+    |outStream_TDATA_blk_n            |   1|          2|    1|          2|
+    +---------------------------------+----+-----------+-----+-----------+
+    |Total                            |   7|         12|    7|         16|
+    +---------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +---------------------------------+---+----+-----+-----------+
+    |               Name              | FF| LUT| Bits| Const Bits|
+    +---------------------------------+---+----+-----+-----------+
+    |ap_CS_fsm                        |  3|   0|    3|          0|
+    |ap_reg_ioackin_outStream_TREADY  |  1|   0|    1|          0|
+    |i_reg_58                         |  3|   0|    3|          0|
+    +---------------------------------+---+----+-----+-----------+
+    |Total                            |  7|   0|    7|          0|
+    +---------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------+-----+-----+------------+--------------------+--------------+
+|        RTL Ports       | Dir | Bits|  Protocol  |    Source Object   |    C Type    |
++------------------------+-----+-----+------------+--------------------+--------------+
+|s_axi_AXILiteS_AWVALID  |  in |    1|    s_axi   |      AXILiteS      |  return void |
+|s_axi_AXILiteS_AWREADY  | out |    1|    s_axi   |      AXILiteS      |  return void |
+|s_axi_AXILiteS_AWADDR   |  in |    4|    s_axi   |      AXILiteS      |  return void |
+|s_axi_AXILiteS_WVALID   |  in |    1|    s_axi   |      AXILiteS      |  return void |
+|s_axi_AXILiteS_WREADY   | out |    1|    s_axi   |      AXILiteS      |  return void |
+|s_axi_AXILiteS_WDATA    |  in |   32|    s_axi   |      AXILiteS      |  return void |
+|s_axi_AXILiteS_WSTRB    |  in |    4|    s_axi   |      AXILiteS      |  return void |
+|s_axi_AXILiteS_ARVALID  |  in |    1|    s_axi   |      AXILiteS      |  return void |
+|s_axi_AXILiteS_ARREADY  | out |    1|    s_axi   |      AXILiteS      |  return void |
+|s_axi_AXILiteS_ARADDR   |  in |    4|    s_axi   |      AXILiteS      |  return void |
+|s_axi_AXILiteS_RVALID   | out |    1|    s_axi   |      AXILiteS      |  return void |
+|s_axi_AXILiteS_RREADY   |  in |    1|    s_axi   |      AXILiteS      |  return void |
+|s_axi_AXILiteS_RDATA    | out |   32|    s_axi   |      AXILiteS      |  return void |
+|s_axi_AXILiteS_RRESP    | out |    2|    s_axi   |      AXILiteS      |  return void |
+|s_axi_AXILiteS_BVALID   | out |    1|    s_axi   |      AXILiteS      |  return void |
+|s_axi_AXILiteS_BREADY   |  in |    1|    s_axi   |      AXILiteS      |  return void |
+|s_axi_AXILiteS_BRESP    | out |    2|    s_axi   |      AXILiteS      |  return void |
+|ap_clk                  |  in |    1| ap_ctrl_hs |        adder       | return value |
+|ap_rst_n                |  in |    1| ap_ctrl_hs |        adder       | return value |
+|interrupt               | out |    1| ap_ctrl_hs |        adder       | return value |
+|inStream_TDATA          |  in |   32|    axis    |   inStream_V_data  |    pointer   |
+|inStream_TVALID         |  in |    1|    axis    |   inStream_V_data  |    pointer   |
+|inStream_TREADY         | out |    1|    axis    |  inStream_V_last_V |    pointer   |
+|inStream_TLAST          |  in |    1|    axis    |  inStream_V_last_V |    pointer   |
+|outStream_TDATA         | out |   32|    axis    |  outStream_V_data  |    pointer   |
+|outStream_TVALID        | out |    1|    axis    | outStream_V_last_V |    pointer   |
+|outStream_TREADY        |  in |    1|    axis    | outStream_V_last_V |    pointer   |
+|outStream_TLAST         | out |    1|    axis    | outStream_V_last_V |    pointer   |
++------------------------+-----+-----+------------+--------------------+--------------+
+

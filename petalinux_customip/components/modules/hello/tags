@@ -1,0 +1,31 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+DRIVER_NAME	hello.c	24;"	d	file:
+Fops	hello.c	/^static struct file_operations Fops = {$/;"	v	typeref:struct:file_operations	file:
+KERNEL_BUILD	Makefile	/^KERNEL_BUILD:=$(PROOT)\/build\/$(LINUX_KERNEL)$/;"	m
+LOCALPWD	Makefile	/^LOCALPWD=$(shell pwd)$/;"	m
+base_addr	hello.c	/^	void __iomem *base_addr;$/;"	m	struct:hello_local	file:
+device_ioctl	hello.c	/^int device_ioctl(struct file *file, unsigned int ioctl_num, unsigned long ioctl_param){$/;"	f
+device_open	hello.c	/^static int device_open(struct inode *inode, struct file *file){$/;"	f	file:
+device_read	hello.c	/^static ssize_t device_read(struct file *file, char __user *buffer,$/;"	f	file:
+device_release	hello.c	/^static int device_release(struct inode *inode, struct file *file){$/;"	f	file:
+device_write	hello.c	/^static ssize_t device_write(struct file *file, const char __user *buffer,$/;"	f	file:
+hello_driver	hello.c	/^static struct platform_driver hello_driver = {$/;"	v	typeref:struct:platform_driver	file:
+hello_exit	hello.c	/^module_exit(hello_exit);$/;"	v
+hello_exit	hello.c	/^static void __exit hello_exit(void)$/;"	f	file:
+hello_init	hello.c	/^module_init(hello_init);$/;"	v
+hello_init	hello.c	/^static int __init hello_init(void)$/;"	f	file:
+hello_irq	hello.c	/^static irqreturn_t hello_irq(int irq, void *lp)$/;"	f	file:
+hello_local	hello.c	/^struct hello_local {$/;"	s	file:
+hello_of_match	hello.c	/^static struct of_device_id hello_of_match[] = {$/;"	v	typeref:struct:of_device_id	file:
+hello_of_match	hello.c	135;"	d	file:
+hello_probe	hello.c	/^static int hello_probe(struct platform_device *pdev)$/;"	f	file:
+hello_remove	hello.c	/^static int hello_remove(struct platform_device *pdev)$/;"	f	file:
+irq	hello.c	/^	int irq;$/;"	m	struct:hello_local	file:
+major_num	hello.c	/^static int major_num;$/;"	v	file:
+mem_end	hello.c	/^	unsigned long mem_end;$/;"	m	struct:hello_local	file:
+mem_start	hello.c	/^	unsigned long mem_start;$/;"	m	struct:hello_local	file:

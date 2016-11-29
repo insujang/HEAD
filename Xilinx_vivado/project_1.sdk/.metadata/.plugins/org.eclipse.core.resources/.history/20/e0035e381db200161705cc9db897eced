@@ -1,0 +1,10 @@
+/*
+ * Empty C++ Application
+ */
+
+#include <iostream>
+
+int main()
+{
+	return 0;
+}

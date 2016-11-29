@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="adder.cpp" path="/home/insujang/cs710/xilinx_hls_workspace/sum/solution1/adder.cpp"/>
+    <originFiles name="adder.h" path="/home/insujang/cs710/xilinx_hls_workspace/sum/solution1/adder.h"/>
+  </source>
+  <testbench>
+    <originFiles name="adder_test.cpp" path="/home/insujang/cs710/xilinx_hls_workspace/sum/solution1/adder_test.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

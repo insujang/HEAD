@@ -1,0 +1,13 @@
+19:23:47 **** Auto Build of configuration Debug for project test3 ****
+make all 
+Building file: ../src/main.cc
+Invoking: ARM A53 Linux g++ compiler
+aarch64-linux-gnu-g++ -Wall -O0 -g3 -I"/home/insujang/cs710/petalinux/petalinux_customip/build/linux/rootfs/stage/lib" -c -fmessage-length=0 -MT"src/main.o" -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cc"
+../src/main.cc:5:29: fatal error: linux/dmaengine.h: No such file or directory
+ #include <linux/dmaengine.h>
+                             ^
+compilation terminated.
+make: *** [src/main.o] Error 1
+
+19:23:47 Build Finished (took 74ms)
+

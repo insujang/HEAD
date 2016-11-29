@@ -1,5 +1,0 @@
-   Build using "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/bin/g++"
-   Compiling apatb_calcHash.cpp
-   Compiling get.cpp_pre.cpp.tb.cpp
-   Compiling get_test.cpp_pre.cpp.tb.cpp
-   Generating cosim.tv.exe

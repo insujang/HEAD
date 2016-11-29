@@ -1,7 +1,0 @@
-   Compiling ../../../../get_test.cpp in debug mode
-   Compiling ../../../../get.cpp in debug mode
-   Generating csim.exe
-[1] expected 957, got 957
-[2] expected 1974, got 1974
-[3] expected 3028, got 3028
-INFO: [SIM 1] CSim done with 0 errors.
