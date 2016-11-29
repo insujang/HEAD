@@ -4,3 +4,6 @@
 [submodule "lib/sha1"]
 	path = lib/sha1
 	url = https://github.com/mohaps/TinySHA1
+[submodule "petalinux_module/axidma/xilinx_axidma"]
+	path = petalinux_module/axidma/xilinx_axidma
+	url = https://github.com/bperez77/xilinx_axidma
