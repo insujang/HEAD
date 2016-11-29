@@ -1,1 +1,0 @@
-/usr/bin/c++   -g   CMakeFiles/axidma_test.dir/main.cpp.o  -o axidma_test 

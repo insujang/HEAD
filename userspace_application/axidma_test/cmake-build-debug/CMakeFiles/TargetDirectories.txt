@@ -1,3 +1,0 @@
-/home/insujang/ClionProjects/axidma_test/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/insujang/ClionProjects/axidma_test/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/insujang/ClionProjects/axidma_test/cmake-build-debug/CMakeFiles/axidma_test.dir
