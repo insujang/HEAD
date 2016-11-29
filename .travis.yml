@@ -10,7 +10,7 @@ before_install:
   - git submodule update --init --recursive
 
 install:
-  - cmake .
+  - cmake SW
 
 script:  
   - make

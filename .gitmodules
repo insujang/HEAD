@@ -1,8 +1,8 @@
 [submodule "lib/leveldb"]
-	path = lib/leveldb
+	path = SW/lib/leveldb
 	url = https://github.com/google/leveldb
 [submodule "lib/sha1"]
-	path = lib/sha1
+	path = SW/lib/sha1
 	url = https://github.com/mohaps/TinySHA1
 [submodule "petalinux_module/axidma/xilinx_axidma"]
 	path = FPGA/petalinux_module/axidma/xilinx_axidma
