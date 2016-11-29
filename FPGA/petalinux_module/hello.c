@@ -17,7 +17,6 @@
 #include <linux/types.h>
 #include <asm/io.h>
 
-
 /* Standard module information, edit as appropriate */
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR
@@ -36,12 +35,14 @@ struct hello_local {
 
 struct hello_local *lp = NULL;
 
+
 //static irqreturn_t hello_irq(int irq, void *lp, struct pt_regs *regs)
 static irqreturn_t hello_irq(int irq, void *lp)
 {
 	printk("hello interrupt. irq: %d\n", irq);
     // Clear the interrupt by writing any value to the interrupt status register (ISR).
     iowrite32(1, ((struct hello_local *)lp)->base_addr + 0xc);	
+
     return IRQ_HANDLED;
 }
 
@@ -112,6 +113,7 @@ static int hello_probe(struct platform_device *pdev)
 		(unsigned int __force)lp->mem_start,
 		(unsigned int __force)lp->base_addr,
 		lp->irq);
+
 	return 0;
 error3:
 	free_irq(lp->irq, lp);
@@ -272,6 +274,7 @@ static int __init hello_init(void)
 
 static void __exit hello_exit(void)
 {
+    cdev_del(&cdevice);
     unregister_chrdev(dev, DRIVER_NAME);
 	platform_driver_unregister(&hello_driver);
 	printk(KERN_ALERT "Goodbye module world.\n");

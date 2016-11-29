@@ -130,3 +130,10 @@ Successfully created a character device.
 hello 43c00000.adder: Device Tree Probing
 hello 43c00000.adder: hello at 0x43c00000 mapped to 0xe09c0000, irq=164
 ```
+
+
+### Preliminary
+1. [Registering an Interrupt Handler](www.makelinux.net/books/lkd2/ch06lev1sec3) 
+2. [Using I/O memory](www.makelinux.net/ldd3/chp-6-sect-4) 
+3. [Xilinx AXI DMA driver and library](https://gituhb.com/bperez77/xilinx_axidma) 
+4. [Introduction to character device drivers](https://wr.informatik.uni-hamburg.de/_media/teaching/wintersemester_2015_2016/kp-2015-16-character_device_drivers_slides.pdf) 
