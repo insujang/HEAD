@@ -9,7 +9,7 @@
 #define BUFFER_LEN 8192
 #define INDICES_NUM 7
 
-uint32_t murmurhash (char* key, uint32_t, uint32_t);
+uint32_t murmurhash ( char* key, uint32_t len, uint32_t seed);
 void calcHash(char str[BUFFER_LEN], int indices[INDICES_NUM]);
 
 

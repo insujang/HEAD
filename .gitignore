@@ -4,3 +4,4 @@
 *.so
 *.save
 .idea/
+*.log

@@ -18,6 +18,7 @@ struct ap_item{
 
 void extractIndices(int hash[BUFFER_LEN-WINDOW_LEN+1], int indices[INDICES_NUM]){
 	int i, j;
+
 	for(i=0; i<WINDOW_LEN; i++){
 #pragma HLS PIPELINE
 		for(j=0; j<INDICES_NUM; j++){
@@ -32,14 +33,16 @@ void rollingHash(char str[BUFFER_LEN], int hash[BUFFER_LEN-WINDOW_LEN+1]){
 	int i, j;
 	int sum = 0;
 
+	calculateFirstHash:
 	for(i=0; i<WINDOW_LEN; i++){
 #pragma HLS PIPELINE II=1
 		sum += str[i];
 	}
 	hash[0] = sum;
 
-	for(i=1; i<BUFFER_LEN-WINDOW_LEN+1; i++){
-#pragma HLS UNROLL skip_exit_check factor=2
+	roleHash:
+	for(i=1; i<BUFFER_LEN-WINDOW_LEN; i++){
+#pragma HLS UNROLL factor=2
 #pragma HLS PIPELINE II=1
 		sum = sum + str[i+WINDOW_LEN-1] - str[i-1];
 		hash[i] = sum;
@@ -49,8 +52,8 @@ void rollingHash(char str[BUFFER_LEN], int hash[BUFFER_LEN-WINDOW_LEN+1]){
 
 void calcHash(char str[BUFFER_LEN], int indices[INDICES_NUM]){
 
-	int hash[BUFFER_LEN - WINDOW_LEN + 1];
-#pragma HLS RESOURCE variable=hash core=RAM_2P_BRAM
+	int hash[BUFFER_LEN - WINDOW_LEN];
+#pragma HLS RESOURCE variable=hash core=RAM_T2P_BRAM
 #pragma HLS ARRAY_PARTITION variable=hash cyclic factor=128 dim=1
 
 	// calculate all hashes
@@ -59,83 +62,76 @@ void calcHash(char str[BUFFER_LEN], int indices[INDICES_NUM]){
 	// extract condition satisfied index
 	extractIndices(hash, indices);
 
-
 }
 
+#define c1 0xcc9e2d51
+#define c2 0x1b873593
+#define r1 15
+#define r2 13
+#define m 5
+#define n 0xe6546b64
 
 
-uint32_t
-murmurhash ( char* key, uint32_t len, uint32_t seed) {
+uint32_t murmurhash ( char* key, uint32_t len, uint32_t seed) {
 #pragma HLS INLINE off
-  uint32_t c1 = 0xcc9e2d51;
-  uint32_t c2 = 0x1b873593;
-  uint32_t r1 = 15;
-  uint32_t r2 = 13;
-  uint32_t m = 5;
-  uint32_t n = 0xe6546b64;
-  uint32_t h = 0;
-  uint32_t k = 0;
-  uint8_t *d = (uint8_t *) key; // 32 bit extract from `key'
-  const uint32_t *chunks = NULL;
+  uint32_t hash = seed;
 
-  const uint8_t *tail = NULL; // tail - last 8 bytes
-  int i = 0;
-
-  uint32_t chunk;
-
-  int l = len / 4; // chunk length
-  int kValues[BUFFER_LEN/4];
+  uint32_t kValues[BUFFER_LEN/4];
   int kItr = 0;
-
-  h = seed;
-
-  tail = (const uint8_t *) (d + l * 4); // last 8 byte chunk of `key'
 
   murmurHashInit:
   // for each 4 byte chunk of `key'
-  for(int j = 0; j < len; j+=4){
+  for(int i = 0; i < len; i+=4){
 #pragma HLS LOOP_TRIPCOUNT max=2048
-#pragma HLS UNROLL factor=64
+// UNROLL directive cannot be applied due to dependency to kItr.
+//#pragma HLS UNROLL factor=16
 #pragma HLS PIPELINE
-	  k = (key[j] << 24) + (key[j+1] << 16) + (key[j+2] << 8) + (key[j+3]);
+	  // little endian
+	  uint32_t k = (key[i+3] << 24) + (key[i+2] << 16) + (key[i+1] << 8) + (key[i]);
 	  k *= c1;
 	  k = (k << r1) | (k >> (32 - r1));
 	  k *= c2;
 
-	  kValues[kItr] = k;
-	  kItr++;
+	  kValues[kItr++] = k;
   }
 
-  for(i = 0 ; i < kItr; i++){
+  murmurHashCalc:
+  for(int i = 0 ; i < kItr; i++){
+#pragma HLS PIPELINE
+// UNROLL directive cannot be applied due to dependency to hash.
 #pragma HLS LOOP_TRIPCOUNT max=512
-	  h ^= kValues[i];
-	  h = (h << r2) | (h >> (32 - r2));
-	  h = h * m + n;
+	  hash ^= kValues[i];
+	  hash = (hash << r2) | (hash >> (32 - r2));
+	  hash = hash * m + n;
   }
 
-  k = 0;
-
+  // tail: last 8 byte chunk of key
+  // How to calculate the byte index:
+  // (len / 4) * 4 = len - (len % 4) = len - (len & 3)
+  const uint8_t *tail = (const uint8_t *) (key + len - (len & 3));
+  int k = 0;
   // remainder
   switch (len & 3) { // `len % 4'
     case 3: k ^= (tail[2] << 16);
+    /* no break */
     case 2: k ^= (tail[1] << 8);
+    /* no break */
     case 1:
       k ^= tail[0];
       k *= c1;
       k = (k << r1) | (k >> (32 - r1));
       k *= c2;
-      h ^= k;
+      hash ^= k;
   }
 
-  h ^= len;
+  hash ^= len;
+  hash ^= (hash >> 16);
+  hash *= 0x85ebca6b;
+  hash ^= (hash >> 13);
+  hash *= 0xc2b2ae35;
+  hash ^= (hash >> 16);
 
-  h ^= (h >> 16);
-  h *= 0x85ebca6b;
-  h ^= (h >> 13);
-  h *= 0xc2b2ae35;
-  h ^= (h >> 16);
-
-  return h;
+  return hash;
 }
 
 void dedupDriver(hls::stream<char>& inputData, hls::stream<ap_item>& outputData ){
@@ -144,11 +140,13 @@ void dedupDriver(hls::stream<char>& inputData, hls::stream<ap_item>& outputData 
 #pragma HLS INTERFACE s_axilite port=return
 
 	char buffer[BUFFER_LEN];
-#pragma HLS RESOURCE variable=buffer core=RAM_T2P_BRAM
+#pragma HLS RESOURCE variable=buffer core=RAM_2P_LUTRAM
 #pragma HLS ARRAY_PARTITION variable=buffer cyclic factor=128
 	int indices[INDICES_NUM];
+	memset(indices, 0, INDICES_NUM * sizeof(int));
 
 		// read stream data and save it to BRAM
+	readStream:
 	for(int i=0; i<BUFFER_LEN; i++){
 #pragma HLS PIPELINE II=1
 		buffer[i] = inputData.read();
@@ -157,7 +155,6 @@ void dedupDriver(hls::stream<char>& inputData, hls::stream<ap_item>& outputData 
 	/*
 	 *  Parse Data to create index
 	 */
-
 	calcHash(buffer, indices);
 
 	/*
@@ -166,21 +163,22 @@ void dedupDriver(hls::stream<char>& inputData, hls::stream<ap_item>& outputData 
 	unsigned int lastIndex = 0;
 	unsigned int dataLen = 0;
 	for(int i = 0; i < INDICES_NUM; i++){
-#pragma HLS PIPELINE II=1
+		// This for loop cannot be pipelined
+		// because murmurhash() cannot be partially unrolled due to this pipeline directive.
+		// #pragma HLS PIPELINE II=1
 
 		struct ap_item item;
 
 		if(indices[i] != 0){
 			dataLen = indices[i] - lastIndex;
 			item.data.hashData = murmurhash(&buffer[lastIndex], dataLen, 0);
-			item.data.index = indices[i];
 			lastIndex = indices[i];
 		}else{
 			item.data.hashData = 0;
-			item.data.index = 0;
 		}
+		item.data.index = indices[i];
 		item.last = (i == INDICES_NUM - 1 ? 1 : 0);
 		outputData.write(item);
-
 	}
+
 }

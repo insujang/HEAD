@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=c++11 -pg -g   -pg CMakeFiles/dedup.dir/src/main.cpp.o CMakeFiles/dedup.dir/src/DeduplicateFile.cpp.o CMakeFiles/dedup.dir/src/levelDBWrapper.cpp.o CMakeFiles/dedup.dir/src/RestoreFileDedup.cpp.o CMakeFiles/dedup.dir/src/getopt_pp.cpp.o  -o dedup -rdynamic ../lib/x86_64/libleveldb.a -lstdc++ -lm -lpthread -ldl -lsnappy 

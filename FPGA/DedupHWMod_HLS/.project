@@ -29,42 +29,52 @@
 		<link>
 			<name>source</name>
 			<type>2</type>
-			<location>/home/seikwon/Development/cs710/HEAD/FPGA/DedupHWMod_HLS/.apc/.src</location>
+			<location>/home/insujang/cs710/HEAD/FPGA/DedupHWMod_HLS/.apc/.src</location>
 		</link>
 		<link>
 			<name>testbench</name>
 			<type>2</type>
-			<location>/home/seikwon/Development/cs710/HEAD/FPGA/DedupHWMod_HLS/.apc/.tb</location>
+			<location>/home/insujang/cs710/HEAD/FPGA/DedupHWMod_HLS/.apc/.tb</location>
+		</link>
+		<link>
+			<name>.reference/c++0x_warning.h</name>
+			<type>1</type>
+			<location>/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/include/c++/4.6.3/bits/c++0x_warning.h</location>
 		</link>
 		<link>
 			<name>Dedup/constraints</name>
 			<type>2</type>
-			<location>/home/seikwon/Development/cs710/HEAD/FPGA/DedupHWMod_HLS/Dedup/.tcls</location>
+			<location>/home/insujang/cs710/HEAD/FPGA/DedupHWMod_HLS/Dedup/.tcls</location>
 		</link>
 		<link>
 			<name>source/dedup.cpp</name>
 			<type>1</type>
-			<location>/home/seikwon/Development/cs710/HEAD/FPGA/DedupHWMod_HLS/Dedup/dedup.cpp</location>
+			<location>/home/insujang/cs710/HEAD/FPGA/DedupHWMod_HLS/Dedup/dedup.cpp</location>
 		</link>
 		<link>
-			<name>testbench/dedup_test.c</name>
+			<name>source/dedup.h</name>
 			<type>1</type>
-			<location>/home/seikwon/Development/cs710/HEAD/FPGA/DedupHWMod_HLS/Dedup/dedup_test.c</location>
+			<location>/home/insujang/cs710/HEAD/FPGA/DedupHWMod_HLS/Dedup/dedup.h</location>
+		</link>
+		<link>
+			<name>testbench/dedup_test.cpp</name>
+			<type>1</type>
+			<location>/home/insujang/cs710/HEAD/FPGA/DedupHWMod_HLS/Dedup/dedup_test.cpp</location>
 		</link>
 		<link>
 			<name>Dedup/constraints/.xml.directive</name>
 			<type>1</type>
-			<location>/home/seikwon/Development/cs710/HEAD/FPGA/DedupHWMod_HLS/Dedup/Dedup.directive</location>
+			<location>/home/insujang/cs710/HEAD/FPGA/DedupHWMod_HLS/Dedup/Dedup.directive</location>
 		</link>
 		<link>
 			<name>Dedup/constraints/directives.tcl</name>
 			<type>1</type>
-			<location>/home/seikwon/Development/cs710/HEAD/FPGA/DedupHWMod_HLS/Dedup/directives.tcl</location>
+			<location>/home/insujang/cs710/HEAD/FPGA/DedupHWMod_HLS/Dedup/directives.tcl</location>
 		</link>
 		<link>
 			<name>Dedup/constraints/script.tcl</name>
 			<type>1</type>
-			<location>/home/seikwon/Development/cs710/HEAD/FPGA/DedupHWMod_HLS/Dedup/script.tcl</location>
+			<location>/home/insujang/cs710/HEAD/FPGA/DedupHWMod_HLS/Dedup/script.tcl</location>
 		</link>
 	</linkedResources>
 </projectDescription>
