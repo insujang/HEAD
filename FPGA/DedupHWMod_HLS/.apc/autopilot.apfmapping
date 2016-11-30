@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="dedup.cpp" path="/home/seikwon/Development/cs710/HEAD/FPGA/DedupHWMod_HLS/Dedup/dedup.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="dedup_test.c" path="/home/seikwon/Development/cs710/HEAD/FPGA/DedupHWMod_HLS/Dedup/dedup_test.c"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>
