@@ -1,4 +1,4 @@
-<project xmlns="com.autoesl.autopilot.project" top="dedupDriver" name="DedupHWMod_HLS">
+<project xmlns="com.autoesl.autopilot.project" name="DedupHWMod_HLS" top="dedupDriver">
     <includePaths/>
     <libraryPaths/>
     <Simulation>

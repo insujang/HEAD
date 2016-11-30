@@ -1,13 +1,10 @@
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <stdint.h>
+
+
+#include "dedup.h"
+
 #include "hls_stream.h"
 #include "ap_axi_sdata.h"
 
-#define WINDOW_LEN 1024
-#define BUFFER_LEN 8192
-#define INDICES_NUM 7
 
 struct rtn{
 	int index;
@@ -18,10 +15,6 @@ struct ap_item{
 	rtn data;
 	ap_uint<1> last;
 };
-
-
-uint32_t murmurhash (char* key, uint32_t, uint32_t);
-void calcHash(char str[BUFFER_LEN], int indices[INDICES_NUM]);
 
 void extractIndices(int hash[BUFFER_LEN-WINDOW_LEN+1], int indices[INDICES_NUM]){
 	int i, j;
@@ -84,32 +77,40 @@ murmurhash ( char* key, uint32_t len, uint32_t seed) {
   uint32_t k = 0;
   uint8_t *d = (uint8_t *) key; // 32 bit extract from `key'
   const uint32_t *chunks = NULL;
+
   const uint8_t *tail = NULL; // tail - last 8 bytes
   int i = 0;
 
+  uint32_t chunk;
+
   int l = len / 4; // chunk length
+  int kValues[BUFFER_LEN/4];
+  int kItr = 0;
 
   h = seed;
 
-  chunks = (const uint32_t *) (d + l * 4); // body
   tail = (const uint8_t *) (d + l * 4); // last 8 byte chunk of `key'
 
+  murmurHashInit:
   // for each 4 byte chunk of `key'
-  for (i = -l; i != 0; ++i) {
-//#pragma HLS UNROLL factor=15
+  for(int j = 0; j < len; j+=4){
+#pragma HLS LOOP_TRIPCOUNT max=2048
+#pragma HLS UNROLL factor=64
 #pragma HLS PIPELINE
-    // next 4 byte chunk of `key'
-    k = chunks[i];
+	  k = (key[j] << 24) + (key[j+1] << 16) + (key[j+2] << 8) + (key[j+3]);
+	  k *= c1;
+	  k = (k << r1) | (k >> (32 - r1));
+	  k *= c2;
 
-    // encode next 4 byte chunk of `key'
-    k *= c1;
-    k = (k << r1) | (k >> (32 - r1));
-    k *= c2;
+	  kValues[kItr] = k;
+	  kItr++;
+  }
 
-    // append to hash
-    h ^= k;
-    h = (h << r2) | (h >> (32 - r2));
-    h = h * m + n;
+  for(i = 0 ; i < kItr; i++){
+#pragma HLS LOOP_TRIPCOUNT max=512
+	  h ^= kValues[i];
+	  h = (h << r2) | (h >> (32 - r2));
+	  h = h * m + n;
   }
 
   k = 0;
@@ -144,7 +145,7 @@ void dedupDriver(hls::stream<char>& inputData, hls::stream<ap_item>& outputData 
 
 	char buffer[BUFFER_LEN];
 #pragma HLS RESOURCE variable=buffer core=RAM_T2P_BRAM
-#pragma HLS ARRAY_PARTITION variable=buffer cyclic factor=8
+#pragma HLS ARRAY_PARTITION variable=buffer cyclic factor=128
 	int indices[INDICES_NUM];
 
 		// read stream data and save it to BRAM
