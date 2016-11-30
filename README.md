@@ -15,6 +15,7 @@ HEAD/SW$ make
 
 ### FPGA
 This directory contains
+
 1. Xilinx Vivado HLS project: contains our custom IP to accelerate deduplication process
 2. Xilinx Vivado project: contains our hardware description (bitstream)
 3. Petalinux module source code: a character device driver for our custom hardware for Petalinux
