@@ -1,17 +1,9 @@
 
-extern "C"{
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <stdint.h>
-}
+
+#include "dedup.h"
 
 #include "hls_stream.h"
 #include "ap_axi_sdata.h"
-
-#define WINDOW_LEN 1024
-#define BUFFER_LEN 8192
-#define INDICES_NUM 7
 
 
 struct rtn{
@@ -23,11 +15,6 @@ struct ap_item{
 	rtn data;
 	ap_uint<1> last;
 };
-
-using namespace std;
-
-uint32_t murmurhash (char* key, uint32_t, uint32_t);
-void calcHash(char str[BUFFER_LEN], int indices[INDICES_NUM]);
 
 void extractIndices(int hash[BUFFER_LEN-WINDOW_LEN+1], int indices[INDICES_NUM]){
 	int i, j;
@@ -104,8 +91,11 @@ murmurhash ( char* key, uint32_t len, uint32_t seed) {
 
   tail = (const uint8_t *) (d + l * 4); // last 8 byte chunk of `key'
 
+  murmurHashInit:
   // for each 4 byte chunk of `key'
-  for(int j = 0; j < len; j+=4, kItr++){
+  for(int j = 0; j < len; j+=4){
+#pragma HLS LOOP_TRIPCOUNT max=2048
+#pragma HLS UNROLL factor=64
 #pragma HLS PIPELINE
 	  k = (key[j] << 24) + (key[j+1] << 16) + (key[j+2] << 8) + (key[j+3]);
 	  k *= c1;
@@ -113,9 +103,11 @@ murmurhash ( char* key, uint32_t len, uint32_t seed) {
 	  k *= c2;
 
 	  kValues[kItr] = k;
+	  kItr++;
   }
 
   for(i = 0 ; i < kItr; i++){
+#pragma HLS LOOP_TRIPCOUNT max=512
 	  h ^= kValues[i];
 	  h = (h << r2) | (h >> (32 - r2));
 	  h = h * m + n;
