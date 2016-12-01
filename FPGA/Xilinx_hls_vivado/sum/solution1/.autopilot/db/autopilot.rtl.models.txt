@@ -1,2 +1,0 @@
-adder_AXILiteS_s_axi
-adder
