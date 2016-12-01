@@ -1,9 +1,9 @@
-[submodule "lib/leveldb"]
+[submodule "DedupSWApp/lib/leveldb"]
 	path = DedupSWApp/lib/leveldb
 	url = https://github.com/google/leveldb
-[submodule "lib/sha1"]
+[submodule "DedupSWApp/lib/sha1"]
 	path = DedupSWApp/lib/sha1
 	url = https://github.com/mohaps/TinySHA1
-[submodule "petalinux_module/axidma/xilinx_axidma"]
+[submodule "modules/axidma/xilinx_axidma"]
 	path = modules/axidma/xilinx_axidma
 	url = https://github.com/bperez77/xilinx_axidma
