@@ -3632,7 +3632,7 @@
 						<type>0</type>
 						<id>131</id>
 						<name>hash_0</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -3646,7 +3646,7 @@
 									<item_version>0</item_version>
 									<item class_id="12" tracking_level="0" version="0">
 										<first class_id="13" tracking_level="0" version="0">
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -3673,7 +3673,7 @@
 						<type>0</type>
 						<id>132</id>
 						<name>hash_1</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -3687,7 +3687,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -3714,7 +3714,7 @@
 						<type>0</type>
 						<id>133</id>
 						<name>hash_2</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -3728,7 +3728,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -3755,7 +3755,7 @@
 						<type>0</type>
 						<id>134</id>
 						<name>hash_3</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -3769,7 +3769,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -3796,7 +3796,7 @@
 						<type>0</type>
 						<id>135</id>
 						<name>hash_4</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -3810,7 +3810,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -3837,7 +3837,7 @@
 						<type>0</type>
 						<id>136</id>
 						<name>hash_5</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -3851,7 +3851,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -3878,7 +3878,7 @@
 						<type>0</type>
 						<id>137</id>
 						<name>hash_6</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -3892,7 +3892,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -3919,7 +3919,7 @@
 						<type>0</type>
 						<id>138</id>
 						<name>hash_7</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -3933,7 +3933,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -3960,7 +3960,7 @@
 						<type>0</type>
 						<id>139</id>
 						<name>hash_8</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -3974,7 +3974,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -4001,7 +4001,7 @@
 						<type>0</type>
 						<id>140</id>
 						<name>hash_9</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -4015,7 +4015,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -4042,7 +4042,7 @@
 						<type>0</type>
 						<id>141</id>
 						<name>hash_10</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -4056,7 +4056,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -4083,7 +4083,7 @@
 						<type>0</type>
 						<id>142</id>
 						<name>hash_11</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -4097,7 +4097,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -4124,7 +4124,7 @@
 						<type>0</type>
 						<id>143</id>
 						<name>hash_12</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -4138,7 +4138,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -4165,7 +4165,7 @@
 						<type>0</type>
 						<id>144</id>
 						<name>hash_13</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -4179,7 +4179,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -4206,7 +4206,7 @@
 						<type>0</type>
 						<id>145</id>
 						<name>hash_14</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -4220,7 +4220,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -4247,7 +4247,7 @@
 						<type>0</type>
 						<id>146</id>
 						<name>hash_15</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -4261,7 +4261,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -4288,7 +4288,7 @@
 						<type>0</type>
 						<id>147</id>
 						<name>hash_16</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -4302,7 +4302,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -4329,7 +4329,7 @@
 						<type>0</type>
 						<id>148</id>
 						<name>hash_17</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -4343,7 +4343,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -4370,7 +4370,7 @@
 						<type>0</type>
 						<id>149</id>
 						<name>hash_18</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -4384,7 +4384,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -4411,7 +4411,7 @@
 						<type>0</type>
 						<id>150</id>
 						<name>hash_19</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -4425,7 +4425,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -4452,7 +4452,7 @@
 						<type>0</type>
 						<id>151</id>
 						<name>hash_20</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -4466,7 +4466,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -4493,7 +4493,7 @@
 						<type>0</type>
 						<id>152</id>
 						<name>hash_21</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -4507,7 +4507,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -4534,7 +4534,7 @@
 						<type>0</type>
 						<id>153</id>
 						<name>hash_22</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -4548,7 +4548,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -4575,7 +4575,7 @@
 						<type>0</type>
 						<id>154</id>
 						<name>hash_23</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -4589,7 +4589,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -4616,7 +4616,7 @@
 						<type>0</type>
 						<id>155</id>
 						<name>hash_24</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -4630,7 +4630,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -4657,7 +4657,7 @@
 						<type>0</type>
 						<id>156</id>
 						<name>hash_25</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -4671,7 +4671,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -4698,7 +4698,7 @@
 						<type>0</type>
 						<id>157</id>
 						<name>hash_26</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -4712,7 +4712,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -4739,7 +4739,7 @@
 						<type>0</type>
 						<id>158</id>
 						<name>hash_27</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -4753,7 +4753,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -4780,7 +4780,7 @@
 						<type>0</type>
 						<id>159</id>
 						<name>hash_28</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -4794,7 +4794,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -4821,7 +4821,7 @@
 						<type>0</type>
 						<id>160</id>
 						<name>hash_29</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -4835,7 +4835,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -4862,7 +4862,7 @@
 						<type>0</type>
 						<id>161</id>
 						<name>hash_30</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -4876,7 +4876,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -4903,7 +4903,7 @@
 						<type>0</type>
 						<id>162</id>
 						<name>hash_31</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -4917,7 +4917,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -4944,7 +4944,7 @@
 						<type>0</type>
 						<id>163</id>
 						<name>hash_32</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -4958,7 +4958,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -4985,7 +4985,7 @@
 						<type>0</type>
 						<id>164</id>
 						<name>hash_33</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -4999,7 +4999,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -5026,7 +5026,7 @@
 						<type>0</type>
 						<id>165</id>
 						<name>hash_34</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -5040,7 +5040,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -5067,7 +5067,7 @@
 						<type>0</type>
 						<id>166</id>
 						<name>hash_35</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -5081,7 +5081,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -5108,7 +5108,7 @@
 						<type>0</type>
 						<id>167</id>
 						<name>hash_36</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -5122,7 +5122,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -5149,7 +5149,7 @@
 						<type>0</type>
 						<id>168</id>
 						<name>hash_37</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -5163,7 +5163,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -5190,7 +5190,7 @@
 						<type>0</type>
 						<id>169</id>
 						<name>hash_38</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -5204,7 +5204,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -5231,7 +5231,7 @@
 						<type>0</type>
 						<id>170</id>
 						<name>hash_39</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -5245,7 +5245,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -5272,7 +5272,7 @@
 						<type>0</type>
 						<id>171</id>
 						<name>hash_40</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -5286,7 +5286,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -5313,7 +5313,7 @@
 						<type>0</type>
 						<id>172</id>
 						<name>hash_41</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -5327,7 +5327,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -5354,7 +5354,7 @@
 						<type>0</type>
 						<id>173</id>
 						<name>hash_42</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -5368,7 +5368,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -5395,7 +5395,7 @@
 						<type>0</type>
 						<id>174</id>
 						<name>hash_43</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -5409,7 +5409,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -5436,7 +5436,7 @@
 						<type>0</type>
 						<id>175</id>
 						<name>hash_44</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -5450,7 +5450,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -5477,7 +5477,7 @@
 						<type>0</type>
 						<id>176</id>
 						<name>hash_45</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -5491,7 +5491,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -5518,7 +5518,7 @@
 						<type>0</type>
 						<id>177</id>
 						<name>hash_46</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -5532,7 +5532,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -5559,7 +5559,7 @@
 						<type>0</type>
 						<id>178</id>
 						<name>hash_47</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -5573,7 +5573,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -5600,7 +5600,7 @@
 						<type>0</type>
 						<id>179</id>
 						<name>hash_48</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -5614,7 +5614,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -5641,7 +5641,7 @@
 						<type>0</type>
 						<id>180</id>
 						<name>hash_49</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -5655,7 +5655,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -5682,7 +5682,7 @@
 						<type>0</type>
 						<id>181</id>
 						<name>hash_50</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -5696,7 +5696,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -5723,7 +5723,7 @@
 						<type>0</type>
 						<id>182</id>
 						<name>hash_51</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -5737,7 +5737,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -5764,7 +5764,7 @@
 						<type>0</type>
 						<id>183</id>
 						<name>hash_52</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -5778,7 +5778,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -5805,7 +5805,7 @@
 						<type>0</type>
 						<id>184</id>
 						<name>hash_53</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -5819,7 +5819,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -5846,7 +5846,7 @@
 						<type>0</type>
 						<id>185</id>
 						<name>hash_54</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -5860,7 +5860,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -5887,7 +5887,7 @@
 						<type>0</type>
 						<id>186</id>
 						<name>hash_55</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -5901,7 +5901,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -5928,7 +5928,7 @@
 						<type>0</type>
 						<id>187</id>
 						<name>hash_56</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -5942,7 +5942,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -5969,7 +5969,7 @@
 						<type>0</type>
 						<id>188</id>
 						<name>hash_57</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -5983,7 +5983,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -6010,7 +6010,7 @@
 						<type>0</type>
 						<id>189</id>
 						<name>hash_58</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -6024,7 +6024,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -6051,7 +6051,7 @@
 						<type>0</type>
 						<id>190</id>
 						<name>hash_59</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -6065,7 +6065,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -6092,7 +6092,7 @@
 						<type>0</type>
 						<id>191</id>
 						<name>hash_60</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -6106,7 +6106,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -6133,7 +6133,7 @@
 						<type>0</type>
 						<id>192</id>
 						<name>hash_61</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -6147,7 +6147,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -6174,7 +6174,7 @@
 						<type>0</type>
 						<id>193</id>
 						<name>hash_62</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -6188,7 +6188,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -6215,7 +6215,7 @@
 						<type>0</type>
 						<id>194</id>
 						<name>hash_63</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -6229,7 +6229,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -6256,7 +6256,7 @@
 						<type>0</type>
 						<id>195</id>
 						<name>hash_64</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -6270,7 +6270,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -6297,7 +6297,7 @@
 						<type>0</type>
 						<id>196</id>
 						<name>hash_65</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -6311,7 +6311,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -6338,7 +6338,7 @@
 						<type>0</type>
 						<id>197</id>
 						<name>hash_66</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -6352,7 +6352,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -6379,7 +6379,7 @@
 						<type>0</type>
 						<id>198</id>
 						<name>hash_67</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -6393,7 +6393,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -6420,7 +6420,7 @@
 						<type>0</type>
 						<id>199</id>
 						<name>hash_68</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -6434,7 +6434,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -6461,7 +6461,7 @@
 						<type>0</type>
 						<id>200</id>
 						<name>hash_69</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -6475,7 +6475,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -6502,7 +6502,7 @@
 						<type>0</type>
 						<id>201</id>
 						<name>hash_70</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -6516,7 +6516,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -6543,7 +6543,7 @@
 						<type>0</type>
 						<id>202</id>
 						<name>hash_71</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -6557,7 +6557,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -6584,7 +6584,7 @@
 						<type>0</type>
 						<id>203</id>
 						<name>hash_72</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -6598,7 +6598,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -6625,7 +6625,7 @@
 						<type>0</type>
 						<id>204</id>
 						<name>hash_73</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -6639,7 +6639,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -6666,7 +6666,7 @@
 						<type>0</type>
 						<id>205</id>
 						<name>hash_74</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -6680,7 +6680,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -6707,7 +6707,7 @@
 						<type>0</type>
 						<id>206</id>
 						<name>hash_75</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -6721,7 +6721,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -6748,7 +6748,7 @@
 						<type>0</type>
 						<id>207</id>
 						<name>hash_76</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -6762,7 +6762,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -6789,7 +6789,7 @@
 						<type>0</type>
 						<id>208</id>
 						<name>hash_77</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -6803,7 +6803,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -6830,7 +6830,7 @@
 						<type>0</type>
 						<id>209</id>
 						<name>hash_78</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -6844,7 +6844,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -6871,7 +6871,7 @@
 						<type>0</type>
 						<id>210</id>
 						<name>hash_79</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -6885,7 +6885,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -6912,7 +6912,7 @@
 						<type>0</type>
 						<id>211</id>
 						<name>hash_80</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -6926,7 +6926,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -6953,7 +6953,7 @@
 						<type>0</type>
 						<id>212</id>
 						<name>hash_81</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -6967,7 +6967,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -6994,7 +6994,7 @@
 						<type>0</type>
 						<id>213</id>
 						<name>hash_82</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -7008,7 +7008,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -7035,7 +7035,7 @@
 						<type>0</type>
 						<id>214</id>
 						<name>hash_83</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -7049,7 +7049,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -7076,7 +7076,7 @@
 						<type>0</type>
 						<id>215</id>
 						<name>hash_84</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -7090,7 +7090,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -7117,7 +7117,7 @@
 						<type>0</type>
 						<id>216</id>
 						<name>hash_85</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -7131,7 +7131,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -7158,7 +7158,7 @@
 						<type>0</type>
 						<id>217</id>
 						<name>hash_86</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -7172,7 +7172,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -7199,7 +7199,7 @@
 						<type>0</type>
 						<id>218</id>
 						<name>hash_87</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -7213,7 +7213,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -7240,7 +7240,7 @@
 						<type>0</type>
 						<id>219</id>
 						<name>hash_88</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -7254,7 +7254,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -7281,7 +7281,7 @@
 						<type>0</type>
 						<id>220</id>
 						<name>hash_89</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -7295,7 +7295,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -7322,7 +7322,7 @@
 						<type>0</type>
 						<id>221</id>
 						<name>hash_90</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -7336,7 +7336,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -7363,7 +7363,7 @@
 						<type>0</type>
 						<id>222</id>
 						<name>hash_91</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -7377,7 +7377,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -7404,7 +7404,7 @@
 						<type>0</type>
 						<id>223</id>
 						<name>hash_92</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -7418,7 +7418,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -7445,7 +7445,7 @@
 						<type>0</type>
 						<id>224</id>
 						<name>hash_93</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -7459,7 +7459,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -7486,7 +7486,7 @@
 						<type>0</type>
 						<id>225</id>
 						<name>hash_94</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -7500,7 +7500,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -7527,7 +7527,7 @@
 						<type>0</type>
 						<id>226</id>
 						<name>hash_95</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -7541,7 +7541,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -7568,7 +7568,7 @@
 						<type>0</type>
 						<id>227</id>
 						<name>hash_96</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -7582,7 +7582,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -7609,7 +7609,7 @@
 						<type>0</type>
 						<id>228</id>
 						<name>hash_97</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -7623,7 +7623,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -7650,7 +7650,7 @@
 						<type>0</type>
 						<id>229</id>
 						<name>hash_98</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -7664,7 +7664,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -7691,7 +7691,7 @@
 						<type>0</type>
 						<id>230</id>
 						<name>hash_99</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -7705,7 +7705,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -7732,7 +7732,7 @@
 						<type>0</type>
 						<id>231</id>
 						<name>hash_100</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -7746,7 +7746,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -7773,7 +7773,7 @@
 						<type>0</type>
 						<id>232</id>
 						<name>hash_101</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -7787,7 +7787,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -7814,7 +7814,7 @@
 						<type>0</type>
 						<id>233</id>
 						<name>hash_102</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -7828,7 +7828,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -7855,7 +7855,7 @@
 						<type>0</type>
 						<id>234</id>
 						<name>hash_103</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -7869,7 +7869,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -7896,7 +7896,7 @@
 						<type>0</type>
 						<id>235</id>
 						<name>hash_104</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -7910,7 +7910,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -7937,7 +7937,7 @@
 						<type>0</type>
 						<id>236</id>
 						<name>hash_105</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -7951,7 +7951,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -7978,7 +7978,7 @@
 						<type>0</type>
 						<id>237</id>
 						<name>hash_106</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -7992,7 +7992,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -8019,7 +8019,7 @@
 						<type>0</type>
 						<id>238</id>
 						<name>hash_107</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -8033,7 +8033,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -8060,7 +8060,7 @@
 						<type>0</type>
 						<id>239</id>
 						<name>hash_108</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -8074,7 +8074,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -8101,7 +8101,7 @@
 						<type>0</type>
 						<id>240</id>
 						<name>hash_109</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -8115,7 +8115,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -8142,7 +8142,7 @@
 						<type>0</type>
 						<id>241</id>
 						<name>hash_110</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -8156,7 +8156,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -8183,7 +8183,7 @@
 						<type>0</type>
 						<id>242</id>
 						<name>hash_111</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -8197,7 +8197,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -8224,7 +8224,7 @@
 						<type>0</type>
 						<id>243</id>
 						<name>hash_112</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -8238,7 +8238,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -8265,7 +8265,7 @@
 						<type>0</type>
 						<id>244</id>
 						<name>hash_113</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -8279,7 +8279,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -8306,7 +8306,7 @@
 						<type>0</type>
 						<id>245</id>
 						<name>hash_114</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -8320,7 +8320,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -8347,7 +8347,7 @@
 						<type>0</type>
 						<id>246</id>
 						<name>hash_115</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -8361,7 +8361,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -8388,7 +8388,7 @@
 						<type>0</type>
 						<id>247</id>
 						<name>hash_116</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -8402,7 +8402,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -8429,7 +8429,7 @@
 						<type>0</type>
 						<id>248</id>
 						<name>hash_117</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -8443,7 +8443,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -8470,7 +8470,7 @@
 						<type>0</type>
 						<id>249</id>
 						<name>hash_118</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -8484,7 +8484,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -8511,7 +8511,7 @@
 						<type>0</type>
 						<id>250</id>
 						<name>hash_119</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -8525,7 +8525,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -8552,7 +8552,7 @@
 						<type>0</type>
 						<id>251</id>
 						<name>hash_120</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -8566,7 +8566,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -8593,7 +8593,7 @@
 						<type>0</type>
 						<id>252</id>
 						<name>hash_121</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -8607,7 +8607,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -8634,7 +8634,7 @@
 						<type>0</type>
 						<id>253</id>
 						<name>hash_122</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -8648,7 +8648,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -8675,7 +8675,7 @@
 						<type>0</type>
 						<id>254</id>
 						<name>hash_123</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -8689,7 +8689,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -8716,7 +8716,7 @@
 						<type>0</type>
 						<id>255</id>
 						<name>hash_124</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -8730,7 +8730,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -8757,7 +8757,7 @@
 						<type>0</type>
 						<id>256</id>
 						<name>hash_125</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -8771,7 +8771,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -8798,7 +8798,7 @@
 						<type>0</type>
 						<id>257</id>
 						<name>hash_126</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -8812,7 +8812,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -8839,7 +8839,7 @@
 						<type>0</type>
 						<id>258</id>
 						<name>hash_127</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -8853,7 +8853,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>81</second>
@@ -8880,7 +8880,7 @@
 						<type>0</type>
 						<id>260</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>86</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -8894,7 +8894,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>86</second>
@@ -9177,7 +9177,7 @@
 						<type>0</type>
 						<id>261</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>89</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -9191,7 +9191,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>89</second>
@@ -9349,7 +9349,7 @@
 						<type>0</type>
 						<id>262</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>91</lineNumber>
 						<contextFuncName>calcHash</contextFuncName>
@@ -9363,7 +9363,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>calcHash</second>
 										</first>
 										<second>91</second>

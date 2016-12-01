@@ -104,7 +104,7 @@
 						<type>0</type>
 						<id>8</id>
 						<name>buffer_0</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -118,7 +118,7 @@
 									<item_version>0</item_version>
 									<item class_id="12" tracking_level="0" version="0">
 										<first class_id="13" tracking_level="0" version="0">
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -145,7 +145,7 @@
 						<type>0</type>
 						<id>9</id>
 						<name>buffer_1</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -159,7 +159,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -186,7 +186,7 @@
 						<type>0</type>
 						<id>10</id>
 						<name>buffer_2</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -200,7 +200,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -227,7 +227,7 @@
 						<type>0</type>
 						<id>11</id>
 						<name>buffer_3</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -241,7 +241,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -268,7 +268,7 @@
 						<type>0</type>
 						<id>12</id>
 						<name>buffer_4</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -282,7 +282,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -309,7 +309,7 @@
 						<type>0</type>
 						<id>13</id>
 						<name>buffer_5</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -323,7 +323,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -350,7 +350,7 @@
 						<type>0</type>
 						<id>14</id>
 						<name>buffer_6</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -364,7 +364,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -391,7 +391,7 @@
 						<type>0</type>
 						<id>15</id>
 						<name>buffer_7</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -405,7 +405,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -432,7 +432,7 @@
 						<type>0</type>
 						<id>16</id>
 						<name>buffer_8</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -446,7 +446,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -473,7 +473,7 @@
 						<type>0</type>
 						<id>17</id>
 						<name>buffer_9</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -487,7 +487,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -514,7 +514,7 @@
 						<type>0</type>
 						<id>18</id>
 						<name>buffer_10</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -528,7 +528,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -555,7 +555,7 @@
 						<type>0</type>
 						<id>19</id>
 						<name>buffer_11</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -569,7 +569,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -596,7 +596,7 @@
 						<type>0</type>
 						<id>20</id>
 						<name>buffer_12</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -610,7 +610,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -637,7 +637,7 @@
 						<type>0</type>
 						<id>21</id>
 						<name>buffer_13</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -651,7 +651,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -678,7 +678,7 @@
 						<type>0</type>
 						<id>22</id>
 						<name>buffer_14</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -692,7 +692,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -719,7 +719,7 @@
 						<type>0</type>
 						<id>23</id>
 						<name>buffer_15</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -733,7 +733,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -760,7 +760,7 @@
 						<type>0</type>
 						<id>24</id>
 						<name>buffer_16</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -774,7 +774,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -801,7 +801,7 @@
 						<type>0</type>
 						<id>25</id>
 						<name>buffer_17</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -815,7 +815,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -842,7 +842,7 @@
 						<type>0</type>
 						<id>26</id>
 						<name>buffer_18</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -856,7 +856,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -883,7 +883,7 @@
 						<type>0</type>
 						<id>27</id>
 						<name>buffer_19</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -897,7 +897,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -924,7 +924,7 @@
 						<type>0</type>
 						<id>28</id>
 						<name>buffer_20</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -938,7 +938,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -965,7 +965,7 @@
 						<type>0</type>
 						<id>29</id>
 						<name>buffer_21</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -979,7 +979,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -1006,7 +1006,7 @@
 						<type>0</type>
 						<id>30</id>
 						<name>buffer_22</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -1020,7 +1020,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -1047,7 +1047,7 @@
 						<type>0</type>
 						<id>31</id>
 						<name>buffer_23</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -1061,7 +1061,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -1088,7 +1088,7 @@
 						<type>0</type>
 						<id>32</id>
 						<name>buffer_24</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -1102,7 +1102,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -1129,7 +1129,7 @@
 						<type>0</type>
 						<id>33</id>
 						<name>buffer_25</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -1143,7 +1143,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -1170,7 +1170,7 @@
 						<type>0</type>
 						<id>34</id>
 						<name>buffer_26</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -1184,7 +1184,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -1211,7 +1211,7 @@
 						<type>0</type>
 						<id>35</id>
 						<name>buffer_27</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -1225,7 +1225,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -1252,7 +1252,7 @@
 						<type>0</type>
 						<id>36</id>
 						<name>buffer_28</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -1266,7 +1266,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -1293,7 +1293,7 @@
 						<type>0</type>
 						<id>37</id>
 						<name>buffer_29</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -1307,7 +1307,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -1334,7 +1334,7 @@
 						<type>0</type>
 						<id>38</id>
 						<name>buffer_30</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -1348,7 +1348,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -1375,7 +1375,7 @@
 						<type>0</type>
 						<id>39</id>
 						<name>buffer_31</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -1389,7 +1389,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -1416,7 +1416,7 @@
 						<type>0</type>
 						<id>40</id>
 						<name>buffer_32</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -1430,7 +1430,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -1457,7 +1457,7 @@
 						<type>0</type>
 						<id>41</id>
 						<name>buffer_33</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -1471,7 +1471,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -1498,7 +1498,7 @@
 						<type>0</type>
 						<id>42</id>
 						<name>buffer_34</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -1512,7 +1512,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -1539,7 +1539,7 @@
 						<type>0</type>
 						<id>43</id>
 						<name>buffer_35</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -1553,7 +1553,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -1580,7 +1580,7 @@
 						<type>0</type>
 						<id>44</id>
 						<name>buffer_36</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -1594,7 +1594,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -1621,7 +1621,7 @@
 						<type>0</type>
 						<id>45</id>
 						<name>buffer_37</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -1635,7 +1635,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -1662,7 +1662,7 @@
 						<type>0</type>
 						<id>46</id>
 						<name>buffer_38</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -1676,7 +1676,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -1703,7 +1703,7 @@
 						<type>0</type>
 						<id>47</id>
 						<name>buffer_39</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -1717,7 +1717,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -1744,7 +1744,7 @@
 						<type>0</type>
 						<id>48</id>
 						<name>buffer_40</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -1758,7 +1758,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -1785,7 +1785,7 @@
 						<type>0</type>
 						<id>49</id>
 						<name>buffer_41</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -1799,7 +1799,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -1826,7 +1826,7 @@
 						<type>0</type>
 						<id>50</id>
 						<name>buffer_42</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -1840,7 +1840,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -1867,7 +1867,7 @@
 						<type>0</type>
 						<id>51</id>
 						<name>buffer_43</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -1881,7 +1881,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -1908,7 +1908,7 @@
 						<type>0</type>
 						<id>52</id>
 						<name>buffer_44</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -1922,7 +1922,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -1949,7 +1949,7 @@
 						<type>0</type>
 						<id>53</id>
 						<name>buffer_45</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -1963,7 +1963,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -1990,7 +1990,7 @@
 						<type>0</type>
 						<id>54</id>
 						<name>buffer_46</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -2004,7 +2004,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -2031,7 +2031,7 @@
 						<type>0</type>
 						<id>55</id>
 						<name>buffer_47</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -2045,7 +2045,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -2072,7 +2072,7 @@
 						<type>0</type>
 						<id>56</id>
 						<name>buffer_48</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -2086,7 +2086,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -2113,7 +2113,7 @@
 						<type>0</type>
 						<id>57</id>
 						<name>buffer_49</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -2127,7 +2127,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -2154,7 +2154,7 @@
 						<type>0</type>
 						<id>58</id>
 						<name>buffer_50</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -2168,7 +2168,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -2195,7 +2195,7 @@
 						<type>0</type>
 						<id>59</id>
 						<name>buffer_51</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -2209,7 +2209,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -2236,7 +2236,7 @@
 						<type>0</type>
 						<id>60</id>
 						<name>buffer_52</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -2250,7 +2250,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -2277,7 +2277,7 @@
 						<type>0</type>
 						<id>61</id>
 						<name>buffer_53</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -2291,7 +2291,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -2318,7 +2318,7 @@
 						<type>0</type>
 						<id>62</id>
 						<name>buffer_54</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -2332,7 +2332,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -2359,7 +2359,7 @@
 						<type>0</type>
 						<id>63</id>
 						<name>buffer_55</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -2373,7 +2373,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -2400,7 +2400,7 @@
 						<type>0</type>
 						<id>64</id>
 						<name>buffer_56</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -2414,7 +2414,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -2441,7 +2441,7 @@
 						<type>0</type>
 						<id>65</id>
 						<name>buffer_57</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -2455,7 +2455,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -2482,7 +2482,7 @@
 						<type>0</type>
 						<id>66</id>
 						<name>buffer_58</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -2496,7 +2496,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -2523,7 +2523,7 @@
 						<type>0</type>
 						<id>67</id>
 						<name>buffer_59</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -2537,7 +2537,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -2564,7 +2564,7 @@
 						<type>0</type>
 						<id>68</id>
 						<name>buffer_60</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -2578,7 +2578,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -2605,7 +2605,7 @@
 						<type>0</type>
 						<id>69</id>
 						<name>buffer_61</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -2619,7 +2619,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -2646,7 +2646,7 @@
 						<type>0</type>
 						<id>70</id>
 						<name>buffer_62</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -2660,7 +2660,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -2687,7 +2687,7 @@
 						<type>0</type>
 						<id>71</id>
 						<name>buffer_63</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -2701,7 +2701,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -2728,7 +2728,7 @@
 						<type>0</type>
 						<id>72</id>
 						<name>buffer_64</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -2742,7 +2742,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -2769,7 +2769,7 @@
 						<type>0</type>
 						<id>73</id>
 						<name>buffer_65</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -2783,7 +2783,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -2810,7 +2810,7 @@
 						<type>0</type>
 						<id>74</id>
 						<name>buffer_66</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -2824,7 +2824,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -2851,7 +2851,7 @@
 						<type>0</type>
 						<id>75</id>
 						<name>buffer_67</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -2865,7 +2865,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -2892,7 +2892,7 @@
 						<type>0</type>
 						<id>76</id>
 						<name>buffer_68</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -2906,7 +2906,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -2933,7 +2933,7 @@
 						<type>0</type>
 						<id>77</id>
 						<name>buffer_69</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -2947,7 +2947,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -2974,7 +2974,7 @@
 						<type>0</type>
 						<id>78</id>
 						<name>buffer_70</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -2988,7 +2988,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -3015,7 +3015,7 @@
 						<type>0</type>
 						<id>79</id>
 						<name>buffer_71</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -3029,7 +3029,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -3056,7 +3056,7 @@
 						<type>0</type>
 						<id>80</id>
 						<name>buffer_72</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -3070,7 +3070,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -3097,7 +3097,7 @@
 						<type>0</type>
 						<id>81</id>
 						<name>buffer_73</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -3111,7 +3111,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -3138,7 +3138,7 @@
 						<type>0</type>
 						<id>82</id>
 						<name>buffer_74</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -3152,7 +3152,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -3179,7 +3179,7 @@
 						<type>0</type>
 						<id>83</id>
 						<name>buffer_75</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -3193,7 +3193,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -3220,7 +3220,7 @@
 						<type>0</type>
 						<id>84</id>
 						<name>buffer_76</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -3234,7 +3234,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -3261,7 +3261,7 @@
 						<type>0</type>
 						<id>85</id>
 						<name>buffer_77</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -3275,7 +3275,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -3302,7 +3302,7 @@
 						<type>0</type>
 						<id>86</id>
 						<name>buffer_78</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -3316,7 +3316,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -3343,7 +3343,7 @@
 						<type>0</type>
 						<id>87</id>
 						<name>buffer_79</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -3357,7 +3357,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -3384,7 +3384,7 @@
 						<type>0</type>
 						<id>88</id>
 						<name>buffer_80</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -3398,7 +3398,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -3425,7 +3425,7 @@
 						<type>0</type>
 						<id>89</id>
 						<name>buffer_81</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -3439,7 +3439,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -3466,7 +3466,7 @@
 						<type>0</type>
 						<id>90</id>
 						<name>buffer_82</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -3480,7 +3480,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -3507,7 +3507,7 @@
 						<type>0</type>
 						<id>91</id>
 						<name>buffer_83</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -3521,7 +3521,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -3548,7 +3548,7 @@
 						<type>0</type>
 						<id>92</id>
 						<name>buffer_84</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -3562,7 +3562,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -3589,7 +3589,7 @@
 						<type>0</type>
 						<id>93</id>
 						<name>buffer_85</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -3603,7 +3603,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -3630,7 +3630,7 @@
 						<type>0</type>
 						<id>94</id>
 						<name>buffer_86</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -3644,7 +3644,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -3671,7 +3671,7 @@
 						<type>0</type>
 						<id>95</id>
 						<name>buffer_87</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -3685,7 +3685,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -3712,7 +3712,7 @@
 						<type>0</type>
 						<id>96</id>
 						<name>buffer_88</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -3726,7 +3726,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -3753,7 +3753,7 @@
 						<type>0</type>
 						<id>97</id>
 						<name>buffer_89</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -3767,7 +3767,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -3794,7 +3794,7 @@
 						<type>0</type>
 						<id>98</id>
 						<name>buffer_90</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -3808,7 +3808,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -3835,7 +3835,7 @@
 						<type>0</type>
 						<id>99</id>
 						<name>buffer_91</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -3849,7 +3849,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -3876,7 +3876,7 @@
 						<type>0</type>
 						<id>100</id>
 						<name>buffer_92</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -3890,7 +3890,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -3917,7 +3917,7 @@
 						<type>0</type>
 						<id>101</id>
 						<name>buffer_93</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -3931,7 +3931,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -3958,7 +3958,7 @@
 						<type>0</type>
 						<id>102</id>
 						<name>buffer_94</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -3972,7 +3972,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -3999,7 +3999,7 @@
 						<type>0</type>
 						<id>103</id>
 						<name>buffer_95</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -4013,7 +4013,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -4040,7 +4040,7 @@
 						<type>0</type>
 						<id>104</id>
 						<name>buffer_96</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -4054,7 +4054,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -4081,7 +4081,7 @@
 						<type>0</type>
 						<id>105</id>
 						<name>buffer_97</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -4095,7 +4095,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -4122,7 +4122,7 @@
 						<type>0</type>
 						<id>106</id>
 						<name>buffer_98</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -4136,7 +4136,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -4163,7 +4163,7 @@
 						<type>0</type>
 						<id>107</id>
 						<name>buffer_99</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -4177,7 +4177,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -4204,7 +4204,7 @@
 						<type>0</type>
 						<id>108</id>
 						<name>buffer_100</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -4218,7 +4218,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -4245,7 +4245,7 @@
 						<type>0</type>
 						<id>109</id>
 						<name>buffer_101</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -4259,7 +4259,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -4286,7 +4286,7 @@
 						<type>0</type>
 						<id>110</id>
 						<name>buffer_102</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -4300,7 +4300,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -4327,7 +4327,7 @@
 						<type>0</type>
 						<id>111</id>
 						<name>buffer_103</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -4341,7 +4341,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -4368,7 +4368,7 @@
 						<type>0</type>
 						<id>112</id>
 						<name>buffer_104</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -4382,7 +4382,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -4409,7 +4409,7 @@
 						<type>0</type>
 						<id>113</id>
 						<name>buffer_105</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -4423,7 +4423,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -4450,7 +4450,7 @@
 						<type>0</type>
 						<id>114</id>
 						<name>buffer_106</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -4464,7 +4464,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -4491,7 +4491,7 @@
 						<type>0</type>
 						<id>115</id>
 						<name>buffer_107</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -4505,7 +4505,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -4532,7 +4532,7 @@
 						<type>0</type>
 						<id>116</id>
 						<name>buffer_108</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -4546,7 +4546,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -4573,7 +4573,7 @@
 						<type>0</type>
 						<id>117</id>
 						<name>buffer_109</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -4587,7 +4587,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -4614,7 +4614,7 @@
 						<type>0</type>
 						<id>118</id>
 						<name>buffer_110</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -4628,7 +4628,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -4655,7 +4655,7 @@
 						<type>0</type>
 						<id>119</id>
 						<name>buffer_111</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -4669,7 +4669,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -4696,7 +4696,7 @@
 						<type>0</type>
 						<id>120</id>
 						<name>buffer_112</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -4710,7 +4710,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -4737,7 +4737,7 @@
 						<type>0</type>
 						<id>121</id>
 						<name>buffer_113</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -4751,7 +4751,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -4778,7 +4778,7 @@
 						<type>0</type>
 						<id>122</id>
 						<name>buffer_114</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -4792,7 +4792,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -4819,7 +4819,7 @@
 						<type>0</type>
 						<id>123</id>
 						<name>buffer_115</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -4833,7 +4833,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -4860,7 +4860,7 @@
 						<type>0</type>
 						<id>124</id>
 						<name>buffer_116</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -4874,7 +4874,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -4901,7 +4901,7 @@
 						<type>0</type>
 						<id>125</id>
 						<name>buffer_117</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -4915,7 +4915,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -4942,7 +4942,7 @@
 						<type>0</type>
 						<id>126</id>
 						<name>buffer_118</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -4956,7 +4956,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -4983,7 +4983,7 @@
 						<type>0</type>
 						<id>127</id>
 						<name>buffer_119</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -4997,7 +4997,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -5024,7 +5024,7 @@
 						<type>0</type>
 						<id>128</id>
 						<name>buffer_120</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -5038,7 +5038,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -5065,7 +5065,7 @@
 						<type>0</type>
 						<id>129</id>
 						<name>buffer_121</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -5079,7 +5079,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -5106,7 +5106,7 @@
 						<type>0</type>
 						<id>130</id>
 						<name>buffer_122</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -5120,7 +5120,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -5147,7 +5147,7 @@
 						<type>0</type>
 						<id>131</id>
 						<name>buffer_123</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -5161,7 +5161,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -5188,7 +5188,7 @@
 						<type>0</type>
 						<id>132</id>
 						<name>buffer_124</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -5202,7 +5202,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -5229,7 +5229,7 @@
 						<type>0</type>
 						<id>133</id>
 						<name>buffer_125</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -5243,7 +5243,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -5270,7 +5270,7 @@
 						<type>0</type>
 						<id>134</id>
 						<name>buffer_126</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -5284,7 +5284,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -5311,7 +5311,7 @@
 						<type>0</type>
 						<id>135</id>
 						<name>buffer_127</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>168</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -5325,7 +5325,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>168</second>
@@ -5352,7 +5352,7 @@
 						<type>0</type>
 						<id>136</id>
 						<name>indices</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>171</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -5366,7 +5366,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>171</second>
@@ -5420,7 +5420,7 @@
 						<type>0</type>
 						<id>143</id>
 						<name>invdar</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>172</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -5434,7 +5434,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>172</second>
@@ -5464,7 +5464,7 @@
 						<type>0</type>
 						<id>144</id>
 						<name>indvarinc</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>172</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -5478,7 +5478,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>172</second>
@@ -5506,7 +5506,7 @@
 						<type>0</type>
 						<id>145</id>
 						<name>tmp</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>172</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -5520,7 +5520,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>172</second>
@@ -5547,7 +5547,7 @@
 						<type>0</type>
 						<id>146</id>
 						<name>indices_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>172</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -5561,7 +5561,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>172</second>
@@ -5590,7 +5590,7 @@
 						<type>0</type>
 						<id>147</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>172</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -5604,7 +5604,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>172</second>
@@ -5632,7 +5632,7 @@
 						<type>0</type>
 						<id>148</id>
 						<name>tmp_s</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>172</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -5646,7 +5646,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>172</second>
@@ -5674,7 +5674,7 @@
 						<type>0</type>
 						<id>151</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>172</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -5688,7 +5688,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>172</second>
@@ -5747,7 +5747,7 @@
 						<type>0</type>
 						<id>154</id>
 						<name>exitcond1</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>176</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -5761,7 +5761,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>176</second>
@@ -5789,7 +5789,7 @@
 						<type>0</type>
 						<id>155</id>
 						<name>i_5</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>176</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -5803,7 +5803,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>176</second>
@@ -5831,7 +5831,7 @@
 						<type>0</type>
 						<id>156</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>176</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -5845,7 +5845,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>176</second>
@@ -5874,7 +5874,7 @@
 						<type>0</type>
 						<id>162</id>
 						<name>tmp_71</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -5888,7 +5888,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -5916,7 +5916,7 @@
 						<type>0</type>
 						<id>163</id>
 						<name>tmp_72</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>176</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -5930,7 +5930,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>176</second>
@@ -5957,7 +5957,7 @@
 						<type>0</type>
 						<id>164</id>
 						<name>newIndex</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>176</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -5971,7 +5971,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>176</second>
@@ -6001,7 +6001,7 @@
 						<type>0</type>
 						<id>165</id>
 						<name>newIndex12</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>176</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -6015,7 +6015,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>176</second>
@@ -6042,7 +6042,7 @@
 						<type>0</type>
 						<id>166</id>
 						<name>buffer_0_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -6056,7 +6056,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -6085,7 +6085,7 @@
 						<type>0</type>
 						<id>167</id>
 						<name>buffer_1_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -6099,7 +6099,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -6128,7 +6128,7 @@
 						<type>0</type>
 						<id>168</id>
 						<name>buffer_2_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -6142,7 +6142,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -6171,7 +6171,7 @@
 						<type>0</type>
 						<id>169</id>
 						<name>buffer_3_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -6185,7 +6185,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -6214,7 +6214,7 @@
 						<type>0</type>
 						<id>170</id>
 						<name>buffer_4_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -6228,7 +6228,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -6257,7 +6257,7 @@
 						<type>0</type>
 						<id>171</id>
 						<name>buffer_5_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -6271,7 +6271,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -6300,7 +6300,7 @@
 						<type>0</type>
 						<id>172</id>
 						<name>buffer_6_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -6314,7 +6314,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -6343,7 +6343,7 @@
 						<type>0</type>
 						<id>173</id>
 						<name>buffer_7_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -6357,7 +6357,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -6386,7 +6386,7 @@
 						<type>0</type>
 						<id>174</id>
 						<name>buffer_8_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -6400,7 +6400,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -6429,7 +6429,7 @@
 						<type>0</type>
 						<id>175</id>
 						<name>buffer_9_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -6443,7 +6443,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -6472,7 +6472,7 @@
 						<type>0</type>
 						<id>176</id>
 						<name>buffer_10_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -6486,7 +6486,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -6515,7 +6515,7 @@
 						<type>0</type>
 						<id>177</id>
 						<name>buffer_11_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -6529,7 +6529,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -6558,7 +6558,7 @@
 						<type>0</type>
 						<id>178</id>
 						<name>buffer_12_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -6572,7 +6572,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -6601,7 +6601,7 @@
 						<type>0</type>
 						<id>179</id>
 						<name>buffer_13_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -6615,7 +6615,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -6644,7 +6644,7 @@
 						<type>0</type>
 						<id>180</id>
 						<name>buffer_14_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -6658,7 +6658,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -6687,7 +6687,7 @@
 						<type>0</type>
 						<id>181</id>
 						<name>buffer_15_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -6701,7 +6701,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -6730,7 +6730,7 @@
 						<type>0</type>
 						<id>182</id>
 						<name>buffer_16_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -6744,7 +6744,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -6773,7 +6773,7 @@
 						<type>0</type>
 						<id>183</id>
 						<name>buffer_17_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -6787,7 +6787,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -6816,7 +6816,7 @@
 						<type>0</type>
 						<id>184</id>
 						<name>buffer_18_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -6830,7 +6830,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -6859,7 +6859,7 @@
 						<type>0</type>
 						<id>185</id>
 						<name>buffer_19_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -6873,7 +6873,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -6902,7 +6902,7 @@
 						<type>0</type>
 						<id>186</id>
 						<name>buffer_20_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -6916,7 +6916,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -6945,7 +6945,7 @@
 						<type>0</type>
 						<id>187</id>
 						<name>buffer_21_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -6959,7 +6959,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -6988,7 +6988,7 @@
 						<type>0</type>
 						<id>188</id>
 						<name>buffer_22_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -7002,7 +7002,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -7031,7 +7031,7 @@
 						<type>0</type>
 						<id>189</id>
 						<name>buffer_23_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -7045,7 +7045,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -7074,7 +7074,7 @@
 						<type>0</type>
 						<id>190</id>
 						<name>buffer_24_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -7088,7 +7088,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -7117,7 +7117,7 @@
 						<type>0</type>
 						<id>191</id>
 						<name>buffer_25_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -7131,7 +7131,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -7160,7 +7160,7 @@
 						<type>0</type>
 						<id>192</id>
 						<name>buffer_26_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -7174,7 +7174,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -7203,7 +7203,7 @@
 						<type>0</type>
 						<id>193</id>
 						<name>buffer_27_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -7217,7 +7217,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -7246,7 +7246,7 @@
 						<type>0</type>
 						<id>194</id>
 						<name>buffer_28_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -7260,7 +7260,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -7289,7 +7289,7 @@
 						<type>0</type>
 						<id>195</id>
 						<name>buffer_29_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -7303,7 +7303,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -7332,7 +7332,7 @@
 						<type>0</type>
 						<id>196</id>
 						<name>buffer_30_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -7346,7 +7346,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -7375,7 +7375,7 @@
 						<type>0</type>
 						<id>197</id>
 						<name>buffer_31_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -7389,7 +7389,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -7418,7 +7418,7 @@
 						<type>0</type>
 						<id>198</id>
 						<name>buffer_32_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -7432,7 +7432,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -7461,7 +7461,7 @@
 						<type>0</type>
 						<id>199</id>
 						<name>buffer_33_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -7475,7 +7475,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -7504,7 +7504,7 @@
 						<type>0</type>
 						<id>200</id>
 						<name>buffer_34_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -7518,7 +7518,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -7547,7 +7547,7 @@
 						<type>0</type>
 						<id>201</id>
 						<name>buffer_35_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -7561,7 +7561,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -7590,7 +7590,7 @@
 						<type>0</type>
 						<id>202</id>
 						<name>buffer_36_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -7604,7 +7604,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -7633,7 +7633,7 @@
 						<type>0</type>
 						<id>203</id>
 						<name>buffer_37_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -7647,7 +7647,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -7676,7 +7676,7 @@
 						<type>0</type>
 						<id>204</id>
 						<name>buffer_38_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -7690,7 +7690,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -7719,7 +7719,7 @@
 						<type>0</type>
 						<id>205</id>
 						<name>buffer_39_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -7733,7 +7733,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -7762,7 +7762,7 @@
 						<type>0</type>
 						<id>206</id>
 						<name>buffer_40_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -7776,7 +7776,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -7805,7 +7805,7 @@
 						<type>0</type>
 						<id>207</id>
 						<name>buffer_41_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -7819,7 +7819,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -7848,7 +7848,7 @@
 						<type>0</type>
 						<id>208</id>
 						<name>buffer_42_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -7862,7 +7862,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -7891,7 +7891,7 @@
 						<type>0</type>
 						<id>209</id>
 						<name>buffer_43_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -7905,7 +7905,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -7934,7 +7934,7 @@
 						<type>0</type>
 						<id>210</id>
 						<name>buffer_44_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -7948,7 +7948,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -7977,7 +7977,7 @@
 						<type>0</type>
 						<id>211</id>
 						<name>buffer_45_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -7991,7 +7991,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -8020,7 +8020,7 @@
 						<type>0</type>
 						<id>212</id>
 						<name>buffer_46_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -8034,7 +8034,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -8063,7 +8063,7 @@
 						<type>0</type>
 						<id>213</id>
 						<name>buffer_47_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -8077,7 +8077,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -8106,7 +8106,7 @@
 						<type>0</type>
 						<id>214</id>
 						<name>buffer_48_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -8120,7 +8120,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -8149,7 +8149,7 @@
 						<type>0</type>
 						<id>215</id>
 						<name>buffer_49_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -8163,7 +8163,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -8192,7 +8192,7 @@
 						<type>0</type>
 						<id>216</id>
 						<name>buffer_50_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -8206,7 +8206,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -8235,7 +8235,7 @@
 						<type>0</type>
 						<id>217</id>
 						<name>buffer_51_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -8249,7 +8249,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -8278,7 +8278,7 @@
 						<type>0</type>
 						<id>218</id>
 						<name>buffer_52_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -8292,7 +8292,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -8321,7 +8321,7 @@
 						<type>0</type>
 						<id>219</id>
 						<name>buffer_53_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -8335,7 +8335,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -8364,7 +8364,7 @@
 						<type>0</type>
 						<id>220</id>
 						<name>buffer_54_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -8378,7 +8378,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -8407,7 +8407,7 @@
 						<type>0</type>
 						<id>221</id>
 						<name>buffer_55_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -8421,7 +8421,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -8450,7 +8450,7 @@
 						<type>0</type>
 						<id>222</id>
 						<name>buffer_56_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -8464,7 +8464,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -8493,7 +8493,7 @@
 						<type>0</type>
 						<id>223</id>
 						<name>buffer_57_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -8507,7 +8507,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -8536,7 +8536,7 @@
 						<type>0</type>
 						<id>224</id>
 						<name>buffer_58_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -8550,7 +8550,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -8579,7 +8579,7 @@
 						<type>0</type>
 						<id>225</id>
 						<name>buffer_59_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -8593,7 +8593,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -8622,7 +8622,7 @@
 						<type>0</type>
 						<id>226</id>
 						<name>buffer_60_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -8636,7 +8636,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -8665,7 +8665,7 @@
 						<type>0</type>
 						<id>227</id>
 						<name>buffer_61_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -8679,7 +8679,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -8708,7 +8708,7 @@
 						<type>0</type>
 						<id>228</id>
 						<name>buffer_62_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -8722,7 +8722,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -8751,7 +8751,7 @@
 						<type>0</type>
 						<id>229</id>
 						<name>buffer_63_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -8765,7 +8765,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -8794,7 +8794,7 @@
 						<type>0</type>
 						<id>230</id>
 						<name>buffer_64_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -8808,7 +8808,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -8837,7 +8837,7 @@
 						<type>0</type>
 						<id>231</id>
 						<name>buffer_65_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -8851,7 +8851,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -8880,7 +8880,7 @@
 						<type>0</type>
 						<id>232</id>
 						<name>buffer_66_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -8894,7 +8894,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -8923,7 +8923,7 @@
 						<type>0</type>
 						<id>233</id>
 						<name>buffer_67_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -8937,7 +8937,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -8966,7 +8966,7 @@
 						<type>0</type>
 						<id>234</id>
 						<name>buffer_68_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -8980,7 +8980,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -9009,7 +9009,7 @@
 						<type>0</type>
 						<id>235</id>
 						<name>buffer_69_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -9023,7 +9023,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -9052,7 +9052,7 @@
 						<type>0</type>
 						<id>236</id>
 						<name>buffer_70_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -9066,7 +9066,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -9095,7 +9095,7 @@
 						<type>0</type>
 						<id>237</id>
 						<name>buffer_71_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -9109,7 +9109,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -9138,7 +9138,7 @@
 						<type>0</type>
 						<id>238</id>
 						<name>buffer_72_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -9152,7 +9152,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -9181,7 +9181,7 @@
 						<type>0</type>
 						<id>239</id>
 						<name>buffer_73_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -9195,7 +9195,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -9224,7 +9224,7 @@
 						<type>0</type>
 						<id>240</id>
 						<name>buffer_74_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -9238,7 +9238,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -9267,7 +9267,7 @@
 						<type>0</type>
 						<id>241</id>
 						<name>buffer_75_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -9281,7 +9281,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -9310,7 +9310,7 @@
 						<type>0</type>
 						<id>242</id>
 						<name>buffer_76_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -9324,7 +9324,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -9353,7 +9353,7 @@
 						<type>0</type>
 						<id>243</id>
 						<name>buffer_77_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -9367,7 +9367,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -9396,7 +9396,7 @@
 						<type>0</type>
 						<id>244</id>
 						<name>buffer_78_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -9410,7 +9410,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -9439,7 +9439,7 @@
 						<type>0</type>
 						<id>245</id>
 						<name>buffer_79_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -9453,7 +9453,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -9482,7 +9482,7 @@
 						<type>0</type>
 						<id>246</id>
 						<name>buffer_80_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -9496,7 +9496,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -9525,7 +9525,7 @@
 						<type>0</type>
 						<id>247</id>
 						<name>buffer_81_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -9539,7 +9539,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -9568,7 +9568,7 @@
 						<type>0</type>
 						<id>248</id>
 						<name>buffer_82_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -9582,7 +9582,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -9611,7 +9611,7 @@
 						<type>0</type>
 						<id>249</id>
 						<name>buffer_83_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -9625,7 +9625,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -9654,7 +9654,7 @@
 						<type>0</type>
 						<id>250</id>
 						<name>buffer_84_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -9668,7 +9668,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -9697,7 +9697,7 @@
 						<type>0</type>
 						<id>251</id>
 						<name>buffer_85_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -9711,7 +9711,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -9740,7 +9740,7 @@
 						<type>0</type>
 						<id>252</id>
 						<name>buffer_86_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -9754,7 +9754,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -9783,7 +9783,7 @@
 						<type>0</type>
 						<id>253</id>
 						<name>buffer_87_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -9797,7 +9797,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -9826,7 +9826,7 @@
 						<type>0</type>
 						<id>254</id>
 						<name>buffer_88_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -9840,7 +9840,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -9869,7 +9869,7 @@
 						<type>0</type>
 						<id>255</id>
 						<name>buffer_89_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -9883,7 +9883,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -9912,7 +9912,7 @@
 						<type>0</type>
 						<id>256</id>
 						<name>buffer_90_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -9926,7 +9926,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -9955,7 +9955,7 @@
 						<type>0</type>
 						<id>257</id>
 						<name>buffer_91_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -9969,7 +9969,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -9998,7 +9998,7 @@
 						<type>0</type>
 						<id>258</id>
 						<name>buffer_92_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -10012,7 +10012,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -10041,7 +10041,7 @@
 						<type>0</type>
 						<id>259</id>
 						<name>buffer_93_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -10055,7 +10055,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -10084,7 +10084,7 @@
 						<type>0</type>
 						<id>260</id>
 						<name>buffer_94_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -10098,7 +10098,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -10127,7 +10127,7 @@
 						<type>0</type>
 						<id>261</id>
 						<name>buffer_95_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -10141,7 +10141,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -10170,7 +10170,7 @@
 						<type>0</type>
 						<id>262</id>
 						<name>buffer_96_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -10184,7 +10184,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -10213,7 +10213,7 @@
 						<type>0</type>
 						<id>263</id>
 						<name>buffer_97_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -10227,7 +10227,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -10256,7 +10256,7 @@
 						<type>0</type>
 						<id>264</id>
 						<name>buffer_98_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -10270,7 +10270,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -10299,7 +10299,7 @@
 						<type>0</type>
 						<id>265</id>
 						<name>buffer_99_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -10313,7 +10313,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -10342,7 +10342,7 @@
 						<type>0</type>
 						<id>266</id>
 						<name>buffer_100_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -10356,7 +10356,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -10385,7 +10385,7 @@
 						<type>0</type>
 						<id>267</id>
 						<name>buffer_101_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -10399,7 +10399,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -10428,7 +10428,7 @@
 						<type>0</type>
 						<id>268</id>
 						<name>buffer_102_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -10442,7 +10442,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -10471,7 +10471,7 @@
 						<type>0</type>
 						<id>269</id>
 						<name>buffer_103_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -10485,7 +10485,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -10514,7 +10514,7 @@
 						<type>0</type>
 						<id>270</id>
 						<name>buffer_104_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -10528,7 +10528,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -10557,7 +10557,7 @@
 						<type>0</type>
 						<id>271</id>
 						<name>buffer_105_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -10571,7 +10571,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -10600,7 +10600,7 @@
 						<type>0</type>
 						<id>272</id>
 						<name>buffer_106_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -10614,7 +10614,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -10643,7 +10643,7 @@
 						<type>0</type>
 						<id>273</id>
 						<name>buffer_107_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -10657,7 +10657,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -10686,7 +10686,7 @@
 						<type>0</type>
 						<id>274</id>
 						<name>buffer_108_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -10700,7 +10700,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -10729,7 +10729,7 @@
 						<type>0</type>
 						<id>275</id>
 						<name>buffer_109_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -10743,7 +10743,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -10772,7 +10772,7 @@
 						<type>0</type>
 						<id>276</id>
 						<name>buffer_110_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -10786,7 +10786,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -10815,7 +10815,7 @@
 						<type>0</type>
 						<id>277</id>
 						<name>buffer_111_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -10829,7 +10829,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -10858,7 +10858,7 @@
 						<type>0</type>
 						<id>278</id>
 						<name>buffer_112_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -10872,7 +10872,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -10901,7 +10901,7 @@
 						<type>0</type>
 						<id>279</id>
 						<name>buffer_113_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -10915,7 +10915,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -10944,7 +10944,7 @@
 						<type>0</type>
 						<id>280</id>
 						<name>buffer_114_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -10958,7 +10958,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -10987,7 +10987,7 @@
 						<type>0</type>
 						<id>281</id>
 						<name>buffer_115_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -11001,7 +11001,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -11030,7 +11030,7 @@
 						<type>0</type>
 						<id>282</id>
 						<name>buffer_116_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -11044,7 +11044,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -11073,7 +11073,7 @@
 						<type>0</type>
 						<id>283</id>
 						<name>buffer_117_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -11087,7 +11087,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -11116,7 +11116,7 @@
 						<type>0</type>
 						<id>284</id>
 						<name>buffer_118_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -11130,7 +11130,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -11159,7 +11159,7 @@
 						<type>0</type>
 						<id>285</id>
 						<name>buffer_119_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -11173,7 +11173,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -11202,7 +11202,7 @@
 						<type>0</type>
 						<id>286</id>
 						<name>buffer_120_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -11216,7 +11216,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -11245,7 +11245,7 @@
 						<type>0</type>
 						<id>287</id>
 						<name>buffer_121_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -11259,7 +11259,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -11288,7 +11288,7 @@
 						<type>0</type>
 						<id>288</id>
 						<name>buffer_122_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -11302,7 +11302,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -11331,7 +11331,7 @@
 						<type>0</type>
 						<id>289</id>
 						<name>buffer_123_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -11345,7 +11345,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -11374,7 +11374,7 @@
 						<type>0</type>
 						<id>290</id>
 						<name>buffer_124_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -11388,7 +11388,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -11417,7 +11417,7 @@
 						<type>0</type>
 						<id>291</id>
 						<name>buffer_125_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -11431,7 +11431,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -11460,7 +11460,7 @@
 						<type>0</type>
 						<id>292</id>
 						<name>buffer_126_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -11474,7 +11474,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -11503,7 +11503,7 @@
 						<type>0</type>
 						<id>293</id>
 						<name>buffer_127_addr</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -11517,7 +11517,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -11546,7 +11546,7 @@
 						<type>0</type>
 						<id>294</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -11560,7 +11560,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -11842,7 +11842,7 @@
 						<type>0</type>
 						<id>296</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -11856,7 +11856,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -11884,7 +11884,7 @@
 						<type>0</type>
 						<id>297</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -11898,7 +11898,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -11925,7 +11925,7 @@
 						<type>0</type>
 						<id>299</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -11939,7 +11939,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -11967,7 +11967,7 @@
 						<type>0</type>
 						<id>300</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -11981,7 +11981,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -12008,7 +12008,7 @@
 						<type>0</type>
 						<id>302</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -12022,7 +12022,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -12050,7 +12050,7 @@
 						<type>0</type>
 						<id>303</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -12064,7 +12064,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -12091,7 +12091,7 @@
 						<type>0</type>
 						<id>305</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -12105,7 +12105,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -12133,7 +12133,7 @@
 						<type>0</type>
 						<id>306</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -12147,7 +12147,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -12174,7 +12174,7 @@
 						<type>0</type>
 						<id>308</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -12188,7 +12188,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -12216,7 +12216,7 @@
 						<type>0</type>
 						<id>309</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -12230,7 +12230,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -12257,7 +12257,7 @@
 						<type>0</type>
 						<id>311</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -12271,7 +12271,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -12299,7 +12299,7 @@
 						<type>0</type>
 						<id>312</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -12313,7 +12313,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -12340,7 +12340,7 @@
 						<type>0</type>
 						<id>314</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -12354,7 +12354,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -12382,7 +12382,7 @@
 						<type>0</type>
 						<id>315</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -12396,7 +12396,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -12423,7 +12423,7 @@
 						<type>0</type>
 						<id>317</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -12437,7 +12437,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -12465,7 +12465,7 @@
 						<type>0</type>
 						<id>318</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -12479,7 +12479,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -12506,7 +12506,7 @@
 						<type>0</type>
 						<id>320</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -12520,7 +12520,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -12548,7 +12548,7 @@
 						<type>0</type>
 						<id>321</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -12562,7 +12562,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -12589,7 +12589,7 @@
 						<type>0</type>
 						<id>323</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -12603,7 +12603,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -12631,7 +12631,7 @@
 						<type>0</type>
 						<id>324</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -12645,7 +12645,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -12672,7 +12672,7 @@
 						<type>0</type>
 						<id>326</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -12686,7 +12686,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -12714,7 +12714,7 @@
 						<type>0</type>
 						<id>327</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -12728,7 +12728,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -12755,7 +12755,7 @@
 						<type>0</type>
 						<id>329</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -12769,7 +12769,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -12797,7 +12797,7 @@
 						<type>0</type>
 						<id>330</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -12811,7 +12811,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -12838,7 +12838,7 @@
 						<type>0</type>
 						<id>332</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -12852,7 +12852,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -12880,7 +12880,7 @@
 						<type>0</type>
 						<id>333</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -12894,7 +12894,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -12921,7 +12921,7 @@
 						<type>0</type>
 						<id>335</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -12935,7 +12935,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -12963,7 +12963,7 @@
 						<type>0</type>
 						<id>336</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -12977,7 +12977,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -13004,7 +13004,7 @@
 						<type>0</type>
 						<id>338</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -13018,7 +13018,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -13046,7 +13046,7 @@
 						<type>0</type>
 						<id>339</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -13060,7 +13060,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -13087,7 +13087,7 @@
 						<type>0</type>
 						<id>341</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -13101,7 +13101,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -13129,7 +13129,7 @@
 						<type>0</type>
 						<id>342</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -13143,7 +13143,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -13170,7 +13170,7 @@
 						<type>0</type>
 						<id>344</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -13184,7 +13184,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -13212,7 +13212,7 @@
 						<type>0</type>
 						<id>345</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -13226,7 +13226,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -13253,7 +13253,7 @@
 						<type>0</type>
 						<id>347</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -13267,7 +13267,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -13295,7 +13295,7 @@
 						<type>0</type>
 						<id>348</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -13309,7 +13309,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -13336,7 +13336,7 @@
 						<type>0</type>
 						<id>350</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -13350,7 +13350,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -13378,7 +13378,7 @@
 						<type>0</type>
 						<id>351</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -13392,7 +13392,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -13419,7 +13419,7 @@
 						<type>0</type>
 						<id>353</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -13433,7 +13433,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -13461,7 +13461,7 @@
 						<type>0</type>
 						<id>354</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -13475,7 +13475,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -13502,7 +13502,7 @@
 						<type>0</type>
 						<id>356</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -13516,7 +13516,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -13544,7 +13544,7 @@
 						<type>0</type>
 						<id>357</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -13558,7 +13558,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -13585,7 +13585,7 @@
 						<type>0</type>
 						<id>359</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -13599,7 +13599,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -13627,7 +13627,7 @@
 						<type>0</type>
 						<id>360</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -13641,7 +13641,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -13668,7 +13668,7 @@
 						<type>0</type>
 						<id>362</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -13682,7 +13682,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -13710,7 +13710,7 @@
 						<type>0</type>
 						<id>363</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -13724,7 +13724,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -13751,7 +13751,7 @@
 						<type>0</type>
 						<id>365</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -13765,7 +13765,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -13793,7 +13793,7 @@
 						<type>0</type>
 						<id>366</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -13807,7 +13807,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -13834,7 +13834,7 @@
 						<type>0</type>
 						<id>368</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -13848,7 +13848,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -13876,7 +13876,7 @@
 						<type>0</type>
 						<id>369</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -13890,7 +13890,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -13917,7 +13917,7 @@
 						<type>0</type>
 						<id>371</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -13931,7 +13931,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -13959,7 +13959,7 @@
 						<type>0</type>
 						<id>372</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -13973,7 +13973,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -14000,7 +14000,7 @@
 						<type>0</type>
 						<id>374</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -14014,7 +14014,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -14042,7 +14042,7 @@
 						<type>0</type>
 						<id>375</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -14056,7 +14056,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -14083,7 +14083,7 @@
 						<type>0</type>
 						<id>377</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -14097,7 +14097,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -14125,7 +14125,7 @@
 						<type>0</type>
 						<id>378</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -14139,7 +14139,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -14166,7 +14166,7 @@
 						<type>0</type>
 						<id>380</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -14180,7 +14180,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -14208,7 +14208,7 @@
 						<type>0</type>
 						<id>381</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -14222,7 +14222,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -14249,7 +14249,7 @@
 						<type>0</type>
 						<id>383</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -14263,7 +14263,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -14291,7 +14291,7 @@
 						<type>0</type>
 						<id>384</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -14305,7 +14305,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -14332,7 +14332,7 @@
 						<type>0</type>
 						<id>386</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -14346,7 +14346,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -14374,7 +14374,7 @@
 						<type>0</type>
 						<id>387</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -14388,7 +14388,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -14415,7 +14415,7 @@
 						<type>0</type>
 						<id>389</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -14429,7 +14429,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -14457,7 +14457,7 @@
 						<type>0</type>
 						<id>390</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -14471,7 +14471,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -14498,7 +14498,7 @@
 						<type>0</type>
 						<id>392</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -14512,7 +14512,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -14540,7 +14540,7 @@
 						<type>0</type>
 						<id>393</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -14554,7 +14554,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -14581,7 +14581,7 @@
 						<type>0</type>
 						<id>395</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -14595,7 +14595,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -14623,7 +14623,7 @@
 						<type>0</type>
 						<id>396</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -14637,7 +14637,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -14664,7 +14664,7 @@
 						<type>0</type>
 						<id>398</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -14678,7 +14678,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -14706,7 +14706,7 @@
 						<type>0</type>
 						<id>399</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -14720,7 +14720,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -14747,7 +14747,7 @@
 						<type>0</type>
 						<id>401</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -14761,7 +14761,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -14789,7 +14789,7 @@
 						<type>0</type>
 						<id>402</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -14803,7 +14803,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -14830,7 +14830,7 @@
 						<type>0</type>
 						<id>404</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -14844,7 +14844,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -14872,7 +14872,7 @@
 						<type>0</type>
 						<id>405</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -14886,7 +14886,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -14913,7 +14913,7 @@
 						<type>0</type>
 						<id>407</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -14927,7 +14927,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -14955,7 +14955,7 @@
 						<type>0</type>
 						<id>408</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -14969,7 +14969,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -14996,7 +14996,7 @@
 						<type>0</type>
 						<id>410</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -15010,7 +15010,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -15038,7 +15038,7 @@
 						<type>0</type>
 						<id>411</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -15052,7 +15052,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -15079,7 +15079,7 @@
 						<type>0</type>
 						<id>413</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -15093,7 +15093,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -15121,7 +15121,7 @@
 						<type>0</type>
 						<id>414</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -15135,7 +15135,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -15162,7 +15162,7 @@
 						<type>0</type>
 						<id>416</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -15176,7 +15176,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -15204,7 +15204,7 @@
 						<type>0</type>
 						<id>417</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -15218,7 +15218,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -15245,7 +15245,7 @@
 						<type>0</type>
 						<id>419</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -15259,7 +15259,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -15287,7 +15287,7 @@
 						<type>0</type>
 						<id>420</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -15301,7 +15301,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -15328,7 +15328,7 @@
 						<type>0</type>
 						<id>422</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -15342,7 +15342,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -15370,7 +15370,7 @@
 						<type>0</type>
 						<id>423</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -15384,7 +15384,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -15411,7 +15411,7 @@
 						<type>0</type>
 						<id>425</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -15425,7 +15425,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -15453,7 +15453,7 @@
 						<type>0</type>
 						<id>426</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -15467,7 +15467,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -15494,7 +15494,7 @@
 						<type>0</type>
 						<id>428</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -15508,7 +15508,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -15536,7 +15536,7 @@
 						<type>0</type>
 						<id>429</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -15550,7 +15550,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -15577,7 +15577,7 @@
 						<type>0</type>
 						<id>431</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -15591,7 +15591,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -15619,7 +15619,7 @@
 						<type>0</type>
 						<id>432</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -15633,7 +15633,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -15660,7 +15660,7 @@
 						<type>0</type>
 						<id>434</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -15674,7 +15674,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -15702,7 +15702,7 @@
 						<type>0</type>
 						<id>435</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -15716,7 +15716,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -15743,7 +15743,7 @@
 						<type>0</type>
 						<id>437</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -15757,7 +15757,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -15785,7 +15785,7 @@
 						<type>0</type>
 						<id>438</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -15799,7 +15799,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -15826,7 +15826,7 @@
 						<type>0</type>
 						<id>440</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -15840,7 +15840,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -15868,7 +15868,7 @@
 						<type>0</type>
 						<id>441</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -15882,7 +15882,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -15909,7 +15909,7 @@
 						<type>0</type>
 						<id>443</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -15923,7 +15923,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -15951,7 +15951,7 @@
 						<type>0</type>
 						<id>444</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -15965,7 +15965,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -15992,7 +15992,7 @@
 						<type>0</type>
 						<id>446</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -16006,7 +16006,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -16034,7 +16034,7 @@
 						<type>0</type>
 						<id>447</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -16048,7 +16048,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -16075,7 +16075,7 @@
 						<type>0</type>
 						<id>449</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -16089,7 +16089,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -16117,7 +16117,7 @@
 						<type>0</type>
 						<id>450</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -16131,7 +16131,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -16158,7 +16158,7 @@
 						<type>0</type>
 						<id>452</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -16172,7 +16172,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -16200,7 +16200,7 @@
 						<type>0</type>
 						<id>453</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -16214,7 +16214,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -16241,7 +16241,7 @@
 						<type>0</type>
 						<id>455</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -16255,7 +16255,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -16283,7 +16283,7 @@
 						<type>0</type>
 						<id>456</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -16297,7 +16297,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -16324,7 +16324,7 @@
 						<type>0</type>
 						<id>458</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -16338,7 +16338,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -16366,7 +16366,7 @@
 						<type>0</type>
 						<id>459</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -16380,7 +16380,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -16407,7 +16407,7 @@
 						<type>0</type>
 						<id>461</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -16421,7 +16421,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -16449,7 +16449,7 @@
 						<type>0</type>
 						<id>462</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -16463,7 +16463,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -16490,7 +16490,7 @@
 						<type>0</type>
 						<id>464</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -16504,7 +16504,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -16532,7 +16532,7 @@
 						<type>0</type>
 						<id>465</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -16546,7 +16546,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -16573,7 +16573,7 @@
 						<type>0</type>
 						<id>467</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -16587,7 +16587,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -16615,7 +16615,7 @@
 						<type>0</type>
 						<id>468</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -16629,7 +16629,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -16656,7 +16656,7 @@
 						<type>0</type>
 						<id>470</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -16670,7 +16670,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -16698,7 +16698,7 @@
 						<type>0</type>
 						<id>471</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -16712,7 +16712,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -16739,7 +16739,7 @@
 						<type>0</type>
 						<id>473</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -16753,7 +16753,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -16781,7 +16781,7 @@
 						<type>0</type>
 						<id>474</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -16795,7 +16795,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -16822,7 +16822,7 @@
 						<type>0</type>
 						<id>476</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -16836,7 +16836,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -16864,7 +16864,7 @@
 						<type>0</type>
 						<id>477</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -16878,7 +16878,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -16905,7 +16905,7 @@
 						<type>0</type>
 						<id>479</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -16919,7 +16919,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -16947,7 +16947,7 @@
 						<type>0</type>
 						<id>480</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -16961,7 +16961,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -16988,7 +16988,7 @@
 						<type>0</type>
 						<id>482</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -17002,7 +17002,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -17030,7 +17030,7 @@
 						<type>0</type>
 						<id>483</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -17044,7 +17044,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -17071,7 +17071,7 @@
 						<type>0</type>
 						<id>485</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -17085,7 +17085,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -17113,7 +17113,7 @@
 						<type>0</type>
 						<id>486</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -17127,7 +17127,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -17154,7 +17154,7 @@
 						<type>0</type>
 						<id>488</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -17168,7 +17168,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -17196,7 +17196,7 @@
 						<type>0</type>
 						<id>489</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -17210,7 +17210,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -17237,7 +17237,7 @@
 						<type>0</type>
 						<id>491</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -17251,7 +17251,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -17279,7 +17279,7 @@
 						<type>0</type>
 						<id>492</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -17293,7 +17293,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -17320,7 +17320,7 @@
 						<type>0</type>
 						<id>494</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -17334,7 +17334,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -17362,7 +17362,7 @@
 						<type>0</type>
 						<id>495</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -17376,7 +17376,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -17403,7 +17403,7 @@
 						<type>0</type>
 						<id>497</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -17417,7 +17417,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -17445,7 +17445,7 @@
 						<type>0</type>
 						<id>498</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -17459,7 +17459,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -17486,7 +17486,7 @@
 						<type>0</type>
 						<id>500</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -17500,7 +17500,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -17528,7 +17528,7 @@
 						<type>0</type>
 						<id>501</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -17542,7 +17542,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -17569,7 +17569,7 @@
 						<type>0</type>
 						<id>503</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -17583,7 +17583,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -17611,7 +17611,7 @@
 						<type>0</type>
 						<id>504</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -17625,7 +17625,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -17652,7 +17652,7 @@
 						<type>0</type>
 						<id>506</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -17666,7 +17666,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -17694,7 +17694,7 @@
 						<type>0</type>
 						<id>507</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -17708,7 +17708,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -17735,7 +17735,7 @@
 						<type>0</type>
 						<id>509</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -17749,7 +17749,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -17777,7 +17777,7 @@
 						<type>0</type>
 						<id>510</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -17791,7 +17791,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -17818,7 +17818,7 @@
 						<type>0</type>
 						<id>512</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -17832,7 +17832,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -17860,7 +17860,7 @@
 						<type>0</type>
 						<id>513</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -17874,7 +17874,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -17901,7 +17901,7 @@
 						<type>0</type>
 						<id>515</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -17915,7 +17915,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -17943,7 +17943,7 @@
 						<type>0</type>
 						<id>516</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -17957,7 +17957,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -17984,7 +17984,7 @@
 						<type>0</type>
 						<id>518</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -17998,7 +17998,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -18026,7 +18026,7 @@
 						<type>0</type>
 						<id>519</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -18040,7 +18040,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -18067,7 +18067,7 @@
 						<type>0</type>
 						<id>521</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -18081,7 +18081,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -18109,7 +18109,7 @@
 						<type>0</type>
 						<id>522</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -18123,7 +18123,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -18150,7 +18150,7 @@
 						<type>0</type>
 						<id>524</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -18164,7 +18164,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -18192,7 +18192,7 @@
 						<type>0</type>
 						<id>525</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -18206,7 +18206,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -18233,7 +18233,7 @@
 						<type>0</type>
 						<id>527</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -18247,7 +18247,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -18275,7 +18275,7 @@
 						<type>0</type>
 						<id>528</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -18289,7 +18289,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -18316,7 +18316,7 @@
 						<type>0</type>
 						<id>530</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -18330,7 +18330,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -18358,7 +18358,7 @@
 						<type>0</type>
 						<id>531</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -18372,7 +18372,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -18399,7 +18399,7 @@
 						<type>0</type>
 						<id>533</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -18413,7 +18413,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -18441,7 +18441,7 @@
 						<type>0</type>
 						<id>534</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -18455,7 +18455,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -18482,7 +18482,7 @@
 						<type>0</type>
 						<id>536</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -18496,7 +18496,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -18524,7 +18524,7 @@
 						<type>0</type>
 						<id>537</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -18538,7 +18538,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -18565,7 +18565,7 @@
 						<type>0</type>
 						<id>539</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -18579,7 +18579,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -18607,7 +18607,7 @@
 						<type>0</type>
 						<id>540</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -18621,7 +18621,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -18648,7 +18648,7 @@
 						<type>0</type>
 						<id>542</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -18662,7 +18662,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -18690,7 +18690,7 @@
 						<type>0</type>
 						<id>543</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -18704,7 +18704,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -18731,7 +18731,7 @@
 						<type>0</type>
 						<id>545</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -18745,7 +18745,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -18773,7 +18773,7 @@
 						<type>0</type>
 						<id>546</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -18787,7 +18787,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -18814,7 +18814,7 @@
 						<type>0</type>
 						<id>548</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -18828,7 +18828,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -18856,7 +18856,7 @@
 						<type>0</type>
 						<id>549</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -18870,7 +18870,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -18897,7 +18897,7 @@
 						<type>0</type>
 						<id>551</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -18911,7 +18911,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -18939,7 +18939,7 @@
 						<type>0</type>
 						<id>552</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -18953,7 +18953,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -18980,7 +18980,7 @@
 						<type>0</type>
 						<id>554</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -18994,7 +18994,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -19022,7 +19022,7 @@
 						<type>0</type>
 						<id>555</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -19036,7 +19036,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -19063,7 +19063,7 @@
 						<type>0</type>
 						<id>557</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -19077,7 +19077,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -19105,7 +19105,7 @@
 						<type>0</type>
 						<id>558</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -19119,7 +19119,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -19146,7 +19146,7 @@
 						<type>0</type>
 						<id>560</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -19160,7 +19160,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -19188,7 +19188,7 @@
 						<type>0</type>
 						<id>561</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -19202,7 +19202,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -19229,7 +19229,7 @@
 						<type>0</type>
 						<id>563</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -19243,7 +19243,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -19271,7 +19271,7 @@
 						<type>0</type>
 						<id>564</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -19285,7 +19285,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -19312,7 +19312,7 @@
 						<type>0</type>
 						<id>566</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -19326,7 +19326,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -19354,7 +19354,7 @@
 						<type>0</type>
 						<id>567</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -19368,7 +19368,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -19395,7 +19395,7 @@
 						<type>0</type>
 						<id>569</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -19409,7 +19409,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -19437,7 +19437,7 @@
 						<type>0</type>
 						<id>570</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -19451,7 +19451,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -19478,7 +19478,7 @@
 						<type>0</type>
 						<id>572</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -19492,7 +19492,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -19520,7 +19520,7 @@
 						<type>0</type>
 						<id>573</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -19534,7 +19534,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -19561,7 +19561,7 @@
 						<type>0</type>
 						<id>575</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -19575,7 +19575,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -19603,7 +19603,7 @@
 						<type>0</type>
 						<id>576</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -19617,7 +19617,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -19644,7 +19644,7 @@
 						<type>0</type>
 						<id>578</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -19658,7 +19658,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -19686,7 +19686,7 @@
 						<type>0</type>
 						<id>579</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -19700,7 +19700,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -19727,7 +19727,7 @@
 						<type>0</type>
 						<id>581</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -19741,7 +19741,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -19769,7 +19769,7 @@
 						<type>0</type>
 						<id>582</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -19783,7 +19783,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -19810,7 +19810,7 @@
 						<type>0</type>
 						<id>584</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -19824,7 +19824,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -19852,7 +19852,7 @@
 						<type>0</type>
 						<id>585</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -19866,7 +19866,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -19893,7 +19893,7 @@
 						<type>0</type>
 						<id>587</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -19907,7 +19907,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -19935,7 +19935,7 @@
 						<type>0</type>
 						<id>588</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -19949,7 +19949,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -19976,7 +19976,7 @@
 						<type>0</type>
 						<id>590</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -19990,7 +19990,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -20018,7 +20018,7 @@
 						<type>0</type>
 						<id>591</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -20032,7 +20032,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -20059,7 +20059,7 @@
 						<type>0</type>
 						<id>593</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -20073,7 +20073,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -20101,7 +20101,7 @@
 						<type>0</type>
 						<id>594</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -20115,7 +20115,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -20142,7 +20142,7 @@
 						<type>0</type>
 						<id>596</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -20156,7 +20156,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -20184,7 +20184,7 @@
 						<type>0</type>
 						<id>597</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -20198,7 +20198,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -20225,7 +20225,7 @@
 						<type>0</type>
 						<id>599</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -20239,7 +20239,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -20267,7 +20267,7 @@
 						<type>0</type>
 						<id>600</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -20281,7 +20281,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -20308,7 +20308,7 @@
 						<type>0</type>
 						<id>602</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -20322,7 +20322,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -20350,7 +20350,7 @@
 						<type>0</type>
 						<id>603</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -20364,7 +20364,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -20391,7 +20391,7 @@
 						<type>0</type>
 						<id>605</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -20405,7 +20405,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -20433,7 +20433,7 @@
 						<type>0</type>
 						<id>606</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -20447,7 +20447,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -20474,7 +20474,7 @@
 						<type>0</type>
 						<id>608</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -20488,7 +20488,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -20516,7 +20516,7 @@
 						<type>0</type>
 						<id>609</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -20530,7 +20530,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -20557,7 +20557,7 @@
 						<type>0</type>
 						<id>611</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -20571,7 +20571,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -20599,7 +20599,7 @@
 						<type>0</type>
 						<id>612</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -20613,7 +20613,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -20640,7 +20640,7 @@
 						<type>0</type>
 						<id>614</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -20654,7 +20654,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -20682,7 +20682,7 @@
 						<type>0</type>
 						<id>615</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -20696,7 +20696,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -20723,7 +20723,7 @@
 						<type>0</type>
 						<id>617</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -20737,7 +20737,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -20765,7 +20765,7 @@
 						<type>0</type>
 						<id>618</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -20779,7 +20779,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -20806,7 +20806,7 @@
 						<type>0</type>
 						<id>620</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -20820,7 +20820,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -20848,7 +20848,7 @@
 						<type>0</type>
 						<id>621</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -20862,7 +20862,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -20889,7 +20889,7 @@
 						<type>0</type>
 						<id>623</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -20903,7 +20903,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -20931,7 +20931,7 @@
 						<type>0</type>
 						<id>624</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -20945,7 +20945,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -20972,7 +20972,7 @@
 						<type>0</type>
 						<id>626</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -20986,7 +20986,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -21014,7 +21014,7 @@
 						<type>0</type>
 						<id>627</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -21028,7 +21028,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -21055,7 +21055,7 @@
 						<type>0</type>
 						<id>629</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -21069,7 +21069,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -21097,7 +21097,7 @@
 						<type>0</type>
 						<id>630</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -21111,7 +21111,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -21138,7 +21138,7 @@
 						<type>0</type>
 						<id>632</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -21152,7 +21152,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -21180,7 +21180,7 @@
 						<type>0</type>
 						<id>633</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -21194,7 +21194,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -21221,7 +21221,7 @@
 						<type>0</type>
 						<id>635</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -21235,7 +21235,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -21263,7 +21263,7 @@
 						<type>0</type>
 						<id>636</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -21277,7 +21277,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -21304,7 +21304,7 @@
 						<type>0</type>
 						<id>638</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -21318,7 +21318,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -21346,7 +21346,7 @@
 						<type>0</type>
 						<id>639</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -21360,7 +21360,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -21387,7 +21387,7 @@
 						<type>0</type>
 						<id>641</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -21401,7 +21401,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -21429,7 +21429,7 @@
 						<type>0</type>
 						<id>642</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -21443,7 +21443,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -21470,7 +21470,7 @@
 						<type>0</type>
 						<id>644</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -21484,7 +21484,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -21512,7 +21512,7 @@
 						<type>0</type>
 						<id>645</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -21526,7 +21526,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -21553,7 +21553,7 @@
 						<type>0</type>
 						<id>647</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -21567,7 +21567,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -21595,7 +21595,7 @@
 						<type>0</type>
 						<id>648</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -21609,7 +21609,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -21636,7 +21636,7 @@
 						<type>0</type>
 						<id>650</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -21650,7 +21650,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -21678,7 +21678,7 @@
 						<type>0</type>
 						<id>651</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -21692,7 +21692,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -21719,7 +21719,7 @@
 						<type>0</type>
 						<id>653</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -21733,7 +21733,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -21761,7 +21761,7 @@
 						<type>0</type>
 						<id>654</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -21775,7 +21775,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -21802,7 +21802,7 @@
 						<type>0</type>
 						<id>656</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -21816,7 +21816,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -21844,7 +21844,7 @@
 						<type>0</type>
 						<id>657</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -21858,7 +21858,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -21885,7 +21885,7 @@
 						<type>0</type>
 						<id>659</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -21899,7 +21899,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -21927,7 +21927,7 @@
 						<type>0</type>
 						<id>660</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -21941,7 +21941,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -21968,7 +21968,7 @@
 						<type>0</type>
 						<id>662</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -21982,7 +21982,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -22010,7 +22010,7 @@
 						<type>0</type>
 						<id>663</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -22024,7 +22024,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -22051,7 +22051,7 @@
 						<type>0</type>
 						<id>665</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -22065,7 +22065,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -22093,7 +22093,7 @@
 						<type>0</type>
 						<id>666</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -22107,7 +22107,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -22134,7 +22134,7 @@
 						<type>0</type>
 						<id>668</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -22148,7 +22148,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -22176,7 +22176,7 @@
 						<type>0</type>
 						<id>669</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -22190,7 +22190,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -22217,7 +22217,7 @@
 						<type>0</type>
 						<id>671</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -22231,7 +22231,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -22259,7 +22259,7 @@
 						<type>0</type>
 						<id>672</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -22273,7 +22273,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -22300,7 +22300,7 @@
 						<type>0</type>
 						<id>674</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -22314,7 +22314,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -22342,7 +22342,7 @@
 						<type>0</type>
 						<id>675</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -22356,7 +22356,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -22383,7 +22383,7 @@
 						<type>0</type>
 						<id>677</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -22397,7 +22397,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -22425,7 +22425,7 @@
 						<type>0</type>
 						<id>678</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>178</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -22439,7 +22439,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>178</second>
@@ -22466,7 +22466,7 @@
 						<type>0</type>
 						<id>681</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>176</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -22480,7 +22480,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>176</second>
@@ -22534,7 +22534,7 @@
 						<type>0</type>
 						<id>684</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>184</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -22548,7 +22548,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>184</second>
@@ -22732,7 +22732,7 @@
 						<type>0</type>
 						<id>686</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>191</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -22746,7 +22746,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>191</second>
@@ -22803,7 +22803,7 @@
 						<type>0</type>
 						<id>689</id>
 						<name>exitcond</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>191</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -22817,7 +22817,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>191</second>
@@ -22845,7 +22845,7 @@
 						<type>0</type>
 						<id>691</id>
 						<name>i_6</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>191</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -22859,7 +22859,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>191</second>
@@ -22887,7 +22887,7 @@
 						<type>0</type>
 						<id>692</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>191</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -22901,7 +22901,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>191</second>
@@ -22930,7 +22930,7 @@
 						<type>0</type>
 						<id>694</id>
 						<name>tmp_35</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>198</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -22944,7 +22944,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>198</second>
@@ -22971,7 +22971,7 @@
 						<type>0</type>
 						<id>695</id>
 						<name>indices_addr_7</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>198</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -22985,7 +22985,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>198</second>
@@ -23014,7 +23014,7 @@
 						<type>0</type>
 						<id>696</id>
 						<name>indices_load</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>198</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -23028,7 +23028,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>198</second>
@@ -23055,7 +23055,7 @@
 						<type>0</type>
 						<id>697</id>
 						<name>lastIndex</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>198</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -23069,7 +23069,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>198</second>
@@ -23096,7 +23096,7 @@
 						<type>0</type>
 						<id>698</id>
 						<name>tmp_36</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>198</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -23110,7 +23110,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>198</second>
@@ -23138,7 +23138,7 @@
 						<type>0</type>
 						<id>699</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>198</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -23152,7 +23152,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>198</second>
@@ -23181,7 +23181,7 @@
 						<type>0</type>
 						<id>701</id>
 						<name>tmp_data_index_load</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>200</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -23195,7 +23195,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>200</second>
@@ -23223,7 +23223,7 @@
 						<type>0</type>
 						<id>702</id>
 						<name>dataLen</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>199</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -23237,7 +23237,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>199</second>
@@ -23265,7 +23265,7 @@
 						<type>0</type>
 						<id>703</id>
 						<name>item_data_hashData</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>200</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -23279,7 +23279,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>200</second>
@@ -23437,7 +23437,7 @@
 						<type>0</type>
 						<id>704</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>201</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -23451,7 +23451,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>201</second>
@@ -23481,7 +23481,7 @@
 						<type>0</type>
 						<id>705</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>202</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -23495,7 +23495,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>202</second>
@@ -23552,7 +23552,7 @@
 						<type>0</type>
 						<id>708</id>
 						<name>item_last_V</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>206</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -23566,7 +23566,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>206</second>
@@ -23594,7 +23594,7 @@
 						<type>0</type>
 						<id>709</id>
 						<name>tmp_data</name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>207</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -23608,7 +23608,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>207</second>
@@ -23637,7 +23637,7 @@
 						<type>0</type>
 						<id>710</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>207</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -23651,7 +23651,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>207</second>
@@ -23682,7 +23682,7 @@
 						<type>0</type>
 						<id>711</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>191</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -23696,7 +23696,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>191</second>
@@ -23723,7 +23723,7 @@
 						<type>0</type>
 						<id>713</id>
 						<name></name>
-						<fileName>DedupHWMod_HLS/Dedup/dedup.cpp</fileName>
+						<fileName>DedupHWModule_HLS/Dedup/dedup.cpp</fileName>
 						<fileDirectory>/home/insujang/cs710/HEAD/FPGA</fileDirectory>
 						<lineNumber>210</lineNumber>
 						<contextFuncName>dedupDriver</contextFuncName>
@@ -23737,7 +23737,7 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>DedupHWMod_HLS/Dedup/dedup.cpp</first>
+											<first>DedupHWModule_HLS/Dedup/dedup.cpp</first>
 											<second>dedupDriver</second>
 										</first>
 										<second>210</second>

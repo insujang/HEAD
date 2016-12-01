@@ -43,7 +43,7 @@ set SCTraceOption "all"
 set TargetInfo "xc7z020:clg484:-1"
 set SourceFiles {sc {} c dedup.cpp}
 set SourceFlags {sc {} c {{}}}
-set DirectiveFile {/home/insujang/cs710/HEAD/FPGA/DedupHWMod_HLS/Dedup/Dedup.directive}
+set DirectiveFile {/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/Dedup.directive}
 set TBFiles {verilog dedup_test.cpp bc dedup_test.cpp vhdl dedup_test.cpp sc dedup_test.cpp cas dedup_test.cpp c {}}
 set SpecLanguage "C"
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

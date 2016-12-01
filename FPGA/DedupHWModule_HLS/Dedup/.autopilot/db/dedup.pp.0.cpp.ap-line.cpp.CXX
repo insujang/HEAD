@@ -1,5 +1,5 @@
-#pragma line 1 "DedupHWMod_HLS/Dedup/dedup.cpp" ::: 0
-#pragma line 1 "DedupHWMod_HLS/Dedup/dedup.cpp" 1 ::: 1
+#pragma line 1 "DedupHWModule_HLS/Dedup/dedup.cpp" ::: 0
+#pragma line 1 "DedupHWModule_HLS/Dedup/dedup.cpp" 1 ::: 1
 #pragma line 1 "<built-in>" 1 ::: 2
 #pragma line 1 "<built-in>" 3 ::: 3
 #pragma line 155 "<built-in>" 3 ::: 4
@@ -10,8 +10,8 @@
 #pragma line 421 "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot/etc/autopilot_ssdm_op.h" ::: 201
 #pragma line 6 "<command line>" 2 ::: 203
 #pragma line 1 "<built-in>" 2 ::: 204
-#pragma line 1 "DedupHWMod_HLS/Dedup/dedup.cpp" 2 ::: 205
-#pragma line 1 "DedupHWMod_HLS/Dedup/dedup.h" 1 ::: 208
+#pragma line 1 "DedupHWModule_HLS/Dedup/dedup.cpp" 2 ::: 205
+#pragma line 1 "DedupHWModule_HLS/Dedup/dedup.h" 1 ::: 208
 #pragma line 1 "/usr/include/string.h" 1 3 4 ::: 211
 #pragma line 1 "/usr/include/features.h" 1 3 4 ::: 237
 #pragma line 128 "/usr/include/features.h" 3 4 ::: 338
@@ -60,7 +60,7 @@
 #pragma line 489 "/usr/include/string.h" 3 4 ::: 1119
 #pragma line 517 "/usr/include/string.h" 3 4 ::: 1125
 #pragma line 644 "/usr/include/string.h" 3 4 ::: 1214
-#pragma line 4 "DedupHWMod_HLS/Dedup/dedup.h" 2 ::: 1216
+#pragma line 4 "DedupHWModule_HLS/Dedup/dedup.h" 2 ::: 1216
 #pragma line 1 "/usr/include/stdlib.h" 1 3 4 ::: 1217
 #pragma line 1 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 1250
 #pragma line 56 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 1275
@@ -153,7 +153,7 @@
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/stdlib-float.h" 1 3 4 ::: 3373
 #pragma line 956 "/usr/include/stdlib.h" 2 3 4 ::: 3391
 #pragma line 968 "/usr/include/stdlib.h" 3 4 ::: 3394
-#pragma line 5 "DedupHWMod_HLS/Dedup/dedup.h" 2 ::: 3396
+#pragma line 5 "DedupHWModule_HLS/Dedup/dedup.h" 2 ::: 3396
 #pragma line 1 "/usr/include/stdio.h" 1 3 4 ::: 3397
 #pragma line 1 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 3431
 #pragma line 56 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 3456
@@ -201,7 +201,7 @@
 #pragma line 854 "/usr/include/stdio.h" 2 3 4 ::: 4546
 #pragma line 931 "/usr/include/stdio.h" 3 4 ::: 4614
 #pragma line 943 "/usr/include/stdio.h" 3 4 ::: 4617
-#pragma line 6 "DedupHWMod_HLS/Dedup/dedup.h" 2 ::: 4619
+#pragma line 6 "DedupHWModule_HLS/Dedup/dedup.h" 2 ::: 4619
 #pragma line 1 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stdint.h" 1 3 ::: 4620
 #pragma line 1 "/usr/include/stdint.h" 1 3 4 ::: 4654
 #pragma line 1 "/usr/include/x86_64-linux-gnu/bits/wchar.h" 1 3 4 ::: 4681
@@ -221,12 +221,12 @@
 #pragma line 287 "/usr/include/stdint.h" 3 4 ::: 4883
 #pragma line 297 "/usr/include/stdint.h" 3 4 ::: 4885
 #pragma line 34 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stdint.h" 2 3 ::: 4887
-#pragma line 7 "DedupHWMod_HLS/Dedup/dedup.h" 2 ::: 4888
-#pragma line 4 "DedupHWMod_HLS/Dedup/dedup.cpp" 2 ::: 4896
+#pragma line 7 "DedupHWModule_HLS/Dedup/dedup.h" 2 ::: 4888
+#pragma line 4 "DedupHWModule_HLS/Dedup/dedup.cpp" 2 ::: 4896
 #pragma line 1 "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot/hls_stream.h" 1 ::: 4898
 #pragma line 1 "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot/etc/autopilot_enum.h" 1 ::: 4965
 #pragma line 67 "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot/hls_stream.h" 2 ::: 5100
-#pragma line 6 "DedupHWMod_HLS/Dedup/dedup.cpp" 2 ::: 5206
+#pragma line 6 "DedupHWModule_HLS/Dedup/dedup.cpp" 2 ::: 5206
 #pragma line 1 "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot/ap_axi_sdata.h" 1 ::: 5207
 #pragma line 1 "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot/ap_int.h" 1 ::: 5295
 #pragma line 60 "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot/ap_int.h" ::: 5347
@@ -730,5 +730,5 @@
 #pragma line 2448 "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot/ap_fixed_syn.h" ::: 45443
 #pragma line 62 "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot/ap_int.h" 2 ::: 45458
 #pragma line 88 "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot/ap_axi_sdata.h" 2 ::: 45928
-#pragma line 7 "DedupHWMod_HLS/Dedup/dedup.cpp" 2 ::: 45958
-#pragma line 101 "DedupHWMod_HLS/Dedup/dedup.cpp" ::: 46044
+#pragma line 7 "DedupHWModule_HLS/Dedup/dedup.cpp" 2 ::: 45958
+#pragma line 101 "DedupHWModule_HLS/Dedup/dedup.cpp" ::: 46044

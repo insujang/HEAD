@@ -1,5 +1,5 @@
-#pragma line 1 "DedupHWMod_HLS/Dedup/dedup.cpp"
-#pragma line 1 "DedupHWMod_HLS/Dedup/dedup.cpp" 1
+#pragma line 1 "DedupHWModule_HLS/Dedup/dedup.cpp"
+#pragma line 1 "DedupHWModule_HLS/Dedup/dedup.cpp" 1
 #pragma line 1 "<built-in>" 1
 #pragma line 1 "<built-in>" 3
 #pragma line 155 "<built-in>" 3
@@ -203,10 +203,10 @@ extern "C" {
 // XSIP watermark, do not delete 67d7842dbbe25473c3c32b93c0da8047785f30d78e8a024de1b57352245f9689
 #pragma line 6 "<command line>" 2
 #pragma line 1 "<built-in>" 2
-#pragma line 1 "DedupHWMod_HLS/Dedup/dedup.cpp" 2
+#pragma line 1 "DedupHWModule_HLS/Dedup/dedup.cpp" 2
 #pragma empty_line
 #pragma empty_line
-#pragma line 1 "DedupHWMod_HLS/Dedup/dedup.h" 1
+#pragma line 1 "DedupHWModule_HLS/Dedup/dedup.h" 1
 #pragma empty_line
 #pragma empty_line
 #pragma line 1 "/usr/include/string.h" 1 3 4
@@ -1214,7 +1214,7 @@ extern void *memfrob (void *__s, size_t __n) throw () __attribute__ ((__nonnull_
 extern char *basename (const char *__filename) throw () __attribute__ ((__nonnull__ (1)));
 #pragma line 644 "/usr/include/string.h" 3 4
 }
-#pragma line 4 "DedupHWMod_HLS/Dedup/dedup.h" 2
+#pragma line 4 "DedupHWModule_HLS/Dedup/dedup.h" 2
 #pragma line 1 "/usr/include/stdlib.h" 1 3 4
 /* Copyright (C) 1991-2014 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
@@ -3394,7 +3394,7 @@ extern int getloadavg (double __loadavg[], int __nelem)
 /* Define some macros helping to catch buffer overflows.  */
 #pragma line 968 "/usr/include/stdlib.h" 3 4
 }
-#pragma line 5 "DedupHWMod_HLS/Dedup/dedup.h" 2
+#pragma line 5 "DedupHWModule_HLS/Dedup/dedup.h" 2
 #pragma line 1 "/usr/include/stdio.h" 1 3 4
 /* Define ISO C stdio on top of C++ iostreams.
    Copyright (C) 1991-2014 Free Software Foundation, Inc.
@@ -4617,7 +4617,7 @@ extern void funlockfile (FILE *__stream) throw ();
    several optimizing inline functions and macros.  */
 #pragma line 943 "/usr/include/stdio.h" 3 4
 }
-#pragma line 6 "DedupHWMod_HLS/Dedup/dedup.h" 2
+#pragma line 6 "DedupHWModule_HLS/Dedup/dedup.h" 2
 #pragma line 1 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stdint.h" 1 3
 /*===---- stdint.h - Standard header for sized integer types --------------===*\
  *
@@ -4886,7 +4886,7 @@ typedef unsigned long int uintmax_t;
 #pragma line 297 "/usr/include/stdint.h" 3 4
 /* Maximal type.  */
 #pragma line 34 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stdint.h" 2 3
-#pragma line 7 "DedupHWMod_HLS/Dedup/dedup.h" 2
+#pragma line 7 "DedupHWModule_HLS/Dedup/dedup.h" 2
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
@@ -4894,7 +4894,7 @@ typedef unsigned long int uintmax_t;
 #pragma empty_line
 uint32_t murmurhash ( char* key, uint32_t len, uint32_t seed);
 void calcHash(char str[8192], int indices[7]);
-#pragma line 4 "DedupHWMod_HLS/Dedup/dedup.cpp" 2
+#pragma line 4 "DedupHWModule_HLS/Dedup/dedup.cpp" 2
 #pragma empty_line
 #pragma line 1 "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot/hls_stream.h" 1
 /* -*- c++ -*-*/
@@ -5204,7 +5204,7 @@ class stream
 #pragma empty_line
 #pragma empty_line
 // XSIP watermark, do not delete 67d7842dbbe25473c3c32b93c0da8047785f30d78e8a024de1b57352245f9689
-#pragma line 6 "DedupHWMod_HLS/Dedup/dedup.cpp" 2
+#pragma line 6 "DedupHWModule_HLS/Dedup/dedup.cpp" 2
 #pragma line 1 "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot/ap_axi_sdata.h" 1
 /*****************************************************************************
  *
@@ -45956,7 +45956,7 @@ template<int D,int U,int TI,int TD>
 #pragma empty_line
 #pragma empty_line
 // XSIP watermark, do not delete 67d7842dbbe25473c3c32b93c0da8047785f30d78e8a024de1b57352245f9689
-#pragma line 7 "DedupHWMod_HLS/Dedup/dedup.cpp" 2
+#pragma line 7 "DedupHWModule_HLS/Dedup/dedup.cpp" 2
 #pragma empty_line
 struct ap_out_item{
  int index;
@@ -46042,7 +46042,7 @@ void calcHash(char str[8192], int indices[7]){
  extractIndices(hash, indices);
 #pragma empty_line
 }
-#pragma line 101 "DedupHWMod_HLS/Dedup/dedup.cpp"
+#pragma line 101 "DedupHWModule_HLS/Dedup/dedup.cpp"
 uint32_t murmurhash ( char* key, uint32_t len, uint32_t seed) {
 #pragma HLS INLINE off
  uint32_t hash = seed;

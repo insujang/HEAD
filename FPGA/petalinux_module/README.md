@@ -22,7 +22,7 @@ $ echo $PETALINUX
 ### 3. Creating a Petalinux project
 By typing the following commands, a new project directory will be created.
 ```
-$ petalinux-create -t project -s -n <PROJECT_NAME> --template zynq
+$ petalinux-create -t project -n <PROJECT_NAME> --template zynq
 ```
 For example, we created a Petalinux project named `petalinux_customip` by the following commands:
 ```

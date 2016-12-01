@@ -1,5 +1,5 @@
-# 1 "/home/insujang/cs710/HEAD/FPGA/DedupHWMod_HLS/Dedup/.autopilot/db/dedup.pragma.1.cpp"
-# 1 "/home/insujang/cs710/HEAD/FPGA/DedupHWMod_HLS/Dedup/.autopilot/db/dedup.pragma.1.cpp" 1
+# 1 "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/dedup.pragma.1.cpp"
+# 1 "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/dedup.pragma.1.cpp" 1
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 155 "<built-in>" 3
@@ -203,9 +203,9 @@ extern "C" {
 // XSIP watermark, do not delete 67d7842dbbe25473c3c32b93c0da8047785f30d78e8a024de1b57352245f9689
 # 6 "<command line>" 2
 # 1 "<built-in>" 2
-# 1 "/home/insujang/cs710/HEAD/FPGA/DedupHWMod_HLS/Dedup/.autopilot/db/dedup.pragma.1.cpp" 2
-# 1 "DedupHWMod_HLS/Dedup/dedup.cpp"
-# 1 "DedupHWMod_HLS/Dedup/dedup.cpp" 1
+# 1 "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/dedup.pragma.1.cpp" 2
+# 1 "DedupHWModule_HLS/Dedup/dedup.cpp"
+# 1 "DedupHWModule_HLS/Dedup/dedup.cpp" 1
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 155 "<built-in>" 3
@@ -409,10 +409,10 @@ extern "C" {
 // XSIP watermark, do not delete 67d7842dbbe25473c3c32b93c0da8047785f30d78e8a024de1b57352245f9689
 # 6 "<command line>" 2
 # 1 "<built-in>" 2
-# 1 "DedupHWMod_HLS/Dedup/dedup.cpp" 2
+# 1 "DedupHWModule_HLS/Dedup/dedup.cpp" 2
 
 
-# 1 "DedupHWMod_HLS/Dedup/dedup.h" 1
+# 1 "DedupHWModule_HLS/Dedup/dedup.h" 1
 
 
 # 1 "/usr/include/string.h" 1 3 4
@@ -1431,7 +1431,7 @@ extern void *memfrob (void *__s, size_t __n) throw () __attribute__ ((__nonnull_
 extern char *basename (const char *__filename) throw () __attribute__ ((__nonnull__ (1)));
 # 644 "/usr/include/string.h" 3 4
 }
-# 4 "DedupHWMod_HLS/Dedup/dedup.h" 2
+# 4 "DedupHWModule_HLS/Dedup/dedup.h" 2
 # 1 "/usr/include/stdlib.h" 1 3 4
 /* Copyright (C) 1991-2014 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
@@ -3623,7 +3623,7 @@ extern int getloadavg (double __loadavg[], int __nelem)
 /* Define some macros helping to catch buffer overflows.  */
 # 968 "/usr/include/stdlib.h" 3 4
 }
-# 5 "DedupHWMod_HLS/Dedup/dedup.h" 2
+# 5 "DedupHWModule_HLS/Dedup/dedup.h" 2
 # 1 "/usr/include/stdio.h" 1 3 4
 /* Define ISO C stdio on top of C++ iostreams.
    Copyright (C) 1991-2014 Free Software Foundation, Inc.
@@ -4844,7 +4844,7 @@ extern void funlockfile (FILE *__stream) throw ();
    several optimizing inline functions and macros.  */
 # 943 "/usr/include/stdio.h" 3 4
 }
-# 6 "DedupHWMod_HLS/Dedup/dedup.h" 2
+# 6 "DedupHWModule_HLS/Dedup/dedup.h" 2
 # 1 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stdint.h" 1 3
 /*===---- stdint.h - Standard header for sized integer types --------------===*\
  *
@@ -5115,7 +5115,7 @@ typedef unsigned long int uintmax_t;
 # 297 "/usr/include/stdint.h" 3 4
 /* Maximal type.  */
 # 34 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stdint.h" 2 3
-# 7 "DedupHWMod_HLS/Dedup/dedup.h" 2
+# 7 "DedupHWModule_HLS/Dedup/dedup.h" 2
 
 
 
@@ -5123,7 +5123,7 @@ typedef unsigned long int uintmax_t;
 
 uint32_t murmurhash ( char* key, uint32_t len, uint32_t seed);
 void calcHash(char str[8192], int indices[7]);
-# 4 "DedupHWMod_HLS/Dedup/dedup.cpp" 2
+# 4 "DedupHWModule_HLS/Dedup/dedup.cpp" 2
 
 # 1 "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot/hls_stream.h" 1
 /* -*- c++ -*-*/
@@ -5434,7 +5434,7 @@ class stream
 
 
 // XSIP watermark, do not delete 67d7842dbbe25473c3c32b93c0da8047785f30d78e8a024de1b57352245f9689
-# 6 "DedupHWMod_HLS/Dedup/dedup.cpp" 2
+# 6 "DedupHWModule_HLS/Dedup/dedup.cpp" 2
 # 1 "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot/ap_axi_sdata.h" 1
 /*****************************************************************************
  *
@@ -46017,7 +46017,7 @@ template<int D,int U,int TI,int TD>
 
 
 // XSIP watermark, do not delete 67d7842dbbe25473c3c32b93c0da8047785f30d78e8a024de1b57352245f9689
-# 7 "DedupHWMod_HLS/Dedup/dedup.cpp" 2
+# 7 "DedupHWModule_HLS/Dedup/dedup.cpp" 2
 
 struct ap_out_item{
  int index;
@@ -46103,7 +46103,7 @@ _ssdm_SpecArrayPartition( hash, 1, "CYCLIC", 128, "");
  extractIndices(hash, indices);
 
 }
-# 101 "DedupHWMod_HLS/Dedup/dedup.cpp"
+# 101 "DedupHWModule_HLS/Dedup/dedup.cpp"
 uint32_t murmurhash ( char* key, uint32_t len, uint32_t seed) {
 _ssdm_InlineSelf(2, "");
  uint32_t hash = seed;

@@ -27,10 +27,11 @@
 								<option id="gnu.cpp.compiler.option.include.paths.1864437429" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/opt/Xilinx/Vivado_HLS/2016.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="/opt/Xilinx/Vivado_HLS/2016.2/include"/>
+									<listOptionValue builtIn="false" value="/home/insujang/cs710/HEAD/FPGA"/>
 									<listOptionValue builtIn="false" value="/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/systemc/include"/>
-									<listOptionValue builtIn="false" value="/home/seikwon/Development/cs710/HEAD/FPGA"/>
 									<listOptionValue builtIn="false" value="/opt/Xilinx/Vivado_HLS/2016.2/include/etc"/>
 									<listOptionValue builtIn="false" value="/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/auto_cc/include"/>
+									<listOptionValue builtIn="false" value="/home/seikwon/Development/cs710/HEAD/FPGA"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.preprocessor.def.1511231359" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="AESL_TB"/>
@@ -45,10 +46,11 @@
 								<option id="gnu.c.compiler.option.include.paths.49946684" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/opt/Xilinx/Vivado_HLS/2016.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="/opt/Xilinx/Vivado_HLS/2016.2/include"/>
+									<listOptionValue builtIn="false" value="/home/insujang/cs710/HEAD/FPGA"/>
 									<listOptionValue builtIn="false" value="/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/systemc/include"/>
-									<listOptionValue builtIn="false" value="/home/seikwon/Development/cs710/HEAD/FPGA"/>
 									<listOptionValue builtIn="false" value="/opt/Xilinx/Vivado_HLS/2016.2/include/etc"/>
 									<listOptionValue builtIn="false" value="/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/auto_cc/include"/>
+									<listOptionValue builtIn="false" value="/home/seikwon/Development/cs710/HEAD/FPGA"/>
 								</option>
 								<option id="gnu.c.compiler.option.preprocessor.def.symbols.408802452" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="AESL_TB"/>
@@ -128,10 +130,11 @@
 								<option id="gnu.cpp.compiler.option.include.paths.212252382" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/opt/Xilinx/Vivado_HLS/2016.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="/opt/Xilinx/Vivado_HLS/2016.2/include"/>
+									<listOptionValue builtIn="false" value="/home/insujang/cs710/HEAD/FPGA"/>
 									<listOptionValue builtIn="false" value="/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/systemc/include"/>
-									<listOptionValue builtIn="false" value="/home/seikwon/Development/cs710/HEAD/FPGA"/>
 									<listOptionValue builtIn="false" value="/opt/Xilinx/Vivado_HLS/2016.2/include/etc"/>
 									<listOptionValue builtIn="false" value="/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/auto_cc/include"/>
+									<listOptionValue builtIn="false" value="/home/seikwon/Development/cs710/HEAD/FPGA"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1494312307" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
@@ -141,10 +144,11 @@
 								<option id="gnu.c.compiler.option.include.paths.1998886159" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/opt/Xilinx/Vivado_HLS/2016.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="/opt/Xilinx/Vivado_HLS/2016.2/include"/>
+									<listOptionValue builtIn="false" value="/home/insujang/cs710/HEAD/FPGA"/>
 									<listOptionValue builtIn="false" value="/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/systemc/include"/>
-									<listOptionValue builtIn="false" value="/home/seikwon/Development/cs710/HEAD/FPGA"/>
 									<listOptionValue builtIn="false" value="/opt/Xilinx/Vivado_HLS/2016.2/include/etc"/>
 									<listOptionValue builtIn="false" value="/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/auto_cc/include"/>
+									<listOptionValue builtIn="false" value="/home/seikwon/Development/cs710/HEAD/FPGA"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1123012709" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
@@ -197,20 +201,20 @@
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 		<project id="DedupHWMod_HLS.cdt.managedbuild.target.gnu.exe.756297570" name="Executable" projectType="cdt.managedbuild.target.gnu.exe"/>
 	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.1409277697;cdt.managedbuild.config.gnu.exe.debug.1409277697.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.95764719;cdt.managedbuild.tool.gnu.cpp.compiler.input.105812437">
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.127912728;cdt.managedbuild.config.gnu.exe.release.127912728.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.2146615568;cdt.managedbuild.tool.gnu.cpp.compiler.input.1494312307">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.127912728;cdt.managedbuild.config.gnu.exe.release.127912728.;cdt.managedbuild.tool.gnu.c.compiler.exe.release.1284724941;cdt.managedbuild.tool.gnu.c.compiler.input.1123012709">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.1409277697;cdt.managedbuild.config.gnu.exe.debug.1409277697.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.95764719;cdt.managedbuild.tool.gnu.cpp.compiler.input.105812437">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.1409277697;cdt.managedbuild.config.gnu.exe.debug.1409277697.;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.178957707;cdt.managedbuild.tool.gnu.c.compiler.input.643451113">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.127912728;cdt.managedbuild.config.gnu.exe.release.127912728.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.2146615568;cdt.managedbuild.tool.gnu.cpp.compiler.input.1494312307">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		</scannerConfigBuildInfo>
 	</storageModule>
-	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 </cproject>
