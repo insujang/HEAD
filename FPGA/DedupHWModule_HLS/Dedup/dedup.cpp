@@ -160,7 +160,7 @@ uint32_t murmurhash ( char* key, uint32_t len, uint32_t seed) {
   return hash;
 }
 
-void dedupDriver(hls::stream<char>& inputData, hls::stream<ap_out>& outputData ){
+void dedup(hls::stream<char>& inputData, hls::stream<ap_out>& outputData ){
 #pragma HLS INTERFACE axis port=outputData
 #pragma HLS INTERFACE axis port=inputData
 #pragma HLS INTERFACE s_axilite port=return
