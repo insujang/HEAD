@@ -1,0 +1,521 @@
+
+
+================================================================
+== Vivado HLS Report for 'dedupDriver_calcHash'
+================================================================
+* Date:           Wed Nov 30 22:46:33 2016
+
+* Version:        2016.2 (Build 1577090 on Thu Jun 02 16:59:10 MDT 2016)
+* Project:        DedupHWMod_HLS
+* Solution:       Dedup
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      8.52|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +------+------+------+------+---------+
+    |   Latency   |   Interval  | Pipeline|
+    |  min |  max |  min |  max |   Type  |
+    +------+------+------+------+---------+
+    |  8714|  8714|  8714|  8714|   none  |
+    +------+------+------+------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 4
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+* FSM state operations: 
+
+ <State 1>: 0.00ns
+ST_1: hash_0 [1/1] 0.00ns
+:1  %hash_0 = alloca [56 x i32], align 4
+
+ST_1: hash_1 [1/1] 0.00ns
+:2  %hash_1 = alloca [56 x i32], align 4
+
+ST_1: hash_2 [1/1] 0.00ns
+:3  %hash_2 = alloca [56 x i32], align 4
+
+ST_1: hash_3 [1/1] 0.00ns
+:4  %hash_3 = alloca [56 x i32], align 4
+
+ST_1: hash_4 [1/1] 0.00ns
+:5  %hash_4 = alloca [56 x i32], align 4
+
+ST_1: hash_5 [1/1] 0.00ns
+:6  %hash_5 = alloca [56 x i32], align 4
+
+ST_1: hash_6 [1/1] 0.00ns
+:7  %hash_6 = alloca [56 x i32], align 4
+
+ST_1: hash_7 [1/1] 0.00ns
+:8  %hash_7 = alloca [56 x i32], align 4
+
+ST_1: hash_8 [1/1] 0.00ns
+:9  %hash_8 = alloca [56 x i32], align 4
+
+ST_1: hash_9 [1/1] 0.00ns
+:10  %hash_9 = alloca [56 x i32], align 4
+
+ST_1: hash_10 [1/1] 0.00ns
+:11  %hash_10 = alloca [56 x i32], align 4
+
+ST_1: hash_11 [1/1] 0.00ns
+:12  %hash_11 = alloca [56 x i32], align 4
+
+ST_1: hash_12 [1/1] 0.00ns
+:13  %hash_12 = alloca [56 x i32], align 4
+
+ST_1: hash_13 [1/1] 0.00ns
+:14  %hash_13 = alloca [56 x i32], align 4
+
+ST_1: hash_14 [1/1] 0.00ns
+:15  %hash_14 = alloca [56 x i32], align 4
+
+ST_1: hash_15 [1/1] 0.00ns
+:16  %hash_15 = alloca [56 x i32], align 4
+
+ST_1: hash_16 [1/1] 0.00ns
+:17  %hash_16 = alloca [56 x i32], align 4
+
+ST_1: hash_17 [1/1] 0.00ns
+:18  %hash_17 = alloca [56 x i32], align 4
+
+ST_1: hash_18 [1/1] 0.00ns
+:19  %hash_18 = alloca [56 x i32], align 4
+
+ST_1: hash_19 [1/1] 0.00ns
+:20  %hash_19 = alloca [56 x i32], align 4
+
+ST_1: hash_20 [1/1] 0.00ns
+:21  %hash_20 = alloca [56 x i32], align 4
+
+ST_1: hash_21 [1/1] 0.00ns
+:22  %hash_21 = alloca [56 x i32], align 4
+
+ST_1: hash_22 [1/1] 0.00ns
+:23  %hash_22 = alloca [56 x i32], align 4
+
+ST_1: hash_23 [1/1] 0.00ns
+:24  %hash_23 = alloca [56 x i32], align 4
+
+ST_1: hash_24 [1/1] 0.00ns
+:25  %hash_24 = alloca [56 x i32], align 4
+
+ST_1: hash_25 [1/1] 0.00ns
+:26  %hash_25 = alloca [56 x i32], align 4
+
+ST_1: hash_26 [1/1] 0.00ns
+:27  %hash_26 = alloca [56 x i32], align 4
+
+ST_1: hash_27 [1/1] 0.00ns
+:28  %hash_27 = alloca [56 x i32], align 4
+
+ST_1: hash_28 [1/1] 0.00ns
+:29  %hash_28 = alloca [56 x i32], align 4
+
+ST_1: hash_29 [1/1] 0.00ns
+:30  %hash_29 = alloca [56 x i32], align 4
+
+ST_1: hash_30 [1/1] 0.00ns
+:31  %hash_30 = alloca [56 x i32], align 4
+
+ST_1: hash_31 [1/1] 0.00ns
+:32  %hash_31 = alloca [56 x i32], align 4
+
+ST_1: hash_32 [1/1] 0.00ns
+:33  %hash_32 = alloca [56 x i32], align 4
+
+ST_1: hash_33 [1/1] 0.00ns
+:34  %hash_33 = alloca [56 x i32], align 4
+
+ST_1: hash_34 [1/1] 0.00ns
+:35  %hash_34 = alloca [56 x i32], align 4
+
+ST_1: hash_35 [1/1] 0.00ns
+:36  %hash_35 = alloca [56 x i32], align 4
+
+ST_1: hash_36 [1/1] 0.00ns
+:37  %hash_36 = alloca [56 x i32], align 4
+
+ST_1: hash_37 [1/1] 0.00ns
+:38  %hash_37 = alloca [56 x i32], align 4
+
+ST_1: hash_38 [1/1] 0.00ns
+:39  %hash_38 = alloca [56 x i32], align 4
+
+ST_1: hash_39 [1/1] 0.00ns
+:40  %hash_39 = alloca [56 x i32], align 4
+
+ST_1: hash_40 [1/1] 0.00ns
+:41  %hash_40 = alloca [56 x i32], align 4
+
+ST_1: hash_41 [1/1] 0.00ns
+:42  %hash_41 = alloca [56 x i32], align 4
+
+ST_1: hash_42 [1/1] 0.00ns
+:43  %hash_42 = alloca [56 x i32], align 4
+
+ST_1: hash_43 [1/1] 0.00ns
+:44  %hash_43 = alloca [56 x i32], align 4
+
+ST_1: hash_44 [1/1] 0.00ns
+:45  %hash_44 = alloca [56 x i32], align 4
+
+ST_1: hash_45 [1/1] 0.00ns
+:46  %hash_45 = alloca [56 x i32], align 4
+
+ST_1: hash_46 [1/1] 0.00ns
+:47  %hash_46 = alloca [56 x i32], align 4
+
+ST_1: hash_47 [1/1] 0.00ns
+:48  %hash_47 = alloca [56 x i32], align 4
+
+ST_1: hash_48 [1/1] 0.00ns
+:49  %hash_48 = alloca [56 x i32], align 4
+
+ST_1: hash_49 [1/1] 0.00ns
+:50  %hash_49 = alloca [56 x i32], align 4
+
+ST_1: hash_50 [1/1] 0.00ns
+:51  %hash_50 = alloca [56 x i32], align 4
+
+ST_1: hash_51 [1/1] 0.00ns
+:52  %hash_51 = alloca [56 x i32], align 4
+
+ST_1: hash_52 [1/1] 0.00ns
+:53  %hash_52 = alloca [56 x i32], align 4
+
+ST_1: hash_53 [1/1] 0.00ns
+:54  %hash_53 = alloca [56 x i32], align 4
+
+ST_1: hash_54 [1/1] 0.00ns
+:55  %hash_54 = alloca [56 x i32], align 4
+
+ST_1: hash_55 [1/1] 0.00ns
+:56  %hash_55 = alloca [56 x i32], align 4
+
+ST_1: hash_56 [1/1] 0.00ns
+:57  %hash_56 = alloca [56 x i32], align 4
+
+ST_1: hash_57 [1/1] 0.00ns
+:58  %hash_57 = alloca [56 x i32], align 4
+
+ST_1: hash_58 [1/1] 0.00ns
+:59  %hash_58 = alloca [56 x i32], align 4
+
+ST_1: hash_59 [1/1] 0.00ns
+:60  %hash_59 = alloca [56 x i32], align 4
+
+ST_1: hash_60 [1/1] 0.00ns
+:61  %hash_60 = alloca [56 x i32], align 4
+
+ST_1: hash_61 [1/1] 0.00ns
+:62  %hash_61 = alloca [56 x i32], align 4
+
+ST_1: hash_62 [1/1] 0.00ns
+:63  %hash_62 = alloca [56 x i32], align 4
+
+ST_1: hash_63 [1/1] 0.00ns
+:64  %hash_63 = alloca [56 x i32], align 4
+
+ST_1: hash_64 [1/1] 0.00ns
+:65  %hash_64 = alloca [56 x i32], align 4
+
+ST_1: hash_65 [1/1] 0.00ns
+:66  %hash_65 = alloca [56 x i32], align 4
+
+ST_1: hash_66 [1/1] 0.00ns
+:67  %hash_66 = alloca [56 x i32], align 4
+
+ST_1: hash_67 [1/1] 0.00ns
+:68  %hash_67 = alloca [56 x i32], align 4
+
+ST_1: hash_68 [1/1] 0.00ns
+:69  %hash_68 = alloca [56 x i32], align 4
+
+ST_1: hash_69 [1/1] 0.00ns
+:70  %hash_69 = alloca [56 x i32], align 4
+
+ST_1: hash_70 [1/1] 0.00ns
+:71  %hash_70 = alloca [56 x i32], align 4
+
+ST_1: hash_71 [1/1] 0.00ns
+:72  %hash_71 = alloca [56 x i32], align 4
+
+ST_1: hash_72 [1/1] 0.00ns
+:73  %hash_72 = alloca [56 x i32], align 4
+
+ST_1: hash_73 [1/1] 0.00ns
+:74  %hash_73 = alloca [56 x i32], align 4
+
+ST_1: hash_74 [1/1] 0.00ns
+:75  %hash_74 = alloca [56 x i32], align 4
+
+ST_1: hash_75 [1/1] 0.00ns
+:76  %hash_75 = alloca [56 x i32], align 4
+
+ST_1: hash_76 [1/1] 0.00ns
+:77  %hash_76 = alloca [56 x i32], align 4
+
+ST_1: hash_77 [1/1] 0.00ns
+:78  %hash_77 = alloca [56 x i32], align 4
+
+ST_1: hash_78 [1/1] 0.00ns
+:79  %hash_78 = alloca [56 x i32], align 4
+
+ST_1: hash_79 [1/1] 0.00ns
+:80  %hash_79 = alloca [56 x i32], align 4
+
+ST_1: hash_80 [1/1] 0.00ns
+:81  %hash_80 = alloca [56 x i32], align 4
+
+ST_1: hash_81 [1/1] 0.00ns
+:82  %hash_81 = alloca [56 x i32], align 4
+
+ST_1: hash_82 [1/1] 0.00ns
+:83  %hash_82 = alloca [56 x i32], align 4
+
+ST_1: hash_83 [1/1] 0.00ns
+:84  %hash_83 = alloca [56 x i32], align 4
+
+ST_1: hash_84 [1/1] 0.00ns
+:85  %hash_84 = alloca [56 x i32], align 4
+
+ST_1: hash_85 [1/1] 0.00ns
+:86  %hash_85 = alloca [56 x i32], align 4
+
+ST_1: hash_86 [1/1] 0.00ns
+:87  %hash_86 = alloca [56 x i32], align 4
+
+ST_1: hash_87 [1/1] 0.00ns
+:88  %hash_87 = alloca [56 x i32], align 4
+
+ST_1: hash_88 [1/1] 0.00ns
+:89  %hash_88 = alloca [56 x i32], align 4
+
+ST_1: hash_89 [1/1] 0.00ns
+:90  %hash_89 = alloca [56 x i32], align 4
+
+ST_1: hash_90 [1/1] 0.00ns
+:91  %hash_90 = alloca [56 x i32], align 4
+
+ST_1: hash_91 [1/1] 0.00ns
+:92  %hash_91 = alloca [56 x i32], align 4
+
+ST_1: hash_92 [1/1] 0.00ns
+:93  %hash_92 = alloca [56 x i32], align 4
+
+ST_1: hash_93 [1/1] 0.00ns
+:94  %hash_93 = alloca [56 x i32], align 4
+
+ST_1: hash_94 [1/1] 0.00ns
+:95  %hash_94 = alloca [56 x i32], align 4
+
+ST_1: hash_95 [1/1] 0.00ns
+:96  %hash_95 = alloca [56 x i32], align 4
+
+ST_1: hash_96 [1/1] 0.00ns
+:97  %hash_96 = alloca [56 x i32], align 4
+
+ST_1: hash_97 [1/1] 0.00ns
+:98  %hash_97 = alloca [56 x i32], align 4
+
+ST_1: hash_98 [1/1] 0.00ns
+:99  %hash_98 = alloca [56 x i32], align 4
+
+ST_1: hash_99 [1/1] 0.00ns
+:100  %hash_99 = alloca [56 x i32], align 4
+
+ST_1: hash_100 [1/1] 0.00ns
+:101  %hash_100 = alloca [56 x i32], align 4
+
+ST_1: hash_101 [1/1] 0.00ns
+:102  %hash_101 = alloca [56 x i32], align 4
+
+ST_1: hash_102 [1/1] 0.00ns
+:103  %hash_102 = alloca [56 x i32], align 4
+
+ST_1: hash_103 [1/1] 0.00ns
+:104  %hash_103 = alloca [56 x i32], align 4
+
+ST_1: hash_104 [1/1] 0.00ns
+:105  %hash_104 = alloca [56 x i32], align 4
+
+ST_1: hash_105 [1/1] 0.00ns
+:106  %hash_105 = alloca [56 x i32], align 4
+
+ST_1: hash_106 [1/1] 0.00ns
+:107  %hash_106 = alloca [56 x i32], align 4
+
+ST_1: hash_107 [1/1] 0.00ns
+:108  %hash_107 = alloca [56 x i32], align 4
+
+ST_1: hash_108 [1/1] 0.00ns
+:109  %hash_108 = alloca [56 x i32], align 4
+
+ST_1: hash_109 [1/1] 0.00ns
+:110  %hash_109 = alloca [56 x i32], align 4
+
+ST_1: hash_110 [1/1] 0.00ns
+:111  %hash_110 = alloca [56 x i32], align 4
+
+ST_1: hash_111 [1/1] 0.00ns
+:112  %hash_111 = alloca [56 x i32], align 4
+
+ST_1: hash_112 [1/1] 0.00ns
+:113  %hash_112 = alloca [56 x i32], align 4
+
+ST_1: hash_113 [1/1] 0.00ns
+:114  %hash_113 = alloca [56 x i32], align 4
+
+ST_1: hash_114 [1/1] 0.00ns
+:115  %hash_114 = alloca [56 x i32], align 4
+
+ST_1: hash_115 [1/1] 0.00ns
+:116  %hash_115 = alloca [56 x i32], align 4
+
+ST_1: hash_116 [1/1] 0.00ns
+:117  %hash_116 = alloca [56 x i32], align 4
+
+ST_1: hash_117 [1/1] 0.00ns
+:118  %hash_117 = alloca [56 x i32], align 4
+
+ST_1: hash_118 [1/1] 0.00ns
+:119  %hash_118 = alloca [56 x i32], align 4
+
+ST_1: hash_119 [1/1] 0.00ns
+:120  %hash_119 = alloca [56 x i32], align 4
+
+ST_1: hash_120 [1/1] 0.00ns
+:121  %hash_120 = alloca [56 x i32], align 4
+
+ST_1: hash_121 [1/1] 0.00ns
+:122  %hash_121 = alloca [56 x i32], align 4
+
+ST_1: hash_122 [1/1] 0.00ns
+:123  %hash_122 = alloca [56 x i32], align 4
+
+ST_1: hash_123 [1/1] 0.00ns
+:124  %hash_123 = alloca [56 x i32], align 4
+
+ST_1: hash_124 [1/1] 0.00ns
+:125  %hash_124 = alloca [56 x i32], align 4
+
+ST_1: hash_125 [1/1] 0.00ns
+:126  %hash_125 = alloca [56 x i32], align 4
+
+ST_1: hash_126 [1/1] 0.00ns
+:127  %hash_126 = alloca [56 x i32], align 4
+
+ST_1: hash_127 [1/1] 0.00ns
+:128  %hash_127 = alloca [56 x i32], align 4
+
+ST_1: stg_133 [2/2] 0.00ns
+:130  call fastcc void @dedupDriver_rollingHash([64 x i8]* %str_0, [64 x i8]* %str_1, [64 x i8]* %str_2, [64 x i8]* %str_3, [64 x i8]* %str_4, [64 x i8]* %str_5, [64 x i8]* %str_6, [64 x i8]* %str_7, [64 x i8]* %str_8, [64 x i8]* %str_9, [64 x i8]* %str_10, [64 x i8]* %str_11, [64 x i8]* %str_12, [64 x i8]* %str_13, [64 x i8]* %str_14, [64 x i8]* %str_15, [64 x i8]* %str_16, [64 x i8]* %str_17, [64 x i8]* %str_18, [64 x i8]* %str_19, [64 x i8]* %str_20, [64 x i8]* %str_21, [64 x i8]* %str_22, [64 x i8]* %str_23, [64 x i8]* %str_24, [64 x i8]* %str_25, [64 x i8]* %str_26, [64 x i8]* %str_27, [64 x i8]* %str_28, [64 x i8]* %str_29, [64 x i8]* %str_30, [64 x i8]* %str_31, [64 x i8]* %str_32, [64 x i8]* %str_33, [64 x i8]* %str_34, [64 x i8]* %str_35, [64 x i8]* %str_36, [64 x i8]* %str_37, [64 x i8]* %str_38, [64 x i8]* %str_39, [64 x i8]* %str_40, [64 x i8]* %str_41, [64 x i8]* %str_42, [64 x i8]* %str_43, [64 x i8]* %str_44, [64 x i8]* %str_45, [64 x i8]* %str_46, [64 x i8]* %str_47, [64 x i8]* %str_48, [64 x i8]* %str_49, [64 x i8]* %str_50, [64 x i8]* %str_51, [64 x i8]* %str_52, [64 x i8]* %str_53, [64 x i8]* %str_54, [64 x i8]* %str_55, [64 x i8]* %str_56, [64 x i8]* %str_57, [64 x i8]* %str_58, [64 x i8]* %str_59, [64 x i8]* %str_60, [64 x i8]* %str_61, [64 x i8]* %str_62, [64 x i8]* %str_63, [64 x i8]* %str_64, [64 x i8]* %str_65, [64 x i8]* %str_66, [64 x i8]* %str_67, [64 x i8]* %str_68, [64 x i8]* %str_69, [64 x i8]* %str_70, [64 x i8]* %str_71, [64 x i8]* %str_72, [64 x i8]* %str_73, [64 x i8]* %str_74, [64 x i8]* %str_75, [64 x i8]* %str_76, [64 x i8]* %str_77, [64 x i8]* %str_78, [64 x i8]* %str_79, [64 x i8]* %str_80, [64 x i8]* %str_81, [64 x i8]* %str_82, [64 x i8]* %str_83, [64 x i8]* %str_84, [64 x i8]* %str_85, [64 x i8]* %str_86, [64 x i8]* %str_87, [64 x i8]* %str_88, [64 x i8]* %str_89, [64 x i8]* %str_90, [64 x i8]* %str_91, [64 x i8]* %str_92, [64 x i8]* %str_93, [64 x i8]* %str_94, [64 x i8]* %str_95, [64 x i8]* %str_96, [64 x i8]* %str_97, [64 x i8]* %str_98, [64 x i8]* %str_99, [64 x i8]* %str_100, [64 x i8]* %str_101, [64 x i8]* %str_102, [64 x i8]* %str_103, [64 x i8]* %str_104, [64 x i8]* %str_105, [64 x i8]* %str_106, [64 x i8]* %str_107, [64 x i8]* %str_108, [64 x i8]* %str_109, [64 x i8]* %str_110, [64 x i8]* %str_111, [64 x i8]* %str_112, [64 x i8]* %str_113, [64 x i8]* %str_114, [64 x i8]* %str_115, [64 x i8]* %str_116, [64 x i8]* %str_117, [64 x i8]* %str_118, [64 x i8]* %str_119, [64 x i8]* %str_120, [64 x i8]* %str_121, [64 x i8]* %str_122, [64 x i8]* %str_123, [64 x i8]* %str_124, [64 x i8]* %str_125, [64 x i8]* %str_126, [64 x i8]* %str_127, [56 x i32]* %hash_0, [56 x i32]* %hash_1, [56 x i32]* %hash_2, [56 x i32]* %hash_3, [56 x i32]* %hash_4, [56 x i32]* %hash_5, [56 x i32]* %hash_6, [56 x i32]* %hash_7, [56 x i32]* %hash_8, [56 x i32]* %hash_9, [56 x i32]* %hash_10, [56 x i32]* %hash_11, [56 x i32]* %hash_12, [56 x i32]* %hash_13, [56 x i32]* %hash_14, [56 x i32]* %hash_15, [56 x i32]* %hash_16, [56 x i32]* %hash_17, [56 x i32]* %hash_18, [56 x i32]* %hash_19, [56 x i32]* %hash_20, [56 x i32]* %hash_21, [56 x i32]* %hash_22, [56 x i32]* %hash_23, [56 x i32]* %hash_24, [56 x i32]* %hash_25, [56 x i32]* %hash_26, [56 x i32]* %hash_27, [56 x i32]* %hash_28, [56 x i32]* %hash_29, [56 x i32]* %hash_30, [56 x i32]* %hash_31, [56 x i32]* %hash_32, [56 x i32]* %hash_33, [56 x i32]* %hash_34, [56 x i32]* %hash_35, [56 x i32]* %hash_36, [56 x i32]* %hash_37, [56 x i32]* %hash_38, [56 x i32]* %hash_39, [56 x i32]* %hash_40, [56 x i32]* %hash_41, [56 x i32]* %hash_42, [56 x i32]* %hash_43, [56 x i32]* %hash_44, [56 x i32]* %hash_45, [56 x i32]* %hash_46, [56 x i32]* %hash_47, [56 x i32]* %hash_48, [56 x i32]* %hash_49, [56 x i32]* %hash_50, [56 x i32]* %hash_51, [56 x i32]* %hash_52, [56 x i32]* %hash_53, [56 x i32]* %hash_54, [56 x i32]* %hash_55, [56 x i32]* %hash_56, [56 x i32]* %hash_57, [56 x i32]* %hash_58, [56 x i32]* %hash_59, [56 x i32]* %hash_60, [56 x i32]* %hash_61, [56 x i32]* %hash_62, [56 x i32]* %hash_63, [56 x i32]* %hash_64, [56 x i32]* %hash_65, [56 x i32]* %hash_66, [56 x i32]* %hash_67, [56 x i32]* %hash_68, [56 x i32]* %hash_69, [56 x i32]* %hash_70, [56 x i32]* %hash_71, [56 x i32]* %hash_72, [56 x i32]* %hash_73, [56 x i32]* %hash_74, [56 x i32]* %hash_75, [56 x i32]* %hash_76, [56 x i32]* %hash_77, [56 x i32]* %hash_78, [56 x i32]* %hash_79, [56 x i32]* %hash_80, [56 x i32]* %hash_81, [56 x i32]* %hash_82, [56 x i32]* %hash_83, [56 x i32]* %hash_84, [56 x i32]* %hash_85, [56 x i32]* %hash_86, [56 x i32]* %hash_87, [56 x i32]* %hash_88, [56 x i32]* %hash_89, [56 x i32]* %hash_90, [56 x i32]* %hash_91, [56 x i32]* %hash_92, [56 x i32]* %hash_93, [56 x i32]* %hash_94, [56 x i32]* %hash_95, [56 x i32]* %hash_96, [56 x i32]* %hash_97, [56 x i32]* %hash_98, [56 x i32]* %hash_99, [56 x i32]* %hash_100, [56 x i32]* %hash_101, [56 x i32]* %hash_102, [56 x i32]* %hash_103, [56 x i32]* %hash_104, [56 x i32]* %hash_105, [56 x i32]* %hash_106, [56 x i32]* %hash_107, [56 x i32]* %hash_108, [56 x i32]* %hash_109, [56 x i32]* %hash_110, [56 x i32]* %hash_111, [56 x i32]* %hash_112, [56 x i32]* %hash_113, [56 x i32]* %hash_114, [56 x i32]* %hash_115, [56 x i32]* %hash_116, [56 x i32]* %hash_117, [56 x i32]* %hash_118, [56 x i32]* %hash_119, [56 x i32]* %hash_120, [56 x i32]* %hash_121, [56 x i32]* %hash_122, [56 x i32]* %hash_123, [56 x i32]* %hash_124, [56 x i32]* %hash_125, [56 x i32]* %hash_126, [56 x i32]* %hash_127)
+
+
+ <State 2>: 0.00ns
+ST_2: stg_134 [1/2] 0.00ns
+:130  call fastcc void @dedupDriver_rollingHash([64 x i8]* %str_0, [64 x i8]* %str_1, [64 x i8]* %str_2, [64 x i8]* %str_3, [64 x i8]* %str_4, [64 x i8]* %str_5, [64 x i8]* %str_6, [64 x i8]* %str_7, [64 x i8]* %str_8, [64 x i8]* %str_9, [64 x i8]* %str_10, [64 x i8]* %str_11, [64 x i8]* %str_12, [64 x i8]* %str_13, [64 x i8]* %str_14, [64 x i8]* %str_15, [64 x i8]* %str_16, [64 x i8]* %str_17, [64 x i8]* %str_18, [64 x i8]* %str_19, [64 x i8]* %str_20, [64 x i8]* %str_21, [64 x i8]* %str_22, [64 x i8]* %str_23, [64 x i8]* %str_24, [64 x i8]* %str_25, [64 x i8]* %str_26, [64 x i8]* %str_27, [64 x i8]* %str_28, [64 x i8]* %str_29, [64 x i8]* %str_30, [64 x i8]* %str_31, [64 x i8]* %str_32, [64 x i8]* %str_33, [64 x i8]* %str_34, [64 x i8]* %str_35, [64 x i8]* %str_36, [64 x i8]* %str_37, [64 x i8]* %str_38, [64 x i8]* %str_39, [64 x i8]* %str_40, [64 x i8]* %str_41, [64 x i8]* %str_42, [64 x i8]* %str_43, [64 x i8]* %str_44, [64 x i8]* %str_45, [64 x i8]* %str_46, [64 x i8]* %str_47, [64 x i8]* %str_48, [64 x i8]* %str_49, [64 x i8]* %str_50, [64 x i8]* %str_51, [64 x i8]* %str_52, [64 x i8]* %str_53, [64 x i8]* %str_54, [64 x i8]* %str_55, [64 x i8]* %str_56, [64 x i8]* %str_57, [64 x i8]* %str_58, [64 x i8]* %str_59, [64 x i8]* %str_60, [64 x i8]* %str_61, [64 x i8]* %str_62, [64 x i8]* %str_63, [64 x i8]* %str_64, [64 x i8]* %str_65, [64 x i8]* %str_66, [64 x i8]* %str_67, [64 x i8]* %str_68, [64 x i8]* %str_69, [64 x i8]* %str_70, [64 x i8]* %str_71, [64 x i8]* %str_72, [64 x i8]* %str_73, [64 x i8]* %str_74, [64 x i8]* %str_75, [64 x i8]* %str_76, [64 x i8]* %str_77, [64 x i8]* %str_78, [64 x i8]* %str_79, [64 x i8]* %str_80, [64 x i8]* %str_81, [64 x i8]* %str_82, [64 x i8]* %str_83, [64 x i8]* %str_84, [64 x i8]* %str_85, [64 x i8]* %str_86, [64 x i8]* %str_87, [64 x i8]* %str_88, [64 x i8]* %str_89, [64 x i8]* %str_90, [64 x i8]* %str_91, [64 x i8]* %str_92, [64 x i8]* %str_93, [64 x i8]* %str_94, [64 x i8]* %str_95, [64 x i8]* %str_96, [64 x i8]* %str_97, [64 x i8]* %str_98, [64 x i8]* %str_99, [64 x i8]* %str_100, [64 x i8]* %str_101, [64 x i8]* %str_102, [64 x i8]* %str_103, [64 x i8]* %str_104, [64 x i8]* %str_105, [64 x i8]* %str_106, [64 x i8]* %str_107, [64 x i8]* %str_108, [64 x i8]* %str_109, [64 x i8]* %str_110, [64 x i8]* %str_111, [64 x i8]* %str_112, [64 x i8]* %str_113, [64 x i8]* %str_114, [64 x i8]* %str_115, [64 x i8]* %str_116, [64 x i8]* %str_117, [64 x i8]* %str_118, [64 x i8]* %str_119, [64 x i8]* %str_120, [64 x i8]* %str_121, [64 x i8]* %str_122, [64 x i8]* %str_123, [64 x i8]* %str_124, [64 x i8]* %str_125, [64 x i8]* %str_126, [64 x i8]* %str_127, [56 x i32]* %hash_0, [56 x i32]* %hash_1, [56 x i32]* %hash_2, [56 x i32]* %hash_3, [56 x i32]* %hash_4, [56 x i32]* %hash_5, [56 x i32]* %hash_6, [56 x i32]* %hash_7, [56 x i32]* %hash_8, [56 x i32]* %hash_9, [56 x i32]* %hash_10, [56 x i32]* %hash_11, [56 x i32]* %hash_12, [56 x i32]* %hash_13, [56 x i32]* %hash_14, [56 x i32]* %hash_15, [56 x i32]* %hash_16, [56 x i32]* %hash_17, [56 x i32]* %hash_18, [56 x i32]* %hash_19, [56 x i32]* %hash_20, [56 x i32]* %hash_21, [56 x i32]* %hash_22, [56 x i32]* %hash_23, [56 x i32]* %hash_24, [56 x i32]* %hash_25, [56 x i32]* %hash_26, [56 x i32]* %hash_27, [56 x i32]* %hash_28, [56 x i32]* %hash_29, [56 x i32]* %hash_30, [56 x i32]* %hash_31, [56 x i32]* %hash_32, [56 x i32]* %hash_33, [56 x i32]* %hash_34, [56 x i32]* %hash_35, [56 x i32]* %hash_36, [56 x i32]* %hash_37, [56 x i32]* %hash_38, [56 x i32]* %hash_39, [56 x i32]* %hash_40, [56 x i32]* %hash_41, [56 x i32]* %hash_42, [56 x i32]* %hash_43, [56 x i32]* %hash_44, [56 x i32]* %hash_45, [56 x i32]* %hash_46, [56 x i32]* %hash_47, [56 x i32]* %hash_48, [56 x i32]* %hash_49, [56 x i32]* %hash_50, [56 x i32]* %hash_51, [56 x i32]* %hash_52, [56 x i32]* %hash_53, [56 x i32]* %hash_54, [56 x i32]* %hash_55, [56 x i32]* %hash_56, [56 x i32]* %hash_57, [56 x i32]* %hash_58, [56 x i32]* %hash_59, [56 x i32]* %hash_60, [56 x i32]* %hash_61, [56 x i32]* %hash_62, [56 x i32]* %hash_63, [56 x i32]* %hash_64, [56 x i32]* %hash_65, [56 x i32]* %hash_66, [56 x i32]* %hash_67, [56 x i32]* %hash_68, [56 x i32]* %hash_69, [56 x i32]* %hash_70, [56 x i32]* %hash_71, [56 x i32]* %hash_72, [56 x i32]* %hash_73, [56 x i32]* %hash_74, [56 x i32]* %hash_75, [56 x i32]* %hash_76, [56 x i32]* %hash_77, [56 x i32]* %hash_78, [56 x i32]* %hash_79, [56 x i32]* %hash_80, [56 x i32]* %hash_81, [56 x i32]* %hash_82, [56 x i32]* %hash_83, [56 x i32]* %hash_84, [56 x i32]* %hash_85, [56 x i32]* %hash_86, [56 x i32]* %hash_87, [56 x i32]* %hash_88, [56 x i32]* %hash_89, [56 x i32]* %hash_90, [56 x i32]* %hash_91, [56 x i32]* %hash_92, [56 x i32]* %hash_93, [56 x i32]* %hash_94, [56 x i32]* %hash_95, [56 x i32]* %hash_96, [56 x i32]* %hash_97, [56 x i32]* %hash_98, [56 x i32]* %hash_99, [56 x i32]* %hash_100, [56 x i32]* %hash_101, [56 x i32]* %hash_102, [56 x i32]* %hash_103, [56 x i32]* %hash_104, [56 x i32]* %hash_105, [56 x i32]* %hash_106, [56 x i32]* %hash_107, [56 x i32]* %hash_108, [56 x i32]* %hash_109, [56 x i32]* %hash_110, [56 x i32]* %hash_111, [56 x i32]* %hash_112, [56 x i32]* %hash_113, [56 x i32]* %hash_114, [56 x i32]* %hash_115, [56 x i32]* %hash_116, [56 x i32]* %hash_117, [56 x i32]* %hash_118, [56 x i32]* %hash_119, [56 x i32]* %hash_120, [56 x i32]* %hash_121, [56 x i32]* %hash_122, [56 x i32]* %hash_123, [56 x i32]* %hash_124, [56 x i32]* %hash_125, [56 x i32]* %hash_126, [56 x i32]* %hash_127)
+
+
+ <State 3>: 0.00ns
+ST_3: stg_135 [2/2] 0.00ns
+:131  call fastcc void @dedupDriver_extractIndices([56 x i32]* %hash_0, [56 x i32]* %hash_1, [56 x i32]* %hash_2, [56 x i32]* %hash_3, [56 x i32]* %hash_4, [56 x i32]* %hash_5, [56 x i32]* %hash_6, [56 x i32]* %hash_7, [56 x i32]* %hash_8, [56 x i32]* %hash_9, [56 x i32]* %hash_10, [56 x i32]* %hash_11, [56 x i32]* %hash_12, [56 x i32]* %hash_13, [56 x i32]* %hash_14, [56 x i32]* %hash_15, [56 x i32]* %hash_16, [56 x i32]* %hash_17, [56 x i32]* %hash_18, [56 x i32]* %hash_19, [56 x i32]* %hash_20, [56 x i32]* %hash_21, [56 x i32]* %hash_22, [56 x i32]* %hash_23, [56 x i32]* %hash_24, [56 x i32]* %hash_25, [56 x i32]* %hash_26, [56 x i32]* %hash_27, [56 x i32]* %hash_28, [56 x i32]* %hash_29, [56 x i32]* %hash_30, [56 x i32]* %hash_31, [56 x i32]* %hash_32, [56 x i32]* %hash_33, [56 x i32]* %hash_34, [56 x i32]* %hash_35, [56 x i32]* %hash_36, [56 x i32]* %hash_37, [56 x i32]* %hash_38, [56 x i32]* %hash_39, [56 x i32]* %hash_40, [56 x i32]* %hash_41, [56 x i32]* %hash_42, [56 x i32]* %hash_43, [56 x i32]* %hash_44, [56 x i32]* %hash_45, [56 x i32]* %hash_46, [56 x i32]* %hash_47, [56 x i32]* %hash_48, [56 x i32]* %hash_49, [56 x i32]* %hash_50, [56 x i32]* %hash_51, [56 x i32]* %hash_52, [56 x i32]* %hash_53, [56 x i32]* %hash_54, [56 x i32]* %hash_55, [56 x i32]* %hash_56, [56 x i32]* %hash_57, [56 x i32]* %hash_58, [56 x i32]* %hash_59, [56 x i32]* %hash_60, [56 x i32]* %hash_61, [56 x i32]* %hash_62, [56 x i32]* %hash_63, [56 x i32]* %hash_64, [56 x i32]* %hash_65, [56 x i32]* %hash_66, [56 x i32]* %hash_67, [56 x i32]* %hash_68, [56 x i32]* %hash_69, [56 x i32]* %hash_70, [56 x i32]* %hash_71, [56 x i32]* %hash_72, [56 x i32]* %hash_73, [56 x i32]* %hash_74, [56 x i32]* %hash_75, [56 x i32]* %hash_76, [56 x i32]* %hash_77, [56 x i32]* %hash_78, [56 x i32]* %hash_79, [56 x i32]* %hash_80, [56 x i32]* %hash_81, [56 x i32]* %hash_82, [56 x i32]* %hash_83, [56 x i32]* %hash_84, [56 x i32]* %hash_85, [56 x i32]* %hash_86, [56 x i32]* %hash_87, [56 x i32]* %hash_88, [56 x i32]* %hash_89, [56 x i32]* %hash_90, [56 x i32]* %hash_91, [56 x i32]* %hash_92, [56 x i32]* %hash_93, [56 x i32]* %hash_94, [56 x i32]* %hash_95, [56 x i32]* %hash_96, [56 x i32]* %hash_97, [56 x i32]* %hash_98, [56 x i32]* %hash_99, [56 x i32]* %hash_100, [56 x i32]* %hash_101, [56 x i32]* %hash_102, [56 x i32]* %hash_103, [56 x i32]* %hash_104, [56 x i32]* %hash_105, [56 x i32]* %hash_106, [56 x i32]* %hash_107, [56 x i32]* %hash_108, [56 x i32]* %hash_109, [56 x i32]* %hash_110, [56 x i32]* %hash_111, [56 x i32]* %hash_112, [56 x i32]* %hash_113, [56 x i32]* %hash_114, [56 x i32]* %hash_115, [56 x i32]* %hash_116, [56 x i32]* %hash_117, [56 x i32]* %hash_118, [56 x i32]* %hash_119, [56 x i32]* %hash_120, [56 x i32]* %hash_121, [56 x i32]* %hash_122, [56 x i32]* %hash_123, [56 x i32]* %hash_124, [56 x i32]* %hash_125, [56 x i32]* %hash_126, [56 x i32]* %hash_127, [7 x i13]* %indices)
+
+
+ <State 4>: 0.00ns
+ST_4: stg_136 [1/1] 0.00ns
+:0  call void (...)* @_ssdm_op_SpecMemCore([64 x i8]* %str_0, [64 x i8]* %str_1, [64 x i8]* %str_2, [64 x i8]* %str_3, [64 x i8]* %str_4, [64 x i8]* %str_5, [64 x i8]* %str_6, [64 x i8]* %str_7, [64 x i8]* %str_8, [64 x i8]* %str_9, [64 x i8]* %str_10, [64 x i8]* %str_11, [64 x i8]* %str_12, [64 x i8]* %str_13, [64 x i8]* %str_14, [64 x i8]* %str_15, [64 x i8]* %str_16, [64 x i8]* %str_17, [64 x i8]* %str_18, [64 x i8]* %str_19, [64 x i8]* %str_20, [64 x i8]* %str_21, [64 x i8]* %str_22, [64 x i8]* %str_23, [64 x i8]* %str_24, [64 x i8]* %str_25, [64 x i8]* %str_26, [64 x i8]* %str_27, [64 x i8]* %str_28, [64 x i8]* %str_29, [64 x i8]* %str_30, [64 x i8]* %str_31, [64 x i8]* %str_32, [64 x i8]* %str_33, [64 x i8]* %str_34, [64 x i8]* %str_35, [64 x i8]* %str_36, [64 x i8]* %str_37, [64 x i8]* %str_38, [64 x i8]* %str_39, [64 x i8]* %str_40, [64 x i8]* %str_41, [64 x i8]* %str_42, [64 x i8]* %str_43, [64 x i8]* %str_44, [64 x i8]* %str_45, [64 x i8]* %str_46, [64 x i8]* %str_47, [64 x i8]* %str_48, [64 x i8]* %str_49, [64 x i8]* %str_50, [64 x i8]* %str_51, [64 x i8]* %str_52, [64 x i8]* %str_53, [64 x i8]* %str_54, [64 x i8]* %str_55, [64 x i8]* %str_56, [64 x i8]* %str_57, [64 x i8]* %str_58, [64 x i8]* %str_59, [64 x i8]* %str_60, [64 x i8]* %str_61, [64 x i8]* %str_62, [64 x i8]* %str_63, [64 x i8]* %str_64, [64 x i8]* %str_65, [64 x i8]* %str_66, [64 x i8]* %str_67, [64 x i8]* %str_68, [64 x i8]* %str_69, [64 x i8]* %str_70, [64 x i8]* %str_71, [64 x i8]* %str_72, [64 x i8]* %str_73, [64 x i8]* %str_74, [64 x i8]* %str_75, [64 x i8]* %str_76, [64 x i8]* %str_77, [64 x i8]* %str_78, [64 x i8]* %str_79, [64 x i8]* %str_80, [64 x i8]* %str_81, [64 x i8]* %str_82, [64 x i8]* %str_83, [64 x i8]* %str_84, [64 x i8]* %str_85, [64 x i8]* %str_86, [64 x i8]* %str_87, [64 x i8]* %str_88, [64 x i8]* %str_89, [64 x i8]* %str_90, [64 x i8]* %str_91, [64 x i8]* %str_92, [64 x i8]* %str_93, [64 x i8]* %str_94, [64 x i8]* %str_95, [64 x i8]* %str_96, [64 x i8]* %str_97, [64 x i8]* %str_98, [64 x i8]* %str_99, [64 x i8]* %str_100, [64 x i8]* %str_101, [64 x i8]* %str_102, [64 x i8]* %str_103, [64 x i8]* %str_104, [64 x i8]* %str_105, [64 x i8]* %str_106, [64 x i8]* %str_107, [64 x i8]* %str_108, [64 x i8]* %str_109, [64 x i8]* %str_110, [64 x i8]* %str_111, [64 x i8]* %str_112, [64 x i8]* %str_113, [64 x i8]* %str_114, [64 x i8]* %str_115, [64 x i8]* %str_116, [64 x i8]* %str_117, [64 x i8]* %str_118, [64 x i8]* %str_119, [64 x i8]* %str_120, [64 x i8]* %str_121, [64 x i8]* %str_122, [64 x i8]* %str_123, [64 x i8]* %str_124, [64 x i8]* %str_125, [64 x i8]* %str_126, [64 x i8]* %str_127, [1 x i8]* @p_str1, [14 x i8]* @p_str11, [1 x i8]* @p_str1, i32 -1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
+
+ST_4: stg_137 [1/1] 0.00ns
+:129  call void (...)* @_ssdm_op_SpecMemCore([56 x i32]* %hash_0, [56 x i32]* %hash_1, [56 x i32]* %hash_2, [56 x i32]* %hash_3, [56 x i32]* %hash_4, [56 x i32]* %hash_5, [56 x i32]* %hash_6, [56 x i32]* %hash_7, [56 x i32]* %hash_8, [56 x i32]* %hash_9, [56 x i32]* %hash_10, [56 x i32]* %hash_11, [56 x i32]* %hash_12, [56 x i32]* %hash_13, [56 x i32]* %hash_14, [56 x i32]* %hash_15, [56 x i32]* %hash_16, [56 x i32]* %hash_17, [56 x i32]* %hash_18, [56 x i32]* %hash_19, [56 x i32]* %hash_20, [56 x i32]* %hash_21, [56 x i32]* %hash_22, [56 x i32]* %hash_23, [56 x i32]* %hash_24, [56 x i32]* %hash_25, [56 x i32]* %hash_26, [56 x i32]* %hash_27, [56 x i32]* %hash_28, [56 x i32]* %hash_29, [56 x i32]* %hash_30, [56 x i32]* %hash_31, [56 x i32]* %hash_32, [56 x i32]* %hash_33, [56 x i32]* %hash_34, [56 x i32]* %hash_35, [56 x i32]* %hash_36, [56 x i32]* %hash_37, [56 x i32]* %hash_38, [56 x i32]* %hash_39, [56 x i32]* %hash_40, [56 x i32]* %hash_41, [56 x i32]* %hash_42, [56 x i32]* %hash_43, [56 x i32]* %hash_44, [56 x i32]* %hash_45, [56 x i32]* %hash_46, [56 x i32]* %hash_47, [56 x i32]* %hash_48, [56 x i32]* %hash_49, [56 x i32]* %hash_50, [56 x i32]* %hash_51, [56 x i32]* %hash_52, [56 x i32]* %hash_53, [56 x i32]* %hash_54, [56 x i32]* %hash_55, [56 x i32]* %hash_56, [56 x i32]* %hash_57, [56 x i32]* %hash_58, [56 x i32]* %hash_59, [56 x i32]* %hash_60, [56 x i32]* %hash_61, [56 x i32]* %hash_62, [56 x i32]* %hash_63, [56 x i32]* %hash_64, [56 x i32]* %hash_65, [56 x i32]* %hash_66, [56 x i32]* %hash_67, [56 x i32]* %hash_68, [56 x i32]* %hash_69, [56 x i32]* %hash_70, [56 x i32]* %hash_71, [56 x i32]* %hash_72, [56 x i32]* %hash_73, [56 x i32]* %hash_74, [56 x i32]* %hash_75, [56 x i32]* %hash_76, [56 x i32]* %hash_77, [56 x i32]* %hash_78, [56 x i32]* %hash_79, [56 x i32]* %hash_80, [56 x i32]* %hash_81, [56 x i32]* %hash_82, [56 x i32]* %hash_83, [56 x i32]* %hash_84, [56 x i32]* %hash_85, [56 x i32]* %hash_86, [56 x i32]* %hash_87, [56 x i32]* %hash_88, [56 x i32]* %hash_89, [56 x i32]* %hash_90, [56 x i32]* %hash_91, [56 x i32]* %hash_92, [56 x i32]* %hash_93, [56 x i32]* %hash_94, [56 x i32]* %hash_95, [56 x i32]* %hash_96, [56 x i32]* %hash_97, [56 x i32]* %hash_98, [56 x i32]* %hash_99, [56 x i32]* %hash_100, [56 x i32]* %hash_101, [56 x i32]* %hash_102, [56 x i32]* %hash_103, [56 x i32]* %hash_104, [56 x i32]* %hash_105, [56 x i32]* %hash_106, [56 x i32]* %hash_107, [56 x i32]* %hash_108, [56 x i32]* %hash_109, [56 x i32]* %hash_110, [56 x i32]* %hash_111, [56 x i32]* %hash_112, [56 x i32]* %hash_113, [56 x i32]* %hash_114, [56 x i32]* %hash_115, [56 x i32]* %hash_116, [56 x i32]* %hash_117, [56 x i32]* %hash_118, [56 x i32]* %hash_119, [56 x i32]* %hash_120, [56 x i32]* %hash_121, [56 x i32]* %hash_122, [56 x i32]* %hash_123, [56 x i32]* %hash_124, [56 x i32]* %hash_125, [56 x i32]* %hash_126, [56 x i32]* %hash_127, [1 x i8]* @p_str1, [13 x i8]* @p_str5, [1 x i8]* @p_str1, i32 -1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
+
+ST_4: stg_138 [1/2] 0.00ns
+:131  call fastcc void @dedupDriver_extractIndices([56 x i32]* %hash_0, [56 x i32]* %hash_1, [56 x i32]* %hash_2, [56 x i32]* %hash_3, [56 x i32]* %hash_4, [56 x i32]* %hash_5, [56 x i32]* %hash_6, [56 x i32]* %hash_7, [56 x i32]* %hash_8, [56 x i32]* %hash_9, [56 x i32]* %hash_10, [56 x i32]* %hash_11, [56 x i32]* %hash_12, [56 x i32]* %hash_13, [56 x i32]* %hash_14, [56 x i32]* %hash_15, [56 x i32]* %hash_16, [56 x i32]* %hash_17, [56 x i32]* %hash_18, [56 x i32]* %hash_19, [56 x i32]* %hash_20, [56 x i32]* %hash_21, [56 x i32]* %hash_22, [56 x i32]* %hash_23, [56 x i32]* %hash_24, [56 x i32]* %hash_25, [56 x i32]* %hash_26, [56 x i32]* %hash_27, [56 x i32]* %hash_28, [56 x i32]* %hash_29, [56 x i32]* %hash_30, [56 x i32]* %hash_31, [56 x i32]* %hash_32, [56 x i32]* %hash_33, [56 x i32]* %hash_34, [56 x i32]* %hash_35, [56 x i32]* %hash_36, [56 x i32]* %hash_37, [56 x i32]* %hash_38, [56 x i32]* %hash_39, [56 x i32]* %hash_40, [56 x i32]* %hash_41, [56 x i32]* %hash_42, [56 x i32]* %hash_43, [56 x i32]* %hash_44, [56 x i32]* %hash_45, [56 x i32]* %hash_46, [56 x i32]* %hash_47, [56 x i32]* %hash_48, [56 x i32]* %hash_49, [56 x i32]* %hash_50, [56 x i32]* %hash_51, [56 x i32]* %hash_52, [56 x i32]* %hash_53, [56 x i32]* %hash_54, [56 x i32]* %hash_55, [56 x i32]* %hash_56, [56 x i32]* %hash_57, [56 x i32]* %hash_58, [56 x i32]* %hash_59, [56 x i32]* %hash_60, [56 x i32]* %hash_61, [56 x i32]* %hash_62, [56 x i32]* %hash_63, [56 x i32]* %hash_64, [56 x i32]* %hash_65, [56 x i32]* %hash_66, [56 x i32]* %hash_67, [56 x i32]* %hash_68, [56 x i32]* %hash_69, [56 x i32]* %hash_70, [56 x i32]* %hash_71, [56 x i32]* %hash_72, [56 x i32]* %hash_73, [56 x i32]* %hash_74, [56 x i32]* %hash_75, [56 x i32]* %hash_76, [56 x i32]* %hash_77, [56 x i32]* %hash_78, [56 x i32]* %hash_79, [56 x i32]* %hash_80, [56 x i32]* %hash_81, [56 x i32]* %hash_82, [56 x i32]* %hash_83, [56 x i32]* %hash_84, [56 x i32]* %hash_85, [56 x i32]* %hash_86, [56 x i32]* %hash_87, [56 x i32]* %hash_88, [56 x i32]* %hash_89, [56 x i32]* %hash_90, [56 x i32]* %hash_91, [56 x i32]* %hash_92, [56 x i32]* %hash_93, [56 x i32]* %hash_94, [56 x i32]* %hash_95, [56 x i32]* %hash_96, [56 x i32]* %hash_97, [56 x i32]* %hash_98, [56 x i32]* %hash_99, [56 x i32]* %hash_100, [56 x i32]* %hash_101, [56 x i32]* %hash_102, [56 x i32]* %hash_103, [56 x i32]* %hash_104, [56 x i32]* %hash_105, [56 x i32]* %hash_106, [56 x i32]* %hash_107, [56 x i32]* %hash_108, [56 x i32]* %hash_109, [56 x i32]* %hash_110, [56 x i32]* %hash_111, [56 x i32]* %hash_112, [56 x i32]* %hash_113, [56 x i32]* %hash_114, [56 x i32]* %hash_115, [56 x i32]* %hash_116, [56 x i32]* %hash_117, [56 x i32]* %hash_118, [56 x i32]* %hash_119, [56 x i32]* %hash_120, [56 x i32]* %hash_121, [56 x i32]* %hash_122, [56 x i32]* %hash_123, [56 x i32]* %hash_124, [56 x i32]* %hash_125, [56 x i32]* %hash_126, [56 x i32]* %hash_127, [7 x i13]* %indices)
+
+ST_4: stg_139 [1/1] 0.00ns
+:132  ret void
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ No timing violations. 
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

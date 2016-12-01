@@ -1,5 +1,7 @@
 # HEAD: HardwarE Accelerated Deduplication
 
+[![Build](https://travis-ci.org/insujang/HEAD.svg?branch=master)](https://travis-ci.org/insujang/HEAD)
+
 ## This is a CS710 project, Computing Acceleration with FPGA.
 
 This repository contains SW only based, x86-compatible deduplication application and its Xilinx Zynq-7000 Zedboard based hardware accelerated application.
