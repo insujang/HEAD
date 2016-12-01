@@ -8,9 +8,12 @@ extern "C" {
 #include "getopt_pp.h"
 #include <iostream>
 #include <dirent.h>
+#include <vector>
+#include <algorithm>
 
 using namespace GetOpt;
 using namespace std;
+
 
 void usage ()
 {
@@ -38,6 +41,7 @@ main (const int argc, const char **argv)
     string filepath;    // file path to be deduped or restore or restore_all
     string dirpath;
     string full_path;
+    vector<string> path_arr;
     bool help;          // whether show usage or not
     ops >> Option('t', "type", type) >> Option('f', "filepath", filepath) >> Option('d', "dir", dirpath) >> OptionPresent('h', "help", help);
 
@@ -51,7 +55,6 @@ main (const int argc, const char **argv)
     gettimeofday(&start, NULL);
     if(dirpath.length() != 0 ){
     //get file path in directory
-    cout <<"Test"<< endl;
         if ((dir = opendir (dirpath.c_str())) != NULL) {
           /* print all the files and directories within directory */
             while ((ent = readdir (dir)) != NULL) {
@@ -59,10 +62,13 @@ main (const int argc, const char **argv)
                       continue;
                 //  printf ("%s\n", ent->d_name);
                   full_path = dirpath + ent->d_name;
-                  cout << full_path << endl;
-                  if(type.compare("dedup") == 0) dedupFile->dedupFile(full_path);
+                  path_arr.push_back(full_path);
+                  sort(path_arr.begin(), path_arr.end());
+            }
+            for (std::vector<string>::iterator it=path_arr.begin(); it != path_arr.end(); ++it){
+                  cout << *it << endl;
+                  if(type.compare("dedup") == 0) dedupFile->dedupFile(*it);
                   else if(type.compare("restore_all") == 0) restoreFile->restoreAllFiles();
-
             }
             closedir (dir);
         }
