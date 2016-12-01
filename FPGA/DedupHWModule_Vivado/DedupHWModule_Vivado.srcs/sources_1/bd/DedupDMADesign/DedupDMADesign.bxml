@@ -2,9 +2,9 @@
 <Root MajorVersion="0" MinorVersion="33">
   <CompositeFile CompositeFileTopName="DedupDMADesign" CanBeSetAsTop="true" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1480597095"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1480597095"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1480597095"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1480605934"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1480605934"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1480605934"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip/DedupDMADesign_processing_system7_0_1/DedupDMADesign_processing_system7_0_1.xci" Type="IP">
         <Instance HierarchyPath="processing_system7_0"/>
@@ -62,14 +62,6 @@
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip/DedupDMADesign_dedupDriver_0_1/DedupDMADesign_dedupDriver_0_1.xci" Type="IP">
-        <Instance HierarchyPath="dedupDriver_0"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
       <File Name="ip/DedupDMADesign_xbar_3/DedupDMADesign_xbar_3.xci" Type="IP">
         <Instance HierarchyPath="processing_system7_0_axi_periph/xbar"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
@@ -78,7 +70,22 @@
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip/DedupDMADesign_auto_pc_3/DedupDMADesign_auto_pc_3.xci" Type="IP">
+      <File Name="hdl/DedupDMADesign.v" Type="Verilog">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/DedupDMADesign_dedupDriver_0_0/DedupDMADesign_dedupDriver_0_0.xci" Type="IP">
+        <Instance HierarchyPath="dedup_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/DedupDMADesign_auto_pc_0/DedupDMADesign_auto_pc_0.xci" Type="IP">
         <Instance HierarchyPath="processing_system7_0_axi_periph/s00_couplers/auto_pc"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
@@ -86,7 +93,7 @@
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip/DedupDMADesign_auto_pc_4/DedupDMADesign_auto_pc_4.xci" Type="IP">
+      <File Name="ip/DedupDMADesign_auto_pc_1/DedupDMADesign_auto_pc_1.xci" Type="IP">
         <Instance HierarchyPath="axi_mem_intercon/m00_couplers/auto_pc"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
@@ -94,7 +101,7 @@
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip/DedupDMADesign_auto_us_2/DedupDMADesign_auto_us_2.xci" Type="IP">
+      <File Name="ip/DedupDMADesign_auto_us_0/DedupDMADesign_auto_us_0.xci" Type="IP">
         <Instance HierarchyPath="axi_mem_intercon/s00_couplers/auto_us"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
@@ -102,16 +109,9 @@
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip/DedupDMADesign_auto_us_3/DedupDMADesign_auto_us_3.xci" Type="IP">
+      <File Name="ip/DedupDMADesign_auto_us_1/DedupDMADesign_auto_us_1.xci" Type="IP">
         <Instance HierarchyPath="axi_mem_intercon/s01_couplers/auto_us"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="hdl/DedupDMADesign.v" Type="Verilog">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>

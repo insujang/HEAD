@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
-//Date        : Thu Dec  1 21:58:01 2016
+//Date        : Fri Dec  2 00:25:32 2016
 //Host        : insujang-CALab-Linux running 64-bit Ubuntu 14.04.5 LTS
 //Command     : generate_target DedupDMADesign.bd
 //Design      : DedupDMADesign
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "DedupDMADesign,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=DedupDMADesign,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=20,numReposBlks=11,numNonXlnxBlks=0,numHierBlks=9,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=1,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=11,da_ps7_cnt=2,synth_mode=Global}" *) (* HW_HANDOFF = "DedupDMADesign.hwdef" *) 
+(* CORE_GENERATION_INFO = "DedupDMADesign,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=DedupDMADesign,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=20,numReposBlks=11,numNonXlnxBlks=0,numHierBlks=9,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=1,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=12,da_ps7_cnt=2,synth_mode=Global}" *) (* HW_HANDOFF = "DedupDMADesign.hwdef" *) 
 module DedupDMADesign
    (DDR_addr,
     DDR_ba,
@@ -155,11 +155,11 @@ module DedupDMADesign
   wire axi_mem_intercon_M00_AXI_WREADY;
   wire [7:0]axi_mem_intercon_M00_AXI_WSTRB;
   wire axi_mem_intercon_M00_AXI_WVALID;
-  wire dedupDriver_0_interrupt;
-  wire [63:0]dedupDriver_0_outputData_TDATA;
-  wire [0:0]dedupDriver_0_outputData_TLAST;
-  wire dedupDriver_0_outputData_TREADY;
-  wire dedupDriver_0_outputData_TVALID;
+  wire dedup_0_interrupt;
+  wire [63:0]dedup_0_outputData_TDATA;
+  wire [0:0]dedup_0_outputData_TLAST;
+  wire dedup_0_outputData_TREADY;
+  wire dedup_0_outputData_TVALID;
   wire [14:0]processing_system7_0_DDR_ADDR;
   wire [2:0]processing_system7_0_DDR_BA;
   wire processing_system7_0_DDR_CAS_N;
@@ -343,11 +343,11 @@ module DedupDMADesign
         .s_axi_lite_wdata(processing_system7_0_axi_periph_M00_AXI_WDATA),
         .s_axi_lite_wready(processing_system7_0_axi_periph_M00_AXI_WREADY),
         .s_axi_lite_wvalid(processing_system7_0_axi_periph_M00_AXI_WVALID),
-        .s_axis_s2mm_tdata(dedupDriver_0_outputData_TDATA),
+        .s_axis_s2mm_tdata(dedup_0_outputData_TDATA),
         .s_axis_s2mm_tkeep({1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1}),
-        .s_axis_s2mm_tlast(dedupDriver_0_outputData_TLAST),
-        .s_axis_s2mm_tready(dedupDriver_0_outputData_TREADY),
-        .s_axis_s2mm_tvalid(dedupDriver_0_outputData_TVALID));
+        .s_axis_s2mm_tlast(dedup_0_outputData_TLAST),
+        .s_axis_s2mm_tready(dedup_0_outputData_TREADY),
+        .s_axis_s2mm_tvalid(dedup_0_outputData_TVALID));
   DedupDMADesign_axi_mem_intercon_1 axi_mem_intercon
        (.ACLK(processing_system7_0_FCLK_CLK0),
         .ARESETN(rst_processing_system7_0_100M_interconnect_aresetn),
@@ -455,17 +455,17 @@ module DedupDMADesign
         .S02_AXI_wready(axi_dma_0_M_AXI_S2MM_WREADY),
         .S02_AXI_wstrb(axi_dma_0_M_AXI_S2MM_WSTRB),
         .S02_AXI_wvalid(axi_dma_0_M_AXI_S2MM_WVALID));
-  DedupDMADesign_dedupDriver_0_1 dedupDriver_0
+  DedupDMADesign_dedupDriver_0_0 dedup_0
        (.ap_clk(processing_system7_0_FCLK_CLK0),
         .ap_rst_n(rst_processing_system7_0_100M_peripheral_aresetn),
         .inputData_V_TDATA(axi_dma_0_M_AXIS_MM2S_TDATA),
         .inputData_V_TREADY(axi_dma_0_M_AXIS_MM2S_TREADY),
         .inputData_V_TVALID(axi_dma_0_M_AXIS_MM2S_TVALID),
-        .interrupt(dedupDriver_0_interrupt),
-        .outputData_TDATA(dedupDriver_0_outputData_TDATA),
-        .outputData_TLAST(dedupDriver_0_outputData_TLAST),
-        .outputData_TREADY(dedupDriver_0_outputData_TREADY),
-        .outputData_TVALID(dedupDriver_0_outputData_TVALID),
+        .interrupt(dedup_0_interrupt),
+        .outputData_TDATA(dedup_0_outputData_TDATA),
+        .outputData_TLAST(dedup_0_outputData_TLAST),
+        .outputData_TREADY(dedup_0_outputData_TREADY),
+        .outputData_TVALID(dedup_0_outputData_TVALID),
         .s_axi_AXILiteS_ARADDR(processing_system7_0_axi_periph_M01_AXI_ARADDR[3:0]),
         .s_axi_AXILiteS_ARREADY(processing_system7_0_axi_periph_M01_AXI_ARREADY),
         .s_axi_AXILiteS_ARVALID(processing_system7_0_axi_periph_M01_AXI_ARVALID),
@@ -680,7 +680,7 @@ module DedupDMADesign
   DedupDMADesign_xlconcat_0_1 xlconcat_0
        (.In0(axi_dma_0_mm2s_introut),
         .In1(axi_dma_0_s2mm_introut),
-        .In2(dedupDriver_0_interrupt),
+        .In2(dedup_0_interrupt),
         .dout(xlconcat_0_dout));
 endmodule
 
@@ -2390,7 +2390,7 @@ module m00_couplers_imp_176HAJA
   assign m00_couplers_to_auto_pc_WLAST = S_AXI_wlast;
   assign m00_couplers_to_auto_pc_WSTRB = S_AXI_wstrb[7:0];
   assign m00_couplers_to_auto_pc_WVALID = S_AXI_wvalid;
-  DedupDMADesign_auto_pc_4 auto_pc
+  DedupDMADesign_auto_pc_1 auto_pc
        (.aclk(S_ACLK_1),
         .aresetn(S_ARESETN_1),
         .m_axi_araddr(auto_pc_to_m00_couplers_ARADDR),
@@ -2972,7 +2972,7 @@ module s00_couplers_imp_162D2RP
   assign s00_couplers_to_auto_pc_WLAST = S_AXI_wlast;
   assign s00_couplers_to_auto_pc_WSTRB = S_AXI_wstrb[3:0];
   assign s00_couplers_to_auto_pc_WVALID = S_AXI_wvalid;
-  DedupDMADesign_auto_pc_3 auto_pc
+  DedupDMADesign_auto_pc_0 auto_pc
        (.aclk(S_ACLK_1),
         .aresetn(S_ARESETN_1),
         .m_axi_araddr(auto_pc_to_s00_couplers_ARADDR),
@@ -3297,7 +3297,7 @@ module s00_couplers_imp_PB8KWZ
   assign s00_couplers_to_auto_us_WLAST = S_AXI_wlast;
   assign s00_couplers_to_auto_us_WSTRB = S_AXI_wstrb[3:0];
   assign s00_couplers_to_auto_us_WVALID = S_AXI_wvalid;
-  DedupDMADesign_auto_us_2 auto_us
+  DedupDMADesign_auto_us_0 auto_us
        (.m_axi_araddr(auto_us_to_s00_couplers_ARADDR),
         .m_axi_arburst(auto_us_to_s00_couplers_ARBURST),
         .m_axi_arcache(auto_us_to_s00_couplers_ARCACHE),
@@ -3497,7 +3497,7 @@ module s01_couplers_imp_1OIRN44
   assign s01_couplers_to_auto_us_ARSIZE = S_AXI_arsize[2:0];
   assign s01_couplers_to_auto_us_ARVALID = S_AXI_arvalid;
   assign s01_couplers_to_auto_us_RREADY = S_AXI_rready;
-  DedupDMADesign_auto_us_3 auto_us
+  DedupDMADesign_auto_us_1 auto_us
        (.m_axi_araddr(auto_us_to_s01_couplers_ARADDR),
         .m_axi_arburst(auto_us_to_s01_couplers_ARBURST),
         .m_axi_arcache(auto_us_to_s01_couplers_ARCACHE),
