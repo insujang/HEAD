@@ -1,4 +1,0 @@
-/home/insujang/cs710/HEAD/SW/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/insujang/cs710/HEAD/SW/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/insujang/cs710/HEAD/SW/cmake-build-debug/CMakeFiles/dedup.dir
-/home/insujang/cs710/HEAD/SW/cmake-build-debug/CMakeFiles/libleveldb.dir
