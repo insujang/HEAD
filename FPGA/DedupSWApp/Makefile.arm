@@ -1,0 +1,69 @@
+TARGET := arm-linux-gnueabihf-
+CC := $(TARGET)gcc
+CXX := $(TARGET)g++
+
+XILINX_DIR := /opt/Xilinx
+XILINX_VER := 2016.2
+LEVELDB_DIR := lib/leveldb
+
+AXI_DMA = ../petalinux_module/axidma/xilinx_axidma
+
+SRC_DIR := src
+XILINX_ROOT = $(XILINX_DIR)/SDK/$(XILINX_VER)/gnu/aarch32/lin/gcc-arm-linux-gnueabi/arm-linux-gnueabihf
+
+
+LDFLAGS =-Llib/arm \
+	-L$(XILINX_ROOT)/libc/usr/lib/arm-linux-gnueabihf \
+	-L$(XILINX_ROOT)/lib\
+	-L$(AXI_DMA)/library
+
+LDLIBS = -l:libleveldb.a -lpthread -laxidma
+CXXFLAGS:= -I$(LEVELDB_DIR)/include \
+ 	-I$(OPENSSL_DIR)/include -std=c++11 \
+	-I$(AXI_DMA)/include
+
+SRCS =  $(wildcard $(SRC_DIR)/*.cpp)
+OBJS = $(SRCS:.cpp=.o)
+LEVELDB := lib/arm/libleveldb.a
+
+all: $(LEVELDB) $(OBJS) # $(CRYPTO)
+	source $(XILINX_DIR)/Vivado/$(XILINX_VER)/settings64.sh && \
+	$(CXX) -o zed_dedup $(OBJS) $(LDFLAGS) $(LDLIBS)
+
+$(SRC_DIR)/%.o: $(SRC_DIR)/%.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Cross-compile leveldb library and
+# extract the static library libleveldb.a to lib/arm
+$(LEVELDB):
+	if [[ ! -e lib/arm ]]; then \
+		mkdir lib/arm; \
+	fi
+	source $(XILINX_DIR)/Vivado/$(XILINX_VER)/settings64.sh && \
+	cd lib/leveldb && \
+	make clean && \
+	make CC=$(CC) CXX=$(CXX) -j 8 && \
+	mv out-static/libleveldb.a ../arm && \
+	make clean && \
+	cd -
+
+# Cross-compile openssl library and
+# extract the static library libcrypto.a to lib/arm
+# $(CRYPTO):
+#	source $(XILINX_DIR)/Vivado/$(XILINX_VER)/settings64.sh && \
+#	cd lib/openssl && \
+#	./Configure linux-generic32 --prefix=`pwd`/out && \
+#	make -j 8 CC=$(CC) RANLIB=$(TARGET)-ranlib LD=$(TARGET)-ld \
+#			MAKEDEPPROF=$(CC) PROCESSOR=ARM && \
+#	make install_sw && \
+#	mv out/lib/libcrypto.a ../arm && \
+#	make clean && \
+#	rm -rf out && \
+#	cd -
+
+
+clean:
+	rm -f $(SRC_DIR)/*.o
+	rm -f lib/sha1/*.o
+	rm -f zed_dedup
+	rm -f $(LEVELDB)
