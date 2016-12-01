@@ -1,0 +1,4 @@
+#!/bin/sh
+lli=${LLVMINTERP-lli}
+exec $lli \
+    /home/insujang/cs710/HEAD/FPGA/DedupHWMod_HLS/Dedup/.autopilot/db/a.g.pre.bc ${1+"$@"}
