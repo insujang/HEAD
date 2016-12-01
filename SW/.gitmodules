@@ -1,6 +1,0 @@
-[submodule "x86/leveldb"]
-	path = lib/leveldb
-	url = https://github.com/google/leveldb
-[submodule "x86/sha1"]
-	path = lib/sha1
-	url = https://github.com/mohaps/TinySHA1

@@ -1,9 +1,0 @@
-[submodule "fpga/leveldb"]
-	path = DedupSWApp/lib/leveldb
-	url = https://github.com/google/leveldb
-[submodule "fpga/sha1"]
-	path = DedupSWApp/lib/sha1
-	url = https://github.com/mohaps/TinySHA1
-[submodule "fpga/xilinx_axidma"]
-	path = modules/axidma/xilinx_axidma
-	url = https://github.com/bperez77/xilinx_axidma

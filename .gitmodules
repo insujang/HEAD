@@ -1,0 +1,15 @@
+[submodule "FPGA/DedupSWApp/lib/leveldb"]
+	path = FPGA/DedupSWApp/lib/leveldb
+	url = https://github.com/google/leveldb
+[submodule "FPGA/DedupSWApp/lib/sha1"]
+	path = FPGA/DedupSWApp/lib/sha1
+	url = https://github.com/mohaps/TinySHA1
+[submodule "FPGA/modules/axidma/xilinx_axidma"]
+	path = FPGA/modules/axidma/xilinx_axidma
+	url = https://github.com/bperez77/xilinx_axidma
+[submodule "SW/lib/leveldb"]
+	path = SW/lib/leveldb
+	url = https://github.com/google/leveldb
+[submodule "SW/lib/sha1"]
+	path = SW/lib/sha1
+	url = https://github.com/mohaps/TinySHA1
