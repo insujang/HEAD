@@ -16,6 +16,7 @@ using namespace std;
 class DeduplicateFile {
 public:
     int dedupFile(string filePath);
+    string murmurhash (const char *key, uint32_t len);
 
 private:
     string getSHA1(char *str, int len);
