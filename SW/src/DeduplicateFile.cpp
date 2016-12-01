@@ -18,7 +18,7 @@ extern "C" {
 
 using namespace std;
 
-#define BUFFER_LEN 10240
+#define BUFFER_LEN 8192
 #define SUM_HASH
 #define MURMUR
 
