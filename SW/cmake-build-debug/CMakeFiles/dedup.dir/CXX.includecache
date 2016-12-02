@@ -75,11 +75,17 @@ fstream
 -
 global.h
 /home/insujang/cs710/HEAD/SW/src/global.h
+MurmurHash.hpp
+/home/insujang/cs710/HEAD/SW/src/MurmurHash.hpp
 sys/stat.h
 -
 
 /home/insujang/cs710/HEAD/SW/src/DeduplicateFile.h
 string
+-
+
+/home/insujang/cs710/HEAD/SW/src/MurmurHash.hpp
+cstdint
 -
 
 /home/insujang/cs710/HEAD/SW/src/RestoreFileDedup.cpp

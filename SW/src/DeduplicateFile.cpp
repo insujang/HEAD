@@ -47,15 +47,9 @@ DeduplicateFile::getSHA1(char *str, int len) {
     return string(out);
 }
 
-/*
+
 string
 DeduplicateFile::murmurhash (const char *key, uint32_t len) {
-    uint32_t c1 = 0xcc9e2d51;
-    uint32_t c2 = 0x1b873593;
-    uint32_t r1 = 15;
-    uint32_t r2 = 13;
-    uint32_t m = 5;
-    uint32_t n = 0xe6546b64;
     uint32_t h = 0;
     uint32_t k = 0;
     uint8_t *d = (uint8_t *) key; // 32 bit extract from `key'
@@ -115,7 +109,7 @@ DeduplicateFile::murmurhash (const char *key, uint32_t len) {
 
     return string(out);
 }
-*/
+
 
 int
 DeduplicateFile::getVariableChunk(char *str, int strLen) {
@@ -225,6 +219,7 @@ DeduplicateFile::dedupFile(string filePath)
 #ifdef MURMUR
         // calculate get Murmur hash algorithm
         string hash = murmurHash::getMurmurHash(buffer, chunkLength);
+        hash = murmurhash(buffer, chunkLength);
 #else
         // calculate getSHA1 hash algorithm
         string hash = getSHA1(buffer, chunkLength);

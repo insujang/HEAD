@@ -5,4 +5,3 @@
 *.save
 .idea/
 *.log
-cmake-build-debug

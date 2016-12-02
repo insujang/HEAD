@@ -14,21 +14,23 @@
 class murmurHash {
 public:
     static string getMurmurHash(char *key, int len){
+        uint32_t test;
         uint32_t hash = seed;
 
         for(int i=0; i<len; i+=4){
             // Next 4 byte chunk of string
-            uint32_t k = *((uint32_t *) key);
+            uint32_t k = *((uint32_t *) (key + i));
 
             // encode next 4 byte chunk of key
             k *= c1;
-            k = (k << r1) || (k >> (32 - r1));
+            k = (k << r1) | (k >> (32 - r1));
             k *= c2;
 
             // append to hash
             hash ^= k;
             hash = (hash << r2) | (hash >> (32 - r2));
             hash = hash * m + n;
+            test = k;
         }
 
         // tail: last 4 byte chunk of string
@@ -44,6 +46,8 @@ public:
                 k = (k << r1) | (k >> (32 - r1));
                 k *= c2;
                 hash ^= k;
+
+
         }
 
         hash ^= len;

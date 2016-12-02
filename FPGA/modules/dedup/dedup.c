@@ -37,7 +37,7 @@ static struct dedup_local *lp = NULL;
 
 static irqreturn_t dedup_irq(int irq, void *lp)
 {
-	printk("dedup interrupt\n");
+	// printk("dedup interrupt\n");
 
     // Clear the interrupt by writing and value to the interrupt status register (ISR).
     iowrite32(1, ((struct dedup_local *)lp)->base_addr + 0xc);
@@ -209,12 +209,12 @@ static ssize_t dedup_invoke(struct file *file, const char __user *buffer,
                             size_t length, loff_t *offset){
     u32 reg;
     
-    printk(KERN_INFO "Invoking Deduplication PL.\n");
+    // printk(KERN_INFO "Invoking Deduplication PL.\n");
     reg = ioread32(lp->base_addr);
-    printk("ap_start: %d\n", reg & 1);
-    printk("ap_done: %d\n", (reg >> 1) && 1);
-    printk("ap_idle: %d\n", (reg >> 2) && 1);
-    printk("ap_ready: %d\n", !(reg & 1));
+    //printk("ap_start: %d\n", reg & 1);
+    //printk("ap_done: %d\n", (reg >> 1) && 1);
+    //printk("ap_idle: %d\n", (reg >> 2) && 1);
+    //printk("ap_ready: %d\n", !(reg & 1));
 
     // Initiate PL execution
     iowrite32(reg | 1, lp->base_addr);
