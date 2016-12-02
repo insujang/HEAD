@@ -25,6 +25,7 @@ class DMADeviceDriverMgr{
         char* getRxBuffer();
         void sendData();
         void rcvData();
+        void resetRcvBuffer();
 
     private:
         axidma_dev_t m_axidmaDev;
