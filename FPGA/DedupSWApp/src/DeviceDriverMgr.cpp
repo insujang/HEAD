@@ -40,7 +40,7 @@ char* DMADeviceDriverMgr::getRxBuffer(){
 }
 
 void DMADeviceDriverMgr::sendData(){
-    axidma_oneway_transfer(m_axidmaDev, AXIDMA_WRITE, m_txChannel, m_txBuffer, m_txBufferSize, true);
+    axidma_oneway_transfer(m_axidmaDev, AXIDMA_WRITE, m_txChannel, m_txBuffer, m_txBufferSize,);
 }
 
 void DMADeviceDriverMgr::rcvData(){

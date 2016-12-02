@@ -5,8 +5,8 @@
 ############################################################
 open_project DedupHWModule_HLS
 set_top dedup
-add_files DedupHWModule_HLS/Dedup/dedup.h
 add_files DedupHWModule_HLS/Dedup/dedup.cpp
+add_files DedupHWModule_HLS/Dedup/dedup.h
 add_files -tb DedupHWModule_HLS/Dedup/dedup_test.cpp -cflags "-std=c++0x"
 open_solution "Dedup"
 set_part {xc7z020clg484-1} -tool vivado

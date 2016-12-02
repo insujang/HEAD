@@ -175,8 +175,11 @@ DeduplicateFile::dedupFile(string filePath)
          */
         if(readLength == BUFFER_LEN) {
             m_dmaDriver->sendData();
+            cout << "[DEBUG] Data transferred." << endl;
             write(m_fdDedupHWModule, &dedupHWTriggerInfo, sizeof(dedupHWTriggerInfo));
+            cout << "[DEBUG] PL invoked. Waiting for hardware execution completed." << endl;
             m_dmaDriver->rcvData();
+            cout << "[DEBUG] Data received." << endl;
             rcvData* pRcvData = (rcvData*) rxBuffer;
             int lastLength = 0;
             for(int dataItr = 0; dataItr < NUM_HASH_FROM_HW; dataItr++){

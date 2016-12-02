@@ -38,6 +38,9 @@ static struct dedup_local *lp = NULL;
 static irqreturn_t dedup_irq(int irq, void *lp)
 {
 	printk("dedup interrupt\n");
+
+    // Clear the interrupt by writing and value to the interrupt status register (ISR).
+    iowrite32(1, ((struct dedup_local *)lp)->base_addr + 0xc);
 	return IRQ_HANDLED;
 }
 
