@@ -10,6 +10,7 @@
 #include <leveldb/write_batch.h>
 #include <fstream>
 #include "global.h"
+#include "MurmurHash.hpp"
 
 
 extern "C" {
@@ -46,6 +47,7 @@ DeduplicateFile::getSHA1(char *str, int len) {
     return string(out);
 }
 
+/*
 string
 DeduplicateFile::murmurhash (const char *key, uint32_t len) {
     uint32_t c1 = 0xcc9e2d51;
@@ -107,19 +109,13 @@ DeduplicateFile::murmurhash (const char *key, uint32_t len) {
     h *= 0xc2b2ae35;
     h ^= (h >> 16);
 
-    /* pack into buf string */
-    /*buf[0] = h >> 24;
-    buf[1] = h >> 16;
-    buf[2] = h >> 8;
-    buf[3] = h;
-    */
     snprintf(out, 8, "%08x" ,h);
 
     out[8] = '\0';
 
     return string(out);
 }
-
+*/
 
 int
 DeduplicateFile::getVariableChunk(char *str, int strLen) {
@@ -228,7 +224,7 @@ DeduplicateFile::dedupFile(string filePath)
 
 #ifdef MURMUR
         // calculate get Murmur hash algorithm
-        string hash = murmurhash(buffer, chunkLength);
+        string hash = murmurHash::getMurmurHash(buffer, chunkLength);
 #else
         // calculate getSHA1 hash algorithm
         string hash = getSHA1(buffer, chunkLength);

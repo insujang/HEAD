@@ -18,6 +18,7 @@ extern "C" {
 
 
 #include "libaxidma.h"
+#include "MurmurHash.hpp"
 }
 
 using namespace std;
@@ -61,6 +62,11 @@ DeduplicateFile::getSHA1(char *str, int len) {
     out[40] = '\0';
 
     return string(out);
+}
+
+string
+getMurmurHash(char *str, int len) {
+
 }
 
 int
@@ -161,6 +167,10 @@ DeduplicateFile::dedupFile(string filePath)
 
         /*
          * Chunking and hashing using HW Module
+         * In HW module, chunking is only done with fixed 8192 bytes.
+         * HW module will make 7 outputs, each of which contains two ints.
+         * One is for string index (used to indicate chunk boundary)
+         * The other is hash value (calculating murmurhash is accelerated by HW).
          */
         if(readLength == BUFFER_LEN) {
             m_dmaDriver->sendData();
@@ -186,12 +196,16 @@ DeduplicateFile::dedupFile(string filePath)
 
         /*
          * Chunking and hashing using SW Module
+         * If remaining buffer size is less than 8192 bytes, it cannot be transferred
+         * to HW module. In this case, SW handles calculating hashes.
          */
         else{
             // get a chunk with variable length
             chunkLength = getVariableChunk(buffer, readLength);
             // calculate getSHA1 hash algorithm
-            string hash = getSHA1(buffer, chunkLength);
+            //string hash = getSHA1(buffer, chunkLength);
+            string hash = murmurHash::getMurmurHash(buffer, chunkLength);
+
             // add the hash into hash_list
             hash_list.push_back(hash);
 

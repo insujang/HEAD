@@ -27,6 +27,7 @@ public:
 
 private:
     string getSHA1(char *str, int len);
+    string getMurmurHash(char *str, int len);
     int getVariableChunk(char *str, int strLen);
     unsigned int getFileSize(string &filePath);
 
