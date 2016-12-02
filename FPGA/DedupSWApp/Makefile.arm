@@ -6,7 +6,7 @@ XILINX_DIR := /opt/Xilinx
 XILINX_VER := 2016.2
 LEVELDB_DIR := lib/leveldb
 
-AXI_DMA = ../petalinux_module/axidma/xilinx_axidma
+AXI_DMA = ../modules/axidma/xilinx_axidma
 
 SRC_DIR := src
 XILINX_ROOT = $(XILINX_DIR)/SDK/$(XILINX_VER)/gnu/aarch32/lin/gcc-arm-linux-gnueabi/arm-linux-gnueabihf
