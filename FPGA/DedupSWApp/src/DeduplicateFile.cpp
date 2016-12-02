@@ -192,11 +192,11 @@ DeduplicateFile::dedupFile(string filePath)
 
                 hash_list.push_back(outStr);
 
-                ldb->writeDB(hashListDB, outStr, Slice( &buffer[lastLength], pRcvData[dataItr].length));
-                lastLength += pRcvData[dataItr].length;
+                ldb->writeDB(hashListDB, outStr, Slice( &buffer[lastLength], pRcvData[dataItr].length - lastLength));
+                lastLength = pRcvData[dataItr].length;
             }
-            chunkLength = BUFFER_LEN;
-            accumulatedChunkLength += BUFFER_LEN;
+            chunkLength = lastLength;
+            accumulatedChunkLength += lastLength;
         }
 
         /*
