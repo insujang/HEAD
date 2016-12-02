@@ -22,6 +22,8 @@
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="IPRepoPath" Val="$PPRDIR/../DedupHWModule_HLS"/>
     <Option Name="EnableCoreContainer" Val="FALSE"/>
+    <Option Name="XPMLibraries" Val="XPM_CDC"/>
+    <Option Name="XPMLibraries" Val="XPM_MEMORY"/>
     <Option Name="CreateRefXciForCoreContainers" Val="FALSE"/>
     <Option Name="IPUserFilesDir" Val="$PPRDIR/DedupHWModule_Vivado.ip_user_files"/>
     <Option Name="IPStaticSourceDir" Val="$PPRDIR/DedupHWModule_Vivado.ip_user_files/ipstatic"/>
@@ -51,24 +53,24 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="ip/DedupDMADesign_auto_us_1/DedupDMADesign_auto_us_1.xci"/>
-        <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="hdl/DedupDMADesign.hwdef"/>
         <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="ip/DedupDMADesign_processing_system7_0_1/DedupDMADesign_processing_system7_0_1.xci"/>
-        <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="ip/DedupDMADesign_auto_pc_0/DedupDMADesign_auto_pc_0.xci"/>
-        <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="ip/DedupDMADesign_xlconcat_0_1/DedupDMADesign_xlconcat_0_1.xci"/>
-        <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="ip/DedupDMADesign_rst_processing_system7_0_100M_1/DedupDMADesign_rst_processing_system7_0_100M_1.xci"/>
-        <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="ip/DedupDMADesign_processing_system7_0_axi_periph_1/DedupDMADesign_processing_system7_0_axi_periph_1.xci"/>
-        <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="ip/DedupDMADesign_auto_pc_1/DedupDMADesign_auto_pc_1.xci"/>
         <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="ip/DedupDMADesign_axi_dma_0_1/DedupDMADesign_axi_dma_0_1.xci"/>
-        <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="hw_handoff/DedupDMADesign.hwh"/>
+        <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="ip/DedupDMADesign_processing_system7_0_axi_periph_1/DedupDMADesign_processing_system7_0_axi_periph_1.xci"/>
+        <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="ip/DedupDMADesign_rst_processing_system7_0_100M_1/DedupDMADesign_rst_processing_system7_0_100M_1.xci"/>
+        <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="ip/DedupDMADesign_xlconcat_0_1/DedupDMADesign_xlconcat_0_1.xci"/>
         <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="ip/DedupDMADesign_axi_mem_intercon_1/DedupDMADesign_axi_mem_intercon_1.xci"/>
         <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="ip/DedupDMADesign_xbar_2/DedupDMADesign_xbar_2.xci"/>
-        <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="ip/DedupDMADesign_xbar_3/DedupDMADesign_xbar_3.xci"/>
-        <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="ip/DedupDMADesign_auto_us_0/DedupDMADesign_auto_us_0.xci"/>
-        <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="hw_handoff/DedupDMADesign_bd.tcl"/>
-        <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="DedupDMADesign_ooc.xdc"/>
         <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="hdl/DedupDMADesign.v"/>
-        <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="ip/DedupDMADesign_dedupDriver_0_0/DedupDMADesign_dedupDriver_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="ip/DedupDMADesign_xbar_3/DedupDMADesign_xbar_3.xci"/>
+        <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="ip/DedupDMADesign_dedup_0_0/DedupDMADesign_dedup_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="ip/DedupDMADesign_auto_pc_0/DedupDMADesign_auto_pc_0.xci"/>
+        <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="ip/DedupDMADesign_auto_pc_1/DedupDMADesign_auto_pc_1.xci"/>
+        <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="hw_handoff/DedupDMADesign.hwh"/>
+        <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="ip/DedupDMADesign_auto_us_0/DedupDMADesign_auto_us_0.xci"/>
+        <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="hdl/DedupDMADesign.hwdef"/>
+        <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="hw_handoff/DedupDMADesign_bd.tcl"/>
+        <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="ip/DedupDMADesign_auto_us_1/DedupDMADesign_auto_us_1.xci"/>
+        <CompFileExtendedInfo CompFileName="DedupDMADesign.bd" FileRelPathName="DedupDMADesign_ooc.xdc"/>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/DedupDMADesign/hdl/DedupDMADesign_wrapper.v">
         <FileInfo>

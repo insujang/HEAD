@@ -4,7 +4,7 @@
 ## Copyright (C) 1986-2016 Xilinx, Inc. All Rights Reserved.
 ############################################################
 open_project DedupHWModule_HLS
-set_top dedupDriver
+set_top dedup
 add_files DedupHWModule_HLS/Dedup/dedup.h
 add_files DedupHWModule_HLS/Dedup/dedup.cpp
 add_files -tb DedupHWModule_HLS/Dedup/dedup_test.cpp -cflags "-std=c++0x"

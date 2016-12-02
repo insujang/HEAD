@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
-//Date        : Fri Dec  2 00:25:32 2016
+//Date        : Fri Dec  2 11:11:24 2016
 //Host        : insujang-CALab-Linux running 64-bit Ubuntu 14.04.5 LTS
 //Command     : generate_target DedupDMADesign_wrapper.bd
 //Design      : DedupDMADesign_wrapper

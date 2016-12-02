@@ -2,9 +2,9 @@
 <Root MajorVersion="0" MinorVersion="33">
   <CompositeFile CompositeFileTopName="DedupDMADesign" CanBeSetAsTop="true" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1480605934"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1480605934"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1480605934"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1480644695"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1480644695"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1480644695"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip/DedupDMADesign_processing_system7_0_1/DedupDMADesign_processing_system7_0_1.xci" Type="IP">
         <Instance HierarchyPath="processing_system7_0"/>
@@ -77,7 +77,7 @@
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip/DedupDMADesign_dedupDriver_0_0/DedupDMADesign_dedupDriver_0_0.xci" Type="IP">
+      <File Name="ip/DedupDMADesign_dedup_0_0/DedupDMADesign_dedup_0_0.xci" Type="IP">
         <Instance HierarchyPath="dedup_0"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>

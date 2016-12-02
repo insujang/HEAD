@@ -12,7 +12,7 @@ endif
 KERNEL_BUILD:=$(PROOT)/build/$(LINUX_KERNEL)
 
 LOCALPWD=$(shell pwd)
-obj-m += dedup.o dedup_chrdev.o
+obj-m += dedup.o
 
 all: build modules install
 

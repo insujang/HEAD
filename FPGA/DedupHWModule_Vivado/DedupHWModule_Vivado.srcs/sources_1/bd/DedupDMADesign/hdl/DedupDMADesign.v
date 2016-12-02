@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
-//Date        : Fri Dec  2 00:25:32 2016
+//Date        : Fri Dec  2 11:11:24 2016
 //Host        : insujang-CALab-Linux running 64-bit Ubuntu 14.04.5 LTS
 //Command     : generate_target DedupDMADesign.bd
 //Design      : DedupDMADesign
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "DedupDMADesign,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=DedupDMADesign,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=20,numReposBlks=11,numNonXlnxBlks=0,numHierBlks=9,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=1,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=12,da_ps7_cnt=2,synth_mode=Global}" *) (* HW_HANDOFF = "DedupDMADesign.hwdef" *) 
+(* CORE_GENERATION_INFO = "DedupDMADesign,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=DedupDMADesign,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=20,numReposBlks=11,numNonXlnxBlks=0,numHierBlks=9,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=1,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=13,da_ps7_cnt=2,synth_mode=Global}" *) (* HW_HANDOFF = "DedupDMADesign.hwdef" *) 
 module DedupDMADesign
    (DDR_addr,
     DDR_ba,
@@ -455,7 +455,7 @@ module DedupDMADesign
         .S02_AXI_wready(axi_dma_0_M_AXI_S2MM_WREADY),
         .S02_AXI_wstrb(axi_dma_0_M_AXI_S2MM_WSTRB),
         .S02_AXI_wvalid(axi_dma_0_M_AXI_S2MM_WVALID));
-  DedupDMADesign_dedupDriver_0_0 dedup_0
+  DedupDMADesign_dedup_0_0 dedup_0
        (.ap_clk(processing_system7_0_FCLK_CLK0),
         .ap_rst_n(rst_processing_system7_0_100M_peripheral_aresetn),
         .inputData_V_TDATA(axi_dma_0_M_AXIS_MM2S_TDATA),
