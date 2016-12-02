@@ -4,6 +4,8 @@
 
 #include "DeviceDriverMgr.h"
 #include <cassert>
+#include <cstring>
+#include <iostream>
 
 DMADeviceDriverMgr::DMADeviceDriverMgr(int rxBufferSize, int txBufferSize){
     m_txBufferSize = txBufferSize;
@@ -25,6 +27,7 @@ DMADeviceDriverMgr::DMADeviceDriverMgr(int rxBufferSize, int txBufferSize){
     m_rxChannel = rxChannels[0];
 }
 
+using namespace std;
 DMADeviceDriverMgr::~DMADeviceDriverMgr(){
     axidma_free(m_axidmaDev, m_rxBuffer, m_rxBufferSize);
     axidma_free(m_axidmaDev, m_txBuffer, m_txBufferSize);
@@ -40,9 +43,13 @@ char* DMADeviceDriverMgr::getRxBuffer(){
 }
 
 void DMADeviceDriverMgr::sendData(){
-    axidma_oneway_transfer(m_axidmaDev, AXIDMA_WRITE, m_txChannel, m_txBuffer, m_txBufferSize,);
+    axidma_oneway_transfer(m_axidmaDev, AXIDMA_WRITE, m_txChannel, m_txBuffer, m_txBufferSize, false);
 }
 
 void DMADeviceDriverMgr::rcvData(){
     axidma_oneway_transfer(m_axidmaDev, AXIDMA_READ, m_rxChannel, m_rxBuffer, m_rxBufferSize, true);
+}
+
+void DMADeviceDriverMgr::resetRcvBuffer(){
+    memset(m_rxBuffer, 0, m_rxBufferSize);
 }

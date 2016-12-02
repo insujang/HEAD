@@ -16,7 +16,6 @@ extern "C" {
 #include <fcntl.h>
 #include <unistd.h>
 
-
 #include "libaxidma.h"
 #include "MurmurHash.hpp"
 }
@@ -142,7 +141,7 @@ DeduplicateFile::dedupFile(string filePath)
 
 
     while (accumulatedChunkLength != fileSize) {
-        // This is the first time of read: just read 10KB
+        // This is the first time of read: just read 8KB
         if(accumulatedChunkLength == 0){
             // no memmove
             ifStream.read(buffer, BUFFER_LEN);
@@ -175,11 +174,12 @@ DeduplicateFile::dedupFile(string filePath)
          */
         if(readLength == BUFFER_LEN) {
             m_dmaDriver->sendData();
-            cout << "[DEBUG] Data transferred." << endl;
+            // cout << "[DEBUG] Data transferred." << endl;
             write(m_fdDedupHWModule, &dedupHWTriggerInfo, sizeof(dedupHWTriggerInfo));
-            cout << "[DEBUG] PL invoked. Waiting for hardware execution completed." << endl;
+            // cout << "[DEBUG] PL invoked. Waiting for hardware execution completed." << endl;
+            // m_dmaDriver->resetRcvBuffer();
             m_dmaDriver->rcvData();
-            cout << "[DEBUG] Data received." << endl;
+
             rcvData* pRcvData = (rcvData*) rxBuffer;
             int lastLength = 0;
             for(int dataItr = 0; dataItr < NUM_HASH_FROM_HW; dataItr++){
@@ -192,10 +192,11 @@ DeduplicateFile::dedupFile(string filePath)
 
                 hash_list.push_back(outStr);
 
-                ldb->writeDB(hashListDB, outStr, Slice( &buffer[lastLength], pRcvData[dataItr].length));
-                lastLength += pRcvData[dataItr].length;
+                ldb->writeDB(hashListDB, outStr, Slice( &buffer[lastLength], pRcvData[dataItr].length - lastLength));
+                lastLength = pRcvData[dataItr].length;
             }
-            accumulatedChunkLength += BUFFER_LEN;
+            chunkLength = lastLength;
+            accumulatedChunkLength += lastLength;
         }
 
         /*
@@ -232,8 +233,6 @@ DeduplicateFile::dedupFile(string filePath)
     ldb->writeDB(fileListDB, filePath, hash_list_str);
 
     cout << "[INFO] Dynamic chunking computation is finished" << endl;
-
-    delete[] buffer;
 
     return 0;
 }
