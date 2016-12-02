@@ -131,7 +131,7 @@ static int dedup_remove(struct platform_device *pdev)
 
 #ifdef CONFIG_OF
 static struct of_device_id dedup_of_match[] = {
-	{ .compatible = "xlnx,dedupDriver-1.0", },
+	{ .compatible = "xlnx,dedup-1.0", },
 	{ /* end of list */ },
 };
 MODULE_DEVICE_TABLE(of, dedup_of_match);
