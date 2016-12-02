@@ -13,7 +13,7 @@
 #define targetHash 337
 #define prime 23
 
-#define DEDUP_HW_MODULE "/dev/hello"
+#define DEDUP_HW_MODULE "/dev/dedup"
 
 using namespace std;
 

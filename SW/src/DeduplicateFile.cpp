@@ -248,7 +248,7 @@ DeduplicateFile::dedupFile(string filePath)
     // add <filename, hash_list> key-value pair to fileListDB
     ldb->writeDB(fileListDB, filePath, hash_list_str);
 
-    cout << "[INFO] Dynamic chunking computation is finshed" << endl;
+    cout << "[INFO] Dynamic chunking computation is finished" << endl;
 
     delete[] buffer;
 

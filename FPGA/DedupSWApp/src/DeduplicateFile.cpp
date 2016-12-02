@@ -37,6 +37,7 @@ DeduplicateFile::DeduplicateFile(){
 }
 
 DeduplicateFile::~DeduplicateFile() {
+    close(m_fdDedupHWModule);
     delete m_dmaDriver;
 }
 
@@ -174,7 +175,7 @@ DeduplicateFile::dedupFile(string filePath)
          */
         if(readLength == BUFFER_LEN) {
             m_dmaDriver->sendData();
-            ssize_t nb = write(m_fdDedupHWModule, &dedupHWTriggerInfo, sizeof(dedupHWTriggerInfo));
+            write(m_fdDedupHWModule, &dedupHWTriggerInfo, sizeof(dedupHWTriggerInfo));
             m_dmaDriver->rcvData();
             rcvData* pRcvData = (rcvData*) rxBuffer;
             int lastLength = 0;
@@ -227,7 +228,7 @@ DeduplicateFile::dedupFile(string filePath)
     // add <filename, hash_list> key-value pair to fileListDB
     ldb->writeDB(fileListDB, filePath, hash_list_str);
 
-    cout << "[INFO] Dynamic chunking computation is finshed" << endl;
+    cout << "[INFO] Dynamic chunking computation is finished" << endl;
 
     delete[] buffer;
 
