@@ -150,6 +150,8 @@ static struct platform_driver dedup_driver = {
 	.remove		= dedup_remove,
 };
 
+
+static int chrdev_initialize(void);
 static int __init dedup_init(void)
 {
 	printk("Dedup device driver initializing.\n");
@@ -158,6 +160,7 @@ static int __init dedup_init(void)
 }
 
 
+static void chrdev_destroy(void);
 static void __exit dedup_exit(void)
 {
     chrdev_destroy();
