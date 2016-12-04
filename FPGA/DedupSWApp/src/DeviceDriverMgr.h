@@ -11,9 +11,17 @@ extern "C" {
 #include "libaxidma.h"
 }
 
+typedef struct {
+    int length;
+    //unsigned int hash[4];
+    unsigned int hash[4];
+    int dummy[3];
+} rcvItem;
+
 #define MODULE_NAME "/"
 #define TX_BUFFER_SIZE  8192
-#define RX_BUFFER_SIZE  252
+//#define RX_BUFFER_SIZE 56
+#define RX_BUFFER_SIZE  1792
 // for murmur32: (4+4) * 7 = 56
 // for murmur128: (4+32) * 7 = 252
 
@@ -24,7 +32,7 @@ class DMADeviceDriverMgr{
         DMADeviceDriverMgr(int rxBufferSize = RX_BUFFER_SIZE, int txBufferSize = TX_BUFFER_SIZE);
         ~DMADeviceDriverMgr();
         char* getTxBuffer();
-        char* getRxBuffer();
+        rcvItem* getRxBuffer();
         void sendData();
         void rcvData();
         void resetRcvBuffer();
@@ -36,7 +44,7 @@ class DMADeviceDriverMgr{
         int m_rxBufferSize;
 
         char *m_txBuffer;
-        char *m_rxBuffer;
+        rcvItem *m_rxBuffer;
 
         int m_txChannel;
         int m_rxChannel;

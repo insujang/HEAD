@@ -24,6 +24,12 @@ void usage ()
     exit(0);
 }
 
+
+string type;                    // should be either "dedup" or "restore"
+string filepath;                // file path to be deduped or restore or restore_all
+bool help;                      // whether show usage or not
+bool verbose = false;           // whether print some deduplication progress message or not
+
 /*Main program!*/
 int
 main (const int argc, const char **argv)
@@ -33,10 +39,8 @@ main (const int argc, const char **argv)
     DeduplicateFile* dedupFile = new DeduplicateFile();
 
     GetOpt_pp ops(argc, argv);
-    string type;        // should be either "dedup" or "restore"
-    string filepath;    // file path to be deduped or restore or restore_all
-    bool help;          // whether show usage or not
-    ops >> Option('t', "type", type) >> Option('f', "filepath", filepath) >> OptionPresent('h', "help", help);
+    ops >> Option('t', "type", type) >> Option('f', "filepath", filepath) >>
+              OptionPresent('h', "help", help) >> OptionPresent('v', "verbose", verbose);
 
     // check type should be either "dedup" or "restore" or "restore_all"
     if(help || type.length() == 0 || filepath.length() == 0 ||

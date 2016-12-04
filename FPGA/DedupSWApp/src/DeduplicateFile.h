@@ -17,8 +17,6 @@
 
 using namespace std;
 
-
-
 class DeduplicateFile {
 public:
     DeduplicateFile();

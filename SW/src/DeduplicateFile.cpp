@@ -15,6 +15,7 @@
 
 extern "C" {
 #include <sys/stat.h>
+#include <sys/time.h>
 }
 
 using namespace std;
@@ -22,6 +23,8 @@ using namespace std;
 #define BUFFER_LEN 8192
 #define SUM_HASH
 #define MURMUR
+
+extern bool verbose;
 
 unsigned int
 DeduplicateFile::getFileSize(string &file_path){
@@ -126,7 +129,7 @@ DeduplicateFile::getVariableChunk(char *str, int strLen) {
     }
 
     for(i=windowLen; i<strLen; i++){
-        if (strHash & 859 == 330) return i;
+        if ((strHash & 859) == 330) return i;
         strHash = strHash + str[i] - str[i-windowLen];
     }
 
@@ -188,6 +191,10 @@ DeduplicateFile::dedupFile(string filePath)
     int readLength = 0;
     int chunkLength = 0;
 
+    struct timespec tStart, tEnd;
+    unsigned long long calcTime = 0;
+    int iteration = 0;
+
     while (accumulatedChunkLength != fileSize) {
         // This is the first time of read: just read 10KB
         if(accumulatedChunkLength == 0){
@@ -213,16 +220,22 @@ DeduplicateFile::dedupFile(string filePath)
             readLength = readLength - chunkLength + ifStream.gcount();
         }
 
+        clock_gettime(CLOCK_REALTIME, &tStart);
+
         // get a chunk with variable length
         chunkLength = getVariableChunk(buffer, readLength);
 
 #ifdef MURMUR
         // calculate get Murmur hash algorithm
-        string hash = murmurHash::getMurmurHash(buffer, chunkLength);
+        string hash = murmurHash::getMurmurHash128(buffer, chunkLength);
+
 #else
         // calculate getSHA1 hash algorithm
         string hash = getSHA1(buffer, chunkLength);
 #endif
+        clock_gettime(CLOCK_REALTIME, &tEnd);
+        calcTime += (tEnd.tv_sec - tStart.tv_sec) * 1000000000 + (tEnd.tv_nsec - tStart.tv_nsec);
+
         // add the hash into hash_list
         hash_list.push_back(hash);
 
@@ -230,6 +243,13 @@ DeduplicateFile::dedupFile(string filePath)
         ldb->writeDB(hashListDB, hash, Slice(buffer, chunkLength));
 
         accumulatedChunkLength += chunkLength;
+
+        //cout << "Len: " << chunkLength << ", time: " << (tEnd.tv_sec - tStart.tv_sec) * 1000000000 + (tEnd.tv_nsec - tStart.tv_nsec) << endl;
+        iteration++;
+        if(verbose && !(iteration % 10000)){
+            cout << "[DEBUG] [" << (iteration / 10000) << "] handled data: " << accumulatedChunkLength / 1000000 << " MB. " <<
+                 "Total chunking / hashing time: " << (calcTime / 10000000.0) << " ms" << endl;
+        }
     }
 
     cout << "[DEBUG] Accumulated chunk length: " << accumulatedChunkLength

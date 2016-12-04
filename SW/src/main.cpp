@@ -28,6 +28,14 @@ void usage ()
     exit(0);
 }
 
+string type;        // should be either "dedup" or "restore"
+string filepath;    // file path to be deduped or restore or restore_all
+string dirpath;
+string full_path;
+vector<string> path_arr;
+bool help;          // whether show usage or not
+bool verbose;
+
 /*Main program!*/
 int
 main (const int argc, const char **argv)
@@ -37,13 +45,9 @@ main (const int argc, const char **argv)
     DeduplicateFile* dedupFile = new DeduplicateFile();
 
     GetOpt_pp ops(argc, argv);
-    string type;        // should be either "dedup" or "restore"
-    string filepath;    // file path to be deduped or restore or restore_all
-    string dirpath;
-    string full_path;
-    vector<string> path_arr;
-    bool help;          // whether show usage or not
-    ops >> Option('t', "type", type) >> Option('f', "filepath", filepath) >> Option('d', "dir", dirpath) >> OptionPresent('h', "help", help);
+
+    ops >> Option('t', "type", type) >> Option('f', "filepath", filepath) >> Option('d', "dir", dirpath)
+        >> OptionPresent('h', "help", help) >> OptionPresent('v', "verbose", verbose);
 
     DIR *dir;
     struct dirent *ent;
