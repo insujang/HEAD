@@ -5,9 +5,11 @@
 ############################################################
 open_project DedupHWModule_HLS
 set_top dedup
-add_files DedupHWModule_HLS/Dedup/dedup.cpp
-add_files DedupHWModule_HLS/Dedup/dedup.h
-add_files -tb DedupHWModule_HLS/Dedup/dedup_test.cpp -cflags "-std=c++0x"
+add_files DedupHWModule_HLS/Source/calcHash.cpp
+add_files DedupHWModule_HLS/Source/dedup.cpp
+add_files DedupHWModule_HLS/Source/dedup.h
+add_files DedupHWModule_HLS/Source/murmur.cpp
+add_files -tb DedupHWModule_HLS/Source/dedup_test.cpp -cflags "-std=c++0x"
 open_solution "Dedup"
 set_part {xc7z020clg484-1} -tool vivado
 create_clock -period 10 -name default

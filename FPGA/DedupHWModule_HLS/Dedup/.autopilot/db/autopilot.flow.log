@@ -1,0 +1,329 @@
+@I [HLS-0] Workspace /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup opened at Sun Dec 04 12:47:27 KST 2016
+@I [HLS-100] Command "config_clock -quiet -name default -period 10 -default=false "
+@I [SYN-201] Setting up clock 'default' with a period of 10ns.
+@I [HLS-100] Command 'config_clock' returned 0; elapsed 7.2e-05Total elapsed time: 0.165 sec.
+@I [HLS-100] Command "open_platform DefaultPlatform "
+@I [HLS-100] Command 'open_platform' returned 0; elapsed 4.6e-05Total elapsed time: 0.166 sec.
+@I [HLS-100] Command "import_lib /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/zynq/zynq "
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/common/xilinx.lib "
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/interface/xilinx_interface.lib "
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/interface/plb46.lib "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00017Total elapsed time: 0.166 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/interface/fsl.lib "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 8.2e-05Total elapsed time: 0.167 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/interface/axi4.lib "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000113Total elapsed time: 0.167 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/interface/maxi.lib "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00015Total elapsed time: 0.167 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/interface/saxilite.lib "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 8.2e-05Total elapsed time: 0.167 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001024Total elapsed time: 0.167 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/common/dsp48.lib "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 7.9e-05Total elapsed time: 0.167 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/ip/xfft.lib "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 5e-05Total elapsed time: 0.168 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/ip/xfir.lib "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 4e-05Total elapsed time: 0.168 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/ip/dds_compiler.lib "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 4e-05Total elapsed time: 0.168 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.002811Total elapsed time: 0.169 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/common/xilinx_old.lib "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.00044Total elapsed time: 0.170 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/common/xilinx_vivado.lib "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000464Total elapsed time: 0.171 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/common/xilinx.hlp "
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/common/target_info.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 6.6e-05Total elapsed time: 0.172 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/interface/xilinx_interface.hlp "
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/interface/maxi.hlp "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 6.5e-05Total elapsed time: 0.173 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/interface/saxilite.hlp "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 4.9e-05Total elapsed time: 0.173 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000281Total elapsed time: 0.173 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/common/dsp48.hlp "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000313Total elapsed time: 0.173 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001485Total elapsed time: 0.174 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/zynq/dsp48e1.hlp "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 4.5e-05Total elapsed time: 0.174 sec.
+@I [HLS-100] Command "get_default_platform "
+@I [HLS-100] Command 'get_default_platform' returned 0; elapsed 1.8e-05Total elapsed time: 0.174 sec.
+@I [HLS-100] Command "config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  "
+@I [HLS-100] Command 'config_chip_info' returned 0; elapsed 9e-06Total elapsed time: 0.174 sec.
+@I [HLS-100] Command "config_chip_info -quiet -speed medium "
+@I [HLS-100] Command 'config_chip_info' returned 0; elapsed 3e-06Total elapsed time: 0.174 sec.
+@I [HLS-100] Command 'import_lib' returned 0; elapsed 0.00875Total elapsed time: 0.175 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/zynq/zynq.gen "
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/common/virtex.gen "
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/common/xilinx.gen "
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/interface/plb46.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000739Total elapsed time: 0.176 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/interface/fsl.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000231Total elapsed time: 0.176 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/interface/axi4.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001102Total elapsed time: 0.177 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/interface/nativeAXI4.gen "
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/interface/saxilite.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001983Total elapsed time: 0.180 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/interface/maxi.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.004095Total elapsed time: 0.184 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.006328Total elapsed time: 0.184 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/scripts/xilinxcoregen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.005518Total elapsed time: 0.189 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/interface/XilEDKCoreGen.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.004605Total elapsed time: 0.194 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/ip/util.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 9e-05Total elapsed time: 0.195 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/ip/dds_compiler.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001846Total elapsed time: 0.196 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/ip/xfir.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000385Total elapsed time: 0.197 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/ip/xfft.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.062488Total elapsed time: 0.259 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.084411Total elapsed time: 0.260 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/common/dsp48.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000104Total elapsed time: 0.261 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.086002Total elapsed time: 0.261 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.086119Total elapsed time: 0.261 sec.
+@I [HLS-100] Command "open_platform DefaultPlatform "
+@I [HLS-100] Command 'open_platform' returned 0; elapsed 4e-06Total elapsed time: 0.261 sec.
+@I [HLS-100] Command "import_lib /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/zynq/zynq_fpv6 "
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/common/xilinx_fpv7.lib "
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/common/xilinx_hp.lib "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000355Total elapsed time: 0.262 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001894Total elapsed time: 0.263 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/common/xilinx_fpv.hlp "
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/common/xilinx.hlp "
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/common/target_info.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000107Total elapsed time: 0.267 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/interface/xilinx_interface.hlp "
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/interface/maxi.hlp "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 8.6e-05Total elapsed time: 0.267 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/interface/saxilite.hlp "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 5.3e-05Total elapsed time: 0.268 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000323Total elapsed time: 0.268 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/common/dsp48.hlp "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000425Total elapsed time: 0.268 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001829Total elapsed time: 0.269 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.002214Total elapsed time: 0.269 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/zynq/zynq_hp.hlp "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.000501Total elapsed time: 0.270 sec.
+@I [HLS-100] Command 'import_lib' returned 0; elapsed 0.011101Total elapsed time: 0.272 sec.
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/zynq/zynq_fpv6.gen "
+@I [HLS-100] Command "source /opt/Xilinx/Vivado_HLS/2016.2/common/technology/xilinx/common/xilinx_fpv6.gen "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001178Total elapsed time: 0.274 sec.
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 0.001351Total elapsed time: 0.274 sec.
+@I [HLS-100] Command "set_part xc7z020clg484-1 "
+@I [HLS-100] Command "add_library xilinx/zynq/zynq:xc7z020:clg484:-1 "
+@I [HLS-100] Command "get_default_platform "
+@I [HLS-100] Command 'get_default_platform' returned 0; elapsed 5e-06Total elapsed time: 0.277 sec.
+@I [HLS-100] Command "license_isbetapart xc7z020 "
+@I [HLS-100] Command 'license_isbetapart' returned 1; elapsed 0.003889Total elapsed time: 0.281 sec.
+@I [HLS-100] Command "get_default_platform "
+@I [HLS-100] Command 'get_default_platform' returned 0; elapsed 6e-06Total elapsed time: 0.282 sec.
+@I [HLS-100] Command "config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  "
+@I [HLS-100] Command 'config_chip_info' returned 0; elapsed 8e-06Total elapsed time: 0.282 sec.
+@I [HLS-100] Command "config_chip_info -quiet -speed slow "
+@I [HLS-100] Command 'config_chip_info' returned 0; elapsed 3e-06Total elapsed time: 0.282 sec.
+@I [HLS-100] Command 'add_library' returned 0; elapsed 0.006143Total elapsed time: 0.283 sec.
+@I [HLS-100] Command "add_library xilinx/zynq/zynq_fpv6 "
+@I [HLS-100] Command "get_default_platform "
+@I [HLS-100] Command 'get_default_platform' returned 0; elapsed 2e-06Total elapsed time: 0.283 sec.
+@I [HLS-100] Command 'add_library' returned 0; elapsed 0.000927Total elapsed time: 0.284 sec.
+@I [HLS-10] Setting target device to 'xc7z020clg484-1'
+@I [HLS-100] Command 'set_part' returned 0; elapsed 0.009379Total elapsed time: 0.284 sec.
+@I [HLS-100] Command "get_default_platform "
+@I [HLS-100] Command 'get_default_platform' returned 0; elapsed 3e-06Total elapsed time: 0.284 sec.
+@I [HLS-100] Command "config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  "
+@I [HLS-100] Command 'config_chip_info' returned 0; elapsed 9e-06Total elapsed time: 0.284 sec.
+@I [HLS-100] Command "config_chip_info -quiet -speed slow "
+@I [HLS-100] Command 'config_chip_info' returned 0; elapsed 3e-06Total elapsed time: 0.284 sec.
+@I [HLS-100] Command 'open_solution' returned 0; elapsed 0.12186Total elapsed time: 0.284 sec.
+@I [HLS-100] Command "set_part xc7z020clg484-1 -tool vivado "
+@I [HLS-100] Command "add_library xilinx/zynq/zynq:xc7z020:clg484:-1 "
+@I [HLS-100] Command "get_default_platform "
+@I [HLS-100] Command 'get_default_platform' returned 0; elapsed 3e-06Total elapsed time: 0.286 sec.
+@I [HLS-100] Command "license_isbetapart xc7z020 "
+@I [HLS-100] Command 'license_isbetapart' returned 1; elapsed 2.6e-05Total elapsed time: 0.286 sec.
+@I [HLS-100] Command "get_default_platform "
+@I [HLS-100] Command 'get_default_platform' returned 0; elapsed 2e-06Total elapsed time: 0.286 sec.
+@I [HLS-100] Command "config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  "
+@I [HLS-100] Command 'config_chip_info' returned 0; elapsed 7e-06Total elapsed time: 0.286 sec.
+@I [HLS-100] Command "config_chip_info -quiet -speed slow "
+@I [HLS-100] Command 'config_chip_info' returned 0; elapsed 3e-06Total elapsed time: 0.286 sec.
+@I [HLS-100] Command 'add_library' returned 0; elapsed 0.001553Total elapsed time: 0.287 sec.
+@I [HLS-100] Command "add_library xilinx/zynq/zynq_fpv6 "
+@I [HLS-100] Command "get_default_platform "
+@I [HLS-100] Command 'get_default_platform' returned 0; elapsed 2e-06Total elapsed time: 0.287 sec.
+@I [HLS-100] Command 'add_library' returned 0; elapsed 0.000798Total elapsed time: 0.288 sec.
+@I [HLS-100] Command 'set_part' returned 0; elapsed 0.003496Total elapsed time: 0.288 sec.
+@I [HLS-100] Command "create_clock -period 10 -name default "
+@I [HLS-100] Command 'create_clock' returned 0; elapsed 0.000575Total elapsed time: 0.289 sec.
+@I [HLS-100] Command "csynth_design "
+@I [HLS-100] Command "elaborate -effort=medium -skip_syncheck=0 -keep_printf=0 -lm=0 -skip_cdt=0 -skip_transform=0 -ng=0 -g=0 -opt_fp=0 "
+@I [HLS-10] Analyzing design file 'DedupHWModule_HLS/Source/murmur.cpp' ... 
+@0 [HLS-0] Analyzing design file 'DedupHWModule_HLS/Source/murmur.cpp' ... 
+@I [HLS-0] Compiling one TU...
+@I [HLS-0] 
+Checking before pre-process: exec clang -fno-limit-debug-info -gcc-toolchain "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit   -I "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/systemc/include" -I "/opt/Xilinx/Vivado_HLS/2016.2/include" -I "/opt/Xilinx/Vivado_HLS/2016.2/include/ap_sysc" -fexceptions -I "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot" -include etc/autopilot_ssdm_op.h "DedupHWModule_HLS/Source/murmur.cpp"  -o "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/murmur.pp.00.o"
+
+@I [HLS-100] Command "is_encrypted /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/murmur.pp.00.o "
+@I [HLS-100] Command 'is_encrypted' returned 0; elapsed 4.4e-05Total elapsed time: 0.696 sec.
+@I [HLS-0] Syntax Checker time: 0 seconds per iteration
+@I [HLS-0] 
+Source preprocessing: exec clang -fno-limit-debug-info -gcc-toolchain "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc" -hls -fno-exceptions  -D__llvm__  -CC -E "DedupHWModule_HLS/Source/murmur.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot" -I "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h  -o "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/murmur.pp.0.cpp"
+
+@I [HLS-0] GCC PP time: 0 seconds per iteration
+@I [HLS-100] Command "list_core -type functional_unit "
+@I [HLS-100] Command 'list_core' returned 0; elapsed 0.000109Total elapsed time: 0.810 sec.
+@I [HLS-0] Marker-Pragma convertor: /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/murmur.pp.0.cpp /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/murmur.pp.0.cpp.ap-line.cpp /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/murmur.pp.0.cpp.ap-line.cpp.CXX 1
+@I [HLS-0] 
+Source processor: exec /opt/Xilinx/Vivado_HLS/2016.2/tps/lnx64/jre/bin/java -Xmx512m -classpath   "/opt/Xilinx/Vivado_HLS/2016.2/lib/classes/autopilot.sourceprocessor.jar:/opt/Xilinx/Vivado_HLS/2016.2/lib/classes/org.eclipse.cdt.core_5.3.0.xilinx_patch.jar:/opt/Xilinx/Vivado_HLS/2016.2/lib/classes/org.eclipse.core.runtime_3.7.0.v20110110.jar:/opt/Xilinx/Vivado_HLS/2016.2/lib/classes/org.eclipse.equinox.common_3.6.0.v20110523.jar:/opt/Xilinx/Vivado_HLS/2016.2/lib/classes/com.ibm.icu_4.4.2.v20110208.jar:/opt/Xilinx/Vivado_HLS/2016.2/lib/classes/jargs.jar:/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/eclipse/plugins/org.eclipse.emf.common_2.10.1.v20150123-0348.jar:/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/eclipse/plugins/org.eclipse.emf.ecore_2.10.2.v20150123-0348.jar:/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/eclipse/plugins/org.eclipse.emf.ecore.xmi_2.10.2.v20150123-0348.jar:/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/eclipse/plugins/com.autoesl.autopilot.ui.directiveFileModel_1.0.0.jar:/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/eclipse/plugins/com.autoesl.autopilot.ui.common_1.0.0.jar"  autopilot.sourceprocessor.CParser  "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/murmur.pp.0.cpp.ap-line.cpp"  -m "dedup" -o "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/murmur.pp.0.cpp.ap-cdt.cpp" --pp --directive /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/Dedup.directive --source /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Source/murmur.cpp --error /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db --funcunit "AddSub AddSub_DSP AddSubnS DAddSub_fulldsp DAddSub_nodsp DDiv DExp_fulldsp DExp_meddsp DExp_nodsp DLog_fulldsp DLog_meddsp DLog_nodsp DMul_fulldsp DMul_maxdsp DMul_meddsp DMul_nodsp DRSqrt DRecip DSqrt DivnS FAddSub_fulldsp FAddSub_nodsp FDiv FExp_fulldsp FExp_meddsp FExp_nodsp FLog_fulldsp FLog_meddsp FLog_nodsp FMul_fulldsp FMul_maxdsp FMul_meddsp FMul_nodsp FRSqrt_fulldsp FRSqrt_nodsp FRecip_fulldsp FRecip_nodsp FSqrt HAddSub_nodsp HDiv HMul_fulldsp HMul_maxdsp HMul_nodsp HSqrt Mul Mul2S Mul3S Mul4S Mul5S Mul6S Mul_LUT MulnS MuxnS" --ve --vetcl /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db --ca --es --gf --pd --p2d /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db --sd --scff /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/.systemc_flag --ad
+
+@I [HLS-0] Error:Syntax error in source:for (__decltype(__n + 0) __niter = __n;
+Error:Missing ; in source:t
+Error:Syntax error in source:)
+ *__first = __value;
+Error:Syntax error in source:for (__decltype(__n + 0) __niter = __n;
+Error:Missing ; in source:t
+Error:Syntax error in source:)
+ *__first = __tmp;
+@I [HLS-0] Marker-Pragma convertor: /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/murmur.pp.0.cpp.ap-cdt.cpp /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/murmur.pragma.0.cpp /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/murmur.pragma.0.cpp.ap-line.CXX 0
+@I [HLS-100] Command "source /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/pragma.status.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 4.7e-05Total elapsed time: 24.769 sec.
+@I [HLS-0] CDT processor time: 23 seconds per iteration
+@I [HLS-0] Pragma handling time: 0 seconds per iteration
+@I [HLS-0] 
+Source preprocessing: exec clang -fno-limit-debug-info -gcc-toolchain "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc" -hls -fno-exceptions  -D__llvm__  -CC -E "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/murmur.pragma.1.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot" -I "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h  -o "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/murmur.pragma.2.cpp"
+
+@I [HLS-0] exec clang -fno-limit-debug-info -gcc-toolchain /opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/murmur.pragma.2.cpp"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot" -I "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -g -o "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/murmur.g.bc"
+@I [HLS-10] Analyzing design file 'DedupHWModule_HLS/Source/dedup.cpp' ... 
+@0 [HLS-0] Analyzing design file 'DedupHWModule_HLS/Source/dedup.cpp' ... 
+@I [HLS-0] Compiling one TU...
+@I [HLS-0] 
+Checking before pre-process: exec clang -fno-limit-debug-info -gcc-toolchain "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit   -I "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/systemc/include" -I "/opt/Xilinx/Vivado_HLS/2016.2/include" -I "/opt/Xilinx/Vivado_HLS/2016.2/include/ap_sysc" -fexceptions -I "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot" -include etc/autopilot_ssdm_op.h "DedupHWModule_HLS/Source/dedup.cpp"  -o "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/dedup.pp.00.o"
+
+@I [HLS-100] Command "is_encrypted /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/dedup.pp.00.o "
+@I [HLS-100] Command 'is_encrypted' returned 0; elapsed 4.5e-05Total elapsed time: 26.81 sec.
+@I [HLS-0] Syntax Checker time: 0 seconds per iteration
+@I [HLS-0] 
+Source preprocessing: exec clang -fno-limit-debug-info -gcc-toolchain "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc" -hls -fno-exceptions  -D__llvm__  -CC -E "DedupHWModule_HLS/Source/dedup.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot" -I "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h  -o "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/dedup.pp.0.cpp"
+
+@I [HLS-0] GCC PP time: 0 seconds per iteration
+@I [HLS-100] Command "list_core -type functional_unit "
+@I [HLS-100] Command 'list_core' returned 0; elapsed 7.5e-05Total elapsed time: 26.182 sec.
+@I [HLS-0] Marker-Pragma convertor: /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/dedup.pp.0.cpp /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/dedup.pp.0.cpp.ap-line.cpp /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/dedup.pp.0.cpp.ap-line.cpp.CXX 1
+@I [HLS-0] 
+Source processor: exec /opt/Xilinx/Vivado_HLS/2016.2/tps/lnx64/jre/bin/java -Xmx512m -classpath   "/opt/Xilinx/Vivado_HLS/2016.2/lib/classes/autopilot.sourceprocessor.jar:/opt/Xilinx/Vivado_HLS/2016.2/lib/classes/org.eclipse.cdt.core_5.3.0.xilinx_patch.jar:/opt/Xilinx/Vivado_HLS/2016.2/lib/classes/org.eclipse.core.runtime_3.7.0.v20110110.jar:/opt/Xilinx/Vivado_HLS/2016.2/lib/classes/org.eclipse.equinox.common_3.6.0.v20110523.jar:/opt/Xilinx/Vivado_HLS/2016.2/lib/classes/com.ibm.icu_4.4.2.v20110208.jar:/opt/Xilinx/Vivado_HLS/2016.2/lib/classes/jargs.jar:/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/eclipse/plugins/org.eclipse.emf.common_2.10.1.v20150123-0348.jar:/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/eclipse/plugins/org.eclipse.emf.ecore_2.10.2.v20150123-0348.jar:/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/eclipse/plugins/org.eclipse.emf.ecore.xmi_2.10.2.v20150123-0348.jar:/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/eclipse/plugins/com.autoesl.autopilot.ui.directiveFileModel_1.0.0.jar:/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/eclipse/plugins/com.autoesl.autopilot.ui.common_1.0.0.jar"  autopilot.sourceprocessor.CParser  "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/dedup.pp.0.cpp.ap-line.cpp"  -m "dedup" -o "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/dedup.pp.0.cpp.ap-cdt.cpp" --pp --directive /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/Dedup.directive --source /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Source/dedup.cpp --error /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db --funcunit "AddSub AddSub_DSP AddSubnS DAddSub_fulldsp DAddSub_nodsp DDiv DExp_fulldsp DExp_meddsp DExp_nodsp DLog_fulldsp DLog_meddsp DLog_nodsp DMul_fulldsp DMul_maxdsp DMul_meddsp DMul_nodsp DRSqrt DRecip DSqrt DivnS FAddSub_fulldsp FAddSub_nodsp FDiv FExp_fulldsp FExp_meddsp FExp_nodsp FLog_fulldsp FLog_meddsp FLog_nodsp FMul_fulldsp FMul_maxdsp FMul_meddsp FMul_nodsp FRSqrt_fulldsp FRSqrt_nodsp FRecip_fulldsp FRecip_nodsp FSqrt HAddSub_nodsp HDiv HMul_fulldsp HMul_maxdsp HMul_nodsp HSqrt Mul Mul2S Mul3S Mul4S Mul5S Mul6S Mul_LUT MulnS MuxnS" --ve --vetcl /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db --ca --es --gf --pd --p2d /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db --sd --scff /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/.systemc_flag --ad
+
+@I [HLS-0] Error:Syntax error in source:for (__decltype(__n + 0) __niter = __n;
+Error:Missing ; in source:t
+Error:Syntax error in source:)
+ *__first = __value;
+Error:Syntax error in source:for (__decltype(__n + 0) __niter = __n;
+Error:Missing ; in source:t
+Error:Syntax error in source:)
+ *__first = __tmp;
+@I [HLS-0] Marker-Pragma convertor: /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/dedup.pp.0.cpp.ap-cdt.cpp /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/dedup.pragma.0.cpp /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/dedup.pragma.0.cpp.ap-line.CXX 0
+@I [HLS-100] Command "source /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/pragma.status.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 4.3e-05Total elapsed time: 52.644 sec.
+@I [HLS-0] CDT processor time: 26 seconds per iteration
+@I [HLS-0] Pragma handling time: 0 seconds per iteration
+@I [HLS-0] 
+Source preprocessing: exec clang -fno-limit-debug-info -gcc-toolchain "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc" -hls -fno-exceptions  -D__llvm__  -CC -E "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/dedup.pragma.1.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot" -I "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h  -o "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/dedup.pragma.2.cpp"
+
+@I [HLS-0] exec clang -fno-limit-debug-info -gcc-toolchain /opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/dedup.pragma.2.cpp"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot" -I "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -g -o "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/dedup.g.bc"
+@I [HLS-10] Analyzing design file 'DedupHWModule_HLS/Source/calcHash.cpp' ... 
+@0 [HLS-0] Analyzing design file 'DedupHWModule_HLS/Source/calcHash.cpp' ... 
+@I [HLS-0] Compiling one TU...
+@I [HLS-0] 
+Checking before pre-process: exec clang -fno-limit-debug-info -gcc-toolchain "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit   -I "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/systemc/include" -I "/opt/Xilinx/Vivado_HLS/2016.2/include" -I "/opt/Xilinx/Vivado_HLS/2016.2/include/ap_sysc" -fexceptions -I "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot" -include etc/autopilot_ssdm_op.h "DedupHWModule_HLS/Source/calcHash.cpp"  -o "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/calcHash.pp.00.o"
+
+@I [HLS-100] Command "is_encrypted /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/calcHash.pp.00.o "
+@I [HLS-100] Command 'is_encrypted' returned 0; elapsed 4.3e-05Total elapsed time: 53.946 sec.
+@I [HLS-0] Syntax Checker time: 0 seconds per iteration
+@I [HLS-0] 
+Source preprocessing: exec clang -fno-limit-debug-info -gcc-toolchain "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc" -hls -fno-exceptions  -D__llvm__  -CC -E "DedupHWModule_HLS/Source/calcHash.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot" -I "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h  -o "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/calcHash.pp.0.cpp"
+
+@I [HLS-0] GCC PP time: 0 seconds per iteration
+@I [HLS-100] Command "list_core -type functional_unit "
+@I [HLS-100] Command 'list_core' returned 0; elapsed 7.6e-05Total elapsed time: 54.46 sec.
+@I [HLS-0] Marker-Pragma convertor: /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/calcHash.pp.0.cpp /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/calcHash.pp.0.cpp.ap-line.cpp /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/calcHash.pp.0.cpp.ap-line.cpp.CXX 1
+@I [HLS-0] 
+Source processor: exec /opt/Xilinx/Vivado_HLS/2016.2/tps/lnx64/jre/bin/java -Xmx512m -classpath   "/opt/Xilinx/Vivado_HLS/2016.2/lib/classes/autopilot.sourceprocessor.jar:/opt/Xilinx/Vivado_HLS/2016.2/lib/classes/org.eclipse.cdt.core_5.3.0.xilinx_patch.jar:/opt/Xilinx/Vivado_HLS/2016.2/lib/classes/org.eclipse.core.runtime_3.7.0.v20110110.jar:/opt/Xilinx/Vivado_HLS/2016.2/lib/classes/org.eclipse.equinox.common_3.6.0.v20110523.jar:/opt/Xilinx/Vivado_HLS/2016.2/lib/classes/com.ibm.icu_4.4.2.v20110208.jar:/opt/Xilinx/Vivado_HLS/2016.2/lib/classes/jargs.jar:/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/eclipse/plugins/org.eclipse.emf.common_2.10.1.v20150123-0348.jar:/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/eclipse/plugins/org.eclipse.emf.ecore_2.10.2.v20150123-0348.jar:/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/eclipse/plugins/org.eclipse.emf.ecore.xmi_2.10.2.v20150123-0348.jar:/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/eclipse/plugins/com.autoesl.autopilot.ui.directiveFileModel_1.0.0.jar:/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/eclipse/plugins/com.autoesl.autopilot.ui.common_1.0.0.jar"  autopilot.sourceprocessor.CParser  "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/calcHash.pp.0.cpp.ap-line.cpp"  -m "dedup" -o "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/calcHash.pp.0.cpp.ap-cdt.cpp" --pp --directive /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/Dedup.directive --source /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Source/calcHash.cpp --error /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db --funcunit "AddSub AddSub_DSP AddSubnS DAddSub_fulldsp DAddSub_nodsp DDiv DExp_fulldsp DExp_meddsp DExp_nodsp DLog_fulldsp DLog_meddsp DLog_nodsp DMul_fulldsp DMul_maxdsp DMul_meddsp DMul_nodsp DRSqrt DRecip DSqrt DivnS FAddSub_fulldsp FAddSub_nodsp FDiv FExp_fulldsp FExp_meddsp FExp_nodsp FLog_fulldsp FLog_meddsp FLog_nodsp FMul_fulldsp FMul_maxdsp FMul_meddsp FMul_nodsp FRSqrt_fulldsp FRSqrt_nodsp FRecip_fulldsp FRecip_nodsp FSqrt HAddSub_nodsp HDiv HMul_fulldsp HMul_maxdsp HMul_nodsp HSqrt Mul Mul2S Mul3S Mul4S Mul5S Mul6S Mul_LUT MulnS MuxnS" --ve --vetcl /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db --ca --es --gf --pd --p2d /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db --sd --scff /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/.systemc_flag --ad
+
+@I [HLS-0] Error:Syntax error in source:for (__decltype(__n + 0) __niter = __n;
+Error:Missing ; in source:t
+Error:Syntax error in source:)
+ *__first = __value;
+Error:Syntax error in source:for (__decltype(__n + 0) __niter = __n;
+Error:Missing ; in source:t
+Error:Syntax error in source:)
+ *__first = __tmp;
+@I [HLS-0] Marker-Pragma convertor: /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/calcHash.pp.0.cpp.ap-cdt.cpp /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/calcHash.pragma.0.cpp /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/calcHash.pragma.0.cpp.ap-line.CXX 0
+@I [HLS-100] Command "source /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/pragma.status.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 4.3e-05Total elapsed time: 78.811 sec.
+@I [HLS-0] CDT processor time: 24 seconds per iteration
+@I [HLS-0] Pragma handling time: 0 seconds per iteration
+@I [HLS-0] 
+Source preprocessing: exec clang -fno-limit-debug-info -gcc-toolchain "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc" -hls -fno-exceptions  -D__llvm__  -CC -E "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/calcHash.pragma.1.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot" -I "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h  -o "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/calcHash.pragma.2.cpp"
+
+@I [HLS-0] exec clang -fno-limit-debug-info -gcc-toolchain /opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/calcHash.pragma.2.cpp"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot" -I "/opt/Xilinx/Vivado_HLS/2016.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -g -o "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/calcHash.g.bc"
+@I [HLS-100] Command "source /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/ve_warning.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 4.8e-05Total elapsed time: 79.732 sec.
+@I [HLS-10] Validating synthesis directives ...
+@0 [HLS-0] Validating synthesis directives ...
+@I [HLS-100] Command "source /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/pragma.status.tcl "
+@I [HLS-100] Command 'ap_source' returned 0; elapsed 3.1e-05Total elapsed time: 79.733 sec.
+@I [HLS-0] Linking all ...
+@I [HLS-0] exec llvm-ld  "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/murmur.bc" "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/dedup.bc" "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/calcHash.bc"  -disable-opt  -L/opt/Xilinx/Vivado_HLS/2016.2/lnx64/lib -lm_basic -o "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/a.o.pre"
+@I [HLS-0] Link time: 0 seconds per iteration
+@I [HLS-0] Linking all ...
+@I [HLS-0] exec llvm-ld  "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/murmur.g.bc" "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/dedup.g.bc" "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/calcHash.g.bc"  -disable-opt  -L/opt/Xilinx/Vivado_HLS/2016.2/lnx64/lib -lm_basic -o "/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/a.g.pre"
+@I [HLS-0] Link time: 0 seconds per iteration
+@I [HLS-100] Command "opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 "
+@I [HLS-100] Command "cleanup_all_models "
+@I [HLS-100] Command 'cleanup_all_models' returned 0; elapsed 1e-05Total elapsed time: 79.999 sec.
+@I [HLS-10] Starting code transformations ...
+@0 [HLS-0] Starting code transformations ...
+@I [HLS-0] std xform: transform -hls -share-std-xform -always-inline -promote-dbg-pointer  -interface-preproc  -scalarrepl -mem2reg -keep-read-access -instcombine -dce  -promote-dbg-pointer  -bitop-raise  -indvars -loop-simplify -xunroll  -constprop -instcombine -simplifycfg -indvars  -simplifycfg -dce -globaldce  -basicaa  -simplifycfg -mem2reg -globalopt  -global-constprop -deadargelim -instcombine -simplifycfg  -prune-eh -simplifycfg  -scalarrepl -instcombine -reassociate -licm  -simplifycfg -loop-simplify -indvars -instcombine  -simplifycfg -mem2reg -loop-simplify -indvars -instcombine  -gvn -gvn -instcombine -adce  -break-crit-edges  -simplifycfg -loop-delete  -global-array-opt -dce -dse -adce  -find-syn-modules -top dedup  -deadargelim  -mem2reg -instcombine -dce  -presyn-prepare -auto-rom-infer  -interface-preproc  -syn-check -check-rec-only  -find-region -simplifycfg -func-extr -function-inline  -globaldce -mem2reg -instcombine -dce   -gvn -globaldce -adce -adse  -constprop -instcombine -bit-constprop  -instcombine -dce -simplifycfg -bitop-raise  -simplifycfg -dce -loop-delete -reassociate  -globalopt -global-privatize -mem2reg -dce  -global-constprop -pointer-simplify -constprop -dce  -func-inst -deadargelim  -promote-dbg-pointer  -norm-name   /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/a.g.0.bc -o /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/a.g.1.bc -f  -phase std-opt
+@I [HLS-0] Std xform time: 7 seconds per iteration
+@I [HLS-100] Command "is_encrypted /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/a.g.1.bc "
+@I [HLS-100] Command 'is_encrypted' returned 0; elapsed 5.3e-05Total elapsed time: 87.275 sec.
+@I [HLS-10] Checking synthesizability ...
+@0 [HLS-0] Checking synthesizability ...
+@I [HLS-0] syn check 1/2: transform -hls -syn-check -check-rec-only -disaggr -scalarrepl -norm-name -dce  -mem2reg -instcombine  -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce  -array-normalize -instcombine -dce  -array-seg-normalize -instcombine -dce  -array-flatten -instcombine -dce  -array-burst -dce  -deadargelim -promote-global-argument  -simplifycfg -mem2reg -globaldce -resolve-double-ptr  -dce -deadargelim -dce -instcombine  -function-inline -globaldce -dce  -doublePtrSimplify -doublePtrElim -dce  -doublePtrSimplify -promote-dbg-pointer  -dce -scalarrepl -dse -adse -instcombine  -ptrLegalization  -simplifycfg -dce -instcombine  -pointer-simplify -ptrArgReplace -dce -instcombine   -disaggr -scalarrepl -norm-name -dce  -mem2reg -instcombine -ptrLegalization   -simplifycfg -deadargelim  -instcombine -dce -inst-simplify  -function-uniquify -directive-preproc -mem2reg -dse -dce  -globaldce    /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/a.g.1.bc -o /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/a.g.2.prechk.bc -f
+@I [XFORM-602] Inlining function 'rotl32' into 'murmurhash128' (DedupHWModule_HLS/Source/murmur.cpp:109) automatically.
+@I [HLS-0] Syn check 1/2 time: 12 seconds per iteration
+@I [HLS-0] syn check 2/2: transform -syn-check   /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/a.g.2.prechk.bc -o /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/a.g.2.bc -f  -phase syn-check
+@I [HLS-0] Syn check 2/2 time: 0 seconds per iteration
+@I [HLS-0] Compiler optimizing ...
+@I [HLS-0] Share syncheck's 1.bc for syn flow: copy /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/a.g.1.bc to /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/a.o.1.bc
+@I [HLS-0] presyn 1: transform -hls -tmp /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db -type-info  -function-uniquify -directive-preproc -mem2reg -dse -dce  -disaggr -scalarrepl -norm-name -deadargelim  -mem2reg -instcombine -dce -auto-rom-infer -dce -function-uniquify  -resource-proc  -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine  -clib-intrinsic-prepare -dce  -func-buffer -dce -array-normalize  -func-legal -instcombine -gvn -constprop -dce   -ptrArgReplace -mem2reg -instcombine -dce  -array-seg-normalize -deadargelim  -instcombine -dce  -pointer-simplify -dce  -port-alignment -dce  -interface-preproc  -data-pack -instcombine -dce   -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn  -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce  -loop-simplify -indvars -instcombine  -gvn -loop-simplify -mem2reg -dce -simplifycfg  -find-region -instcombine  -auto-loop-pipeline  -inst-simplify  -interface-preproc  -indvars -auto-loop-unroll -loop-simplify -loop-bound -xunroll  -constprop -instcombine -simplifycfg -indvars  -simplifycfg -dce -globaldce  -attach-range  -gvn -inst-simplify  -constprop -simplifycfg -dce  -pointer-simplify -dce  -globalopt -constprop -dce  -array-promote -constprop -instcombine -dce  -ptrArgReplace -mem2reg  -instcombine -simplifycfg -dce  -auto-par -instcombine -dce  -array-transform-check  -array-reshape -instcombine -simplifycfg -dce  -ptrArgReplace -deadargelim -mem2reg  -instcombine -simplifycfg -dce   -indvars -loop-simplify -loop-bound -xunroll  -constprop -instcombine -simplifycfg -indvars  -simplifycfg -dce -globaldce  -duplicate-dataflow-processes -globaldce  -array-partition -instcombine -simplifycfg -dce  -ptrArgReplace -global-constprop -deadargelim -mem2reg  -func-legal -instcombine -dce -global-constprop -deadargelim -mem2reg  -instcombine -simplifycfg -dce   -globalopt -constprop -dce  -array-promote -constprop -instcombine -dce  -ptrArgReplace -mem2reg  -instcombine -simplifycfg -dce   -mem-intrinsic-preproc -dce  -global-privatize  -mem2reg -globaldce  -promote-global-argument  -ptrArgReplace -mem2reg -instcombine -dce  -globalopt -mergereturn -simplify-global-access -mem2reg -dce  -pointer-simplify -dce  -functionattrs  -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn  -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce  -inst-simplify -dce -norm-name  -function-inline -globaldce  -func-inst -constprop -instcombine -simplifycfg -dce  -func-legal -dce   -loop-bound  -arraycheck -bitwidthmin -on-by-dataflow  -loop-delete -instcombine -simplifycfg  -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments  -loop-stream -instcombine -simplifycfg -dce -globaldce  -stream-intrinsic-preproc -dce  -check-ap-stream -loop-simplify -eliminate-keepreads  -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse  -check-dataflow-syntax  -legalize-stream-variable -legalize-global -legalize-global-1  -extract-subproc -dce -dead-channel-elimination  -canonicalize-gep -globaldce -dce -gvn -deadargelim  -scalar-propagation -deadargelim -globaldce -mem2reg  -check-dataflow-channels -function-stream -annotate-dataflow-channels -dce -globaldce  -prop-fifo-spec -internal-stream-gen  -canonicalize-gep -globaldce -dce -gvn -deadargelim   -mergereturn -indvars -loop-simplify -instcombine  -array-stream -instcombine -simplifycfg -dce  -bundle-memfifo-ops -deadargelim    -function-uniquify -directive-preproc -mem2reg -dse -dce  -group-axi-access    -licm -simplifycfg -dce -loop-delete  -norm-name  /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/a.o.1.bc -o /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/a.o.1.tmp.bc -f
+@I [XFORM-1101] Packing variable 'outputData.V.data' (DedupHWModule_HLS/Source/dedup.cpp:5) into a 1056-bit variable.
+@I [XFORM-502] Unrolling all sub-loops inside loop 'hash_initialize_outerloop' (DedupHWModule_HLS/Source/calcHash.cpp:21) in function 'calcHash' for pipelining.
+@I [XFORM-502] Unrolling all sub-loops inside loop 'rolling_hash_calc_check_outerloop' (DedupHWModule_HLS/Source/calcHash.cpp:43) in function 'calcHash' for pipelining.
+@I [XFORM-502] Unrolling all loops for pipelining in function 'murmurhash128' (DedupHWModule_HLS/Source/murmur.cpp:96).
+@I [XFORM-502] Unrolling all sub-loops inside loop 'fillQueue' (DedupHWModule_HLS/Source/dedup.cpp:76) in function 'dedup' for pipelining.
+@I [XFORM-501] Unrolling loop 'hash_initialize_innerloop' (DedupHWModule_HLS/Source/calcHash.cpp:24) in function 'calcHash' completely.
+@I [XFORM-501] Unrolling loop 'fisrt_hash_comparison' (DedupHWModule_HLS/Source/calcHash.cpp:32) in function 'calcHash' completely.
+@I [XFORM-501] Unrolling loop 'rolling_hash_calc_check' (DedupHWModule_HLS/Source/calcHash.cpp:46) in function 'calcHash' completely.
+@I [XFORM-501] Unrolling loop 'Loop-1' (DedupHWModule_HLS/Source/murmur.cpp:98) in function 'murmurhash128' completely.
+@W [XFORM-503] Cannot unroll loop 'Loop-2' (DedupHWModule_HLS/Source/murmur.cpp:100) in function 'murmurhash128': cannot completely unroll a loop with a variable trip count.
+@I [XFORM-501] Unrolling loop 'Loop-5.1' (DedupHWModule_HLS/Source/dedup.cpp:81) in function 'dedup' completely.
+@I [XFORM-102] Partitioning array 'item.data.hashData' (DedupHWModule_HLS/Source/dedup.cpp:65) automatically.
+@I [XFORM-102] Partitioning array 'item.data.hashData.1' (DedupHWModule_HLS/Source/dedup.cpp:79) automatically.
+@W [XFORM-104] Completely partitioning array 'indices' (DedupHWModule_HLS/Source/dedup.cpp:14) accessed through non-constant indices on dimension 1 (DedupHWModule_HLS/Source/dedup.cpp:44:3), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+@I [XFORM-101] Partitioning array 'indices' (DedupHWModule_HLS/Source/dedup.cpp:14) in dimension 1 completely.
+@I [XFORM-101] Partitioning array 'buffer' (DedupHWModule_HLS/Source/dedup.cpp:10) in dimension 1 with a block factor 64.
+@W [XFORM-104] Completely partitioning array 'hash' (DedupHWModule_HLS/Source/calcHash.cpp:8) accessed through non-constant indices on dimension 1 (DedupHWModule_HLS/Source/calcHash.cpp:17:2), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+@I [XFORM-101] Partitioning array 'hash' (DedupHWModule_HLS/Source/calcHash.cpp:8) in dimension 1 completely.
+@I [XFORM-602] Inlining function 'rotl32' into 'murmurhash128' (DedupHWModule_HLS/Source/murmur.cpp:109) automatically.
+@I [HLS-0] Presyn 1 time: 24 seconds per iteration
+@I [HLS-0] presyn 2: transform -hls -keep-callgraph -scalarrepl -mem2reg  -port-alignment -attach-range -dce  -pipe-mux-gen  -indvars -loop-bound  -inst-simplify -instcombine -dce  -merge-array-access -mem2reg -dce  -clean-region -mergereturn -if-conv  -instcombine -dce -constprop  -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn  -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce  -scalarrepl -mem2reg  -global-constprop -deadargelim -deadargelim  -instcombine -dce -simplifycfg    -ptrArgReplace -mem2reg -function-inline  -globaldce -mem2reg -instcombine -dce -expr-balance  -instcombine -dce  -bitwidthmin  -interface-preproc -directive-preproc  -inst-rectify -instcombine -dce  -functionattrs  -constprop -instcombine -bit-constprop  -simplify-global-access  -globalopt -globaldce  -inst-simplify -instcombine -elimdeaddata -dce  -loop-delete -simplifycfg -loop-simplify -auto-burst   -norm-name /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/a.o.1.tmp.bc -o /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/a.o.2.bc -f  -phase presyn
+@I [XFORM-401] Performing if-conversion on hyperblock from (DedupHWModule_HLS/Source/dedup.cpp:66:48) to (DedupHWModule_HLS/Source/dedup.cpp:61:20) in function 'dedup'... converting 3 basic blocks.
+@I [XFORM-401] Performing if-conversion on hyperblock from (DedupHWModule_HLS/Source/calcHash.cpp:21:28) to (DedupHWModule_HLS/Source/calcHash.cpp:21:23) in function 'calcHash'... converting 1065 basic blocks.
+@I [XFORM-11] Balancing expressions in function 'murmurhash128' (DedupHWModule_HLS/Source/murmur.cpp:96)...15 expression(s) balanced.
+@I [HLS-0] Presyn 2 time: 3 seconds per iteration
+@I [HLS-100] Command "is_encrypted /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/a.o.2.bc "
+@I [HLS-100] Command 'is_encrypted' returned 0; elapsed 0.001487Total elapsed time: 128.771 sec.
+@I [HLS-0] build ssdm: transform -hls  -function-uniquify -auto-function-inline -globaldce  -ptrArgReplace -mem2reg -instcombine -dce  -reset-lda  -loop-simplify -indvars -licm -loop-dep  -loop-bound -licm -loop-simplify -flattenloopnest  -array-flatten -gvn -instcombine -dce  -array-map -dce -func-legal  -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify   -array-burst -promote-global-argument -dce  -axi4-lower -array-seg-normalize  -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn  -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm  -inst-simplify -dce  -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine  -dce   -deadargelim -doublePtrSimplify  -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer  -dce -scalarrepl -mem2reg -disaggr -norm-name -mem2reg  -instcombine  -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine  -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound  -loop-simplify -loop-preproc  -constprop -global-constprop -gvn -mem2reg -instcombine -dce  -loop-merge -dce  -bitwidthmin  -deadargelim -dce  -scalar-propagation -deadargelim -globaldce -mem2reg  -interface-preproc -interface-gen  -deadargelim -directive-preproc -inst-simplify -dce  -gvn -mem2reg -instcombine -dce -adse  -loop-bound  -instcombine -cfgopt -simplifycfg -loop-simplify  -clean-region -io-protocol  -find-region -mem2reg  -bitop-raise  -inst-simplify -inst-rectify -instcombine -adce -deadargelim  -loop-simplify -phi-opt -bitop-raise  -cfgopt -simplifycfg -strip-dead-prototypes  -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline  -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa  -inst-simplify -simplifycfg   -mergereturn -inst-simplify -inst-rectify  -dce -bitop-lower  -loop-rewind -pointer-simplify -dce -cfgopt  -read-loop-dep -dce -bitwidth -norm-name -legalize    -cdfg-build  /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/a.o.2.bc -o /home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.autopilot/db/a.o.3.bc -f  -phase build-ssdm

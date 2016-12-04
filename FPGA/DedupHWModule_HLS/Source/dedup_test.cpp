@@ -1,10 +1,12 @@
 #include "dedup.h"
 
 #include <iostream>
+#include <fstream>
 
 #include <cstring>
 #include <cstdlib>
 #include <cstdint>
+#include <cstdio>
 
 uint32_t
 murmurhash2 (const char key[2048], uint32_t len, uint32_t seed) {
@@ -74,7 +76,7 @@ murmurhash2 (const char key[2048], uint32_t len, uint32_t seed) {
 using namespace std;
 
 int main(){
-
+/*
 	char ar[2048] = {
 			'1','2','3','4','5','6','7','8','9','0','a','b',
 			'1','2','3','4','5','6','7','8','9','0','a','b',
@@ -127,10 +129,39 @@ int main(){
 			'1','2','3','4','5','6','7','8','9','0','a','b',
 			'1','2','3','4','5','6','7','8','9','0','a','b',
 			};
-	uint32_t value = murmurhash2(ar, 12*30, 0);
-	uint32_t valueComp = murmurhash(&ar[0], 12*30, 0);
+			*/
 
-	cout << "Value: " << value << endl << "HLS Value: " << valueComp << endl;
+	ifstream stream;
+	stream.open("/home/insujang/example", ios::in|ios::binary);
 
-	return value != valueComp;
+	char buffer[8192];
+	stream.read(buffer, 8192);
+
+	stream.close();
+
+	hls::stream<char> inStream;
+	hls::stream<ap_out> outStream;
+	for(int i=0; i<8192; i++) inStream.write(buffer[i]);
+
+	dedup(inStream, outStream);
+
+	for(int i=0; i<7; i++){
+		ap_out result = outStream.read();
+		char out[9];
+		out[8] = '\0';
+		sprintf(out, "%08x", result.data.hashData);
+
+		using namespace std;
+		cout << "len: " << result.data.index << ", " << out << ", last: " << result.last << endl;
+	}
+
+
+//	uint32_t value = murmurhash2(ar, 12*30, 0);
+//	uint32_t valueComp = murmurhash(&ar[0], 12*30, 0);
+//
+//	cout << "Value: " << value << endl << "HLS Value: " << valueComp << endl;
+//
+//	return value != valueComp;
+
+	return 0;
 }
