@@ -18,19 +18,19 @@ DMADeviceDriverMgr::DMADeviceDriverMgr(int rxBufferSize, int txBufferSize){
     int* txChannels;
     int* rxChannels;
 
-    m_txBuffer = (char*) axidma_malloc(m_axidmaDev, txBufferSize);
+    m_txBuffer = (char *) axidma_malloc(m_axidmaDev, m_txBufferSize << 1);
     txChannels = axidma_get_dma_tx(m_axidmaDev, &txNumber);
     m_txChannel = txChannels[0];
 
-    m_rxBuffer = (char*) axidma_malloc(m_axidmaDev, rxBufferSize);
+    m_rxBuffer = (char *) axidma_malloc(m_axidmaDev, m_rxBufferSize);
     rxChannels = axidma_get_dma_rx(m_axidmaDev, &rxNumber);
     m_rxChannel = rxChannels[0];
 }
 
 using namespace std;
 DMADeviceDriverMgr::~DMADeviceDriverMgr(){
-    axidma_free(m_axidmaDev, m_rxBuffer, m_rxBufferSize);
     axidma_free(m_axidmaDev, m_txBuffer, m_txBufferSize);
+    axidma_free(m_axidmaDev, m_rxBuffer, m_rxBufferSize);
     axidma_destroy(m_axidmaDev);
 }
 

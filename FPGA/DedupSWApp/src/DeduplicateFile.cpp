@@ -10,6 +10,7 @@
 #include <leveldb/write_batch.h>
 #include <fstream>
 #include "global.h"
+#include <thread>
 
 extern "C" {
 #include <sys/stat.h>
@@ -24,7 +25,7 @@ using namespace std;
 
 struct rcvData{
     int length;
-    int hash;
+    unsigned int hash[4];
 };
 
 #define BUFFER_LEN 8192
@@ -47,6 +48,7 @@ DeduplicateFile::getFileSize(string &file_path){
     return (unsigned int) status.st_size;
 }
 
+/*
 string
 DeduplicateFile::getSHA1(char *str, int len) {
     sha1::SHA1 s;
@@ -63,11 +65,7 @@ DeduplicateFile::getSHA1(char *str, int len) {
 
     return string(out);
 }
-
-string
-getMurmurHash(char *str, int len) {
-
-}
+*/
 
 int
 DeduplicateFile::getVariableChunk(char *str, int strLen) {
@@ -93,6 +91,28 @@ DeduplicateFile::getVariableChunk(char *str, int strLen) {
     return strLen;
 }
 
+unsigned int
+addHashesToList(char *rxBuffer, vector<string> &hashList, DB* hashListDB){
+    LevelDBWrapper *ldb = LevelDBWrapper::getInstance();
+    rcvData *pRcvData = (rcvData*) rxBuffer;
+    int lastLength = 0;
+    for(int dataItr = 0; dataItr < NUM_HASH_FROM_HW; dataItr++){
+        if(pRcvData[dataItr].length == 0)
+            continue;
+
+        char out[33];
+        snprintf(out, 32, "%08x%08x%08x%08x",
+                 pRcvData[dataItr].hash[0],pRcvData[dataItr].hash[1],
+                 pRcvData[dataItr].hash[2],pRcvData[dataItr].hash[3]);
+        out[32] = '\0';
+        string outStr(out);
+        hashList.push_back(outStr);
+
+        ldb->writeDB(hashListDB, outStr, Slice(&rxBuffer[lastLength], pRcvData[dataItr].length - lastLength));
+
+        lastLength += (pRcvData[dataItr].length - lastLength);
+    }
+}
 
 /**
  * hash_type: sha1
@@ -128,18 +148,83 @@ DeduplicateFile::dedupFile(string filePath)
     /* Dynamic chunking */
     cout << "[INFO] Dynamic chunking computation starts" << endl;
 
-    // 10KB buffer for Rabin Karp hash algorithm
+    // 8KB buffer for Rabin Karp hash algorithm
     //char* buffer = new char[BUFFER_LEN];
-    char* buffer = m_dmaDriver->getTxBuffer();
+    char *buffer;
+    buffer = m_dmaDriver->getTxBuffer();
     char* rxBuffer = m_dmaDriver->getRxBuffer();
     int dedupHWTriggerInfo = 1;
 
-    int accumulatedChunkLength = 0;
+    unsigned int accumulatedChunkLength = 0;
     int readLength = 0;
     int chunkLength = 0;
 
+    // This is the first time of read: read 8KB
+    ifStream.read(buffer, BUFFER_LEN);
+    readLength = ifStream.gcount();
 
 
+    /*
+     * Chunking and hashing using HW Module
+     * In HW module, chunking is only done with fixed 8192 bytes.
+     * HW module will make 7 outputs, each of which contains two ints.
+     * One is for string index (used to indicate chunk boundary)
+     * The other is hash value (calculating murmurhash is accelerated by HW).
+     */
+    while(readLength >= BUFFER_LEN){
+        m_dmaDriver->sendData();
+        write(m_fdDedupHWModule, &dedupHWTriggerInfo, sizeof(dedupHWTriggerInfo));
+
+        // Read additional data while PL execution is ongoing
+        // Buffer size is 16KB (8KB * 2).
+        // Read the file content in the second 8KB block
+        if(!ifStream.eof()){
+            if(readLength > BUFFER_LEN) ifStream.read(&buffer[readLength], BUFFER_LEN * 2 - readLength);
+            else ifStream.read(&buffer[BUFFER_LEN], BUFFER_LEN);
+            readLength += ifStream.gcount();
+        }
+
+        // Now receive the result from PL after stream read finishes
+        m_dmaDriver->rcvData();
+
+        // save up to 7 hash values and plaintext to levelDB
+        chunkLength = addHashesToList(rxBuffer, hash_list, hashListDB);
+        accumulatedChunkLength += chunkLength;
+
+        // Slide remaining data in buffer to start position
+        memmove(buffer, &buffer[chunkLength], readLength - chunkLength);
+        readLength -= chunkLength;
+    }
+
+    // We can assume that now ifStream.eof() always true at this moment.
+
+    /*
+     * Chunking and hashing using SW Module
+     * If remaining buffer size is less than 8192 bytes, it cannot be transferred
+     * to HW module. In this case, SW handles calculating hashes.
+     */
+    while(accumulatedChunkLength != fileSize){
+        // get a chunk with variable length
+        chunkLength = getVariableChunk(buffer, readLength);
+        // calculate getSHA1 hash algorithm
+        //string hash = getSHA1(buffer, chunkLength);
+        string hash = murmurHash::getMurmurHash(buffer, chunkLength);
+
+        // add the hash into hash_list
+        hash_list.push_back(hash);
+
+        // add <hash, chunk> key-value pair to hashListDB
+        ldb->writeDB(hashListDB, hash, Slice(buffer, chunkLength));
+        accumulatedChunkLength += chunkLength;
+
+        memmove(buffer, &buffer[chunkLength], readLength - chunkLength);
+        readLength -= chunkLength;
+    }
+
+
+
+
+/*
     while (accumulatedChunkLength != fileSize) {
         // This is the first time of read: just read 8KB
         if(accumulatedChunkLength == 0){
@@ -165,45 +250,40 @@ DeduplicateFile::dedupFile(string filePath)
             readLength = readLength - chunkLength + ifStream.gcount();
         }
 
-        /*
-         * Chunking and hashing using HW Module
-         * In HW module, chunking is only done with fixed 8192 bytes.
-         * HW module will make 7 outputs, each of which contains two ints.
-         * One is for string index (used to indicate chunk boundary)
-         * The other is hash value (calculating murmurhash is accelerated by HW).
-         */
         if(readLength == BUFFER_LEN) {
             m_dmaDriver->sendData();
-            // cout << "[DEBUG] Data transferred." << endl;
+            //cout << "[DEBUG] Data transferred." << endl;
             write(m_fdDedupHWModule, &dedupHWTriggerInfo, sizeof(dedupHWTriggerInfo));
             // cout << "[DEBUG] PL invoked. Waiting for hardware execution completed." << endl;
             // m_dmaDriver->resetRcvBuffer();
             m_dmaDriver->rcvData();
+            // cout << "[DEBUG] received completed." << endl;
 
             rcvData* pRcvData = (rcvData*) rxBuffer;
             int lastLength = 0;
             for(int dataItr = 0; dataItr < NUM_HASH_FROM_HW; dataItr++){
+                //cout << "date iteration: " << (dataItr+1) << endl;
+
                 if(pRcvData[dataItr].length == 0)
                     continue;
 
-                char out[9];
-                snprintf(out, 8, "%08x",pRcvData[dataItr].hash);
-                string outStr(out, sizeof(out));
-
+                char out[33];
+                snprintf(out, 32, "%08x%08x%08x%08x",
+                         pRcvData[dataItr].hash[0],pRcvData[dataItr].hash[1],
+                         pRcvData[dataItr].hash[2],pRcvData[dataItr].hash[3]);
+                out[32] = '\0';
+                string outStr(out);
                 hash_list.push_back(outStr);
 
                 ldb->writeDB(hashListDB, outStr, Slice( &buffer[lastLength], pRcvData[dataItr].length - lastLength));
-                lastLength = pRcvData[dataItr].length;
+
+                lastLength += (pRcvData[dataItr].length - lastLength);
+
             }
             chunkLength = lastLength;
-            accumulatedChunkLength += lastLength;
+            accumulatedChunkLength += chunkLength;
         }
 
-        /*
-         * Chunking and hashing using SW Module
-         * If remaining buffer size is less than 8192 bytes, it cannot be transferred
-         * to HW module. In this case, SW handles calculating hashes.
-         */
         else{
             // get a chunk with variable length
             chunkLength = getVariableChunk(buffer, readLength);
@@ -218,10 +298,8 @@ DeduplicateFile::dedupFile(string filePath)
             ldb->writeDB(hashListDB, hash, Slice(buffer, chunkLength));
             accumulatedChunkLength += chunkLength;
         }
-
-
     }
-
+*/
     cout << "[DEBUG] Accumulated chunk length: " << accumulatedChunkLength
         << " bytes" << endl;
     assert(accumulatedChunkLength == fileSize);

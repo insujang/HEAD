@@ -13,7 +13,9 @@ extern "C" {
 
 #define MODULE_NAME "/"
 #define TX_BUFFER_SIZE  8192
-#define RX_BUFFER_SIZE  56
+#define RX_BUFFER_SIZE  252
+// for murmur32: (4+4) * 7 = 56
+// for murmur128: (4+32) * 7 = 252
 
 using namespace std;
 
@@ -33,8 +35,8 @@ class DMADeviceDriverMgr{
         int m_txBufferSize;
         int m_rxBufferSize;
 
-        char* m_txBuffer;
-        char* m_rxBuffer;
+        char *m_txBuffer;
+        char *m_rxBuffer;
 
         int m_txChannel;
         int m_rxChannel;
