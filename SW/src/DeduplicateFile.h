@@ -19,7 +19,7 @@ public:
     string getSHA1(char *str, int len);
 
 private:
-    int getVariableChunk(char *str, int strLen);
+    int getVariableChunk(char *str, const unsigned int strLen);
     unsigned int getFileSize(string &filePath);
 };
 
