@@ -28,7 +28,7 @@ void usage ()
 string type;                    // should be either "dedup" or "restore"
 string filepath;                // file path to be deduped or restore or restore_all
 bool help;                      // whether show usage or not
-bool verbose = false;           // whether print some deduplication progress message or not
+bool verbose;                   // whether print some deduplication progress message or not
 
 /*Main program!*/
 int

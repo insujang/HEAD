@@ -17,13 +17,14 @@ typedef struct {
     unsigned int hash[4];
     int dummy[3];
 } rcvItem;
+// 8 32-bit integers: 256-bit = 32 bytes
 
 #define MODULE_NAME "/"
 #define TX_BUFFER_SIZE  8192
 //#define RX_BUFFER_SIZE 56
-#define RX_BUFFER_SIZE  1792
+#define RX_BUFFER_SIZE  32
 // for murmur32: (4+4) * 7 = 56
-// for murmur128: (4+32) * 7 = 252
+// for murmur128 revised: (256 bit = 32 byte) * 7 = 224
 
 using namespace std;
 
@@ -32,7 +33,7 @@ class DMADeviceDriverMgr{
         DMADeviceDriverMgr(int rxBufferSize = RX_BUFFER_SIZE, int txBufferSize = TX_BUFFER_SIZE);
         ~DMADeviceDriverMgr();
         char* getTxBuffer();
-        rcvItem* getRxBuffer();
+        rcvItem** getRxBuffers();
         void sendData();
         void rcvData();
         void resetRcvBuffer();
@@ -44,7 +45,7 @@ class DMADeviceDriverMgr{
         int m_rxBufferSize;
 
         char *m_txBuffer;
-        rcvItem *m_rxBuffer;
+        rcvItem *m_rxBuffer[7];
 
         int m_txChannel;
         int m_rxChannel;

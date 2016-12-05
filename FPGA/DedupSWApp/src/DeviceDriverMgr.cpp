@@ -18,19 +18,24 @@ DMADeviceDriverMgr::DMADeviceDriverMgr(int rxBufferSize, int txBufferSize){
     int* txChannels;
     int* rxChannels;
 
-    m_txBuffer = (char *) axidma_malloc(m_axidmaDev, m_txBufferSize << 1);
+    m_txBuffer = (char *) axidma_malloc(m_axidmaDev, m_txBufferSize);
+
+    for(int i=0; i<7; i++)
+        m_rxBuffer[i] = (rcvItem *) axidma_malloc(m_axidmaDev, m_rxBufferSize);
+    // m_rxBuffer = (rcvItem *) axidma_malloc(m_axidmaDev, m_rxBufferSize * 7);
+
     txChannels = axidma_get_dma_tx(m_axidmaDev, &txNumber);
     m_txChannel = txChannels[0];
 
-    m_rxBuffer = (rcvItem *) axidma_malloc(m_axidmaDev, m_rxBufferSize);
     rxChannels = axidma_get_dma_rx(m_axidmaDev, &rxNumber);
     m_rxChannel = rxChannels[0];
 }
 
 using namespace std;
 DMADeviceDriverMgr::~DMADeviceDriverMgr(){
-    axidma_free(m_axidmaDev, m_txBuffer, m_txBufferSize << 1);
-    axidma_free(m_axidmaDev, m_rxBuffer, m_rxBufferSize);
+    axidma_free(m_axidmaDev, m_txBuffer, m_txBufferSize);
+    for(int i=0; i<7; i++)
+        axidma_free(m_axidmaDev, m_rxBuffer[i], m_rxBufferSize);
     axidma_destroy(m_axidmaDev);
 }
 
@@ -38,7 +43,7 @@ char* DMADeviceDriverMgr::getTxBuffer(){
     return m_txBuffer;
 }
 
-rcvItem* DMADeviceDriverMgr::getRxBuffer(){
+rcvItem** DMADeviceDriverMgr::getRxBuffers(){
     return m_rxBuffer;
 }
 
@@ -47,7 +52,11 @@ void DMADeviceDriverMgr::sendData(){
 }
 
 void DMADeviceDriverMgr::rcvData(){
-    axidma_oneway_transfer(m_axidmaDev, AXIDMA_READ, m_rxChannel, m_rxBuffer, m_rxBufferSize, true);
+
+    for(int i=0; i<7; i++){
+        axidma_oneway_transfer(m_axidmaDev, AXIDMA_READ, m_rxChannel, m_rxBuffer[i], m_rxBufferSize, true);
+    }
+
 }
 
 void DMADeviceDriverMgr::resetRcvBuffer(){

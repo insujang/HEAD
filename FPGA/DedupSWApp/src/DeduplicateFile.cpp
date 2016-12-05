@@ -104,6 +104,7 @@ DeduplicateFile::dedupFile(string filePath)
     DB* hashListDB = ldb->getHashListDB();
     DB* fileListDB = ldb->getFileListDB();
 
+    if(verbose) cout << "[INFO] Verbose option on." << endl;
     cout << "[INFO] Deduplication is in progress..." << endl;
 
     cout << "[INFO] Checking file information..." << endl;
@@ -117,133 +118,49 @@ DeduplicateFile::dedupFile(string filePath)
     // This is the list of hashes in this file.
     vector<string> hash_list;
 
-    int fileSize = getFileSize(filePath);
-    cout << "[DEBUG] Target: " << filePath << endl;
-    cout << "        Size: " << fileSize << " bytes" << endl;
+    unsigned int fileSize = getFileSize(filePath);
+
+
+    cout << "[INFO] Target: " << filePath << endl;
+    cout << "       Size: " << fileSize << " bytes" << endl;
+
+    /* Data buffer */
+    char *buffer = m_dmaDriver->getTxBuffer();
+    rcvItem** rxBuffer = m_dmaDriver->getRxBuffers();
 
     /* Dynamic chunking */
     cout << "[INFO] Dynamic chunking computation starts" << endl;
 
-    // 8KB buffer for Rabin Karp hash algorithm
-    //char* buffer = new char[BUFFER_LEN];
-    char *buffer;
-    buffer = m_dmaDriver->getTxBuffer();
-    rcvItem* rxBuffer = m_dmaDriver->getRxBuffer();
+    unsigned int accumulatedChunkLength = 0;
+    unsigned int chunkLength = 0;
+    int readLength = 0;
     int dedupHWTriggerInfo = 1;
 
-    unsigned int accumulatedChunkLength = 0;
-    int readLength = 0;
-    int chunkLength = 0;
-
-    // This is the first time of read: read 8KB
-    ifStream.read(buffer, BUFFER_LEN);
-    readLength = ifStream.gcount();
-
-    /*
-     * Chunking and hashing using HW Module
-     * In HW module, chunking is only done with fixed 8192 bytes.
-     * HW module will make 7 outputs, each of which contains two ints.
-     * One is for string index (used to indicate chunk boundary)
-     * The other is hash value (calculating murmurhash is accelerated by HW).
-     */
-    int iteration = 0;
+    struct timeval tvStart, tvEnd;
     unsigned long long calcTime = 0;
-    timespec tStart, tEnd;
-    while(readLength >= BUFFER_LEN){
-        clock_gettime(CLOCK_REALTIME, &tStart);
-        m_dmaDriver->sendData();
-        write(m_fdDedupHWModule, &dedupHWTriggerInfo, sizeof(dedupHWTriggerInfo));
+    unsigned numberOfChunks = 0;
+    unsigned int iteration = 0;
 
-        // Read additional data while PL execution is ongoing
-        // Buffer size is 16KB (8KB * 2).
-        // Read the file content in the second 8KB block
-        if(!ifStream.eof()){
-            if(readLength > BUFFER_LEN) ifStream.read(&buffer[readLength], BUFFER_LEN * 2 - readLength);
-            else ifStream.read(&buffer[BUFFER_LEN], BUFFER_LEN);
-            readLength += ifStream.gcount();;
-        }
+    while(accumulatedChunkLength < fileSize){
+        // -----------------------------------------------------------------
+        // 8KB buffer read from file
+        // -----------------------------------------------------------------
 
-        // Now receive the result from PL after stream read finishes
-        m_dmaDriver->rcvData();
-        clock_gettime(CLOCK_REALTIME, &tEnd);
-        calcTime += (tEnd.tv_sec - tStart.tv_sec) * 1000000000 + (tEnd.tv_nsec - tStart.tv_nsec);
-
-        // save up to 7 hash values and plaintext to levelDB
-        int lastLength = 0;
-        for(int dataItr = 0; dataItr < NUM_HASH_FROM_HW; dataItr++){
-            if(rxBuffer[dataItr].length == 0) break;
-
-            char out[9];
-            snprintf(out, 8, "%08x", rxBuffer[dataItr].hash); out[8] = '\0';
-            string outStr(out);
-            hash_list.push_back(outStr);
-
-            ldb->writeDB(hashListDB, outStr, Slice(&buffer[lastLength], rxBuffer[dataItr].length - lastLength));
-            lastLength = rxBuffer[dataItr].length;
-        }
-        chunkLength = lastLength;
-        accumulatedChunkLength += chunkLength;
-
-        //cout << "Len: " << chunkLength << ", time: " << (tEnd.tv_sec - tStart.tv_sec) * 1000000000 + (tEnd.tv_nsec - tStart.tv_nsec) << endl;
-
-        // Slide remaining data in buffer to start position
-        memmove(buffer, &buffer[chunkLength], readLength - chunkLength);
-        readLength -= chunkLength;
-        iteration++;
-        if(verbose && !(iteration % 10000)){
-            cout << "[DEBUG] [" << (iteration / 10000) << "] handled data: " << accumulatedChunkLength / 1000000 << " MB. " <<
-                 "Total chunking / hashing time: " << (calcTime / 10000000.0) << " ms" << endl;
-        }
-    }
-
-    // We can assume that now ifStream.eof() always true at this moment.
-
-    cout << "From now on, software handles one block < 8KB." << endl;
-    cout << "Remaining length: " << readLength << endl;
-
-    /*
-     * Chunking and hashing using SW Module
-     * If remaining buffer size is less than 8192 bytes, it cannot be transferred
-     * to HW module. In this case, SW handles calculating hashes.
-     */
-    while(accumulatedChunkLength != fileSize){
-        // get a chunk with variable length
-        chunkLength = getVariableChunk(buffer, readLength);
-        // calculate getSHA1 hash algorithm
-        //string hash = getSHA1(buffer, chunkLength);
-        string hash = murmurHash::getMurmurHash128(buffer, chunkLength);
-
-        // add the hash into hash_list
-        hash_list.push_back(hash);
-
-        // add <hash, chunk> key-value pair to hashListDB
-        ldb->writeDB(hashListDB, hash, Slice(buffer, chunkLength));
-        accumulatedChunkLength += chunkLength;
-
-        memmove(buffer, &buffer[chunkLength], readLength - chunkLength);
-        readLength -= chunkLength;
-    }
-
-
-
-
-/*
-    while (accumulatedChunkLength != fileSize) {
         // This is the first time of read: just read 8KB
         if(accumulatedChunkLength == 0){
             // no memmove
             ifStream.read(buffer, BUFFER_LEN);
             readLength = ifStream.gcount();
         }
-        // If stream reaches EOF,
-        // just do chunking from the remaining buffer.
+            // If stream reaches EOF,
+            // just do chunking from the remaining buffer.
         else if(ifStream.eof()){
             memmove(buffer, &buffer[chunkLength],
                     (readLength - chunkLength) * sizeof(char));
             // no read
             readLength -= chunkLength;
         }
-        // append additional data to the tail of the buffer.
+            // append additional data to the tail of the buffer.
         else{
             // remove first 'chunkLength' size of data
             // and slide data to the first position
@@ -253,59 +170,112 @@ DeduplicateFile::dedupFile(string filePath)
             readLength = readLength - chunkLength + ifStream.gcount();
         }
 
-        if(readLength == BUFFER_LEN) {
-            m_dmaDriver->sendData();
-            //cout << "[DEBUG] Data transferred." << endl;
-            write(m_fdDedupHWModule, &dedupHWTriggerInfo, sizeof(dedupHWTriggerInfo));
-            // cout << "[DEBUG] PL invoked. Waiting for hardware execution completed." << endl;
-            // m_dmaDriver->resetRcvBuffer();
-            m_dmaDriver->rcvData();
-            // cout << "[DEBUG] received completed." << endl;
+        // -----------------------------------------------------------------
+        // 8KB buffer read from file end
+        // Computation by HW or SW
+        // -----------------------------------------------------------------
 
-            rcvData* pRcvData = (rcvData*) rxBuffer;
+        /*
+         * Chunking and hashing using HW Module
+         * In HW module, chunking is only done with fixed 8192 bytes.
+         * HW module will make 7 outputs, each of which contains two ints.
+         * One is for string index (used to indicate chunk boundary)
+         * The other is hash value (calculating murmurhash is accelerated by HW).
+         */
+        if(readLength == BUFFER_LEN){
+            gettimeofday(&tvStart, NULL);
+            //DMA transfer
+            m_dmaDriver->sendData();
+
+            // Inovke PL execution
+            write(m_fdDedupHWModule, &dedupHWTriggerInfo, sizeof(dedupHWTriggerInfo));
+
+            // Wait for PL execution completion
+            m_dmaDriver->rcvData();
+            gettimeofday(&tvEnd, NULL);
+            calcTime += (tvEnd.tv_sec - tvStart.tv_sec) * 1000000 + (tvEnd.tv_usec - tvStart.tv_usec);
+
+            // save up to 7 hash values and plaintext to levelDB
             int lastLength = 0;
             for(int dataItr = 0; dataItr < NUM_HASH_FROM_HW; dataItr++){
-                //cout << "date iteration: " << (dataItr+1) << endl;
-
-                if(pRcvData[dataItr].length == 0)
-                    continue;
+                if(rxBuffer[dataItr]->length < 0) break;
 
                 char out[33];
-                snprintf(out, 32, "%08x%08x%08x%08x",
-                         pRcvData[dataItr].hash[0],pRcvData[dataItr].hash[1],
-                         pRcvData[dataItr].hash[2],pRcvData[dataItr].hash[3]);
-                out[32] = '\0';
+                snprintf(out, 32, "%08x%08x%08x%08x", rxBuffer[dataItr]->hash[0], rxBuffer[dataItr]->hash[1],
+                         rxBuffer[dataItr]->hash[2], rxBuffer[dataItr]->hash[3]); out[32] = '\0';
                 string outStr(out);
                 hash_list.push_back(outStr);
 
-                ldb->writeDB(hashListDB, outStr, Slice( &buffer[lastLength], pRcvData[dataItr].length - lastLength));
+                ldb->writeDB(hashListDB, outStr,
+                             Slice(&buffer[lastLength],
+                                   rxBuffer[dataItr]->length - lastLength));
 
-                lastLength += (pRcvData[dataItr].length - lastLength);
-
+                lastLength = rxBuffer[dataItr]->length;
+                numberOfChunks++;
             }
+
+            // No chunking boundary from HW: calculate hash by software
+            if(lastLength == 0){
+                string hash = murmurHash::getMurmurHash128(buffer, BUFFER_LEN);
+
+                // add the hash into hash_list
+                hash_list.push_back(hash);
+
+                // add <hash, chunk> key-value pair to hashListDB
+                ldb->writeDB(hashListDB, hash, Slice(buffer, BUFFER_LEN));
+
+                lastLength = BUFFER_LEN;
+                numberOfChunks++;
+            }
+
             chunkLength = lastLength;
             accumulatedChunkLength += chunkLength;
         }
 
+        /*
+         * Chunking and hashing using SW Module
+         * If remaining buffer size is less than 8192 bytes, it cannot be transferred
+         * to HW module. In this case, SW handles calculating hashes.
+         */
         else{
-            // get a chunk with variable length
+            gettimeofday(&tvStart, NULL);
+
+            // get chunk boundary by using rolling sum
             chunkLength = getVariableChunk(buffer, readLength);
-            // calculate getSHA1 hash algorithm
-            //string hash = getSHA1(buffer, chunkLength);
-            string hash = murmurHash::getMurmurHash(buffer, chunkLength);
+            // calculate get Murmur hash algorithm
+            string hash = murmurHash::getMurmurHash128(buffer, chunkLength);
+
+            gettimeofday(&tvEnd, NULL);
+            calcTime += (tvEnd.tv_sec - tvStart.tv_sec) * 1000000 + (tvEnd.tv_usec - tvStart.tv_usec);
 
             // add the hash into hash_list
             hash_list.push_back(hash);
 
             // add <hash, chunk> key-value pair to hashListDB
             ldb->writeDB(hashListDB, hash, Slice(buffer, chunkLength));
+
             accumulatedChunkLength += chunkLength;
+            numberOfChunks++;
+        }
+
+        // -----------------------------------------------------------------
+        // Computation end
+        // -----------------------------------------------------------------
+
+        iteration++;
+        if(verbose && (iteration % 1000) == 0){
+            cout << "[DEBUG] [# of chunks " << numberOfChunks << "] " <<
+                 "handled data: " << accumulatedChunkLength / 1000000.0 << "MB. " <<
+                 "Total chunking/hasing time: " << (calcTime / 1000000.0) << " s." << endl;
         }
     }
-*/
-    cout << "[DEBUG] Accumulated chunk length: " << accumulatedChunkLength
-        << " bytes" << endl;
+
+    cout << "[INFO] Accumulated chunk length: " << accumulatedChunkLength
+         << " bytes" << endl;
+    cout << "[INFO] Number of chunks: " << numberOfChunks << endl;
     assert(accumulatedChunkLength == fileSize);
+
+    cout << "[INFO] Total chunking/hashing time: " << (calcTime / 1000000.0) << " s." << endl;
 
     // join hash_list vector to a string
     string hash_list_str = LevelDBWrapper::joinString(hash_list, DEDUP_DB_HASH_VALUE_DELIMETER);
