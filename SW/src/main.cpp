@@ -91,7 +91,7 @@ main (const int argc, const char **argv)
 
     gettimeofday(&end, NULL);
 
-    unsigned long long time = (end.tv_sec - start.tv_sec) * 10000000 +
+    unsigned long long time = (end.tv_sec - start.tv_sec) * 1000000 +
                               (end.tv_usec - start.tv_usec);
 
     cout << "Processing time: " << time / 1000000.0 << " seconds" << endl;
