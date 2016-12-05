@@ -53,7 +53,10 @@ main (const int argc, const char **argv)
 
     gettimeofday(&end, NULL);
 
-    cout << "Processing time: " << (end.tv_sec - start.tv_sec) << " seconds" << endl;
+    unsigned long long time = (end.tv_sec - start.tv_sec) * 10000000 +
+            (end.tv_usec - start.tv_usec);
+
+    cout << "Processing time: " << time / 1000000.0 << " seconds" << endl;
 
     delete restoreFile;
     delete dedupFile;
