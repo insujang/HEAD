@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="dedup,hls_ip_2016_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020clg484-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.518500,HLS_SYN_LAT=25149,HLS_SYN_TPT=none,HLS_SYN_MEM=261,HLS_SYN_DSP=28,HLS_SYN_FF=2279,HLS_SYN_LUT=14326}" *)
+(* CORE_GENERATION_INFO="dedup,hls_ip_2016_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020clg484-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.668000,HLS_SYN_LAT=25212,HLS_SYN_TPT=none,HLS_SYN_MEM=130,HLS_SYN_DSP=8,HLS_SYN_FF=18401,HLS_SYN_LUT=34610}" *)
 
 module dedup (
         ap_clk,
@@ -39,15 +39,17 @@ module dedup (
         interrupt
 );
 
-parameter    ap_ST_st1_fsm_0 = 9'b1;
-parameter    ap_ST_st2_fsm_1 = 9'b10;
-parameter    ap_ST_st3_fsm_2 = 9'b100;
-parameter    ap_ST_st4_fsm_3 = 9'b1000;
-parameter    ap_ST_st5_fsm_4 = 9'b10000;
-parameter    ap_ST_st6_fsm_5 = 9'b100000;
-parameter    ap_ST_st7_fsm_6 = 9'b1000000;
-parameter    ap_ST_st8_fsm_7 = 9'b10000000;
-parameter    ap_ST_st9_fsm_8 = 9'b100000000;
+parameter    ap_ST_st1_fsm_0 = 11'b1;
+parameter    ap_ST_st2_fsm_1 = 11'b10;
+parameter    ap_ST_pp0_stg0_fsm_2 = 11'b100;
+parameter    ap_ST_st5_fsm_3 = 11'b1000;
+parameter    ap_ST_st6_fsm_4 = 11'b10000;
+parameter    ap_ST_pp1_stg0_fsm_5 = 11'b100000;
+parameter    ap_ST_st9_fsm_6 = 11'b1000000;
+parameter    ap_ST_st10_fsm_7 = 11'b10000000;
+parameter    ap_ST_pp2_stg0_fsm_8 = 11'b100000000;
+parameter    ap_ST_pp2_stg1_fsm_9 = 11'b1000000000;
+parameter    ap_ST_st14_fsm_10 = 11'b10000000000;
 parameter    ap_const_lv32_0 = 32'b00000000000000000000000000000000;
 parameter    ap_const_lv32_2 = 32'b10;
 parameter    ap_const_lv32_8 = 32'b1000;
@@ -57,147 +59,284 @@ parameter    C_S_AXI_AXILITES_ADDR_WIDTH = 4;
 parameter    C_S_AXI_DATA_WIDTH = 32;
 parameter    ap_const_lv32_1 = 32'b1;
 parameter    ap_const_lv32_5 = 32'b101;
-parameter    ap_const_lv32_6 = 32'b110;
-parameter    ap_const_lv32_7 = 32'b111;
-parameter    ap_const_lv3_0 = 3'b000;
-parameter    ap_const_lv14_0 = 14'b00000000000000;
+parameter    ap_const_lv32_9 = 32'b1001;
 parameter    ap_const_lv32_4 = 32'b100;
-parameter    ap_const_lv32_3 = 32'b11;
-parameter    ap_const_lv13_0 = 13'b0000000000000;
-parameter    ap_const_lv7_7E = 7'b1111110;
-parameter    ap_const_lv7_7D = 7'b1111101;
-parameter    ap_const_lv7_7C = 7'b1111100;
-parameter    ap_const_lv7_7B = 7'b1111011;
-parameter    ap_const_lv7_7A = 7'b1111010;
-parameter    ap_const_lv7_79 = 7'b1111001;
-parameter    ap_const_lv7_78 = 7'b1111000;
-parameter    ap_const_lv7_77 = 7'b1110111;
-parameter    ap_const_lv7_76 = 7'b1110110;
-parameter    ap_const_lv7_75 = 7'b1110101;
-parameter    ap_const_lv7_74 = 7'b1110100;
-parameter    ap_const_lv7_73 = 7'b1110011;
-parameter    ap_const_lv7_72 = 7'b1110010;
-parameter    ap_const_lv7_71 = 7'b1110001;
-parameter    ap_const_lv7_70 = 7'b1110000;
-parameter    ap_const_lv7_6F = 7'b1101111;
-parameter    ap_const_lv7_6E = 7'b1101110;
-parameter    ap_const_lv7_6D = 7'b1101101;
-parameter    ap_const_lv7_6C = 7'b1101100;
-parameter    ap_const_lv7_6B = 7'b1101011;
-parameter    ap_const_lv7_6A = 7'b1101010;
-parameter    ap_const_lv7_69 = 7'b1101001;
-parameter    ap_const_lv7_68 = 7'b1101000;
-parameter    ap_const_lv7_67 = 7'b1100111;
-parameter    ap_const_lv7_66 = 7'b1100110;
-parameter    ap_const_lv7_65 = 7'b1100101;
-parameter    ap_const_lv7_64 = 7'b1100100;
-parameter    ap_const_lv7_63 = 7'b1100011;
-parameter    ap_const_lv7_62 = 7'b1100010;
-parameter    ap_const_lv7_61 = 7'b1100001;
-parameter    ap_const_lv7_60 = 7'b1100000;
-parameter    ap_const_lv7_5F = 7'b1011111;
-parameter    ap_const_lv7_5E = 7'b1011110;
-parameter    ap_const_lv7_5D = 7'b1011101;
-parameter    ap_const_lv7_5C = 7'b1011100;
-parameter    ap_const_lv7_5B = 7'b1011011;
-parameter    ap_const_lv7_5A = 7'b1011010;
-parameter    ap_const_lv7_59 = 7'b1011001;
-parameter    ap_const_lv7_58 = 7'b1011000;
-parameter    ap_const_lv7_57 = 7'b1010111;
-parameter    ap_const_lv7_56 = 7'b1010110;
-parameter    ap_const_lv7_55 = 7'b1010101;
-parameter    ap_const_lv7_54 = 7'b1010100;
-parameter    ap_const_lv7_53 = 7'b1010011;
-parameter    ap_const_lv7_52 = 7'b1010010;
-parameter    ap_const_lv7_51 = 7'b1010001;
-parameter    ap_const_lv7_50 = 7'b1010000;
-parameter    ap_const_lv7_4F = 7'b1001111;
-parameter    ap_const_lv7_4E = 7'b1001110;
-parameter    ap_const_lv7_4D = 7'b1001101;
-parameter    ap_const_lv7_4C = 7'b1001100;
-parameter    ap_const_lv7_4B = 7'b1001011;
-parameter    ap_const_lv7_4A = 7'b1001010;
-parameter    ap_const_lv7_49 = 7'b1001001;
-parameter    ap_const_lv7_48 = 7'b1001000;
-parameter    ap_const_lv7_47 = 7'b1000111;
-parameter    ap_const_lv7_46 = 7'b1000110;
-parameter    ap_const_lv7_45 = 7'b1000101;
-parameter    ap_const_lv7_44 = 7'b1000100;
-parameter    ap_const_lv7_43 = 7'b1000011;
-parameter    ap_const_lv7_42 = 7'b1000010;
-parameter    ap_const_lv7_41 = 7'b1000001;
-parameter    ap_const_lv7_40 = 7'b1000000;
-parameter    ap_const_lv7_3F = 7'b111111;
-parameter    ap_const_lv7_3E = 7'b111110;
-parameter    ap_const_lv7_3D = 7'b111101;
-parameter    ap_const_lv7_3C = 7'b111100;
-parameter    ap_const_lv7_3B = 7'b111011;
-parameter    ap_const_lv7_3A = 7'b111010;
-parameter    ap_const_lv7_39 = 7'b111001;
-parameter    ap_const_lv7_38 = 7'b111000;
-parameter    ap_const_lv7_37 = 7'b110111;
-parameter    ap_const_lv7_36 = 7'b110110;
-parameter    ap_const_lv7_35 = 7'b110101;
-parameter    ap_const_lv7_34 = 7'b110100;
-parameter    ap_const_lv7_33 = 7'b110011;
-parameter    ap_const_lv7_32 = 7'b110010;
-parameter    ap_const_lv7_31 = 7'b110001;
-parameter    ap_const_lv7_30 = 7'b110000;
-parameter    ap_const_lv7_2F = 7'b101111;
-parameter    ap_const_lv7_2E = 7'b101110;
-parameter    ap_const_lv7_2D = 7'b101101;
-parameter    ap_const_lv7_2C = 7'b101100;
-parameter    ap_const_lv7_2B = 7'b101011;
-parameter    ap_const_lv7_2A = 7'b101010;
-parameter    ap_const_lv7_29 = 7'b101001;
-parameter    ap_const_lv7_28 = 7'b101000;
-parameter    ap_const_lv7_27 = 7'b100111;
-parameter    ap_const_lv7_26 = 7'b100110;
-parameter    ap_const_lv7_25 = 7'b100101;
-parameter    ap_const_lv7_24 = 7'b100100;
-parameter    ap_const_lv7_23 = 7'b100011;
-parameter    ap_const_lv7_22 = 7'b100010;
-parameter    ap_const_lv7_21 = 7'b100001;
-parameter    ap_const_lv7_20 = 7'b100000;
-parameter    ap_const_lv7_1F = 7'b11111;
-parameter    ap_const_lv7_1E = 7'b11110;
-parameter    ap_const_lv7_1D = 7'b11101;
-parameter    ap_const_lv7_1C = 7'b11100;
-parameter    ap_const_lv7_1B = 7'b11011;
-parameter    ap_const_lv7_1A = 7'b11010;
-parameter    ap_const_lv7_19 = 7'b11001;
-parameter    ap_const_lv7_18 = 7'b11000;
-parameter    ap_const_lv7_17 = 7'b10111;
-parameter    ap_const_lv7_16 = 7'b10110;
-parameter    ap_const_lv7_15 = 7'b10101;
-parameter    ap_const_lv7_14 = 7'b10100;
-parameter    ap_const_lv7_13 = 7'b10011;
-parameter    ap_const_lv7_12 = 7'b10010;
-parameter    ap_const_lv7_11 = 7'b10001;
-parameter    ap_const_lv7_10 = 7'b10000;
-parameter    ap_const_lv7_F = 7'b1111;
-parameter    ap_const_lv7_E = 7'b1110;
-parameter    ap_const_lv7_D = 7'b1101;
-parameter    ap_const_lv7_C = 7'b1100;
-parameter    ap_const_lv7_B = 7'b1011;
-parameter    ap_const_lv7_A = 7'b1010;
-parameter    ap_const_lv7_9 = 7'b1001;
-parameter    ap_const_lv7_8 = 7'b1000;
-parameter    ap_const_lv7_7 = 7'b111;
-parameter    ap_const_lv7_6 = 7'b110;
-parameter    ap_const_lv7_5 = 7'b101;
-parameter    ap_const_lv7_4 = 7'b100;
-parameter    ap_const_lv7_3 = 7'b11;
-parameter    ap_const_lv7_2 = 7'b10;
-parameter    ap_const_lv7_1 = 7'b1;
+parameter    ap_const_lv32_7 = 32'b111;
 parameter    ap_const_lv7_0 = 7'b0000000;
+parameter    ap_const_lv14_0 = 14'b00000000000000;
+parameter    ap_const_lv3_0 = 3'b000;
+parameter    ap_const_lv32_3 = 32'b11;
+parameter    ap_const_lv32_6 = 32'b110;
+parameter    ap_const_lv13_0 = 13'b0000000000000;
+parameter    ap_const_lv7_1 = 7'b1;
+parameter    ap_const_lv7_2 = 7'b10;
+parameter    ap_const_lv7_3 = 7'b11;
+parameter    ap_const_lv7_4 = 7'b100;
+parameter    ap_const_lv7_5 = 7'b101;
+parameter    ap_const_lv7_6 = 7'b110;
+parameter    ap_const_lv7_7 = 7'b111;
+parameter    ap_const_lv7_8 = 7'b1000;
+parameter    ap_const_lv7_9 = 7'b1001;
+parameter    ap_const_lv7_A = 7'b1010;
+parameter    ap_const_lv7_B = 7'b1011;
+parameter    ap_const_lv7_C = 7'b1100;
+parameter    ap_const_lv7_D = 7'b1101;
+parameter    ap_const_lv7_E = 7'b1110;
+parameter    ap_const_lv7_F = 7'b1111;
+parameter    ap_const_lv7_10 = 7'b10000;
+parameter    ap_const_lv7_11 = 7'b10001;
+parameter    ap_const_lv7_12 = 7'b10010;
+parameter    ap_const_lv7_13 = 7'b10011;
+parameter    ap_const_lv7_14 = 7'b10100;
+parameter    ap_const_lv7_15 = 7'b10101;
+parameter    ap_const_lv7_16 = 7'b10110;
+parameter    ap_const_lv7_17 = 7'b10111;
+parameter    ap_const_lv7_18 = 7'b11000;
+parameter    ap_const_lv7_19 = 7'b11001;
+parameter    ap_const_lv7_1A = 7'b11010;
+parameter    ap_const_lv7_1B = 7'b11011;
+parameter    ap_const_lv7_1C = 7'b11100;
+parameter    ap_const_lv7_1D = 7'b11101;
+parameter    ap_const_lv7_1E = 7'b11110;
+parameter    ap_const_lv7_1F = 7'b11111;
+parameter    ap_const_lv7_20 = 7'b100000;
+parameter    ap_const_lv7_21 = 7'b100001;
+parameter    ap_const_lv7_22 = 7'b100010;
+parameter    ap_const_lv7_23 = 7'b100011;
+parameter    ap_const_lv7_24 = 7'b100100;
+parameter    ap_const_lv7_25 = 7'b100101;
+parameter    ap_const_lv7_26 = 7'b100110;
+parameter    ap_const_lv7_27 = 7'b100111;
+parameter    ap_const_lv7_28 = 7'b101000;
+parameter    ap_const_lv7_29 = 7'b101001;
+parameter    ap_const_lv7_2A = 7'b101010;
+parameter    ap_const_lv7_2B = 7'b101011;
+parameter    ap_const_lv7_2C = 7'b101100;
+parameter    ap_const_lv7_2D = 7'b101101;
+parameter    ap_const_lv7_2E = 7'b101110;
+parameter    ap_const_lv7_2F = 7'b101111;
+parameter    ap_const_lv15_0 = 15'b000000000000000;
+parameter    ap_const_lv7_30 = 7'b110000;
+parameter    ap_const_lv7_31 = 7'b110001;
+parameter    ap_const_lv7_32 = 7'b110010;
+parameter    ap_const_lv7_33 = 7'b110011;
+parameter    ap_const_lv7_34 = 7'b110100;
+parameter    ap_const_lv7_35 = 7'b110101;
+parameter    ap_const_lv7_36 = 7'b110110;
+parameter    ap_const_lv7_37 = 7'b110111;
+parameter    ap_const_lv7_38 = 7'b111000;
+parameter    ap_const_lv7_39 = 7'b111001;
+parameter    ap_const_lv7_3A = 7'b111010;
+parameter    ap_const_lv7_3B = 7'b111011;
+parameter    ap_const_lv7_3C = 7'b111100;
+parameter    ap_const_lv7_3D = 7'b111101;
+parameter    ap_const_lv7_3E = 7'b111110;
+parameter    ap_const_lv7_3F = 7'b111111;
+parameter    ap_const_lv7_40 = 7'b1000000;
+parameter    ap_const_lv7_41 = 7'b1000001;
+parameter    ap_const_lv7_42 = 7'b1000010;
+parameter    ap_const_lv7_43 = 7'b1000011;
+parameter    ap_const_lv7_44 = 7'b1000100;
+parameter    ap_const_lv7_45 = 7'b1000101;
+parameter    ap_const_lv7_46 = 7'b1000110;
+parameter    ap_const_lv7_47 = 7'b1000111;
+parameter    ap_const_lv7_48 = 7'b1001000;
+parameter    ap_const_lv7_49 = 7'b1001001;
+parameter    ap_const_lv7_4A = 7'b1001010;
+parameter    ap_const_lv7_4B = 7'b1001011;
+parameter    ap_const_lv7_4C = 7'b1001100;
+parameter    ap_const_lv7_4D = 7'b1001101;
+parameter    ap_const_lv7_4E = 7'b1001110;
+parameter    ap_const_lv7_4F = 7'b1001111;
+parameter    ap_const_lv7_50 = 7'b1010000;
+parameter    ap_const_lv7_51 = 7'b1010001;
+parameter    ap_const_lv7_52 = 7'b1010010;
+parameter    ap_const_lv7_53 = 7'b1010011;
+parameter    ap_const_lv7_54 = 7'b1010100;
+parameter    ap_const_lv7_55 = 7'b1010101;
+parameter    ap_const_lv7_56 = 7'b1010110;
+parameter    ap_const_lv7_57 = 7'b1010111;
+parameter    ap_const_lv7_58 = 7'b1011000;
+parameter    ap_const_lv7_59 = 7'b1011001;
+parameter    ap_const_lv7_5A = 7'b1011010;
+parameter    ap_const_lv7_5B = 7'b1011011;
+parameter    ap_const_lv7_5C = 7'b1011100;
+parameter    ap_const_lv7_5D = 7'b1011101;
+parameter    ap_const_lv7_5E = 7'b1011110;
+parameter    ap_const_lv7_5F = 7'b1011111;
+parameter    ap_const_lv7_60 = 7'b1100000;
+parameter    ap_const_lv7_61 = 7'b1100001;
+parameter    ap_const_lv7_62 = 7'b1100010;
+parameter    ap_const_lv7_63 = 7'b1100011;
+parameter    ap_const_lv7_64 = 7'b1100100;
+parameter    ap_const_lv7_65 = 7'b1100101;
+parameter    ap_const_lv7_66 = 7'b1100110;
+parameter    ap_const_lv7_67 = 7'b1100111;
+parameter    ap_const_lv7_68 = 7'b1101000;
+parameter    ap_const_lv7_69 = 7'b1101001;
+parameter    ap_const_lv7_6A = 7'b1101010;
+parameter    ap_const_lv7_6B = 7'b1101011;
+parameter    ap_const_lv7_6C = 7'b1101100;
+parameter    ap_const_lv7_6D = 7'b1101101;
+parameter    ap_const_lv7_6E = 7'b1101110;
+parameter    ap_const_lv7_6F = 7'b1101111;
+parameter    ap_const_lv7_70 = 7'b1110000;
+parameter    ap_const_lv7_71 = 7'b1110001;
+parameter    ap_const_lv7_72 = 7'b1110010;
+parameter    ap_const_lv7_73 = 7'b1110011;
+parameter    ap_const_lv7_74 = 7'b1110100;
+parameter    ap_const_lv7_75 = 7'b1110101;
+parameter    ap_const_lv7_76 = 7'b1110110;
+parameter    ap_const_lv7_77 = 7'b1110111;
+parameter    ap_const_lv7_78 = 7'b1111000;
+parameter    ap_const_lv7_79 = 7'b1111001;
+parameter    ap_const_lv7_7A = 7'b1111010;
+parameter    ap_const_lv7_7B = 7'b1111011;
+parameter    ap_const_lv7_7C = 7'b1111100;
+parameter    ap_const_lv7_7D = 7'b1111101;
+parameter    ap_const_lv7_7E = 7'b1111110;
 parameter    ap_const_lv7_7F = 7'b1111111;
-parameter    ap_const_lv3_1 = 3'b1;
-parameter    ap_const_lv3_6 = 3'b110;
+parameter    ap_const_lv8_7E = 8'b1111110;
+parameter    ap_const_lv8_7D = 8'b1111101;
+parameter    ap_const_lv8_7C = 8'b1111100;
+parameter    ap_const_lv8_7B = 8'b1111011;
+parameter    ap_const_lv8_7A = 8'b1111010;
+parameter    ap_const_lv8_79 = 8'b1111001;
+parameter    ap_const_lv8_78 = 8'b1111000;
+parameter    ap_const_lv8_77 = 8'b1110111;
+parameter    ap_const_lv8_76 = 8'b1110110;
+parameter    ap_const_lv8_75 = 8'b1110101;
+parameter    ap_const_lv8_74 = 8'b1110100;
+parameter    ap_const_lv8_73 = 8'b1110011;
+parameter    ap_const_lv8_72 = 8'b1110010;
+parameter    ap_const_lv8_71 = 8'b1110001;
+parameter    ap_const_lv8_70 = 8'b1110000;
+parameter    ap_const_lv8_6F = 8'b1101111;
+parameter    ap_const_lv8_6E = 8'b1101110;
+parameter    ap_const_lv8_6D = 8'b1101101;
+parameter    ap_const_lv8_6C = 8'b1101100;
+parameter    ap_const_lv8_6B = 8'b1101011;
+parameter    ap_const_lv8_6A = 8'b1101010;
+parameter    ap_const_lv8_69 = 8'b1101001;
+parameter    ap_const_lv8_68 = 8'b1101000;
+parameter    ap_const_lv8_67 = 8'b1100111;
+parameter    ap_const_lv8_66 = 8'b1100110;
+parameter    ap_const_lv8_65 = 8'b1100101;
+parameter    ap_const_lv8_64 = 8'b1100100;
+parameter    ap_const_lv8_63 = 8'b1100011;
+parameter    ap_const_lv8_62 = 8'b1100010;
+parameter    ap_const_lv8_61 = 8'b1100001;
+parameter    ap_const_lv8_60 = 8'b1100000;
+parameter    ap_const_lv8_5F = 8'b1011111;
+parameter    ap_const_lv8_5E = 8'b1011110;
+parameter    ap_const_lv8_5D = 8'b1011101;
+parameter    ap_const_lv8_5C = 8'b1011100;
+parameter    ap_const_lv8_5B = 8'b1011011;
+parameter    ap_const_lv8_5A = 8'b1011010;
+parameter    ap_const_lv8_59 = 8'b1011001;
+parameter    ap_const_lv8_58 = 8'b1011000;
+parameter    ap_const_lv8_57 = 8'b1010111;
+parameter    ap_const_lv8_56 = 8'b1010110;
+parameter    ap_const_lv8_55 = 8'b1010101;
+parameter    ap_const_lv8_54 = 8'b1010100;
+parameter    ap_const_lv8_53 = 8'b1010011;
+parameter    ap_const_lv8_52 = 8'b1010010;
+parameter    ap_const_lv8_51 = 8'b1010001;
+parameter    ap_const_lv8_50 = 8'b1010000;
+parameter    ap_const_lv8_4F = 8'b1001111;
+parameter    ap_const_lv8_4E = 8'b1001110;
+parameter    ap_const_lv8_4D = 8'b1001101;
+parameter    ap_const_lv8_4C = 8'b1001100;
+parameter    ap_const_lv8_4B = 8'b1001011;
+parameter    ap_const_lv8_4A = 8'b1001010;
+parameter    ap_const_lv8_49 = 8'b1001001;
+parameter    ap_const_lv8_48 = 8'b1001000;
+parameter    ap_const_lv8_47 = 8'b1000111;
+parameter    ap_const_lv8_46 = 8'b1000110;
+parameter    ap_const_lv8_45 = 8'b1000101;
+parameter    ap_const_lv8_44 = 8'b1000100;
+parameter    ap_const_lv8_43 = 8'b1000011;
+parameter    ap_const_lv8_42 = 8'b1000010;
+parameter    ap_const_lv8_41 = 8'b1000001;
+parameter    ap_const_lv8_40 = 8'b1000000;
+parameter    ap_const_lv8_3F = 8'b111111;
+parameter    ap_const_lv8_3E = 8'b111110;
+parameter    ap_const_lv8_3D = 8'b111101;
+parameter    ap_const_lv8_3C = 8'b111100;
+parameter    ap_const_lv8_3B = 8'b111011;
+parameter    ap_const_lv8_3A = 8'b111010;
+parameter    ap_const_lv8_39 = 8'b111001;
+parameter    ap_const_lv8_38 = 8'b111000;
+parameter    ap_const_lv8_37 = 8'b110111;
+parameter    ap_const_lv8_36 = 8'b110110;
+parameter    ap_const_lv8_35 = 8'b110101;
+parameter    ap_const_lv8_34 = 8'b110100;
+parameter    ap_const_lv8_33 = 8'b110011;
+parameter    ap_const_lv8_32 = 8'b110010;
+parameter    ap_const_lv8_31 = 8'b110001;
+parameter    ap_const_lv8_30 = 8'b110000;
+parameter    ap_const_lv8_2F = 8'b101111;
+parameter    ap_const_lv8_2E = 8'b101110;
+parameter    ap_const_lv8_2D = 8'b101101;
+parameter    ap_const_lv8_2C = 8'b101100;
+parameter    ap_const_lv8_2B = 8'b101011;
+parameter    ap_const_lv8_2A = 8'b101010;
+parameter    ap_const_lv8_29 = 8'b101001;
+parameter    ap_const_lv8_28 = 8'b101000;
+parameter    ap_const_lv8_27 = 8'b100111;
+parameter    ap_const_lv8_26 = 8'b100110;
+parameter    ap_const_lv8_25 = 8'b100101;
+parameter    ap_const_lv8_24 = 8'b100100;
+parameter    ap_const_lv8_23 = 8'b100011;
+parameter    ap_const_lv8_22 = 8'b100010;
+parameter    ap_const_lv8_21 = 8'b100001;
+parameter    ap_const_lv8_20 = 8'b100000;
+parameter    ap_const_lv8_1F = 8'b11111;
+parameter    ap_const_lv8_1E = 8'b11110;
+parameter    ap_const_lv8_1D = 8'b11101;
+parameter    ap_const_lv8_1C = 8'b11100;
+parameter    ap_const_lv8_1B = 8'b11011;
+parameter    ap_const_lv8_1A = 8'b11010;
+parameter    ap_const_lv8_19 = 8'b11001;
+parameter    ap_const_lv8_18 = 8'b11000;
+parameter    ap_const_lv8_17 = 8'b10111;
+parameter    ap_const_lv8_16 = 8'b10110;
+parameter    ap_const_lv8_15 = 8'b10101;
+parameter    ap_const_lv8_14 = 8'b10100;
+parameter    ap_const_lv8_13 = 8'b10011;
+parameter    ap_const_lv8_12 = 8'b10010;
+parameter    ap_const_lv8_11 = 8'b10001;
+parameter    ap_const_lv8_10 = 8'b10000;
+parameter    ap_const_lv8_F = 8'b1111;
+parameter    ap_const_lv8_E = 8'b1110;
+parameter    ap_const_lv8_D = 8'b1101;
+parameter    ap_const_lv8_C = 8'b1100;
+parameter    ap_const_lv8_B = 8'b1011;
+parameter    ap_const_lv8_A = 8'b1010;
+parameter    ap_const_lv8_9 = 8'b1001;
+parameter    ap_const_lv8_8 = 8'b1000;
+parameter    ap_const_lv8_7 = 8'b111;
+parameter    ap_const_lv8_6 = 8'b110;
+parameter    ap_const_lv8_5 = 8'b101;
+parameter    ap_const_lv8_4 = 8'b100;
+parameter    ap_const_lv8_3 = 8'b11;
+parameter    ap_const_lv8_2 = 8'b10;
+parameter    ap_const_lv8_1 = 8'b1;
+parameter    ap_const_lv8_0 = 8'b00000000;
 parameter    ap_const_lv14_2000 = 14'b10000000000000;
 parameter    ap_const_lv14_1 = 14'b1;
 parameter    ap_const_lv32_D = 32'b1101;
+parameter    ap_const_lv32_400 = 32'b10000000000;
 parameter    ap_const_lv3_7 = 3'b111;
+parameter    ap_const_lv3_1 = 3'b1;
+parameter    ap_const_lv2_0 = 2'b00;
+parameter    ap_const_lv5_1 = 5'b1;
+parameter    ap_const_lv59_0 = 59'b00000000000000000000000000000000000000000000000000000000000;
+parameter    ap_const_lv5_2 = 5'b10;
+parameter    ap_const_lv5_3 = 5'b11;
+parameter    ap_const_lv32_FFFFFFFF = 32'b11111111111111111111111111111111;
+parameter    ap_const_lv96_0 = 96'b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000;
+parameter    ap_const_lv32_A = 32'b1010;
 
 parameter C_S_AXI_AXILITES_WSTRB_WIDTH = (C_S_AXI_AXILITES_DATA_WIDTH / ap_const_int64_8);
 parameter C_S_AXI_WSTRB_WIDTH = (C_S_AXI_DATA_WIDTH / ap_const_int64_8);
@@ -207,7 +346,7 @@ input   ap_rst_n;
 input  [7:0] inputData_V_TDATA;
 input   inputData_V_TVALID;
 output   inputData_V_TREADY;
-output  [63:0] outputData_TDATA;
+output  [255:0] outputData_TDATA;
 output   outputData_TVALID;
 input   outputData_TREADY;
 output  [0:0] outputData_TLAST;
@@ -237,42 +376,62 @@ reg    ap_rst_n_inv;
 wire    ap_start;
 reg    ap_done;
 reg    ap_idle;
-(* fsm_encoding = "none" *) reg   [8:0] ap_CS_fsm;
+(* fsm_encoding = "none" *) reg   [10:0] ap_CS_fsm;
 reg    ap_sig_cseq_ST_st1_fsm_0;
-reg    ap_sig_26;
+reg    ap_sig_28;
 reg    ap_ready;
 reg    inputData_V_TDATA_blk_n;
-reg    ap_sig_cseq_ST_st3_fsm_2;
-reg    ap_sig_46;
-wire   [0:0] exitcond1_fu_3142_p2;
+reg    ap_sig_cseq_ST_pp0_stg0_fsm_2;
+reg    ap_sig_48;
+reg    ap_reg_ppiten_pp0_it0;
+reg    ap_reg_ppiten_pp0_it1;
+wire   [0:0] exitcond1_fu_4560_p2;
 reg    outputData_TDATA_blk_n;
-reg    ap_sig_cseq_ST_st9_fsm_8;
-reg    ap_sig_58;
-wire   [2:0] indvarinc_fu_3125_p2;
+reg    ap_sig_cseq_ST_pp2_stg0_fsm_8;
+reg    ap_sig_65;
+reg    ap_reg_ppiten_pp2_it1;
+reg    ap_reg_ppiten_pp2_it0;
+reg   [0:0] exitcond3_reg_7554;
+reg   [13:0] i_reg_3573;
+reg   [6:0] i1_reg_3584;
+reg   [2:0] i2_reg_3595;
+wire   [6:0] indvarinc_fu_3988_p2;
 reg    ap_sig_cseq_ST_st2_fsm_1;
-reg    ap_sig_103;
-wire   [0:0] tmp_s_fu_3136_p2;
-wire   [13:0] i_5_fu_3148_p2;
-reg    ap_sig_111;
-wire   [2:0] i_6_fu_3311_p2;
-reg   [2:0] i_6_reg_3393;
-reg    ap_sig_cseq_ST_st6_fsm_5;
-reg    ap_sig_121;
-wire   [0:0] exitcond_fu_3305_p2;
-wire   [31:0] lastIndex_fu_3322_p1;
-reg   [31:0] lastIndex_reg_3403;
-reg    ap_sig_cseq_ST_st7_fsm_6;
-reg    ap_sig_135;
-wire   [0:0] tmp_36_fu_3326_p2;
-reg   [0:0] tmp_36_reg_3408;
-reg   [31:0] tmp_data_index_load_reg_3412;
-wire   [31:0] dataLen_fu_3336_p2;
-reg   [31:0] dataLen_reg_3417;
-wire   [31:0] grp_dedup_murmurhash_fu_2991_ap_return;
-reg   [31:0] item_data_hashData_reg_3422;
-reg    ap_sig_cseq_ST_st8_fsm_7;
-reg    ap_sig_152;
-wire    grp_dedup_murmurhash_fu_2991_ap_done;
+reg    ap_sig_124;
+wire   [0:0] tmp_s_fu_4554_p2;
+reg    ap_sig_131;
+wire   [13:0] i_3_fu_4566_p2;
+wire   [7:0] arrayNo_cast_fu_4572_p4;
+wire   [0:0] exitcond2_fu_4728_p2;
+reg    ap_sig_cseq_ST_pp1_stg0_fsm_5;
+reg    ap_sig_406;
+reg    ap_reg_ppiten_pp1_it0;
+reg    ap_reg_ppiten_pp1_it1;
+wire   [6:0] i_4_fu_4734_p2;
+wire   [31:0] lastIndex_1_fu_5524_p114;
+reg   [31:0] lastIndex_1_reg_7540;
+wire   [0:0] tmp_31_fu_5754_p2;
+reg   [0:0] tmp_31_reg_7547;
+wire   [0:0] exitcond3_fu_5806_p2;
+reg    ap_sig_ioackin_outputData_TREADY;
+wire   [2:0] i_5_fu_5812_p2;
+reg   [2:0] i_5_reg_7558;
+wire   [4:0] tmp_49_fu_5818_p3;
+reg   [4:0] tmp_49_reg_7563;
+wire   [0:0] tmp_36_fu_5850_p2;
+reg   [0:0] tmp_36_reg_7579;
+reg    ap_sig_cseq_ST_pp2_stg1_fsm_9;
+reg    ap_sig_447;
+wire   [31:0] hashes_q0;
+reg   [31:0] item_data_hashData_0_reg_7603;
+wire   [31:0] hashes_q1;
+reg   [31:0] item_data_hashData_1_reg_7608;
+reg    ap_sig_cseq_ST_st6_fsm_4;
+reg    ap_sig_473;
+wire    grp_dedup_calcHash_fu_3607_ap_done;
+reg    ap_sig_cseq_ST_st10_fsm_7;
+reg    ap_sig_487;
+wire    grp_dedup_murmurhash128_new_fu_3851_ap_done;
 reg   [5:0] buffer_0_address0;
 reg    buffer_0_ce0;
 wire   [7:0] buffer_0_q0;
@@ -280,1966 +439,1801 @@ reg   [5:0] buffer_0_address1;
 reg    buffer_0_ce1;
 reg    buffer_0_we1;
 wire   [7:0] buffer_0_q1;
-reg   [5:0] buffer_1_address0;
 reg    buffer_1_ce0;
 wire   [7:0] buffer_1_q0;
 reg   [5:0] buffer_1_address1;
 reg    buffer_1_ce1;
 reg    buffer_1_we1;
 wire   [7:0] buffer_1_q1;
-reg   [5:0] buffer_2_address0;
 reg    buffer_2_ce0;
 wire   [7:0] buffer_2_q0;
 reg   [5:0] buffer_2_address1;
 reg    buffer_2_ce1;
 reg    buffer_2_we1;
 wire   [7:0] buffer_2_q1;
-reg   [5:0] buffer_3_address0;
 reg    buffer_3_ce0;
 wire   [7:0] buffer_3_q0;
 reg   [5:0] buffer_3_address1;
 reg    buffer_3_ce1;
 reg    buffer_3_we1;
 wire   [7:0] buffer_3_q1;
-reg   [5:0] buffer_4_address0;
 reg    buffer_4_ce0;
 wire   [7:0] buffer_4_q0;
 reg   [5:0] buffer_4_address1;
 reg    buffer_4_ce1;
 reg    buffer_4_we1;
 wire   [7:0] buffer_4_q1;
-reg   [5:0] buffer_5_address0;
 reg    buffer_5_ce0;
 wire   [7:0] buffer_5_q0;
 reg   [5:0] buffer_5_address1;
 reg    buffer_5_ce1;
 reg    buffer_5_we1;
 wire   [7:0] buffer_5_q1;
-reg   [5:0] buffer_6_address0;
 reg    buffer_6_ce0;
 wire   [7:0] buffer_6_q0;
 reg   [5:0] buffer_6_address1;
 reg    buffer_6_ce1;
 reg    buffer_6_we1;
 wire   [7:0] buffer_6_q1;
-reg   [5:0] buffer_7_address0;
 reg    buffer_7_ce0;
 wire   [7:0] buffer_7_q0;
 reg   [5:0] buffer_7_address1;
 reg    buffer_7_ce1;
 reg    buffer_7_we1;
 wire   [7:0] buffer_7_q1;
-reg   [5:0] buffer_8_address0;
 reg    buffer_8_ce0;
 wire   [7:0] buffer_8_q0;
 reg   [5:0] buffer_8_address1;
 reg    buffer_8_ce1;
 reg    buffer_8_we1;
 wire   [7:0] buffer_8_q1;
-reg   [5:0] buffer_9_address0;
 reg    buffer_9_ce0;
 wire   [7:0] buffer_9_q0;
 reg   [5:0] buffer_9_address1;
 reg    buffer_9_ce1;
 reg    buffer_9_we1;
 wire   [7:0] buffer_9_q1;
-reg   [5:0] buffer_10_address0;
 reg    buffer_10_ce0;
 wire   [7:0] buffer_10_q0;
 reg   [5:0] buffer_10_address1;
 reg    buffer_10_ce1;
 reg    buffer_10_we1;
 wire   [7:0] buffer_10_q1;
-reg   [5:0] buffer_11_address0;
 reg    buffer_11_ce0;
 wire   [7:0] buffer_11_q0;
 reg   [5:0] buffer_11_address1;
 reg    buffer_11_ce1;
 reg    buffer_11_we1;
 wire   [7:0] buffer_11_q1;
-reg   [5:0] buffer_12_address0;
 reg    buffer_12_ce0;
 wire   [7:0] buffer_12_q0;
 reg   [5:0] buffer_12_address1;
 reg    buffer_12_ce1;
 reg    buffer_12_we1;
 wire   [7:0] buffer_12_q1;
-reg   [5:0] buffer_13_address0;
 reg    buffer_13_ce0;
 wire   [7:0] buffer_13_q0;
 reg   [5:0] buffer_13_address1;
 reg    buffer_13_ce1;
 reg    buffer_13_we1;
 wire   [7:0] buffer_13_q1;
-reg   [5:0] buffer_14_address0;
 reg    buffer_14_ce0;
 wire   [7:0] buffer_14_q0;
 reg   [5:0] buffer_14_address1;
 reg    buffer_14_ce1;
 reg    buffer_14_we1;
 wire   [7:0] buffer_14_q1;
-reg   [5:0] buffer_15_address0;
 reg    buffer_15_ce0;
 wire   [7:0] buffer_15_q0;
 reg   [5:0] buffer_15_address1;
 reg    buffer_15_ce1;
 reg    buffer_15_we1;
 wire   [7:0] buffer_15_q1;
-reg   [5:0] buffer_16_address0;
 reg    buffer_16_ce0;
 wire   [7:0] buffer_16_q0;
 reg   [5:0] buffer_16_address1;
 reg    buffer_16_ce1;
 reg    buffer_16_we1;
 wire   [7:0] buffer_16_q1;
-reg   [5:0] buffer_17_address0;
 reg    buffer_17_ce0;
 wire   [7:0] buffer_17_q0;
 reg   [5:0] buffer_17_address1;
 reg    buffer_17_ce1;
 reg    buffer_17_we1;
 wire   [7:0] buffer_17_q1;
-reg   [5:0] buffer_18_address0;
 reg    buffer_18_ce0;
 wire   [7:0] buffer_18_q0;
 reg   [5:0] buffer_18_address1;
 reg    buffer_18_ce1;
 reg    buffer_18_we1;
 wire   [7:0] buffer_18_q1;
-reg   [5:0] buffer_19_address0;
 reg    buffer_19_ce0;
 wire   [7:0] buffer_19_q0;
 reg   [5:0] buffer_19_address1;
 reg    buffer_19_ce1;
 reg    buffer_19_we1;
 wire   [7:0] buffer_19_q1;
-reg   [5:0] buffer_20_address0;
 reg    buffer_20_ce0;
 wire   [7:0] buffer_20_q0;
 reg   [5:0] buffer_20_address1;
 reg    buffer_20_ce1;
 reg    buffer_20_we1;
 wire   [7:0] buffer_20_q1;
-reg   [5:0] buffer_21_address0;
 reg    buffer_21_ce0;
 wire   [7:0] buffer_21_q0;
 reg   [5:0] buffer_21_address1;
 reg    buffer_21_ce1;
 reg    buffer_21_we1;
 wire   [7:0] buffer_21_q1;
-reg   [5:0] buffer_22_address0;
 reg    buffer_22_ce0;
 wire   [7:0] buffer_22_q0;
 reg   [5:0] buffer_22_address1;
 reg    buffer_22_ce1;
 reg    buffer_22_we1;
 wire   [7:0] buffer_22_q1;
-reg   [5:0] buffer_23_address0;
 reg    buffer_23_ce0;
 wire   [7:0] buffer_23_q0;
 reg   [5:0] buffer_23_address1;
 reg    buffer_23_ce1;
 reg    buffer_23_we1;
 wire   [7:0] buffer_23_q1;
-reg   [5:0] buffer_24_address0;
 reg    buffer_24_ce0;
 wire   [7:0] buffer_24_q0;
 reg   [5:0] buffer_24_address1;
 reg    buffer_24_ce1;
 reg    buffer_24_we1;
 wire   [7:0] buffer_24_q1;
-reg   [5:0] buffer_25_address0;
 reg    buffer_25_ce0;
 wire   [7:0] buffer_25_q0;
 reg   [5:0] buffer_25_address1;
 reg    buffer_25_ce1;
 reg    buffer_25_we1;
 wire   [7:0] buffer_25_q1;
-reg   [5:0] buffer_26_address0;
 reg    buffer_26_ce0;
 wire   [7:0] buffer_26_q0;
 reg   [5:0] buffer_26_address1;
 reg    buffer_26_ce1;
 reg    buffer_26_we1;
 wire   [7:0] buffer_26_q1;
-reg   [5:0] buffer_27_address0;
 reg    buffer_27_ce0;
 wire   [7:0] buffer_27_q0;
 reg   [5:0] buffer_27_address1;
 reg    buffer_27_ce1;
 reg    buffer_27_we1;
 wire   [7:0] buffer_27_q1;
-reg   [5:0] buffer_28_address0;
 reg    buffer_28_ce0;
 wire   [7:0] buffer_28_q0;
 reg   [5:0] buffer_28_address1;
 reg    buffer_28_ce1;
 reg    buffer_28_we1;
 wire   [7:0] buffer_28_q1;
-reg   [5:0] buffer_29_address0;
 reg    buffer_29_ce0;
 wire   [7:0] buffer_29_q0;
 reg   [5:0] buffer_29_address1;
 reg    buffer_29_ce1;
 reg    buffer_29_we1;
 wire   [7:0] buffer_29_q1;
-reg   [5:0] buffer_30_address0;
 reg    buffer_30_ce0;
 wire   [7:0] buffer_30_q0;
 reg   [5:0] buffer_30_address1;
 reg    buffer_30_ce1;
 reg    buffer_30_we1;
 wire   [7:0] buffer_30_q1;
-reg   [5:0] buffer_31_address0;
 reg    buffer_31_ce0;
 wire   [7:0] buffer_31_q0;
 reg   [5:0] buffer_31_address1;
 reg    buffer_31_ce1;
 reg    buffer_31_we1;
 wire   [7:0] buffer_31_q1;
-reg   [5:0] buffer_32_address0;
 reg    buffer_32_ce0;
 wire   [7:0] buffer_32_q0;
 reg   [5:0] buffer_32_address1;
 reg    buffer_32_ce1;
 reg    buffer_32_we1;
 wire   [7:0] buffer_32_q1;
-reg   [5:0] buffer_33_address0;
 reg    buffer_33_ce0;
 wire   [7:0] buffer_33_q0;
 reg   [5:0] buffer_33_address1;
 reg    buffer_33_ce1;
 reg    buffer_33_we1;
 wire   [7:0] buffer_33_q1;
-reg   [5:0] buffer_34_address0;
 reg    buffer_34_ce0;
 wire   [7:0] buffer_34_q0;
 reg   [5:0] buffer_34_address1;
 reg    buffer_34_ce1;
 reg    buffer_34_we1;
 wire   [7:0] buffer_34_q1;
-reg   [5:0] buffer_35_address0;
 reg    buffer_35_ce0;
 wire   [7:0] buffer_35_q0;
 reg   [5:0] buffer_35_address1;
 reg    buffer_35_ce1;
 reg    buffer_35_we1;
 wire   [7:0] buffer_35_q1;
-reg   [5:0] buffer_36_address0;
 reg    buffer_36_ce0;
 wire   [7:0] buffer_36_q0;
 reg   [5:0] buffer_36_address1;
 reg    buffer_36_ce1;
 reg    buffer_36_we1;
 wire   [7:0] buffer_36_q1;
-reg   [5:0] buffer_37_address0;
 reg    buffer_37_ce0;
 wire   [7:0] buffer_37_q0;
 reg   [5:0] buffer_37_address1;
 reg    buffer_37_ce1;
 reg    buffer_37_we1;
 wire   [7:0] buffer_37_q1;
-reg   [5:0] buffer_38_address0;
 reg    buffer_38_ce0;
 wire   [7:0] buffer_38_q0;
 reg   [5:0] buffer_38_address1;
 reg    buffer_38_ce1;
 reg    buffer_38_we1;
 wire   [7:0] buffer_38_q1;
-reg   [5:0] buffer_39_address0;
 reg    buffer_39_ce0;
 wire   [7:0] buffer_39_q0;
 reg   [5:0] buffer_39_address1;
 reg    buffer_39_ce1;
 reg    buffer_39_we1;
 wire   [7:0] buffer_39_q1;
-reg   [5:0] buffer_40_address0;
 reg    buffer_40_ce0;
 wire   [7:0] buffer_40_q0;
 reg   [5:0] buffer_40_address1;
 reg    buffer_40_ce1;
 reg    buffer_40_we1;
 wire   [7:0] buffer_40_q1;
-reg   [5:0] buffer_41_address0;
 reg    buffer_41_ce0;
 wire   [7:0] buffer_41_q0;
 reg   [5:0] buffer_41_address1;
 reg    buffer_41_ce1;
 reg    buffer_41_we1;
 wire   [7:0] buffer_41_q1;
-reg   [5:0] buffer_42_address0;
 reg    buffer_42_ce0;
 wire   [7:0] buffer_42_q0;
 reg   [5:0] buffer_42_address1;
 reg    buffer_42_ce1;
 reg    buffer_42_we1;
 wire   [7:0] buffer_42_q1;
-reg   [5:0] buffer_43_address0;
 reg    buffer_43_ce0;
 wire   [7:0] buffer_43_q0;
 reg   [5:0] buffer_43_address1;
 reg    buffer_43_ce1;
 reg    buffer_43_we1;
 wire   [7:0] buffer_43_q1;
-reg   [5:0] buffer_44_address0;
 reg    buffer_44_ce0;
 wire   [7:0] buffer_44_q0;
 reg   [5:0] buffer_44_address1;
 reg    buffer_44_ce1;
 reg    buffer_44_we1;
 wire   [7:0] buffer_44_q1;
-reg   [5:0] buffer_45_address0;
 reg    buffer_45_ce0;
 wire   [7:0] buffer_45_q0;
 reg   [5:0] buffer_45_address1;
 reg    buffer_45_ce1;
 reg    buffer_45_we1;
 wire   [7:0] buffer_45_q1;
-reg   [5:0] buffer_46_address0;
 reg    buffer_46_ce0;
 wire   [7:0] buffer_46_q0;
 reg   [5:0] buffer_46_address1;
 reg    buffer_46_ce1;
 reg    buffer_46_we1;
 wire   [7:0] buffer_46_q1;
-reg   [5:0] buffer_47_address0;
 reg    buffer_47_ce0;
 wire   [7:0] buffer_47_q0;
 reg   [5:0] buffer_47_address1;
 reg    buffer_47_ce1;
 reg    buffer_47_we1;
 wire   [7:0] buffer_47_q1;
-reg   [5:0] buffer_48_address0;
 reg    buffer_48_ce0;
 wire   [7:0] buffer_48_q0;
 reg   [5:0] buffer_48_address1;
 reg    buffer_48_ce1;
 reg    buffer_48_we1;
 wire   [7:0] buffer_48_q1;
-reg   [5:0] buffer_49_address0;
 reg    buffer_49_ce0;
 wire   [7:0] buffer_49_q0;
 reg   [5:0] buffer_49_address1;
 reg    buffer_49_ce1;
 reg    buffer_49_we1;
 wire   [7:0] buffer_49_q1;
-reg   [5:0] buffer_50_address0;
 reg    buffer_50_ce0;
 wire   [7:0] buffer_50_q0;
 reg   [5:0] buffer_50_address1;
 reg    buffer_50_ce1;
 reg    buffer_50_we1;
 wire   [7:0] buffer_50_q1;
-reg   [5:0] buffer_51_address0;
 reg    buffer_51_ce0;
 wire   [7:0] buffer_51_q0;
 reg   [5:0] buffer_51_address1;
 reg    buffer_51_ce1;
 reg    buffer_51_we1;
 wire   [7:0] buffer_51_q1;
-reg   [5:0] buffer_52_address0;
 reg    buffer_52_ce0;
 wire   [7:0] buffer_52_q0;
 reg   [5:0] buffer_52_address1;
 reg    buffer_52_ce1;
 reg    buffer_52_we1;
 wire   [7:0] buffer_52_q1;
-reg   [5:0] buffer_53_address0;
 reg    buffer_53_ce0;
 wire   [7:0] buffer_53_q0;
 reg   [5:0] buffer_53_address1;
 reg    buffer_53_ce1;
 reg    buffer_53_we1;
 wire   [7:0] buffer_53_q1;
-reg   [5:0] buffer_54_address0;
 reg    buffer_54_ce0;
 wire   [7:0] buffer_54_q0;
 reg   [5:0] buffer_54_address1;
 reg    buffer_54_ce1;
 reg    buffer_54_we1;
 wire   [7:0] buffer_54_q1;
-reg   [5:0] buffer_55_address0;
 reg    buffer_55_ce0;
 wire   [7:0] buffer_55_q0;
 reg   [5:0] buffer_55_address1;
 reg    buffer_55_ce1;
 reg    buffer_55_we1;
 wire   [7:0] buffer_55_q1;
-reg   [5:0] buffer_56_address0;
 reg    buffer_56_ce0;
 wire   [7:0] buffer_56_q0;
 reg   [5:0] buffer_56_address1;
 reg    buffer_56_ce1;
 reg    buffer_56_we1;
 wire   [7:0] buffer_56_q1;
-reg   [5:0] buffer_57_address0;
 reg    buffer_57_ce0;
 wire   [7:0] buffer_57_q0;
 reg   [5:0] buffer_57_address1;
 reg    buffer_57_ce1;
 reg    buffer_57_we1;
 wire   [7:0] buffer_57_q1;
-reg   [5:0] buffer_58_address0;
 reg    buffer_58_ce0;
 wire   [7:0] buffer_58_q0;
 reg   [5:0] buffer_58_address1;
 reg    buffer_58_ce1;
 reg    buffer_58_we1;
 wire   [7:0] buffer_58_q1;
-reg   [5:0] buffer_59_address0;
 reg    buffer_59_ce0;
 wire   [7:0] buffer_59_q0;
 reg   [5:0] buffer_59_address1;
 reg    buffer_59_ce1;
 reg    buffer_59_we1;
 wire   [7:0] buffer_59_q1;
-reg   [5:0] buffer_60_address0;
 reg    buffer_60_ce0;
 wire   [7:0] buffer_60_q0;
 reg   [5:0] buffer_60_address1;
 reg    buffer_60_ce1;
 reg    buffer_60_we1;
 wire   [7:0] buffer_60_q1;
-reg   [5:0] buffer_61_address0;
 reg    buffer_61_ce0;
 wire   [7:0] buffer_61_q0;
 reg   [5:0] buffer_61_address1;
 reg    buffer_61_ce1;
 reg    buffer_61_we1;
 wire   [7:0] buffer_61_q1;
-reg   [5:0] buffer_62_address0;
 reg    buffer_62_ce0;
 wire   [7:0] buffer_62_q0;
 reg   [5:0] buffer_62_address1;
 reg    buffer_62_ce1;
 reg    buffer_62_we1;
 wire   [7:0] buffer_62_q1;
-reg   [5:0] buffer_63_address0;
 reg    buffer_63_ce0;
 wire   [7:0] buffer_63_q0;
 reg   [5:0] buffer_63_address1;
 reg    buffer_63_ce1;
 reg    buffer_63_we1;
 wire   [7:0] buffer_63_q1;
-reg   [5:0] buffer_64_address0;
 reg    buffer_64_ce0;
 wire   [7:0] buffer_64_q0;
 reg   [5:0] buffer_64_address1;
 reg    buffer_64_ce1;
 reg    buffer_64_we1;
 wire   [7:0] buffer_64_q1;
-reg   [5:0] buffer_65_address0;
 reg    buffer_65_ce0;
 wire   [7:0] buffer_65_q0;
 reg   [5:0] buffer_65_address1;
 reg    buffer_65_ce1;
 reg    buffer_65_we1;
 wire   [7:0] buffer_65_q1;
-reg   [5:0] buffer_66_address0;
 reg    buffer_66_ce0;
 wire   [7:0] buffer_66_q0;
 reg   [5:0] buffer_66_address1;
 reg    buffer_66_ce1;
 reg    buffer_66_we1;
 wire   [7:0] buffer_66_q1;
-reg   [5:0] buffer_67_address0;
 reg    buffer_67_ce0;
 wire   [7:0] buffer_67_q0;
 reg   [5:0] buffer_67_address1;
 reg    buffer_67_ce1;
 reg    buffer_67_we1;
 wire   [7:0] buffer_67_q1;
-reg   [5:0] buffer_68_address0;
 reg    buffer_68_ce0;
 wire   [7:0] buffer_68_q0;
 reg   [5:0] buffer_68_address1;
 reg    buffer_68_ce1;
 reg    buffer_68_we1;
 wire   [7:0] buffer_68_q1;
-reg   [5:0] buffer_69_address0;
 reg    buffer_69_ce0;
 wire   [7:0] buffer_69_q0;
 reg   [5:0] buffer_69_address1;
 reg    buffer_69_ce1;
 reg    buffer_69_we1;
 wire   [7:0] buffer_69_q1;
-reg   [5:0] buffer_70_address0;
 reg    buffer_70_ce0;
 wire   [7:0] buffer_70_q0;
 reg   [5:0] buffer_70_address1;
 reg    buffer_70_ce1;
 reg    buffer_70_we1;
 wire   [7:0] buffer_70_q1;
-reg   [5:0] buffer_71_address0;
 reg    buffer_71_ce0;
 wire   [7:0] buffer_71_q0;
 reg   [5:0] buffer_71_address1;
 reg    buffer_71_ce1;
 reg    buffer_71_we1;
 wire   [7:0] buffer_71_q1;
-reg   [5:0] buffer_72_address0;
 reg    buffer_72_ce0;
 wire   [7:0] buffer_72_q0;
 reg   [5:0] buffer_72_address1;
 reg    buffer_72_ce1;
 reg    buffer_72_we1;
 wire   [7:0] buffer_72_q1;
-reg   [5:0] buffer_73_address0;
 reg    buffer_73_ce0;
 wire   [7:0] buffer_73_q0;
 reg   [5:0] buffer_73_address1;
 reg    buffer_73_ce1;
 reg    buffer_73_we1;
 wire   [7:0] buffer_73_q1;
-reg   [5:0] buffer_74_address0;
 reg    buffer_74_ce0;
 wire   [7:0] buffer_74_q0;
 reg   [5:0] buffer_74_address1;
 reg    buffer_74_ce1;
 reg    buffer_74_we1;
 wire   [7:0] buffer_74_q1;
-reg   [5:0] buffer_75_address0;
 reg    buffer_75_ce0;
 wire   [7:0] buffer_75_q0;
 reg   [5:0] buffer_75_address1;
 reg    buffer_75_ce1;
 reg    buffer_75_we1;
 wire   [7:0] buffer_75_q1;
-reg   [5:0] buffer_76_address0;
 reg    buffer_76_ce0;
 wire   [7:0] buffer_76_q0;
 reg   [5:0] buffer_76_address1;
 reg    buffer_76_ce1;
 reg    buffer_76_we1;
 wire   [7:0] buffer_76_q1;
-reg   [5:0] buffer_77_address0;
 reg    buffer_77_ce0;
 wire   [7:0] buffer_77_q0;
 reg   [5:0] buffer_77_address1;
 reg    buffer_77_ce1;
 reg    buffer_77_we1;
 wire   [7:0] buffer_77_q1;
-reg   [5:0] buffer_78_address0;
 reg    buffer_78_ce0;
 wire   [7:0] buffer_78_q0;
 reg   [5:0] buffer_78_address1;
 reg    buffer_78_ce1;
 reg    buffer_78_we1;
 wire   [7:0] buffer_78_q1;
-reg   [5:0] buffer_79_address0;
 reg    buffer_79_ce0;
 wire   [7:0] buffer_79_q0;
 reg   [5:0] buffer_79_address1;
 reg    buffer_79_ce1;
 reg    buffer_79_we1;
 wire   [7:0] buffer_79_q1;
-reg   [5:0] buffer_80_address0;
 reg    buffer_80_ce0;
 wire   [7:0] buffer_80_q0;
 reg   [5:0] buffer_80_address1;
 reg    buffer_80_ce1;
 reg    buffer_80_we1;
 wire   [7:0] buffer_80_q1;
-reg   [5:0] buffer_81_address0;
 reg    buffer_81_ce0;
 wire   [7:0] buffer_81_q0;
 reg   [5:0] buffer_81_address1;
 reg    buffer_81_ce1;
 reg    buffer_81_we1;
 wire   [7:0] buffer_81_q1;
-reg   [5:0] buffer_82_address0;
 reg    buffer_82_ce0;
 wire   [7:0] buffer_82_q0;
 reg   [5:0] buffer_82_address1;
 reg    buffer_82_ce1;
 reg    buffer_82_we1;
 wire   [7:0] buffer_82_q1;
-reg   [5:0] buffer_83_address0;
 reg    buffer_83_ce0;
 wire   [7:0] buffer_83_q0;
 reg   [5:0] buffer_83_address1;
 reg    buffer_83_ce1;
 reg    buffer_83_we1;
 wire   [7:0] buffer_83_q1;
-reg   [5:0] buffer_84_address0;
 reg    buffer_84_ce0;
 wire   [7:0] buffer_84_q0;
 reg   [5:0] buffer_84_address1;
 reg    buffer_84_ce1;
 reg    buffer_84_we1;
 wire   [7:0] buffer_84_q1;
-reg   [5:0] buffer_85_address0;
 reg    buffer_85_ce0;
 wire   [7:0] buffer_85_q0;
 reg   [5:0] buffer_85_address1;
 reg    buffer_85_ce1;
 reg    buffer_85_we1;
 wire   [7:0] buffer_85_q1;
-reg   [5:0] buffer_86_address0;
 reg    buffer_86_ce0;
 wire   [7:0] buffer_86_q0;
 reg   [5:0] buffer_86_address1;
 reg    buffer_86_ce1;
 reg    buffer_86_we1;
 wire   [7:0] buffer_86_q1;
-reg   [5:0] buffer_87_address0;
 reg    buffer_87_ce0;
 wire   [7:0] buffer_87_q0;
 reg   [5:0] buffer_87_address1;
 reg    buffer_87_ce1;
 reg    buffer_87_we1;
 wire   [7:0] buffer_87_q1;
-reg   [5:0] buffer_88_address0;
 reg    buffer_88_ce0;
 wire   [7:0] buffer_88_q0;
 reg   [5:0] buffer_88_address1;
 reg    buffer_88_ce1;
 reg    buffer_88_we1;
 wire   [7:0] buffer_88_q1;
-reg   [5:0] buffer_89_address0;
 reg    buffer_89_ce0;
 wire   [7:0] buffer_89_q0;
 reg   [5:0] buffer_89_address1;
 reg    buffer_89_ce1;
 reg    buffer_89_we1;
 wire   [7:0] buffer_89_q1;
-reg   [5:0] buffer_90_address0;
 reg    buffer_90_ce0;
 wire   [7:0] buffer_90_q0;
 reg   [5:0] buffer_90_address1;
 reg    buffer_90_ce1;
 reg    buffer_90_we1;
 wire   [7:0] buffer_90_q1;
-reg   [5:0] buffer_91_address0;
 reg    buffer_91_ce0;
 wire   [7:0] buffer_91_q0;
 reg   [5:0] buffer_91_address1;
 reg    buffer_91_ce1;
 reg    buffer_91_we1;
 wire   [7:0] buffer_91_q1;
-reg   [5:0] buffer_92_address0;
 reg    buffer_92_ce0;
 wire   [7:0] buffer_92_q0;
 reg   [5:0] buffer_92_address1;
 reg    buffer_92_ce1;
 reg    buffer_92_we1;
 wire   [7:0] buffer_92_q1;
-reg   [5:0] buffer_93_address0;
 reg    buffer_93_ce0;
 wire   [7:0] buffer_93_q0;
 reg   [5:0] buffer_93_address1;
 reg    buffer_93_ce1;
 reg    buffer_93_we1;
 wire   [7:0] buffer_93_q1;
-reg   [5:0] buffer_94_address0;
 reg    buffer_94_ce0;
 wire   [7:0] buffer_94_q0;
 reg   [5:0] buffer_94_address1;
 reg    buffer_94_ce1;
 reg    buffer_94_we1;
 wire   [7:0] buffer_94_q1;
-reg   [5:0] buffer_95_address0;
 reg    buffer_95_ce0;
 wire   [7:0] buffer_95_q0;
 reg   [5:0] buffer_95_address1;
 reg    buffer_95_ce1;
 reg    buffer_95_we1;
 wire   [7:0] buffer_95_q1;
-reg   [5:0] buffer_96_address0;
 reg    buffer_96_ce0;
 wire   [7:0] buffer_96_q0;
 reg   [5:0] buffer_96_address1;
 reg    buffer_96_ce1;
 reg    buffer_96_we1;
 wire   [7:0] buffer_96_q1;
-reg   [5:0] buffer_97_address0;
 reg    buffer_97_ce0;
 wire   [7:0] buffer_97_q0;
 reg   [5:0] buffer_97_address1;
 reg    buffer_97_ce1;
 reg    buffer_97_we1;
 wire   [7:0] buffer_97_q1;
-reg   [5:0] buffer_98_address0;
 reg    buffer_98_ce0;
 wire   [7:0] buffer_98_q0;
 reg   [5:0] buffer_98_address1;
 reg    buffer_98_ce1;
 reg    buffer_98_we1;
 wire   [7:0] buffer_98_q1;
-reg   [5:0] buffer_99_address0;
 reg    buffer_99_ce0;
 wire   [7:0] buffer_99_q0;
 reg   [5:0] buffer_99_address1;
 reg    buffer_99_ce1;
 reg    buffer_99_we1;
 wire   [7:0] buffer_99_q1;
-reg   [5:0] buffer_100_address0;
 reg    buffer_100_ce0;
 wire   [7:0] buffer_100_q0;
 reg   [5:0] buffer_100_address1;
 reg    buffer_100_ce1;
 reg    buffer_100_we1;
 wire   [7:0] buffer_100_q1;
-reg   [5:0] buffer_101_address0;
 reg    buffer_101_ce0;
 wire   [7:0] buffer_101_q0;
 reg   [5:0] buffer_101_address1;
 reg    buffer_101_ce1;
 reg    buffer_101_we1;
 wire   [7:0] buffer_101_q1;
-reg   [5:0] buffer_102_address0;
 reg    buffer_102_ce0;
 wire   [7:0] buffer_102_q0;
 reg   [5:0] buffer_102_address1;
 reg    buffer_102_ce1;
 reg    buffer_102_we1;
 wire   [7:0] buffer_102_q1;
-reg   [5:0] buffer_103_address0;
 reg    buffer_103_ce0;
 wire   [7:0] buffer_103_q0;
 reg   [5:0] buffer_103_address1;
 reg    buffer_103_ce1;
 reg    buffer_103_we1;
 wire   [7:0] buffer_103_q1;
-reg   [5:0] buffer_104_address0;
 reg    buffer_104_ce0;
 wire   [7:0] buffer_104_q0;
 reg   [5:0] buffer_104_address1;
 reg    buffer_104_ce1;
 reg    buffer_104_we1;
 wire   [7:0] buffer_104_q1;
-reg   [5:0] buffer_105_address0;
 reg    buffer_105_ce0;
 wire   [7:0] buffer_105_q0;
 reg   [5:0] buffer_105_address1;
 reg    buffer_105_ce1;
 reg    buffer_105_we1;
 wire   [7:0] buffer_105_q1;
-reg   [5:0] buffer_106_address0;
 reg    buffer_106_ce0;
 wire   [7:0] buffer_106_q0;
 reg   [5:0] buffer_106_address1;
 reg    buffer_106_ce1;
 reg    buffer_106_we1;
 wire   [7:0] buffer_106_q1;
-reg   [5:0] buffer_107_address0;
 reg    buffer_107_ce0;
 wire   [7:0] buffer_107_q0;
 reg   [5:0] buffer_107_address1;
 reg    buffer_107_ce1;
 reg    buffer_107_we1;
 wire   [7:0] buffer_107_q1;
-reg   [5:0] buffer_108_address0;
 reg    buffer_108_ce0;
 wire   [7:0] buffer_108_q0;
 reg   [5:0] buffer_108_address1;
 reg    buffer_108_ce1;
 reg    buffer_108_we1;
 wire   [7:0] buffer_108_q1;
-reg   [5:0] buffer_109_address0;
 reg    buffer_109_ce0;
 wire   [7:0] buffer_109_q0;
 reg   [5:0] buffer_109_address1;
 reg    buffer_109_ce1;
 reg    buffer_109_we1;
 wire   [7:0] buffer_109_q1;
-reg   [5:0] buffer_110_address0;
 reg    buffer_110_ce0;
 wire   [7:0] buffer_110_q0;
 reg   [5:0] buffer_110_address1;
 reg    buffer_110_ce1;
 reg    buffer_110_we1;
 wire   [7:0] buffer_110_q1;
-reg   [5:0] buffer_111_address0;
 reg    buffer_111_ce0;
 wire   [7:0] buffer_111_q0;
 reg   [5:0] buffer_111_address1;
 reg    buffer_111_ce1;
 reg    buffer_111_we1;
 wire   [7:0] buffer_111_q1;
-reg   [5:0] buffer_112_address0;
 reg    buffer_112_ce0;
 wire   [7:0] buffer_112_q0;
 reg   [5:0] buffer_112_address1;
 reg    buffer_112_ce1;
 reg    buffer_112_we1;
 wire   [7:0] buffer_112_q1;
-reg   [5:0] buffer_113_address0;
 reg    buffer_113_ce0;
 wire   [7:0] buffer_113_q0;
 reg   [5:0] buffer_113_address1;
 reg    buffer_113_ce1;
 reg    buffer_113_we1;
 wire   [7:0] buffer_113_q1;
-reg   [5:0] buffer_114_address0;
 reg    buffer_114_ce0;
 wire   [7:0] buffer_114_q0;
 reg   [5:0] buffer_114_address1;
 reg    buffer_114_ce1;
 reg    buffer_114_we1;
 wire   [7:0] buffer_114_q1;
-reg   [5:0] buffer_115_address0;
 reg    buffer_115_ce0;
 wire   [7:0] buffer_115_q0;
 reg   [5:0] buffer_115_address1;
 reg    buffer_115_ce1;
 reg    buffer_115_we1;
 wire   [7:0] buffer_115_q1;
-reg   [5:0] buffer_116_address0;
 reg    buffer_116_ce0;
 wire   [7:0] buffer_116_q0;
 reg   [5:0] buffer_116_address1;
 reg    buffer_116_ce1;
 reg    buffer_116_we1;
 wire   [7:0] buffer_116_q1;
-reg   [5:0] buffer_117_address0;
 reg    buffer_117_ce0;
 wire   [7:0] buffer_117_q0;
 reg   [5:0] buffer_117_address1;
 reg    buffer_117_ce1;
 reg    buffer_117_we1;
 wire   [7:0] buffer_117_q1;
-reg   [5:0] buffer_118_address0;
 reg    buffer_118_ce0;
 wire   [7:0] buffer_118_q0;
 reg   [5:0] buffer_118_address1;
 reg    buffer_118_ce1;
 reg    buffer_118_we1;
 wire   [7:0] buffer_118_q1;
-reg   [5:0] buffer_119_address0;
 reg    buffer_119_ce0;
 wire   [7:0] buffer_119_q0;
 reg   [5:0] buffer_119_address1;
 reg    buffer_119_ce1;
 reg    buffer_119_we1;
 wire   [7:0] buffer_119_q1;
-reg   [5:0] buffer_120_address0;
 reg    buffer_120_ce0;
 wire   [7:0] buffer_120_q0;
 reg   [5:0] buffer_120_address1;
 reg    buffer_120_ce1;
 reg    buffer_120_we1;
 wire   [7:0] buffer_120_q1;
-reg   [5:0] buffer_121_address0;
 reg    buffer_121_ce0;
 wire   [7:0] buffer_121_q0;
 reg   [5:0] buffer_121_address1;
 reg    buffer_121_ce1;
 reg    buffer_121_we1;
 wire   [7:0] buffer_121_q1;
-reg   [5:0] buffer_122_address0;
 reg    buffer_122_ce0;
 wire   [7:0] buffer_122_q0;
 reg   [5:0] buffer_122_address1;
 reg    buffer_122_ce1;
 reg    buffer_122_we1;
 wire   [7:0] buffer_122_q1;
-reg   [5:0] buffer_123_address0;
 reg    buffer_123_ce0;
 wire   [7:0] buffer_123_q0;
 reg   [5:0] buffer_123_address1;
 reg    buffer_123_ce1;
 reg    buffer_123_we1;
 wire   [7:0] buffer_123_q1;
-reg   [5:0] buffer_124_address0;
 reg    buffer_124_ce0;
 wire   [7:0] buffer_124_q0;
 reg   [5:0] buffer_124_address1;
 reg    buffer_124_ce1;
 reg    buffer_124_we1;
 wire   [7:0] buffer_124_q1;
-reg   [5:0] buffer_125_address0;
 reg    buffer_125_ce0;
 wire   [7:0] buffer_125_q0;
 reg   [5:0] buffer_125_address1;
 reg    buffer_125_ce1;
 reg    buffer_125_we1;
 wire   [7:0] buffer_125_q1;
-reg   [5:0] buffer_126_address0;
 reg    buffer_126_ce0;
 wire   [7:0] buffer_126_q0;
-reg   [5:0] buffer_126_address1;
+wire   [5:0] buffer_126_address1;
 reg    buffer_126_ce1;
 reg    buffer_126_we1;
-wire   [7:0] buffer_126_q1;
-reg   [5:0] buffer_127_address0;
 reg    buffer_127_ce0;
 wire   [7:0] buffer_127_q0;
-reg   [5:0] buffer_127_address1;
+wire   [5:0] buffer_127_address1;
 reg    buffer_127_ce1;
 reg    buffer_127_we1;
-wire   [7:0] buffer_127_q1;
-reg   [2:0] indices_address0;
-reg    indices_ce0;
-reg    indices_we0;
-reg   [12:0] indices_d0;
-wire   [12:0] indices_q0;
-reg    indices_ce1;
-wire    grp_dedup_calcHash_fu_2858_ap_start;
-wire    grp_dedup_calcHash_fu_2858_ap_done;
-wire    grp_dedup_calcHash_fu_2858_ap_idle;
-wire    grp_dedup_calcHash_fu_2858_ap_ready;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_0_address0;
-wire    grp_dedup_calcHash_fu_2858_str_0_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_0_address1;
-wire    grp_dedup_calcHash_fu_2858_str_0_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_1_address0;
-wire    grp_dedup_calcHash_fu_2858_str_1_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_1_address1;
-wire    grp_dedup_calcHash_fu_2858_str_1_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_2_address0;
-wire    grp_dedup_calcHash_fu_2858_str_2_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_2_address1;
-wire    grp_dedup_calcHash_fu_2858_str_2_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_3_address0;
-wire    grp_dedup_calcHash_fu_2858_str_3_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_3_address1;
-wire    grp_dedup_calcHash_fu_2858_str_3_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_4_address0;
-wire    grp_dedup_calcHash_fu_2858_str_4_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_4_address1;
-wire    grp_dedup_calcHash_fu_2858_str_4_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_5_address0;
-wire    grp_dedup_calcHash_fu_2858_str_5_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_5_address1;
-wire    grp_dedup_calcHash_fu_2858_str_5_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_6_address0;
-wire    grp_dedup_calcHash_fu_2858_str_6_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_6_address1;
-wire    grp_dedup_calcHash_fu_2858_str_6_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_7_address0;
-wire    grp_dedup_calcHash_fu_2858_str_7_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_7_address1;
-wire    grp_dedup_calcHash_fu_2858_str_7_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_8_address0;
-wire    grp_dedup_calcHash_fu_2858_str_8_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_8_address1;
-wire    grp_dedup_calcHash_fu_2858_str_8_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_9_address0;
-wire    grp_dedup_calcHash_fu_2858_str_9_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_9_address1;
-wire    grp_dedup_calcHash_fu_2858_str_9_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_10_address0;
-wire    grp_dedup_calcHash_fu_2858_str_10_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_10_address1;
-wire    grp_dedup_calcHash_fu_2858_str_10_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_11_address0;
-wire    grp_dedup_calcHash_fu_2858_str_11_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_11_address1;
-wire    grp_dedup_calcHash_fu_2858_str_11_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_12_address0;
-wire    grp_dedup_calcHash_fu_2858_str_12_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_12_address1;
-wire    grp_dedup_calcHash_fu_2858_str_12_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_13_address0;
-wire    grp_dedup_calcHash_fu_2858_str_13_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_13_address1;
-wire    grp_dedup_calcHash_fu_2858_str_13_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_14_address0;
-wire    grp_dedup_calcHash_fu_2858_str_14_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_14_address1;
-wire    grp_dedup_calcHash_fu_2858_str_14_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_15_address0;
-wire    grp_dedup_calcHash_fu_2858_str_15_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_15_address1;
-wire    grp_dedup_calcHash_fu_2858_str_15_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_16_address0;
-wire    grp_dedup_calcHash_fu_2858_str_16_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_16_address1;
-wire    grp_dedup_calcHash_fu_2858_str_16_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_17_address0;
-wire    grp_dedup_calcHash_fu_2858_str_17_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_17_address1;
-wire    grp_dedup_calcHash_fu_2858_str_17_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_18_address0;
-wire    grp_dedup_calcHash_fu_2858_str_18_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_18_address1;
-wire    grp_dedup_calcHash_fu_2858_str_18_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_19_address0;
-wire    grp_dedup_calcHash_fu_2858_str_19_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_19_address1;
-wire    grp_dedup_calcHash_fu_2858_str_19_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_20_address0;
-wire    grp_dedup_calcHash_fu_2858_str_20_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_20_address1;
-wire    grp_dedup_calcHash_fu_2858_str_20_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_21_address0;
-wire    grp_dedup_calcHash_fu_2858_str_21_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_21_address1;
-wire    grp_dedup_calcHash_fu_2858_str_21_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_22_address0;
-wire    grp_dedup_calcHash_fu_2858_str_22_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_22_address1;
-wire    grp_dedup_calcHash_fu_2858_str_22_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_23_address0;
-wire    grp_dedup_calcHash_fu_2858_str_23_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_23_address1;
-wire    grp_dedup_calcHash_fu_2858_str_23_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_24_address0;
-wire    grp_dedup_calcHash_fu_2858_str_24_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_24_address1;
-wire    grp_dedup_calcHash_fu_2858_str_24_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_25_address0;
-wire    grp_dedup_calcHash_fu_2858_str_25_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_25_address1;
-wire    grp_dedup_calcHash_fu_2858_str_25_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_26_address0;
-wire    grp_dedup_calcHash_fu_2858_str_26_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_26_address1;
-wire    grp_dedup_calcHash_fu_2858_str_26_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_27_address0;
-wire    grp_dedup_calcHash_fu_2858_str_27_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_27_address1;
-wire    grp_dedup_calcHash_fu_2858_str_27_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_28_address0;
-wire    grp_dedup_calcHash_fu_2858_str_28_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_28_address1;
-wire    grp_dedup_calcHash_fu_2858_str_28_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_29_address0;
-wire    grp_dedup_calcHash_fu_2858_str_29_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_29_address1;
-wire    grp_dedup_calcHash_fu_2858_str_29_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_30_address0;
-wire    grp_dedup_calcHash_fu_2858_str_30_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_30_address1;
-wire    grp_dedup_calcHash_fu_2858_str_30_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_31_address0;
-wire    grp_dedup_calcHash_fu_2858_str_31_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_31_address1;
-wire    grp_dedup_calcHash_fu_2858_str_31_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_32_address0;
-wire    grp_dedup_calcHash_fu_2858_str_32_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_32_address1;
-wire    grp_dedup_calcHash_fu_2858_str_32_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_33_address0;
-wire    grp_dedup_calcHash_fu_2858_str_33_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_33_address1;
-wire    grp_dedup_calcHash_fu_2858_str_33_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_34_address0;
-wire    grp_dedup_calcHash_fu_2858_str_34_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_34_address1;
-wire    grp_dedup_calcHash_fu_2858_str_34_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_35_address0;
-wire    grp_dedup_calcHash_fu_2858_str_35_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_35_address1;
-wire    grp_dedup_calcHash_fu_2858_str_35_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_36_address0;
-wire    grp_dedup_calcHash_fu_2858_str_36_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_36_address1;
-wire    grp_dedup_calcHash_fu_2858_str_36_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_37_address0;
-wire    grp_dedup_calcHash_fu_2858_str_37_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_37_address1;
-wire    grp_dedup_calcHash_fu_2858_str_37_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_38_address0;
-wire    grp_dedup_calcHash_fu_2858_str_38_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_38_address1;
-wire    grp_dedup_calcHash_fu_2858_str_38_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_39_address0;
-wire    grp_dedup_calcHash_fu_2858_str_39_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_39_address1;
-wire    grp_dedup_calcHash_fu_2858_str_39_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_40_address0;
-wire    grp_dedup_calcHash_fu_2858_str_40_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_40_address1;
-wire    grp_dedup_calcHash_fu_2858_str_40_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_41_address0;
-wire    grp_dedup_calcHash_fu_2858_str_41_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_41_address1;
-wire    grp_dedup_calcHash_fu_2858_str_41_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_42_address0;
-wire    grp_dedup_calcHash_fu_2858_str_42_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_42_address1;
-wire    grp_dedup_calcHash_fu_2858_str_42_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_43_address0;
-wire    grp_dedup_calcHash_fu_2858_str_43_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_43_address1;
-wire    grp_dedup_calcHash_fu_2858_str_43_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_44_address0;
-wire    grp_dedup_calcHash_fu_2858_str_44_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_44_address1;
-wire    grp_dedup_calcHash_fu_2858_str_44_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_45_address0;
-wire    grp_dedup_calcHash_fu_2858_str_45_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_45_address1;
-wire    grp_dedup_calcHash_fu_2858_str_45_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_46_address0;
-wire    grp_dedup_calcHash_fu_2858_str_46_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_46_address1;
-wire    grp_dedup_calcHash_fu_2858_str_46_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_47_address0;
-wire    grp_dedup_calcHash_fu_2858_str_47_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_47_address1;
-wire    grp_dedup_calcHash_fu_2858_str_47_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_48_address0;
-wire    grp_dedup_calcHash_fu_2858_str_48_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_48_address1;
-wire    grp_dedup_calcHash_fu_2858_str_48_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_49_address0;
-wire    grp_dedup_calcHash_fu_2858_str_49_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_49_address1;
-wire    grp_dedup_calcHash_fu_2858_str_49_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_50_address0;
-wire    grp_dedup_calcHash_fu_2858_str_50_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_50_address1;
-wire    grp_dedup_calcHash_fu_2858_str_50_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_51_address0;
-wire    grp_dedup_calcHash_fu_2858_str_51_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_51_address1;
-wire    grp_dedup_calcHash_fu_2858_str_51_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_52_address0;
-wire    grp_dedup_calcHash_fu_2858_str_52_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_52_address1;
-wire    grp_dedup_calcHash_fu_2858_str_52_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_53_address0;
-wire    grp_dedup_calcHash_fu_2858_str_53_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_53_address1;
-wire    grp_dedup_calcHash_fu_2858_str_53_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_54_address0;
-wire    grp_dedup_calcHash_fu_2858_str_54_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_54_address1;
-wire    grp_dedup_calcHash_fu_2858_str_54_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_55_address0;
-wire    grp_dedup_calcHash_fu_2858_str_55_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_55_address1;
-wire    grp_dedup_calcHash_fu_2858_str_55_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_56_address0;
-wire    grp_dedup_calcHash_fu_2858_str_56_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_56_address1;
-wire    grp_dedup_calcHash_fu_2858_str_56_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_57_address0;
-wire    grp_dedup_calcHash_fu_2858_str_57_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_57_address1;
-wire    grp_dedup_calcHash_fu_2858_str_57_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_58_address0;
-wire    grp_dedup_calcHash_fu_2858_str_58_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_58_address1;
-wire    grp_dedup_calcHash_fu_2858_str_58_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_59_address0;
-wire    grp_dedup_calcHash_fu_2858_str_59_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_59_address1;
-wire    grp_dedup_calcHash_fu_2858_str_59_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_60_address0;
-wire    grp_dedup_calcHash_fu_2858_str_60_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_60_address1;
-wire    grp_dedup_calcHash_fu_2858_str_60_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_61_address0;
-wire    grp_dedup_calcHash_fu_2858_str_61_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_61_address1;
-wire    grp_dedup_calcHash_fu_2858_str_61_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_62_address0;
-wire    grp_dedup_calcHash_fu_2858_str_62_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_62_address1;
-wire    grp_dedup_calcHash_fu_2858_str_62_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_63_address0;
-wire    grp_dedup_calcHash_fu_2858_str_63_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_63_address1;
-wire    grp_dedup_calcHash_fu_2858_str_63_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_64_address0;
-wire    grp_dedup_calcHash_fu_2858_str_64_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_64_address1;
-wire    grp_dedup_calcHash_fu_2858_str_64_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_65_address0;
-wire    grp_dedup_calcHash_fu_2858_str_65_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_65_address1;
-wire    grp_dedup_calcHash_fu_2858_str_65_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_66_address0;
-wire    grp_dedup_calcHash_fu_2858_str_66_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_66_address1;
-wire    grp_dedup_calcHash_fu_2858_str_66_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_67_address0;
-wire    grp_dedup_calcHash_fu_2858_str_67_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_67_address1;
-wire    grp_dedup_calcHash_fu_2858_str_67_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_68_address0;
-wire    grp_dedup_calcHash_fu_2858_str_68_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_68_address1;
-wire    grp_dedup_calcHash_fu_2858_str_68_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_69_address0;
-wire    grp_dedup_calcHash_fu_2858_str_69_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_69_address1;
-wire    grp_dedup_calcHash_fu_2858_str_69_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_70_address0;
-wire    grp_dedup_calcHash_fu_2858_str_70_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_70_address1;
-wire    grp_dedup_calcHash_fu_2858_str_70_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_71_address0;
-wire    grp_dedup_calcHash_fu_2858_str_71_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_71_address1;
-wire    grp_dedup_calcHash_fu_2858_str_71_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_72_address0;
-wire    grp_dedup_calcHash_fu_2858_str_72_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_72_address1;
-wire    grp_dedup_calcHash_fu_2858_str_72_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_73_address0;
-wire    grp_dedup_calcHash_fu_2858_str_73_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_73_address1;
-wire    grp_dedup_calcHash_fu_2858_str_73_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_74_address0;
-wire    grp_dedup_calcHash_fu_2858_str_74_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_74_address1;
-wire    grp_dedup_calcHash_fu_2858_str_74_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_75_address0;
-wire    grp_dedup_calcHash_fu_2858_str_75_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_75_address1;
-wire    grp_dedup_calcHash_fu_2858_str_75_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_76_address0;
-wire    grp_dedup_calcHash_fu_2858_str_76_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_76_address1;
-wire    grp_dedup_calcHash_fu_2858_str_76_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_77_address0;
-wire    grp_dedup_calcHash_fu_2858_str_77_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_77_address1;
-wire    grp_dedup_calcHash_fu_2858_str_77_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_78_address0;
-wire    grp_dedup_calcHash_fu_2858_str_78_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_78_address1;
-wire    grp_dedup_calcHash_fu_2858_str_78_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_79_address0;
-wire    grp_dedup_calcHash_fu_2858_str_79_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_79_address1;
-wire    grp_dedup_calcHash_fu_2858_str_79_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_80_address0;
-wire    grp_dedup_calcHash_fu_2858_str_80_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_80_address1;
-wire    grp_dedup_calcHash_fu_2858_str_80_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_81_address0;
-wire    grp_dedup_calcHash_fu_2858_str_81_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_81_address1;
-wire    grp_dedup_calcHash_fu_2858_str_81_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_82_address0;
-wire    grp_dedup_calcHash_fu_2858_str_82_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_82_address1;
-wire    grp_dedup_calcHash_fu_2858_str_82_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_83_address0;
-wire    grp_dedup_calcHash_fu_2858_str_83_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_83_address1;
-wire    grp_dedup_calcHash_fu_2858_str_83_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_84_address0;
-wire    grp_dedup_calcHash_fu_2858_str_84_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_84_address1;
-wire    grp_dedup_calcHash_fu_2858_str_84_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_85_address0;
-wire    grp_dedup_calcHash_fu_2858_str_85_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_85_address1;
-wire    grp_dedup_calcHash_fu_2858_str_85_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_86_address0;
-wire    grp_dedup_calcHash_fu_2858_str_86_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_86_address1;
-wire    grp_dedup_calcHash_fu_2858_str_86_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_87_address0;
-wire    grp_dedup_calcHash_fu_2858_str_87_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_87_address1;
-wire    grp_dedup_calcHash_fu_2858_str_87_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_88_address0;
-wire    grp_dedup_calcHash_fu_2858_str_88_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_88_address1;
-wire    grp_dedup_calcHash_fu_2858_str_88_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_89_address0;
-wire    grp_dedup_calcHash_fu_2858_str_89_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_89_address1;
-wire    grp_dedup_calcHash_fu_2858_str_89_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_90_address0;
-wire    grp_dedup_calcHash_fu_2858_str_90_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_90_address1;
-wire    grp_dedup_calcHash_fu_2858_str_90_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_91_address0;
-wire    grp_dedup_calcHash_fu_2858_str_91_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_91_address1;
-wire    grp_dedup_calcHash_fu_2858_str_91_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_92_address0;
-wire    grp_dedup_calcHash_fu_2858_str_92_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_92_address1;
-wire    grp_dedup_calcHash_fu_2858_str_92_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_93_address0;
-wire    grp_dedup_calcHash_fu_2858_str_93_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_93_address1;
-wire    grp_dedup_calcHash_fu_2858_str_93_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_94_address0;
-wire    grp_dedup_calcHash_fu_2858_str_94_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_94_address1;
-wire    grp_dedup_calcHash_fu_2858_str_94_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_95_address0;
-wire    grp_dedup_calcHash_fu_2858_str_95_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_95_address1;
-wire    grp_dedup_calcHash_fu_2858_str_95_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_96_address0;
-wire    grp_dedup_calcHash_fu_2858_str_96_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_96_address1;
-wire    grp_dedup_calcHash_fu_2858_str_96_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_97_address0;
-wire    grp_dedup_calcHash_fu_2858_str_97_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_97_address1;
-wire    grp_dedup_calcHash_fu_2858_str_97_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_98_address0;
-wire    grp_dedup_calcHash_fu_2858_str_98_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_98_address1;
-wire    grp_dedup_calcHash_fu_2858_str_98_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_99_address0;
-wire    grp_dedup_calcHash_fu_2858_str_99_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_99_address1;
-wire    grp_dedup_calcHash_fu_2858_str_99_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_100_address0;
-wire    grp_dedup_calcHash_fu_2858_str_100_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_100_address1;
-wire    grp_dedup_calcHash_fu_2858_str_100_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_101_address0;
-wire    grp_dedup_calcHash_fu_2858_str_101_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_101_address1;
-wire    grp_dedup_calcHash_fu_2858_str_101_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_102_address0;
-wire    grp_dedup_calcHash_fu_2858_str_102_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_102_address1;
-wire    grp_dedup_calcHash_fu_2858_str_102_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_103_address0;
-wire    grp_dedup_calcHash_fu_2858_str_103_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_103_address1;
-wire    grp_dedup_calcHash_fu_2858_str_103_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_104_address0;
-wire    grp_dedup_calcHash_fu_2858_str_104_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_104_address1;
-wire    grp_dedup_calcHash_fu_2858_str_104_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_105_address0;
-wire    grp_dedup_calcHash_fu_2858_str_105_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_105_address1;
-wire    grp_dedup_calcHash_fu_2858_str_105_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_106_address0;
-wire    grp_dedup_calcHash_fu_2858_str_106_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_106_address1;
-wire    grp_dedup_calcHash_fu_2858_str_106_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_107_address0;
-wire    grp_dedup_calcHash_fu_2858_str_107_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_107_address1;
-wire    grp_dedup_calcHash_fu_2858_str_107_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_108_address0;
-wire    grp_dedup_calcHash_fu_2858_str_108_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_108_address1;
-wire    grp_dedup_calcHash_fu_2858_str_108_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_109_address0;
-wire    grp_dedup_calcHash_fu_2858_str_109_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_109_address1;
-wire    grp_dedup_calcHash_fu_2858_str_109_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_110_address0;
-wire    grp_dedup_calcHash_fu_2858_str_110_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_110_address1;
-wire    grp_dedup_calcHash_fu_2858_str_110_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_111_address0;
-wire    grp_dedup_calcHash_fu_2858_str_111_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_111_address1;
-wire    grp_dedup_calcHash_fu_2858_str_111_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_112_address0;
-wire    grp_dedup_calcHash_fu_2858_str_112_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_112_address1;
-wire    grp_dedup_calcHash_fu_2858_str_112_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_113_address0;
-wire    grp_dedup_calcHash_fu_2858_str_113_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_113_address1;
-wire    grp_dedup_calcHash_fu_2858_str_113_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_114_address0;
-wire    grp_dedup_calcHash_fu_2858_str_114_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_114_address1;
-wire    grp_dedup_calcHash_fu_2858_str_114_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_115_address0;
-wire    grp_dedup_calcHash_fu_2858_str_115_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_115_address1;
-wire    grp_dedup_calcHash_fu_2858_str_115_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_116_address0;
-wire    grp_dedup_calcHash_fu_2858_str_116_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_116_address1;
-wire    grp_dedup_calcHash_fu_2858_str_116_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_117_address0;
-wire    grp_dedup_calcHash_fu_2858_str_117_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_117_address1;
-wire    grp_dedup_calcHash_fu_2858_str_117_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_118_address0;
-wire    grp_dedup_calcHash_fu_2858_str_118_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_118_address1;
-wire    grp_dedup_calcHash_fu_2858_str_118_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_119_address0;
-wire    grp_dedup_calcHash_fu_2858_str_119_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_119_address1;
-wire    grp_dedup_calcHash_fu_2858_str_119_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_120_address0;
-wire    grp_dedup_calcHash_fu_2858_str_120_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_120_address1;
-wire    grp_dedup_calcHash_fu_2858_str_120_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_121_address0;
-wire    grp_dedup_calcHash_fu_2858_str_121_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_121_address1;
-wire    grp_dedup_calcHash_fu_2858_str_121_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_122_address0;
-wire    grp_dedup_calcHash_fu_2858_str_122_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_122_address1;
-wire    grp_dedup_calcHash_fu_2858_str_122_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_123_address0;
-wire    grp_dedup_calcHash_fu_2858_str_123_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_123_address1;
-wire    grp_dedup_calcHash_fu_2858_str_123_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_124_address0;
-wire    grp_dedup_calcHash_fu_2858_str_124_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_124_address1;
-wire    grp_dedup_calcHash_fu_2858_str_124_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_125_address0;
-wire    grp_dedup_calcHash_fu_2858_str_125_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_125_address1;
-wire    grp_dedup_calcHash_fu_2858_str_125_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_126_address0;
-wire    grp_dedup_calcHash_fu_2858_str_126_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_126_address1;
-wire    grp_dedup_calcHash_fu_2858_str_126_ce1;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_127_address0;
-wire    grp_dedup_calcHash_fu_2858_str_127_ce0;
-wire   [5:0] grp_dedup_calcHash_fu_2858_str_127_address1;
-wire    grp_dedup_calcHash_fu_2858_str_127_ce1;
-wire   [2:0] grp_dedup_calcHash_fu_2858_indices_address0;
-wire    grp_dedup_calcHash_fu_2858_indices_ce0;
-wire    grp_dedup_calcHash_fu_2858_indices_we0;
-wire   [12:0] grp_dedup_calcHash_fu_2858_indices_d0;
-wire   [2:0] grp_dedup_calcHash_fu_2858_indices_address1;
-wire    grp_dedup_calcHash_fu_2858_indices_ce1;
-wire    grp_dedup_calcHash_fu_2858_indices_we1;
-wire   [12:0] grp_dedup_calcHash_fu_2858_indices_d1;
-wire    grp_dedup_murmurhash_fu_2991_ap_start;
-wire    grp_dedup_murmurhash_fu_2991_ap_idle;
-wire    grp_dedup_murmurhash_fu_2991_ap_ready;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_0_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_0_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_0_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_0_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_1_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_1_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_1_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_1_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_2_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_2_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_2_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_2_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_3_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_3_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_3_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_3_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_4_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_4_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_4_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_4_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_5_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_5_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_5_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_5_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_6_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_6_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_6_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_6_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_7_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_7_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_7_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_7_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_8_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_8_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_8_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_8_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_9_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_9_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_9_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_9_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_10_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_10_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_10_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_10_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_11_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_11_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_11_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_11_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_12_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_12_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_12_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_12_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_13_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_13_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_13_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_13_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_14_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_14_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_14_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_14_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_15_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_15_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_15_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_15_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_16_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_16_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_16_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_16_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_17_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_17_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_17_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_17_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_18_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_18_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_18_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_18_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_19_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_19_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_19_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_19_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_20_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_20_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_20_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_20_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_21_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_21_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_21_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_21_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_22_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_22_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_22_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_22_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_23_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_23_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_23_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_23_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_24_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_24_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_24_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_24_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_25_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_25_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_25_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_25_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_26_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_26_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_26_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_26_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_27_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_27_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_27_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_27_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_28_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_28_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_28_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_28_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_29_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_29_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_29_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_29_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_30_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_30_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_30_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_30_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_31_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_31_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_31_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_31_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_32_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_32_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_32_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_32_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_33_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_33_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_33_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_33_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_34_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_34_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_34_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_34_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_35_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_35_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_35_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_35_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_36_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_36_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_36_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_36_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_37_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_37_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_37_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_37_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_38_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_38_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_38_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_38_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_39_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_39_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_39_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_39_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_40_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_40_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_40_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_40_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_41_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_41_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_41_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_41_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_42_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_42_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_42_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_42_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_43_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_43_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_43_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_43_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_44_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_44_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_44_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_44_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_45_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_45_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_45_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_45_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_46_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_46_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_46_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_46_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_47_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_47_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_47_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_47_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_48_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_48_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_48_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_48_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_49_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_49_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_49_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_49_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_50_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_50_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_50_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_50_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_51_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_51_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_51_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_51_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_52_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_52_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_52_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_52_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_53_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_53_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_53_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_53_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_54_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_54_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_54_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_54_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_55_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_55_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_55_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_55_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_56_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_56_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_56_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_56_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_57_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_57_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_57_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_57_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_58_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_58_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_58_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_58_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_59_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_59_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_59_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_59_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_60_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_60_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_60_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_60_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_61_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_61_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_61_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_61_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_62_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_62_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_62_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_62_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_63_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_63_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_63_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_63_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_64_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_64_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_64_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_64_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_65_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_65_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_65_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_65_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_66_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_66_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_66_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_66_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_67_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_67_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_67_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_67_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_68_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_68_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_68_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_68_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_69_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_69_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_69_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_69_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_70_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_70_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_70_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_70_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_71_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_71_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_71_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_71_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_72_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_72_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_72_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_72_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_73_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_73_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_73_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_73_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_74_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_74_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_74_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_74_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_75_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_75_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_75_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_75_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_76_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_76_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_76_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_76_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_77_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_77_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_77_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_77_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_78_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_78_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_78_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_78_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_79_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_79_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_79_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_79_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_80_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_80_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_80_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_80_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_81_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_81_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_81_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_81_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_82_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_82_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_82_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_82_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_83_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_83_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_83_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_83_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_84_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_84_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_84_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_84_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_85_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_85_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_85_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_85_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_86_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_86_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_86_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_86_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_87_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_87_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_87_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_87_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_88_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_88_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_88_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_88_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_89_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_89_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_89_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_89_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_90_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_90_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_90_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_90_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_91_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_91_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_91_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_91_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_92_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_92_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_92_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_92_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_93_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_93_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_93_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_93_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_94_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_94_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_94_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_94_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_95_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_95_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_95_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_95_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_96_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_96_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_96_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_96_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_97_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_97_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_97_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_97_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_98_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_98_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_98_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_98_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_99_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_99_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_99_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_99_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_100_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_100_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_100_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_100_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_101_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_101_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_101_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_101_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_102_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_102_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_102_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_102_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_103_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_103_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_103_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_103_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_104_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_104_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_104_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_104_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_105_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_105_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_105_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_105_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_106_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_106_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_106_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_106_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_107_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_107_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_107_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_107_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_108_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_108_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_108_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_108_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_109_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_109_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_109_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_109_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_110_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_110_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_110_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_110_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_111_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_111_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_111_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_111_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_112_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_112_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_112_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_112_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_113_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_113_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_113_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_113_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_114_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_114_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_114_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_114_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_115_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_115_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_115_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_115_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_116_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_116_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_116_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_116_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_117_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_117_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_117_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_117_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_118_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_118_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_118_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_118_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_119_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_119_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_119_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_119_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_120_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_120_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_120_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_120_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_121_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_121_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_121_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_121_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_122_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_122_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_122_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_122_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_123_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_123_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_123_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_123_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_124_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_124_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_124_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_124_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_125_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_125_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_125_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_125_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_126_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_126_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_126_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_126_ce1;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_127_address0;
-wire    grp_dedup_murmurhash_fu_2991_key_127_ce0;
-wire   [5:0] grp_dedup_murmurhash_fu_2991_key_127_address1;
-wire    grp_dedup_murmurhash_fu_2991_key_127_ce1;
-reg   [2:0] invdar_reg_2813;
-reg   [13:0] i_reg_2824;
-reg   [2:0] i1_reg_2835;
-reg    ap_sig_cseq_ST_st5_fsm_4;
-reg    ap_sig_3287;
-reg    ap_sig_ioackin_outputData_TREADY;
-reg   [31:0] tmp_data_hashData_phi_fu_2851_p4;
-reg   [31:0] tmp_data_hashData_reg_2847;
-reg    ap_reg_grp_dedup_calcHash_fu_2858_ap_start;
-reg    ap_sig_cseq_ST_st4_fsm_3;
-reg    ap_sig_3310;
-reg    ap_reg_grp_dedup_murmurhash_fu_2991_ap_start;
-wire   [63:0] tmp_fu_3131_p1;
-wire   [63:0] newIndex12_fu_3168_p1;
-wire   [63:0] tmp_35_fu_3317_p1;
-reg   [31:0] tmp_data_index_fu_854;
+reg   [2:0] targetIndices_address0;
+reg    targetIndices_ce0;
+reg    targetIndices_we0;
+wire   [31:0] targetIndices_q0;
+reg    targetIndices_ce1;
+wire   [31:0] targetIndices_q1;
+reg   [4:0] hashes_address0;
+reg    hashes_ce0;
+reg   [4:0] hashes_address1;
+reg    hashes_ce1;
+wire    grp_dedup_calcHash_fu_3607_ap_start;
+wire    grp_dedup_calcHash_fu_3607_ap_idle;
+wire    grp_dedup_calcHash_fu_3607_ap_ready;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_0_address0;
+wire    grp_dedup_calcHash_fu_3607_str_0_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_1_address0;
+wire    grp_dedup_calcHash_fu_3607_str_1_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_1_address1;
+wire    grp_dedup_calcHash_fu_3607_str_1_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_2_address0;
+wire    grp_dedup_calcHash_fu_3607_str_2_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_2_address1;
+wire    grp_dedup_calcHash_fu_3607_str_2_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_3_address0;
+wire    grp_dedup_calcHash_fu_3607_str_3_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_3_address1;
+wire    grp_dedup_calcHash_fu_3607_str_3_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_4_address0;
+wire    grp_dedup_calcHash_fu_3607_str_4_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_4_address1;
+wire    grp_dedup_calcHash_fu_3607_str_4_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_5_address0;
+wire    grp_dedup_calcHash_fu_3607_str_5_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_5_address1;
+wire    grp_dedup_calcHash_fu_3607_str_5_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_6_address0;
+wire    grp_dedup_calcHash_fu_3607_str_6_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_6_address1;
+wire    grp_dedup_calcHash_fu_3607_str_6_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_7_address0;
+wire    grp_dedup_calcHash_fu_3607_str_7_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_7_address1;
+wire    grp_dedup_calcHash_fu_3607_str_7_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_8_address0;
+wire    grp_dedup_calcHash_fu_3607_str_8_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_8_address1;
+wire    grp_dedup_calcHash_fu_3607_str_8_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_9_address0;
+wire    grp_dedup_calcHash_fu_3607_str_9_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_9_address1;
+wire    grp_dedup_calcHash_fu_3607_str_9_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_10_address0;
+wire    grp_dedup_calcHash_fu_3607_str_10_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_10_address1;
+wire    grp_dedup_calcHash_fu_3607_str_10_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_11_address0;
+wire    grp_dedup_calcHash_fu_3607_str_11_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_11_address1;
+wire    grp_dedup_calcHash_fu_3607_str_11_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_12_address0;
+wire    grp_dedup_calcHash_fu_3607_str_12_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_12_address1;
+wire    grp_dedup_calcHash_fu_3607_str_12_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_13_address0;
+wire    grp_dedup_calcHash_fu_3607_str_13_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_13_address1;
+wire    grp_dedup_calcHash_fu_3607_str_13_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_14_address0;
+wire    grp_dedup_calcHash_fu_3607_str_14_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_14_address1;
+wire    grp_dedup_calcHash_fu_3607_str_14_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_15_address0;
+wire    grp_dedup_calcHash_fu_3607_str_15_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_15_address1;
+wire    grp_dedup_calcHash_fu_3607_str_15_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_16_address0;
+wire    grp_dedup_calcHash_fu_3607_str_16_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_16_address1;
+wire    grp_dedup_calcHash_fu_3607_str_16_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_17_address0;
+wire    grp_dedup_calcHash_fu_3607_str_17_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_17_address1;
+wire    grp_dedup_calcHash_fu_3607_str_17_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_18_address0;
+wire    grp_dedup_calcHash_fu_3607_str_18_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_18_address1;
+wire    grp_dedup_calcHash_fu_3607_str_18_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_19_address0;
+wire    grp_dedup_calcHash_fu_3607_str_19_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_19_address1;
+wire    grp_dedup_calcHash_fu_3607_str_19_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_20_address0;
+wire    grp_dedup_calcHash_fu_3607_str_20_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_20_address1;
+wire    grp_dedup_calcHash_fu_3607_str_20_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_21_address0;
+wire    grp_dedup_calcHash_fu_3607_str_21_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_21_address1;
+wire    grp_dedup_calcHash_fu_3607_str_21_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_22_address0;
+wire    grp_dedup_calcHash_fu_3607_str_22_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_22_address1;
+wire    grp_dedup_calcHash_fu_3607_str_22_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_23_address0;
+wire    grp_dedup_calcHash_fu_3607_str_23_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_23_address1;
+wire    grp_dedup_calcHash_fu_3607_str_23_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_24_address0;
+wire    grp_dedup_calcHash_fu_3607_str_24_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_24_address1;
+wire    grp_dedup_calcHash_fu_3607_str_24_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_25_address0;
+wire    grp_dedup_calcHash_fu_3607_str_25_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_25_address1;
+wire    grp_dedup_calcHash_fu_3607_str_25_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_26_address0;
+wire    grp_dedup_calcHash_fu_3607_str_26_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_26_address1;
+wire    grp_dedup_calcHash_fu_3607_str_26_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_27_address0;
+wire    grp_dedup_calcHash_fu_3607_str_27_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_27_address1;
+wire    grp_dedup_calcHash_fu_3607_str_27_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_28_address0;
+wire    grp_dedup_calcHash_fu_3607_str_28_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_28_address1;
+wire    grp_dedup_calcHash_fu_3607_str_28_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_29_address0;
+wire    grp_dedup_calcHash_fu_3607_str_29_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_29_address1;
+wire    grp_dedup_calcHash_fu_3607_str_29_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_30_address0;
+wire    grp_dedup_calcHash_fu_3607_str_30_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_30_address1;
+wire    grp_dedup_calcHash_fu_3607_str_30_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_31_address0;
+wire    grp_dedup_calcHash_fu_3607_str_31_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_31_address1;
+wire    grp_dedup_calcHash_fu_3607_str_31_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_32_address0;
+wire    grp_dedup_calcHash_fu_3607_str_32_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_32_address1;
+wire    grp_dedup_calcHash_fu_3607_str_32_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_33_address0;
+wire    grp_dedup_calcHash_fu_3607_str_33_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_33_address1;
+wire    grp_dedup_calcHash_fu_3607_str_33_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_34_address0;
+wire    grp_dedup_calcHash_fu_3607_str_34_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_34_address1;
+wire    grp_dedup_calcHash_fu_3607_str_34_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_35_address0;
+wire    grp_dedup_calcHash_fu_3607_str_35_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_35_address1;
+wire    grp_dedup_calcHash_fu_3607_str_35_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_36_address0;
+wire    grp_dedup_calcHash_fu_3607_str_36_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_36_address1;
+wire    grp_dedup_calcHash_fu_3607_str_36_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_37_address0;
+wire    grp_dedup_calcHash_fu_3607_str_37_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_37_address1;
+wire    grp_dedup_calcHash_fu_3607_str_37_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_38_address0;
+wire    grp_dedup_calcHash_fu_3607_str_38_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_38_address1;
+wire    grp_dedup_calcHash_fu_3607_str_38_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_39_address0;
+wire    grp_dedup_calcHash_fu_3607_str_39_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_39_address1;
+wire    grp_dedup_calcHash_fu_3607_str_39_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_40_address0;
+wire    grp_dedup_calcHash_fu_3607_str_40_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_40_address1;
+wire    grp_dedup_calcHash_fu_3607_str_40_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_41_address0;
+wire    grp_dedup_calcHash_fu_3607_str_41_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_41_address1;
+wire    grp_dedup_calcHash_fu_3607_str_41_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_42_address0;
+wire    grp_dedup_calcHash_fu_3607_str_42_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_42_address1;
+wire    grp_dedup_calcHash_fu_3607_str_42_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_43_address0;
+wire    grp_dedup_calcHash_fu_3607_str_43_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_43_address1;
+wire    grp_dedup_calcHash_fu_3607_str_43_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_44_address0;
+wire    grp_dedup_calcHash_fu_3607_str_44_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_44_address1;
+wire    grp_dedup_calcHash_fu_3607_str_44_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_45_address0;
+wire    grp_dedup_calcHash_fu_3607_str_45_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_45_address1;
+wire    grp_dedup_calcHash_fu_3607_str_45_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_46_address0;
+wire    grp_dedup_calcHash_fu_3607_str_46_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_46_address1;
+wire    grp_dedup_calcHash_fu_3607_str_46_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_47_address0;
+wire    grp_dedup_calcHash_fu_3607_str_47_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_47_address1;
+wire    grp_dedup_calcHash_fu_3607_str_47_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_48_address0;
+wire    grp_dedup_calcHash_fu_3607_str_48_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_48_address1;
+wire    grp_dedup_calcHash_fu_3607_str_48_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_49_address0;
+wire    grp_dedup_calcHash_fu_3607_str_49_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_49_address1;
+wire    grp_dedup_calcHash_fu_3607_str_49_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_50_address0;
+wire    grp_dedup_calcHash_fu_3607_str_50_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_50_address1;
+wire    grp_dedup_calcHash_fu_3607_str_50_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_51_address0;
+wire    grp_dedup_calcHash_fu_3607_str_51_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_51_address1;
+wire    grp_dedup_calcHash_fu_3607_str_51_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_52_address0;
+wire    grp_dedup_calcHash_fu_3607_str_52_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_52_address1;
+wire    grp_dedup_calcHash_fu_3607_str_52_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_53_address0;
+wire    grp_dedup_calcHash_fu_3607_str_53_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_53_address1;
+wire    grp_dedup_calcHash_fu_3607_str_53_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_54_address0;
+wire    grp_dedup_calcHash_fu_3607_str_54_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_54_address1;
+wire    grp_dedup_calcHash_fu_3607_str_54_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_55_address0;
+wire    grp_dedup_calcHash_fu_3607_str_55_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_55_address1;
+wire    grp_dedup_calcHash_fu_3607_str_55_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_56_address0;
+wire    grp_dedup_calcHash_fu_3607_str_56_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_56_address1;
+wire    grp_dedup_calcHash_fu_3607_str_56_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_57_address0;
+wire    grp_dedup_calcHash_fu_3607_str_57_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_57_address1;
+wire    grp_dedup_calcHash_fu_3607_str_57_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_58_address0;
+wire    grp_dedup_calcHash_fu_3607_str_58_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_58_address1;
+wire    grp_dedup_calcHash_fu_3607_str_58_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_59_address0;
+wire    grp_dedup_calcHash_fu_3607_str_59_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_59_address1;
+wire    grp_dedup_calcHash_fu_3607_str_59_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_60_address0;
+wire    grp_dedup_calcHash_fu_3607_str_60_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_60_address1;
+wire    grp_dedup_calcHash_fu_3607_str_60_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_61_address0;
+wire    grp_dedup_calcHash_fu_3607_str_61_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_61_address1;
+wire    grp_dedup_calcHash_fu_3607_str_61_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_62_address0;
+wire    grp_dedup_calcHash_fu_3607_str_62_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_62_address1;
+wire    grp_dedup_calcHash_fu_3607_str_62_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_63_address0;
+wire    grp_dedup_calcHash_fu_3607_str_63_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_63_address1;
+wire    grp_dedup_calcHash_fu_3607_str_63_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_64_address0;
+wire    grp_dedup_calcHash_fu_3607_str_64_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_64_address1;
+wire    grp_dedup_calcHash_fu_3607_str_64_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_65_address0;
+wire    grp_dedup_calcHash_fu_3607_str_65_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_65_address1;
+wire    grp_dedup_calcHash_fu_3607_str_65_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_66_address0;
+wire    grp_dedup_calcHash_fu_3607_str_66_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_66_address1;
+wire    grp_dedup_calcHash_fu_3607_str_66_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_67_address0;
+wire    grp_dedup_calcHash_fu_3607_str_67_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_67_address1;
+wire    grp_dedup_calcHash_fu_3607_str_67_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_68_address0;
+wire    grp_dedup_calcHash_fu_3607_str_68_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_68_address1;
+wire    grp_dedup_calcHash_fu_3607_str_68_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_69_address0;
+wire    grp_dedup_calcHash_fu_3607_str_69_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_69_address1;
+wire    grp_dedup_calcHash_fu_3607_str_69_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_70_address0;
+wire    grp_dedup_calcHash_fu_3607_str_70_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_70_address1;
+wire    grp_dedup_calcHash_fu_3607_str_70_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_71_address0;
+wire    grp_dedup_calcHash_fu_3607_str_71_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_71_address1;
+wire    grp_dedup_calcHash_fu_3607_str_71_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_72_address0;
+wire    grp_dedup_calcHash_fu_3607_str_72_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_72_address1;
+wire    grp_dedup_calcHash_fu_3607_str_72_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_73_address0;
+wire    grp_dedup_calcHash_fu_3607_str_73_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_73_address1;
+wire    grp_dedup_calcHash_fu_3607_str_73_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_74_address0;
+wire    grp_dedup_calcHash_fu_3607_str_74_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_74_address1;
+wire    grp_dedup_calcHash_fu_3607_str_74_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_75_address0;
+wire    grp_dedup_calcHash_fu_3607_str_75_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_75_address1;
+wire    grp_dedup_calcHash_fu_3607_str_75_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_76_address0;
+wire    grp_dedup_calcHash_fu_3607_str_76_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_76_address1;
+wire    grp_dedup_calcHash_fu_3607_str_76_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_77_address0;
+wire    grp_dedup_calcHash_fu_3607_str_77_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_77_address1;
+wire    grp_dedup_calcHash_fu_3607_str_77_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_78_address0;
+wire    grp_dedup_calcHash_fu_3607_str_78_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_78_address1;
+wire    grp_dedup_calcHash_fu_3607_str_78_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_79_address0;
+wire    grp_dedup_calcHash_fu_3607_str_79_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_79_address1;
+wire    grp_dedup_calcHash_fu_3607_str_79_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_80_address0;
+wire    grp_dedup_calcHash_fu_3607_str_80_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_80_address1;
+wire    grp_dedup_calcHash_fu_3607_str_80_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_81_address0;
+wire    grp_dedup_calcHash_fu_3607_str_81_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_81_address1;
+wire    grp_dedup_calcHash_fu_3607_str_81_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_82_address0;
+wire    grp_dedup_calcHash_fu_3607_str_82_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_82_address1;
+wire    grp_dedup_calcHash_fu_3607_str_82_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_83_address0;
+wire    grp_dedup_calcHash_fu_3607_str_83_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_83_address1;
+wire    grp_dedup_calcHash_fu_3607_str_83_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_84_address0;
+wire    grp_dedup_calcHash_fu_3607_str_84_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_84_address1;
+wire    grp_dedup_calcHash_fu_3607_str_84_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_85_address0;
+wire    grp_dedup_calcHash_fu_3607_str_85_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_85_address1;
+wire    grp_dedup_calcHash_fu_3607_str_85_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_86_address0;
+wire    grp_dedup_calcHash_fu_3607_str_86_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_86_address1;
+wire    grp_dedup_calcHash_fu_3607_str_86_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_87_address0;
+wire    grp_dedup_calcHash_fu_3607_str_87_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_87_address1;
+wire    grp_dedup_calcHash_fu_3607_str_87_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_88_address0;
+wire    grp_dedup_calcHash_fu_3607_str_88_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_88_address1;
+wire    grp_dedup_calcHash_fu_3607_str_88_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_89_address0;
+wire    grp_dedup_calcHash_fu_3607_str_89_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_89_address1;
+wire    grp_dedup_calcHash_fu_3607_str_89_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_90_address0;
+wire    grp_dedup_calcHash_fu_3607_str_90_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_90_address1;
+wire    grp_dedup_calcHash_fu_3607_str_90_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_91_address0;
+wire    grp_dedup_calcHash_fu_3607_str_91_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_91_address1;
+wire    grp_dedup_calcHash_fu_3607_str_91_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_92_address0;
+wire    grp_dedup_calcHash_fu_3607_str_92_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_92_address1;
+wire    grp_dedup_calcHash_fu_3607_str_92_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_93_address0;
+wire    grp_dedup_calcHash_fu_3607_str_93_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_93_address1;
+wire    grp_dedup_calcHash_fu_3607_str_93_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_94_address0;
+wire    grp_dedup_calcHash_fu_3607_str_94_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_94_address1;
+wire    grp_dedup_calcHash_fu_3607_str_94_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_95_address0;
+wire    grp_dedup_calcHash_fu_3607_str_95_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_95_address1;
+wire    grp_dedup_calcHash_fu_3607_str_95_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_96_address0;
+wire    grp_dedup_calcHash_fu_3607_str_96_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_96_address1;
+wire    grp_dedup_calcHash_fu_3607_str_96_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_97_address0;
+wire    grp_dedup_calcHash_fu_3607_str_97_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_97_address1;
+wire    grp_dedup_calcHash_fu_3607_str_97_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_98_address0;
+wire    grp_dedup_calcHash_fu_3607_str_98_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_98_address1;
+wire    grp_dedup_calcHash_fu_3607_str_98_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_99_address0;
+wire    grp_dedup_calcHash_fu_3607_str_99_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_99_address1;
+wire    grp_dedup_calcHash_fu_3607_str_99_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_100_address0;
+wire    grp_dedup_calcHash_fu_3607_str_100_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_100_address1;
+wire    grp_dedup_calcHash_fu_3607_str_100_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_101_address0;
+wire    grp_dedup_calcHash_fu_3607_str_101_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_101_address1;
+wire    grp_dedup_calcHash_fu_3607_str_101_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_102_address0;
+wire    grp_dedup_calcHash_fu_3607_str_102_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_102_address1;
+wire    grp_dedup_calcHash_fu_3607_str_102_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_103_address0;
+wire    grp_dedup_calcHash_fu_3607_str_103_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_103_address1;
+wire    grp_dedup_calcHash_fu_3607_str_103_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_104_address0;
+wire    grp_dedup_calcHash_fu_3607_str_104_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_104_address1;
+wire    grp_dedup_calcHash_fu_3607_str_104_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_105_address0;
+wire    grp_dedup_calcHash_fu_3607_str_105_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_105_address1;
+wire    grp_dedup_calcHash_fu_3607_str_105_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_106_address0;
+wire    grp_dedup_calcHash_fu_3607_str_106_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_106_address1;
+wire    grp_dedup_calcHash_fu_3607_str_106_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_107_address0;
+wire    grp_dedup_calcHash_fu_3607_str_107_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_107_address1;
+wire    grp_dedup_calcHash_fu_3607_str_107_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_108_address0;
+wire    grp_dedup_calcHash_fu_3607_str_108_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_108_address1;
+wire    grp_dedup_calcHash_fu_3607_str_108_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_109_address0;
+wire    grp_dedup_calcHash_fu_3607_str_109_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_109_address1;
+wire    grp_dedup_calcHash_fu_3607_str_109_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_110_address0;
+wire    grp_dedup_calcHash_fu_3607_str_110_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_110_address1;
+wire    grp_dedup_calcHash_fu_3607_str_110_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_111_address0;
+wire    grp_dedup_calcHash_fu_3607_str_111_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_111_address1;
+wire    grp_dedup_calcHash_fu_3607_str_111_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_112_address0;
+wire    grp_dedup_calcHash_fu_3607_str_112_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_112_address1;
+wire    grp_dedup_calcHash_fu_3607_str_112_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_113_address0;
+wire    grp_dedup_calcHash_fu_3607_str_113_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_113_address1;
+wire    grp_dedup_calcHash_fu_3607_str_113_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_114_address0;
+wire    grp_dedup_calcHash_fu_3607_str_114_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_114_address1;
+wire    grp_dedup_calcHash_fu_3607_str_114_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_115_address0;
+wire    grp_dedup_calcHash_fu_3607_str_115_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_115_address1;
+wire    grp_dedup_calcHash_fu_3607_str_115_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_116_address0;
+wire    grp_dedup_calcHash_fu_3607_str_116_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_116_address1;
+wire    grp_dedup_calcHash_fu_3607_str_116_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_117_address0;
+wire    grp_dedup_calcHash_fu_3607_str_117_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_117_address1;
+wire    grp_dedup_calcHash_fu_3607_str_117_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_118_address0;
+wire    grp_dedup_calcHash_fu_3607_str_118_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_118_address1;
+wire    grp_dedup_calcHash_fu_3607_str_118_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_119_address0;
+wire    grp_dedup_calcHash_fu_3607_str_119_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_119_address1;
+wire    grp_dedup_calcHash_fu_3607_str_119_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_120_address0;
+wire    grp_dedup_calcHash_fu_3607_str_120_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_120_address1;
+wire    grp_dedup_calcHash_fu_3607_str_120_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_121_address0;
+wire    grp_dedup_calcHash_fu_3607_str_121_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_121_address1;
+wire    grp_dedup_calcHash_fu_3607_str_121_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_122_address0;
+wire    grp_dedup_calcHash_fu_3607_str_122_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_122_address1;
+wire    grp_dedup_calcHash_fu_3607_str_122_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_123_address0;
+wire    grp_dedup_calcHash_fu_3607_str_123_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_123_address1;
+wire    grp_dedup_calcHash_fu_3607_str_123_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_124_address0;
+wire    grp_dedup_calcHash_fu_3607_str_124_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_124_address1;
+wire    grp_dedup_calcHash_fu_3607_str_124_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_125_address0;
+wire    grp_dedup_calcHash_fu_3607_str_125_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_125_address1;
+wire    grp_dedup_calcHash_fu_3607_str_125_ce1;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_126_address0;
+wire    grp_dedup_calcHash_fu_3607_str_126_ce0;
+wire   [5:0] grp_dedup_calcHash_fu_3607_str_127_address0;
+wire    grp_dedup_calcHash_fu_3607_str_127_ce0;
+wire   [12:0] grp_dedup_calcHash_fu_3607_indices_0_o;
+wire    grp_dedup_calcHash_fu_3607_indices_0_o_ap_vld;
+wire   [12:0] grp_dedup_calcHash_fu_3607_indices_1_o;
+wire    grp_dedup_calcHash_fu_3607_indices_1_o_ap_vld;
+wire   [12:0] grp_dedup_calcHash_fu_3607_indices_2_o;
+wire    grp_dedup_calcHash_fu_3607_indices_2_o_ap_vld;
+wire   [12:0] grp_dedup_calcHash_fu_3607_indices_3_o;
+wire    grp_dedup_calcHash_fu_3607_indices_3_o_ap_vld;
+wire   [12:0] grp_dedup_calcHash_fu_3607_indices_4_o;
+wire    grp_dedup_calcHash_fu_3607_indices_4_o_ap_vld;
+wire   [12:0] grp_dedup_calcHash_fu_3607_indices_5_o;
+wire    grp_dedup_calcHash_fu_3607_indices_5_o_ap_vld;
+wire   [12:0] grp_dedup_calcHash_fu_3607_indices_6_o;
+wire    grp_dedup_calcHash_fu_3607_indices_6_o_ap_vld;
+wire   [12:0] grp_dedup_calcHash_fu_3607_indices_7_o;
+wire    grp_dedup_calcHash_fu_3607_indices_7_o_ap_vld;
+wire   [12:0] grp_dedup_calcHash_fu_3607_indices_8_o;
+wire    grp_dedup_calcHash_fu_3607_indices_8_o_ap_vld;
+wire   [12:0] grp_dedup_calcHash_fu_3607_indices_9_o;
+wire    grp_dedup_calcHash_fu_3607_indices_9_o_ap_vld;
+wire   [12:0] grp_dedup_calcHash_fu_3607_indices_10_o;
+wire    grp_dedup_calcHash_fu_3607_indices_10_o_ap_vld;
+wire   [12:0] grp_dedup_calcHash_fu_3607_indices_11_o;
+wire    grp_dedup_calcHash_fu_3607_indices_11_o_ap_vld;
+wire   [12:0] grp_dedup_calcHash_fu_3607_indices_12_o;
+wire    grp_dedup_calcHash_fu_3607_indices_12_o_ap_vld;
+wire   [12:0] grp_dedup_calcHash_fu_3607_indices_13_o;
+wire    grp_dedup_calcHash_fu_3607_indices_13_o_ap_vld;
+wire   [12:0] grp_dedup_calcHash_fu_3607_indices_14_o;
+wire    grp_dedup_calcHash_fu_3607_indices_14_o_ap_vld;
+wire   [12:0] grp_dedup_calcHash_fu_3607_indices_15_o;
+wire    grp_dedup_calcHash_fu_3607_indices_15_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_16_o;
+wire    grp_dedup_calcHash_fu_3607_indices_16_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_17_o;
+wire    grp_dedup_calcHash_fu_3607_indices_17_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_18_o;
+wire    grp_dedup_calcHash_fu_3607_indices_18_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_19_o;
+wire    grp_dedup_calcHash_fu_3607_indices_19_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_20_o;
+wire    grp_dedup_calcHash_fu_3607_indices_20_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_21_o;
+wire    grp_dedup_calcHash_fu_3607_indices_21_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_22_o;
+wire    grp_dedup_calcHash_fu_3607_indices_22_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_23_o;
+wire    grp_dedup_calcHash_fu_3607_indices_23_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_24_o;
+wire    grp_dedup_calcHash_fu_3607_indices_24_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_25_o;
+wire    grp_dedup_calcHash_fu_3607_indices_25_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_26_o;
+wire    grp_dedup_calcHash_fu_3607_indices_26_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_27_o;
+wire    grp_dedup_calcHash_fu_3607_indices_27_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_28_o;
+wire    grp_dedup_calcHash_fu_3607_indices_28_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_29_o;
+wire    grp_dedup_calcHash_fu_3607_indices_29_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_30_o;
+wire    grp_dedup_calcHash_fu_3607_indices_30_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_31_o;
+wire    grp_dedup_calcHash_fu_3607_indices_31_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_32_o;
+wire    grp_dedup_calcHash_fu_3607_indices_32_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_33_o;
+wire    grp_dedup_calcHash_fu_3607_indices_33_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_34_o;
+wire    grp_dedup_calcHash_fu_3607_indices_34_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_35_o;
+wire    grp_dedup_calcHash_fu_3607_indices_35_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_36_o;
+wire    grp_dedup_calcHash_fu_3607_indices_36_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_37_o;
+wire    grp_dedup_calcHash_fu_3607_indices_37_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_38_o;
+wire    grp_dedup_calcHash_fu_3607_indices_38_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_39_o;
+wire    grp_dedup_calcHash_fu_3607_indices_39_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_40_o;
+wire    grp_dedup_calcHash_fu_3607_indices_40_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_41_o;
+wire    grp_dedup_calcHash_fu_3607_indices_41_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_42_o;
+wire    grp_dedup_calcHash_fu_3607_indices_42_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_43_o;
+wire    grp_dedup_calcHash_fu_3607_indices_43_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_44_o;
+wire    grp_dedup_calcHash_fu_3607_indices_44_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_45_o;
+wire    grp_dedup_calcHash_fu_3607_indices_45_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_46_o;
+wire    grp_dedup_calcHash_fu_3607_indices_46_o_ap_vld;
+wire   [13:0] grp_dedup_calcHash_fu_3607_indices_47_o;
+wire    grp_dedup_calcHash_fu_3607_indices_47_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_48_o;
+wire    grp_dedup_calcHash_fu_3607_indices_48_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_49_o;
+wire    grp_dedup_calcHash_fu_3607_indices_49_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_50_o;
+wire    grp_dedup_calcHash_fu_3607_indices_50_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_51_o;
+wire    grp_dedup_calcHash_fu_3607_indices_51_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_52_o;
+wire    grp_dedup_calcHash_fu_3607_indices_52_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_53_o;
+wire    grp_dedup_calcHash_fu_3607_indices_53_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_54_o;
+wire    grp_dedup_calcHash_fu_3607_indices_54_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_55_o;
+wire    grp_dedup_calcHash_fu_3607_indices_55_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_56_o;
+wire    grp_dedup_calcHash_fu_3607_indices_56_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_57_o;
+wire    grp_dedup_calcHash_fu_3607_indices_57_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_58_o;
+wire    grp_dedup_calcHash_fu_3607_indices_58_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_59_o;
+wire    grp_dedup_calcHash_fu_3607_indices_59_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_60_o;
+wire    grp_dedup_calcHash_fu_3607_indices_60_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_61_o;
+wire    grp_dedup_calcHash_fu_3607_indices_61_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_62_o;
+wire    grp_dedup_calcHash_fu_3607_indices_62_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_63_o;
+wire    grp_dedup_calcHash_fu_3607_indices_63_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_64_o;
+wire    grp_dedup_calcHash_fu_3607_indices_64_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_65_o;
+wire    grp_dedup_calcHash_fu_3607_indices_65_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_66_o;
+wire    grp_dedup_calcHash_fu_3607_indices_66_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_67_o;
+wire    grp_dedup_calcHash_fu_3607_indices_67_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_68_o;
+wire    grp_dedup_calcHash_fu_3607_indices_68_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_69_o;
+wire    grp_dedup_calcHash_fu_3607_indices_69_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_70_o;
+wire    grp_dedup_calcHash_fu_3607_indices_70_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_71_o;
+wire    grp_dedup_calcHash_fu_3607_indices_71_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_72_o;
+wire    grp_dedup_calcHash_fu_3607_indices_72_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_73_o;
+wire    grp_dedup_calcHash_fu_3607_indices_73_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_74_o;
+wire    grp_dedup_calcHash_fu_3607_indices_74_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_75_o;
+wire    grp_dedup_calcHash_fu_3607_indices_75_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_76_o;
+wire    grp_dedup_calcHash_fu_3607_indices_76_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_77_o;
+wire    grp_dedup_calcHash_fu_3607_indices_77_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_78_o;
+wire    grp_dedup_calcHash_fu_3607_indices_78_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_79_o;
+wire    grp_dedup_calcHash_fu_3607_indices_79_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_80_o;
+wire    grp_dedup_calcHash_fu_3607_indices_80_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_81_o;
+wire    grp_dedup_calcHash_fu_3607_indices_81_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_82_o;
+wire    grp_dedup_calcHash_fu_3607_indices_82_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_83_o;
+wire    grp_dedup_calcHash_fu_3607_indices_83_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_84_o;
+wire    grp_dedup_calcHash_fu_3607_indices_84_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_85_o;
+wire    grp_dedup_calcHash_fu_3607_indices_85_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_86_o;
+wire    grp_dedup_calcHash_fu_3607_indices_86_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_87_o;
+wire    grp_dedup_calcHash_fu_3607_indices_87_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_88_o;
+wire    grp_dedup_calcHash_fu_3607_indices_88_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_89_o;
+wire    grp_dedup_calcHash_fu_3607_indices_89_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_90_o;
+wire    grp_dedup_calcHash_fu_3607_indices_90_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_91_o;
+wire    grp_dedup_calcHash_fu_3607_indices_91_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_92_o;
+wire    grp_dedup_calcHash_fu_3607_indices_92_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_93_o;
+wire    grp_dedup_calcHash_fu_3607_indices_93_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_94_o;
+wire    grp_dedup_calcHash_fu_3607_indices_94_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_95_o;
+wire    grp_dedup_calcHash_fu_3607_indices_95_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_96_o;
+wire    grp_dedup_calcHash_fu_3607_indices_96_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_97_o;
+wire    grp_dedup_calcHash_fu_3607_indices_97_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_98_o;
+wire    grp_dedup_calcHash_fu_3607_indices_98_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_99_o;
+wire    grp_dedup_calcHash_fu_3607_indices_99_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_100_o;
+wire    grp_dedup_calcHash_fu_3607_indices_100_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_101_o;
+wire    grp_dedup_calcHash_fu_3607_indices_101_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_102_o;
+wire    grp_dedup_calcHash_fu_3607_indices_102_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_103_o;
+wire    grp_dedup_calcHash_fu_3607_indices_103_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_104_o;
+wire    grp_dedup_calcHash_fu_3607_indices_104_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_105_o;
+wire    grp_dedup_calcHash_fu_3607_indices_105_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_106_o;
+wire    grp_dedup_calcHash_fu_3607_indices_106_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_107_o;
+wire    grp_dedup_calcHash_fu_3607_indices_107_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_108_o;
+wire    grp_dedup_calcHash_fu_3607_indices_108_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_109_o;
+wire    grp_dedup_calcHash_fu_3607_indices_109_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_110_o;
+wire    grp_dedup_calcHash_fu_3607_indices_110_o_ap_vld;
+wire   [14:0] grp_dedup_calcHash_fu_3607_indices_111_o;
+wire    grp_dedup_calcHash_fu_3607_indices_111_o_ap_vld;
+wire    grp_dedup_murmurhash128_new_fu_3851_ap_start;
+wire    grp_dedup_murmurhash128_new_fu_3851_ap_idle;
+wire    grp_dedup_murmurhash128_new_fu_3851_ap_ready;
+wire   [5:0] grp_dedup_murmurhash128_new_fu_3851_str_0_address0;
+wire    grp_dedup_murmurhash128_new_fu_3851_str_0_ce0;
+wire   [5:0] grp_dedup_murmurhash128_new_fu_3851_str_0_address1;
+wire    grp_dedup_murmurhash128_new_fu_3851_str_0_ce1;
+wire   [2:0] grp_dedup_murmurhash128_new_fu_3851_indices_address0;
+wire    grp_dedup_murmurhash128_new_fu_3851_indices_ce0;
+wire   [2:0] grp_dedup_murmurhash128_new_fu_3851_indices_address1;
+wire    grp_dedup_murmurhash128_new_fu_3851_indices_ce1;
+wire   [4:0] grp_dedup_murmurhash128_new_fu_3851_hash_address0;
+wire    grp_dedup_murmurhash128_new_fu_3851_hash_ce0;
+wire    grp_dedup_murmurhash128_new_fu_3851_hash_we0;
+wire   [31:0] grp_dedup_murmurhash128_new_fu_3851_hash_d0;
+wire   [4:0] grp_dedup_murmurhash128_new_fu_3851_hash_address1;
+wire    grp_dedup_murmurhash128_new_fu_3851_hash_ce1;
+wire    grp_dedup_murmurhash128_new_fu_3851_hash_we1;
+wire   [31:0] grp_dedup_murmurhash128_new_fu_3851_hash_d1;
+wire   [6:0] invdar_phi_fu_3566_p4;
+reg   [6:0] invdar_reg_3562;
+reg   [2:0] i2_phi_fu_3599_p4;
+reg    ap_reg_grp_dedup_calcHash_fu_3607_ap_start;
+reg    ap_sig_cseq_ST_st5_fsm_3;
+reg    ap_sig_3210;
+reg   [12:0] indices_0_fu_1108;
+reg   [12:0] indices_1_fu_1112;
+reg   [12:0] indices_2_fu_1116;
+reg   [12:0] indices_3_fu_1120;
+reg   [12:0] indices_4_fu_1124;
+reg   [12:0] indices_5_fu_1128;
+reg   [12:0] indices_6_fu_1132;
+reg   [12:0] indices_7_fu_1136;
+reg   [12:0] indices_8_fu_1140;
+reg   [12:0] indices_9_fu_1144;
+reg   [12:0] indices_10_fu_1148;
+reg   [12:0] indices_11_fu_1152;
+reg   [12:0] indices_12_fu_1156;
+reg   [12:0] indices_13_fu_1160;
+reg   [12:0] indices_14_fu_1164;
+reg   [12:0] indices_15_fu_1168;
+reg   [13:0] indices_16_fu_1172;
+reg   [13:0] indices_17_fu_1176;
+reg   [13:0] indices_18_fu_1180;
+reg   [13:0] indices_19_fu_1184;
+reg   [13:0] indices_20_fu_1188;
+reg   [13:0] indices_21_fu_1192;
+reg   [13:0] indices_22_fu_1196;
+reg   [13:0] indices_23_fu_1200;
+reg   [13:0] indices_24_fu_1204;
+reg   [13:0] indices_25_fu_1208;
+reg   [13:0] indices_26_fu_1212;
+reg   [13:0] indices_27_fu_1216;
+reg   [13:0] indices_28_fu_1220;
+reg   [13:0] indices_29_fu_1224;
+reg   [13:0] indices_30_fu_1228;
+reg   [13:0] indices_31_fu_1232;
+reg   [13:0] indices_32_fu_1236;
+reg   [13:0] indices_33_fu_1240;
+reg   [13:0] indices_34_fu_1244;
+reg   [13:0] indices_35_fu_1248;
+reg   [13:0] indices_36_fu_1252;
+reg   [13:0] indices_37_fu_1256;
+reg   [13:0] indices_38_fu_1260;
+reg   [13:0] indices_39_fu_1264;
+reg   [13:0] indices_40_fu_1268;
+reg   [13:0] indices_41_fu_1272;
+reg   [13:0] indices_42_fu_1276;
+reg   [13:0] indices_43_fu_1280;
+reg   [13:0] indices_44_fu_1284;
+reg   [13:0] indices_45_fu_1288;
+reg   [13:0] indices_46_fu_1292;
+reg   [13:0] indices_47_fu_1296;
+reg   [14:0] indices_48_fu_1300;
+reg   [14:0] indices_49_fu_1304;
+reg   [14:0] indices_50_fu_1308;
+reg   [14:0] indices_51_fu_1312;
+reg   [14:0] indices_52_fu_1316;
+reg   [14:0] indices_53_fu_1320;
+reg   [14:0] indices_54_fu_1324;
+reg   [14:0] indices_55_fu_1328;
+reg   [14:0] indices_56_fu_1332;
+reg   [14:0] indices_57_fu_1336;
+reg   [14:0] indices_58_fu_1340;
+reg   [14:0] indices_59_fu_1344;
+reg   [14:0] indices_60_fu_1348;
+reg   [14:0] indices_61_fu_1352;
+reg   [14:0] indices_62_fu_1356;
+reg   [14:0] indices_63_fu_1360;
+reg   [14:0] indices_64_fu_1364;
+reg   [14:0] indices_65_fu_1368;
+reg   [14:0] indices_66_fu_1372;
+reg   [14:0] indices_67_fu_1376;
+reg   [14:0] indices_68_fu_1380;
+reg   [14:0] indices_69_fu_1384;
+reg   [14:0] indices_70_fu_1388;
+reg   [14:0] indices_71_fu_1392;
+reg   [14:0] indices_72_fu_1396;
+reg   [14:0] indices_73_fu_1400;
+reg   [14:0] indices_74_fu_1404;
+reg   [14:0] indices_75_fu_1408;
+reg   [14:0] indices_76_fu_1412;
+reg   [14:0] indices_77_fu_1416;
+reg   [14:0] indices_78_fu_1420;
+reg   [14:0] indices_79_fu_1424;
+reg   [14:0] indices_80_fu_1428;
+reg   [14:0] indices_81_fu_1432;
+reg   [14:0] indices_82_fu_1436;
+reg   [14:0] indices_83_fu_1440;
+reg   [14:0] indices_84_fu_1444;
+reg   [14:0] indices_85_fu_1448;
+reg   [14:0] indices_86_fu_1452;
+reg   [14:0] indices_87_fu_1456;
+reg   [14:0] indices_88_fu_1460;
+reg   [14:0] indices_89_fu_1464;
+reg   [14:0] indices_90_fu_1468;
+reg   [14:0] indices_91_fu_1472;
+reg   [14:0] indices_92_fu_1476;
+reg   [14:0] indices_93_fu_1480;
+reg   [14:0] indices_94_fu_1484;
+reg   [14:0] indices_95_fu_1488;
+reg   [14:0] indices_96_fu_1492;
+reg   [14:0] indices_97_fu_1496;
+reg   [14:0] indices_98_fu_1500;
+reg   [14:0] indices_99_fu_1504;
+reg   [14:0] indices_100_fu_1508;
+reg   [14:0] indices_101_fu_1512;
+reg   [14:0] indices_102_fu_1516;
+reg   [14:0] indices_103_fu_1520;
+reg   [14:0] indices_104_fu_1524;
+reg   [14:0] indices_105_fu_1528;
+reg   [14:0] indices_106_fu_1532;
+reg   [14:0] indices_107_fu_1536;
+reg   [14:0] indices_108_fu_1540;
+reg   [14:0] indices_109_fu_1544;
+reg   [14:0] indices_110_fu_1548;
+reg   [14:0] indices_111_fu_1552;
+reg    ap_reg_grp_dedup_murmurhash128_new_fu_3851_ap_start;
+reg    ap_sig_cseq_ST_st9_fsm_6;
+reg    ap_sig_3555;
+wire   [63:0] newIndex1_fu_4586_p1;
+wire  signed [63:0] tmp_38_fu_5786_p1;
+wire   [0:0] or_cond_fu_5780_p2;
+wire   [63:0] tmp_50_fu_5826_p1;
+wire   [63:0] tmp_52_fu_5837_p3;
+wire   [63:0] tmp_54_fu_5866_p3;
+wire   [63:0] tmp_56_fu_5880_p3;
+wire   [63:0] tmp_37_fu_5856_p1;
+reg   [31:0] lastIndex_fu_1564;
+reg   [31:0] numOfIndex_fu_1568;
+wire   [31:0] numOfIndex_1_fu_5791_p2;
 reg    ap_reg_ioackin_outputData_TREADY;
-wire   [6:0] tmp_72_fu_3154_p1;
-wire   [6:0] newIndex_fu_3158_p4;
-reg   [8:0] ap_NS_fsm;
+wire   [5:0] tmp_59_fu_4582_p1;
+wire  signed [31:0] lastIndex_1_fu_5524_p1;
+wire  signed [31:0] lastIndex_1_fu_5524_p2;
+wire  signed [31:0] lastIndex_1_fu_5524_p3;
+wire  signed [31:0] lastIndex_1_fu_5524_p4;
+wire  signed [31:0] lastIndex_1_fu_5524_p5;
+wire  signed [31:0] lastIndex_1_fu_5524_p6;
+wire  signed [31:0] lastIndex_1_fu_5524_p7;
+wire  signed [31:0] lastIndex_1_fu_5524_p8;
+wire  signed [31:0] lastIndex_1_fu_5524_p9;
+wire  signed [31:0] lastIndex_1_fu_5524_p10;
+wire  signed [31:0] lastIndex_1_fu_5524_p11;
+wire  signed [31:0] lastIndex_1_fu_5524_p12;
+wire  signed [31:0] lastIndex_1_fu_5524_p13;
+wire  signed [31:0] lastIndex_1_fu_5524_p14;
+wire  signed [31:0] lastIndex_1_fu_5524_p15;
+wire  signed [31:0] lastIndex_1_fu_5524_p16;
+wire  signed [31:0] lastIndex_1_fu_5524_p17;
+wire  signed [31:0] lastIndex_1_fu_5524_p18;
+wire  signed [31:0] lastIndex_1_fu_5524_p19;
+wire  signed [31:0] lastIndex_1_fu_5524_p20;
+wire  signed [31:0] lastIndex_1_fu_5524_p21;
+wire  signed [31:0] lastIndex_1_fu_5524_p22;
+wire  signed [31:0] lastIndex_1_fu_5524_p23;
+wire  signed [31:0] lastIndex_1_fu_5524_p24;
+wire  signed [31:0] lastIndex_1_fu_5524_p25;
+wire  signed [31:0] lastIndex_1_fu_5524_p26;
+wire  signed [31:0] lastIndex_1_fu_5524_p27;
+wire  signed [31:0] lastIndex_1_fu_5524_p28;
+wire  signed [31:0] lastIndex_1_fu_5524_p29;
+wire  signed [31:0] lastIndex_1_fu_5524_p30;
+wire  signed [31:0] lastIndex_1_fu_5524_p31;
+wire  signed [31:0] lastIndex_1_fu_5524_p32;
+wire  signed [31:0] lastIndex_1_fu_5524_p33;
+wire  signed [31:0] lastIndex_1_fu_5524_p34;
+wire  signed [31:0] lastIndex_1_fu_5524_p35;
+wire  signed [31:0] lastIndex_1_fu_5524_p36;
+wire  signed [31:0] lastIndex_1_fu_5524_p37;
+wire  signed [31:0] lastIndex_1_fu_5524_p38;
+wire  signed [31:0] lastIndex_1_fu_5524_p39;
+wire  signed [31:0] lastIndex_1_fu_5524_p40;
+wire  signed [31:0] lastIndex_1_fu_5524_p41;
+wire  signed [31:0] lastIndex_1_fu_5524_p42;
+wire  signed [31:0] lastIndex_1_fu_5524_p43;
+wire  signed [31:0] lastIndex_1_fu_5524_p44;
+wire  signed [31:0] lastIndex_1_fu_5524_p45;
+wire  signed [31:0] lastIndex_1_fu_5524_p46;
+wire  signed [31:0] lastIndex_1_fu_5524_p47;
+wire  signed [31:0] lastIndex_1_fu_5524_p48;
+wire  signed [31:0] lastIndex_1_fu_5524_p49;
+wire  signed [31:0] lastIndex_1_fu_5524_p50;
+wire  signed [31:0] lastIndex_1_fu_5524_p51;
+wire  signed [31:0] lastIndex_1_fu_5524_p52;
+wire  signed [31:0] lastIndex_1_fu_5524_p53;
+wire  signed [31:0] lastIndex_1_fu_5524_p54;
+wire  signed [31:0] lastIndex_1_fu_5524_p55;
+wire  signed [31:0] lastIndex_1_fu_5524_p56;
+wire  signed [31:0] lastIndex_1_fu_5524_p57;
+wire  signed [31:0] lastIndex_1_fu_5524_p58;
+wire  signed [31:0] lastIndex_1_fu_5524_p59;
+wire  signed [31:0] lastIndex_1_fu_5524_p60;
+wire  signed [31:0] lastIndex_1_fu_5524_p61;
+wire  signed [31:0] lastIndex_1_fu_5524_p62;
+wire  signed [31:0] lastIndex_1_fu_5524_p63;
+wire  signed [31:0] lastIndex_1_fu_5524_p64;
+wire  signed [31:0] lastIndex_1_fu_5524_p65;
+wire  signed [31:0] lastIndex_1_fu_5524_p66;
+wire  signed [31:0] lastIndex_1_fu_5524_p67;
+wire  signed [31:0] lastIndex_1_fu_5524_p68;
+wire  signed [31:0] lastIndex_1_fu_5524_p69;
+wire  signed [31:0] lastIndex_1_fu_5524_p70;
+wire  signed [31:0] lastIndex_1_fu_5524_p71;
+wire  signed [31:0] lastIndex_1_fu_5524_p72;
+wire  signed [31:0] lastIndex_1_fu_5524_p73;
+wire  signed [31:0] lastIndex_1_fu_5524_p74;
+wire  signed [31:0] lastIndex_1_fu_5524_p75;
+wire  signed [31:0] lastIndex_1_fu_5524_p76;
+wire  signed [31:0] lastIndex_1_fu_5524_p77;
+wire  signed [31:0] lastIndex_1_fu_5524_p78;
+wire  signed [31:0] lastIndex_1_fu_5524_p79;
+wire  signed [31:0] lastIndex_1_fu_5524_p80;
+wire  signed [31:0] lastIndex_1_fu_5524_p81;
+wire  signed [31:0] lastIndex_1_fu_5524_p82;
+wire  signed [31:0] lastIndex_1_fu_5524_p83;
+wire  signed [31:0] lastIndex_1_fu_5524_p84;
+wire  signed [31:0] lastIndex_1_fu_5524_p85;
+wire  signed [31:0] lastIndex_1_fu_5524_p86;
+wire  signed [31:0] lastIndex_1_fu_5524_p87;
+wire  signed [31:0] lastIndex_1_fu_5524_p88;
+wire  signed [31:0] lastIndex_1_fu_5524_p89;
+wire  signed [31:0] lastIndex_1_fu_5524_p90;
+wire  signed [31:0] lastIndex_1_fu_5524_p91;
+wire  signed [31:0] lastIndex_1_fu_5524_p92;
+wire  signed [31:0] lastIndex_1_fu_5524_p93;
+wire  signed [31:0] lastIndex_1_fu_5524_p94;
+wire  signed [31:0] lastIndex_1_fu_5524_p95;
+wire  signed [31:0] lastIndex_1_fu_5524_p96;
+wire  signed [31:0] lastIndex_1_fu_5524_p97;
+wire  signed [31:0] lastIndex_1_fu_5524_p98;
+wire  signed [31:0] lastIndex_1_fu_5524_p99;
+wire  signed [31:0] lastIndex_1_fu_5524_p100;
+wire  signed [31:0] lastIndex_1_fu_5524_p101;
+wire  signed [31:0] lastIndex_1_fu_5524_p102;
+wire  signed [31:0] lastIndex_1_fu_5524_p103;
+wire  signed [31:0] lastIndex_1_fu_5524_p104;
+wire  signed [31:0] lastIndex_1_fu_5524_p105;
+wire  signed [31:0] lastIndex_1_fu_5524_p106;
+wire  signed [31:0] lastIndex_1_fu_5524_p107;
+wire  signed [31:0] lastIndex_1_fu_5524_p108;
+wire  signed [31:0] lastIndex_1_fu_5524_p109;
+wire  signed [31:0] lastIndex_1_fu_5524_p110;
+wire  signed [31:0] lastIndex_1_fu_5524_p111;
+wire  signed [31:0] lastIndex_1_fu_5524_p112;
+wire   [31:0] tmp_32_fu_5763_p2;
+wire   [0:0] tmp_33_fu_5768_p2;
+wire   [0:0] tmp_34_fu_5774_p2;
+wire   [4:0] tmp_51_fu_5831_p2;
+wire   [31:0] i2_cast1_fu_5846_p1;
+wire   [4:0] tmp_53_fu_5861_p2;
+wire   [4:0] tmp_55_fu_5875_p2;
+wire   [31:0] item_data_hashData_3_fu_5908_p3;
+wire   [31:0] item_data_hashData_2_18_fu_5889_p3;
+wire   [31:0] item_data_hashData_1_19_fu_5896_p3;
+wire   [31:0] item_data_hashData_fu_5902_p3;
+wire   [31:0] tmp_data_index_fu_5915_p3;
+reg    ap_sig_cseq_ST_st14_fsm_10;
+reg    ap_sig_5810;
+reg   [10:0] ap_NS_fsm;
 
 // power-on initialization
 initial begin
-#0 ap_CS_fsm = 9'b1;
-#0 ap_reg_grp_dedup_calcHash_fu_2858_ap_start = 1'b0;
-#0 ap_reg_grp_dedup_murmurhash_fu_2991_ap_start = 1'b0;
+#0 ap_CS_fsm = 11'b1;
+#0 ap_reg_ppiten_pp0_it0 = 1'b0;
+#0 ap_reg_ppiten_pp0_it1 = 1'b0;
+#0 ap_reg_ppiten_pp2_it1 = 1'b0;
+#0 ap_reg_ppiten_pp2_it0 = 1'b0;
+#0 ap_reg_ppiten_pp1_it0 = 1'b0;
+#0 ap_reg_ppiten_pp1_it1 = 1'b0;
+#0 ap_reg_grp_dedup_calcHash_fu_3607_ap_start = 1'b0;
+#0 ap_reg_grp_dedup_murmurhash128_new_fu_3851_ap_start = 1'b0;
 #0 ap_reg_ioackin_outputData_TREADY = 1'b0;
 end
 
@@ -2298,7 +2292,7 @@ dedup_buffer_0 #(
 buffer_1_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_1_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_1_address0),
     .ce0(buffer_1_ce0),
     .q0(buffer_1_q0),
     .address1(buffer_1_address1),
@@ -2315,7 +2309,7 @@ dedup_buffer_0 #(
 buffer_2_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_2_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_2_address0),
     .ce0(buffer_2_ce0),
     .q0(buffer_2_q0),
     .address1(buffer_2_address1),
@@ -2332,7 +2326,7 @@ dedup_buffer_0 #(
 buffer_3_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_3_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_3_address0),
     .ce0(buffer_3_ce0),
     .q0(buffer_3_q0),
     .address1(buffer_3_address1),
@@ -2349,7 +2343,7 @@ dedup_buffer_0 #(
 buffer_4_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_4_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_4_address0),
     .ce0(buffer_4_ce0),
     .q0(buffer_4_q0),
     .address1(buffer_4_address1),
@@ -2366,7 +2360,7 @@ dedup_buffer_0 #(
 buffer_5_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_5_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_5_address0),
     .ce0(buffer_5_ce0),
     .q0(buffer_5_q0),
     .address1(buffer_5_address1),
@@ -2383,7 +2377,7 @@ dedup_buffer_0 #(
 buffer_6_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_6_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_6_address0),
     .ce0(buffer_6_ce0),
     .q0(buffer_6_q0),
     .address1(buffer_6_address1),
@@ -2400,7 +2394,7 @@ dedup_buffer_0 #(
 buffer_7_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_7_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_7_address0),
     .ce0(buffer_7_ce0),
     .q0(buffer_7_q0),
     .address1(buffer_7_address1),
@@ -2417,7 +2411,7 @@ dedup_buffer_0 #(
 buffer_8_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_8_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_8_address0),
     .ce0(buffer_8_ce0),
     .q0(buffer_8_q0),
     .address1(buffer_8_address1),
@@ -2434,7 +2428,7 @@ dedup_buffer_0 #(
 buffer_9_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_9_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_9_address0),
     .ce0(buffer_9_ce0),
     .q0(buffer_9_q0),
     .address1(buffer_9_address1),
@@ -2451,7 +2445,7 @@ dedup_buffer_0 #(
 buffer_10_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_10_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_10_address0),
     .ce0(buffer_10_ce0),
     .q0(buffer_10_q0),
     .address1(buffer_10_address1),
@@ -2468,7 +2462,7 @@ dedup_buffer_0 #(
 buffer_11_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_11_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_11_address0),
     .ce0(buffer_11_ce0),
     .q0(buffer_11_q0),
     .address1(buffer_11_address1),
@@ -2485,7 +2479,7 @@ dedup_buffer_0 #(
 buffer_12_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_12_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_12_address0),
     .ce0(buffer_12_ce0),
     .q0(buffer_12_q0),
     .address1(buffer_12_address1),
@@ -2502,7 +2496,7 @@ dedup_buffer_0 #(
 buffer_13_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_13_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_13_address0),
     .ce0(buffer_13_ce0),
     .q0(buffer_13_q0),
     .address1(buffer_13_address1),
@@ -2519,7 +2513,7 @@ dedup_buffer_0 #(
 buffer_14_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_14_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_14_address0),
     .ce0(buffer_14_ce0),
     .q0(buffer_14_q0),
     .address1(buffer_14_address1),
@@ -2536,7 +2530,7 @@ dedup_buffer_0 #(
 buffer_15_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_15_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_15_address0),
     .ce0(buffer_15_ce0),
     .q0(buffer_15_q0),
     .address1(buffer_15_address1),
@@ -2553,7 +2547,7 @@ dedup_buffer_0 #(
 buffer_16_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_16_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_16_address0),
     .ce0(buffer_16_ce0),
     .q0(buffer_16_q0),
     .address1(buffer_16_address1),
@@ -2570,7 +2564,7 @@ dedup_buffer_0 #(
 buffer_17_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_17_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_17_address0),
     .ce0(buffer_17_ce0),
     .q0(buffer_17_q0),
     .address1(buffer_17_address1),
@@ -2587,7 +2581,7 @@ dedup_buffer_0 #(
 buffer_18_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_18_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_18_address0),
     .ce0(buffer_18_ce0),
     .q0(buffer_18_q0),
     .address1(buffer_18_address1),
@@ -2604,7 +2598,7 @@ dedup_buffer_0 #(
 buffer_19_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_19_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_19_address0),
     .ce0(buffer_19_ce0),
     .q0(buffer_19_q0),
     .address1(buffer_19_address1),
@@ -2621,7 +2615,7 @@ dedup_buffer_0 #(
 buffer_20_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_20_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_20_address0),
     .ce0(buffer_20_ce0),
     .q0(buffer_20_q0),
     .address1(buffer_20_address1),
@@ -2638,7 +2632,7 @@ dedup_buffer_0 #(
 buffer_21_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_21_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_21_address0),
     .ce0(buffer_21_ce0),
     .q0(buffer_21_q0),
     .address1(buffer_21_address1),
@@ -2655,7 +2649,7 @@ dedup_buffer_0 #(
 buffer_22_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_22_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_22_address0),
     .ce0(buffer_22_ce0),
     .q0(buffer_22_q0),
     .address1(buffer_22_address1),
@@ -2672,7 +2666,7 @@ dedup_buffer_0 #(
 buffer_23_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_23_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_23_address0),
     .ce0(buffer_23_ce0),
     .q0(buffer_23_q0),
     .address1(buffer_23_address1),
@@ -2689,7 +2683,7 @@ dedup_buffer_0 #(
 buffer_24_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_24_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_24_address0),
     .ce0(buffer_24_ce0),
     .q0(buffer_24_q0),
     .address1(buffer_24_address1),
@@ -2706,7 +2700,7 @@ dedup_buffer_0 #(
 buffer_25_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_25_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_25_address0),
     .ce0(buffer_25_ce0),
     .q0(buffer_25_q0),
     .address1(buffer_25_address1),
@@ -2723,7 +2717,7 @@ dedup_buffer_0 #(
 buffer_26_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_26_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_26_address0),
     .ce0(buffer_26_ce0),
     .q0(buffer_26_q0),
     .address1(buffer_26_address1),
@@ -2740,7 +2734,7 @@ dedup_buffer_0 #(
 buffer_27_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_27_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_27_address0),
     .ce0(buffer_27_ce0),
     .q0(buffer_27_q0),
     .address1(buffer_27_address1),
@@ -2757,7 +2751,7 @@ dedup_buffer_0 #(
 buffer_28_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_28_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_28_address0),
     .ce0(buffer_28_ce0),
     .q0(buffer_28_q0),
     .address1(buffer_28_address1),
@@ -2774,7 +2768,7 @@ dedup_buffer_0 #(
 buffer_29_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_29_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_29_address0),
     .ce0(buffer_29_ce0),
     .q0(buffer_29_q0),
     .address1(buffer_29_address1),
@@ -2791,7 +2785,7 @@ dedup_buffer_0 #(
 buffer_30_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_30_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_30_address0),
     .ce0(buffer_30_ce0),
     .q0(buffer_30_q0),
     .address1(buffer_30_address1),
@@ -2808,7 +2802,7 @@ dedup_buffer_0 #(
 buffer_31_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_31_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_31_address0),
     .ce0(buffer_31_ce0),
     .q0(buffer_31_q0),
     .address1(buffer_31_address1),
@@ -2825,7 +2819,7 @@ dedup_buffer_0 #(
 buffer_32_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_32_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_32_address0),
     .ce0(buffer_32_ce0),
     .q0(buffer_32_q0),
     .address1(buffer_32_address1),
@@ -2842,7 +2836,7 @@ dedup_buffer_0 #(
 buffer_33_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_33_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_33_address0),
     .ce0(buffer_33_ce0),
     .q0(buffer_33_q0),
     .address1(buffer_33_address1),
@@ -2859,7 +2853,7 @@ dedup_buffer_0 #(
 buffer_34_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_34_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_34_address0),
     .ce0(buffer_34_ce0),
     .q0(buffer_34_q0),
     .address1(buffer_34_address1),
@@ -2876,7 +2870,7 @@ dedup_buffer_0 #(
 buffer_35_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_35_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_35_address0),
     .ce0(buffer_35_ce0),
     .q0(buffer_35_q0),
     .address1(buffer_35_address1),
@@ -2893,7 +2887,7 @@ dedup_buffer_0 #(
 buffer_36_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_36_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_36_address0),
     .ce0(buffer_36_ce0),
     .q0(buffer_36_q0),
     .address1(buffer_36_address1),
@@ -2910,7 +2904,7 @@ dedup_buffer_0 #(
 buffer_37_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_37_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_37_address0),
     .ce0(buffer_37_ce0),
     .q0(buffer_37_q0),
     .address1(buffer_37_address1),
@@ -2927,7 +2921,7 @@ dedup_buffer_0 #(
 buffer_38_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_38_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_38_address0),
     .ce0(buffer_38_ce0),
     .q0(buffer_38_q0),
     .address1(buffer_38_address1),
@@ -2944,7 +2938,7 @@ dedup_buffer_0 #(
 buffer_39_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_39_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_39_address0),
     .ce0(buffer_39_ce0),
     .q0(buffer_39_q0),
     .address1(buffer_39_address1),
@@ -2961,7 +2955,7 @@ dedup_buffer_0 #(
 buffer_40_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_40_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_40_address0),
     .ce0(buffer_40_ce0),
     .q0(buffer_40_q0),
     .address1(buffer_40_address1),
@@ -2978,7 +2972,7 @@ dedup_buffer_0 #(
 buffer_41_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_41_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_41_address0),
     .ce0(buffer_41_ce0),
     .q0(buffer_41_q0),
     .address1(buffer_41_address1),
@@ -2995,7 +2989,7 @@ dedup_buffer_0 #(
 buffer_42_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_42_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_42_address0),
     .ce0(buffer_42_ce0),
     .q0(buffer_42_q0),
     .address1(buffer_42_address1),
@@ -3012,7 +3006,7 @@ dedup_buffer_0 #(
 buffer_43_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_43_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_43_address0),
     .ce0(buffer_43_ce0),
     .q0(buffer_43_q0),
     .address1(buffer_43_address1),
@@ -3029,7 +3023,7 @@ dedup_buffer_0 #(
 buffer_44_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_44_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_44_address0),
     .ce0(buffer_44_ce0),
     .q0(buffer_44_q0),
     .address1(buffer_44_address1),
@@ -3046,7 +3040,7 @@ dedup_buffer_0 #(
 buffer_45_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_45_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_45_address0),
     .ce0(buffer_45_ce0),
     .q0(buffer_45_q0),
     .address1(buffer_45_address1),
@@ -3063,7 +3057,7 @@ dedup_buffer_0 #(
 buffer_46_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_46_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_46_address0),
     .ce0(buffer_46_ce0),
     .q0(buffer_46_q0),
     .address1(buffer_46_address1),
@@ -3080,7 +3074,7 @@ dedup_buffer_0 #(
 buffer_47_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_47_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_47_address0),
     .ce0(buffer_47_ce0),
     .q0(buffer_47_q0),
     .address1(buffer_47_address1),
@@ -3097,7 +3091,7 @@ dedup_buffer_0 #(
 buffer_48_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_48_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_48_address0),
     .ce0(buffer_48_ce0),
     .q0(buffer_48_q0),
     .address1(buffer_48_address1),
@@ -3114,7 +3108,7 @@ dedup_buffer_0 #(
 buffer_49_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_49_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_49_address0),
     .ce0(buffer_49_ce0),
     .q0(buffer_49_q0),
     .address1(buffer_49_address1),
@@ -3131,7 +3125,7 @@ dedup_buffer_0 #(
 buffer_50_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_50_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_50_address0),
     .ce0(buffer_50_ce0),
     .q0(buffer_50_q0),
     .address1(buffer_50_address1),
@@ -3148,7 +3142,7 @@ dedup_buffer_0 #(
 buffer_51_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_51_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_51_address0),
     .ce0(buffer_51_ce0),
     .q0(buffer_51_q0),
     .address1(buffer_51_address1),
@@ -3165,7 +3159,7 @@ dedup_buffer_0 #(
 buffer_52_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_52_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_52_address0),
     .ce0(buffer_52_ce0),
     .q0(buffer_52_q0),
     .address1(buffer_52_address1),
@@ -3182,7 +3176,7 @@ dedup_buffer_0 #(
 buffer_53_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_53_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_53_address0),
     .ce0(buffer_53_ce0),
     .q0(buffer_53_q0),
     .address1(buffer_53_address1),
@@ -3199,7 +3193,7 @@ dedup_buffer_0 #(
 buffer_54_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_54_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_54_address0),
     .ce0(buffer_54_ce0),
     .q0(buffer_54_q0),
     .address1(buffer_54_address1),
@@ -3216,7 +3210,7 @@ dedup_buffer_0 #(
 buffer_55_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_55_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_55_address0),
     .ce0(buffer_55_ce0),
     .q0(buffer_55_q0),
     .address1(buffer_55_address1),
@@ -3233,7 +3227,7 @@ dedup_buffer_0 #(
 buffer_56_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_56_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_56_address0),
     .ce0(buffer_56_ce0),
     .q0(buffer_56_q0),
     .address1(buffer_56_address1),
@@ -3250,7 +3244,7 @@ dedup_buffer_0 #(
 buffer_57_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_57_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_57_address0),
     .ce0(buffer_57_ce0),
     .q0(buffer_57_q0),
     .address1(buffer_57_address1),
@@ -3267,7 +3261,7 @@ dedup_buffer_0 #(
 buffer_58_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_58_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_58_address0),
     .ce0(buffer_58_ce0),
     .q0(buffer_58_q0),
     .address1(buffer_58_address1),
@@ -3284,7 +3278,7 @@ dedup_buffer_0 #(
 buffer_59_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_59_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_59_address0),
     .ce0(buffer_59_ce0),
     .q0(buffer_59_q0),
     .address1(buffer_59_address1),
@@ -3301,7 +3295,7 @@ dedup_buffer_0 #(
 buffer_60_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_60_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_60_address0),
     .ce0(buffer_60_ce0),
     .q0(buffer_60_q0),
     .address1(buffer_60_address1),
@@ -3318,7 +3312,7 @@ dedup_buffer_0 #(
 buffer_61_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_61_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_61_address0),
     .ce0(buffer_61_ce0),
     .q0(buffer_61_q0),
     .address1(buffer_61_address1),
@@ -3335,7 +3329,7 @@ dedup_buffer_0 #(
 buffer_62_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_62_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_62_address0),
     .ce0(buffer_62_ce0),
     .q0(buffer_62_q0),
     .address1(buffer_62_address1),
@@ -3352,7 +3346,7 @@ dedup_buffer_0 #(
 buffer_63_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_63_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_63_address0),
     .ce0(buffer_63_ce0),
     .q0(buffer_63_q0),
     .address1(buffer_63_address1),
@@ -3369,7 +3363,7 @@ dedup_buffer_0 #(
 buffer_64_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_64_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_64_address0),
     .ce0(buffer_64_ce0),
     .q0(buffer_64_q0),
     .address1(buffer_64_address1),
@@ -3386,7 +3380,7 @@ dedup_buffer_0 #(
 buffer_65_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_65_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_65_address0),
     .ce0(buffer_65_ce0),
     .q0(buffer_65_q0),
     .address1(buffer_65_address1),
@@ -3403,7 +3397,7 @@ dedup_buffer_0 #(
 buffer_66_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_66_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_66_address0),
     .ce0(buffer_66_ce0),
     .q0(buffer_66_q0),
     .address1(buffer_66_address1),
@@ -3420,7 +3414,7 @@ dedup_buffer_0 #(
 buffer_67_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_67_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_67_address0),
     .ce0(buffer_67_ce0),
     .q0(buffer_67_q0),
     .address1(buffer_67_address1),
@@ -3437,7 +3431,7 @@ dedup_buffer_0 #(
 buffer_68_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_68_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_68_address0),
     .ce0(buffer_68_ce0),
     .q0(buffer_68_q0),
     .address1(buffer_68_address1),
@@ -3454,7 +3448,7 @@ dedup_buffer_0 #(
 buffer_69_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_69_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_69_address0),
     .ce0(buffer_69_ce0),
     .q0(buffer_69_q0),
     .address1(buffer_69_address1),
@@ -3471,7 +3465,7 @@ dedup_buffer_0 #(
 buffer_70_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_70_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_70_address0),
     .ce0(buffer_70_ce0),
     .q0(buffer_70_q0),
     .address1(buffer_70_address1),
@@ -3488,7 +3482,7 @@ dedup_buffer_0 #(
 buffer_71_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_71_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_71_address0),
     .ce0(buffer_71_ce0),
     .q0(buffer_71_q0),
     .address1(buffer_71_address1),
@@ -3505,7 +3499,7 @@ dedup_buffer_0 #(
 buffer_72_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_72_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_72_address0),
     .ce0(buffer_72_ce0),
     .q0(buffer_72_q0),
     .address1(buffer_72_address1),
@@ -3522,7 +3516,7 @@ dedup_buffer_0 #(
 buffer_73_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_73_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_73_address0),
     .ce0(buffer_73_ce0),
     .q0(buffer_73_q0),
     .address1(buffer_73_address1),
@@ -3539,7 +3533,7 @@ dedup_buffer_0 #(
 buffer_74_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_74_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_74_address0),
     .ce0(buffer_74_ce0),
     .q0(buffer_74_q0),
     .address1(buffer_74_address1),
@@ -3556,7 +3550,7 @@ dedup_buffer_0 #(
 buffer_75_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_75_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_75_address0),
     .ce0(buffer_75_ce0),
     .q0(buffer_75_q0),
     .address1(buffer_75_address1),
@@ -3573,7 +3567,7 @@ dedup_buffer_0 #(
 buffer_76_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_76_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_76_address0),
     .ce0(buffer_76_ce0),
     .q0(buffer_76_q0),
     .address1(buffer_76_address1),
@@ -3590,7 +3584,7 @@ dedup_buffer_0 #(
 buffer_77_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_77_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_77_address0),
     .ce0(buffer_77_ce0),
     .q0(buffer_77_q0),
     .address1(buffer_77_address1),
@@ -3607,7 +3601,7 @@ dedup_buffer_0 #(
 buffer_78_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_78_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_78_address0),
     .ce0(buffer_78_ce0),
     .q0(buffer_78_q0),
     .address1(buffer_78_address1),
@@ -3624,7 +3618,7 @@ dedup_buffer_0 #(
 buffer_79_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_79_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_79_address0),
     .ce0(buffer_79_ce0),
     .q0(buffer_79_q0),
     .address1(buffer_79_address1),
@@ -3641,7 +3635,7 @@ dedup_buffer_0 #(
 buffer_80_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_80_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_80_address0),
     .ce0(buffer_80_ce0),
     .q0(buffer_80_q0),
     .address1(buffer_80_address1),
@@ -3658,7 +3652,7 @@ dedup_buffer_0 #(
 buffer_81_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_81_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_81_address0),
     .ce0(buffer_81_ce0),
     .q0(buffer_81_q0),
     .address1(buffer_81_address1),
@@ -3675,7 +3669,7 @@ dedup_buffer_0 #(
 buffer_82_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_82_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_82_address0),
     .ce0(buffer_82_ce0),
     .q0(buffer_82_q0),
     .address1(buffer_82_address1),
@@ -3692,7 +3686,7 @@ dedup_buffer_0 #(
 buffer_83_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_83_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_83_address0),
     .ce0(buffer_83_ce0),
     .q0(buffer_83_q0),
     .address1(buffer_83_address1),
@@ -3709,7 +3703,7 @@ dedup_buffer_0 #(
 buffer_84_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_84_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_84_address0),
     .ce0(buffer_84_ce0),
     .q0(buffer_84_q0),
     .address1(buffer_84_address1),
@@ -3726,7 +3720,7 @@ dedup_buffer_0 #(
 buffer_85_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_85_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_85_address0),
     .ce0(buffer_85_ce0),
     .q0(buffer_85_q0),
     .address1(buffer_85_address1),
@@ -3743,7 +3737,7 @@ dedup_buffer_0 #(
 buffer_86_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_86_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_86_address0),
     .ce0(buffer_86_ce0),
     .q0(buffer_86_q0),
     .address1(buffer_86_address1),
@@ -3760,7 +3754,7 @@ dedup_buffer_0 #(
 buffer_87_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_87_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_87_address0),
     .ce0(buffer_87_ce0),
     .q0(buffer_87_q0),
     .address1(buffer_87_address1),
@@ -3777,7 +3771,7 @@ dedup_buffer_0 #(
 buffer_88_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_88_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_88_address0),
     .ce0(buffer_88_ce0),
     .q0(buffer_88_q0),
     .address1(buffer_88_address1),
@@ -3794,7 +3788,7 @@ dedup_buffer_0 #(
 buffer_89_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_89_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_89_address0),
     .ce0(buffer_89_ce0),
     .q0(buffer_89_q0),
     .address1(buffer_89_address1),
@@ -3811,7 +3805,7 @@ dedup_buffer_0 #(
 buffer_90_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_90_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_90_address0),
     .ce0(buffer_90_ce0),
     .q0(buffer_90_q0),
     .address1(buffer_90_address1),
@@ -3828,7 +3822,7 @@ dedup_buffer_0 #(
 buffer_91_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_91_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_91_address0),
     .ce0(buffer_91_ce0),
     .q0(buffer_91_q0),
     .address1(buffer_91_address1),
@@ -3845,7 +3839,7 @@ dedup_buffer_0 #(
 buffer_92_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_92_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_92_address0),
     .ce0(buffer_92_ce0),
     .q0(buffer_92_q0),
     .address1(buffer_92_address1),
@@ -3862,7 +3856,7 @@ dedup_buffer_0 #(
 buffer_93_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_93_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_93_address0),
     .ce0(buffer_93_ce0),
     .q0(buffer_93_q0),
     .address1(buffer_93_address1),
@@ -3879,7 +3873,7 @@ dedup_buffer_0 #(
 buffer_94_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_94_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_94_address0),
     .ce0(buffer_94_ce0),
     .q0(buffer_94_q0),
     .address1(buffer_94_address1),
@@ -3896,7 +3890,7 @@ dedup_buffer_0 #(
 buffer_95_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_95_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_95_address0),
     .ce0(buffer_95_ce0),
     .q0(buffer_95_q0),
     .address1(buffer_95_address1),
@@ -3913,7 +3907,7 @@ dedup_buffer_0 #(
 buffer_96_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_96_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_96_address0),
     .ce0(buffer_96_ce0),
     .q0(buffer_96_q0),
     .address1(buffer_96_address1),
@@ -3930,7 +3924,7 @@ dedup_buffer_0 #(
 buffer_97_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_97_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_97_address0),
     .ce0(buffer_97_ce0),
     .q0(buffer_97_q0),
     .address1(buffer_97_address1),
@@ -3947,7 +3941,7 @@ dedup_buffer_0 #(
 buffer_98_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_98_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_98_address0),
     .ce0(buffer_98_ce0),
     .q0(buffer_98_q0),
     .address1(buffer_98_address1),
@@ -3964,7 +3958,7 @@ dedup_buffer_0 #(
 buffer_99_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_99_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_99_address0),
     .ce0(buffer_99_ce0),
     .q0(buffer_99_q0),
     .address1(buffer_99_address1),
@@ -3981,7 +3975,7 @@ dedup_buffer_0 #(
 buffer_100_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_100_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_100_address0),
     .ce0(buffer_100_ce0),
     .q0(buffer_100_q0),
     .address1(buffer_100_address1),
@@ -3998,7 +3992,7 @@ dedup_buffer_0 #(
 buffer_101_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_101_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_101_address0),
     .ce0(buffer_101_ce0),
     .q0(buffer_101_q0),
     .address1(buffer_101_address1),
@@ -4015,7 +4009,7 @@ dedup_buffer_0 #(
 buffer_102_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_102_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_102_address0),
     .ce0(buffer_102_ce0),
     .q0(buffer_102_q0),
     .address1(buffer_102_address1),
@@ -4032,7 +4026,7 @@ dedup_buffer_0 #(
 buffer_103_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_103_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_103_address0),
     .ce0(buffer_103_ce0),
     .q0(buffer_103_q0),
     .address1(buffer_103_address1),
@@ -4049,7 +4043,7 @@ dedup_buffer_0 #(
 buffer_104_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_104_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_104_address0),
     .ce0(buffer_104_ce0),
     .q0(buffer_104_q0),
     .address1(buffer_104_address1),
@@ -4066,7 +4060,7 @@ dedup_buffer_0 #(
 buffer_105_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_105_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_105_address0),
     .ce0(buffer_105_ce0),
     .q0(buffer_105_q0),
     .address1(buffer_105_address1),
@@ -4083,7 +4077,7 @@ dedup_buffer_0 #(
 buffer_106_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_106_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_106_address0),
     .ce0(buffer_106_ce0),
     .q0(buffer_106_q0),
     .address1(buffer_106_address1),
@@ -4100,7 +4094,7 @@ dedup_buffer_0 #(
 buffer_107_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_107_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_107_address0),
     .ce0(buffer_107_ce0),
     .q0(buffer_107_q0),
     .address1(buffer_107_address1),
@@ -4117,7 +4111,7 @@ dedup_buffer_0 #(
 buffer_108_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_108_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_108_address0),
     .ce0(buffer_108_ce0),
     .q0(buffer_108_q0),
     .address1(buffer_108_address1),
@@ -4134,7 +4128,7 @@ dedup_buffer_0 #(
 buffer_109_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_109_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_109_address0),
     .ce0(buffer_109_ce0),
     .q0(buffer_109_q0),
     .address1(buffer_109_address1),
@@ -4151,7 +4145,7 @@ dedup_buffer_0 #(
 buffer_110_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_110_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_110_address0),
     .ce0(buffer_110_ce0),
     .q0(buffer_110_q0),
     .address1(buffer_110_address1),
@@ -4168,7 +4162,7 @@ dedup_buffer_0 #(
 buffer_111_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_111_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_111_address0),
     .ce0(buffer_111_ce0),
     .q0(buffer_111_q0),
     .address1(buffer_111_address1),
@@ -4185,7 +4179,7 @@ dedup_buffer_0 #(
 buffer_112_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_112_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_112_address0),
     .ce0(buffer_112_ce0),
     .q0(buffer_112_q0),
     .address1(buffer_112_address1),
@@ -4202,7 +4196,7 @@ dedup_buffer_0 #(
 buffer_113_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_113_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_113_address0),
     .ce0(buffer_113_ce0),
     .q0(buffer_113_q0),
     .address1(buffer_113_address1),
@@ -4219,7 +4213,7 @@ dedup_buffer_0 #(
 buffer_114_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_114_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_114_address0),
     .ce0(buffer_114_ce0),
     .q0(buffer_114_q0),
     .address1(buffer_114_address1),
@@ -4236,7 +4230,7 @@ dedup_buffer_0 #(
 buffer_115_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_115_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_115_address0),
     .ce0(buffer_115_ce0),
     .q0(buffer_115_q0),
     .address1(buffer_115_address1),
@@ -4253,7 +4247,7 @@ dedup_buffer_0 #(
 buffer_116_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_116_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_116_address0),
     .ce0(buffer_116_ce0),
     .q0(buffer_116_q0),
     .address1(buffer_116_address1),
@@ -4270,7 +4264,7 @@ dedup_buffer_0 #(
 buffer_117_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_117_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_117_address0),
     .ce0(buffer_117_ce0),
     .q0(buffer_117_q0),
     .address1(buffer_117_address1),
@@ -4287,7 +4281,7 @@ dedup_buffer_0 #(
 buffer_118_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_118_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_118_address0),
     .ce0(buffer_118_ce0),
     .q0(buffer_118_q0),
     .address1(buffer_118_address1),
@@ -4304,7 +4298,7 @@ dedup_buffer_0 #(
 buffer_119_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_119_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_119_address0),
     .ce0(buffer_119_ce0),
     .q0(buffer_119_q0),
     .address1(buffer_119_address1),
@@ -4321,7 +4315,7 @@ dedup_buffer_0 #(
 buffer_120_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_120_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_120_address0),
     .ce0(buffer_120_ce0),
     .q0(buffer_120_q0),
     .address1(buffer_120_address1),
@@ -4338,7 +4332,7 @@ dedup_buffer_0 #(
 buffer_121_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_121_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_121_address0),
     .ce0(buffer_121_ce0),
     .q0(buffer_121_q0),
     .address1(buffer_121_address1),
@@ -4355,7 +4349,7 @@ dedup_buffer_0 #(
 buffer_122_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_122_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_122_address0),
     .ce0(buffer_122_ce0),
     .q0(buffer_122_q0),
     .address1(buffer_122_address1),
@@ -4372,7 +4366,7 @@ dedup_buffer_0 #(
 buffer_123_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_123_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_123_address0),
     .ce0(buffer_123_ce0),
     .q0(buffer_123_q0),
     .address1(buffer_123_address1),
@@ -4389,7 +4383,7 @@ dedup_buffer_0 #(
 buffer_124_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_124_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_124_address0),
     .ce0(buffer_124_ce0),
     .q0(buffer_124_q0),
     .address1(buffer_124_address1),
@@ -4406,7 +4400,7 @@ dedup_buffer_0 #(
 buffer_125_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_125_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_125_address0),
     .ce0(buffer_125_ce0),
     .q0(buffer_125_q0),
     .address1(buffer_125_address1),
@@ -4416,1621 +4410,1441 @@ buffer_125_U(
     .q1(buffer_125_q1)
 );
 
-dedup_buffer_0 #(
+dedup_buffer_126 #(
     .DataWidth( 8 ),
     .AddressRange( 64 ),
     .AddressWidth( 6 ))
 buffer_126_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_126_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_126_address0),
     .ce0(buffer_126_ce0),
     .q0(buffer_126_q0),
     .address1(buffer_126_address1),
     .ce1(buffer_126_ce1),
     .we1(buffer_126_we1),
-    .d1(inputData_V_TDATA),
-    .q1(buffer_126_q1)
+    .d1(inputData_V_TDATA)
 );
 
-dedup_buffer_0 #(
+dedup_buffer_126 #(
     .DataWidth( 8 ),
     .AddressRange( 64 ),
     .AddressWidth( 6 ))
 buffer_127_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(buffer_127_address0),
+    .address0(grp_dedup_calcHash_fu_3607_str_127_address0),
     .ce0(buffer_127_ce0),
     .q0(buffer_127_q0),
     .address1(buffer_127_address1),
     .ce1(buffer_127_ce1),
     .we1(buffer_127_we1),
-    .d1(inputData_V_TDATA),
-    .q1(buffer_127_q1)
+    .d1(inputData_V_TDATA)
 );
 
-dedup_indices #(
-    .DataWidth( 13 ),
+dedup_targetIndices #(
+    .DataWidth( 32 ),
     .AddressRange( 7 ),
     .AddressWidth( 3 ))
-indices_U(
+targetIndices_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
-    .address0(indices_address0),
-    .ce0(indices_ce0),
-    .we0(indices_we0),
-    .d0(indices_d0),
-    .q0(indices_q0),
-    .address1(grp_dedup_calcHash_fu_2858_indices_address1),
-    .ce1(indices_ce1),
-    .we1(grp_dedup_calcHash_fu_2858_indices_we1),
-    .d1(grp_dedup_calcHash_fu_2858_indices_d1)
+    .address0(targetIndices_address0),
+    .ce0(targetIndices_ce0),
+    .we0(targetIndices_we0),
+    .d0(lastIndex_1_reg_7540),
+    .q0(targetIndices_q0),
+    .address1(grp_dedup_murmurhash128_new_fu_3851_indices_address1),
+    .ce1(targetIndices_ce1),
+    .q1(targetIndices_q1)
 );
 
-dedup_calcHash grp_dedup_calcHash_fu_2858(
+dedup_hashes #(
+    .DataWidth( 32 ),
+    .AddressRange( 28 ),
+    .AddressWidth( 5 ))
+hashes_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .address0(hashes_address0),
+    .ce0(hashes_ce0),
+    .we0(grp_dedup_murmurhash128_new_fu_3851_hash_we0),
+    .d0(grp_dedup_murmurhash128_new_fu_3851_hash_d0),
+    .q0(hashes_q0),
+    .address1(hashes_address1),
+    .ce1(hashes_ce1),
+    .we1(grp_dedup_murmurhash128_new_fu_3851_hash_we1),
+    .d1(grp_dedup_murmurhash128_new_fu_3851_hash_d1),
+    .q1(hashes_q1)
+);
+
+dedup_calcHash grp_dedup_calcHash_fu_3607(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst_n_inv),
-    .ap_start(grp_dedup_calcHash_fu_2858_ap_start),
-    .ap_done(grp_dedup_calcHash_fu_2858_ap_done),
-    .ap_idle(grp_dedup_calcHash_fu_2858_ap_idle),
-    .ap_ready(grp_dedup_calcHash_fu_2858_ap_ready),
-    .str_0_address0(grp_dedup_calcHash_fu_2858_str_0_address0),
-    .str_0_ce0(grp_dedup_calcHash_fu_2858_str_0_ce0),
+    .ap_start(grp_dedup_calcHash_fu_3607_ap_start),
+    .ap_done(grp_dedup_calcHash_fu_3607_ap_done),
+    .ap_idle(grp_dedup_calcHash_fu_3607_ap_idle),
+    .ap_ready(grp_dedup_calcHash_fu_3607_ap_ready),
+    .str_0_address0(grp_dedup_calcHash_fu_3607_str_0_address0),
+    .str_0_ce0(grp_dedup_calcHash_fu_3607_str_0_ce0),
     .str_0_q0(buffer_0_q0),
-    .str_0_address1(grp_dedup_calcHash_fu_2858_str_0_address1),
-    .str_0_ce1(grp_dedup_calcHash_fu_2858_str_0_ce1),
-    .str_0_q1(buffer_0_q1),
-    .str_1_address0(grp_dedup_calcHash_fu_2858_str_1_address0),
-    .str_1_ce0(grp_dedup_calcHash_fu_2858_str_1_ce0),
+    .str_1_address0(grp_dedup_calcHash_fu_3607_str_1_address0),
+    .str_1_ce0(grp_dedup_calcHash_fu_3607_str_1_ce0),
     .str_1_q0(buffer_1_q0),
-    .str_1_address1(grp_dedup_calcHash_fu_2858_str_1_address1),
-    .str_1_ce1(grp_dedup_calcHash_fu_2858_str_1_ce1),
+    .str_1_address1(grp_dedup_calcHash_fu_3607_str_1_address1),
+    .str_1_ce1(grp_dedup_calcHash_fu_3607_str_1_ce1),
     .str_1_q1(buffer_1_q1),
-    .str_2_address0(grp_dedup_calcHash_fu_2858_str_2_address0),
-    .str_2_ce0(grp_dedup_calcHash_fu_2858_str_2_ce0),
+    .str_2_address0(grp_dedup_calcHash_fu_3607_str_2_address0),
+    .str_2_ce0(grp_dedup_calcHash_fu_3607_str_2_ce0),
     .str_2_q0(buffer_2_q0),
-    .str_2_address1(grp_dedup_calcHash_fu_2858_str_2_address1),
-    .str_2_ce1(grp_dedup_calcHash_fu_2858_str_2_ce1),
+    .str_2_address1(grp_dedup_calcHash_fu_3607_str_2_address1),
+    .str_2_ce1(grp_dedup_calcHash_fu_3607_str_2_ce1),
     .str_2_q1(buffer_2_q1),
-    .str_3_address0(grp_dedup_calcHash_fu_2858_str_3_address0),
-    .str_3_ce0(grp_dedup_calcHash_fu_2858_str_3_ce0),
+    .str_3_address0(grp_dedup_calcHash_fu_3607_str_3_address0),
+    .str_3_ce0(grp_dedup_calcHash_fu_3607_str_3_ce0),
     .str_3_q0(buffer_3_q0),
-    .str_3_address1(grp_dedup_calcHash_fu_2858_str_3_address1),
-    .str_3_ce1(grp_dedup_calcHash_fu_2858_str_3_ce1),
+    .str_3_address1(grp_dedup_calcHash_fu_3607_str_3_address1),
+    .str_3_ce1(grp_dedup_calcHash_fu_3607_str_3_ce1),
     .str_3_q1(buffer_3_q1),
-    .str_4_address0(grp_dedup_calcHash_fu_2858_str_4_address0),
-    .str_4_ce0(grp_dedup_calcHash_fu_2858_str_4_ce0),
+    .str_4_address0(grp_dedup_calcHash_fu_3607_str_4_address0),
+    .str_4_ce0(grp_dedup_calcHash_fu_3607_str_4_ce0),
     .str_4_q0(buffer_4_q0),
-    .str_4_address1(grp_dedup_calcHash_fu_2858_str_4_address1),
-    .str_4_ce1(grp_dedup_calcHash_fu_2858_str_4_ce1),
+    .str_4_address1(grp_dedup_calcHash_fu_3607_str_4_address1),
+    .str_4_ce1(grp_dedup_calcHash_fu_3607_str_4_ce1),
     .str_4_q1(buffer_4_q1),
-    .str_5_address0(grp_dedup_calcHash_fu_2858_str_5_address0),
-    .str_5_ce0(grp_dedup_calcHash_fu_2858_str_5_ce0),
+    .str_5_address0(grp_dedup_calcHash_fu_3607_str_5_address0),
+    .str_5_ce0(grp_dedup_calcHash_fu_3607_str_5_ce0),
     .str_5_q0(buffer_5_q0),
-    .str_5_address1(grp_dedup_calcHash_fu_2858_str_5_address1),
-    .str_5_ce1(grp_dedup_calcHash_fu_2858_str_5_ce1),
+    .str_5_address1(grp_dedup_calcHash_fu_3607_str_5_address1),
+    .str_5_ce1(grp_dedup_calcHash_fu_3607_str_5_ce1),
     .str_5_q1(buffer_5_q1),
-    .str_6_address0(grp_dedup_calcHash_fu_2858_str_6_address0),
-    .str_6_ce0(grp_dedup_calcHash_fu_2858_str_6_ce0),
+    .str_6_address0(grp_dedup_calcHash_fu_3607_str_6_address0),
+    .str_6_ce0(grp_dedup_calcHash_fu_3607_str_6_ce0),
     .str_6_q0(buffer_6_q0),
-    .str_6_address1(grp_dedup_calcHash_fu_2858_str_6_address1),
-    .str_6_ce1(grp_dedup_calcHash_fu_2858_str_6_ce1),
+    .str_6_address1(grp_dedup_calcHash_fu_3607_str_6_address1),
+    .str_6_ce1(grp_dedup_calcHash_fu_3607_str_6_ce1),
     .str_6_q1(buffer_6_q1),
-    .str_7_address0(grp_dedup_calcHash_fu_2858_str_7_address0),
-    .str_7_ce0(grp_dedup_calcHash_fu_2858_str_7_ce0),
+    .str_7_address0(grp_dedup_calcHash_fu_3607_str_7_address0),
+    .str_7_ce0(grp_dedup_calcHash_fu_3607_str_7_ce0),
     .str_7_q0(buffer_7_q0),
-    .str_7_address1(grp_dedup_calcHash_fu_2858_str_7_address1),
-    .str_7_ce1(grp_dedup_calcHash_fu_2858_str_7_ce1),
+    .str_7_address1(grp_dedup_calcHash_fu_3607_str_7_address1),
+    .str_7_ce1(grp_dedup_calcHash_fu_3607_str_7_ce1),
     .str_7_q1(buffer_7_q1),
-    .str_8_address0(grp_dedup_calcHash_fu_2858_str_8_address0),
-    .str_8_ce0(grp_dedup_calcHash_fu_2858_str_8_ce0),
+    .str_8_address0(grp_dedup_calcHash_fu_3607_str_8_address0),
+    .str_8_ce0(grp_dedup_calcHash_fu_3607_str_8_ce0),
     .str_8_q0(buffer_8_q0),
-    .str_8_address1(grp_dedup_calcHash_fu_2858_str_8_address1),
-    .str_8_ce1(grp_dedup_calcHash_fu_2858_str_8_ce1),
+    .str_8_address1(grp_dedup_calcHash_fu_3607_str_8_address1),
+    .str_8_ce1(grp_dedup_calcHash_fu_3607_str_8_ce1),
     .str_8_q1(buffer_8_q1),
-    .str_9_address0(grp_dedup_calcHash_fu_2858_str_9_address0),
-    .str_9_ce0(grp_dedup_calcHash_fu_2858_str_9_ce0),
+    .str_9_address0(grp_dedup_calcHash_fu_3607_str_9_address0),
+    .str_9_ce0(grp_dedup_calcHash_fu_3607_str_9_ce0),
     .str_9_q0(buffer_9_q0),
-    .str_9_address1(grp_dedup_calcHash_fu_2858_str_9_address1),
-    .str_9_ce1(grp_dedup_calcHash_fu_2858_str_9_ce1),
+    .str_9_address1(grp_dedup_calcHash_fu_3607_str_9_address1),
+    .str_9_ce1(grp_dedup_calcHash_fu_3607_str_9_ce1),
     .str_9_q1(buffer_9_q1),
-    .str_10_address0(grp_dedup_calcHash_fu_2858_str_10_address0),
-    .str_10_ce0(grp_dedup_calcHash_fu_2858_str_10_ce0),
+    .str_10_address0(grp_dedup_calcHash_fu_3607_str_10_address0),
+    .str_10_ce0(grp_dedup_calcHash_fu_3607_str_10_ce0),
     .str_10_q0(buffer_10_q0),
-    .str_10_address1(grp_dedup_calcHash_fu_2858_str_10_address1),
-    .str_10_ce1(grp_dedup_calcHash_fu_2858_str_10_ce1),
+    .str_10_address1(grp_dedup_calcHash_fu_3607_str_10_address1),
+    .str_10_ce1(grp_dedup_calcHash_fu_3607_str_10_ce1),
     .str_10_q1(buffer_10_q1),
-    .str_11_address0(grp_dedup_calcHash_fu_2858_str_11_address0),
-    .str_11_ce0(grp_dedup_calcHash_fu_2858_str_11_ce0),
+    .str_11_address0(grp_dedup_calcHash_fu_3607_str_11_address0),
+    .str_11_ce0(grp_dedup_calcHash_fu_3607_str_11_ce0),
     .str_11_q0(buffer_11_q0),
-    .str_11_address1(grp_dedup_calcHash_fu_2858_str_11_address1),
-    .str_11_ce1(grp_dedup_calcHash_fu_2858_str_11_ce1),
+    .str_11_address1(grp_dedup_calcHash_fu_3607_str_11_address1),
+    .str_11_ce1(grp_dedup_calcHash_fu_3607_str_11_ce1),
     .str_11_q1(buffer_11_q1),
-    .str_12_address0(grp_dedup_calcHash_fu_2858_str_12_address0),
-    .str_12_ce0(grp_dedup_calcHash_fu_2858_str_12_ce0),
+    .str_12_address0(grp_dedup_calcHash_fu_3607_str_12_address0),
+    .str_12_ce0(grp_dedup_calcHash_fu_3607_str_12_ce0),
     .str_12_q0(buffer_12_q0),
-    .str_12_address1(grp_dedup_calcHash_fu_2858_str_12_address1),
-    .str_12_ce1(grp_dedup_calcHash_fu_2858_str_12_ce1),
+    .str_12_address1(grp_dedup_calcHash_fu_3607_str_12_address1),
+    .str_12_ce1(grp_dedup_calcHash_fu_3607_str_12_ce1),
     .str_12_q1(buffer_12_q1),
-    .str_13_address0(grp_dedup_calcHash_fu_2858_str_13_address0),
-    .str_13_ce0(grp_dedup_calcHash_fu_2858_str_13_ce0),
+    .str_13_address0(grp_dedup_calcHash_fu_3607_str_13_address0),
+    .str_13_ce0(grp_dedup_calcHash_fu_3607_str_13_ce0),
     .str_13_q0(buffer_13_q0),
-    .str_13_address1(grp_dedup_calcHash_fu_2858_str_13_address1),
-    .str_13_ce1(grp_dedup_calcHash_fu_2858_str_13_ce1),
+    .str_13_address1(grp_dedup_calcHash_fu_3607_str_13_address1),
+    .str_13_ce1(grp_dedup_calcHash_fu_3607_str_13_ce1),
     .str_13_q1(buffer_13_q1),
-    .str_14_address0(grp_dedup_calcHash_fu_2858_str_14_address0),
-    .str_14_ce0(grp_dedup_calcHash_fu_2858_str_14_ce0),
+    .str_14_address0(grp_dedup_calcHash_fu_3607_str_14_address0),
+    .str_14_ce0(grp_dedup_calcHash_fu_3607_str_14_ce0),
     .str_14_q0(buffer_14_q0),
-    .str_14_address1(grp_dedup_calcHash_fu_2858_str_14_address1),
-    .str_14_ce1(grp_dedup_calcHash_fu_2858_str_14_ce1),
+    .str_14_address1(grp_dedup_calcHash_fu_3607_str_14_address1),
+    .str_14_ce1(grp_dedup_calcHash_fu_3607_str_14_ce1),
     .str_14_q1(buffer_14_q1),
-    .str_15_address0(grp_dedup_calcHash_fu_2858_str_15_address0),
-    .str_15_ce0(grp_dedup_calcHash_fu_2858_str_15_ce0),
+    .str_15_address0(grp_dedup_calcHash_fu_3607_str_15_address0),
+    .str_15_ce0(grp_dedup_calcHash_fu_3607_str_15_ce0),
     .str_15_q0(buffer_15_q0),
-    .str_15_address1(grp_dedup_calcHash_fu_2858_str_15_address1),
-    .str_15_ce1(grp_dedup_calcHash_fu_2858_str_15_ce1),
+    .str_15_address1(grp_dedup_calcHash_fu_3607_str_15_address1),
+    .str_15_ce1(grp_dedup_calcHash_fu_3607_str_15_ce1),
     .str_15_q1(buffer_15_q1),
-    .str_16_address0(grp_dedup_calcHash_fu_2858_str_16_address0),
-    .str_16_ce0(grp_dedup_calcHash_fu_2858_str_16_ce0),
+    .str_16_address0(grp_dedup_calcHash_fu_3607_str_16_address0),
+    .str_16_ce0(grp_dedup_calcHash_fu_3607_str_16_ce0),
     .str_16_q0(buffer_16_q0),
-    .str_16_address1(grp_dedup_calcHash_fu_2858_str_16_address1),
-    .str_16_ce1(grp_dedup_calcHash_fu_2858_str_16_ce1),
+    .str_16_address1(grp_dedup_calcHash_fu_3607_str_16_address1),
+    .str_16_ce1(grp_dedup_calcHash_fu_3607_str_16_ce1),
     .str_16_q1(buffer_16_q1),
-    .str_17_address0(grp_dedup_calcHash_fu_2858_str_17_address0),
-    .str_17_ce0(grp_dedup_calcHash_fu_2858_str_17_ce0),
+    .str_17_address0(grp_dedup_calcHash_fu_3607_str_17_address0),
+    .str_17_ce0(grp_dedup_calcHash_fu_3607_str_17_ce0),
     .str_17_q0(buffer_17_q0),
-    .str_17_address1(grp_dedup_calcHash_fu_2858_str_17_address1),
-    .str_17_ce1(grp_dedup_calcHash_fu_2858_str_17_ce1),
+    .str_17_address1(grp_dedup_calcHash_fu_3607_str_17_address1),
+    .str_17_ce1(grp_dedup_calcHash_fu_3607_str_17_ce1),
     .str_17_q1(buffer_17_q1),
-    .str_18_address0(grp_dedup_calcHash_fu_2858_str_18_address0),
-    .str_18_ce0(grp_dedup_calcHash_fu_2858_str_18_ce0),
+    .str_18_address0(grp_dedup_calcHash_fu_3607_str_18_address0),
+    .str_18_ce0(grp_dedup_calcHash_fu_3607_str_18_ce0),
     .str_18_q0(buffer_18_q0),
-    .str_18_address1(grp_dedup_calcHash_fu_2858_str_18_address1),
-    .str_18_ce1(grp_dedup_calcHash_fu_2858_str_18_ce1),
+    .str_18_address1(grp_dedup_calcHash_fu_3607_str_18_address1),
+    .str_18_ce1(grp_dedup_calcHash_fu_3607_str_18_ce1),
     .str_18_q1(buffer_18_q1),
-    .str_19_address0(grp_dedup_calcHash_fu_2858_str_19_address0),
-    .str_19_ce0(grp_dedup_calcHash_fu_2858_str_19_ce0),
+    .str_19_address0(grp_dedup_calcHash_fu_3607_str_19_address0),
+    .str_19_ce0(grp_dedup_calcHash_fu_3607_str_19_ce0),
     .str_19_q0(buffer_19_q0),
-    .str_19_address1(grp_dedup_calcHash_fu_2858_str_19_address1),
-    .str_19_ce1(grp_dedup_calcHash_fu_2858_str_19_ce1),
+    .str_19_address1(grp_dedup_calcHash_fu_3607_str_19_address1),
+    .str_19_ce1(grp_dedup_calcHash_fu_3607_str_19_ce1),
     .str_19_q1(buffer_19_q1),
-    .str_20_address0(grp_dedup_calcHash_fu_2858_str_20_address0),
-    .str_20_ce0(grp_dedup_calcHash_fu_2858_str_20_ce0),
+    .str_20_address0(grp_dedup_calcHash_fu_3607_str_20_address0),
+    .str_20_ce0(grp_dedup_calcHash_fu_3607_str_20_ce0),
     .str_20_q0(buffer_20_q0),
-    .str_20_address1(grp_dedup_calcHash_fu_2858_str_20_address1),
-    .str_20_ce1(grp_dedup_calcHash_fu_2858_str_20_ce1),
+    .str_20_address1(grp_dedup_calcHash_fu_3607_str_20_address1),
+    .str_20_ce1(grp_dedup_calcHash_fu_3607_str_20_ce1),
     .str_20_q1(buffer_20_q1),
-    .str_21_address0(grp_dedup_calcHash_fu_2858_str_21_address0),
-    .str_21_ce0(grp_dedup_calcHash_fu_2858_str_21_ce0),
+    .str_21_address0(grp_dedup_calcHash_fu_3607_str_21_address0),
+    .str_21_ce0(grp_dedup_calcHash_fu_3607_str_21_ce0),
     .str_21_q0(buffer_21_q0),
-    .str_21_address1(grp_dedup_calcHash_fu_2858_str_21_address1),
-    .str_21_ce1(grp_dedup_calcHash_fu_2858_str_21_ce1),
+    .str_21_address1(grp_dedup_calcHash_fu_3607_str_21_address1),
+    .str_21_ce1(grp_dedup_calcHash_fu_3607_str_21_ce1),
     .str_21_q1(buffer_21_q1),
-    .str_22_address0(grp_dedup_calcHash_fu_2858_str_22_address0),
-    .str_22_ce0(grp_dedup_calcHash_fu_2858_str_22_ce0),
+    .str_22_address0(grp_dedup_calcHash_fu_3607_str_22_address0),
+    .str_22_ce0(grp_dedup_calcHash_fu_3607_str_22_ce0),
     .str_22_q0(buffer_22_q0),
-    .str_22_address1(grp_dedup_calcHash_fu_2858_str_22_address1),
-    .str_22_ce1(grp_dedup_calcHash_fu_2858_str_22_ce1),
+    .str_22_address1(grp_dedup_calcHash_fu_3607_str_22_address1),
+    .str_22_ce1(grp_dedup_calcHash_fu_3607_str_22_ce1),
     .str_22_q1(buffer_22_q1),
-    .str_23_address0(grp_dedup_calcHash_fu_2858_str_23_address0),
-    .str_23_ce0(grp_dedup_calcHash_fu_2858_str_23_ce0),
+    .str_23_address0(grp_dedup_calcHash_fu_3607_str_23_address0),
+    .str_23_ce0(grp_dedup_calcHash_fu_3607_str_23_ce0),
     .str_23_q0(buffer_23_q0),
-    .str_23_address1(grp_dedup_calcHash_fu_2858_str_23_address1),
-    .str_23_ce1(grp_dedup_calcHash_fu_2858_str_23_ce1),
+    .str_23_address1(grp_dedup_calcHash_fu_3607_str_23_address1),
+    .str_23_ce1(grp_dedup_calcHash_fu_3607_str_23_ce1),
     .str_23_q1(buffer_23_q1),
-    .str_24_address0(grp_dedup_calcHash_fu_2858_str_24_address0),
-    .str_24_ce0(grp_dedup_calcHash_fu_2858_str_24_ce0),
+    .str_24_address0(grp_dedup_calcHash_fu_3607_str_24_address0),
+    .str_24_ce0(grp_dedup_calcHash_fu_3607_str_24_ce0),
     .str_24_q0(buffer_24_q0),
-    .str_24_address1(grp_dedup_calcHash_fu_2858_str_24_address1),
-    .str_24_ce1(grp_dedup_calcHash_fu_2858_str_24_ce1),
+    .str_24_address1(grp_dedup_calcHash_fu_3607_str_24_address1),
+    .str_24_ce1(grp_dedup_calcHash_fu_3607_str_24_ce1),
     .str_24_q1(buffer_24_q1),
-    .str_25_address0(grp_dedup_calcHash_fu_2858_str_25_address0),
-    .str_25_ce0(grp_dedup_calcHash_fu_2858_str_25_ce0),
+    .str_25_address0(grp_dedup_calcHash_fu_3607_str_25_address0),
+    .str_25_ce0(grp_dedup_calcHash_fu_3607_str_25_ce0),
     .str_25_q0(buffer_25_q0),
-    .str_25_address1(grp_dedup_calcHash_fu_2858_str_25_address1),
-    .str_25_ce1(grp_dedup_calcHash_fu_2858_str_25_ce1),
+    .str_25_address1(grp_dedup_calcHash_fu_3607_str_25_address1),
+    .str_25_ce1(grp_dedup_calcHash_fu_3607_str_25_ce1),
     .str_25_q1(buffer_25_q1),
-    .str_26_address0(grp_dedup_calcHash_fu_2858_str_26_address0),
-    .str_26_ce0(grp_dedup_calcHash_fu_2858_str_26_ce0),
+    .str_26_address0(grp_dedup_calcHash_fu_3607_str_26_address0),
+    .str_26_ce0(grp_dedup_calcHash_fu_3607_str_26_ce0),
     .str_26_q0(buffer_26_q0),
-    .str_26_address1(grp_dedup_calcHash_fu_2858_str_26_address1),
-    .str_26_ce1(grp_dedup_calcHash_fu_2858_str_26_ce1),
+    .str_26_address1(grp_dedup_calcHash_fu_3607_str_26_address1),
+    .str_26_ce1(grp_dedup_calcHash_fu_3607_str_26_ce1),
     .str_26_q1(buffer_26_q1),
-    .str_27_address0(grp_dedup_calcHash_fu_2858_str_27_address0),
-    .str_27_ce0(grp_dedup_calcHash_fu_2858_str_27_ce0),
+    .str_27_address0(grp_dedup_calcHash_fu_3607_str_27_address0),
+    .str_27_ce0(grp_dedup_calcHash_fu_3607_str_27_ce0),
     .str_27_q0(buffer_27_q0),
-    .str_27_address1(grp_dedup_calcHash_fu_2858_str_27_address1),
-    .str_27_ce1(grp_dedup_calcHash_fu_2858_str_27_ce1),
+    .str_27_address1(grp_dedup_calcHash_fu_3607_str_27_address1),
+    .str_27_ce1(grp_dedup_calcHash_fu_3607_str_27_ce1),
     .str_27_q1(buffer_27_q1),
-    .str_28_address0(grp_dedup_calcHash_fu_2858_str_28_address0),
-    .str_28_ce0(grp_dedup_calcHash_fu_2858_str_28_ce0),
+    .str_28_address0(grp_dedup_calcHash_fu_3607_str_28_address0),
+    .str_28_ce0(grp_dedup_calcHash_fu_3607_str_28_ce0),
     .str_28_q0(buffer_28_q0),
-    .str_28_address1(grp_dedup_calcHash_fu_2858_str_28_address1),
-    .str_28_ce1(grp_dedup_calcHash_fu_2858_str_28_ce1),
+    .str_28_address1(grp_dedup_calcHash_fu_3607_str_28_address1),
+    .str_28_ce1(grp_dedup_calcHash_fu_3607_str_28_ce1),
     .str_28_q1(buffer_28_q1),
-    .str_29_address0(grp_dedup_calcHash_fu_2858_str_29_address0),
-    .str_29_ce0(grp_dedup_calcHash_fu_2858_str_29_ce0),
+    .str_29_address0(grp_dedup_calcHash_fu_3607_str_29_address0),
+    .str_29_ce0(grp_dedup_calcHash_fu_3607_str_29_ce0),
     .str_29_q0(buffer_29_q0),
-    .str_29_address1(grp_dedup_calcHash_fu_2858_str_29_address1),
-    .str_29_ce1(grp_dedup_calcHash_fu_2858_str_29_ce1),
+    .str_29_address1(grp_dedup_calcHash_fu_3607_str_29_address1),
+    .str_29_ce1(grp_dedup_calcHash_fu_3607_str_29_ce1),
     .str_29_q1(buffer_29_q1),
-    .str_30_address0(grp_dedup_calcHash_fu_2858_str_30_address0),
-    .str_30_ce0(grp_dedup_calcHash_fu_2858_str_30_ce0),
+    .str_30_address0(grp_dedup_calcHash_fu_3607_str_30_address0),
+    .str_30_ce0(grp_dedup_calcHash_fu_3607_str_30_ce0),
     .str_30_q0(buffer_30_q0),
-    .str_30_address1(grp_dedup_calcHash_fu_2858_str_30_address1),
-    .str_30_ce1(grp_dedup_calcHash_fu_2858_str_30_ce1),
+    .str_30_address1(grp_dedup_calcHash_fu_3607_str_30_address1),
+    .str_30_ce1(grp_dedup_calcHash_fu_3607_str_30_ce1),
     .str_30_q1(buffer_30_q1),
-    .str_31_address0(grp_dedup_calcHash_fu_2858_str_31_address0),
-    .str_31_ce0(grp_dedup_calcHash_fu_2858_str_31_ce0),
+    .str_31_address0(grp_dedup_calcHash_fu_3607_str_31_address0),
+    .str_31_ce0(grp_dedup_calcHash_fu_3607_str_31_ce0),
     .str_31_q0(buffer_31_q0),
-    .str_31_address1(grp_dedup_calcHash_fu_2858_str_31_address1),
-    .str_31_ce1(grp_dedup_calcHash_fu_2858_str_31_ce1),
+    .str_31_address1(grp_dedup_calcHash_fu_3607_str_31_address1),
+    .str_31_ce1(grp_dedup_calcHash_fu_3607_str_31_ce1),
     .str_31_q1(buffer_31_q1),
-    .str_32_address0(grp_dedup_calcHash_fu_2858_str_32_address0),
-    .str_32_ce0(grp_dedup_calcHash_fu_2858_str_32_ce0),
+    .str_32_address0(grp_dedup_calcHash_fu_3607_str_32_address0),
+    .str_32_ce0(grp_dedup_calcHash_fu_3607_str_32_ce0),
     .str_32_q0(buffer_32_q0),
-    .str_32_address1(grp_dedup_calcHash_fu_2858_str_32_address1),
-    .str_32_ce1(grp_dedup_calcHash_fu_2858_str_32_ce1),
+    .str_32_address1(grp_dedup_calcHash_fu_3607_str_32_address1),
+    .str_32_ce1(grp_dedup_calcHash_fu_3607_str_32_ce1),
     .str_32_q1(buffer_32_q1),
-    .str_33_address0(grp_dedup_calcHash_fu_2858_str_33_address0),
-    .str_33_ce0(grp_dedup_calcHash_fu_2858_str_33_ce0),
+    .str_33_address0(grp_dedup_calcHash_fu_3607_str_33_address0),
+    .str_33_ce0(grp_dedup_calcHash_fu_3607_str_33_ce0),
     .str_33_q0(buffer_33_q0),
-    .str_33_address1(grp_dedup_calcHash_fu_2858_str_33_address1),
-    .str_33_ce1(grp_dedup_calcHash_fu_2858_str_33_ce1),
+    .str_33_address1(grp_dedup_calcHash_fu_3607_str_33_address1),
+    .str_33_ce1(grp_dedup_calcHash_fu_3607_str_33_ce1),
     .str_33_q1(buffer_33_q1),
-    .str_34_address0(grp_dedup_calcHash_fu_2858_str_34_address0),
-    .str_34_ce0(grp_dedup_calcHash_fu_2858_str_34_ce0),
+    .str_34_address0(grp_dedup_calcHash_fu_3607_str_34_address0),
+    .str_34_ce0(grp_dedup_calcHash_fu_3607_str_34_ce0),
     .str_34_q0(buffer_34_q0),
-    .str_34_address1(grp_dedup_calcHash_fu_2858_str_34_address1),
-    .str_34_ce1(grp_dedup_calcHash_fu_2858_str_34_ce1),
+    .str_34_address1(grp_dedup_calcHash_fu_3607_str_34_address1),
+    .str_34_ce1(grp_dedup_calcHash_fu_3607_str_34_ce1),
     .str_34_q1(buffer_34_q1),
-    .str_35_address0(grp_dedup_calcHash_fu_2858_str_35_address0),
-    .str_35_ce0(grp_dedup_calcHash_fu_2858_str_35_ce0),
+    .str_35_address0(grp_dedup_calcHash_fu_3607_str_35_address0),
+    .str_35_ce0(grp_dedup_calcHash_fu_3607_str_35_ce0),
     .str_35_q0(buffer_35_q0),
-    .str_35_address1(grp_dedup_calcHash_fu_2858_str_35_address1),
-    .str_35_ce1(grp_dedup_calcHash_fu_2858_str_35_ce1),
+    .str_35_address1(grp_dedup_calcHash_fu_3607_str_35_address1),
+    .str_35_ce1(grp_dedup_calcHash_fu_3607_str_35_ce1),
     .str_35_q1(buffer_35_q1),
-    .str_36_address0(grp_dedup_calcHash_fu_2858_str_36_address0),
-    .str_36_ce0(grp_dedup_calcHash_fu_2858_str_36_ce0),
+    .str_36_address0(grp_dedup_calcHash_fu_3607_str_36_address0),
+    .str_36_ce0(grp_dedup_calcHash_fu_3607_str_36_ce0),
     .str_36_q0(buffer_36_q0),
-    .str_36_address1(grp_dedup_calcHash_fu_2858_str_36_address1),
-    .str_36_ce1(grp_dedup_calcHash_fu_2858_str_36_ce1),
+    .str_36_address1(grp_dedup_calcHash_fu_3607_str_36_address1),
+    .str_36_ce1(grp_dedup_calcHash_fu_3607_str_36_ce1),
     .str_36_q1(buffer_36_q1),
-    .str_37_address0(grp_dedup_calcHash_fu_2858_str_37_address0),
-    .str_37_ce0(grp_dedup_calcHash_fu_2858_str_37_ce0),
+    .str_37_address0(grp_dedup_calcHash_fu_3607_str_37_address0),
+    .str_37_ce0(grp_dedup_calcHash_fu_3607_str_37_ce0),
     .str_37_q0(buffer_37_q0),
-    .str_37_address1(grp_dedup_calcHash_fu_2858_str_37_address1),
-    .str_37_ce1(grp_dedup_calcHash_fu_2858_str_37_ce1),
+    .str_37_address1(grp_dedup_calcHash_fu_3607_str_37_address1),
+    .str_37_ce1(grp_dedup_calcHash_fu_3607_str_37_ce1),
     .str_37_q1(buffer_37_q1),
-    .str_38_address0(grp_dedup_calcHash_fu_2858_str_38_address0),
-    .str_38_ce0(grp_dedup_calcHash_fu_2858_str_38_ce0),
+    .str_38_address0(grp_dedup_calcHash_fu_3607_str_38_address0),
+    .str_38_ce0(grp_dedup_calcHash_fu_3607_str_38_ce0),
     .str_38_q0(buffer_38_q0),
-    .str_38_address1(grp_dedup_calcHash_fu_2858_str_38_address1),
-    .str_38_ce1(grp_dedup_calcHash_fu_2858_str_38_ce1),
+    .str_38_address1(grp_dedup_calcHash_fu_3607_str_38_address1),
+    .str_38_ce1(grp_dedup_calcHash_fu_3607_str_38_ce1),
     .str_38_q1(buffer_38_q1),
-    .str_39_address0(grp_dedup_calcHash_fu_2858_str_39_address0),
-    .str_39_ce0(grp_dedup_calcHash_fu_2858_str_39_ce0),
+    .str_39_address0(grp_dedup_calcHash_fu_3607_str_39_address0),
+    .str_39_ce0(grp_dedup_calcHash_fu_3607_str_39_ce0),
     .str_39_q0(buffer_39_q0),
-    .str_39_address1(grp_dedup_calcHash_fu_2858_str_39_address1),
-    .str_39_ce1(grp_dedup_calcHash_fu_2858_str_39_ce1),
+    .str_39_address1(grp_dedup_calcHash_fu_3607_str_39_address1),
+    .str_39_ce1(grp_dedup_calcHash_fu_3607_str_39_ce1),
     .str_39_q1(buffer_39_q1),
-    .str_40_address0(grp_dedup_calcHash_fu_2858_str_40_address0),
-    .str_40_ce0(grp_dedup_calcHash_fu_2858_str_40_ce0),
+    .str_40_address0(grp_dedup_calcHash_fu_3607_str_40_address0),
+    .str_40_ce0(grp_dedup_calcHash_fu_3607_str_40_ce0),
     .str_40_q0(buffer_40_q0),
-    .str_40_address1(grp_dedup_calcHash_fu_2858_str_40_address1),
-    .str_40_ce1(grp_dedup_calcHash_fu_2858_str_40_ce1),
+    .str_40_address1(grp_dedup_calcHash_fu_3607_str_40_address1),
+    .str_40_ce1(grp_dedup_calcHash_fu_3607_str_40_ce1),
     .str_40_q1(buffer_40_q1),
-    .str_41_address0(grp_dedup_calcHash_fu_2858_str_41_address0),
-    .str_41_ce0(grp_dedup_calcHash_fu_2858_str_41_ce0),
+    .str_41_address0(grp_dedup_calcHash_fu_3607_str_41_address0),
+    .str_41_ce0(grp_dedup_calcHash_fu_3607_str_41_ce0),
     .str_41_q0(buffer_41_q0),
-    .str_41_address1(grp_dedup_calcHash_fu_2858_str_41_address1),
-    .str_41_ce1(grp_dedup_calcHash_fu_2858_str_41_ce1),
+    .str_41_address1(grp_dedup_calcHash_fu_3607_str_41_address1),
+    .str_41_ce1(grp_dedup_calcHash_fu_3607_str_41_ce1),
     .str_41_q1(buffer_41_q1),
-    .str_42_address0(grp_dedup_calcHash_fu_2858_str_42_address0),
-    .str_42_ce0(grp_dedup_calcHash_fu_2858_str_42_ce0),
+    .str_42_address0(grp_dedup_calcHash_fu_3607_str_42_address0),
+    .str_42_ce0(grp_dedup_calcHash_fu_3607_str_42_ce0),
     .str_42_q0(buffer_42_q0),
-    .str_42_address1(grp_dedup_calcHash_fu_2858_str_42_address1),
-    .str_42_ce1(grp_dedup_calcHash_fu_2858_str_42_ce1),
+    .str_42_address1(grp_dedup_calcHash_fu_3607_str_42_address1),
+    .str_42_ce1(grp_dedup_calcHash_fu_3607_str_42_ce1),
     .str_42_q1(buffer_42_q1),
-    .str_43_address0(grp_dedup_calcHash_fu_2858_str_43_address0),
-    .str_43_ce0(grp_dedup_calcHash_fu_2858_str_43_ce0),
+    .str_43_address0(grp_dedup_calcHash_fu_3607_str_43_address0),
+    .str_43_ce0(grp_dedup_calcHash_fu_3607_str_43_ce0),
     .str_43_q0(buffer_43_q0),
-    .str_43_address1(grp_dedup_calcHash_fu_2858_str_43_address1),
-    .str_43_ce1(grp_dedup_calcHash_fu_2858_str_43_ce1),
+    .str_43_address1(grp_dedup_calcHash_fu_3607_str_43_address1),
+    .str_43_ce1(grp_dedup_calcHash_fu_3607_str_43_ce1),
     .str_43_q1(buffer_43_q1),
-    .str_44_address0(grp_dedup_calcHash_fu_2858_str_44_address0),
-    .str_44_ce0(grp_dedup_calcHash_fu_2858_str_44_ce0),
+    .str_44_address0(grp_dedup_calcHash_fu_3607_str_44_address0),
+    .str_44_ce0(grp_dedup_calcHash_fu_3607_str_44_ce0),
     .str_44_q0(buffer_44_q0),
-    .str_44_address1(grp_dedup_calcHash_fu_2858_str_44_address1),
-    .str_44_ce1(grp_dedup_calcHash_fu_2858_str_44_ce1),
+    .str_44_address1(grp_dedup_calcHash_fu_3607_str_44_address1),
+    .str_44_ce1(grp_dedup_calcHash_fu_3607_str_44_ce1),
     .str_44_q1(buffer_44_q1),
-    .str_45_address0(grp_dedup_calcHash_fu_2858_str_45_address0),
-    .str_45_ce0(grp_dedup_calcHash_fu_2858_str_45_ce0),
+    .str_45_address0(grp_dedup_calcHash_fu_3607_str_45_address0),
+    .str_45_ce0(grp_dedup_calcHash_fu_3607_str_45_ce0),
     .str_45_q0(buffer_45_q0),
-    .str_45_address1(grp_dedup_calcHash_fu_2858_str_45_address1),
-    .str_45_ce1(grp_dedup_calcHash_fu_2858_str_45_ce1),
+    .str_45_address1(grp_dedup_calcHash_fu_3607_str_45_address1),
+    .str_45_ce1(grp_dedup_calcHash_fu_3607_str_45_ce1),
     .str_45_q1(buffer_45_q1),
-    .str_46_address0(grp_dedup_calcHash_fu_2858_str_46_address0),
-    .str_46_ce0(grp_dedup_calcHash_fu_2858_str_46_ce0),
+    .str_46_address0(grp_dedup_calcHash_fu_3607_str_46_address0),
+    .str_46_ce0(grp_dedup_calcHash_fu_3607_str_46_ce0),
     .str_46_q0(buffer_46_q0),
-    .str_46_address1(grp_dedup_calcHash_fu_2858_str_46_address1),
-    .str_46_ce1(grp_dedup_calcHash_fu_2858_str_46_ce1),
+    .str_46_address1(grp_dedup_calcHash_fu_3607_str_46_address1),
+    .str_46_ce1(grp_dedup_calcHash_fu_3607_str_46_ce1),
     .str_46_q1(buffer_46_q1),
-    .str_47_address0(grp_dedup_calcHash_fu_2858_str_47_address0),
-    .str_47_ce0(grp_dedup_calcHash_fu_2858_str_47_ce0),
+    .str_47_address0(grp_dedup_calcHash_fu_3607_str_47_address0),
+    .str_47_ce0(grp_dedup_calcHash_fu_3607_str_47_ce0),
     .str_47_q0(buffer_47_q0),
-    .str_47_address1(grp_dedup_calcHash_fu_2858_str_47_address1),
-    .str_47_ce1(grp_dedup_calcHash_fu_2858_str_47_ce1),
+    .str_47_address1(grp_dedup_calcHash_fu_3607_str_47_address1),
+    .str_47_ce1(grp_dedup_calcHash_fu_3607_str_47_ce1),
     .str_47_q1(buffer_47_q1),
-    .str_48_address0(grp_dedup_calcHash_fu_2858_str_48_address0),
-    .str_48_ce0(grp_dedup_calcHash_fu_2858_str_48_ce0),
+    .str_48_address0(grp_dedup_calcHash_fu_3607_str_48_address0),
+    .str_48_ce0(grp_dedup_calcHash_fu_3607_str_48_ce0),
     .str_48_q0(buffer_48_q0),
-    .str_48_address1(grp_dedup_calcHash_fu_2858_str_48_address1),
-    .str_48_ce1(grp_dedup_calcHash_fu_2858_str_48_ce1),
+    .str_48_address1(grp_dedup_calcHash_fu_3607_str_48_address1),
+    .str_48_ce1(grp_dedup_calcHash_fu_3607_str_48_ce1),
     .str_48_q1(buffer_48_q1),
-    .str_49_address0(grp_dedup_calcHash_fu_2858_str_49_address0),
-    .str_49_ce0(grp_dedup_calcHash_fu_2858_str_49_ce0),
+    .str_49_address0(grp_dedup_calcHash_fu_3607_str_49_address0),
+    .str_49_ce0(grp_dedup_calcHash_fu_3607_str_49_ce0),
     .str_49_q0(buffer_49_q0),
-    .str_49_address1(grp_dedup_calcHash_fu_2858_str_49_address1),
-    .str_49_ce1(grp_dedup_calcHash_fu_2858_str_49_ce1),
+    .str_49_address1(grp_dedup_calcHash_fu_3607_str_49_address1),
+    .str_49_ce1(grp_dedup_calcHash_fu_3607_str_49_ce1),
     .str_49_q1(buffer_49_q1),
-    .str_50_address0(grp_dedup_calcHash_fu_2858_str_50_address0),
-    .str_50_ce0(grp_dedup_calcHash_fu_2858_str_50_ce0),
+    .str_50_address0(grp_dedup_calcHash_fu_3607_str_50_address0),
+    .str_50_ce0(grp_dedup_calcHash_fu_3607_str_50_ce0),
     .str_50_q0(buffer_50_q0),
-    .str_50_address1(grp_dedup_calcHash_fu_2858_str_50_address1),
-    .str_50_ce1(grp_dedup_calcHash_fu_2858_str_50_ce1),
+    .str_50_address1(grp_dedup_calcHash_fu_3607_str_50_address1),
+    .str_50_ce1(grp_dedup_calcHash_fu_3607_str_50_ce1),
     .str_50_q1(buffer_50_q1),
-    .str_51_address0(grp_dedup_calcHash_fu_2858_str_51_address0),
-    .str_51_ce0(grp_dedup_calcHash_fu_2858_str_51_ce0),
+    .str_51_address0(grp_dedup_calcHash_fu_3607_str_51_address0),
+    .str_51_ce0(grp_dedup_calcHash_fu_3607_str_51_ce0),
     .str_51_q0(buffer_51_q0),
-    .str_51_address1(grp_dedup_calcHash_fu_2858_str_51_address1),
-    .str_51_ce1(grp_dedup_calcHash_fu_2858_str_51_ce1),
+    .str_51_address1(grp_dedup_calcHash_fu_3607_str_51_address1),
+    .str_51_ce1(grp_dedup_calcHash_fu_3607_str_51_ce1),
     .str_51_q1(buffer_51_q1),
-    .str_52_address0(grp_dedup_calcHash_fu_2858_str_52_address0),
-    .str_52_ce0(grp_dedup_calcHash_fu_2858_str_52_ce0),
+    .str_52_address0(grp_dedup_calcHash_fu_3607_str_52_address0),
+    .str_52_ce0(grp_dedup_calcHash_fu_3607_str_52_ce0),
     .str_52_q0(buffer_52_q0),
-    .str_52_address1(grp_dedup_calcHash_fu_2858_str_52_address1),
-    .str_52_ce1(grp_dedup_calcHash_fu_2858_str_52_ce1),
+    .str_52_address1(grp_dedup_calcHash_fu_3607_str_52_address1),
+    .str_52_ce1(grp_dedup_calcHash_fu_3607_str_52_ce1),
     .str_52_q1(buffer_52_q1),
-    .str_53_address0(grp_dedup_calcHash_fu_2858_str_53_address0),
-    .str_53_ce0(grp_dedup_calcHash_fu_2858_str_53_ce0),
+    .str_53_address0(grp_dedup_calcHash_fu_3607_str_53_address0),
+    .str_53_ce0(grp_dedup_calcHash_fu_3607_str_53_ce0),
     .str_53_q0(buffer_53_q0),
-    .str_53_address1(grp_dedup_calcHash_fu_2858_str_53_address1),
-    .str_53_ce1(grp_dedup_calcHash_fu_2858_str_53_ce1),
+    .str_53_address1(grp_dedup_calcHash_fu_3607_str_53_address1),
+    .str_53_ce1(grp_dedup_calcHash_fu_3607_str_53_ce1),
     .str_53_q1(buffer_53_q1),
-    .str_54_address0(grp_dedup_calcHash_fu_2858_str_54_address0),
-    .str_54_ce0(grp_dedup_calcHash_fu_2858_str_54_ce0),
+    .str_54_address0(grp_dedup_calcHash_fu_3607_str_54_address0),
+    .str_54_ce0(grp_dedup_calcHash_fu_3607_str_54_ce0),
     .str_54_q0(buffer_54_q0),
-    .str_54_address1(grp_dedup_calcHash_fu_2858_str_54_address1),
-    .str_54_ce1(grp_dedup_calcHash_fu_2858_str_54_ce1),
+    .str_54_address1(grp_dedup_calcHash_fu_3607_str_54_address1),
+    .str_54_ce1(grp_dedup_calcHash_fu_3607_str_54_ce1),
     .str_54_q1(buffer_54_q1),
-    .str_55_address0(grp_dedup_calcHash_fu_2858_str_55_address0),
-    .str_55_ce0(grp_dedup_calcHash_fu_2858_str_55_ce0),
+    .str_55_address0(grp_dedup_calcHash_fu_3607_str_55_address0),
+    .str_55_ce0(grp_dedup_calcHash_fu_3607_str_55_ce0),
     .str_55_q0(buffer_55_q0),
-    .str_55_address1(grp_dedup_calcHash_fu_2858_str_55_address1),
-    .str_55_ce1(grp_dedup_calcHash_fu_2858_str_55_ce1),
+    .str_55_address1(grp_dedup_calcHash_fu_3607_str_55_address1),
+    .str_55_ce1(grp_dedup_calcHash_fu_3607_str_55_ce1),
     .str_55_q1(buffer_55_q1),
-    .str_56_address0(grp_dedup_calcHash_fu_2858_str_56_address0),
-    .str_56_ce0(grp_dedup_calcHash_fu_2858_str_56_ce0),
+    .str_56_address0(grp_dedup_calcHash_fu_3607_str_56_address0),
+    .str_56_ce0(grp_dedup_calcHash_fu_3607_str_56_ce0),
     .str_56_q0(buffer_56_q0),
-    .str_56_address1(grp_dedup_calcHash_fu_2858_str_56_address1),
-    .str_56_ce1(grp_dedup_calcHash_fu_2858_str_56_ce1),
+    .str_56_address1(grp_dedup_calcHash_fu_3607_str_56_address1),
+    .str_56_ce1(grp_dedup_calcHash_fu_3607_str_56_ce1),
     .str_56_q1(buffer_56_q1),
-    .str_57_address0(grp_dedup_calcHash_fu_2858_str_57_address0),
-    .str_57_ce0(grp_dedup_calcHash_fu_2858_str_57_ce0),
+    .str_57_address0(grp_dedup_calcHash_fu_3607_str_57_address0),
+    .str_57_ce0(grp_dedup_calcHash_fu_3607_str_57_ce0),
     .str_57_q0(buffer_57_q0),
-    .str_57_address1(grp_dedup_calcHash_fu_2858_str_57_address1),
-    .str_57_ce1(grp_dedup_calcHash_fu_2858_str_57_ce1),
+    .str_57_address1(grp_dedup_calcHash_fu_3607_str_57_address1),
+    .str_57_ce1(grp_dedup_calcHash_fu_3607_str_57_ce1),
     .str_57_q1(buffer_57_q1),
-    .str_58_address0(grp_dedup_calcHash_fu_2858_str_58_address0),
-    .str_58_ce0(grp_dedup_calcHash_fu_2858_str_58_ce0),
+    .str_58_address0(grp_dedup_calcHash_fu_3607_str_58_address0),
+    .str_58_ce0(grp_dedup_calcHash_fu_3607_str_58_ce0),
     .str_58_q0(buffer_58_q0),
-    .str_58_address1(grp_dedup_calcHash_fu_2858_str_58_address1),
-    .str_58_ce1(grp_dedup_calcHash_fu_2858_str_58_ce1),
+    .str_58_address1(grp_dedup_calcHash_fu_3607_str_58_address1),
+    .str_58_ce1(grp_dedup_calcHash_fu_3607_str_58_ce1),
     .str_58_q1(buffer_58_q1),
-    .str_59_address0(grp_dedup_calcHash_fu_2858_str_59_address0),
-    .str_59_ce0(grp_dedup_calcHash_fu_2858_str_59_ce0),
+    .str_59_address0(grp_dedup_calcHash_fu_3607_str_59_address0),
+    .str_59_ce0(grp_dedup_calcHash_fu_3607_str_59_ce0),
     .str_59_q0(buffer_59_q0),
-    .str_59_address1(grp_dedup_calcHash_fu_2858_str_59_address1),
-    .str_59_ce1(grp_dedup_calcHash_fu_2858_str_59_ce1),
+    .str_59_address1(grp_dedup_calcHash_fu_3607_str_59_address1),
+    .str_59_ce1(grp_dedup_calcHash_fu_3607_str_59_ce1),
     .str_59_q1(buffer_59_q1),
-    .str_60_address0(grp_dedup_calcHash_fu_2858_str_60_address0),
-    .str_60_ce0(grp_dedup_calcHash_fu_2858_str_60_ce0),
+    .str_60_address0(grp_dedup_calcHash_fu_3607_str_60_address0),
+    .str_60_ce0(grp_dedup_calcHash_fu_3607_str_60_ce0),
     .str_60_q0(buffer_60_q0),
-    .str_60_address1(grp_dedup_calcHash_fu_2858_str_60_address1),
-    .str_60_ce1(grp_dedup_calcHash_fu_2858_str_60_ce1),
+    .str_60_address1(grp_dedup_calcHash_fu_3607_str_60_address1),
+    .str_60_ce1(grp_dedup_calcHash_fu_3607_str_60_ce1),
     .str_60_q1(buffer_60_q1),
-    .str_61_address0(grp_dedup_calcHash_fu_2858_str_61_address0),
-    .str_61_ce0(grp_dedup_calcHash_fu_2858_str_61_ce0),
+    .str_61_address0(grp_dedup_calcHash_fu_3607_str_61_address0),
+    .str_61_ce0(grp_dedup_calcHash_fu_3607_str_61_ce0),
     .str_61_q0(buffer_61_q0),
-    .str_61_address1(grp_dedup_calcHash_fu_2858_str_61_address1),
-    .str_61_ce1(grp_dedup_calcHash_fu_2858_str_61_ce1),
+    .str_61_address1(grp_dedup_calcHash_fu_3607_str_61_address1),
+    .str_61_ce1(grp_dedup_calcHash_fu_3607_str_61_ce1),
     .str_61_q1(buffer_61_q1),
-    .str_62_address0(grp_dedup_calcHash_fu_2858_str_62_address0),
-    .str_62_ce0(grp_dedup_calcHash_fu_2858_str_62_ce0),
+    .str_62_address0(grp_dedup_calcHash_fu_3607_str_62_address0),
+    .str_62_ce0(grp_dedup_calcHash_fu_3607_str_62_ce0),
     .str_62_q0(buffer_62_q0),
-    .str_62_address1(grp_dedup_calcHash_fu_2858_str_62_address1),
-    .str_62_ce1(grp_dedup_calcHash_fu_2858_str_62_ce1),
+    .str_62_address1(grp_dedup_calcHash_fu_3607_str_62_address1),
+    .str_62_ce1(grp_dedup_calcHash_fu_3607_str_62_ce1),
     .str_62_q1(buffer_62_q1),
-    .str_63_address0(grp_dedup_calcHash_fu_2858_str_63_address0),
-    .str_63_ce0(grp_dedup_calcHash_fu_2858_str_63_ce0),
+    .str_63_address0(grp_dedup_calcHash_fu_3607_str_63_address0),
+    .str_63_ce0(grp_dedup_calcHash_fu_3607_str_63_ce0),
     .str_63_q0(buffer_63_q0),
-    .str_63_address1(grp_dedup_calcHash_fu_2858_str_63_address1),
-    .str_63_ce1(grp_dedup_calcHash_fu_2858_str_63_ce1),
+    .str_63_address1(grp_dedup_calcHash_fu_3607_str_63_address1),
+    .str_63_ce1(grp_dedup_calcHash_fu_3607_str_63_ce1),
     .str_63_q1(buffer_63_q1),
-    .str_64_address0(grp_dedup_calcHash_fu_2858_str_64_address0),
-    .str_64_ce0(grp_dedup_calcHash_fu_2858_str_64_ce0),
+    .str_64_address0(grp_dedup_calcHash_fu_3607_str_64_address0),
+    .str_64_ce0(grp_dedup_calcHash_fu_3607_str_64_ce0),
     .str_64_q0(buffer_64_q0),
-    .str_64_address1(grp_dedup_calcHash_fu_2858_str_64_address1),
-    .str_64_ce1(grp_dedup_calcHash_fu_2858_str_64_ce1),
+    .str_64_address1(grp_dedup_calcHash_fu_3607_str_64_address1),
+    .str_64_ce1(grp_dedup_calcHash_fu_3607_str_64_ce1),
     .str_64_q1(buffer_64_q1),
-    .str_65_address0(grp_dedup_calcHash_fu_2858_str_65_address0),
-    .str_65_ce0(grp_dedup_calcHash_fu_2858_str_65_ce0),
+    .str_65_address0(grp_dedup_calcHash_fu_3607_str_65_address0),
+    .str_65_ce0(grp_dedup_calcHash_fu_3607_str_65_ce0),
     .str_65_q0(buffer_65_q0),
-    .str_65_address1(grp_dedup_calcHash_fu_2858_str_65_address1),
-    .str_65_ce1(grp_dedup_calcHash_fu_2858_str_65_ce1),
+    .str_65_address1(grp_dedup_calcHash_fu_3607_str_65_address1),
+    .str_65_ce1(grp_dedup_calcHash_fu_3607_str_65_ce1),
     .str_65_q1(buffer_65_q1),
-    .str_66_address0(grp_dedup_calcHash_fu_2858_str_66_address0),
-    .str_66_ce0(grp_dedup_calcHash_fu_2858_str_66_ce0),
+    .str_66_address0(grp_dedup_calcHash_fu_3607_str_66_address0),
+    .str_66_ce0(grp_dedup_calcHash_fu_3607_str_66_ce0),
     .str_66_q0(buffer_66_q0),
-    .str_66_address1(grp_dedup_calcHash_fu_2858_str_66_address1),
-    .str_66_ce1(grp_dedup_calcHash_fu_2858_str_66_ce1),
+    .str_66_address1(grp_dedup_calcHash_fu_3607_str_66_address1),
+    .str_66_ce1(grp_dedup_calcHash_fu_3607_str_66_ce1),
     .str_66_q1(buffer_66_q1),
-    .str_67_address0(grp_dedup_calcHash_fu_2858_str_67_address0),
-    .str_67_ce0(grp_dedup_calcHash_fu_2858_str_67_ce0),
+    .str_67_address0(grp_dedup_calcHash_fu_3607_str_67_address0),
+    .str_67_ce0(grp_dedup_calcHash_fu_3607_str_67_ce0),
     .str_67_q0(buffer_67_q0),
-    .str_67_address1(grp_dedup_calcHash_fu_2858_str_67_address1),
-    .str_67_ce1(grp_dedup_calcHash_fu_2858_str_67_ce1),
+    .str_67_address1(grp_dedup_calcHash_fu_3607_str_67_address1),
+    .str_67_ce1(grp_dedup_calcHash_fu_3607_str_67_ce1),
     .str_67_q1(buffer_67_q1),
-    .str_68_address0(grp_dedup_calcHash_fu_2858_str_68_address0),
-    .str_68_ce0(grp_dedup_calcHash_fu_2858_str_68_ce0),
+    .str_68_address0(grp_dedup_calcHash_fu_3607_str_68_address0),
+    .str_68_ce0(grp_dedup_calcHash_fu_3607_str_68_ce0),
     .str_68_q0(buffer_68_q0),
-    .str_68_address1(grp_dedup_calcHash_fu_2858_str_68_address1),
-    .str_68_ce1(grp_dedup_calcHash_fu_2858_str_68_ce1),
+    .str_68_address1(grp_dedup_calcHash_fu_3607_str_68_address1),
+    .str_68_ce1(grp_dedup_calcHash_fu_3607_str_68_ce1),
     .str_68_q1(buffer_68_q1),
-    .str_69_address0(grp_dedup_calcHash_fu_2858_str_69_address0),
-    .str_69_ce0(grp_dedup_calcHash_fu_2858_str_69_ce0),
+    .str_69_address0(grp_dedup_calcHash_fu_3607_str_69_address0),
+    .str_69_ce0(grp_dedup_calcHash_fu_3607_str_69_ce0),
     .str_69_q0(buffer_69_q0),
-    .str_69_address1(grp_dedup_calcHash_fu_2858_str_69_address1),
-    .str_69_ce1(grp_dedup_calcHash_fu_2858_str_69_ce1),
+    .str_69_address1(grp_dedup_calcHash_fu_3607_str_69_address1),
+    .str_69_ce1(grp_dedup_calcHash_fu_3607_str_69_ce1),
     .str_69_q1(buffer_69_q1),
-    .str_70_address0(grp_dedup_calcHash_fu_2858_str_70_address0),
-    .str_70_ce0(grp_dedup_calcHash_fu_2858_str_70_ce0),
+    .str_70_address0(grp_dedup_calcHash_fu_3607_str_70_address0),
+    .str_70_ce0(grp_dedup_calcHash_fu_3607_str_70_ce0),
     .str_70_q0(buffer_70_q0),
-    .str_70_address1(grp_dedup_calcHash_fu_2858_str_70_address1),
-    .str_70_ce1(grp_dedup_calcHash_fu_2858_str_70_ce1),
+    .str_70_address1(grp_dedup_calcHash_fu_3607_str_70_address1),
+    .str_70_ce1(grp_dedup_calcHash_fu_3607_str_70_ce1),
     .str_70_q1(buffer_70_q1),
-    .str_71_address0(grp_dedup_calcHash_fu_2858_str_71_address0),
-    .str_71_ce0(grp_dedup_calcHash_fu_2858_str_71_ce0),
+    .str_71_address0(grp_dedup_calcHash_fu_3607_str_71_address0),
+    .str_71_ce0(grp_dedup_calcHash_fu_3607_str_71_ce0),
     .str_71_q0(buffer_71_q0),
-    .str_71_address1(grp_dedup_calcHash_fu_2858_str_71_address1),
-    .str_71_ce1(grp_dedup_calcHash_fu_2858_str_71_ce1),
+    .str_71_address1(grp_dedup_calcHash_fu_3607_str_71_address1),
+    .str_71_ce1(grp_dedup_calcHash_fu_3607_str_71_ce1),
     .str_71_q1(buffer_71_q1),
-    .str_72_address0(grp_dedup_calcHash_fu_2858_str_72_address0),
-    .str_72_ce0(grp_dedup_calcHash_fu_2858_str_72_ce0),
+    .str_72_address0(grp_dedup_calcHash_fu_3607_str_72_address0),
+    .str_72_ce0(grp_dedup_calcHash_fu_3607_str_72_ce0),
     .str_72_q0(buffer_72_q0),
-    .str_72_address1(grp_dedup_calcHash_fu_2858_str_72_address1),
-    .str_72_ce1(grp_dedup_calcHash_fu_2858_str_72_ce1),
+    .str_72_address1(grp_dedup_calcHash_fu_3607_str_72_address1),
+    .str_72_ce1(grp_dedup_calcHash_fu_3607_str_72_ce1),
     .str_72_q1(buffer_72_q1),
-    .str_73_address0(grp_dedup_calcHash_fu_2858_str_73_address0),
-    .str_73_ce0(grp_dedup_calcHash_fu_2858_str_73_ce0),
+    .str_73_address0(grp_dedup_calcHash_fu_3607_str_73_address0),
+    .str_73_ce0(grp_dedup_calcHash_fu_3607_str_73_ce0),
     .str_73_q0(buffer_73_q0),
-    .str_73_address1(grp_dedup_calcHash_fu_2858_str_73_address1),
-    .str_73_ce1(grp_dedup_calcHash_fu_2858_str_73_ce1),
+    .str_73_address1(grp_dedup_calcHash_fu_3607_str_73_address1),
+    .str_73_ce1(grp_dedup_calcHash_fu_3607_str_73_ce1),
     .str_73_q1(buffer_73_q1),
-    .str_74_address0(grp_dedup_calcHash_fu_2858_str_74_address0),
-    .str_74_ce0(grp_dedup_calcHash_fu_2858_str_74_ce0),
+    .str_74_address0(grp_dedup_calcHash_fu_3607_str_74_address0),
+    .str_74_ce0(grp_dedup_calcHash_fu_3607_str_74_ce0),
     .str_74_q0(buffer_74_q0),
-    .str_74_address1(grp_dedup_calcHash_fu_2858_str_74_address1),
-    .str_74_ce1(grp_dedup_calcHash_fu_2858_str_74_ce1),
+    .str_74_address1(grp_dedup_calcHash_fu_3607_str_74_address1),
+    .str_74_ce1(grp_dedup_calcHash_fu_3607_str_74_ce1),
     .str_74_q1(buffer_74_q1),
-    .str_75_address0(grp_dedup_calcHash_fu_2858_str_75_address0),
-    .str_75_ce0(grp_dedup_calcHash_fu_2858_str_75_ce0),
+    .str_75_address0(grp_dedup_calcHash_fu_3607_str_75_address0),
+    .str_75_ce0(grp_dedup_calcHash_fu_3607_str_75_ce0),
     .str_75_q0(buffer_75_q0),
-    .str_75_address1(grp_dedup_calcHash_fu_2858_str_75_address1),
-    .str_75_ce1(grp_dedup_calcHash_fu_2858_str_75_ce1),
+    .str_75_address1(grp_dedup_calcHash_fu_3607_str_75_address1),
+    .str_75_ce1(grp_dedup_calcHash_fu_3607_str_75_ce1),
     .str_75_q1(buffer_75_q1),
-    .str_76_address0(grp_dedup_calcHash_fu_2858_str_76_address0),
-    .str_76_ce0(grp_dedup_calcHash_fu_2858_str_76_ce0),
+    .str_76_address0(grp_dedup_calcHash_fu_3607_str_76_address0),
+    .str_76_ce0(grp_dedup_calcHash_fu_3607_str_76_ce0),
     .str_76_q0(buffer_76_q0),
-    .str_76_address1(grp_dedup_calcHash_fu_2858_str_76_address1),
-    .str_76_ce1(grp_dedup_calcHash_fu_2858_str_76_ce1),
+    .str_76_address1(grp_dedup_calcHash_fu_3607_str_76_address1),
+    .str_76_ce1(grp_dedup_calcHash_fu_3607_str_76_ce1),
     .str_76_q1(buffer_76_q1),
-    .str_77_address0(grp_dedup_calcHash_fu_2858_str_77_address0),
-    .str_77_ce0(grp_dedup_calcHash_fu_2858_str_77_ce0),
+    .str_77_address0(grp_dedup_calcHash_fu_3607_str_77_address0),
+    .str_77_ce0(grp_dedup_calcHash_fu_3607_str_77_ce0),
     .str_77_q0(buffer_77_q0),
-    .str_77_address1(grp_dedup_calcHash_fu_2858_str_77_address1),
-    .str_77_ce1(grp_dedup_calcHash_fu_2858_str_77_ce1),
+    .str_77_address1(grp_dedup_calcHash_fu_3607_str_77_address1),
+    .str_77_ce1(grp_dedup_calcHash_fu_3607_str_77_ce1),
     .str_77_q1(buffer_77_q1),
-    .str_78_address0(grp_dedup_calcHash_fu_2858_str_78_address0),
-    .str_78_ce0(grp_dedup_calcHash_fu_2858_str_78_ce0),
+    .str_78_address0(grp_dedup_calcHash_fu_3607_str_78_address0),
+    .str_78_ce0(grp_dedup_calcHash_fu_3607_str_78_ce0),
     .str_78_q0(buffer_78_q0),
-    .str_78_address1(grp_dedup_calcHash_fu_2858_str_78_address1),
-    .str_78_ce1(grp_dedup_calcHash_fu_2858_str_78_ce1),
+    .str_78_address1(grp_dedup_calcHash_fu_3607_str_78_address1),
+    .str_78_ce1(grp_dedup_calcHash_fu_3607_str_78_ce1),
     .str_78_q1(buffer_78_q1),
-    .str_79_address0(grp_dedup_calcHash_fu_2858_str_79_address0),
-    .str_79_ce0(grp_dedup_calcHash_fu_2858_str_79_ce0),
+    .str_79_address0(grp_dedup_calcHash_fu_3607_str_79_address0),
+    .str_79_ce0(grp_dedup_calcHash_fu_3607_str_79_ce0),
     .str_79_q0(buffer_79_q0),
-    .str_79_address1(grp_dedup_calcHash_fu_2858_str_79_address1),
-    .str_79_ce1(grp_dedup_calcHash_fu_2858_str_79_ce1),
+    .str_79_address1(grp_dedup_calcHash_fu_3607_str_79_address1),
+    .str_79_ce1(grp_dedup_calcHash_fu_3607_str_79_ce1),
     .str_79_q1(buffer_79_q1),
-    .str_80_address0(grp_dedup_calcHash_fu_2858_str_80_address0),
-    .str_80_ce0(grp_dedup_calcHash_fu_2858_str_80_ce0),
+    .str_80_address0(grp_dedup_calcHash_fu_3607_str_80_address0),
+    .str_80_ce0(grp_dedup_calcHash_fu_3607_str_80_ce0),
     .str_80_q0(buffer_80_q0),
-    .str_80_address1(grp_dedup_calcHash_fu_2858_str_80_address1),
-    .str_80_ce1(grp_dedup_calcHash_fu_2858_str_80_ce1),
+    .str_80_address1(grp_dedup_calcHash_fu_3607_str_80_address1),
+    .str_80_ce1(grp_dedup_calcHash_fu_3607_str_80_ce1),
     .str_80_q1(buffer_80_q1),
-    .str_81_address0(grp_dedup_calcHash_fu_2858_str_81_address0),
-    .str_81_ce0(grp_dedup_calcHash_fu_2858_str_81_ce0),
+    .str_81_address0(grp_dedup_calcHash_fu_3607_str_81_address0),
+    .str_81_ce0(grp_dedup_calcHash_fu_3607_str_81_ce0),
     .str_81_q0(buffer_81_q0),
-    .str_81_address1(grp_dedup_calcHash_fu_2858_str_81_address1),
-    .str_81_ce1(grp_dedup_calcHash_fu_2858_str_81_ce1),
+    .str_81_address1(grp_dedup_calcHash_fu_3607_str_81_address1),
+    .str_81_ce1(grp_dedup_calcHash_fu_3607_str_81_ce1),
     .str_81_q1(buffer_81_q1),
-    .str_82_address0(grp_dedup_calcHash_fu_2858_str_82_address0),
-    .str_82_ce0(grp_dedup_calcHash_fu_2858_str_82_ce0),
+    .str_82_address0(grp_dedup_calcHash_fu_3607_str_82_address0),
+    .str_82_ce0(grp_dedup_calcHash_fu_3607_str_82_ce0),
     .str_82_q0(buffer_82_q0),
-    .str_82_address1(grp_dedup_calcHash_fu_2858_str_82_address1),
-    .str_82_ce1(grp_dedup_calcHash_fu_2858_str_82_ce1),
+    .str_82_address1(grp_dedup_calcHash_fu_3607_str_82_address1),
+    .str_82_ce1(grp_dedup_calcHash_fu_3607_str_82_ce1),
     .str_82_q1(buffer_82_q1),
-    .str_83_address0(grp_dedup_calcHash_fu_2858_str_83_address0),
-    .str_83_ce0(grp_dedup_calcHash_fu_2858_str_83_ce0),
+    .str_83_address0(grp_dedup_calcHash_fu_3607_str_83_address0),
+    .str_83_ce0(grp_dedup_calcHash_fu_3607_str_83_ce0),
     .str_83_q0(buffer_83_q0),
-    .str_83_address1(grp_dedup_calcHash_fu_2858_str_83_address1),
-    .str_83_ce1(grp_dedup_calcHash_fu_2858_str_83_ce1),
+    .str_83_address1(grp_dedup_calcHash_fu_3607_str_83_address1),
+    .str_83_ce1(grp_dedup_calcHash_fu_3607_str_83_ce1),
     .str_83_q1(buffer_83_q1),
-    .str_84_address0(grp_dedup_calcHash_fu_2858_str_84_address0),
-    .str_84_ce0(grp_dedup_calcHash_fu_2858_str_84_ce0),
+    .str_84_address0(grp_dedup_calcHash_fu_3607_str_84_address0),
+    .str_84_ce0(grp_dedup_calcHash_fu_3607_str_84_ce0),
     .str_84_q0(buffer_84_q0),
-    .str_84_address1(grp_dedup_calcHash_fu_2858_str_84_address1),
-    .str_84_ce1(grp_dedup_calcHash_fu_2858_str_84_ce1),
+    .str_84_address1(grp_dedup_calcHash_fu_3607_str_84_address1),
+    .str_84_ce1(grp_dedup_calcHash_fu_3607_str_84_ce1),
     .str_84_q1(buffer_84_q1),
-    .str_85_address0(grp_dedup_calcHash_fu_2858_str_85_address0),
-    .str_85_ce0(grp_dedup_calcHash_fu_2858_str_85_ce0),
+    .str_85_address0(grp_dedup_calcHash_fu_3607_str_85_address0),
+    .str_85_ce0(grp_dedup_calcHash_fu_3607_str_85_ce0),
     .str_85_q0(buffer_85_q0),
-    .str_85_address1(grp_dedup_calcHash_fu_2858_str_85_address1),
-    .str_85_ce1(grp_dedup_calcHash_fu_2858_str_85_ce1),
+    .str_85_address1(grp_dedup_calcHash_fu_3607_str_85_address1),
+    .str_85_ce1(grp_dedup_calcHash_fu_3607_str_85_ce1),
     .str_85_q1(buffer_85_q1),
-    .str_86_address0(grp_dedup_calcHash_fu_2858_str_86_address0),
-    .str_86_ce0(grp_dedup_calcHash_fu_2858_str_86_ce0),
+    .str_86_address0(grp_dedup_calcHash_fu_3607_str_86_address0),
+    .str_86_ce0(grp_dedup_calcHash_fu_3607_str_86_ce0),
     .str_86_q0(buffer_86_q0),
-    .str_86_address1(grp_dedup_calcHash_fu_2858_str_86_address1),
-    .str_86_ce1(grp_dedup_calcHash_fu_2858_str_86_ce1),
+    .str_86_address1(grp_dedup_calcHash_fu_3607_str_86_address1),
+    .str_86_ce1(grp_dedup_calcHash_fu_3607_str_86_ce1),
     .str_86_q1(buffer_86_q1),
-    .str_87_address0(grp_dedup_calcHash_fu_2858_str_87_address0),
-    .str_87_ce0(grp_dedup_calcHash_fu_2858_str_87_ce0),
+    .str_87_address0(grp_dedup_calcHash_fu_3607_str_87_address0),
+    .str_87_ce0(grp_dedup_calcHash_fu_3607_str_87_ce0),
     .str_87_q0(buffer_87_q0),
-    .str_87_address1(grp_dedup_calcHash_fu_2858_str_87_address1),
-    .str_87_ce1(grp_dedup_calcHash_fu_2858_str_87_ce1),
+    .str_87_address1(grp_dedup_calcHash_fu_3607_str_87_address1),
+    .str_87_ce1(grp_dedup_calcHash_fu_3607_str_87_ce1),
     .str_87_q1(buffer_87_q1),
-    .str_88_address0(grp_dedup_calcHash_fu_2858_str_88_address0),
-    .str_88_ce0(grp_dedup_calcHash_fu_2858_str_88_ce0),
+    .str_88_address0(grp_dedup_calcHash_fu_3607_str_88_address0),
+    .str_88_ce0(grp_dedup_calcHash_fu_3607_str_88_ce0),
     .str_88_q0(buffer_88_q0),
-    .str_88_address1(grp_dedup_calcHash_fu_2858_str_88_address1),
-    .str_88_ce1(grp_dedup_calcHash_fu_2858_str_88_ce1),
+    .str_88_address1(grp_dedup_calcHash_fu_3607_str_88_address1),
+    .str_88_ce1(grp_dedup_calcHash_fu_3607_str_88_ce1),
     .str_88_q1(buffer_88_q1),
-    .str_89_address0(grp_dedup_calcHash_fu_2858_str_89_address0),
-    .str_89_ce0(grp_dedup_calcHash_fu_2858_str_89_ce0),
+    .str_89_address0(grp_dedup_calcHash_fu_3607_str_89_address0),
+    .str_89_ce0(grp_dedup_calcHash_fu_3607_str_89_ce0),
     .str_89_q0(buffer_89_q0),
-    .str_89_address1(grp_dedup_calcHash_fu_2858_str_89_address1),
-    .str_89_ce1(grp_dedup_calcHash_fu_2858_str_89_ce1),
+    .str_89_address1(grp_dedup_calcHash_fu_3607_str_89_address1),
+    .str_89_ce1(grp_dedup_calcHash_fu_3607_str_89_ce1),
     .str_89_q1(buffer_89_q1),
-    .str_90_address0(grp_dedup_calcHash_fu_2858_str_90_address0),
-    .str_90_ce0(grp_dedup_calcHash_fu_2858_str_90_ce0),
+    .str_90_address0(grp_dedup_calcHash_fu_3607_str_90_address0),
+    .str_90_ce0(grp_dedup_calcHash_fu_3607_str_90_ce0),
     .str_90_q0(buffer_90_q0),
-    .str_90_address1(grp_dedup_calcHash_fu_2858_str_90_address1),
-    .str_90_ce1(grp_dedup_calcHash_fu_2858_str_90_ce1),
+    .str_90_address1(grp_dedup_calcHash_fu_3607_str_90_address1),
+    .str_90_ce1(grp_dedup_calcHash_fu_3607_str_90_ce1),
     .str_90_q1(buffer_90_q1),
-    .str_91_address0(grp_dedup_calcHash_fu_2858_str_91_address0),
-    .str_91_ce0(grp_dedup_calcHash_fu_2858_str_91_ce0),
+    .str_91_address0(grp_dedup_calcHash_fu_3607_str_91_address0),
+    .str_91_ce0(grp_dedup_calcHash_fu_3607_str_91_ce0),
     .str_91_q0(buffer_91_q0),
-    .str_91_address1(grp_dedup_calcHash_fu_2858_str_91_address1),
-    .str_91_ce1(grp_dedup_calcHash_fu_2858_str_91_ce1),
+    .str_91_address1(grp_dedup_calcHash_fu_3607_str_91_address1),
+    .str_91_ce1(grp_dedup_calcHash_fu_3607_str_91_ce1),
     .str_91_q1(buffer_91_q1),
-    .str_92_address0(grp_dedup_calcHash_fu_2858_str_92_address0),
-    .str_92_ce0(grp_dedup_calcHash_fu_2858_str_92_ce0),
+    .str_92_address0(grp_dedup_calcHash_fu_3607_str_92_address0),
+    .str_92_ce0(grp_dedup_calcHash_fu_3607_str_92_ce0),
     .str_92_q0(buffer_92_q0),
-    .str_92_address1(grp_dedup_calcHash_fu_2858_str_92_address1),
-    .str_92_ce1(grp_dedup_calcHash_fu_2858_str_92_ce1),
+    .str_92_address1(grp_dedup_calcHash_fu_3607_str_92_address1),
+    .str_92_ce1(grp_dedup_calcHash_fu_3607_str_92_ce1),
     .str_92_q1(buffer_92_q1),
-    .str_93_address0(grp_dedup_calcHash_fu_2858_str_93_address0),
-    .str_93_ce0(grp_dedup_calcHash_fu_2858_str_93_ce0),
+    .str_93_address0(grp_dedup_calcHash_fu_3607_str_93_address0),
+    .str_93_ce0(grp_dedup_calcHash_fu_3607_str_93_ce0),
     .str_93_q0(buffer_93_q0),
-    .str_93_address1(grp_dedup_calcHash_fu_2858_str_93_address1),
-    .str_93_ce1(grp_dedup_calcHash_fu_2858_str_93_ce1),
+    .str_93_address1(grp_dedup_calcHash_fu_3607_str_93_address1),
+    .str_93_ce1(grp_dedup_calcHash_fu_3607_str_93_ce1),
     .str_93_q1(buffer_93_q1),
-    .str_94_address0(grp_dedup_calcHash_fu_2858_str_94_address0),
-    .str_94_ce0(grp_dedup_calcHash_fu_2858_str_94_ce0),
+    .str_94_address0(grp_dedup_calcHash_fu_3607_str_94_address0),
+    .str_94_ce0(grp_dedup_calcHash_fu_3607_str_94_ce0),
     .str_94_q0(buffer_94_q0),
-    .str_94_address1(grp_dedup_calcHash_fu_2858_str_94_address1),
-    .str_94_ce1(grp_dedup_calcHash_fu_2858_str_94_ce1),
+    .str_94_address1(grp_dedup_calcHash_fu_3607_str_94_address1),
+    .str_94_ce1(grp_dedup_calcHash_fu_3607_str_94_ce1),
     .str_94_q1(buffer_94_q1),
-    .str_95_address0(grp_dedup_calcHash_fu_2858_str_95_address0),
-    .str_95_ce0(grp_dedup_calcHash_fu_2858_str_95_ce0),
+    .str_95_address0(grp_dedup_calcHash_fu_3607_str_95_address0),
+    .str_95_ce0(grp_dedup_calcHash_fu_3607_str_95_ce0),
     .str_95_q0(buffer_95_q0),
-    .str_95_address1(grp_dedup_calcHash_fu_2858_str_95_address1),
-    .str_95_ce1(grp_dedup_calcHash_fu_2858_str_95_ce1),
+    .str_95_address1(grp_dedup_calcHash_fu_3607_str_95_address1),
+    .str_95_ce1(grp_dedup_calcHash_fu_3607_str_95_ce1),
     .str_95_q1(buffer_95_q1),
-    .str_96_address0(grp_dedup_calcHash_fu_2858_str_96_address0),
-    .str_96_ce0(grp_dedup_calcHash_fu_2858_str_96_ce0),
+    .str_96_address0(grp_dedup_calcHash_fu_3607_str_96_address0),
+    .str_96_ce0(grp_dedup_calcHash_fu_3607_str_96_ce0),
     .str_96_q0(buffer_96_q0),
-    .str_96_address1(grp_dedup_calcHash_fu_2858_str_96_address1),
-    .str_96_ce1(grp_dedup_calcHash_fu_2858_str_96_ce1),
+    .str_96_address1(grp_dedup_calcHash_fu_3607_str_96_address1),
+    .str_96_ce1(grp_dedup_calcHash_fu_3607_str_96_ce1),
     .str_96_q1(buffer_96_q1),
-    .str_97_address0(grp_dedup_calcHash_fu_2858_str_97_address0),
-    .str_97_ce0(grp_dedup_calcHash_fu_2858_str_97_ce0),
+    .str_97_address0(grp_dedup_calcHash_fu_3607_str_97_address0),
+    .str_97_ce0(grp_dedup_calcHash_fu_3607_str_97_ce0),
     .str_97_q0(buffer_97_q0),
-    .str_97_address1(grp_dedup_calcHash_fu_2858_str_97_address1),
-    .str_97_ce1(grp_dedup_calcHash_fu_2858_str_97_ce1),
+    .str_97_address1(grp_dedup_calcHash_fu_3607_str_97_address1),
+    .str_97_ce1(grp_dedup_calcHash_fu_3607_str_97_ce1),
     .str_97_q1(buffer_97_q1),
-    .str_98_address0(grp_dedup_calcHash_fu_2858_str_98_address0),
-    .str_98_ce0(grp_dedup_calcHash_fu_2858_str_98_ce0),
+    .str_98_address0(grp_dedup_calcHash_fu_3607_str_98_address0),
+    .str_98_ce0(grp_dedup_calcHash_fu_3607_str_98_ce0),
     .str_98_q0(buffer_98_q0),
-    .str_98_address1(grp_dedup_calcHash_fu_2858_str_98_address1),
-    .str_98_ce1(grp_dedup_calcHash_fu_2858_str_98_ce1),
+    .str_98_address1(grp_dedup_calcHash_fu_3607_str_98_address1),
+    .str_98_ce1(grp_dedup_calcHash_fu_3607_str_98_ce1),
     .str_98_q1(buffer_98_q1),
-    .str_99_address0(grp_dedup_calcHash_fu_2858_str_99_address0),
-    .str_99_ce0(grp_dedup_calcHash_fu_2858_str_99_ce0),
+    .str_99_address0(grp_dedup_calcHash_fu_3607_str_99_address0),
+    .str_99_ce0(grp_dedup_calcHash_fu_3607_str_99_ce0),
     .str_99_q0(buffer_99_q0),
-    .str_99_address1(grp_dedup_calcHash_fu_2858_str_99_address1),
-    .str_99_ce1(grp_dedup_calcHash_fu_2858_str_99_ce1),
+    .str_99_address1(grp_dedup_calcHash_fu_3607_str_99_address1),
+    .str_99_ce1(grp_dedup_calcHash_fu_3607_str_99_ce1),
     .str_99_q1(buffer_99_q1),
-    .str_100_address0(grp_dedup_calcHash_fu_2858_str_100_address0),
-    .str_100_ce0(grp_dedup_calcHash_fu_2858_str_100_ce0),
+    .str_100_address0(grp_dedup_calcHash_fu_3607_str_100_address0),
+    .str_100_ce0(grp_dedup_calcHash_fu_3607_str_100_ce0),
     .str_100_q0(buffer_100_q0),
-    .str_100_address1(grp_dedup_calcHash_fu_2858_str_100_address1),
-    .str_100_ce1(grp_dedup_calcHash_fu_2858_str_100_ce1),
+    .str_100_address1(grp_dedup_calcHash_fu_3607_str_100_address1),
+    .str_100_ce1(grp_dedup_calcHash_fu_3607_str_100_ce1),
     .str_100_q1(buffer_100_q1),
-    .str_101_address0(grp_dedup_calcHash_fu_2858_str_101_address0),
-    .str_101_ce0(grp_dedup_calcHash_fu_2858_str_101_ce0),
+    .str_101_address0(grp_dedup_calcHash_fu_3607_str_101_address0),
+    .str_101_ce0(grp_dedup_calcHash_fu_3607_str_101_ce0),
     .str_101_q0(buffer_101_q0),
-    .str_101_address1(grp_dedup_calcHash_fu_2858_str_101_address1),
-    .str_101_ce1(grp_dedup_calcHash_fu_2858_str_101_ce1),
+    .str_101_address1(grp_dedup_calcHash_fu_3607_str_101_address1),
+    .str_101_ce1(grp_dedup_calcHash_fu_3607_str_101_ce1),
     .str_101_q1(buffer_101_q1),
-    .str_102_address0(grp_dedup_calcHash_fu_2858_str_102_address0),
-    .str_102_ce0(grp_dedup_calcHash_fu_2858_str_102_ce0),
+    .str_102_address0(grp_dedup_calcHash_fu_3607_str_102_address0),
+    .str_102_ce0(grp_dedup_calcHash_fu_3607_str_102_ce0),
     .str_102_q0(buffer_102_q0),
-    .str_102_address1(grp_dedup_calcHash_fu_2858_str_102_address1),
-    .str_102_ce1(grp_dedup_calcHash_fu_2858_str_102_ce1),
+    .str_102_address1(grp_dedup_calcHash_fu_3607_str_102_address1),
+    .str_102_ce1(grp_dedup_calcHash_fu_3607_str_102_ce1),
     .str_102_q1(buffer_102_q1),
-    .str_103_address0(grp_dedup_calcHash_fu_2858_str_103_address0),
-    .str_103_ce0(grp_dedup_calcHash_fu_2858_str_103_ce0),
+    .str_103_address0(grp_dedup_calcHash_fu_3607_str_103_address0),
+    .str_103_ce0(grp_dedup_calcHash_fu_3607_str_103_ce0),
     .str_103_q0(buffer_103_q0),
-    .str_103_address1(grp_dedup_calcHash_fu_2858_str_103_address1),
-    .str_103_ce1(grp_dedup_calcHash_fu_2858_str_103_ce1),
+    .str_103_address1(grp_dedup_calcHash_fu_3607_str_103_address1),
+    .str_103_ce1(grp_dedup_calcHash_fu_3607_str_103_ce1),
     .str_103_q1(buffer_103_q1),
-    .str_104_address0(grp_dedup_calcHash_fu_2858_str_104_address0),
-    .str_104_ce0(grp_dedup_calcHash_fu_2858_str_104_ce0),
+    .str_104_address0(grp_dedup_calcHash_fu_3607_str_104_address0),
+    .str_104_ce0(grp_dedup_calcHash_fu_3607_str_104_ce0),
     .str_104_q0(buffer_104_q0),
-    .str_104_address1(grp_dedup_calcHash_fu_2858_str_104_address1),
-    .str_104_ce1(grp_dedup_calcHash_fu_2858_str_104_ce1),
+    .str_104_address1(grp_dedup_calcHash_fu_3607_str_104_address1),
+    .str_104_ce1(grp_dedup_calcHash_fu_3607_str_104_ce1),
     .str_104_q1(buffer_104_q1),
-    .str_105_address0(grp_dedup_calcHash_fu_2858_str_105_address0),
-    .str_105_ce0(grp_dedup_calcHash_fu_2858_str_105_ce0),
+    .str_105_address0(grp_dedup_calcHash_fu_3607_str_105_address0),
+    .str_105_ce0(grp_dedup_calcHash_fu_3607_str_105_ce0),
     .str_105_q0(buffer_105_q0),
-    .str_105_address1(grp_dedup_calcHash_fu_2858_str_105_address1),
-    .str_105_ce1(grp_dedup_calcHash_fu_2858_str_105_ce1),
+    .str_105_address1(grp_dedup_calcHash_fu_3607_str_105_address1),
+    .str_105_ce1(grp_dedup_calcHash_fu_3607_str_105_ce1),
     .str_105_q1(buffer_105_q1),
-    .str_106_address0(grp_dedup_calcHash_fu_2858_str_106_address0),
-    .str_106_ce0(grp_dedup_calcHash_fu_2858_str_106_ce0),
+    .str_106_address0(grp_dedup_calcHash_fu_3607_str_106_address0),
+    .str_106_ce0(grp_dedup_calcHash_fu_3607_str_106_ce0),
     .str_106_q0(buffer_106_q0),
-    .str_106_address1(grp_dedup_calcHash_fu_2858_str_106_address1),
-    .str_106_ce1(grp_dedup_calcHash_fu_2858_str_106_ce1),
+    .str_106_address1(grp_dedup_calcHash_fu_3607_str_106_address1),
+    .str_106_ce1(grp_dedup_calcHash_fu_3607_str_106_ce1),
     .str_106_q1(buffer_106_q1),
-    .str_107_address0(grp_dedup_calcHash_fu_2858_str_107_address0),
-    .str_107_ce0(grp_dedup_calcHash_fu_2858_str_107_ce0),
+    .str_107_address0(grp_dedup_calcHash_fu_3607_str_107_address0),
+    .str_107_ce0(grp_dedup_calcHash_fu_3607_str_107_ce0),
     .str_107_q0(buffer_107_q0),
-    .str_107_address1(grp_dedup_calcHash_fu_2858_str_107_address1),
-    .str_107_ce1(grp_dedup_calcHash_fu_2858_str_107_ce1),
+    .str_107_address1(grp_dedup_calcHash_fu_3607_str_107_address1),
+    .str_107_ce1(grp_dedup_calcHash_fu_3607_str_107_ce1),
     .str_107_q1(buffer_107_q1),
-    .str_108_address0(grp_dedup_calcHash_fu_2858_str_108_address0),
-    .str_108_ce0(grp_dedup_calcHash_fu_2858_str_108_ce0),
+    .str_108_address0(grp_dedup_calcHash_fu_3607_str_108_address0),
+    .str_108_ce0(grp_dedup_calcHash_fu_3607_str_108_ce0),
     .str_108_q0(buffer_108_q0),
-    .str_108_address1(grp_dedup_calcHash_fu_2858_str_108_address1),
-    .str_108_ce1(grp_dedup_calcHash_fu_2858_str_108_ce1),
+    .str_108_address1(grp_dedup_calcHash_fu_3607_str_108_address1),
+    .str_108_ce1(grp_dedup_calcHash_fu_3607_str_108_ce1),
     .str_108_q1(buffer_108_q1),
-    .str_109_address0(grp_dedup_calcHash_fu_2858_str_109_address0),
-    .str_109_ce0(grp_dedup_calcHash_fu_2858_str_109_ce0),
+    .str_109_address0(grp_dedup_calcHash_fu_3607_str_109_address0),
+    .str_109_ce0(grp_dedup_calcHash_fu_3607_str_109_ce0),
     .str_109_q0(buffer_109_q0),
-    .str_109_address1(grp_dedup_calcHash_fu_2858_str_109_address1),
-    .str_109_ce1(grp_dedup_calcHash_fu_2858_str_109_ce1),
+    .str_109_address1(grp_dedup_calcHash_fu_3607_str_109_address1),
+    .str_109_ce1(grp_dedup_calcHash_fu_3607_str_109_ce1),
     .str_109_q1(buffer_109_q1),
-    .str_110_address0(grp_dedup_calcHash_fu_2858_str_110_address0),
-    .str_110_ce0(grp_dedup_calcHash_fu_2858_str_110_ce0),
+    .str_110_address0(grp_dedup_calcHash_fu_3607_str_110_address0),
+    .str_110_ce0(grp_dedup_calcHash_fu_3607_str_110_ce0),
     .str_110_q0(buffer_110_q0),
-    .str_110_address1(grp_dedup_calcHash_fu_2858_str_110_address1),
-    .str_110_ce1(grp_dedup_calcHash_fu_2858_str_110_ce1),
+    .str_110_address1(grp_dedup_calcHash_fu_3607_str_110_address1),
+    .str_110_ce1(grp_dedup_calcHash_fu_3607_str_110_ce1),
     .str_110_q1(buffer_110_q1),
-    .str_111_address0(grp_dedup_calcHash_fu_2858_str_111_address0),
-    .str_111_ce0(grp_dedup_calcHash_fu_2858_str_111_ce0),
+    .str_111_address0(grp_dedup_calcHash_fu_3607_str_111_address0),
+    .str_111_ce0(grp_dedup_calcHash_fu_3607_str_111_ce0),
     .str_111_q0(buffer_111_q0),
-    .str_111_address1(grp_dedup_calcHash_fu_2858_str_111_address1),
-    .str_111_ce1(grp_dedup_calcHash_fu_2858_str_111_ce1),
+    .str_111_address1(grp_dedup_calcHash_fu_3607_str_111_address1),
+    .str_111_ce1(grp_dedup_calcHash_fu_3607_str_111_ce1),
     .str_111_q1(buffer_111_q1),
-    .str_112_address0(grp_dedup_calcHash_fu_2858_str_112_address0),
-    .str_112_ce0(grp_dedup_calcHash_fu_2858_str_112_ce0),
+    .str_112_address0(grp_dedup_calcHash_fu_3607_str_112_address0),
+    .str_112_ce0(grp_dedup_calcHash_fu_3607_str_112_ce0),
     .str_112_q0(buffer_112_q0),
-    .str_112_address1(grp_dedup_calcHash_fu_2858_str_112_address1),
-    .str_112_ce1(grp_dedup_calcHash_fu_2858_str_112_ce1),
+    .str_112_address1(grp_dedup_calcHash_fu_3607_str_112_address1),
+    .str_112_ce1(grp_dedup_calcHash_fu_3607_str_112_ce1),
     .str_112_q1(buffer_112_q1),
-    .str_113_address0(grp_dedup_calcHash_fu_2858_str_113_address0),
-    .str_113_ce0(grp_dedup_calcHash_fu_2858_str_113_ce0),
+    .str_113_address0(grp_dedup_calcHash_fu_3607_str_113_address0),
+    .str_113_ce0(grp_dedup_calcHash_fu_3607_str_113_ce0),
     .str_113_q0(buffer_113_q0),
-    .str_113_address1(grp_dedup_calcHash_fu_2858_str_113_address1),
-    .str_113_ce1(grp_dedup_calcHash_fu_2858_str_113_ce1),
+    .str_113_address1(grp_dedup_calcHash_fu_3607_str_113_address1),
+    .str_113_ce1(grp_dedup_calcHash_fu_3607_str_113_ce1),
     .str_113_q1(buffer_113_q1),
-    .str_114_address0(grp_dedup_calcHash_fu_2858_str_114_address0),
-    .str_114_ce0(grp_dedup_calcHash_fu_2858_str_114_ce0),
+    .str_114_address0(grp_dedup_calcHash_fu_3607_str_114_address0),
+    .str_114_ce0(grp_dedup_calcHash_fu_3607_str_114_ce0),
     .str_114_q0(buffer_114_q0),
-    .str_114_address1(grp_dedup_calcHash_fu_2858_str_114_address1),
-    .str_114_ce1(grp_dedup_calcHash_fu_2858_str_114_ce1),
+    .str_114_address1(grp_dedup_calcHash_fu_3607_str_114_address1),
+    .str_114_ce1(grp_dedup_calcHash_fu_3607_str_114_ce1),
     .str_114_q1(buffer_114_q1),
-    .str_115_address0(grp_dedup_calcHash_fu_2858_str_115_address0),
-    .str_115_ce0(grp_dedup_calcHash_fu_2858_str_115_ce0),
+    .str_115_address0(grp_dedup_calcHash_fu_3607_str_115_address0),
+    .str_115_ce0(grp_dedup_calcHash_fu_3607_str_115_ce0),
     .str_115_q0(buffer_115_q0),
-    .str_115_address1(grp_dedup_calcHash_fu_2858_str_115_address1),
-    .str_115_ce1(grp_dedup_calcHash_fu_2858_str_115_ce1),
+    .str_115_address1(grp_dedup_calcHash_fu_3607_str_115_address1),
+    .str_115_ce1(grp_dedup_calcHash_fu_3607_str_115_ce1),
     .str_115_q1(buffer_115_q1),
-    .str_116_address0(grp_dedup_calcHash_fu_2858_str_116_address0),
-    .str_116_ce0(grp_dedup_calcHash_fu_2858_str_116_ce0),
+    .str_116_address0(grp_dedup_calcHash_fu_3607_str_116_address0),
+    .str_116_ce0(grp_dedup_calcHash_fu_3607_str_116_ce0),
     .str_116_q0(buffer_116_q0),
-    .str_116_address1(grp_dedup_calcHash_fu_2858_str_116_address1),
-    .str_116_ce1(grp_dedup_calcHash_fu_2858_str_116_ce1),
+    .str_116_address1(grp_dedup_calcHash_fu_3607_str_116_address1),
+    .str_116_ce1(grp_dedup_calcHash_fu_3607_str_116_ce1),
     .str_116_q1(buffer_116_q1),
-    .str_117_address0(grp_dedup_calcHash_fu_2858_str_117_address0),
-    .str_117_ce0(grp_dedup_calcHash_fu_2858_str_117_ce0),
+    .str_117_address0(grp_dedup_calcHash_fu_3607_str_117_address0),
+    .str_117_ce0(grp_dedup_calcHash_fu_3607_str_117_ce0),
     .str_117_q0(buffer_117_q0),
-    .str_117_address1(grp_dedup_calcHash_fu_2858_str_117_address1),
-    .str_117_ce1(grp_dedup_calcHash_fu_2858_str_117_ce1),
+    .str_117_address1(grp_dedup_calcHash_fu_3607_str_117_address1),
+    .str_117_ce1(grp_dedup_calcHash_fu_3607_str_117_ce1),
     .str_117_q1(buffer_117_q1),
-    .str_118_address0(grp_dedup_calcHash_fu_2858_str_118_address0),
-    .str_118_ce0(grp_dedup_calcHash_fu_2858_str_118_ce0),
+    .str_118_address0(grp_dedup_calcHash_fu_3607_str_118_address0),
+    .str_118_ce0(grp_dedup_calcHash_fu_3607_str_118_ce0),
     .str_118_q0(buffer_118_q0),
-    .str_118_address1(grp_dedup_calcHash_fu_2858_str_118_address1),
-    .str_118_ce1(grp_dedup_calcHash_fu_2858_str_118_ce1),
+    .str_118_address1(grp_dedup_calcHash_fu_3607_str_118_address1),
+    .str_118_ce1(grp_dedup_calcHash_fu_3607_str_118_ce1),
     .str_118_q1(buffer_118_q1),
-    .str_119_address0(grp_dedup_calcHash_fu_2858_str_119_address0),
-    .str_119_ce0(grp_dedup_calcHash_fu_2858_str_119_ce0),
+    .str_119_address0(grp_dedup_calcHash_fu_3607_str_119_address0),
+    .str_119_ce0(grp_dedup_calcHash_fu_3607_str_119_ce0),
     .str_119_q0(buffer_119_q0),
-    .str_119_address1(grp_dedup_calcHash_fu_2858_str_119_address1),
-    .str_119_ce1(grp_dedup_calcHash_fu_2858_str_119_ce1),
+    .str_119_address1(grp_dedup_calcHash_fu_3607_str_119_address1),
+    .str_119_ce1(grp_dedup_calcHash_fu_3607_str_119_ce1),
     .str_119_q1(buffer_119_q1),
-    .str_120_address0(grp_dedup_calcHash_fu_2858_str_120_address0),
-    .str_120_ce0(grp_dedup_calcHash_fu_2858_str_120_ce0),
+    .str_120_address0(grp_dedup_calcHash_fu_3607_str_120_address0),
+    .str_120_ce0(grp_dedup_calcHash_fu_3607_str_120_ce0),
     .str_120_q0(buffer_120_q0),
-    .str_120_address1(grp_dedup_calcHash_fu_2858_str_120_address1),
-    .str_120_ce1(grp_dedup_calcHash_fu_2858_str_120_ce1),
+    .str_120_address1(grp_dedup_calcHash_fu_3607_str_120_address1),
+    .str_120_ce1(grp_dedup_calcHash_fu_3607_str_120_ce1),
     .str_120_q1(buffer_120_q1),
-    .str_121_address0(grp_dedup_calcHash_fu_2858_str_121_address0),
-    .str_121_ce0(grp_dedup_calcHash_fu_2858_str_121_ce0),
+    .str_121_address0(grp_dedup_calcHash_fu_3607_str_121_address0),
+    .str_121_ce0(grp_dedup_calcHash_fu_3607_str_121_ce0),
     .str_121_q0(buffer_121_q0),
-    .str_121_address1(grp_dedup_calcHash_fu_2858_str_121_address1),
-    .str_121_ce1(grp_dedup_calcHash_fu_2858_str_121_ce1),
+    .str_121_address1(grp_dedup_calcHash_fu_3607_str_121_address1),
+    .str_121_ce1(grp_dedup_calcHash_fu_3607_str_121_ce1),
     .str_121_q1(buffer_121_q1),
-    .str_122_address0(grp_dedup_calcHash_fu_2858_str_122_address0),
-    .str_122_ce0(grp_dedup_calcHash_fu_2858_str_122_ce0),
+    .str_122_address0(grp_dedup_calcHash_fu_3607_str_122_address0),
+    .str_122_ce0(grp_dedup_calcHash_fu_3607_str_122_ce0),
     .str_122_q0(buffer_122_q0),
-    .str_122_address1(grp_dedup_calcHash_fu_2858_str_122_address1),
-    .str_122_ce1(grp_dedup_calcHash_fu_2858_str_122_ce1),
+    .str_122_address1(grp_dedup_calcHash_fu_3607_str_122_address1),
+    .str_122_ce1(grp_dedup_calcHash_fu_3607_str_122_ce1),
     .str_122_q1(buffer_122_q1),
-    .str_123_address0(grp_dedup_calcHash_fu_2858_str_123_address0),
-    .str_123_ce0(grp_dedup_calcHash_fu_2858_str_123_ce0),
+    .str_123_address0(grp_dedup_calcHash_fu_3607_str_123_address0),
+    .str_123_ce0(grp_dedup_calcHash_fu_3607_str_123_ce0),
     .str_123_q0(buffer_123_q0),
-    .str_123_address1(grp_dedup_calcHash_fu_2858_str_123_address1),
-    .str_123_ce1(grp_dedup_calcHash_fu_2858_str_123_ce1),
+    .str_123_address1(grp_dedup_calcHash_fu_3607_str_123_address1),
+    .str_123_ce1(grp_dedup_calcHash_fu_3607_str_123_ce1),
     .str_123_q1(buffer_123_q1),
-    .str_124_address0(grp_dedup_calcHash_fu_2858_str_124_address0),
-    .str_124_ce0(grp_dedup_calcHash_fu_2858_str_124_ce0),
+    .str_124_address0(grp_dedup_calcHash_fu_3607_str_124_address0),
+    .str_124_ce0(grp_dedup_calcHash_fu_3607_str_124_ce0),
     .str_124_q0(buffer_124_q0),
-    .str_124_address1(grp_dedup_calcHash_fu_2858_str_124_address1),
-    .str_124_ce1(grp_dedup_calcHash_fu_2858_str_124_ce1),
+    .str_124_address1(grp_dedup_calcHash_fu_3607_str_124_address1),
+    .str_124_ce1(grp_dedup_calcHash_fu_3607_str_124_ce1),
     .str_124_q1(buffer_124_q1),
-    .str_125_address0(grp_dedup_calcHash_fu_2858_str_125_address0),
-    .str_125_ce0(grp_dedup_calcHash_fu_2858_str_125_ce0),
+    .str_125_address0(grp_dedup_calcHash_fu_3607_str_125_address0),
+    .str_125_ce0(grp_dedup_calcHash_fu_3607_str_125_ce0),
     .str_125_q0(buffer_125_q0),
-    .str_125_address1(grp_dedup_calcHash_fu_2858_str_125_address1),
-    .str_125_ce1(grp_dedup_calcHash_fu_2858_str_125_ce1),
+    .str_125_address1(grp_dedup_calcHash_fu_3607_str_125_address1),
+    .str_125_ce1(grp_dedup_calcHash_fu_3607_str_125_ce1),
     .str_125_q1(buffer_125_q1),
-    .str_126_address0(grp_dedup_calcHash_fu_2858_str_126_address0),
-    .str_126_ce0(grp_dedup_calcHash_fu_2858_str_126_ce0),
+    .str_126_address0(grp_dedup_calcHash_fu_3607_str_126_address0),
+    .str_126_ce0(grp_dedup_calcHash_fu_3607_str_126_ce0),
     .str_126_q0(buffer_126_q0),
-    .str_126_address1(grp_dedup_calcHash_fu_2858_str_126_address1),
-    .str_126_ce1(grp_dedup_calcHash_fu_2858_str_126_ce1),
-    .str_126_q1(buffer_126_q1),
-    .str_127_address0(grp_dedup_calcHash_fu_2858_str_127_address0),
-    .str_127_ce0(grp_dedup_calcHash_fu_2858_str_127_ce0),
+    .str_127_address0(grp_dedup_calcHash_fu_3607_str_127_address0),
+    .str_127_ce0(grp_dedup_calcHash_fu_3607_str_127_ce0),
     .str_127_q0(buffer_127_q0),
-    .str_127_address1(grp_dedup_calcHash_fu_2858_str_127_address1),
-    .str_127_ce1(grp_dedup_calcHash_fu_2858_str_127_ce1),
-    .str_127_q1(buffer_127_q1),
-    .indices_address0(grp_dedup_calcHash_fu_2858_indices_address0),
-    .indices_ce0(grp_dedup_calcHash_fu_2858_indices_ce0),
-    .indices_we0(grp_dedup_calcHash_fu_2858_indices_we0),
-    .indices_d0(grp_dedup_calcHash_fu_2858_indices_d0),
-    .indices_address1(grp_dedup_calcHash_fu_2858_indices_address1),
-    .indices_ce1(grp_dedup_calcHash_fu_2858_indices_ce1),
-    .indices_we1(grp_dedup_calcHash_fu_2858_indices_we1),
-    .indices_d1(grp_dedup_calcHash_fu_2858_indices_d1)
+    .indices_0_i(indices_0_fu_1108),
+    .indices_0_o(grp_dedup_calcHash_fu_3607_indices_0_o),
+    .indices_0_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_0_o_ap_vld),
+    .indices_1_i(indices_1_fu_1112),
+    .indices_1_o(grp_dedup_calcHash_fu_3607_indices_1_o),
+    .indices_1_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_1_o_ap_vld),
+    .indices_2_i(indices_2_fu_1116),
+    .indices_2_o(grp_dedup_calcHash_fu_3607_indices_2_o),
+    .indices_2_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_2_o_ap_vld),
+    .indices_3_i(indices_3_fu_1120),
+    .indices_3_o(grp_dedup_calcHash_fu_3607_indices_3_o),
+    .indices_3_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_3_o_ap_vld),
+    .indices_4_i(indices_4_fu_1124),
+    .indices_4_o(grp_dedup_calcHash_fu_3607_indices_4_o),
+    .indices_4_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_4_o_ap_vld),
+    .indices_5_i(indices_5_fu_1128),
+    .indices_5_o(grp_dedup_calcHash_fu_3607_indices_5_o),
+    .indices_5_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_5_o_ap_vld),
+    .indices_6_i(indices_6_fu_1132),
+    .indices_6_o(grp_dedup_calcHash_fu_3607_indices_6_o),
+    .indices_6_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_6_o_ap_vld),
+    .indices_7_i(indices_7_fu_1136),
+    .indices_7_o(grp_dedup_calcHash_fu_3607_indices_7_o),
+    .indices_7_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_7_o_ap_vld),
+    .indices_8_i(indices_8_fu_1140),
+    .indices_8_o(grp_dedup_calcHash_fu_3607_indices_8_o),
+    .indices_8_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_8_o_ap_vld),
+    .indices_9_i(indices_9_fu_1144),
+    .indices_9_o(grp_dedup_calcHash_fu_3607_indices_9_o),
+    .indices_9_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_9_o_ap_vld),
+    .indices_10_i(indices_10_fu_1148),
+    .indices_10_o(grp_dedup_calcHash_fu_3607_indices_10_o),
+    .indices_10_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_10_o_ap_vld),
+    .indices_11_i(indices_11_fu_1152),
+    .indices_11_o(grp_dedup_calcHash_fu_3607_indices_11_o),
+    .indices_11_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_11_o_ap_vld),
+    .indices_12_i(indices_12_fu_1156),
+    .indices_12_o(grp_dedup_calcHash_fu_3607_indices_12_o),
+    .indices_12_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_12_o_ap_vld),
+    .indices_13_i(indices_13_fu_1160),
+    .indices_13_o(grp_dedup_calcHash_fu_3607_indices_13_o),
+    .indices_13_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_13_o_ap_vld),
+    .indices_14_i(indices_14_fu_1164),
+    .indices_14_o(grp_dedup_calcHash_fu_3607_indices_14_o),
+    .indices_14_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_14_o_ap_vld),
+    .indices_15_i(indices_15_fu_1168),
+    .indices_15_o(grp_dedup_calcHash_fu_3607_indices_15_o),
+    .indices_15_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_15_o_ap_vld),
+    .indices_16_i(indices_16_fu_1172),
+    .indices_16_o(grp_dedup_calcHash_fu_3607_indices_16_o),
+    .indices_16_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_16_o_ap_vld),
+    .indices_17_i(indices_17_fu_1176),
+    .indices_17_o(grp_dedup_calcHash_fu_3607_indices_17_o),
+    .indices_17_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_17_o_ap_vld),
+    .indices_18_i(indices_18_fu_1180),
+    .indices_18_o(grp_dedup_calcHash_fu_3607_indices_18_o),
+    .indices_18_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_18_o_ap_vld),
+    .indices_19_i(indices_19_fu_1184),
+    .indices_19_o(grp_dedup_calcHash_fu_3607_indices_19_o),
+    .indices_19_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_19_o_ap_vld),
+    .indices_20_i(indices_20_fu_1188),
+    .indices_20_o(grp_dedup_calcHash_fu_3607_indices_20_o),
+    .indices_20_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_20_o_ap_vld),
+    .indices_21_i(indices_21_fu_1192),
+    .indices_21_o(grp_dedup_calcHash_fu_3607_indices_21_o),
+    .indices_21_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_21_o_ap_vld),
+    .indices_22_i(indices_22_fu_1196),
+    .indices_22_o(grp_dedup_calcHash_fu_3607_indices_22_o),
+    .indices_22_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_22_o_ap_vld),
+    .indices_23_i(indices_23_fu_1200),
+    .indices_23_o(grp_dedup_calcHash_fu_3607_indices_23_o),
+    .indices_23_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_23_o_ap_vld),
+    .indices_24_i(indices_24_fu_1204),
+    .indices_24_o(grp_dedup_calcHash_fu_3607_indices_24_o),
+    .indices_24_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_24_o_ap_vld),
+    .indices_25_i(indices_25_fu_1208),
+    .indices_25_o(grp_dedup_calcHash_fu_3607_indices_25_o),
+    .indices_25_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_25_o_ap_vld),
+    .indices_26_i(indices_26_fu_1212),
+    .indices_26_o(grp_dedup_calcHash_fu_3607_indices_26_o),
+    .indices_26_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_26_o_ap_vld),
+    .indices_27_i(indices_27_fu_1216),
+    .indices_27_o(grp_dedup_calcHash_fu_3607_indices_27_o),
+    .indices_27_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_27_o_ap_vld),
+    .indices_28_i(indices_28_fu_1220),
+    .indices_28_o(grp_dedup_calcHash_fu_3607_indices_28_o),
+    .indices_28_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_28_o_ap_vld),
+    .indices_29_i(indices_29_fu_1224),
+    .indices_29_o(grp_dedup_calcHash_fu_3607_indices_29_o),
+    .indices_29_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_29_o_ap_vld),
+    .indices_30_i(indices_30_fu_1228),
+    .indices_30_o(grp_dedup_calcHash_fu_3607_indices_30_o),
+    .indices_30_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_30_o_ap_vld),
+    .indices_31_i(indices_31_fu_1232),
+    .indices_31_o(grp_dedup_calcHash_fu_3607_indices_31_o),
+    .indices_31_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_31_o_ap_vld),
+    .indices_32_i(indices_32_fu_1236),
+    .indices_32_o(grp_dedup_calcHash_fu_3607_indices_32_o),
+    .indices_32_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_32_o_ap_vld),
+    .indices_33_i(indices_33_fu_1240),
+    .indices_33_o(grp_dedup_calcHash_fu_3607_indices_33_o),
+    .indices_33_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_33_o_ap_vld),
+    .indices_34_i(indices_34_fu_1244),
+    .indices_34_o(grp_dedup_calcHash_fu_3607_indices_34_o),
+    .indices_34_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_34_o_ap_vld),
+    .indices_35_i(indices_35_fu_1248),
+    .indices_35_o(grp_dedup_calcHash_fu_3607_indices_35_o),
+    .indices_35_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_35_o_ap_vld),
+    .indices_36_i(indices_36_fu_1252),
+    .indices_36_o(grp_dedup_calcHash_fu_3607_indices_36_o),
+    .indices_36_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_36_o_ap_vld),
+    .indices_37_i(indices_37_fu_1256),
+    .indices_37_o(grp_dedup_calcHash_fu_3607_indices_37_o),
+    .indices_37_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_37_o_ap_vld),
+    .indices_38_i(indices_38_fu_1260),
+    .indices_38_o(grp_dedup_calcHash_fu_3607_indices_38_o),
+    .indices_38_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_38_o_ap_vld),
+    .indices_39_i(indices_39_fu_1264),
+    .indices_39_o(grp_dedup_calcHash_fu_3607_indices_39_o),
+    .indices_39_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_39_o_ap_vld),
+    .indices_40_i(indices_40_fu_1268),
+    .indices_40_o(grp_dedup_calcHash_fu_3607_indices_40_o),
+    .indices_40_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_40_o_ap_vld),
+    .indices_41_i(indices_41_fu_1272),
+    .indices_41_o(grp_dedup_calcHash_fu_3607_indices_41_o),
+    .indices_41_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_41_o_ap_vld),
+    .indices_42_i(indices_42_fu_1276),
+    .indices_42_o(grp_dedup_calcHash_fu_3607_indices_42_o),
+    .indices_42_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_42_o_ap_vld),
+    .indices_43_i(indices_43_fu_1280),
+    .indices_43_o(grp_dedup_calcHash_fu_3607_indices_43_o),
+    .indices_43_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_43_o_ap_vld),
+    .indices_44_i(indices_44_fu_1284),
+    .indices_44_o(grp_dedup_calcHash_fu_3607_indices_44_o),
+    .indices_44_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_44_o_ap_vld),
+    .indices_45_i(indices_45_fu_1288),
+    .indices_45_o(grp_dedup_calcHash_fu_3607_indices_45_o),
+    .indices_45_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_45_o_ap_vld),
+    .indices_46_i(indices_46_fu_1292),
+    .indices_46_o(grp_dedup_calcHash_fu_3607_indices_46_o),
+    .indices_46_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_46_o_ap_vld),
+    .indices_47_i(indices_47_fu_1296),
+    .indices_47_o(grp_dedup_calcHash_fu_3607_indices_47_o),
+    .indices_47_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_47_o_ap_vld),
+    .indices_48_i(indices_48_fu_1300),
+    .indices_48_o(grp_dedup_calcHash_fu_3607_indices_48_o),
+    .indices_48_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_48_o_ap_vld),
+    .indices_49_i(indices_49_fu_1304),
+    .indices_49_o(grp_dedup_calcHash_fu_3607_indices_49_o),
+    .indices_49_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_49_o_ap_vld),
+    .indices_50_i(indices_50_fu_1308),
+    .indices_50_o(grp_dedup_calcHash_fu_3607_indices_50_o),
+    .indices_50_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_50_o_ap_vld),
+    .indices_51_i(indices_51_fu_1312),
+    .indices_51_o(grp_dedup_calcHash_fu_3607_indices_51_o),
+    .indices_51_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_51_o_ap_vld),
+    .indices_52_i(indices_52_fu_1316),
+    .indices_52_o(grp_dedup_calcHash_fu_3607_indices_52_o),
+    .indices_52_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_52_o_ap_vld),
+    .indices_53_i(indices_53_fu_1320),
+    .indices_53_o(grp_dedup_calcHash_fu_3607_indices_53_o),
+    .indices_53_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_53_o_ap_vld),
+    .indices_54_i(indices_54_fu_1324),
+    .indices_54_o(grp_dedup_calcHash_fu_3607_indices_54_o),
+    .indices_54_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_54_o_ap_vld),
+    .indices_55_i(indices_55_fu_1328),
+    .indices_55_o(grp_dedup_calcHash_fu_3607_indices_55_o),
+    .indices_55_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_55_o_ap_vld),
+    .indices_56_i(indices_56_fu_1332),
+    .indices_56_o(grp_dedup_calcHash_fu_3607_indices_56_o),
+    .indices_56_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_56_o_ap_vld),
+    .indices_57_i(indices_57_fu_1336),
+    .indices_57_o(grp_dedup_calcHash_fu_3607_indices_57_o),
+    .indices_57_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_57_o_ap_vld),
+    .indices_58_i(indices_58_fu_1340),
+    .indices_58_o(grp_dedup_calcHash_fu_3607_indices_58_o),
+    .indices_58_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_58_o_ap_vld),
+    .indices_59_i(indices_59_fu_1344),
+    .indices_59_o(grp_dedup_calcHash_fu_3607_indices_59_o),
+    .indices_59_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_59_o_ap_vld),
+    .indices_60_i(indices_60_fu_1348),
+    .indices_60_o(grp_dedup_calcHash_fu_3607_indices_60_o),
+    .indices_60_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_60_o_ap_vld),
+    .indices_61_i(indices_61_fu_1352),
+    .indices_61_o(grp_dedup_calcHash_fu_3607_indices_61_o),
+    .indices_61_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_61_o_ap_vld),
+    .indices_62_i(indices_62_fu_1356),
+    .indices_62_o(grp_dedup_calcHash_fu_3607_indices_62_o),
+    .indices_62_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_62_o_ap_vld),
+    .indices_63_i(indices_63_fu_1360),
+    .indices_63_o(grp_dedup_calcHash_fu_3607_indices_63_o),
+    .indices_63_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_63_o_ap_vld),
+    .indices_64_i(indices_64_fu_1364),
+    .indices_64_o(grp_dedup_calcHash_fu_3607_indices_64_o),
+    .indices_64_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_64_o_ap_vld),
+    .indices_65_i(indices_65_fu_1368),
+    .indices_65_o(grp_dedup_calcHash_fu_3607_indices_65_o),
+    .indices_65_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_65_o_ap_vld),
+    .indices_66_i(indices_66_fu_1372),
+    .indices_66_o(grp_dedup_calcHash_fu_3607_indices_66_o),
+    .indices_66_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_66_o_ap_vld),
+    .indices_67_i(indices_67_fu_1376),
+    .indices_67_o(grp_dedup_calcHash_fu_3607_indices_67_o),
+    .indices_67_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_67_o_ap_vld),
+    .indices_68_i(indices_68_fu_1380),
+    .indices_68_o(grp_dedup_calcHash_fu_3607_indices_68_o),
+    .indices_68_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_68_o_ap_vld),
+    .indices_69_i(indices_69_fu_1384),
+    .indices_69_o(grp_dedup_calcHash_fu_3607_indices_69_o),
+    .indices_69_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_69_o_ap_vld),
+    .indices_70_i(indices_70_fu_1388),
+    .indices_70_o(grp_dedup_calcHash_fu_3607_indices_70_o),
+    .indices_70_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_70_o_ap_vld),
+    .indices_71_i(indices_71_fu_1392),
+    .indices_71_o(grp_dedup_calcHash_fu_3607_indices_71_o),
+    .indices_71_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_71_o_ap_vld),
+    .indices_72_i(indices_72_fu_1396),
+    .indices_72_o(grp_dedup_calcHash_fu_3607_indices_72_o),
+    .indices_72_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_72_o_ap_vld),
+    .indices_73_i(indices_73_fu_1400),
+    .indices_73_o(grp_dedup_calcHash_fu_3607_indices_73_o),
+    .indices_73_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_73_o_ap_vld),
+    .indices_74_i(indices_74_fu_1404),
+    .indices_74_o(grp_dedup_calcHash_fu_3607_indices_74_o),
+    .indices_74_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_74_o_ap_vld),
+    .indices_75_i(indices_75_fu_1408),
+    .indices_75_o(grp_dedup_calcHash_fu_3607_indices_75_o),
+    .indices_75_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_75_o_ap_vld),
+    .indices_76_i(indices_76_fu_1412),
+    .indices_76_o(grp_dedup_calcHash_fu_3607_indices_76_o),
+    .indices_76_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_76_o_ap_vld),
+    .indices_77_i(indices_77_fu_1416),
+    .indices_77_o(grp_dedup_calcHash_fu_3607_indices_77_o),
+    .indices_77_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_77_o_ap_vld),
+    .indices_78_i(indices_78_fu_1420),
+    .indices_78_o(grp_dedup_calcHash_fu_3607_indices_78_o),
+    .indices_78_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_78_o_ap_vld),
+    .indices_79_i(indices_79_fu_1424),
+    .indices_79_o(grp_dedup_calcHash_fu_3607_indices_79_o),
+    .indices_79_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_79_o_ap_vld),
+    .indices_80_i(indices_80_fu_1428),
+    .indices_80_o(grp_dedup_calcHash_fu_3607_indices_80_o),
+    .indices_80_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_80_o_ap_vld),
+    .indices_81_i(indices_81_fu_1432),
+    .indices_81_o(grp_dedup_calcHash_fu_3607_indices_81_o),
+    .indices_81_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_81_o_ap_vld),
+    .indices_82_i(indices_82_fu_1436),
+    .indices_82_o(grp_dedup_calcHash_fu_3607_indices_82_o),
+    .indices_82_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_82_o_ap_vld),
+    .indices_83_i(indices_83_fu_1440),
+    .indices_83_o(grp_dedup_calcHash_fu_3607_indices_83_o),
+    .indices_83_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_83_o_ap_vld),
+    .indices_84_i(indices_84_fu_1444),
+    .indices_84_o(grp_dedup_calcHash_fu_3607_indices_84_o),
+    .indices_84_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_84_o_ap_vld),
+    .indices_85_i(indices_85_fu_1448),
+    .indices_85_o(grp_dedup_calcHash_fu_3607_indices_85_o),
+    .indices_85_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_85_o_ap_vld),
+    .indices_86_i(indices_86_fu_1452),
+    .indices_86_o(grp_dedup_calcHash_fu_3607_indices_86_o),
+    .indices_86_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_86_o_ap_vld),
+    .indices_87_i(indices_87_fu_1456),
+    .indices_87_o(grp_dedup_calcHash_fu_3607_indices_87_o),
+    .indices_87_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_87_o_ap_vld),
+    .indices_88_i(indices_88_fu_1460),
+    .indices_88_o(grp_dedup_calcHash_fu_3607_indices_88_o),
+    .indices_88_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_88_o_ap_vld),
+    .indices_89_i(indices_89_fu_1464),
+    .indices_89_o(grp_dedup_calcHash_fu_3607_indices_89_o),
+    .indices_89_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_89_o_ap_vld),
+    .indices_90_i(indices_90_fu_1468),
+    .indices_90_o(grp_dedup_calcHash_fu_3607_indices_90_o),
+    .indices_90_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_90_o_ap_vld),
+    .indices_91_i(indices_91_fu_1472),
+    .indices_91_o(grp_dedup_calcHash_fu_3607_indices_91_o),
+    .indices_91_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_91_o_ap_vld),
+    .indices_92_i(indices_92_fu_1476),
+    .indices_92_o(grp_dedup_calcHash_fu_3607_indices_92_o),
+    .indices_92_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_92_o_ap_vld),
+    .indices_93_i(indices_93_fu_1480),
+    .indices_93_o(grp_dedup_calcHash_fu_3607_indices_93_o),
+    .indices_93_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_93_o_ap_vld),
+    .indices_94_i(indices_94_fu_1484),
+    .indices_94_o(grp_dedup_calcHash_fu_3607_indices_94_o),
+    .indices_94_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_94_o_ap_vld),
+    .indices_95_i(indices_95_fu_1488),
+    .indices_95_o(grp_dedup_calcHash_fu_3607_indices_95_o),
+    .indices_95_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_95_o_ap_vld),
+    .indices_96_i(indices_96_fu_1492),
+    .indices_96_o(grp_dedup_calcHash_fu_3607_indices_96_o),
+    .indices_96_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_96_o_ap_vld),
+    .indices_97_i(indices_97_fu_1496),
+    .indices_97_o(grp_dedup_calcHash_fu_3607_indices_97_o),
+    .indices_97_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_97_o_ap_vld),
+    .indices_98_i(indices_98_fu_1500),
+    .indices_98_o(grp_dedup_calcHash_fu_3607_indices_98_o),
+    .indices_98_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_98_o_ap_vld),
+    .indices_99_i(indices_99_fu_1504),
+    .indices_99_o(grp_dedup_calcHash_fu_3607_indices_99_o),
+    .indices_99_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_99_o_ap_vld),
+    .indices_100_i(indices_100_fu_1508),
+    .indices_100_o(grp_dedup_calcHash_fu_3607_indices_100_o),
+    .indices_100_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_100_o_ap_vld),
+    .indices_101_i(indices_101_fu_1512),
+    .indices_101_o(grp_dedup_calcHash_fu_3607_indices_101_o),
+    .indices_101_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_101_o_ap_vld),
+    .indices_102_i(indices_102_fu_1516),
+    .indices_102_o(grp_dedup_calcHash_fu_3607_indices_102_o),
+    .indices_102_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_102_o_ap_vld),
+    .indices_103_i(indices_103_fu_1520),
+    .indices_103_o(grp_dedup_calcHash_fu_3607_indices_103_o),
+    .indices_103_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_103_o_ap_vld),
+    .indices_104_i(indices_104_fu_1524),
+    .indices_104_o(grp_dedup_calcHash_fu_3607_indices_104_o),
+    .indices_104_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_104_o_ap_vld),
+    .indices_105_i(indices_105_fu_1528),
+    .indices_105_o(grp_dedup_calcHash_fu_3607_indices_105_o),
+    .indices_105_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_105_o_ap_vld),
+    .indices_106_i(indices_106_fu_1532),
+    .indices_106_o(grp_dedup_calcHash_fu_3607_indices_106_o),
+    .indices_106_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_106_o_ap_vld),
+    .indices_107_i(indices_107_fu_1536),
+    .indices_107_o(grp_dedup_calcHash_fu_3607_indices_107_o),
+    .indices_107_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_107_o_ap_vld),
+    .indices_108_i(indices_108_fu_1540),
+    .indices_108_o(grp_dedup_calcHash_fu_3607_indices_108_o),
+    .indices_108_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_108_o_ap_vld),
+    .indices_109_i(indices_109_fu_1544),
+    .indices_109_o(grp_dedup_calcHash_fu_3607_indices_109_o),
+    .indices_109_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_109_o_ap_vld),
+    .indices_110_i(indices_110_fu_1548),
+    .indices_110_o(grp_dedup_calcHash_fu_3607_indices_110_o),
+    .indices_110_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_110_o_ap_vld),
+    .indices_111_i(indices_111_fu_1552),
+    .indices_111_o(grp_dedup_calcHash_fu_3607_indices_111_o),
+    .indices_111_o_ap_vld(grp_dedup_calcHash_fu_3607_indices_111_o_ap_vld)
 );
 
-dedup_murmurhash grp_dedup_murmurhash_fu_2991(
+dedup_murmurhash128_new grp_dedup_murmurhash128_new_fu_3851(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst_n_inv),
-    .ap_start(grp_dedup_murmurhash_fu_2991_ap_start),
-    .ap_done(grp_dedup_murmurhash_fu_2991_ap_done),
-    .ap_idle(grp_dedup_murmurhash_fu_2991_ap_idle),
-    .ap_ready(grp_dedup_murmurhash_fu_2991_ap_ready),
-    .key_0_address0(grp_dedup_murmurhash_fu_2991_key_0_address0),
-    .key_0_ce0(grp_dedup_murmurhash_fu_2991_key_0_ce0),
-    .key_0_q0(buffer_0_q0),
-    .key_0_address1(grp_dedup_murmurhash_fu_2991_key_0_address1),
-    .key_0_ce1(grp_dedup_murmurhash_fu_2991_key_0_ce1),
-    .key_0_q1(buffer_0_q1),
-    .key_1_address0(grp_dedup_murmurhash_fu_2991_key_1_address0),
-    .key_1_ce0(grp_dedup_murmurhash_fu_2991_key_1_ce0),
-    .key_1_q0(buffer_1_q0),
-    .key_1_address1(grp_dedup_murmurhash_fu_2991_key_1_address1),
-    .key_1_ce1(grp_dedup_murmurhash_fu_2991_key_1_ce1),
-    .key_1_q1(buffer_1_q1),
-    .key_2_address0(grp_dedup_murmurhash_fu_2991_key_2_address0),
-    .key_2_ce0(grp_dedup_murmurhash_fu_2991_key_2_ce0),
-    .key_2_q0(buffer_2_q0),
-    .key_2_address1(grp_dedup_murmurhash_fu_2991_key_2_address1),
-    .key_2_ce1(grp_dedup_murmurhash_fu_2991_key_2_ce1),
-    .key_2_q1(buffer_2_q1),
-    .key_3_address0(grp_dedup_murmurhash_fu_2991_key_3_address0),
-    .key_3_ce0(grp_dedup_murmurhash_fu_2991_key_3_ce0),
-    .key_3_q0(buffer_3_q0),
-    .key_3_address1(grp_dedup_murmurhash_fu_2991_key_3_address1),
-    .key_3_ce1(grp_dedup_murmurhash_fu_2991_key_3_ce1),
-    .key_3_q1(buffer_3_q1),
-    .key_4_address0(grp_dedup_murmurhash_fu_2991_key_4_address0),
-    .key_4_ce0(grp_dedup_murmurhash_fu_2991_key_4_ce0),
-    .key_4_q0(buffer_4_q0),
-    .key_4_address1(grp_dedup_murmurhash_fu_2991_key_4_address1),
-    .key_4_ce1(grp_dedup_murmurhash_fu_2991_key_4_ce1),
-    .key_4_q1(buffer_4_q1),
-    .key_5_address0(grp_dedup_murmurhash_fu_2991_key_5_address0),
-    .key_5_ce0(grp_dedup_murmurhash_fu_2991_key_5_ce0),
-    .key_5_q0(buffer_5_q0),
-    .key_5_address1(grp_dedup_murmurhash_fu_2991_key_5_address1),
-    .key_5_ce1(grp_dedup_murmurhash_fu_2991_key_5_ce1),
-    .key_5_q1(buffer_5_q1),
-    .key_6_address0(grp_dedup_murmurhash_fu_2991_key_6_address0),
-    .key_6_ce0(grp_dedup_murmurhash_fu_2991_key_6_ce0),
-    .key_6_q0(buffer_6_q0),
-    .key_6_address1(grp_dedup_murmurhash_fu_2991_key_6_address1),
-    .key_6_ce1(grp_dedup_murmurhash_fu_2991_key_6_ce1),
-    .key_6_q1(buffer_6_q1),
-    .key_7_address0(grp_dedup_murmurhash_fu_2991_key_7_address0),
-    .key_7_ce0(grp_dedup_murmurhash_fu_2991_key_7_ce0),
-    .key_7_q0(buffer_7_q0),
-    .key_7_address1(grp_dedup_murmurhash_fu_2991_key_7_address1),
-    .key_7_ce1(grp_dedup_murmurhash_fu_2991_key_7_ce1),
-    .key_7_q1(buffer_7_q1),
-    .key_8_address0(grp_dedup_murmurhash_fu_2991_key_8_address0),
-    .key_8_ce0(grp_dedup_murmurhash_fu_2991_key_8_ce0),
-    .key_8_q0(buffer_8_q0),
-    .key_8_address1(grp_dedup_murmurhash_fu_2991_key_8_address1),
-    .key_8_ce1(grp_dedup_murmurhash_fu_2991_key_8_ce1),
-    .key_8_q1(buffer_8_q1),
-    .key_9_address0(grp_dedup_murmurhash_fu_2991_key_9_address0),
-    .key_9_ce0(grp_dedup_murmurhash_fu_2991_key_9_ce0),
-    .key_9_q0(buffer_9_q0),
-    .key_9_address1(grp_dedup_murmurhash_fu_2991_key_9_address1),
-    .key_9_ce1(grp_dedup_murmurhash_fu_2991_key_9_ce1),
-    .key_9_q1(buffer_9_q1),
-    .key_10_address0(grp_dedup_murmurhash_fu_2991_key_10_address0),
-    .key_10_ce0(grp_dedup_murmurhash_fu_2991_key_10_ce0),
-    .key_10_q0(buffer_10_q0),
-    .key_10_address1(grp_dedup_murmurhash_fu_2991_key_10_address1),
-    .key_10_ce1(grp_dedup_murmurhash_fu_2991_key_10_ce1),
-    .key_10_q1(buffer_10_q1),
-    .key_11_address0(grp_dedup_murmurhash_fu_2991_key_11_address0),
-    .key_11_ce0(grp_dedup_murmurhash_fu_2991_key_11_ce0),
-    .key_11_q0(buffer_11_q0),
-    .key_11_address1(grp_dedup_murmurhash_fu_2991_key_11_address1),
-    .key_11_ce1(grp_dedup_murmurhash_fu_2991_key_11_ce1),
-    .key_11_q1(buffer_11_q1),
-    .key_12_address0(grp_dedup_murmurhash_fu_2991_key_12_address0),
-    .key_12_ce0(grp_dedup_murmurhash_fu_2991_key_12_ce0),
-    .key_12_q0(buffer_12_q0),
-    .key_12_address1(grp_dedup_murmurhash_fu_2991_key_12_address1),
-    .key_12_ce1(grp_dedup_murmurhash_fu_2991_key_12_ce1),
-    .key_12_q1(buffer_12_q1),
-    .key_13_address0(grp_dedup_murmurhash_fu_2991_key_13_address0),
-    .key_13_ce0(grp_dedup_murmurhash_fu_2991_key_13_ce0),
-    .key_13_q0(buffer_13_q0),
-    .key_13_address1(grp_dedup_murmurhash_fu_2991_key_13_address1),
-    .key_13_ce1(grp_dedup_murmurhash_fu_2991_key_13_ce1),
-    .key_13_q1(buffer_13_q1),
-    .key_14_address0(grp_dedup_murmurhash_fu_2991_key_14_address0),
-    .key_14_ce0(grp_dedup_murmurhash_fu_2991_key_14_ce0),
-    .key_14_q0(buffer_14_q0),
-    .key_14_address1(grp_dedup_murmurhash_fu_2991_key_14_address1),
-    .key_14_ce1(grp_dedup_murmurhash_fu_2991_key_14_ce1),
-    .key_14_q1(buffer_14_q1),
-    .key_15_address0(grp_dedup_murmurhash_fu_2991_key_15_address0),
-    .key_15_ce0(grp_dedup_murmurhash_fu_2991_key_15_ce0),
-    .key_15_q0(buffer_15_q0),
-    .key_15_address1(grp_dedup_murmurhash_fu_2991_key_15_address1),
-    .key_15_ce1(grp_dedup_murmurhash_fu_2991_key_15_ce1),
-    .key_15_q1(buffer_15_q1),
-    .key_16_address0(grp_dedup_murmurhash_fu_2991_key_16_address0),
-    .key_16_ce0(grp_dedup_murmurhash_fu_2991_key_16_ce0),
-    .key_16_q0(buffer_16_q0),
-    .key_16_address1(grp_dedup_murmurhash_fu_2991_key_16_address1),
-    .key_16_ce1(grp_dedup_murmurhash_fu_2991_key_16_ce1),
-    .key_16_q1(buffer_16_q1),
-    .key_17_address0(grp_dedup_murmurhash_fu_2991_key_17_address0),
-    .key_17_ce0(grp_dedup_murmurhash_fu_2991_key_17_ce0),
-    .key_17_q0(buffer_17_q0),
-    .key_17_address1(grp_dedup_murmurhash_fu_2991_key_17_address1),
-    .key_17_ce1(grp_dedup_murmurhash_fu_2991_key_17_ce1),
-    .key_17_q1(buffer_17_q1),
-    .key_18_address0(grp_dedup_murmurhash_fu_2991_key_18_address0),
-    .key_18_ce0(grp_dedup_murmurhash_fu_2991_key_18_ce0),
-    .key_18_q0(buffer_18_q0),
-    .key_18_address1(grp_dedup_murmurhash_fu_2991_key_18_address1),
-    .key_18_ce1(grp_dedup_murmurhash_fu_2991_key_18_ce1),
-    .key_18_q1(buffer_18_q1),
-    .key_19_address0(grp_dedup_murmurhash_fu_2991_key_19_address0),
-    .key_19_ce0(grp_dedup_murmurhash_fu_2991_key_19_ce0),
-    .key_19_q0(buffer_19_q0),
-    .key_19_address1(grp_dedup_murmurhash_fu_2991_key_19_address1),
-    .key_19_ce1(grp_dedup_murmurhash_fu_2991_key_19_ce1),
-    .key_19_q1(buffer_19_q1),
-    .key_20_address0(grp_dedup_murmurhash_fu_2991_key_20_address0),
-    .key_20_ce0(grp_dedup_murmurhash_fu_2991_key_20_ce0),
-    .key_20_q0(buffer_20_q0),
-    .key_20_address1(grp_dedup_murmurhash_fu_2991_key_20_address1),
-    .key_20_ce1(grp_dedup_murmurhash_fu_2991_key_20_ce1),
-    .key_20_q1(buffer_20_q1),
-    .key_21_address0(grp_dedup_murmurhash_fu_2991_key_21_address0),
-    .key_21_ce0(grp_dedup_murmurhash_fu_2991_key_21_ce0),
-    .key_21_q0(buffer_21_q0),
-    .key_21_address1(grp_dedup_murmurhash_fu_2991_key_21_address1),
-    .key_21_ce1(grp_dedup_murmurhash_fu_2991_key_21_ce1),
-    .key_21_q1(buffer_21_q1),
-    .key_22_address0(grp_dedup_murmurhash_fu_2991_key_22_address0),
-    .key_22_ce0(grp_dedup_murmurhash_fu_2991_key_22_ce0),
-    .key_22_q0(buffer_22_q0),
-    .key_22_address1(grp_dedup_murmurhash_fu_2991_key_22_address1),
-    .key_22_ce1(grp_dedup_murmurhash_fu_2991_key_22_ce1),
-    .key_22_q1(buffer_22_q1),
-    .key_23_address0(grp_dedup_murmurhash_fu_2991_key_23_address0),
-    .key_23_ce0(grp_dedup_murmurhash_fu_2991_key_23_ce0),
-    .key_23_q0(buffer_23_q0),
-    .key_23_address1(grp_dedup_murmurhash_fu_2991_key_23_address1),
-    .key_23_ce1(grp_dedup_murmurhash_fu_2991_key_23_ce1),
-    .key_23_q1(buffer_23_q1),
-    .key_24_address0(grp_dedup_murmurhash_fu_2991_key_24_address0),
-    .key_24_ce0(grp_dedup_murmurhash_fu_2991_key_24_ce0),
-    .key_24_q0(buffer_24_q0),
-    .key_24_address1(grp_dedup_murmurhash_fu_2991_key_24_address1),
-    .key_24_ce1(grp_dedup_murmurhash_fu_2991_key_24_ce1),
-    .key_24_q1(buffer_24_q1),
-    .key_25_address0(grp_dedup_murmurhash_fu_2991_key_25_address0),
-    .key_25_ce0(grp_dedup_murmurhash_fu_2991_key_25_ce0),
-    .key_25_q0(buffer_25_q0),
-    .key_25_address1(grp_dedup_murmurhash_fu_2991_key_25_address1),
-    .key_25_ce1(grp_dedup_murmurhash_fu_2991_key_25_ce1),
-    .key_25_q1(buffer_25_q1),
-    .key_26_address0(grp_dedup_murmurhash_fu_2991_key_26_address0),
-    .key_26_ce0(grp_dedup_murmurhash_fu_2991_key_26_ce0),
-    .key_26_q0(buffer_26_q0),
-    .key_26_address1(grp_dedup_murmurhash_fu_2991_key_26_address1),
-    .key_26_ce1(grp_dedup_murmurhash_fu_2991_key_26_ce1),
-    .key_26_q1(buffer_26_q1),
-    .key_27_address0(grp_dedup_murmurhash_fu_2991_key_27_address0),
-    .key_27_ce0(grp_dedup_murmurhash_fu_2991_key_27_ce0),
-    .key_27_q0(buffer_27_q0),
-    .key_27_address1(grp_dedup_murmurhash_fu_2991_key_27_address1),
-    .key_27_ce1(grp_dedup_murmurhash_fu_2991_key_27_ce1),
-    .key_27_q1(buffer_27_q1),
-    .key_28_address0(grp_dedup_murmurhash_fu_2991_key_28_address0),
-    .key_28_ce0(grp_dedup_murmurhash_fu_2991_key_28_ce0),
-    .key_28_q0(buffer_28_q0),
-    .key_28_address1(grp_dedup_murmurhash_fu_2991_key_28_address1),
-    .key_28_ce1(grp_dedup_murmurhash_fu_2991_key_28_ce1),
-    .key_28_q1(buffer_28_q1),
-    .key_29_address0(grp_dedup_murmurhash_fu_2991_key_29_address0),
-    .key_29_ce0(grp_dedup_murmurhash_fu_2991_key_29_ce0),
-    .key_29_q0(buffer_29_q0),
-    .key_29_address1(grp_dedup_murmurhash_fu_2991_key_29_address1),
-    .key_29_ce1(grp_dedup_murmurhash_fu_2991_key_29_ce1),
-    .key_29_q1(buffer_29_q1),
-    .key_30_address0(grp_dedup_murmurhash_fu_2991_key_30_address0),
-    .key_30_ce0(grp_dedup_murmurhash_fu_2991_key_30_ce0),
-    .key_30_q0(buffer_30_q0),
-    .key_30_address1(grp_dedup_murmurhash_fu_2991_key_30_address1),
-    .key_30_ce1(grp_dedup_murmurhash_fu_2991_key_30_ce1),
-    .key_30_q1(buffer_30_q1),
-    .key_31_address0(grp_dedup_murmurhash_fu_2991_key_31_address0),
-    .key_31_ce0(grp_dedup_murmurhash_fu_2991_key_31_ce0),
-    .key_31_q0(buffer_31_q0),
-    .key_31_address1(grp_dedup_murmurhash_fu_2991_key_31_address1),
-    .key_31_ce1(grp_dedup_murmurhash_fu_2991_key_31_ce1),
-    .key_31_q1(buffer_31_q1),
-    .key_32_address0(grp_dedup_murmurhash_fu_2991_key_32_address0),
-    .key_32_ce0(grp_dedup_murmurhash_fu_2991_key_32_ce0),
-    .key_32_q0(buffer_32_q0),
-    .key_32_address1(grp_dedup_murmurhash_fu_2991_key_32_address1),
-    .key_32_ce1(grp_dedup_murmurhash_fu_2991_key_32_ce1),
-    .key_32_q1(buffer_32_q1),
-    .key_33_address0(grp_dedup_murmurhash_fu_2991_key_33_address0),
-    .key_33_ce0(grp_dedup_murmurhash_fu_2991_key_33_ce0),
-    .key_33_q0(buffer_33_q0),
-    .key_33_address1(grp_dedup_murmurhash_fu_2991_key_33_address1),
-    .key_33_ce1(grp_dedup_murmurhash_fu_2991_key_33_ce1),
-    .key_33_q1(buffer_33_q1),
-    .key_34_address0(grp_dedup_murmurhash_fu_2991_key_34_address0),
-    .key_34_ce0(grp_dedup_murmurhash_fu_2991_key_34_ce0),
-    .key_34_q0(buffer_34_q0),
-    .key_34_address1(grp_dedup_murmurhash_fu_2991_key_34_address1),
-    .key_34_ce1(grp_dedup_murmurhash_fu_2991_key_34_ce1),
-    .key_34_q1(buffer_34_q1),
-    .key_35_address0(grp_dedup_murmurhash_fu_2991_key_35_address0),
-    .key_35_ce0(grp_dedup_murmurhash_fu_2991_key_35_ce0),
-    .key_35_q0(buffer_35_q0),
-    .key_35_address1(grp_dedup_murmurhash_fu_2991_key_35_address1),
-    .key_35_ce1(grp_dedup_murmurhash_fu_2991_key_35_ce1),
-    .key_35_q1(buffer_35_q1),
-    .key_36_address0(grp_dedup_murmurhash_fu_2991_key_36_address0),
-    .key_36_ce0(grp_dedup_murmurhash_fu_2991_key_36_ce0),
-    .key_36_q0(buffer_36_q0),
-    .key_36_address1(grp_dedup_murmurhash_fu_2991_key_36_address1),
-    .key_36_ce1(grp_dedup_murmurhash_fu_2991_key_36_ce1),
-    .key_36_q1(buffer_36_q1),
-    .key_37_address0(grp_dedup_murmurhash_fu_2991_key_37_address0),
-    .key_37_ce0(grp_dedup_murmurhash_fu_2991_key_37_ce0),
-    .key_37_q0(buffer_37_q0),
-    .key_37_address1(grp_dedup_murmurhash_fu_2991_key_37_address1),
-    .key_37_ce1(grp_dedup_murmurhash_fu_2991_key_37_ce1),
-    .key_37_q1(buffer_37_q1),
-    .key_38_address0(grp_dedup_murmurhash_fu_2991_key_38_address0),
-    .key_38_ce0(grp_dedup_murmurhash_fu_2991_key_38_ce0),
-    .key_38_q0(buffer_38_q0),
-    .key_38_address1(grp_dedup_murmurhash_fu_2991_key_38_address1),
-    .key_38_ce1(grp_dedup_murmurhash_fu_2991_key_38_ce1),
-    .key_38_q1(buffer_38_q1),
-    .key_39_address0(grp_dedup_murmurhash_fu_2991_key_39_address0),
-    .key_39_ce0(grp_dedup_murmurhash_fu_2991_key_39_ce0),
-    .key_39_q0(buffer_39_q0),
-    .key_39_address1(grp_dedup_murmurhash_fu_2991_key_39_address1),
-    .key_39_ce1(grp_dedup_murmurhash_fu_2991_key_39_ce1),
-    .key_39_q1(buffer_39_q1),
-    .key_40_address0(grp_dedup_murmurhash_fu_2991_key_40_address0),
-    .key_40_ce0(grp_dedup_murmurhash_fu_2991_key_40_ce0),
-    .key_40_q0(buffer_40_q0),
-    .key_40_address1(grp_dedup_murmurhash_fu_2991_key_40_address1),
-    .key_40_ce1(grp_dedup_murmurhash_fu_2991_key_40_ce1),
-    .key_40_q1(buffer_40_q1),
-    .key_41_address0(grp_dedup_murmurhash_fu_2991_key_41_address0),
-    .key_41_ce0(grp_dedup_murmurhash_fu_2991_key_41_ce0),
-    .key_41_q0(buffer_41_q0),
-    .key_41_address1(grp_dedup_murmurhash_fu_2991_key_41_address1),
-    .key_41_ce1(grp_dedup_murmurhash_fu_2991_key_41_ce1),
-    .key_41_q1(buffer_41_q1),
-    .key_42_address0(grp_dedup_murmurhash_fu_2991_key_42_address0),
-    .key_42_ce0(grp_dedup_murmurhash_fu_2991_key_42_ce0),
-    .key_42_q0(buffer_42_q0),
-    .key_42_address1(grp_dedup_murmurhash_fu_2991_key_42_address1),
-    .key_42_ce1(grp_dedup_murmurhash_fu_2991_key_42_ce1),
-    .key_42_q1(buffer_42_q1),
-    .key_43_address0(grp_dedup_murmurhash_fu_2991_key_43_address0),
-    .key_43_ce0(grp_dedup_murmurhash_fu_2991_key_43_ce0),
-    .key_43_q0(buffer_43_q0),
-    .key_43_address1(grp_dedup_murmurhash_fu_2991_key_43_address1),
-    .key_43_ce1(grp_dedup_murmurhash_fu_2991_key_43_ce1),
-    .key_43_q1(buffer_43_q1),
-    .key_44_address0(grp_dedup_murmurhash_fu_2991_key_44_address0),
-    .key_44_ce0(grp_dedup_murmurhash_fu_2991_key_44_ce0),
-    .key_44_q0(buffer_44_q0),
-    .key_44_address1(grp_dedup_murmurhash_fu_2991_key_44_address1),
-    .key_44_ce1(grp_dedup_murmurhash_fu_2991_key_44_ce1),
-    .key_44_q1(buffer_44_q1),
-    .key_45_address0(grp_dedup_murmurhash_fu_2991_key_45_address0),
-    .key_45_ce0(grp_dedup_murmurhash_fu_2991_key_45_ce0),
-    .key_45_q0(buffer_45_q0),
-    .key_45_address1(grp_dedup_murmurhash_fu_2991_key_45_address1),
-    .key_45_ce1(grp_dedup_murmurhash_fu_2991_key_45_ce1),
-    .key_45_q1(buffer_45_q1),
-    .key_46_address0(grp_dedup_murmurhash_fu_2991_key_46_address0),
-    .key_46_ce0(grp_dedup_murmurhash_fu_2991_key_46_ce0),
-    .key_46_q0(buffer_46_q0),
-    .key_46_address1(grp_dedup_murmurhash_fu_2991_key_46_address1),
-    .key_46_ce1(grp_dedup_murmurhash_fu_2991_key_46_ce1),
-    .key_46_q1(buffer_46_q1),
-    .key_47_address0(grp_dedup_murmurhash_fu_2991_key_47_address0),
-    .key_47_ce0(grp_dedup_murmurhash_fu_2991_key_47_ce0),
-    .key_47_q0(buffer_47_q0),
-    .key_47_address1(grp_dedup_murmurhash_fu_2991_key_47_address1),
-    .key_47_ce1(grp_dedup_murmurhash_fu_2991_key_47_ce1),
-    .key_47_q1(buffer_47_q1),
-    .key_48_address0(grp_dedup_murmurhash_fu_2991_key_48_address0),
-    .key_48_ce0(grp_dedup_murmurhash_fu_2991_key_48_ce0),
-    .key_48_q0(buffer_48_q0),
-    .key_48_address1(grp_dedup_murmurhash_fu_2991_key_48_address1),
-    .key_48_ce1(grp_dedup_murmurhash_fu_2991_key_48_ce1),
-    .key_48_q1(buffer_48_q1),
-    .key_49_address0(grp_dedup_murmurhash_fu_2991_key_49_address0),
-    .key_49_ce0(grp_dedup_murmurhash_fu_2991_key_49_ce0),
-    .key_49_q0(buffer_49_q0),
-    .key_49_address1(grp_dedup_murmurhash_fu_2991_key_49_address1),
-    .key_49_ce1(grp_dedup_murmurhash_fu_2991_key_49_ce1),
-    .key_49_q1(buffer_49_q1),
-    .key_50_address0(grp_dedup_murmurhash_fu_2991_key_50_address0),
-    .key_50_ce0(grp_dedup_murmurhash_fu_2991_key_50_ce0),
-    .key_50_q0(buffer_50_q0),
-    .key_50_address1(grp_dedup_murmurhash_fu_2991_key_50_address1),
-    .key_50_ce1(grp_dedup_murmurhash_fu_2991_key_50_ce1),
-    .key_50_q1(buffer_50_q1),
-    .key_51_address0(grp_dedup_murmurhash_fu_2991_key_51_address0),
-    .key_51_ce0(grp_dedup_murmurhash_fu_2991_key_51_ce0),
-    .key_51_q0(buffer_51_q0),
-    .key_51_address1(grp_dedup_murmurhash_fu_2991_key_51_address1),
-    .key_51_ce1(grp_dedup_murmurhash_fu_2991_key_51_ce1),
-    .key_51_q1(buffer_51_q1),
-    .key_52_address0(grp_dedup_murmurhash_fu_2991_key_52_address0),
-    .key_52_ce0(grp_dedup_murmurhash_fu_2991_key_52_ce0),
-    .key_52_q0(buffer_52_q0),
-    .key_52_address1(grp_dedup_murmurhash_fu_2991_key_52_address1),
-    .key_52_ce1(grp_dedup_murmurhash_fu_2991_key_52_ce1),
-    .key_52_q1(buffer_52_q1),
-    .key_53_address0(grp_dedup_murmurhash_fu_2991_key_53_address0),
-    .key_53_ce0(grp_dedup_murmurhash_fu_2991_key_53_ce0),
-    .key_53_q0(buffer_53_q0),
-    .key_53_address1(grp_dedup_murmurhash_fu_2991_key_53_address1),
-    .key_53_ce1(grp_dedup_murmurhash_fu_2991_key_53_ce1),
-    .key_53_q1(buffer_53_q1),
-    .key_54_address0(grp_dedup_murmurhash_fu_2991_key_54_address0),
-    .key_54_ce0(grp_dedup_murmurhash_fu_2991_key_54_ce0),
-    .key_54_q0(buffer_54_q0),
-    .key_54_address1(grp_dedup_murmurhash_fu_2991_key_54_address1),
-    .key_54_ce1(grp_dedup_murmurhash_fu_2991_key_54_ce1),
-    .key_54_q1(buffer_54_q1),
-    .key_55_address0(grp_dedup_murmurhash_fu_2991_key_55_address0),
-    .key_55_ce0(grp_dedup_murmurhash_fu_2991_key_55_ce0),
-    .key_55_q0(buffer_55_q0),
-    .key_55_address1(grp_dedup_murmurhash_fu_2991_key_55_address1),
-    .key_55_ce1(grp_dedup_murmurhash_fu_2991_key_55_ce1),
-    .key_55_q1(buffer_55_q1),
-    .key_56_address0(grp_dedup_murmurhash_fu_2991_key_56_address0),
-    .key_56_ce0(grp_dedup_murmurhash_fu_2991_key_56_ce0),
-    .key_56_q0(buffer_56_q0),
-    .key_56_address1(grp_dedup_murmurhash_fu_2991_key_56_address1),
-    .key_56_ce1(grp_dedup_murmurhash_fu_2991_key_56_ce1),
-    .key_56_q1(buffer_56_q1),
-    .key_57_address0(grp_dedup_murmurhash_fu_2991_key_57_address0),
-    .key_57_ce0(grp_dedup_murmurhash_fu_2991_key_57_ce0),
-    .key_57_q0(buffer_57_q0),
-    .key_57_address1(grp_dedup_murmurhash_fu_2991_key_57_address1),
-    .key_57_ce1(grp_dedup_murmurhash_fu_2991_key_57_ce1),
-    .key_57_q1(buffer_57_q1),
-    .key_58_address0(grp_dedup_murmurhash_fu_2991_key_58_address0),
-    .key_58_ce0(grp_dedup_murmurhash_fu_2991_key_58_ce0),
-    .key_58_q0(buffer_58_q0),
-    .key_58_address1(grp_dedup_murmurhash_fu_2991_key_58_address1),
-    .key_58_ce1(grp_dedup_murmurhash_fu_2991_key_58_ce1),
-    .key_58_q1(buffer_58_q1),
-    .key_59_address0(grp_dedup_murmurhash_fu_2991_key_59_address0),
-    .key_59_ce0(grp_dedup_murmurhash_fu_2991_key_59_ce0),
-    .key_59_q0(buffer_59_q0),
-    .key_59_address1(grp_dedup_murmurhash_fu_2991_key_59_address1),
-    .key_59_ce1(grp_dedup_murmurhash_fu_2991_key_59_ce1),
-    .key_59_q1(buffer_59_q1),
-    .key_60_address0(grp_dedup_murmurhash_fu_2991_key_60_address0),
-    .key_60_ce0(grp_dedup_murmurhash_fu_2991_key_60_ce0),
-    .key_60_q0(buffer_60_q0),
-    .key_60_address1(grp_dedup_murmurhash_fu_2991_key_60_address1),
-    .key_60_ce1(grp_dedup_murmurhash_fu_2991_key_60_ce1),
-    .key_60_q1(buffer_60_q1),
-    .key_61_address0(grp_dedup_murmurhash_fu_2991_key_61_address0),
-    .key_61_ce0(grp_dedup_murmurhash_fu_2991_key_61_ce0),
-    .key_61_q0(buffer_61_q0),
-    .key_61_address1(grp_dedup_murmurhash_fu_2991_key_61_address1),
-    .key_61_ce1(grp_dedup_murmurhash_fu_2991_key_61_ce1),
-    .key_61_q1(buffer_61_q1),
-    .key_62_address0(grp_dedup_murmurhash_fu_2991_key_62_address0),
-    .key_62_ce0(grp_dedup_murmurhash_fu_2991_key_62_ce0),
-    .key_62_q0(buffer_62_q0),
-    .key_62_address1(grp_dedup_murmurhash_fu_2991_key_62_address1),
-    .key_62_ce1(grp_dedup_murmurhash_fu_2991_key_62_ce1),
-    .key_62_q1(buffer_62_q1),
-    .key_63_address0(grp_dedup_murmurhash_fu_2991_key_63_address0),
-    .key_63_ce0(grp_dedup_murmurhash_fu_2991_key_63_ce0),
-    .key_63_q0(buffer_63_q0),
-    .key_63_address1(grp_dedup_murmurhash_fu_2991_key_63_address1),
-    .key_63_ce1(grp_dedup_murmurhash_fu_2991_key_63_ce1),
-    .key_63_q1(buffer_63_q1),
-    .key_64_address0(grp_dedup_murmurhash_fu_2991_key_64_address0),
-    .key_64_ce0(grp_dedup_murmurhash_fu_2991_key_64_ce0),
-    .key_64_q0(buffer_64_q0),
-    .key_64_address1(grp_dedup_murmurhash_fu_2991_key_64_address1),
-    .key_64_ce1(grp_dedup_murmurhash_fu_2991_key_64_ce1),
-    .key_64_q1(buffer_64_q1),
-    .key_65_address0(grp_dedup_murmurhash_fu_2991_key_65_address0),
-    .key_65_ce0(grp_dedup_murmurhash_fu_2991_key_65_ce0),
-    .key_65_q0(buffer_65_q0),
-    .key_65_address1(grp_dedup_murmurhash_fu_2991_key_65_address1),
-    .key_65_ce1(grp_dedup_murmurhash_fu_2991_key_65_ce1),
-    .key_65_q1(buffer_65_q1),
-    .key_66_address0(grp_dedup_murmurhash_fu_2991_key_66_address0),
-    .key_66_ce0(grp_dedup_murmurhash_fu_2991_key_66_ce0),
-    .key_66_q0(buffer_66_q0),
-    .key_66_address1(grp_dedup_murmurhash_fu_2991_key_66_address1),
-    .key_66_ce1(grp_dedup_murmurhash_fu_2991_key_66_ce1),
-    .key_66_q1(buffer_66_q1),
-    .key_67_address0(grp_dedup_murmurhash_fu_2991_key_67_address0),
-    .key_67_ce0(grp_dedup_murmurhash_fu_2991_key_67_ce0),
-    .key_67_q0(buffer_67_q0),
-    .key_67_address1(grp_dedup_murmurhash_fu_2991_key_67_address1),
-    .key_67_ce1(grp_dedup_murmurhash_fu_2991_key_67_ce1),
-    .key_67_q1(buffer_67_q1),
-    .key_68_address0(grp_dedup_murmurhash_fu_2991_key_68_address0),
-    .key_68_ce0(grp_dedup_murmurhash_fu_2991_key_68_ce0),
-    .key_68_q0(buffer_68_q0),
-    .key_68_address1(grp_dedup_murmurhash_fu_2991_key_68_address1),
-    .key_68_ce1(grp_dedup_murmurhash_fu_2991_key_68_ce1),
-    .key_68_q1(buffer_68_q1),
-    .key_69_address0(grp_dedup_murmurhash_fu_2991_key_69_address0),
-    .key_69_ce0(grp_dedup_murmurhash_fu_2991_key_69_ce0),
-    .key_69_q0(buffer_69_q0),
-    .key_69_address1(grp_dedup_murmurhash_fu_2991_key_69_address1),
-    .key_69_ce1(grp_dedup_murmurhash_fu_2991_key_69_ce1),
-    .key_69_q1(buffer_69_q1),
-    .key_70_address0(grp_dedup_murmurhash_fu_2991_key_70_address0),
-    .key_70_ce0(grp_dedup_murmurhash_fu_2991_key_70_ce0),
-    .key_70_q0(buffer_70_q0),
-    .key_70_address1(grp_dedup_murmurhash_fu_2991_key_70_address1),
-    .key_70_ce1(grp_dedup_murmurhash_fu_2991_key_70_ce1),
-    .key_70_q1(buffer_70_q1),
-    .key_71_address0(grp_dedup_murmurhash_fu_2991_key_71_address0),
-    .key_71_ce0(grp_dedup_murmurhash_fu_2991_key_71_ce0),
-    .key_71_q0(buffer_71_q0),
-    .key_71_address1(grp_dedup_murmurhash_fu_2991_key_71_address1),
-    .key_71_ce1(grp_dedup_murmurhash_fu_2991_key_71_ce1),
-    .key_71_q1(buffer_71_q1),
-    .key_72_address0(grp_dedup_murmurhash_fu_2991_key_72_address0),
-    .key_72_ce0(grp_dedup_murmurhash_fu_2991_key_72_ce0),
-    .key_72_q0(buffer_72_q0),
-    .key_72_address1(grp_dedup_murmurhash_fu_2991_key_72_address1),
-    .key_72_ce1(grp_dedup_murmurhash_fu_2991_key_72_ce1),
-    .key_72_q1(buffer_72_q1),
-    .key_73_address0(grp_dedup_murmurhash_fu_2991_key_73_address0),
-    .key_73_ce0(grp_dedup_murmurhash_fu_2991_key_73_ce0),
-    .key_73_q0(buffer_73_q0),
-    .key_73_address1(grp_dedup_murmurhash_fu_2991_key_73_address1),
-    .key_73_ce1(grp_dedup_murmurhash_fu_2991_key_73_ce1),
-    .key_73_q1(buffer_73_q1),
-    .key_74_address0(grp_dedup_murmurhash_fu_2991_key_74_address0),
-    .key_74_ce0(grp_dedup_murmurhash_fu_2991_key_74_ce0),
-    .key_74_q0(buffer_74_q0),
-    .key_74_address1(grp_dedup_murmurhash_fu_2991_key_74_address1),
-    .key_74_ce1(grp_dedup_murmurhash_fu_2991_key_74_ce1),
-    .key_74_q1(buffer_74_q1),
-    .key_75_address0(grp_dedup_murmurhash_fu_2991_key_75_address0),
-    .key_75_ce0(grp_dedup_murmurhash_fu_2991_key_75_ce0),
-    .key_75_q0(buffer_75_q0),
-    .key_75_address1(grp_dedup_murmurhash_fu_2991_key_75_address1),
-    .key_75_ce1(grp_dedup_murmurhash_fu_2991_key_75_ce1),
-    .key_75_q1(buffer_75_q1),
-    .key_76_address0(grp_dedup_murmurhash_fu_2991_key_76_address0),
-    .key_76_ce0(grp_dedup_murmurhash_fu_2991_key_76_ce0),
-    .key_76_q0(buffer_76_q0),
-    .key_76_address1(grp_dedup_murmurhash_fu_2991_key_76_address1),
-    .key_76_ce1(grp_dedup_murmurhash_fu_2991_key_76_ce1),
-    .key_76_q1(buffer_76_q1),
-    .key_77_address0(grp_dedup_murmurhash_fu_2991_key_77_address0),
-    .key_77_ce0(grp_dedup_murmurhash_fu_2991_key_77_ce0),
-    .key_77_q0(buffer_77_q0),
-    .key_77_address1(grp_dedup_murmurhash_fu_2991_key_77_address1),
-    .key_77_ce1(grp_dedup_murmurhash_fu_2991_key_77_ce1),
-    .key_77_q1(buffer_77_q1),
-    .key_78_address0(grp_dedup_murmurhash_fu_2991_key_78_address0),
-    .key_78_ce0(grp_dedup_murmurhash_fu_2991_key_78_ce0),
-    .key_78_q0(buffer_78_q0),
-    .key_78_address1(grp_dedup_murmurhash_fu_2991_key_78_address1),
-    .key_78_ce1(grp_dedup_murmurhash_fu_2991_key_78_ce1),
-    .key_78_q1(buffer_78_q1),
-    .key_79_address0(grp_dedup_murmurhash_fu_2991_key_79_address0),
-    .key_79_ce0(grp_dedup_murmurhash_fu_2991_key_79_ce0),
-    .key_79_q0(buffer_79_q0),
-    .key_79_address1(grp_dedup_murmurhash_fu_2991_key_79_address1),
-    .key_79_ce1(grp_dedup_murmurhash_fu_2991_key_79_ce1),
-    .key_79_q1(buffer_79_q1),
-    .key_80_address0(grp_dedup_murmurhash_fu_2991_key_80_address0),
-    .key_80_ce0(grp_dedup_murmurhash_fu_2991_key_80_ce0),
-    .key_80_q0(buffer_80_q0),
-    .key_80_address1(grp_dedup_murmurhash_fu_2991_key_80_address1),
-    .key_80_ce1(grp_dedup_murmurhash_fu_2991_key_80_ce1),
-    .key_80_q1(buffer_80_q1),
-    .key_81_address0(grp_dedup_murmurhash_fu_2991_key_81_address0),
-    .key_81_ce0(grp_dedup_murmurhash_fu_2991_key_81_ce0),
-    .key_81_q0(buffer_81_q0),
-    .key_81_address1(grp_dedup_murmurhash_fu_2991_key_81_address1),
-    .key_81_ce1(grp_dedup_murmurhash_fu_2991_key_81_ce1),
-    .key_81_q1(buffer_81_q1),
-    .key_82_address0(grp_dedup_murmurhash_fu_2991_key_82_address0),
-    .key_82_ce0(grp_dedup_murmurhash_fu_2991_key_82_ce0),
-    .key_82_q0(buffer_82_q0),
-    .key_82_address1(grp_dedup_murmurhash_fu_2991_key_82_address1),
-    .key_82_ce1(grp_dedup_murmurhash_fu_2991_key_82_ce1),
-    .key_82_q1(buffer_82_q1),
-    .key_83_address0(grp_dedup_murmurhash_fu_2991_key_83_address0),
-    .key_83_ce0(grp_dedup_murmurhash_fu_2991_key_83_ce0),
-    .key_83_q0(buffer_83_q0),
-    .key_83_address1(grp_dedup_murmurhash_fu_2991_key_83_address1),
-    .key_83_ce1(grp_dedup_murmurhash_fu_2991_key_83_ce1),
-    .key_83_q1(buffer_83_q1),
-    .key_84_address0(grp_dedup_murmurhash_fu_2991_key_84_address0),
-    .key_84_ce0(grp_dedup_murmurhash_fu_2991_key_84_ce0),
-    .key_84_q0(buffer_84_q0),
-    .key_84_address1(grp_dedup_murmurhash_fu_2991_key_84_address1),
-    .key_84_ce1(grp_dedup_murmurhash_fu_2991_key_84_ce1),
-    .key_84_q1(buffer_84_q1),
-    .key_85_address0(grp_dedup_murmurhash_fu_2991_key_85_address0),
-    .key_85_ce0(grp_dedup_murmurhash_fu_2991_key_85_ce0),
-    .key_85_q0(buffer_85_q0),
-    .key_85_address1(grp_dedup_murmurhash_fu_2991_key_85_address1),
-    .key_85_ce1(grp_dedup_murmurhash_fu_2991_key_85_ce1),
-    .key_85_q1(buffer_85_q1),
-    .key_86_address0(grp_dedup_murmurhash_fu_2991_key_86_address0),
-    .key_86_ce0(grp_dedup_murmurhash_fu_2991_key_86_ce0),
-    .key_86_q0(buffer_86_q0),
-    .key_86_address1(grp_dedup_murmurhash_fu_2991_key_86_address1),
-    .key_86_ce1(grp_dedup_murmurhash_fu_2991_key_86_ce1),
-    .key_86_q1(buffer_86_q1),
-    .key_87_address0(grp_dedup_murmurhash_fu_2991_key_87_address0),
-    .key_87_ce0(grp_dedup_murmurhash_fu_2991_key_87_ce0),
-    .key_87_q0(buffer_87_q0),
-    .key_87_address1(grp_dedup_murmurhash_fu_2991_key_87_address1),
-    .key_87_ce1(grp_dedup_murmurhash_fu_2991_key_87_ce1),
-    .key_87_q1(buffer_87_q1),
-    .key_88_address0(grp_dedup_murmurhash_fu_2991_key_88_address0),
-    .key_88_ce0(grp_dedup_murmurhash_fu_2991_key_88_ce0),
-    .key_88_q0(buffer_88_q0),
-    .key_88_address1(grp_dedup_murmurhash_fu_2991_key_88_address1),
-    .key_88_ce1(grp_dedup_murmurhash_fu_2991_key_88_ce1),
-    .key_88_q1(buffer_88_q1),
-    .key_89_address0(grp_dedup_murmurhash_fu_2991_key_89_address0),
-    .key_89_ce0(grp_dedup_murmurhash_fu_2991_key_89_ce0),
-    .key_89_q0(buffer_89_q0),
-    .key_89_address1(grp_dedup_murmurhash_fu_2991_key_89_address1),
-    .key_89_ce1(grp_dedup_murmurhash_fu_2991_key_89_ce1),
-    .key_89_q1(buffer_89_q1),
-    .key_90_address0(grp_dedup_murmurhash_fu_2991_key_90_address0),
-    .key_90_ce0(grp_dedup_murmurhash_fu_2991_key_90_ce0),
-    .key_90_q0(buffer_90_q0),
-    .key_90_address1(grp_dedup_murmurhash_fu_2991_key_90_address1),
-    .key_90_ce1(grp_dedup_murmurhash_fu_2991_key_90_ce1),
-    .key_90_q1(buffer_90_q1),
-    .key_91_address0(grp_dedup_murmurhash_fu_2991_key_91_address0),
-    .key_91_ce0(grp_dedup_murmurhash_fu_2991_key_91_ce0),
-    .key_91_q0(buffer_91_q0),
-    .key_91_address1(grp_dedup_murmurhash_fu_2991_key_91_address1),
-    .key_91_ce1(grp_dedup_murmurhash_fu_2991_key_91_ce1),
-    .key_91_q1(buffer_91_q1),
-    .key_92_address0(grp_dedup_murmurhash_fu_2991_key_92_address0),
-    .key_92_ce0(grp_dedup_murmurhash_fu_2991_key_92_ce0),
-    .key_92_q0(buffer_92_q0),
-    .key_92_address1(grp_dedup_murmurhash_fu_2991_key_92_address1),
-    .key_92_ce1(grp_dedup_murmurhash_fu_2991_key_92_ce1),
-    .key_92_q1(buffer_92_q1),
-    .key_93_address0(grp_dedup_murmurhash_fu_2991_key_93_address0),
-    .key_93_ce0(grp_dedup_murmurhash_fu_2991_key_93_ce0),
-    .key_93_q0(buffer_93_q0),
-    .key_93_address1(grp_dedup_murmurhash_fu_2991_key_93_address1),
-    .key_93_ce1(grp_dedup_murmurhash_fu_2991_key_93_ce1),
-    .key_93_q1(buffer_93_q1),
-    .key_94_address0(grp_dedup_murmurhash_fu_2991_key_94_address0),
-    .key_94_ce0(grp_dedup_murmurhash_fu_2991_key_94_ce0),
-    .key_94_q0(buffer_94_q0),
-    .key_94_address1(grp_dedup_murmurhash_fu_2991_key_94_address1),
-    .key_94_ce1(grp_dedup_murmurhash_fu_2991_key_94_ce1),
-    .key_94_q1(buffer_94_q1),
-    .key_95_address0(grp_dedup_murmurhash_fu_2991_key_95_address0),
-    .key_95_ce0(grp_dedup_murmurhash_fu_2991_key_95_ce0),
-    .key_95_q0(buffer_95_q0),
-    .key_95_address1(grp_dedup_murmurhash_fu_2991_key_95_address1),
-    .key_95_ce1(grp_dedup_murmurhash_fu_2991_key_95_ce1),
-    .key_95_q1(buffer_95_q1),
-    .key_96_address0(grp_dedup_murmurhash_fu_2991_key_96_address0),
-    .key_96_ce0(grp_dedup_murmurhash_fu_2991_key_96_ce0),
-    .key_96_q0(buffer_96_q0),
-    .key_96_address1(grp_dedup_murmurhash_fu_2991_key_96_address1),
-    .key_96_ce1(grp_dedup_murmurhash_fu_2991_key_96_ce1),
-    .key_96_q1(buffer_96_q1),
-    .key_97_address0(grp_dedup_murmurhash_fu_2991_key_97_address0),
-    .key_97_ce0(grp_dedup_murmurhash_fu_2991_key_97_ce0),
-    .key_97_q0(buffer_97_q0),
-    .key_97_address1(grp_dedup_murmurhash_fu_2991_key_97_address1),
-    .key_97_ce1(grp_dedup_murmurhash_fu_2991_key_97_ce1),
-    .key_97_q1(buffer_97_q1),
-    .key_98_address0(grp_dedup_murmurhash_fu_2991_key_98_address0),
-    .key_98_ce0(grp_dedup_murmurhash_fu_2991_key_98_ce0),
-    .key_98_q0(buffer_98_q0),
-    .key_98_address1(grp_dedup_murmurhash_fu_2991_key_98_address1),
-    .key_98_ce1(grp_dedup_murmurhash_fu_2991_key_98_ce1),
-    .key_98_q1(buffer_98_q1),
-    .key_99_address0(grp_dedup_murmurhash_fu_2991_key_99_address0),
-    .key_99_ce0(grp_dedup_murmurhash_fu_2991_key_99_ce0),
-    .key_99_q0(buffer_99_q0),
-    .key_99_address1(grp_dedup_murmurhash_fu_2991_key_99_address1),
-    .key_99_ce1(grp_dedup_murmurhash_fu_2991_key_99_ce1),
-    .key_99_q1(buffer_99_q1),
-    .key_100_address0(grp_dedup_murmurhash_fu_2991_key_100_address0),
-    .key_100_ce0(grp_dedup_murmurhash_fu_2991_key_100_ce0),
-    .key_100_q0(buffer_100_q0),
-    .key_100_address1(grp_dedup_murmurhash_fu_2991_key_100_address1),
-    .key_100_ce1(grp_dedup_murmurhash_fu_2991_key_100_ce1),
-    .key_100_q1(buffer_100_q1),
-    .key_101_address0(grp_dedup_murmurhash_fu_2991_key_101_address0),
-    .key_101_ce0(grp_dedup_murmurhash_fu_2991_key_101_ce0),
-    .key_101_q0(buffer_101_q0),
-    .key_101_address1(grp_dedup_murmurhash_fu_2991_key_101_address1),
-    .key_101_ce1(grp_dedup_murmurhash_fu_2991_key_101_ce1),
-    .key_101_q1(buffer_101_q1),
-    .key_102_address0(grp_dedup_murmurhash_fu_2991_key_102_address0),
-    .key_102_ce0(grp_dedup_murmurhash_fu_2991_key_102_ce0),
-    .key_102_q0(buffer_102_q0),
-    .key_102_address1(grp_dedup_murmurhash_fu_2991_key_102_address1),
-    .key_102_ce1(grp_dedup_murmurhash_fu_2991_key_102_ce1),
-    .key_102_q1(buffer_102_q1),
-    .key_103_address0(grp_dedup_murmurhash_fu_2991_key_103_address0),
-    .key_103_ce0(grp_dedup_murmurhash_fu_2991_key_103_ce0),
-    .key_103_q0(buffer_103_q0),
-    .key_103_address1(grp_dedup_murmurhash_fu_2991_key_103_address1),
-    .key_103_ce1(grp_dedup_murmurhash_fu_2991_key_103_ce1),
-    .key_103_q1(buffer_103_q1),
-    .key_104_address0(grp_dedup_murmurhash_fu_2991_key_104_address0),
-    .key_104_ce0(grp_dedup_murmurhash_fu_2991_key_104_ce0),
-    .key_104_q0(buffer_104_q0),
-    .key_104_address1(grp_dedup_murmurhash_fu_2991_key_104_address1),
-    .key_104_ce1(grp_dedup_murmurhash_fu_2991_key_104_ce1),
-    .key_104_q1(buffer_104_q1),
-    .key_105_address0(grp_dedup_murmurhash_fu_2991_key_105_address0),
-    .key_105_ce0(grp_dedup_murmurhash_fu_2991_key_105_ce0),
-    .key_105_q0(buffer_105_q0),
-    .key_105_address1(grp_dedup_murmurhash_fu_2991_key_105_address1),
-    .key_105_ce1(grp_dedup_murmurhash_fu_2991_key_105_ce1),
-    .key_105_q1(buffer_105_q1),
-    .key_106_address0(grp_dedup_murmurhash_fu_2991_key_106_address0),
-    .key_106_ce0(grp_dedup_murmurhash_fu_2991_key_106_ce0),
-    .key_106_q0(buffer_106_q0),
-    .key_106_address1(grp_dedup_murmurhash_fu_2991_key_106_address1),
-    .key_106_ce1(grp_dedup_murmurhash_fu_2991_key_106_ce1),
-    .key_106_q1(buffer_106_q1),
-    .key_107_address0(grp_dedup_murmurhash_fu_2991_key_107_address0),
-    .key_107_ce0(grp_dedup_murmurhash_fu_2991_key_107_ce0),
-    .key_107_q0(buffer_107_q0),
-    .key_107_address1(grp_dedup_murmurhash_fu_2991_key_107_address1),
-    .key_107_ce1(grp_dedup_murmurhash_fu_2991_key_107_ce1),
-    .key_107_q1(buffer_107_q1),
-    .key_108_address0(grp_dedup_murmurhash_fu_2991_key_108_address0),
-    .key_108_ce0(grp_dedup_murmurhash_fu_2991_key_108_ce0),
-    .key_108_q0(buffer_108_q0),
-    .key_108_address1(grp_dedup_murmurhash_fu_2991_key_108_address1),
-    .key_108_ce1(grp_dedup_murmurhash_fu_2991_key_108_ce1),
-    .key_108_q1(buffer_108_q1),
-    .key_109_address0(grp_dedup_murmurhash_fu_2991_key_109_address0),
-    .key_109_ce0(grp_dedup_murmurhash_fu_2991_key_109_ce0),
-    .key_109_q0(buffer_109_q0),
-    .key_109_address1(grp_dedup_murmurhash_fu_2991_key_109_address1),
-    .key_109_ce1(grp_dedup_murmurhash_fu_2991_key_109_ce1),
-    .key_109_q1(buffer_109_q1),
-    .key_110_address0(grp_dedup_murmurhash_fu_2991_key_110_address0),
-    .key_110_ce0(grp_dedup_murmurhash_fu_2991_key_110_ce0),
-    .key_110_q0(buffer_110_q0),
-    .key_110_address1(grp_dedup_murmurhash_fu_2991_key_110_address1),
-    .key_110_ce1(grp_dedup_murmurhash_fu_2991_key_110_ce1),
-    .key_110_q1(buffer_110_q1),
-    .key_111_address0(grp_dedup_murmurhash_fu_2991_key_111_address0),
-    .key_111_ce0(grp_dedup_murmurhash_fu_2991_key_111_ce0),
-    .key_111_q0(buffer_111_q0),
-    .key_111_address1(grp_dedup_murmurhash_fu_2991_key_111_address1),
-    .key_111_ce1(grp_dedup_murmurhash_fu_2991_key_111_ce1),
-    .key_111_q1(buffer_111_q1),
-    .key_112_address0(grp_dedup_murmurhash_fu_2991_key_112_address0),
-    .key_112_ce0(grp_dedup_murmurhash_fu_2991_key_112_ce0),
-    .key_112_q0(buffer_112_q0),
-    .key_112_address1(grp_dedup_murmurhash_fu_2991_key_112_address1),
-    .key_112_ce1(grp_dedup_murmurhash_fu_2991_key_112_ce1),
-    .key_112_q1(buffer_112_q1),
-    .key_113_address0(grp_dedup_murmurhash_fu_2991_key_113_address0),
-    .key_113_ce0(grp_dedup_murmurhash_fu_2991_key_113_ce0),
-    .key_113_q0(buffer_113_q0),
-    .key_113_address1(grp_dedup_murmurhash_fu_2991_key_113_address1),
-    .key_113_ce1(grp_dedup_murmurhash_fu_2991_key_113_ce1),
-    .key_113_q1(buffer_113_q1),
-    .key_114_address0(grp_dedup_murmurhash_fu_2991_key_114_address0),
-    .key_114_ce0(grp_dedup_murmurhash_fu_2991_key_114_ce0),
-    .key_114_q0(buffer_114_q0),
-    .key_114_address1(grp_dedup_murmurhash_fu_2991_key_114_address1),
-    .key_114_ce1(grp_dedup_murmurhash_fu_2991_key_114_ce1),
-    .key_114_q1(buffer_114_q1),
-    .key_115_address0(grp_dedup_murmurhash_fu_2991_key_115_address0),
-    .key_115_ce0(grp_dedup_murmurhash_fu_2991_key_115_ce0),
-    .key_115_q0(buffer_115_q0),
-    .key_115_address1(grp_dedup_murmurhash_fu_2991_key_115_address1),
-    .key_115_ce1(grp_dedup_murmurhash_fu_2991_key_115_ce1),
-    .key_115_q1(buffer_115_q1),
-    .key_116_address0(grp_dedup_murmurhash_fu_2991_key_116_address0),
-    .key_116_ce0(grp_dedup_murmurhash_fu_2991_key_116_ce0),
-    .key_116_q0(buffer_116_q0),
-    .key_116_address1(grp_dedup_murmurhash_fu_2991_key_116_address1),
-    .key_116_ce1(grp_dedup_murmurhash_fu_2991_key_116_ce1),
-    .key_116_q1(buffer_116_q1),
-    .key_117_address0(grp_dedup_murmurhash_fu_2991_key_117_address0),
-    .key_117_ce0(grp_dedup_murmurhash_fu_2991_key_117_ce0),
-    .key_117_q0(buffer_117_q0),
-    .key_117_address1(grp_dedup_murmurhash_fu_2991_key_117_address1),
-    .key_117_ce1(grp_dedup_murmurhash_fu_2991_key_117_ce1),
-    .key_117_q1(buffer_117_q1),
-    .key_118_address0(grp_dedup_murmurhash_fu_2991_key_118_address0),
-    .key_118_ce0(grp_dedup_murmurhash_fu_2991_key_118_ce0),
-    .key_118_q0(buffer_118_q0),
-    .key_118_address1(grp_dedup_murmurhash_fu_2991_key_118_address1),
-    .key_118_ce1(grp_dedup_murmurhash_fu_2991_key_118_ce1),
-    .key_118_q1(buffer_118_q1),
-    .key_119_address0(grp_dedup_murmurhash_fu_2991_key_119_address0),
-    .key_119_ce0(grp_dedup_murmurhash_fu_2991_key_119_ce0),
-    .key_119_q0(buffer_119_q0),
-    .key_119_address1(grp_dedup_murmurhash_fu_2991_key_119_address1),
-    .key_119_ce1(grp_dedup_murmurhash_fu_2991_key_119_ce1),
-    .key_119_q1(buffer_119_q1),
-    .key_120_address0(grp_dedup_murmurhash_fu_2991_key_120_address0),
-    .key_120_ce0(grp_dedup_murmurhash_fu_2991_key_120_ce0),
-    .key_120_q0(buffer_120_q0),
-    .key_120_address1(grp_dedup_murmurhash_fu_2991_key_120_address1),
-    .key_120_ce1(grp_dedup_murmurhash_fu_2991_key_120_ce1),
-    .key_120_q1(buffer_120_q1),
-    .key_121_address0(grp_dedup_murmurhash_fu_2991_key_121_address0),
-    .key_121_ce0(grp_dedup_murmurhash_fu_2991_key_121_ce0),
-    .key_121_q0(buffer_121_q0),
-    .key_121_address1(grp_dedup_murmurhash_fu_2991_key_121_address1),
-    .key_121_ce1(grp_dedup_murmurhash_fu_2991_key_121_ce1),
-    .key_121_q1(buffer_121_q1),
-    .key_122_address0(grp_dedup_murmurhash_fu_2991_key_122_address0),
-    .key_122_ce0(grp_dedup_murmurhash_fu_2991_key_122_ce0),
-    .key_122_q0(buffer_122_q0),
-    .key_122_address1(grp_dedup_murmurhash_fu_2991_key_122_address1),
-    .key_122_ce1(grp_dedup_murmurhash_fu_2991_key_122_ce1),
-    .key_122_q1(buffer_122_q1),
-    .key_123_address0(grp_dedup_murmurhash_fu_2991_key_123_address0),
-    .key_123_ce0(grp_dedup_murmurhash_fu_2991_key_123_ce0),
-    .key_123_q0(buffer_123_q0),
-    .key_123_address1(grp_dedup_murmurhash_fu_2991_key_123_address1),
-    .key_123_ce1(grp_dedup_murmurhash_fu_2991_key_123_ce1),
-    .key_123_q1(buffer_123_q1),
-    .key_124_address0(grp_dedup_murmurhash_fu_2991_key_124_address0),
-    .key_124_ce0(grp_dedup_murmurhash_fu_2991_key_124_ce0),
-    .key_124_q0(buffer_124_q0),
-    .key_124_address1(grp_dedup_murmurhash_fu_2991_key_124_address1),
-    .key_124_ce1(grp_dedup_murmurhash_fu_2991_key_124_ce1),
-    .key_124_q1(buffer_124_q1),
-    .key_125_address0(grp_dedup_murmurhash_fu_2991_key_125_address0),
-    .key_125_ce0(grp_dedup_murmurhash_fu_2991_key_125_ce0),
-    .key_125_q0(buffer_125_q0),
-    .key_125_address1(grp_dedup_murmurhash_fu_2991_key_125_address1),
-    .key_125_ce1(grp_dedup_murmurhash_fu_2991_key_125_ce1),
-    .key_125_q1(buffer_125_q1),
-    .key_126_address0(grp_dedup_murmurhash_fu_2991_key_126_address0),
-    .key_126_ce0(grp_dedup_murmurhash_fu_2991_key_126_ce0),
-    .key_126_q0(buffer_126_q0),
-    .key_126_address1(grp_dedup_murmurhash_fu_2991_key_126_address1),
-    .key_126_ce1(grp_dedup_murmurhash_fu_2991_key_126_ce1),
-    .key_126_q1(buffer_126_q1),
-    .key_127_address0(grp_dedup_murmurhash_fu_2991_key_127_address0),
-    .key_127_ce0(grp_dedup_murmurhash_fu_2991_key_127_ce0),
-    .key_127_q0(buffer_127_q0),
-    .key_127_address1(grp_dedup_murmurhash_fu_2991_key_127_address1),
-    .key_127_ce1(grp_dedup_murmurhash_fu_2991_key_127_ce1),
-    .key_127_q1(buffer_127_q1),
-    .tmp_44(tmp_data_index_load_reg_3412),
-    .len(dataLen_reg_3417),
-    .ap_return(grp_dedup_murmurhash_fu_2991_ap_return)
+    .ap_start(grp_dedup_murmurhash128_new_fu_3851_ap_start),
+    .ap_done(grp_dedup_murmurhash128_new_fu_3851_ap_done),
+    .ap_idle(grp_dedup_murmurhash128_new_fu_3851_ap_idle),
+    .ap_ready(grp_dedup_murmurhash128_new_fu_3851_ap_ready),
+    .str_0_address0(grp_dedup_murmurhash128_new_fu_3851_str_0_address0),
+    .str_0_ce0(grp_dedup_murmurhash128_new_fu_3851_str_0_ce0),
+    .str_0_q0(buffer_0_q0),
+    .str_0_address1(grp_dedup_murmurhash128_new_fu_3851_str_0_address1),
+    .str_0_ce1(grp_dedup_murmurhash128_new_fu_3851_str_0_ce1),
+    .str_0_q1(buffer_0_q1),
+    .indices_address0(grp_dedup_murmurhash128_new_fu_3851_indices_address0),
+    .indices_ce0(grp_dedup_murmurhash128_new_fu_3851_indices_ce0),
+    .indices_q0(targetIndices_q0),
+    .indices_address1(grp_dedup_murmurhash128_new_fu_3851_indices_address1),
+    .indices_ce1(grp_dedup_murmurhash128_new_fu_3851_indices_ce1),
+    .indices_q1(targetIndices_q1),
+    .hash_address0(grp_dedup_murmurhash128_new_fu_3851_hash_address0),
+    .hash_ce0(grp_dedup_murmurhash128_new_fu_3851_hash_ce0),
+    .hash_we0(grp_dedup_murmurhash128_new_fu_3851_hash_we0),
+    .hash_d0(grp_dedup_murmurhash128_new_fu_3851_hash_d0),
+    .hash_q0(hashes_q0),
+    .hash_address1(grp_dedup_murmurhash128_new_fu_3851_hash_address1),
+    .hash_ce1(grp_dedup_murmurhash128_new_fu_3851_hash_ce1),
+    .hash_we1(grp_dedup_murmurhash128_new_fu_3851_hash_we1),
+    .hash_d1(grp_dedup_murmurhash128_new_fu_3851_hash_d1),
+    .hash_q1(hashes_q1)
+);
+
+dedup_mux_112to1_sel7_32_1 #(
+    .ID( 1 ),
+    .NUM_STAGE( 1 ),
+    .din1_WIDTH( 32 ),
+    .din2_WIDTH( 32 ),
+    .din3_WIDTH( 32 ),
+    .din4_WIDTH( 32 ),
+    .din5_WIDTH( 32 ),
+    .din6_WIDTH( 32 ),
+    .din7_WIDTH( 32 ),
+    .din8_WIDTH( 32 ),
+    .din9_WIDTH( 32 ),
+    .din10_WIDTH( 32 ),
+    .din11_WIDTH( 32 ),
+    .din12_WIDTH( 32 ),
+    .din13_WIDTH( 32 ),
+    .din14_WIDTH( 32 ),
+    .din15_WIDTH( 32 ),
+    .din16_WIDTH( 32 ),
+    .din17_WIDTH( 32 ),
+    .din18_WIDTH( 32 ),
+    .din19_WIDTH( 32 ),
+    .din20_WIDTH( 32 ),
+    .din21_WIDTH( 32 ),
+    .din22_WIDTH( 32 ),
+    .din23_WIDTH( 32 ),
+    .din24_WIDTH( 32 ),
+    .din25_WIDTH( 32 ),
+    .din26_WIDTH( 32 ),
+    .din27_WIDTH( 32 ),
+    .din28_WIDTH( 32 ),
+    .din29_WIDTH( 32 ),
+    .din30_WIDTH( 32 ),
+    .din31_WIDTH( 32 ),
+    .din32_WIDTH( 32 ),
+    .din33_WIDTH( 32 ),
+    .din34_WIDTH( 32 ),
+    .din35_WIDTH( 32 ),
+    .din36_WIDTH( 32 ),
+    .din37_WIDTH( 32 ),
+    .din38_WIDTH( 32 ),
+    .din39_WIDTH( 32 ),
+    .din40_WIDTH( 32 ),
+    .din41_WIDTH( 32 ),
+    .din42_WIDTH( 32 ),
+    .din43_WIDTH( 32 ),
+    .din44_WIDTH( 32 ),
+    .din45_WIDTH( 32 ),
+    .din46_WIDTH( 32 ),
+    .din47_WIDTH( 32 ),
+    .din48_WIDTH( 32 ),
+    .din49_WIDTH( 32 ),
+    .din50_WIDTH( 32 ),
+    .din51_WIDTH( 32 ),
+    .din52_WIDTH( 32 ),
+    .din53_WIDTH( 32 ),
+    .din54_WIDTH( 32 ),
+    .din55_WIDTH( 32 ),
+    .din56_WIDTH( 32 ),
+    .din57_WIDTH( 32 ),
+    .din58_WIDTH( 32 ),
+    .din59_WIDTH( 32 ),
+    .din60_WIDTH( 32 ),
+    .din61_WIDTH( 32 ),
+    .din62_WIDTH( 32 ),
+    .din63_WIDTH( 32 ),
+    .din64_WIDTH( 32 ),
+    .din65_WIDTH( 32 ),
+    .din66_WIDTH( 32 ),
+    .din67_WIDTH( 32 ),
+    .din68_WIDTH( 32 ),
+    .din69_WIDTH( 32 ),
+    .din70_WIDTH( 32 ),
+    .din71_WIDTH( 32 ),
+    .din72_WIDTH( 32 ),
+    .din73_WIDTH( 32 ),
+    .din74_WIDTH( 32 ),
+    .din75_WIDTH( 32 ),
+    .din76_WIDTH( 32 ),
+    .din77_WIDTH( 32 ),
+    .din78_WIDTH( 32 ),
+    .din79_WIDTH( 32 ),
+    .din80_WIDTH( 32 ),
+    .din81_WIDTH( 32 ),
+    .din82_WIDTH( 32 ),
+    .din83_WIDTH( 32 ),
+    .din84_WIDTH( 32 ),
+    .din85_WIDTH( 32 ),
+    .din86_WIDTH( 32 ),
+    .din87_WIDTH( 32 ),
+    .din88_WIDTH( 32 ),
+    .din89_WIDTH( 32 ),
+    .din90_WIDTH( 32 ),
+    .din91_WIDTH( 32 ),
+    .din92_WIDTH( 32 ),
+    .din93_WIDTH( 32 ),
+    .din94_WIDTH( 32 ),
+    .din95_WIDTH( 32 ),
+    .din96_WIDTH( 32 ),
+    .din97_WIDTH( 32 ),
+    .din98_WIDTH( 32 ),
+    .din99_WIDTH( 32 ),
+    .din100_WIDTH( 32 ),
+    .din101_WIDTH( 32 ),
+    .din102_WIDTH( 32 ),
+    .din103_WIDTH( 32 ),
+    .din104_WIDTH( 32 ),
+    .din105_WIDTH( 32 ),
+    .din106_WIDTH( 32 ),
+    .din107_WIDTH( 32 ),
+    .din108_WIDTH( 32 ),
+    .din109_WIDTH( 32 ),
+    .din110_WIDTH( 32 ),
+    .din111_WIDTH( 32 ),
+    .din112_WIDTH( 32 ),
+    .din113_WIDTH( 7 ),
+    .dout_WIDTH( 32 ))
+dedup_mux_112to1_sel7_32_1_U247(
+    .din1(lastIndex_1_fu_5524_p1),
+    .din2(lastIndex_1_fu_5524_p2),
+    .din3(lastIndex_1_fu_5524_p3),
+    .din4(lastIndex_1_fu_5524_p4),
+    .din5(lastIndex_1_fu_5524_p5),
+    .din6(lastIndex_1_fu_5524_p6),
+    .din7(lastIndex_1_fu_5524_p7),
+    .din8(lastIndex_1_fu_5524_p8),
+    .din9(lastIndex_1_fu_5524_p9),
+    .din10(lastIndex_1_fu_5524_p10),
+    .din11(lastIndex_1_fu_5524_p11),
+    .din12(lastIndex_1_fu_5524_p12),
+    .din13(lastIndex_1_fu_5524_p13),
+    .din14(lastIndex_1_fu_5524_p14),
+    .din15(lastIndex_1_fu_5524_p15),
+    .din16(lastIndex_1_fu_5524_p16),
+    .din17(lastIndex_1_fu_5524_p17),
+    .din18(lastIndex_1_fu_5524_p18),
+    .din19(lastIndex_1_fu_5524_p19),
+    .din20(lastIndex_1_fu_5524_p20),
+    .din21(lastIndex_1_fu_5524_p21),
+    .din22(lastIndex_1_fu_5524_p22),
+    .din23(lastIndex_1_fu_5524_p23),
+    .din24(lastIndex_1_fu_5524_p24),
+    .din25(lastIndex_1_fu_5524_p25),
+    .din26(lastIndex_1_fu_5524_p26),
+    .din27(lastIndex_1_fu_5524_p27),
+    .din28(lastIndex_1_fu_5524_p28),
+    .din29(lastIndex_1_fu_5524_p29),
+    .din30(lastIndex_1_fu_5524_p30),
+    .din31(lastIndex_1_fu_5524_p31),
+    .din32(lastIndex_1_fu_5524_p32),
+    .din33(lastIndex_1_fu_5524_p33),
+    .din34(lastIndex_1_fu_5524_p34),
+    .din35(lastIndex_1_fu_5524_p35),
+    .din36(lastIndex_1_fu_5524_p36),
+    .din37(lastIndex_1_fu_5524_p37),
+    .din38(lastIndex_1_fu_5524_p38),
+    .din39(lastIndex_1_fu_5524_p39),
+    .din40(lastIndex_1_fu_5524_p40),
+    .din41(lastIndex_1_fu_5524_p41),
+    .din42(lastIndex_1_fu_5524_p42),
+    .din43(lastIndex_1_fu_5524_p43),
+    .din44(lastIndex_1_fu_5524_p44),
+    .din45(lastIndex_1_fu_5524_p45),
+    .din46(lastIndex_1_fu_5524_p46),
+    .din47(lastIndex_1_fu_5524_p47),
+    .din48(lastIndex_1_fu_5524_p48),
+    .din49(lastIndex_1_fu_5524_p49),
+    .din50(lastIndex_1_fu_5524_p50),
+    .din51(lastIndex_1_fu_5524_p51),
+    .din52(lastIndex_1_fu_5524_p52),
+    .din53(lastIndex_1_fu_5524_p53),
+    .din54(lastIndex_1_fu_5524_p54),
+    .din55(lastIndex_1_fu_5524_p55),
+    .din56(lastIndex_1_fu_5524_p56),
+    .din57(lastIndex_1_fu_5524_p57),
+    .din58(lastIndex_1_fu_5524_p58),
+    .din59(lastIndex_1_fu_5524_p59),
+    .din60(lastIndex_1_fu_5524_p60),
+    .din61(lastIndex_1_fu_5524_p61),
+    .din62(lastIndex_1_fu_5524_p62),
+    .din63(lastIndex_1_fu_5524_p63),
+    .din64(lastIndex_1_fu_5524_p64),
+    .din65(lastIndex_1_fu_5524_p65),
+    .din66(lastIndex_1_fu_5524_p66),
+    .din67(lastIndex_1_fu_5524_p67),
+    .din68(lastIndex_1_fu_5524_p68),
+    .din69(lastIndex_1_fu_5524_p69),
+    .din70(lastIndex_1_fu_5524_p70),
+    .din71(lastIndex_1_fu_5524_p71),
+    .din72(lastIndex_1_fu_5524_p72),
+    .din73(lastIndex_1_fu_5524_p73),
+    .din74(lastIndex_1_fu_5524_p74),
+    .din75(lastIndex_1_fu_5524_p75),
+    .din76(lastIndex_1_fu_5524_p76),
+    .din77(lastIndex_1_fu_5524_p77),
+    .din78(lastIndex_1_fu_5524_p78),
+    .din79(lastIndex_1_fu_5524_p79),
+    .din80(lastIndex_1_fu_5524_p80),
+    .din81(lastIndex_1_fu_5524_p81),
+    .din82(lastIndex_1_fu_5524_p82),
+    .din83(lastIndex_1_fu_5524_p83),
+    .din84(lastIndex_1_fu_5524_p84),
+    .din85(lastIndex_1_fu_5524_p85),
+    .din86(lastIndex_1_fu_5524_p86),
+    .din87(lastIndex_1_fu_5524_p87),
+    .din88(lastIndex_1_fu_5524_p88),
+    .din89(lastIndex_1_fu_5524_p89),
+    .din90(lastIndex_1_fu_5524_p90),
+    .din91(lastIndex_1_fu_5524_p91),
+    .din92(lastIndex_1_fu_5524_p92),
+    .din93(lastIndex_1_fu_5524_p93),
+    .din94(lastIndex_1_fu_5524_p94),
+    .din95(lastIndex_1_fu_5524_p95),
+    .din96(lastIndex_1_fu_5524_p96),
+    .din97(lastIndex_1_fu_5524_p97),
+    .din98(lastIndex_1_fu_5524_p98),
+    .din99(lastIndex_1_fu_5524_p99),
+    .din100(lastIndex_1_fu_5524_p100),
+    .din101(lastIndex_1_fu_5524_p101),
+    .din102(lastIndex_1_fu_5524_p102),
+    .din103(lastIndex_1_fu_5524_p103),
+    .din104(lastIndex_1_fu_5524_p104),
+    .din105(lastIndex_1_fu_5524_p105),
+    .din106(lastIndex_1_fu_5524_p106),
+    .din107(lastIndex_1_fu_5524_p107),
+    .din108(lastIndex_1_fu_5524_p108),
+    .din109(lastIndex_1_fu_5524_p109),
+    .din110(lastIndex_1_fu_5524_p110),
+    .din111(lastIndex_1_fu_5524_p111),
+    .din112(lastIndex_1_fu_5524_p112),
+    .din113(i1_reg_3584),
+    .dout(lastIndex_1_fu_5524_p114)
 );
 
 always @ (posedge ap_clk) begin
@@ -6043,24 +5857,24 @@ end
 
 always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
-        ap_reg_grp_dedup_calcHash_fu_2858_ap_start <= 1'b0;
+        ap_reg_grp_dedup_calcHash_fu_3607_ap_start <= 1'b0;
     end else begin
-        if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
-            ap_reg_grp_dedup_calcHash_fu_2858_ap_start <= 1'b1;
-        end else if ((1'b1 == grp_dedup_calcHash_fu_2858_ap_ready)) begin
-            ap_reg_grp_dedup_calcHash_fu_2858_ap_start <= 1'b0;
+        if ((1'b1 == ap_sig_cseq_ST_st5_fsm_3)) begin
+            ap_reg_grp_dedup_calcHash_fu_3607_ap_start <= 1'b1;
+        end else if ((1'b1 == grp_dedup_calcHash_fu_3607_ap_ready)) begin
+            ap_reg_grp_dedup_calcHash_fu_3607_ap_start <= 1'b0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
-        ap_reg_grp_dedup_murmurhash_fu_2991_ap_start <= 1'b0;
+        ap_reg_grp_dedup_murmurhash128_new_fu_3851_ap_start <= 1'b0;
     end else begin
-        if (((1'b1 == ap_sig_cseq_ST_st7_fsm_6) & (1'b0 == tmp_36_fu_3326_p2))) begin
-            ap_reg_grp_dedup_murmurhash_fu_2991_ap_start <= 1'b1;
-        end else if ((1'b1 == grp_dedup_murmurhash_fu_2991_ap_ready)) begin
-            ap_reg_grp_dedup_murmurhash_fu_2991_ap_start <= 1'b0;
+        if ((1'b1 == ap_sig_cseq_ST_st9_fsm_6)) begin
+            ap_reg_grp_dedup_murmurhash128_new_fu_3851_ap_start <= 1'b1;
+        end else if ((1'b1 == grp_dedup_murmurhash128_new_fu_3851_ap_ready)) begin
+            ap_reg_grp_dedup_murmurhash128_new_fu_3851_ap_start <= 1'b0;
         end
     end
 end
@@ -6069,94 +5883,1070 @@ always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
         ap_reg_ioackin_outputData_TREADY <= 1'b0;
     end else begin
-        if (((1'b1 == ap_sig_cseq_ST_st9_fsm_8) & ~(1'b0 == ap_sig_ioackin_outputData_TREADY))) begin
+        if (((1'b1 == ap_sig_cseq_ST_pp2_stg0_fsm_8) & (1'b1 == ap_reg_ppiten_pp2_it1) & (1'b0 == exitcond3_reg_7554) & ~((1'b1 == ap_reg_ppiten_pp2_it1) & (1'b0 == exitcond3_reg_7554) & (1'b0 == ap_sig_ioackin_outputData_TREADY)))) begin
             ap_reg_ioackin_outputData_TREADY <= 1'b0;
-        end else if (((1'b1 == ap_sig_cseq_ST_st9_fsm_8) & (1'b1 == outputData_TREADY))) begin
+        end else if (((1'b1 == ap_sig_cseq_ST_pp2_stg0_fsm_8) & (1'b1 == ap_reg_ppiten_pp2_it1) & (1'b0 == exitcond3_reg_7554) & (1'b1 == outputData_TREADY))) begin
             ap_reg_ioackin_outputData_TREADY <= 1'b1;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_sig_cseq_ST_st9_fsm_8) & ~(1'b0 == ap_sig_ioackin_outputData_TREADY))) begin
-        i1_reg_2835 <= i_6_reg_3393;
-    end else if (((1'b1 == ap_sig_cseq_ST_st5_fsm_4) & ~(1'b0 == grp_dedup_calcHash_fu_2858_ap_done))) begin
-        i1_reg_2835 <= ap_const_lv3_0;
+    if (ap_rst_n_inv == 1'b1) begin
+        ap_reg_ppiten_pp0_it0 <= 1'b0;
+    end else begin
+        if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & ~(exitcond1_fu_4560_p2 == 1'b0))) begin
+            ap_reg_ppiten_pp0_it0 <= 1'b0;
+        end else if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~(1'b0 == tmp_s_fu_4554_p2))) begin
+            ap_reg_ppiten_pp0_it0 <= 1'b1;
+        end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~(1'b0 == tmp_s_fu_3136_p2))) begin
-        i_reg_2824 <= ap_const_lv14_0;
-    end else if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111)) begin
-        i_reg_2824 <= i_5_fu_3148_p2;
+    if (ap_rst_n_inv == 1'b1) begin
+        ap_reg_ppiten_pp0_it1 <= 1'b0;
+    end else begin
+        if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131))) begin
+            ap_reg_ppiten_pp0_it1 <= 1'b1;
+        end else if ((((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~(1'b0 == tmp_s_fu_4554_p2)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & ~(exitcond1_fu_4560_p2 == 1'b0)))) begin
+            ap_reg_ppiten_pp0_it1 <= 1'b0;
+        end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (1'b0 == tmp_s_fu_3136_p2))) begin
-        invdar_reg_2813 <= indvarinc_fu_3125_p2;
+    if (ap_rst_n_inv == 1'b1) begin
+        ap_reg_ppiten_pp1_it0 <= 1'b0;
+    end else begin
+        if (((1'b1 == ap_sig_cseq_ST_pp1_stg0_fsm_5) & ~(1'b0 == exitcond2_fu_4728_p2))) begin
+            ap_reg_ppiten_pp1_it0 <= 1'b0;
+        end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & ~(1'b0 == grp_dedup_calcHash_fu_3607_ap_done))) begin
+            ap_reg_ppiten_pp1_it0 <= 1'b1;
+        end
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (ap_rst_n_inv == 1'b1) begin
+        ap_reg_ppiten_pp1_it1 <= 1'b0;
+    end else begin
+        if (((1'b1 == ap_sig_cseq_ST_pp1_stg0_fsm_5) & (1'b0 == exitcond2_fu_4728_p2))) begin
+            ap_reg_ppiten_pp1_it1 <= 1'b1;
+        end else if ((((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & ~(1'b0 == grp_dedup_calcHash_fu_3607_ap_done)) | ((1'b1 == ap_sig_cseq_ST_pp1_stg0_fsm_5) & ~(1'b0 == exitcond2_fu_4728_p2)))) begin
+            ap_reg_ppiten_pp1_it1 <= 1'b0;
+        end
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (ap_rst_n_inv == 1'b1) begin
+        ap_reg_ppiten_pp2_it0 <= 1'b0;
+    end else begin
+        if (((1'b1 == ap_sig_cseq_ST_pp2_stg0_fsm_8) & ~((1'b1 == ap_reg_ppiten_pp2_it1) & (1'b0 == exitcond3_reg_7554) & (1'b0 == ap_sig_ioackin_outputData_TREADY)) & ~(1'b0 == exitcond3_fu_5806_p2))) begin
+            ap_reg_ppiten_pp2_it0 <= 1'b0;
+        end else if (((1'b1 == ap_sig_cseq_ST_st10_fsm_7) & ~(1'b0 == grp_dedup_murmurhash128_new_fu_3851_ap_done))) begin
+            ap_reg_ppiten_pp2_it0 <= 1'b1;
+        end
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (ap_rst_n_inv == 1'b1) begin
+        ap_reg_ppiten_pp2_it1 <= 1'b0;
+    end else begin
+        if (((1'b0 == exitcond3_reg_7554) & (1'b1 == ap_sig_cseq_ST_pp2_stg1_fsm_9))) begin
+            ap_reg_ppiten_pp2_it1 <= 1'b1;
+        end else if ((((1'b1 == ap_sig_cseq_ST_st10_fsm_7) & ~(1'b0 == grp_dedup_murmurhash128_new_fu_3851_ap_done)) | ((1'b1 == ap_sig_cseq_ST_pp2_stg1_fsm_9) & ~(1'b0 == exitcond3_reg_7554)))) begin
+            ap_reg_ppiten_pp2_it1 <= 1'b0;
+        end
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp1_stg0_fsm_5) & (1'b1 == ap_reg_ppiten_pp1_it0) & (1'b0 == exitcond2_fu_4728_p2))) begin
+        i1_reg_3584 <= i_4_fu_4734_p2;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & ~(1'b0 == grp_dedup_calcHash_fu_3607_ap_done))) begin
+        i1_reg_3584 <= ap_const_lv7_0;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp2_stg0_fsm_8) & (1'b1 == ap_reg_ppiten_pp2_it1) & (1'b0 == exitcond3_reg_7554) & ~((1'b1 == ap_reg_ppiten_pp2_it1) & (1'b0 == exitcond3_reg_7554) & (1'b0 == ap_sig_ioackin_outputData_TREADY)))) begin
+        i2_reg_3595 <= i_5_reg_7558;
+    end else if (((1'b1 == ap_sig_cseq_ST_st10_fsm_7) & ~(1'b0 == grp_dedup_murmurhash128_new_fu_3851_ap_done))) begin
+        i2_reg_3595 <= ap_const_lv3_0;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~(1'b0 == tmp_s_fu_4554_p2))) begin
+        i_reg_3573 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131))) begin
+        i_reg_3573 <= i_3_fu_4566_p2;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (ap_const_lv7_0 == invdar_phi_fu_3566_p4))) begin
+        indices_0_fu_1108 <= ap_const_lv13_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_0_o_ap_vld))) begin
+        indices_0_fu_1108 <= grp_dedup_calcHash_fu_3607_indices_0_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_64))) begin
+        indices_100_fu_1508 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_100_o_ap_vld))) begin
+        indices_100_fu_1508 <= grp_dedup_calcHash_fu_3607_indices_100_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_65))) begin
+        indices_101_fu_1512 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_101_o_ap_vld))) begin
+        indices_101_fu_1512 <= grp_dedup_calcHash_fu_3607_indices_101_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_66))) begin
+        indices_102_fu_1516 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_102_o_ap_vld))) begin
+        indices_102_fu_1516 <= grp_dedup_calcHash_fu_3607_indices_102_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_67))) begin
+        indices_103_fu_1520 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_103_o_ap_vld))) begin
+        indices_103_fu_1520 <= grp_dedup_calcHash_fu_3607_indices_103_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_68))) begin
+        indices_104_fu_1524 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_104_o_ap_vld))) begin
+        indices_104_fu_1524 <= grp_dedup_calcHash_fu_3607_indices_104_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_69))) begin
+        indices_105_fu_1528 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_105_o_ap_vld))) begin
+        indices_105_fu_1528 <= grp_dedup_calcHash_fu_3607_indices_105_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_6A))) begin
+        indices_106_fu_1532 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_106_o_ap_vld))) begin
+        indices_106_fu_1532 <= grp_dedup_calcHash_fu_3607_indices_106_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_6B))) begin
+        indices_107_fu_1536 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_107_o_ap_vld))) begin
+        indices_107_fu_1536 <= grp_dedup_calcHash_fu_3607_indices_107_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_6C))) begin
+        indices_108_fu_1540 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_108_o_ap_vld))) begin
+        indices_108_fu_1540 <= grp_dedup_calcHash_fu_3607_indices_108_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_6D))) begin
+        indices_109_fu_1544 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_109_o_ap_vld))) begin
+        indices_109_fu_1544 <= grp_dedup_calcHash_fu_3607_indices_109_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_A))) begin
+        indices_10_fu_1148 <= ap_const_lv13_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_10_o_ap_vld))) begin
+        indices_10_fu_1148 <= grp_dedup_calcHash_fu_3607_indices_10_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_6E))) begin
+        indices_110_fu_1548 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_110_o_ap_vld))) begin
+        indices_110_fu_1548 <= grp_dedup_calcHash_fu_3607_indices_110_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ((invdar_phi_fu_3566_p4 == ap_const_lv7_6F) | (invdar_phi_fu_3566_p4 == ap_const_lv7_70) | (invdar_phi_fu_3566_p4 == ap_const_lv7_71) | (invdar_phi_fu_3566_p4 == ap_const_lv7_72) | (invdar_phi_fu_3566_p4 == ap_const_lv7_73) | (invdar_phi_fu_3566_p4 == ap_const_lv7_74) | (invdar_phi_fu_3566_p4 == ap_const_lv7_75) | (invdar_phi_fu_3566_p4 == ap_const_lv7_76) | (invdar_phi_fu_3566_p4 == ap_const_lv7_77) | (invdar_phi_fu_3566_p4 == ap_const_lv7_78) | (invdar_phi_fu_3566_p4 == ap_const_lv7_79) | (invdar_phi_fu_3566_p4 == ap_const_lv7_7A) | (invdar_phi_fu_3566_p4 == ap_const_lv7_7B) | (invdar_phi_fu_3566_p4 == ap_const_lv7_7C) | (invdar_phi_fu_3566_p4 == ap_const_lv7_7D) | (invdar_phi_fu_3566_p4 == ap_const_lv7_7E) | (invdar_phi_fu_3566_p4 == ap_const_lv7_7F)))) begin
+        indices_111_fu_1552 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_111_o_ap_vld))) begin
+        indices_111_fu_1552 <= grp_dedup_calcHash_fu_3607_indices_111_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_B))) begin
+        indices_11_fu_1152 <= ap_const_lv13_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_11_o_ap_vld))) begin
+        indices_11_fu_1152 <= grp_dedup_calcHash_fu_3607_indices_11_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_C))) begin
+        indices_12_fu_1156 <= ap_const_lv13_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_12_o_ap_vld))) begin
+        indices_12_fu_1156 <= grp_dedup_calcHash_fu_3607_indices_12_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_D))) begin
+        indices_13_fu_1160 <= ap_const_lv13_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_13_o_ap_vld))) begin
+        indices_13_fu_1160 <= grp_dedup_calcHash_fu_3607_indices_13_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_E))) begin
+        indices_14_fu_1164 <= ap_const_lv13_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_14_o_ap_vld))) begin
+        indices_14_fu_1164 <= grp_dedup_calcHash_fu_3607_indices_14_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_F))) begin
+        indices_15_fu_1168 <= ap_const_lv13_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_15_o_ap_vld))) begin
+        indices_15_fu_1168 <= grp_dedup_calcHash_fu_3607_indices_15_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_10))) begin
+        indices_16_fu_1172 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_16_o_ap_vld))) begin
+        indices_16_fu_1172 <= grp_dedup_calcHash_fu_3607_indices_16_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_11))) begin
+        indices_17_fu_1176 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_17_o_ap_vld))) begin
+        indices_17_fu_1176 <= grp_dedup_calcHash_fu_3607_indices_17_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_12))) begin
+        indices_18_fu_1180 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_18_o_ap_vld))) begin
+        indices_18_fu_1180 <= grp_dedup_calcHash_fu_3607_indices_18_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_13))) begin
+        indices_19_fu_1184 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_19_o_ap_vld))) begin
+        indices_19_fu_1184 <= grp_dedup_calcHash_fu_3607_indices_19_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_1))) begin
+        indices_1_fu_1112 <= ap_const_lv13_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_1_o_ap_vld))) begin
+        indices_1_fu_1112 <= grp_dedup_calcHash_fu_3607_indices_1_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_14))) begin
+        indices_20_fu_1188 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_20_o_ap_vld))) begin
+        indices_20_fu_1188 <= grp_dedup_calcHash_fu_3607_indices_20_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_15))) begin
+        indices_21_fu_1192 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_21_o_ap_vld))) begin
+        indices_21_fu_1192 <= grp_dedup_calcHash_fu_3607_indices_21_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_16))) begin
+        indices_22_fu_1196 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_22_o_ap_vld))) begin
+        indices_22_fu_1196 <= grp_dedup_calcHash_fu_3607_indices_22_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_17))) begin
+        indices_23_fu_1200 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_23_o_ap_vld))) begin
+        indices_23_fu_1200 <= grp_dedup_calcHash_fu_3607_indices_23_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_18))) begin
+        indices_24_fu_1204 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_24_o_ap_vld))) begin
+        indices_24_fu_1204 <= grp_dedup_calcHash_fu_3607_indices_24_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_19))) begin
+        indices_25_fu_1208 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_25_o_ap_vld))) begin
+        indices_25_fu_1208 <= grp_dedup_calcHash_fu_3607_indices_25_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_1A))) begin
+        indices_26_fu_1212 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_26_o_ap_vld))) begin
+        indices_26_fu_1212 <= grp_dedup_calcHash_fu_3607_indices_26_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_1B))) begin
+        indices_27_fu_1216 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_27_o_ap_vld))) begin
+        indices_27_fu_1216 <= grp_dedup_calcHash_fu_3607_indices_27_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_1C))) begin
+        indices_28_fu_1220 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_28_o_ap_vld))) begin
+        indices_28_fu_1220 <= grp_dedup_calcHash_fu_3607_indices_28_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_1D))) begin
+        indices_29_fu_1224 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_29_o_ap_vld))) begin
+        indices_29_fu_1224 <= grp_dedup_calcHash_fu_3607_indices_29_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_2))) begin
+        indices_2_fu_1116 <= ap_const_lv13_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_2_o_ap_vld))) begin
+        indices_2_fu_1116 <= grp_dedup_calcHash_fu_3607_indices_2_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_1E))) begin
+        indices_30_fu_1228 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_30_o_ap_vld))) begin
+        indices_30_fu_1228 <= grp_dedup_calcHash_fu_3607_indices_30_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_1F))) begin
+        indices_31_fu_1232 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_31_o_ap_vld))) begin
+        indices_31_fu_1232 <= grp_dedup_calcHash_fu_3607_indices_31_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_20))) begin
+        indices_32_fu_1236 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_32_o_ap_vld))) begin
+        indices_32_fu_1236 <= grp_dedup_calcHash_fu_3607_indices_32_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_21))) begin
+        indices_33_fu_1240 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_33_o_ap_vld))) begin
+        indices_33_fu_1240 <= grp_dedup_calcHash_fu_3607_indices_33_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_22))) begin
+        indices_34_fu_1244 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_34_o_ap_vld))) begin
+        indices_34_fu_1244 <= grp_dedup_calcHash_fu_3607_indices_34_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_23))) begin
+        indices_35_fu_1248 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_35_o_ap_vld))) begin
+        indices_35_fu_1248 <= grp_dedup_calcHash_fu_3607_indices_35_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_24))) begin
+        indices_36_fu_1252 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_36_o_ap_vld))) begin
+        indices_36_fu_1252 <= grp_dedup_calcHash_fu_3607_indices_36_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_25))) begin
+        indices_37_fu_1256 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_37_o_ap_vld))) begin
+        indices_37_fu_1256 <= grp_dedup_calcHash_fu_3607_indices_37_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_26))) begin
+        indices_38_fu_1260 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_38_o_ap_vld))) begin
+        indices_38_fu_1260 <= grp_dedup_calcHash_fu_3607_indices_38_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_27))) begin
+        indices_39_fu_1264 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_39_o_ap_vld))) begin
+        indices_39_fu_1264 <= grp_dedup_calcHash_fu_3607_indices_39_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_3))) begin
+        indices_3_fu_1120 <= ap_const_lv13_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_3_o_ap_vld))) begin
+        indices_3_fu_1120 <= grp_dedup_calcHash_fu_3607_indices_3_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_28))) begin
+        indices_40_fu_1268 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_40_o_ap_vld))) begin
+        indices_40_fu_1268 <= grp_dedup_calcHash_fu_3607_indices_40_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_29))) begin
+        indices_41_fu_1272 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_41_o_ap_vld))) begin
+        indices_41_fu_1272 <= grp_dedup_calcHash_fu_3607_indices_41_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_2A))) begin
+        indices_42_fu_1276 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_42_o_ap_vld))) begin
+        indices_42_fu_1276 <= grp_dedup_calcHash_fu_3607_indices_42_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_2B))) begin
+        indices_43_fu_1280 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_43_o_ap_vld))) begin
+        indices_43_fu_1280 <= grp_dedup_calcHash_fu_3607_indices_43_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_2C))) begin
+        indices_44_fu_1284 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_44_o_ap_vld))) begin
+        indices_44_fu_1284 <= grp_dedup_calcHash_fu_3607_indices_44_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_2D))) begin
+        indices_45_fu_1288 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_45_o_ap_vld))) begin
+        indices_45_fu_1288 <= grp_dedup_calcHash_fu_3607_indices_45_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_2E))) begin
+        indices_46_fu_1292 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_46_o_ap_vld))) begin
+        indices_46_fu_1292 <= grp_dedup_calcHash_fu_3607_indices_46_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_2F))) begin
+        indices_47_fu_1296 <= ap_const_lv14_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_47_o_ap_vld))) begin
+        indices_47_fu_1296 <= grp_dedup_calcHash_fu_3607_indices_47_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_30))) begin
+        indices_48_fu_1300 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_48_o_ap_vld))) begin
+        indices_48_fu_1300 <= grp_dedup_calcHash_fu_3607_indices_48_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_31))) begin
+        indices_49_fu_1304 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_49_o_ap_vld))) begin
+        indices_49_fu_1304 <= grp_dedup_calcHash_fu_3607_indices_49_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_4))) begin
+        indices_4_fu_1124 <= ap_const_lv13_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_4_o_ap_vld))) begin
+        indices_4_fu_1124 <= grp_dedup_calcHash_fu_3607_indices_4_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_32))) begin
+        indices_50_fu_1308 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_50_o_ap_vld))) begin
+        indices_50_fu_1308 <= grp_dedup_calcHash_fu_3607_indices_50_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_33))) begin
+        indices_51_fu_1312 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_51_o_ap_vld))) begin
+        indices_51_fu_1312 <= grp_dedup_calcHash_fu_3607_indices_51_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_34))) begin
+        indices_52_fu_1316 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_52_o_ap_vld))) begin
+        indices_52_fu_1316 <= grp_dedup_calcHash_fu_3607_indices_52_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_35))) begin
+        indices_53_fu_1320 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_53_o_ap_vld))) begin
+        indices_53_fu_1320 <= grp_dedup_calcHash_fu_3607_indices_53_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_36))) begin
+        indices_54_fu_1324 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_54_o_ap_vld))) begin
+        indices_54_fu_1324 <= grp_dedup_calcHash_fu_3607_indices_54_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_37))) begin
+        indices_55_fu_1328 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_55_o_ap_vld))) begin
+        indices_55_fu_1328 <= grp_dedup_calcHash_fu_3607_indices_55_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_38))) begin
+        indices_56_fu_1332 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_56_o_ap_vld))) begin
+        indices_56_fu_1332 <= grp_dedup_calcHash_fu_3607_indices_56_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_39))) begin
+        indices_57_fu_1336 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_57_o_ap_vld))) begin
+        indices_57_fu_1336 <= grp_dedup_calcHash_fu_3607_indices_57_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_3A))) begin
+        indices_58_fu_1340 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_58_o_ap_vld))) begin
+        indices_58_fu_1340 <= grp_dedup_calcHash_fu_3607_indices_58_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_3B))) begin
+        indices_59_fu_1344 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_59_o_ap_vld))) begin
+        indices_59_fu_1344 <= grp_dedup_calcHash_fu_3607_indices_59_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_5))) begin
+        indices_5_fu_1128 <= ap_const_lv13_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_5_o_ap_vld))) begin
+        indices_5_fu_1128 <= grp_dedup_calcHash_fu_3607_indices_5_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_3C))) begin
+        indices_60_fu_1348 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_60_o_ap_vld))) begin
+        indices_60_fu_1348 <= grp_dedup_calcHash_fu_3607_indices_60_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_3D))) begin
+        indices_61_fu_1352 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_61_o_ap_vld))) begin
+        indices_61_fu_1352 <= grp_dedup_calcHash_fu_3607_indices_61_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_3E))) begin
+        indices_62_fu_1356 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_62_o_ap_vld))) begin
+        indices_62_fu_1356 <= grp_dedup_calcHash_fu_3607_indices_62_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_3F))) begin
+        indices_63_fu_1360 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_63_o_ap_vld))) begin
+        indices_63_fu_1360 <= grp_dedup_calcHash_fu_3607_indices_63_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_40))) begin
+        indices_64_fu_1364 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_64_o_ap_vld))) begin
+        indices_64_fu_1364 <= grp_dedup_calcHash_fu_3607_indices_64_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_41))) begin
+        indices_65_fu_1368 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_65_o_ap_vld))) begin
+        indices_65_fu_1368 <= grp_dedup_calcHash_fu_3607_indices_65_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_42))) begin
+        indices_66_fu_1372 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_66_o_ap_vld))) begin
+        indices_66_fu_1372 <= grp_dedup_calcHash_fu_3607_indices_66_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_43))) begin
+        indices_67_fu_1376 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_67_o_ap_vld))) begin
+        indices_67_fu_1376 <= grp_dedup_calcHash_fu_3607_indices_67_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_44))) begin
+        indices_68_fu_1380 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_68_o_ap_vld))) begin
+        indices_68_fu_1380 <= grp_dedup_calcHash_fu_3607_indices_68_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_45))) begin
+        indices_69_fu_1384 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_69_o_ap_vld))) begin
+        indices_69_fu_1384 <= grp_dedup_calcHash_fu_3607_indices_69_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_6))) begin
+        indices_6_fu_1132 <= ap_const_lv13_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_6_o_ap_vld))) begin
+        indices_6_fu_1132 <= grp_dedup_calcHash_fu_3607_indices_6_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_46))) begin
+        indices_70_fu_1388 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_70_o_ap_vld))) begin
+        indices_70_fu_1388 <= grp_dedup_calcHash_fu_3607_indices_70_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_47))) begin
+        indices_71_fu_1392 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_71_o_ap_vld))) begin
+        indices_71_fu_1392 <= grp_dedup_calcHash_fu_3607_indices_71_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_48))) begin
+        indices_72_fu_1396 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_72_o_ap_vld))) begin
+        indices_72_fu_1396 <= grp_dedup_calcHash_fu_3607_indices_72_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_49))) begin
+        indices_73_fu_1400 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_73_o_ap_vld))) begin
+        indices_73_fu_1400 <= grp_dedup_calcHash_fu_3607_indices_73_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_4A))) begin
+        indices_74_fu_1404 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_74_o_ap_vld))) begin
+        indices_74_fu_1404 <= grp_dedup_calcHash_fu_3607_indices_74_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_4B))) begin
+        indices_75_fu_1408 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_75_o_ap_vld))) begin
+        indices_75_fu_1408 <= grp_dedup_calcHash_fu_3607_indices_75_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_4C))) begin
+        indices_76_fu_1412 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_76_o_ap_vld))) begin
+        indices_76_fu_1412 <= grp_dedup_calcHash_fu_3607_indices_76_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_4D))) begin
+        indices_77_fu_1416 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_77_o_ap_vld))) begin
+        indices_77_fu_1416 <= grp_dedup_calcHash_fu_3607_indices_77_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_4E))) begin
+        indices_78_fu_1420 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_78_o_ap_vld))) begin
+        indices_78_fu_1420 <= grp_dedup_calcHash_fu_3607_indices_78_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_4F))) begin
+        indices_79_fu_1424 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_79_o_ap_vld))) begin
+        indices_79_fu_1424 <= grp_dedup_calcHash_fu_3607_indices_79_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_7))) begin
+        indices_7_fu_1136 <= ap_const_lv13_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_7_o_ap_vld))) begin
+        indices_7_fu_1136 <= grp_dedup_calcHash_fu_3607_indices_7_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_50))) begin
+        indices_80_fu_1428 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_80_o_ap_vld))) begin
+        indices_80_fu_1428 <= grp_dedup_calcHash_fu_3607_indices_80_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_51))) begin
+        indices_81_fu_1432 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_81_o_ap_vld))) begin
+        indices_81_fu_1432 <= grp_dedup_calcHash_fu_3607_indices_81_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_52))) begin
+        indices_82_fu_1436 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_82_o_ap_vld))) begin
+        indices_82_fu_1436 <= grp_dedup_calcHash_fu_3607_indices_82_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_53))) begin
+        indices_83_fu_1440 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_83_o_ap_vld))) begin
+        indices_83_fu_1440 <= grp_dedup_calcHash_fu_3607_indices_83_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_54))) begin
+        indices_84_fu_1444 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_84_o_ap_vld))) begin
+        indices_84_fu_1444 <= grp_dedup_calcHash_fu_3607_indices_84_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_55))) begin
+        indices_85_fu_1448 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_85_o_ap_vld))) begin
+        indices_85_fu_1448 <= grp_dedup_calcHash_fu_3607_indices_85_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_56))) begin
+        indices_86_fu_1452 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_86_o_ap_vld))) begin
+        indices_86_fu_1452 <= grp_dedup_calcHash_fu_3607_indices_86_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_57))) begin
+        indices_87_fu_1456 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_87_o_ap_vld))) begin
+        indices_87_fu_1456 <= grp_dedup_calcHash_fu_3607_indices_87_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_58))) begin
+        indices_88_fu_1460 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_88_o_ap_vld))) begin
+        indices_88_fu_1460 <= grp_dedup_calcHash_fu_3607_indices_88_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_59))) begin
+        indices_89_fu_1464 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_89_o_ap_vld))) begin
+        indices_89_fu_1464 <= grp_dedup_calcHash_fu_3607_indices_89_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_8))) begin
+        indices_8_fu_1140 <= ap_const_lv13_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_8_o_ap_vld))) begin
+        indices_8_fu_1140 <= grp_dedup_calcHash_fu_3607_indices_8_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_5A))) begin
+        indices_90_fu_1468 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_90_o_ap_vld))) begin
+        indices_90_fu_1468 <= grp_dedup_calcHash_fu_3607_indices_90_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_5B))) begin
+        indices_91_fu_1472 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_91_o_ap_vld))) begin
+        indices_91_fu_1472 <= grp_dedup_calcHash_fu_3607_indices_91_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_5C))) begin
+        indices_92_fu_1476 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_92_o_ap_vld))) begin
+        indices_92_fu_1476 <= grp_dedup_calcHash_fu_3607_indices_92_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_5D))) begin
+        indices_93_fu_1480 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_93_o_ap_vld))) begin
+        indices_93_fu_1480 <= grp_dedup_calcHash_fu_3607_indices_93_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_5E))) begin
+        indices_94_fu_1484 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_94_o_ap_vld))) begin
+        indices_94_fu_1484 <= grp_dedup_calcHash_fu_3607_indices_94_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_5F))) begin
+        indices_95_fu_1488 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_95_o_ap_vld))) begin
+        indices_95_fu_1488 <= grp_dedup_calcHash_fu_3607_indices_95_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_60))) begin
+        indices_96_fu_1492 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_96_o_ap_vld))) begin
+        indices_96_fu_1492 <= grp_dedup_calcHash_fu_3607_indices_96_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_61))) begin
+        indices_97_fu_1496 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_97_o_ap_vld))) begin
+        indices_97_fu_1496 <= grp_dedup_calcHash_fu_3607_indices_97_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_62))) begin
+        indices_98_fu_1500 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_98_o_ap_vld))) begin
+        indices_98_fu_1500 <= grp_dedup_calcHash_fu_3607_indices_98_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_63))) begin
+        indices_99_fu_1504 <= ap_const_lv15_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_99_o_ap_vld))) begin
+        indices_99_fu_1504 <= grp_dedup_calcHash_fu_3607_indices_99_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (invdar_phi_fu_3566_p4 == ap_const_lv7_9))) begin
+        indices_9_fu_1144 <= ap_const_lv13_0;
+    end else if (((1'b1 == ap_sig_cseq_ST_st6_fsm_4) & (1'b1 == grp_dedup_calcHash_fu_3607_indices_9_o_ap_vld))) begin
+        indices_9_fu_1144 <= grp_dedup_calcHash_fu_3607_indices_9_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (1'b0 == tmp_s_fu_4554_p2))) begin
+        invdar_reg_3562 <= indvarinc_fu_3988_p2;
     end else if (((1'b1 == ap_sig_cseq_ST_st1_fsm_0) & ~(ap_start == 1'b0))) begin
-        invdar_reg_2813 <= ap_const_lv3_0;
+        invdar_reg_3562 <= ap_const_lv7_0;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_sig_cseq_ST_st7_fsm_6) & ~(1'b0 == tmp_36_fu_3326_p2))) begin
-        tmp_data_hashData_reg_2847 <= ap_const_lv32_0;
-    end else if (((1'b1 == ap_sig_cseq_ST_st9_fsm_8) & ~(1'b0 == ap_sig_ioackin_outputData_TREADY) & (1'b0 == tmp_36_reg_3408))) begin
-        tmp_data_hashData_reg_2847 <= item_data_hashData_reg_3422;
+    if (((1'b1 == ap_sig_cseq_ST_pp1_stg0_fsm_5) & (1'b1 == ap_reg_ppiten_pp1_it1) & ~(1'b0 == tmp_31_reg_7547) & ~(1'b0 == or_cond_fu_5780_p2))) begin
+        lastIndex_fu_1564 <= lastIndex_1_reg_7540;
+    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_3)) begin
+        lastIndex_fu_1564 <= ap_const_lv32_0;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_sig_cseq_ST_st7_fsm_6) & (1'b0 == tmp_36_fu_3326_p2))) begin
-                tmp_data_index_fu_854[12 : 0] <= lastIndex_fu_3322_p1[12 : 0];
-    end else if ((1'b1 == ap_sig_cseq_ST_st4_fsm_3)) begin
-                tmp_data_index_fu_854[0] <= 1'b0;
-        tmp_data_index_fu_854[1] <= 1'b0;
-        tmp_data_index_fu_854[2] <= 1'b0;
-        tmp_data_index_fu_854[3] <= 1'b0;
-        tmp_data_index_fu_854[4] <= 1'b0;
-        tmp_data_index_fu_854[5] <= 1'b0;
-        tmp_data_index_fu_854[6] <= 1'b0;
-        tmp_data_index_fu_854[7] <= 1'b0;
-        tmp_data_index_fu_854[8] <= 1'b0;
-        tmp_data_index_fu_854[9] <= 1'b0;
-        tmp_data_index_fu_854[10] <= 1'b0;
-        tmp_data_index_fu_854[11] <= 1'b0;
-        tmp_data_index_fu_854[12] <= 1'b0;
+    if (((1'b1 == ap_sig_cseq_ST_pp1_stg0_fsm_5) & (1'b1 == ap_reg_ppiten_pp1_it1) & ~(1'b0 == tmp_31_reg_7547) & ~(1'b0 == or_cond_fu_5780_p2))) begin
+        numOfIndex_fu_1568 <= numOfIndex_1_fu_5791_p2;
+    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_3)) begin
+        numOfIndex_fu_1568 <= ap_const_lv32_0;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_sig_cseq_ST_st7_fsm_6) & (1'b0 == tmp_36_fu_3326_p2))) begin
-        dataLen_reg_3417 <= dataLen_fu_3336_p2;
-        tmp_data_index_load_reg_3412[12 : 0] <= tmp_data_index_fu_854[12 : 0];
+    if (((1'b1 == ap_sig_cseq_ST_pp2_stg0_fsm_8) & ~((1'b1 == ap_reg_ppiten_pp2_it1) & (1'b0 == exitcond3_reg_7554) & (1'b0 == ap_sig_ioackin_outputData_TREADY)))) begin
+        exitcond3_reg_7554 <= exitcond3_fu_5806_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_5)) begin
-        i_6_reg_3393 <= i_6_fu_3311_p2;
+    if (((1'b1 == ap_sig_cseq_ST_pp2_stg0_fsm_8) & (1'b1 == ap_reg_ppiten_pp2_it0) & ~((1'b1 == ap_reg_ppiten_pp2_it1) & (1'b0 == exitcond3_reg_7554) & (1'b0 == ap_sig_ioackin_outputData_TREADY)))) begin
+        i_5_reg_7558 <= i_5_fu_5812_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_sig_cseq_ST_st8_fsm_7) & ~(1'b0 == grp_dedup_murmurhash_fu_2991_ap_done))) begin
-        item_data_hashData_reg_3422 <= grp_dedup_murmurhash_fu_2991_ap_return;
+    if (((1'b1 == ap_reg_ppiten_pp2_it0) & (1'b0 == exitcond3_reg_7554) & (1'b1 == ap_sig_cseq_ST_pp2_stg1_fsm_9))) begin
+        item_data_hashData_0_reg_7603 <= hashes_q0;
+        item_data_hashData_1_reg_7608 <= hashes_q1;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_sig_cseq_ST_st7_fsm_6)) begin
-        lastIndex_reg_3403[12 : 0] <= lastIndex_fu_3322_p1[12 : 0];
-        tmp_36_reg_3408 <= tmp_36_fu_3326_p2;
+    if (((1'b1 == ap_sig_cseq_ST_pp1_stg0_fsm_5) & (1'b0 == exitcond2_fu_4728_p2))) begin
+        lastIndex_1_reg_7540 <= lastIndex_1_fu_5524_p114;
+        tmp_31_reg_7547 <= tmp_31_fu_5754_p2;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b0 == exitcond3_reg_7554) & (1'b1 == ap_sig_cseq_ST_pp2_stg1_fsm_9))) begin
+        tmp_36_reg_7579 <= tmp_36_fu_5850_p2;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp2_stg0_fsm_8) & ~((1'b1 == ap_reg_ppiten_pp2_it1) & (1'b0 == exitcond3_reg_7554) & (1'b0 == ap_sig_ioackin_outputData_TREADY)) & (1'b0 == exitcond3_fu_5806_p2))) begin
+        tmp_49_reg_7563[4 : 2] <= tmp_49_fu_5818_p3[4 : 2];
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st6_fsm_5) & ~(1'b0 == exitcond_fu_3305_p2))) begin
+    if ((1'b1 == ap_sig_cseq_ST_st14_fsm_10)) begin
         ap_done = 1'b1;
     end else begin
         ap_done = 1'b0;
@@ -6172,7 +6962,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st6_fsm_5) & ~(1'b0 == exitcond_fu_3305_p2))) begin
+    if ((1'b1 == ap_sig_cseq_ST_st14_fsm_10)) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -6180,7 +6970,55 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (ap_sig_26) begin
+    if (ap_sig_48) begin
+        ap_sig_cseq_ST_pp0_stg0_fsm_2 = 1'b1;
+    end else begin
+        ap_sig_cseq_ST_pp0_stg0_fsm_2 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (ap_sig_406) begin
+        ap_sig_cseq_ST_pp1_stg0_fsm_5 = 1'b1;
+    end else begin
+        ap_sig_cseq_ST_pp1_stg0_fsm_5 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (ap_sig_65) begin
+        ap_sig_cseq_ST_pp2_stg0_fsm_8 = 1'b1;
+    end else begin
+        ap_sig_cseq_ST_pp2_stg0_fsm_8 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (ap_sig_447) begin
+        ap_sig_cseq_ST_pp2_stg1_fsm_9 = 1'b1;
+    end else begin
+        ap_sig_cseq_ST_pp2_stg1_fsm_9 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (ap_sig_487) begin
+        ap_sig_cseq_ST_st10_fsm_7 = 1'b1;
+    end else begin
+        ap_sig_cseq_ST_st10_fsm_7 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (ap_sig_5810) begin
+        ap_sig_cseq_ST_st14_fsm_10 = 1'b1;
+    end else begin
+        ap_sig_cseq_ST_st14_fsm_10 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (ap_sig_28) begin
         ap_sig_cseq_ST_st1_fsm_0 = 1'b1;
     end else begin
         ap_sig_cseq_ST_st1_fsm_0 = 1'b0;
@@ -6188,7 +7026,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (ap_sig_103) begin
+    if (ap_sig_124) begin
         ap_sig_cseq_ST_st2_fsm_1 = 1'b1;
     end else begin
         ap_sig_cseq_ST_st2_fsm_1 = 1'b0;
@@ -6196,58 +7034,26 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (ap_sig_46) begin
-        ap_sig_cseq_ST_st3_fsm_2 = 1'b1;
+    if (ap_sig_3210) begin
+        ap_sig_cseq_ST_st5_fsm_3 = 1'b1;
     end else begin
-        ap_sig_cseq_ST_st3_fsm_2 = 1'b0;
+        ap_sig_cseq_ST_st5_fsm_3 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (ap_sig_3310) begin
-        ap_sig_cseq_ST_st4_fsm_3 = 1'b1;
+    if (ap_sig_473) begin
+        ap_sig_cseq_ST_st6_fsm_4 = 1'b1;
     end else begin
-        ap_sig_cseq_ST_st4_fsm_3 = 1'b0;
+        ap_sig_cseq_ST_st6_fsm_4 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (ap_sig_3287) begin
-        ap_sig_cseq_ST_st5_fsm_4 = 1'b1;
+    if (ap_sig_3555) begin
+        ap_sig_cseq_ST_st9_fsm_6 = 1'b1;
     end else begin
-        ap_sig_cseq_ST_st5_fsm_4 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (ap_sig_121) begin
-        ap_sig_cseq_ST_st6_fsm_5 = 1'b1;
-    end else begin
-        ap_sig_cseq_ST_st6_fsm_5 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (ap_sig_135) begin
-        ap_sig_cseq_ST_st7_fsm_6 = 1'b1;
-    end else begin
-        ap_sig_cseq_ST_st7_fsm_6 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (ap_sig_152) begin
-        ap_sig_cseq_ST_st8_fsm_7 = 1'b1;
-    end else begin
-        ap_sig_cseq_ST_st8_fsm_7 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (ap_sig_58) begin
-        ap_sig_cseq_ST_st9_fsm_8 = 1'b1;
-    end else begin
-        ap_sig_cseq_ST_st9_fsm_8 = 1'b0;
+        ap_sig_cseq_ST_st9_fsm_6 = 1'b0;
     end
 end
 
@@ -6260,51 +7066,47 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_0_address0 = grp_dedup_murmurhash_fu_2991_key_0_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_0_address0 = grp_dedup_calcHash_fu_2858_str_0_address0;
+    if ((1'b1 == ap_sig_cseq_ST_st10_fsm_7)) begin
+        buffer_0_address0 = grp_dedup_murmurhash128_new_fu_3851_str_0_address0;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_0_address0 = grp_dedup_calcHash_fu_3607_str_0_address0;
     end else begin
         buffer_0_address0 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_0_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_0_address1 = grp_dedup_murmurhash_fu_2991_key_0_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_0_address1 = grp_dedup_calcHash_fu_2858_str_0_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_0_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st10_fsm_7)) begin
+        buffer_0_address1 = grp_dedup_murmurhash128_new_fu_3851_str_0_address1;
     end else begin
         buffer_0_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_0_ce0 = grp_dedup_murmurhash_fu_2991_key_0_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_0_ce0 = grp_dedup_calcHash_fu_2858_str_0_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st10_fsm_7)) begin
+        buffer_0_ce0 = grp_dedup_murmurhash128_new_fu_3851_str_0_ce0;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_0_ce0 = grp_dedup_calcHash_fu_3607_str_0_ce0;
     end else begin
         buffer_0_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_0_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_0_ce1 = grp_dedup_murmurhash_fu_2991_key_0_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_0_ce1 = grp_dedup_calcHash_fu_2858_str_0_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st10_fsm_7)) begin
+        buffer_0_ce1 = grp_dedup_murmurhash128_new_fu_3851_str_0_ce1;
     end else begin
         buffer_0_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_0))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_0))) begin
         buffer_0_we1 = 1'b1;
     end else begin
         buffer_0_we1 = 1'b0;
@@ -6312,51 +7114,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_100_address0 = grp_dedup_murmurhash_fu_2991_key_100_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_100_address0 = grp_dedup_calcHash_fu_2858_str_100_address0;
-    end else begin
-        buffer_100_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_100_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_100_address1 = grp_dedup_murmurhash_fu_2991_key_100_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_100_address1 = grp_dedup_calcHash_fu_2858_str_100_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_100_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_100_address1 = grp_dedup_calcHash_fu_3607_str_100_address1;
     end else begin
         buffer_100_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_100_ce0 = grp_dedup_murmurhash_fu_2991_key_100_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_100_ce0 = grp_dedup_calcHash_fu_2858_str_100_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_100_ce0 = grp_dedup_calcHash_fu_3607_str_100_ce0;
     end else begin
         buffer_100_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_100_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_100_ce1 = grp_dedup_murmurhash_fu_2991_key_100_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_100_ce1 = grp_dedup_calcHash_fu_2858_str_100_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_100_ce1 = grp_dedup_calcHash_fu_3607_str_100_ce1;
     end else begin
         buffer_100_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_64))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_64))) begin
         buffer_100_we1 = 1'b1;
     end else begin
         buffer_100_we1 = 1'b0;
@@ -6364,51 +7150,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_101_address0 = grp_dedup_murmurhash_fu_2991_key_101_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_101_address0 = grp_dedup_calcHash_fu_2858_str_101_address0;
-    end else begin
-        buffer_101_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_101_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_101_address1 = grp_dedup_murmurhash_fu_2991_key_101_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_101_address1 = grp_dedup_calcHash_fu_2858_str_101_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_101_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_101_address1 = grp_dedup_calcHash_fu_3607_str_101_address1;
     end else begin
         buffer_101_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_101_ce0 = grp_dedup_murmurhash_fu_2991_key_101_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_101_ce0 = grp_dedup_calcHash_fu_2858_str_101_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_101_ce0 = grp_dedup_calcHash_fu_3607_str_101_ce0;
     end else begin
         buffer_101_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_101_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_101_ce1 = grp_dedup_murmurhash_fu_2991_key_101_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_101_ce1 = grp_dedup_calcHash_fu_2858_str_101_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_101_ce1 = grp_dedup_calcHash_fu_3607_str_101_ce1;
     end else begin
         buffer_101_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_65))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_65))) begin
         buffer_101_we1 = 1'b1;
     end else begin
         buffer_101_we1 = 1'b0;
@@ -6416,51 +7186,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_102_address0 = grp_dedup_murmurhash_fu_2991_key_102_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_102_address0 = grp_dedup_calcHash_fu_2858_str_102_address0;
-    end else begin
-        buffer_102_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_102_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_102_address1 = grp_dedup_murmurhash_fu_2991_key_102_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_102_address1 = grp_dedup_calcHash_fu_2858_str_102_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_102_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_102_address1 = grp_dedup_calcHash_fu_3607_str_102_address1;
     end else begin
         buffer_102_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_102_ce0 = grp_dedup_murmurhash_fu_2991_key_102_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_102_ce0 = grp_dedup_calcHash_fu_2858_str_102_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_102_ce0 = grp_dedup_calcHash_fu_3607_str_102_ce0;
     end else begin
         buffer_102_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_102_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_102_ce1 = grp_dedup_murmurhash_fu_2991_key_102_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_102_ce1 = grp_dedup_calcHash_fu_2858_str_102_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_102_ce1 = grp_dedup_calcHash_fu_3607_str_102_ce1;
     end else begin
         buffer_102_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_66))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_66))) begin
         buffer_102_we1 = 1'b1;
     end else begin
         buffer_102_we1 = 1'b0;
@@ -6468,51 +7222,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_103_address0 = grp_dedup_murmurhash_fu_2991_key_103_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_103_address0 = grp_dedup_calcHash_fu_2858_str_103_address0;
-    end else begin
-        buffer_103_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_103_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_103_address1 = grp_dedup_murmurhash_fu_2991_key_103_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_103_address1 = grp_dedup_calcHash_fu_2858_str_103_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_103_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_103_address1 = grp_dedup_calcHash_fu_3607_str_103_address1;
     end else begin
         buffer_103_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_103_ce0 = grp_dedup_murmurhash_fu_2991_key_103_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_103_ce0 = grp_dedup_calcHash_fu_2858_str_103_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_103_ce0 = grp_dedup_calcHash_fu_3607_str_103_ce0;
     end else begin
         buffer_103_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_103_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_103_ce1 = grp_dedup_murmurhash_fu_2991_key_103_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_103_ce1 = grp_dedup_calcHash_fu_2858_str_103_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_103_ce1 = grp_dedup_calcHash_fu_3607_str_103_ce1;
     end else begin
         buffer_103_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_67))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_67))) begin
         buffer_103_we1 = 1'b1;
     end else begin
         buffer_103_we1 = 1'b0;
@@ -6520,51 +7258,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_104_address0 = grp_dedup_murmurhash_fu_2991_key_104_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_104_address0 = grp_dedup_calcHash_fu_2858_str_104_address0;
-    end else begin
-        buffer_104_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_104_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_104_address1 = grp_dedup_murmurhash_fu_2991_key_104_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_104_address1 = grp_dedup_calcHash_fu_2858_str_104_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_104_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_104_address1 = grp_dedup_calcHash_fu_3607_str_104_address1;
     end else begin
         buffer_104_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_104_ce0 = grp_dedup_murmurhash_fu_2991_key_104_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_104_ce0 = grp_dedup_calcHash_fu_2858_str_104_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_104_ce0 = grp_dedup_calcHash_fu_3607_str_104_ce0;
     end else begin
         buffer_104_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_104_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_104_ce1 = grp_dedup_murmurhash_fu_2991_key_104_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_104_ce1 = grp_dedup_calcHash_fu_2858_str_104_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_104_ce1 = grp_dedup_calcHash_fu_3607_str_104_ce1;
     end else begin
         buffer_104_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_68))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_68))) begin
         buffer_104_we1 = 1'b1;
     end else begin
         buffer_104_we1 = 1'b0;
@@ -6572,51 +7294,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_105_address0 = grp_dedup_murmurhash_fu_2991_key_105_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_105_address0 = grp_dedup_calcHash_fu_2858_str_105_address0;
-    end else begin
-        buffer_105_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_105_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_105_address1 = grp_dedup_murmurhash_fu_2991_key_105_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_105_address1 = grp_dedup_calcHash_fu_2858_str_105_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_105_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_105_address1 = grp_dedup_calcHash_fu_3607_str_105_address1;
     end else begin
         buffer_105_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_105_ce0 = grp_dedup_murmurhash_fu_2991_key_105_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_105_ce0 = grp_dedup_calcHash_fu_2858_str_105_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_105_ce0 = grp_dedup_calcHash_fu_3607_str_105_ce0;
     end else begin
         buffer_105_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_105_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_105_ce1 = grp_dedup_murmurhash_fu_2991_key_105_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_105_ce1 = grp_dedup_calcHash_fu_2858_str_105_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_105_ce1 = grp_dedup_calcHash_fu_3607_str_105_ce1;
     end else begin
         buffer_105_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_69))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_69))) begin
         buffer_105_we1 = 1'b1;
     end else begin
         buffer_105_we1 = 1'b0;
@@ -6624,51 +7330,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_106_address0 = grp_dedup_murmurhash_fu_2991_key_106_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_106_address0 = grp_dedup_calcHash_fu_2858_str_106_address0;
-    end else begin
-        buffer_106_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_106_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_106_address1 = grp_dedup_murmurhash_fu_2991_key_106_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_106_address1 = grp_dedup_calcHash_fu_2858_str_106_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_106_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_106_address1 = grp_dedup_calcHash_fu_3607_str_106_address1;
     end else begin
         buffer_106_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_106_ce0 = grp_dedup_murmurhash_fu_2991_key_106_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_106_ce0 = grp_dedup_calcHash_fu_2858_str_106_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_106_ce0 = grp_dedup_calcHash_fu_3607_str_106_ce0;
     end else begin
         buffer_106_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_106_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_106_ce1 = grp_dedup_murmurhash_fu_2991_key_106_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_106_ce1 = grp_dedup_calcHash_fu_2858_str_106_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_106_ce1 = grp_dedup_calcHash_fu_3607_str_106_ce1;
     end else begin
         buffer_106_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_6A))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_6A))) begin
         buffer_106_we1 = 1'b1;
     end else begin
         buffer_106_we1 = 1'b0;
@@ -6676,51 +7366,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_107_address0 = grp_dedup_murmurhash_fu_2991_key_107_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_107_address0 = grp_dedup_calcHash_fu_2858_str_107_address0;
-    end else begin
-        buffer_107_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_107_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_107_address1 = grp_dedup_murmurhash_fu_2991_key_107_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_107_address1 = grp_dedup_calcHash_fu_2858_str_107_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_107_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_107_address1 = grp_dedup_calcHash_fu_3607_str_107_address1;
     end else begin
         buffer_107_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_107_ce0 = grp_dedup_murmurhash_fu_2991_key_107_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_107_ce0 = grp_dedup_calcHash_fu_2858_str_107_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_107_ce0 = grp_dedup_calcHash_fu_3607_str_107_ce0;
     end else begin
         buffer_107_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_107_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_107_ce1 = grp_dedup_murmurhash_fu_2991_key_107_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_107_ce1 = grp_dedup_calcHash_fu_2858_str_107_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_107_ce1 = grp_dedup_calcHash_fu_3607_str_107_ce1;
     end else begin
         buffer_107_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_6B))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_6B))) begin
         buffer_107_we1 = 1'b1;
     end else begin
         buffer_107_we1 = 1'b0;
@@ -6728,51 +7402,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_108_address0 = grp_dedup_murmurhash_fu_2991_key_108_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_108_address0 = grp_dedup_calcHash_fu_2858_str_108_address0;
-    end else begin
-        buffer_108_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_108_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_108_address1 = grp_dedup_murmurhash_fu_2991_key_108_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_108_address1 = grp_dedup_calcHash_fu_2858_str_108_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_108_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_108_address1 = grp_dedup_calcHash_fu_3607_str_108_address1;
     end else begin
         buffer_108_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_108_ce0 = grp_dedup_murmurhash_fu_2991_key_108_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_108_ce0 = grp_dedup_calcHash_fu_2858_str_108_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_108_ce0 = grp_dedup_calcHash_fu_3607_str_108_ce0;
     end else begin
         buffer_108_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_108_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_108_ce1 = grp_dedup_murmurhash_fu_2991_key_108_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_108_ce1 = grp_dedup_calcHash_fu_2858_str_108_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_108_ce1 = grp_dedup_calcHash_fu_3607_str_108_ce1;
     end else begin
         buffer_108_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_6C))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_6C))) begin
         buffer_108_we1 = 1'b1;
     end else begin
         buffer_108_we1 = 1'b0;
@@ -6780,51 +7438,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_109_address0 = grp_dedup_murmurhash_fu_2991_key_109_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_109_address0 = grp_dedup_calcHash_fu_2858_str_109_address0;
-    end else begin
-        buffer_109_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_109_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_109_address1 = grp_dedup_murmurhash_fu_2991_key_109_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_109_address1 = grp_dedup_calcHash_fu_2858_str_109_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_109_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_109_address1 = grp_dedup_calcHash_fu_3607_str_109_address1;
     end else begin
         buffer_109_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_109_ce0 = grp_dedup_murmurhash_fu_2991_key_109_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_109_ce0 = grp_dedup_calcHash_fu_2858_str_109_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_109_ce0 = grp_dedup_calcHash_fu_3607_str_109_ce0;
     end else begin
         buffer_109_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_109_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_109_ce1 = grp_dedup_murmurhash_fu_2991_key_109_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_109_ce1 = grp_dedup_calcHash_fu_2858_str_109_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_109_ce1 = grp_dedup_calcHash_fu_3607_str_109_ce1;
     end else begin
         buffer_109_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_6D))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_6D))) begin
         buffer_109_we1 = 1'b1;
     end else begin
         buffer_109_we1 = 1'b0;
@@ -6832,51 +7474,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_10_address0 = grp_dedup_murmurhash_fu_2991_key_10_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_10_address0 = grp_dedup_calcHash_fu_2858_str_10_address0;
-    end else begin
-        buffer_10_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_10_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_10_address1 = grp_dedup_murmurhash_fu_2991_key_10_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_10_address1 = grp_dedup_calcHash_fu_2858_str_10_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_10_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_10_address1 = grp_dedup_calcHash_fu_3607_str_10_address1;
     end else begin
         buffer_10_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_10_ce0 = grp_dedup_murmurhash_fu_2991_key_10_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_10_ce0 = grp_dedup_calcHash_fu_2858_str_10_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_10_ce0 = grp_dedup_calcHash_fu_3607_str_10_ce0;
     end else begin
         buffer_10_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_10_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_10_ce1 = grp_dedup_murmurhash_fu_2991_key_10_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_10_ce1 = grp_dedup_calcHash_fu_2858_str_10_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_10_ce1 = grp_dedup_calcHash_fu_3607_str_10_ce1;
     end else begin
         buffer_10_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_A))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_A))) begin
         buffer_10_we1 = 1'b1;
     end else begin
         buffer_10_we1 = 1'b0;
@@ -6884,51 +7510,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_110_address0 = grp_dedup_murmurhash_fu_2991_key_110_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_110_address0 = grp_dedup_calcHash_fu_2858_str_110_address0;
-    end else begin
-        buffer_110_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_110_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_110_address1 = grp_dedup_murmurhash_fu_2991_key_110_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_110_address1 = grp_dedup_calcHash_fu_2858_str_110_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_110_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_110_address1 = grp_dedup_calcHash_fu_3607_str_110_address1;
     end else begin
         buffer_110_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_110_ce0 = grp_dedup_murmurhash_fu_2991_key_110_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_110_ce0 = grp_dedup_calcHash_fu_2858_str_110_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_110_ce0 = grp_dedup_calcHash_fu_3607_str_110_ce0;
     end else begin
         buffer_110_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_110_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_110_ce1 = grp_dedup_murmurhash_fu_2991_key_110_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_110_ce1 = grp_dedup_calcHash_fu_2858_str_110_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_110_ce1 = grp_dedup_calcHash_fu_3607_str_110_ce1;
     end else begin
         buffer_110_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_6E))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_6E))) begin
         buffer_110_we1 = 1'b1;
     end else begin
         buffer_110_we1 = 1'b0;
@@ -6936,51 +7546,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_111_address0 = grp_dedup_murmurhash_fu_2991_key_111_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_111_address0 = grp_dedup_calcHash_fu_2858_str_111_address0;
-    end else begin
-        buffer_111_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_111_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_111_address1 = grp_dedup_murmurhash_fu_2991_key_111_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_111_address1 = grp_dedup_calcHash_fu_2858_str_111_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_111_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_111_address1 = grp_dedup_calcHash_fu_3607_str_111_address1;
     end else begin
         buffer_111_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_111_ce0 = grp_dedup_murmurhash_fu_2991_key_111_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_111_ce0 = grp_dedup_calcHash_fu_2858_str_111_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_111_ce0 = grp_dedup_calcHash_fu_3607_str_111_ce0;
     end else begin
         buffer_111_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_111_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_111_ce1 = grp_dedup_murmurhash_fu_2991_key_111_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_111_ce1 = grp_dedup_calcHash_fu_2858_str_111_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_111_ce1 = grp_dedup_calcHash_fu_3607_str_111_ce1;
     end else begin
         buffer_111_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_6F))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_6F))) begin
         buffer_111_we1 = 1'b1;
     end else begin
         buffer_111_we1 = 1'b0;
@@ -6988,51 +7582,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_112_address0 = grp_dedup_murmurhash_fu_2991_key_112_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_112_address0 = grp_dedup_calcHash_fu_2858_str_112_address0;
-    end else begin
-        buffer_112_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_112_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_112_address1 = grp_dedup_murmurhash_fu_2991_key_112_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_112_address1 = grp_dedup_calcHash_fu_2858_str_112_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_112_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_112_address1 = grp_dedup_calcHash_fu_3607_str_112_address1;
     end else begin
         buffer_112_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_112_ce0 = grp_dedup_murmurhash_fu_2991_key_112_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_112_ce0 = grp_dedup_calcHash_fu_2858_str_112_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_112_ce0 = grp_dedup_calcHash_fu_3607_str_112_ce0;
     end else begin
         buffer_112_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_112_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_112_ce1 = grp_dedup_murmurhash_fu_2991_key_112_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_112_ce1 = grp_dedup_calcHash_fu_2858_str_112_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_112_ce1 = grp_dedup_calcHash_fu_3607_str_112_ce1;
     end else begin
         buffer_112_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_70))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_70))) begin
         buffer_112_we1 = 1'b1;
     end else begin
         buffer_112_we1 = 1'b0;
@@ -7040,51 +7618,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_113_address0 = grp_dedup_murmurhash_fu_2991_key_113_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_113_address0 = grp_dedup_calcHash_fu_2858_str_113_address0;
-    end else begin
-        buffer_113_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_113_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_113_address1 = grp_dedup_murmurhash_fu_2991_key_113_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_113_address1 = grp_dedup_calcHash_fu_2858_str_113_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_113_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_113_address1 = grp_dedup_calcHash_fu_3607_str_113_address1;
     end else begin
         buffer_113_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_113_ce0 = grp_dedup_murmurhash_fu_2991_key_113_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_113_ce0 = grp_dedup_calcHash_fu_2858_str_113_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_113_ce0 = grp_dedup_calcHash_fu_3607_str_113_ce0;
     end else begin
         buffer_113_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_113_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_113_ce1 = grp_dedup_murmurhash_fu_2991_key_113_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_113_ce1 = grp_dedup_calcHash_fu_2858_str_113_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_113_ce1 = grp_dedup_calcHash_fu_3607_str_113_ce1;
     end else begin
         buffer_113_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_71))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_71))) begin
         buffer_113_we1 = 1'b1;
     end else begin
         buffer_113_we1 = 1'b0;
@@ -7092,51 +7654,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_114_address0 = grp_dedup_murmurhash_fu_2991_key_114_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_114_address0 = grp_dedup_calcHash_fu_2858_str_114_address0;
-    end else begin
-        buffer_114_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_114_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_114_address1 = grp_dedup_murmurhash_fu_2991_key_114_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_114_address1 = grp_dedup_calcHash_fu_2858_str_114_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_114_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_114_address1 = grp_dedup_calcHash_fu_3607_str_114_address1;
     end else begin
         buffer_114_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_114_ce0 = grp_dedup_murmurhash_fu_2991_key_114_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_114_ce0 = grp_dedup_calcHash_fu_2858_str_114_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_114_ce0 = grp_dedup_calcHash_fu_3607_str_114_ce0;
     end else begin
         buffer_114_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_114_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_114_ce1 = grp_dedup_murmurhash_fu_2991_key_114_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_114_ce1 = grp_dedup_calcHash_fu_2858_str_114_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_114_ce1 = grp_dedup_calcHash_fu_3607_str_114_ce1;
     end else begin
         buffer_114_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_72))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_72))) begin
         buffer_114_we1 = 1'b1;
     end else begin
         buffer_114_we1 = 1'b0;
@@ -7144,51 +7690,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_115_address0 = grp_dedup_murmurhash_fu_2991_key_115_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_115_address0 = grp_dedup_calcHash_fu_2858_str_115_address0;
-    end else begin
-        buffer_115_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_115_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_115_address1 = grp_dedup_murmurhash_fu_2991_key_115_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_115_address1 = grp_dedup_calcHash_fu_2858_str_115_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_115_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_115_address1 = grp_dedup_calcHash_fu_3607_str_115_address1;
     end else begin
         buffer_115_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_115_ce0 = grp_dedup_murmurhash_fu_2991_key_115_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_115_ce0 = grp_dedup_calcHash_fu_2858_str_115_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_115_ce0 = grp_dedup_calcHash_fu_3607_str_115_ce0;
     end else begin
         buffer_115_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_115_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_115_ce1 = grp_dedup_murmurhash_fu_2991_key_115_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_115_ce1 = grp_dedup_calcHash_fu_2858_str_115_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_115_ce1 = grp_dedup_calcHash_fu_3607_str_115_ce1;
     end else begin
         buffer_115_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_73))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_73))) begin
         buffer_115_we1 = 1'b1;
     end else begin
         buffer_115_we1 = 1'b0;
@@ -7196,51 +7726,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_116_address0 = grp_dedup_murmurhash_fu_2991_key_116_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_116_address0 = grp_dedup_calcHash_fu_2858_str_116_address0;
-    end else begin
-        buffer_116_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_116_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_116_address1 = grp_dedup_murmurhash_fu_2991_key_116_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_116_address1 = grp_dedup_calcHash_fu_2858_str_116_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_116_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_116_address1 = grp_dedup_calcHash_fu_3607_str_116_address1;
     end else begin
         buffer_116_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_116_ce0 = grp_dedup_murmurhash_fu_2991_key_116_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_116_ce0 = grp_dedup_calcHash_fu_2858_str_116_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_116_ce0 = grp_dedup_calcHash_fu_3607_str_116_ce0;
     end else begin
         buffer_116_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_116_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_116_ce1 = grp_dedup_murmurhash_fu_2991_key_116_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_116_ce1 = grp_dedup_calcHash_fu_2858_str_116_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_116_ce1 = grp_dedup_calcHash_fu_3607_str_116_ce1;
     end else begin
         buffer_116_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_74))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_74))) begin
         buffer_116_we1 = 1'b1;
     end else begin
         buffer_116_we1 = 1'b0;
@@ -7248,51 +7762,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_117_address0 = grp_dedup_murmurhash_fu_2991_key_117_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_117_address0 = grp_dedup_calcHash_fu_2858_str_117_address0;
-    end else begin
-        buffer_117_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_117_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_117_address1 = grp_dedup_murmurhash_fu_2991_key_117_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_117_address1 = grp_dedup_calcHash_fu_2858_str_117_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_117_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_117_address1 = grp_dedup_calcHash_fu_3607_str_117_address1;
     end else begin
         buffer_117_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_117_ce0 = grp_dedup_murmurhash_fu_2991_key_117_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_117_ce0 = grp_dedup_calcHash_fu_2858_str_117_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_117_ce0 = grp_dedup_calcHash_fu_3607_str_117_ce0;
     end else begin
         buffer_117_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_117_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_117_ce1 = grp_dedup_murmurhash_fu_2991_key_117_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_117_ce1 = grp_dedup_calcHash_fu_2858_str_117_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_117_ce1 = grp_dedup_calcHash_fu_3607_str_117_ce1;
     end else begin
         buffer_117_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_75))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_75))) begin
         buffer_117_we1 = 1'b1;
     end else begin
         buffer_117_we1 = 1'b0;
@@ -7300,51 +7798,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_118_address0 = grp_dedup_murmurhash_fu_2991_key_118_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_118_address0 = grp_dedup_calcHash_fu_2858_str_118_address0;
-    end else begin
-        buffer_118_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_118_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_118_address1 = grp_dedup_murmurhash_fu_2991_key_118_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_118_address1 = grp_dedup_calcHash_fu_2858_str_118_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_118_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_118_address1 = grp_dedup_calcHash_fu_3607_str_118_address1;
     end else begin
         buffer_118_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_118_ce0 = grp_dedup_murmurhash_fu_2991_key_118_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_118_ce0 = grp_dedup_calcHash_fu_2858_str_118_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_118_ce0 = grp_dedup_calcHash_fu_3607_str_118_ce0;
     end else begin
         buffer_118_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_118_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_118_ce1 = grp_dedup_murmurhash_fu_2991_key_118_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_118_ce1 = grp_dedup_calcHash_fu_2858_str_118_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_118_ce1 = grp_dedup_calcHash_fu_3607_str_118_ce1;
     end else begin
         buffer_118_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_76))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_76))) begin
         buffer_118_we1 = 1'b1;
     end else begin
         buffer_118_we1 = 1'b0;
@@ -7352,51 +7834,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_119_address0 = grp_dedup_murmurhash_fu_2991_key_119_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_119_address0 = grp_dedup_calcHash_fu_2858_str_119_address0;
-    end else begin
-        buffer_119_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_119_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_119_address1 = grp_dedup_murmurhash_fu_2991_key_119_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_119_address1 = grp_dedup_calcHash_fu_2858_str_119_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_119_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_119_address1 = grp_dedup_calcHash_fu_3607_str_119_address1;
     end else begin
         buffer_119_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_119_ce0 = grp_dedup_murmurhash_fu_2991_key_119_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_119_ce0 = grp_dedup_calcHash_fu_2858_str_119_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_119_ce0 = grp_dedup_calcHash_fu_3607_str_119_ce0;
     end else begin
         buffer_119_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_119_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_119_ce1 = grp_dedup_murmurhash_fu_2991_key_119_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_119_ce1 = grp_dedup_calcHash_fu_2858_str_119_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_119_ce1 = grp_dedup_calcHash_fu_3607_str_119_ce1;
     end else begin
         buffer_119_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_77))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_77))) begin
         buffer_119_we1 = 1'b1;
     end else begin
         buffer_119_we1 = 1'b0;
@@ -7404,51 +7870,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_11_address0 = grp_dedup_murmurhash_fu_2991_key_11_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_11_address0 = grp_dedup_calcHash_fu_2858_str_11_address0;
-    end else begin
-        buffer_11_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_11_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_11_address1 = grp_dedup_murmurhash_fu_2991_key_11_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_11_address1 = grp_dedup_calcHash_fu_2858_str_11_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_11_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_11_address1 = grp_dedup_calcHash_fu_3607_str_11_address1;
     end else begin
         buffer_11_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_11_ce0 = grp_dedup_murmurhash_fu_2991_key_11_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_11_ce0 = grp_dedup_calcHash_fu_2858_str_11_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_11_ce0 = grp_dedup_calcHash_fu_3607_str_11_ce0;
     end else begin
         buffer_11_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_11_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_11_ce1 = grp_dedup_murmurhash_fu_2991_key_11_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_11_ce1 = grp_dedup_calcHash_fu_2858_str_11_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_11_ce1 = grp_dedup_calcHash_fu_3607_str_11_ce1;
     end else begin
         buffer_11_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_B))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_B))) begin
         buffer_11_we1 = 1'b1;
     end else begin
         buffer_11_we1 = 1'b0;
@@ -7456,51 +7906,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_120_address0 = grp_dedup_murmurhash_fu_2991_key_120_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_120_address0 = grp_dedup_calcHash_fu_2858_str_120_address0;
-    end else begin
-        buffer_120_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_120_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_120_address1 = grp_dedup_murmurhash_fu_2991_key_120_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_120_address1 = grp_dedup_calcHash_fu_2858_str_120_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_120_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_120_address1 = grp_dedup_calcHash_fu_3607_str_120_address1;
     end else begin
         buffer_120_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_120_ce0 = grp_dedup_murmurhash_fu_2991_key_120_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_120_ce0 = grp_dedup_calcHash_fu_2858_str_120_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_120_ce0 = grp_dedup_calcHash_fu_3607_str_120_ce0;
     end else begin
         buffer_120_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_120_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_120_ce1 = grp_dedup_murmurhash_fu_2991_key_120_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_120_ce1 = grp_dedup_calcHash_fu_2858_str_120_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_120_ce1 = grp_dedup_calcHash_fu_3607_str_120_ce1;
     end else begin
         buffer_120_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_78))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_78))) begin
         buffer_120_we1 = 1'b1;
     end else begin
         buffer_120_we1 = 1'b0;
@@ -7508,51 +7942,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_121_address0 = grp_dedup_murmurhash_fu_2991_key_121_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_121_address0 = grp_dedup_calcHash_fu_2858_str_121_address0;
-    end else begin
-        buffer_121_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_121_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_121_address1 = grp_dedup_murmurhash_fu_2991_key_121_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_121_address1 = grp_dedup_calcHash_fu_2858_str_121_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_121_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_121_address1 = grp_dedup_calcHash_fu_3607_str_121_address1;
     end else begin
         buffer_121_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_121_ce0 = grp_dedup_murmurhash_fu_2991_key_121_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_121_ce0 = grp_dedup_calcHash_fu_2858_str_121_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_121_ce0 = grp_dedup_calcHash_fu_3607_str_121_ce0;
     end else begin
         buffer_121_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_121_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_121_ce1 = grp_dedup_murmurhash_fu_2991_key_121_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_121_ce1 = grp_dedup_calcHash_fu_2858_str_121_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_121_ce1 = grp_dedup_calcHash_fu_3607_str_121_ce1;
     end else begin
         buffer_121_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_79))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_79))) begin
         buffer_121_we1 = 1'b1;
     end else begin
         buffer_121_we1 = 1'b0;
@@ -7560,51 +7978,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_122_address0 = grp_dedup_murmurhash_fu_2991_key_122_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_122_address0 = grp_dedup_calcHash_fu_2858_str_122_address0;
-    end else begin
-        buffer_122_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_122_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_122_address1 = grp_dedup_murmurhash_fu_2991_key_122_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_122_address1 = grp_dedup_calcHash_fu_2858_str_122_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_122_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_122_address1 = grp_dedup_calcHash_fu_3607_str_122_address1;
     end else begin
         buffer_122_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_122_ce0 = grp_dedup_murmurhash_fu_2991_key_122_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_122_ce0 = grp_dedup_calcHash_fu_2858_str_122_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_122_ce0 = grp_dedup_calcHash_fu_3607_str_122_ce0;
     end else begin
         buffer_122_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_122_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_122_ce1 = grp_dedup_murmurhash_fu_2991_key_122_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_122_ce1 = grp_dedup_calcHash_fu_2858_str_122_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_122_ce1 = grp_dedup_calcHash_fu_3607_str_122_ce1;
     end else begin
         buffer_122_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_7A))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_7A))) begin
         buffer_122_we1 = 1'b1;
     end else begin
         buffer_122_we1 = 1'b0;
@@ -7612,51 +8014,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_123_address0 = grp_dedup_murmurhash_fu_2991_key_123_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_123_address0 = grp_dedup_calcHash_fu_2858_str_123_address0;
-    end else begin
-        buffer_123_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_123_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_123_address1 = grp_dedup_murmurhash_fu_2991_key_123_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_123_address1 = grp_dedup_calcHash_fu_2858_str_123_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_123_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_123_address1 = grp_dedup_calcHash_fu_3607_str_123_address1;
     end else begin
         buffer_123_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_123_ce0 = grp_dedup_murmurhash_fu_2991_key_123_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_123_ce0 = grp_dedup_calcHash_fu_2858_str_123_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_123_ce0 = grp_dedup_calcHash_fu_3607_str_123_ce0;
     end else begin
         buffer_123_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_123_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_123_ce1 = grp_dedup_murmurhash_fu_2991_key_123_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_123_ce1 = grp_dedup_calcHash_fu_2858_str_123_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_123_ce1 = grp_dedup_calcHash_fu_3607_str_123_ce1;
     end else begin
         buffer_123_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_7B))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_7B))) begin
         buffer_123_we1 = 1'b1;
     end else begin
         buffer_123_we1 = 1'b0;
@@ -7664,51 +8050,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_124_address0 = grp_dedup_murmurhash_fu_2991_key_124_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_124_address0 = grp_dedup_calcHash_fu_2858_str_124_address0;
-    end else begin
-        buffer_124_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_124_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_124_address1 = grp_dedup_murmurhash_fu_2991_key_124_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_124_address1 = grp_dedup_calcHash_fu_2858_str_124_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_124_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_124_address1 = grp_dedup_calcHash_fu_3607_str_124_address1;
     end else begin
         buffer_124_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_124_ce0 = grp_dedup_murmurhash_fu_2991_key_124_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_124_ce0 = grp_dedup_calcHash_fu_2858_str_124_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_124_ce0 = grp_dedup_calcHash_fu_3607_str_124_ce0;
     end else begin
         buffer_124_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_124_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_124_ce1 = grp_dedup_murmurhash_fu_2991_key_124_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_124_ce1 = grp_dedup_calcHash_fu_2858_str_124_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_124_ce1 = grp_dedup_calcHash_fu_3607_str_124_ce1;
     end else begin
         buffer_124_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_7C))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_7C))) begin
         buffer_124_we1 = 1'b1;
     end else begin
         buffer_124_we1 = 1'b0;
@@ -7716,51 +8086,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_125_address0 = grp_dedup_murmurhash_fu_2991_key_125_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_125_address0 = grp_dedup_calcHash_fu_2858_str_125_address0;
-    end else begin
-        buffer_125_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_125_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_125_address1 = grp_dedup_murmurhash_fu_2991_key_125_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_125_address1 = grp_dedup_calcHash_fu_2858_str_125_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_125_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_125_address1 = grp_dedup_calcHash_fu_3607_str_125_address1;
     end else begin
         buffer_125_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_125_ce0 = grp_dedup_murmurhash_fu_2991_key_125_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_125_ce0 = grp_dedup_calcHash_fu_2858_str_125_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_125_ce0 = grp_dedup_calcHash_fu_3607_str_125_ce0;
     end else begin
         buffer_125_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_125_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_125_ce1 = grp_dedup_murmurhash_fu_2991_key_125_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_125_ce1 = grp_dedup_calcHash_fu_2858_str_125_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_125_ce1 = grp_dedup_calcHash_fu_3607_str_125_ce1;
     end else begin
         buffer_125_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_7D))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_7D))) begin
         buffer_125_we1 = 1'b1;
     end else begin
         buffer_125_we1 = 1'b0;
@@ -7768,51 +8122,23 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_126_address0 = grp_dedup_murmurhash_fu_2991_key_126_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_126_address0 = grp_dedup_calcHash_fu_2858_str_126_address0;
-    end else begin
-        buffer_126_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_126_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_126_address1 = grp_dedup_murmurhash_fu_2991_key_126_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_126_address1 = grp_dedup_calcHash_fu_2858_str_126_address1;
-    end else begin
-        buffer_126_address1 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_126_ce0 = grp_dedup_murmurhash_fu_2991_key_126_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_126_ce0 = grp_dedup_calcHash_fu_2858_str_126_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_126_ce0 = grp_dedup_calcHash_fu_3607_str_126_ce0;
     end else begin
         buffer_126_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_126_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_126_ce1 = grp_dedup_murmurhash_fu_2991_key_126_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_126_ce1 = grp_dedup_calcHash_fu_2858_str_126_ce1;
     end else begin
         buffer_126_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_7E))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_7E))) begin
         buffer_126_we1 = 1'b1;
     end else begin
         buffer_126_we1 = 1'b0;
@@ -7820,51 +8146,23 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_127_address0 = grp_dedup_murmurhash_fu_2991_key_127_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_127_address0 = grp_dedup_calcHash_fu_2858_str_127_address0;
-    end else begin
-        buffer_127_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_127_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_127_address1 = grp_dedup_murmurhash_fu_2991_key_127_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_127_address1 = grp_dedup_calcHash_fu_2858_str_127_address1;
-    end else begin
-        buffer_127_address1 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_127_ce0 = grp_dedup_murmurhash_fu_2991_key_127_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_127_ce0 = grp_dedup_calcHash_fu_2858_str_127_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_127_ce0 = grp_dedup_calcHash_fu_3607_str_127_ce0;
     end else begin
         buffer_127_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_127_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_127_ce1 = grp_dedup_murmurhash_fu_2991_key_127_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_127_ce1 = grp_dedup_calcHash_fu_2858_str_127_ce1;
     end else begin
         buffer_127_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_7F))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_0) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_1) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_2) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_3) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_4) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_5) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_6) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_7) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_8) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_9) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_A) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_B) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_C) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_D) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_E) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_F) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_10) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_11) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_12) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_13) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_14) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_15) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_16) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_17) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_18) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_19) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_1A) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_1B) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_1C) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_1D) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_1E) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_1F) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_20) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_21) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_22) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_23) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_24) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_25) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_26) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_27) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_28) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_29) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_2A) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_2B) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_2C) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_2D) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_2E) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_2F) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_30) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_31) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_32) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_33) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_34) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_35) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_36) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_37) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_38) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_39) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_3A) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_3B) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_3C) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_3D) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_3E) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_3F) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_40) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_41) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_42) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_43) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_44) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_45) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_46) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_47) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_48) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_49) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_4A) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_4B) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_4C) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_4D) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_4E) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_4F) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_50) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_51) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_52) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_53) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_54) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_55) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_56) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_57) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_58) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_59) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_5A) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_5B) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_5C) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_5D) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_5E) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_5F) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_60) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_61) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_62) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_63) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_64) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_65) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_66) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_67) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_68) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_69) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_6A) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_6B) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_6C) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_6D) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_6E) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_6F) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_70) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_71) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_72) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_73) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_74) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_75) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_76) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_77) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_78) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_79) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_7A) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_7B) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_7C) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_7D) & ~(arrayNo_cast_fu_4572_p4 == ap_const_lv8_7E))) begin
         buffer_127_we1 = 1'b1;
     end else begin
         buffer_127_we1 = 1'b0;
@@ -7872,51 +8170,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_12_address0 = grp_dedup_murmurhash_fu_2991_key_12_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_12_address0 = grp_dedup_calcHash_fu_2858_str_12_address0;
-    end else begin
-        buffer_12_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_12_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_12_address1 = grp_dedup_murmurhash_fu_2991_key_12_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_12_address1 = grp_dedup_calcHash_fu_2858_str_12_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_12_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_12_address1 = grp_dedup_calcHash_fu_3607_str_12_address1;
     end else begin
         buffer_12_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_12_ce0 = grp_dedup_murmurhash_fu_2991_key_12_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_12_ce0 = grp_dedup_calcHash_fu_2858_str_12_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_12_ce0 = grp_dedup_calcHash_fu_3607_str_12_ce0;
     end else begin
         buffer_12_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_12_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_12_ce1 = grp_dedup_murmurhash_fu_2991_key_12_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_12_ce1 = grp_dedup_calcHash_fu_2858_str_12_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_12_ce1 = grp_dedup_calcHash_fu_3607_str_12_ce1;
     end else begin
         buffer_12_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_C))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_C))) begin
         buffer_12_we1 = 1'b1;
     end else begin
         buffer_12_we1 = 1'b0;
@@ -7924,51 +8206,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_13_address0 = grp_dedup_murmurhash_fu_2991_key_13_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_13_address0 = grp_dedup_calcHash_fu_2858_str_13_address0;
-    end else begin
-        buffer_13_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_13_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_13_address1 = grp_dedup_murmurhash_fu_2991_key_13_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_13_address1 = grp_dedup_calcHash_fu_2858_str_13_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_13_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_13_address1 = grp_dedup_calcHash_fu_3607_str_13_address1;
     end else begin
         buffer_13_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_13_ce0 = grp_dedup_murmurhash_fu_2991_key_13_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_13_ce0 = grp_dedup_calcHash_fu_2858_str_13_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_13_ce0 = grp_dedup_calcHash_fu_3607_str_13_ce0;
     end else begin
         buffer_13_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_13_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_13_ce1 = grp_dedup_murmurhash_fu_2991_key_13_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_13_ce1 = grp_dedup_calcHash_fu_2858_str_13_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_13_ce1 = grp_dedup_calcHash_fu_3607_str_13_ce1;
     end else begin
         buffer_13_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_D))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_D))) begin
         buffer_13_we1 = 1'b1;
     end else begin
         buffer_13_we1 = 1'b0;
@@ -7976,51 +8242,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_14_address0 = grp_dedup_murmurhash_fu_2991_key_14_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_14_address0 = grp_dedup_calcHash_fu_2858_str_14_address0;
-    end else begin
-        buffer_14_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_14_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_14_address1 = grp_dedup_murmurhash_fu_2991_key_14_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_14_address1 = grp_dedup_calcHash_fu_2858_str_14_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_14_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_14_address1 = grp_dedup_calcHash_fu_3607_str_14_address1;
     end else begin
         buffer_14_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_14_ce0 = grp_dedup_murmurhash_fu_2991_key_14_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_14_ce0 = grp_dedup_calcHash_fu_2858_str_14_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_14_ce0 = grp_dedup_calcHash_fu_3607_str_14_ce0;
     end else begin
         buffer_14_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_14_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_14_ce1 = grp_dedup_murmurhash_fu_2991_key_14_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_14_ce1 = grp_dedup_calcHash_fu_2858_str_14_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_14_ce1 = grp_dedup_calcHash_fu_3607_str_14_ce1;
     end else begin
         buffer_14_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_E))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_E))) begin
         buffer_14_we1 = 1'b1;
     end else begin
         buffer_14_we1 = 1'b0;
@@ -8028,51 +8278,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_15_address0 = grp_dedup_murmurhash_fu_2991_key_15_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_15_address0 = grp_dedup_calcHash_fu_2858_str_15_address0;
-    end else begin
-        buffer_15_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_15_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_15_address1 = grp_dedup_murmurhash_fu_2991_key_15_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_15_address1 = grp_dedup_calcHash_fu_2858_str_15_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_15_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_15_address1 = grp_dedup_calcHash_fu_3607_str_15_address1;
     end else begin
         buffer_15_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_15_ce0 = grp_dedup_murmurhash_fu_2991_key_15_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_15_ce0 = grp_dedup_calcHash_fu_2858_str_15_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_15_ce0 = grp_dedup_calcHash_fu_3607_str_15_ce0;
     end else begin
         buffer_15_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_15_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_15_ce1 = grp_dedup_murmurhash_fu_2991_key_15_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_15_ce1 = grp_dedup_calcHash_fu_2858_str_15_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_15_ce1 = grp_dedup_calcHash_fu_3607_str_15_ce1;
     end else begin
         buffer_15_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_F))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_F))) begin
         buffer_15_we1 = 1'b1;
     end else begin
         buffer_15_we1 = 1'b0;
@@ -8080,51 +8314,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_16_address0 = grp_dedup_murmurhash_fu_2991_key_16_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_16_address0 = grp_dedup_calcHash_fu_2858_str_16_address0;
-    end else begin
-        buffer_16_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_16_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_16_address1 = grp_dedup_murmurhash_fu_2991_key_16_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_16_address1 = grp_dedup_calcHash_fu_2858_str_16_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_16_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_16_address1 = grp_dedup_calcHash_fu_3607_str_16_address1;
     end else begin
         buffer_16_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_16_ce0 = grp_dedup_murmurhash_fu_2991_key_16_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_16_ce0 = grp_dedup_calcHash_fu_2858_str_16_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_16_ce0 = grp_dedup_calcHash_fu_3607_str_16_ce0;
     end else begin
         buffer_16_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_16_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_16_ce1 = grp_dedup_murmurhash_fu_2991_key_16_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_16_ce1 = grp_dedup_calcHash_fu_2858_str_16_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_16_ce1 = grp_dedup_calcHash_fu_3607_str_16_ce1;
     end else begin
         buffer_16_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_10))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_10))) begin
         buffer_16_we1 = 1'b1;
     end else begin
         buffer_16_we1 = 1'b0;
@@ -8132,51 +8350,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_17_address0 = grp_dedup_murmurhash_fu_2991_key_17_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_17_address0 = grp_dedup_calcHash_fu_2858_str_17_address0;
-    end else begin
-        buffer_17_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_17_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_17_address1 = grp_dedup_murmurhash_fu_2991_key_17_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_17_address1 = grp_dedup_calcHash_fu_2858_str_17_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_17_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_17_address1 = grp_dedup_calcHash_fu_3607_str_17_address1;
     end else begin
         buffer_17_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_17_ce0 = grp_dedup_murmurhash_fu_2991_key_17_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_17_ce0 = grp_dedup_calcHash_fu_2858_str_17_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_17_ce0 = grp_dedup_calcHash_fu_3607_str_17_ce0;
     end else begin
         buffer_17_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_17_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_17_ce1 = grp_dedup_murmurhash_fu_2991_key_17_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_17_ce1 = grp_dedup_calcHash_fu_2858_str_17_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_17_ce1 = grp_dedup_calcHash_fu_3607_str_17_ce1;
     end else begin
         buffer_17_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_11))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_11))) begin
         buffer_17_we1 = 1'b1;
     end else begin
         buffer_17_we1 = 1'b0;
@@ -8184,51 +8386,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_18_address0 = grp_dedup_murmurhash_fu_2991_key_18_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_18_address0 = grp_dedup_calcHash_fu_2858_str_18_address0;
-    end else begin
-        buffer_18_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_18_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_18_address1 = grp_dedup_murmurhash_fu_2991_key_18_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_18_address1 = grp_dedup_calcHash_fu_2858_str_18_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_18_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_18_address1 = grp_dedup_calcHash_fu_3607_str_18_address1;
     end else begin
         buffer_18_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_18_ce0 = grp_dedup_murmurhash_fu_2991_key_18_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_18_ce0 = grp_dedup_calcHash_fu_2858_str_18_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_18_ce0 = grp_dedup_calcHash_fu_3607_str_18_ce0;
     end else begin
         buffer_18_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_18_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_18_ce1 = grp_dedup_murmurhash_fu_2991_key_18_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_18_ce1 = grp_dedup_calcHash_fu_2858_str_18_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_18_ce1 = grp_dedup_calcHash_fu_3607_str_18_ce1;
     end else begin
         buffer_18_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_12))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_12))) begin
         buffer_18_we1 = 1'b1;
     end else begin
         buffer_18_we1 = 1'b0;
@@ -8236,51 +8422,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_19_address0 = grp_dedup_murmurhash_fu_2991_key_19_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_19_address0 = grp_dedup_calcHash_fu_2858_str_19_address0;
-    end else begin
-        buffer_19_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_19_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_19_address1 = grp_dedup_murmurhash_fu_2991_key_19_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_19_address1 = grp_dedup_calcHash_fu_2858_str_19_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_19_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_19_address1 = grp_dedup_calcHash_fu_3607_str_19_address1;
     end else begin
         buffer_19_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_19_ce0 = grp_dedup_murmurhash_fu_2991_key_19_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_19_ce0 = grp_dedup_calcHash_fu_2858_str_19_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_19_ce0 = grp_dedup_calcHash_fu_3607_str_19_ce0;
     end else begin
         buffer_19_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_19_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_19_ce1 = grp_dedup_murmurhash_fu_2991_key_19_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_19_ce1 = grp_dedup_calcHash_fu_2858_str_19_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_19_ce1 = grp_dedup_calcHash_fu_3607_str_19_ce1;
     end else begin
         buffer_19_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_13))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_13))) begin
         buffer_19_we1 = 1'b1;
     end else begin
         buffer_19_we1 = 1'b0;
@@ -8288,51 +8458,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_1_address0 = grp_dedup_murmurhash_fu_2991_key_1_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_1_address0 = grp_dedup_calcHash_fu_2858_str_1_address0;
-    end else begin
-        buffer_1_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_1_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_1_address1 = grp_dedup_murmurhash_fu_2991_key_1_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_1_address1 = grp_dedup_calcHash_fu_2858_str_1_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_1_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_1_address1 = grp_dedup_calcHash_fu_3607_str_1_address1;
     end else begin
         buffer_1_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_1_ce0 = grp_dedup_murmurhash_fu_2991_key_1_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_1_ce0 = grp_dedup_calcHash_fu_2858_str_1_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_1_ce0 = grp_dedup_calcHash_fu_3607_str_1_ce0;
     end else begin
         buffer_1_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_1_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_1_ce1 = grp_dedup_murmurhash_fu_2991_key_1_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_1_ce1 = grp_dedup_calcHash_fu_2858_str_1_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_1_ce1 = grp_dedup_calcHash_fu_3607_str_1_ce1;
     end else begin
         buffer_1_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_1))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_1))) begin
         buffer_1_we1 = 1'b1;
     end else begin
         buffer_1_we1 = 1'b0;
@@ -8340,51 +8494,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_20_address0 = grp_dedup_murmurhash_fu_2991_key_20_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_20_address0 = grp_dedup_calcHash_fu_2858_str_20_address0;
-    end else begin
-        buffer_20_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_20_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_20_address1 = grp_dedup_murmurhash_fu_2991_key_20_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_20_address1 = grp_dedup_calcHash_fu_2858_str_20_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_20_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_20_address1 = grp_dedup_calcHash_fu_3607_str_20_address1;
     end else begin
         buffer_20_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_20_ce0 = grp_dedup_murmurhash_fu_2991_key_20_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_20_ce0 = grp_dedup_calcHash_fu_2858_str_20_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_20_ce0 = grp_dedup_calcHash_fu_3607_str_20_ce0;
     end else begin
         buffer_20_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_20_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_20_ce1 = grp_dedup_murmurhash_fu_2991_key_20_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_20_ce1 = grp_dedup_calcHash_fu_2858_str_20_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_20_ce1 = grp_dedup_calcHash_fu_3607_str_20_ce1;
     end else begin
         buffer_20_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_14))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_14))) begin
         buffer_20_we1 = 1'b1;
     end else begin
         buffer_20_we1 = 1'b0;
@@ -8392,51 +8530,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_21_address0 = grp_dedup_murmurhash_fu_2991_key_21_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_21_address0 = grp_dedup_calcHash_fu_2858_str_21_address0;
-    end else begin
-        buffer_21_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_21_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_21_address1 = grp_dedup_murmurhash_fu_2991_key_21_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_21_address1 = grp_dedup_calcHash_fu_2858_str_21_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_21_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_21_address1 = grp_dedup_calcHash_fu_3607_str_21_address1;
     end else begin
         buffer_21_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_21_ce0 = grp_dedup_murmurhash_fu_2991_key_21_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_21_ce0 = grp_dedup_calcHash_fu_2858_str_21_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_21_ce0 = grp_dedup_calcHash_fu_3607_str_21_ce0;
     end else begin
         buffer_21_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_21_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_21_ce1 = grp_dedup_murmurhash_fu_2991_key_21_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_21_ce1 = grp_dedup_calcHash_fu_2858_str_21_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_21_ce1 = grp_dedup_calcHash_fu_3607_str_21_ce1;
     end else begin
         buffer_21_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_15))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_15))) begin
         buffer_21_we1 = 1'b1;
     end else begin
         buffer_21_we1 = 1'b0;
@@ -8444,51 +8566,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_22_address0 = grp_dedup_murmurhash_fu_2991_key_22_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_22_address0 = grp_dedup_calcHash_fu_2858_str_22_address0;
-    end else begin
-        buffer_22_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_22_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_22_address1 = grp_dedup_murmurhash_fu_2991_key_22_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_22_address1 = grp_dedup_calcHash_fu_2858_str_22_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_22_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_22_address1 = grp_dedup_calcHash_fu_3607_str_22_address1;
     end else begin
         buffer_22_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_22_ce0 = grp_dedup_murmurhash_fu_2991_key_22_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_22_ce0 = grp_dedup_calcHash_fu_2858_str_22_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_22_ce0 = grp_dedup_calcHash_fu_3607_str_22_ce0;
     end else begin
         buffer_22_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_22_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_22_ce1 = grp_dedup_murmurhash_fu_2991_key_22_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_22_ce1 = grp_dedup_calcHash_fu_2858_str_22_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_22_ce1 = grp_dedup_calcHash_fu_3607_str_22_ce1;
     end else begin
         buffer_22_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_16))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_16))) begin
         buffer_22_we1 = 1'b1;
     end else begin
         buffer_22_we1 = 1'b0;
@@ -8496,51 +8602,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_23_address0 = grp_dedup_murmurhash_fu_2991_key_23_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_23_address0 = grp_dedup_calcHash_fu_2858_str_23_address0;
-    end else begin
-        buffer_23_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_23_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_23_address1 = grp_dedup_murmurhash_fu_2991_key_23_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_23_address1 = grp_dedup_calcHash_fu_2858_str_23_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_23_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_23_address1 = grp_dedup_calcHash_fu_3607_str_23_address1;
     end else begin
         buffer_23_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_23_ce0 = grp_dedup_murmurhash_fu_2991_key_23_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_23_ce0 = grp_dedup_calcHash_fu_2858_str_23_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_23_ce0 = grp_dedup_calcHash_fu_3607_str_23_ce0;
     end else begin
         buffer_23_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_23_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_23_ce1 = grp_dedup_murmurhash_fu_2991_key_23_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_23_ce1 = grp_dedup_calcHash_fu_2858_str_23_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_23_ce1 = grp_dedup_calcHash_fu_3607_str_23_ce1;
     end else begin
         buffer_23_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_17))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_17))) begin
         buffer_23_we1 = 1'b1;
     end else begin
         buffer_23_we1 = 1'b0;
@@ -8548,51 +8638,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_24_address0 = grp_dedup_murmurhash_fu_2991_key_24_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_24_address0 = grp_dedup_calcHash_fu_2858_str_24_address0;
-    end else begin
-        buffer_24_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_24_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_24_address1 = grp_dedup_murmurhash_fu_2991_key_24_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_24_address1 = grp_dedup_calcHash_fu_2858_str_24_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_24_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_24_address1 = grp_dedup_calcHash_fu_3607_str_24_address1;
     end else begin
         buffer_24_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_24_ce0 = grp_dedup_murmurhash_fu_2991_key_24_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_24_ce0 = grp_dedup_calcHash_fu_2858_str_24_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_24_ce0 = grp_dedup_calcHash_fu_3607_str_24_ce0;
     end else begin
         buffer_24_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_24_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_24_ce1 = grp_dedup_murmurhash_fu_2991_key_24_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_24_ce1 = grp_dedup_calcHash_fu_2858_str_24_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_24_ce1 = grp_dedup_calcHash_fu_3607_str_24_ce1;
     end else begin
         buffer_24_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_18))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_18))) begin
         buffer_24_we1 = 1'b1;
     end else begin
         buffer_24_we1 = 1'b0;
@@ -8600,51 +8674,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_25_address0 = grp_dedup_murmurhash_fu_2991_key_25_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_25_address0 = grp_dedup_calcHash_fu_2858_str_25_address0;
-    end else begin
-        buffer_25_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_25_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_25_address1 = grp_dedup_murmurhash_fu_2991_key_25_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_25_address1 = grp_dedup_calcHash_fu_2858_str_25_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_25_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_25_address1 = grp_dedup_calcHash_fu_3607_str_25_address1;
     end else begin
         buffer_25_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_25_ce0 = grp_dedup_murmurhash_fu_2991_key_25_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_25_ce0 = grp_dedup_calcHash_fu_2858_str_25_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_25_ce0 = grp_dedup_calcHash_fu_3607_str_25_ce0;
     end else begin
         buffer_25_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_25_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_25_ce1 = grp_dedup_murmurhash_fu_2991_key_25_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_25_ce1 = grp_dedup_calcHash_fu_2858_str_25_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_25_ce1 = grp_dedup_calcHash_fu_3607_str_25_ce1;
     end else begin
         buffer_25_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_19))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_19))) begin
         buffer_25_we1 = 1'b1;
     end else begin
         buffer_25_we1 = 1'b0;
@@ -8652,51 +8710,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_26_address0 = grp_dedup_murmurhash_fu_2991_key_26_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_26_address0 = grp_dedup_calcHash_fu_2858_str_26_address0;
-    end else begin
-        buffer_26_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_26_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_26_address1 = grp_dedup_murmurhash_fu_2991_key_26_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_26_address1 = grp_dedup_calcHash_fu_2858_str_26_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_26_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_26_address1 = grp_dedup_calcHash_fu_3607_str_26_address1;
     end else begin
         buffer_26_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_26_ce0 = grp_dedup_murmurhash_fu_2991_key_26_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_26_ce0 = grp_dedup_calcHash_fu_2858_str_26_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_26_ce0 = grp_dedup_calcHash_fu_3607_str_26_ce0;
     end else begin
         buffer_26_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_26_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_26_ce1 = grp_dedup_murmurhash_fu_2991_key_26_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_26_ce1 = grp_dedup_calcHash_fu_2858_str_26_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_26_ce1 = grp_dedup_calcHash_fu_3607_str_26_ce1;
     end else begin
         buffer_26_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_1A))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_1A))) begin
         buffer_26_we1 = 1'b1;
     end else begin
         buffer_26_we1 = 1'b0;
@@ -8704,51 +8746,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_27_address0 = grp_dedup_murmurhash_fu_2991_key_27_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_27_address0 = grp_dedup_calcHash_fu_2858_str_27_address0;
-    end else begin
-        buffer_27_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_27_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_27_address1 = grp_dedup_murmurhash_fu_2991_key_27_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_27_address1 = grp_dedup_calcHash_fu_2858_str_27_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_27_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_27_address1 = grp_dedup_calcHash_fu_3607_str_27_address1;
     end else begin
         buffer_27_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_27_ce0 = grp_dedup_murmurhash_fu_2991_key_27_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_27_ce0 = grp_dedup_calcHash_fu_2858_str_27_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_27_ce0 = grp_dedup_calcHash_fu_3607_str_27_ce0;
     end else begin
         buffer_27_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_27_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_27_ce1 = grp_dedup_murmurhash_fu_2991_key_27_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_27_ce1 = grp_dedup_calcHash_fu_2858_str_27_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_27_ce1 = grp_dedup_calcHash_fu_3607_str_27_ce1;
     end else begin
         buffer_27_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_1B))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_1B))) begin
         buffer_27_we1 = 1'b1;
     end else begin
         buffer_27_we1 = 1'b0;
@@ -8756,51 +8782,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_28_address0 = grp_dedup_murmurhash_fu_2991_key_28_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_28_address0 = grp_dedup_calcHash_fu_2858_str_28_address0;
-    end else begin
-        buffer_28_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_28_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_28_address1 = grp_dedup_murmurhash_fu_2991_key_28_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_28_address1 = grp_dedup_calcHash_fu_2858_str_28_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_28_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_28_address1 = grp_dedup_calcHash_fu_3607_str_28_address1;
     end else begin
         buffer_28_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_28_ce0 = grp_dedup_murmurhash_fu_2991_key_28_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_28_ce0 = grp_dedup_calcHash_fu_2858_str_28_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_28_ce0 = grp_dedup_calcHash_fu_3607_str_28_ce0;
     end else begin
         buffer_28_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_28_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_28_ce1 = grp_dedup_murmurhash_fu_2991_key_28_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_28_ce1 = grp_dedup_calcHash_fu_2858_str_28_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_28_ce1 = grp_dedup_calcHash_fu_3607_str_28_ce1;
     end else begin
         buffer_28_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_1C))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_1C))) begin
         buffer_28_we1 = 1'b1;
     end else begin
         buffer_28_we1 = 1'b0;
@@ -8808,51 +8818,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_29_address0 = grp_dedup_murmurhash_fu_2991_key_29_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_29_address0 = grp_dedup_calcHash_fu_2858_str_29_address0;
-    end else begin
-        buffer_29_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_29_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_29_address1 = grp_dedup_murmurhash_fu_2991_key_29_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_29_address1 = grp_dedup_calcHash_fu_2858_str_29_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_29_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_29_address1 = grp_dedup_calcHash_fu_3607_str_29_address1;
     end else begin
         buffer_29_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_29_ce0 = grp_dedup_murmurhash_fu_2991_key_29_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_29_ce0 = grp_dedup_calcHash_fu_2858_str_29_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_29_ce0 = grp_dedup_calcHash_fu_3607_str_29_ce0;
     end else begin
         buffer_29_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_29_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_29_ce1 = grp_dedup_murmurhash_fu_2991_key_29_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_29_ce1 = grp_dedup_calcHash_fu_2858_str_29_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_29_ce1 = grp_dedup_calcHash_fu_3607_str_29_ce1;
     end else begin
         buffer_29_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_1D))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_1D))) begin
         buffer_29_we1 = 1'b1;
     end else begin
         buffer_29_we1 = 1'b0;
@@ -8860,51 +8854,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_2_address0 = grp_dedup_murmurhash_fu_2991_key_2_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_2_address0 = grp_dedup_calcHash_fu_2858_str_2_address0;
-    end else begin
-        buffer_2_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_2_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_2_address1 = grp_dedup_murmurhash_fu_2991_key_2_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_2_address1 = grp_dedup_calcHash_fu_2858_str_2_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_2_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_2_address1 = grp_dedup_calcHash_fu_3607_str_2_address1;
     end else begin
         buffer_2_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_2_ce0 = grp_dedup_murmurhash_fu_2991_key_2_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_2_ce0 = grp_dedup_calcHash_fu_2858_str_2_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_2_ce0 = grp_dedup_calcHash_fu_3607_str_2_ce0;
     end else begin
         buffer_2_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_2_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_2_ce1 = grp_dedup_murmurhash_fu_2991_key_2_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_2_ce1 = grp_dedup_calcHash_fu_2858_str_2_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_2_ce1 = grp_dedup_calcHash_fu_3607_str_2_ce1;
     end else begin
         buffer_2_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_2))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_2))) begin
         buffer_2_we1 = 1'b1;
     end else begin
         buffer_2_we1 = 1'b0;
@@ -8912,51 +8890,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_30_address0 = grp_dedup_murmurhash_fu_2991_key_30_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_30_address0 = grp_dedup_calcHash_fu_2858_str_30_address0;
-    end else begin
-        buffer_30_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_30_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_30_address1 = grp_dedup_murmurhash_fu_2991_key_30_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_30_address1 = grp_dedup_calcHash_fu_2858_str_30_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_30_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_30_address1 = grp_dedup_calcHash_fu_3607_str_30_address1;
     end else begin
         buffer_30_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_30_ce0 = grp_dedup_murmurhash_fu_2991_key_30_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_30_ce0 = grp_dedup_calcHash_fu_2858_str_30_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_30_ce0 = grp_dedup_calcHash_fu_3607_str_30_ce0;
     end else begin
         buffer_30_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_30_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_30_ce1 = grp_dedup_murmurhash_fu_2991_key_30_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_30_ce1 = grp_dedup_calcHash_fu_2858_str_30_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_30_ce1 = grp_dedup_calcHash_fu_3607_str_30_ce1;
     end else begin
         buffer_30_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_1E))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_1E))) begin
         buffer_30_we1 = 1'b1;
     end else begin
         buffer_30_we1 = 1'b0;
@@ -8964,51 +8926,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_31_address0 = grp_dedup_murmurhash_fu_2991_key_31_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_31_address0 = grp_dedup_calcHash_fu_2858_str_31_address0;
-    end else begin
-        buffer_31_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_31_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_31_address1 = grp_dedup_murmurhash_fu_2991_key_31_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_31_address1 = grp_dedup_calcHash_fu_2858_str_31_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_31_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_31_address1 = grp_dedup_calcHash_fu_3607_str_31_address1;
     end else begin
         buffer_31_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_31_ce0 = grp_dedup_murmurhash_fu_2991_key_31_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_31_ce0 = grp_dedup_calcHash_fu_2858_str_31_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_31_ce0 = grp_dedup_calcHash_fu_3607_str_31_ce0;
     end else begin
         buffer_31_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_31_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_31_ce1 = grp_dedup_murmurhash_fu_2991_key_31_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_31_ce1 = grp_dedup_calcHash_fu_2858_str_31_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_31_ce1 = grp_dedup_calcHash_fu_3607_str_31_ce1;
     end else begin
         buffer_31_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_1F))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_1F))) begin
         buffer_31_we1 = 1'b1;
     end else begin
         buffer_31_we1 = 1'b0;
@@ -9016,51 +8962,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_32_address0 = grp_dedup_murmurhash_fu_2991_key_32_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_32_address0 = grp_dedup_calcHash_fu_2858_str_32_address0;
-    end else begin
-        buffer_32_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_32_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_32_address1 = grp_dedup_murmurhash_fu_2991_key_32_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_32_address1 = grp_dedup_calcHash_fu_2858_str_32_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_32_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_32_address1 = grp_dedup_calcHash_fu_3607_str_32_address1;
     end else begin
         buffer_32_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_32_ce0 = grp_dedup_murmurhash_fu_2991_key_32_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_32_ce0 = grp_dedup_calcHash_fu_2858_str_32_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_32_ce0 = grp_dedup_calcHash_fu_3607_str_32_ce0;
     end else begin
         buffer_32_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_32_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_32_ce1 = grp_dedup_murmurhash_fu_2991_key_32_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_32_ce1 = grp_dedup_calcHash_fu_2858_str_32_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_32_ce1 = grp_dedup_calcHash_fu_3607_str_32_ce1;
     end else begin
         buffer_32_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_20))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_20))) begin
         buffer_32_we1 = 1'b1;
     end else begin
         buffer_32_we1 = 1'b0;
@@ -9068,51 +8998,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_33_address0 = grp_dedup_murmurhash_fu_2991_key_33_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_33_address0 = grp_dedup_calcHash_fu_2858_str_33_address0;
-    end else begin
-        buffer_33_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_33_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_33_address1 = grp_dedup_murmurhash_fu_2991_key_33_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_33_address1 = grp_dedup_calcHash_fu_2858_str_33_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_33_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_33_address1 = grp_dedup_calcHash_fu_3607_str_33_address1;
     end else begin
         buffer_33_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_33_ce0 = grp_dedup_murmurhash_fu_2991_key_33_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_33_ce0 = grp_dedup_calcHash_fu_2858_str_33_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_33_ce0 = grp_dedup_calcHash_fu_3607_str_33_ce0;
     end else begin
         buffer_33_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_33_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_33_ce1 = grp_dedup_murmurhash_fu_2991_key_33_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_33_ce1 = grp_dedup_calcHash_fu_2858_str_33_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_33_ce1 = grp_dedup_calcHash_fu_3607_str_33_ce1;
     end else begin
         buffer_33_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_21))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_21))) begin
         buffer_33_we1 = 1'b1;
     end else begin
         buffer_33_we1 = 1'b0;
@@ -9120,51 +9034,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_34_address0 = grp_dedup_murmurhash_fu_2991_key_34_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_34_address0 = grp_dedup_calcHash_fu_2858_str_34_address0;
-    end else begin
-        buffer_34_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_34_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_34_address1 = grp_dedup_murmurhash_fu_2991_key_34_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_34_address1 = grp_dedup_calcHash_fu_2858_str_34_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_34_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_34_address1 = grp_dedup_calcHash_fu_3607_str_34_address1;
     end else begin
         buffer_34_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_34_ce0 = grp_dedup_murmurhash_fu_2991_key_34_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_34_ce0 = grp_dedup_calcHash_fu_2858_str_34_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_34_ce0 = grp_dedup_calcHash_fu_3607_str_34_ce0;
     end else begin
         buffer_34_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_34_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_34_ce1 = grp_dedup_murmurhash_fu_2991_key_34_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_34_ce1 = grp_dedup_calcHash_fu_2858_str_34_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_34_ce1 = grp_dedup_calcHash_fu_3607_str_34_ce1;
     end else begin
         buffer_34_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_22))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_22))) begin
         buffer_34_we1 = 1'b1;
     end else begin
         buffer_34_we1 = 1'b0;
@@ -9172,51 +9070,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_35_address0 = grp_dedup_murmurhash_fu_2991_key_35_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_35_address0 = grp_dedup_calcHash_fu_2858_str_35_address0;
-    end else begin
-        buffer_35_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_35_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_35_address1 = grp_dedup_murmurhash_fu_2991_key_35_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_35_address1 = grp_dedup_calcHash_fu_2858_str_35_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_35_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_35_address1 = grp_dedup_calcHash_fu_3607_str_35_address1;
     end else begin
         buffer_35_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_35_ce0 = grp_dedup_murmurhash_fu_2991_key_35_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_35_ce0 = grp_dedup_calcHash_fu_2858_str_35_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_35_ce0 = grp_dedup_calcHash_fu_3607_str_35_ce0;
     end else begin
         buffer_35_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_35_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_35_ce1 = grp_dedup_murmurhash_fu_2991_key_35_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_35_ce1 = grp_dedup_calcHash_fu_2858_str_35_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_35_ce1 = grp_dedup_calcHash_fu_3607_str_35_ce1;
     end else begin
         buffer_35_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_23))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_23))) begin
         buffer_35_we1 = 1'b1;
     end else begin
         buffer_35_we1 = 1'b0;
@@ -9224,51 +9106,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_36_address0 = grp_dedup_murmurhash_fu_2991_key_36_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_36_address0 = grp_dedup_calcHash_fu_2858_str_36_address0;
-    end else begin
-        buffer_36_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_36_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_36_address1 = grp_dedup_murmurhash_fu_2991_key_36_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_36_address1 = grp_dedup_calcHash_fu_2858_str_36_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_36_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_36_address1 = grp_dedup_calcHash_fu_3607_str_36_address1;
     end else begin
         buffer_36_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_36_ce0 = grp_dedup_murmurhash_fu_2991_key_36_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_36_ce0 = grp_dedup_calcHash_fu_2858_str_36_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_36_ce0 = grp_dedup_calcHash_fu_3607_str_36_ce0;
     end else begin
         buffer_36_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_36_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_36_ce1 = grp_dedup_murmurhash_fu_2991_key_36_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_36_ce1 = grp_dedup_calcHash_fu_2858_str_36_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_36_ce1 = grp_dedup_calcHash_fu_3607_str_36_ce1;
     end else begin
         buffer_36_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_24))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_24))) begin
         buffer_36_we1 = 1'b1;
     end else begin
         buffer_36_we1 = 1'b0;
@@ -9276,51 +9142,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_37_address0 = grp_dedup_murmurhash_fu_2991_key_37_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_37_address0 = grp_dedup_calcHash_fu_2858_str_37_address0;
-    end else begin
-        buffer_37_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_37_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_37_address1 = grp_dedup_murmurhash_fu_2991_key_37_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_37_address1 = grp_dedup_calcHash_fu_2858_str_37_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_37_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_37_address1 = grp_dedup_calcHash_fu_3607_str_37_address1;
     end else begin
         buffer_37_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_37_ce0 = grp_dedup_murmurhash_fu_2991_key_37_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_37_ce0 = grp_dedup_calcHash_fu_2858_str_37_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_37_ce0 = grp_dedup_calcHash_fu_3607_str_37_ce0;
     end else begin
         buffer_37_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_37_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_37_ce1 = grp_dedup_murmurhash_fu_2991_key_37_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_37_ce1 = grp_dedup_calcHash_fu_2858_str_37_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_37_ce1 = grp_dedup_calcHash_fu_3607_str_37_ce1;
     end else begin
         buffer_37_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_25))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_25))) begin
         buffer_37_we1 = 1'b1;
     end else begin
         buffer_37_we1 = 1'b0;
@@ -9328,51 +9178,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_38_address0 = grp_dedup_murmurhash_fu_2991_key_38_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_38_address0 = grp_dedup_calcHash_fu_2858_str_38_address0;
-    end else begin
-        buffer_38_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_38_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_38_address1 = grp_dedup_murmurhash_fu_2991_key_38_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_38_address1 = grp_dedup_calcHash_fu_2858_str_38_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_38_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_38_address1 = grp_dedup_calcHash_fu_3607_str_38_address1;
     end else begin
         buffer_38_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_38_ce0 = grp_dedup_murmurhash_fu_2991_key_38_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_38_ce0 = grp_dedup_calcHash_fu_2858_str_38_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_38_ce0 = grp_dedup_calcHash_fu_3607_str_38_ce0;
     end else begin
         buffer_38_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_38_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_38_ce1 = grp_dedup_murmurhash_fu_2991_key_38_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_38_ce1 = grp_dedup_calcHash_fu_2858_str_38_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_38_ce1 = grp_dedup_calcHash_fu_3607_str_38_ce1;
     end else begin
         buffer_38_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_26))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_26))) begin
         buffer_38_we1 = 1'b1;
     end else begin
         buffer_38_we1 = 1'b0;
@@ -9380,51 +9214,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_39_address0 = grp_dedup_murmurhash_fu_2991_key_39_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_39_address0 = grp_dedup_calcHash_fu_2858_str_39_address0;
-    end else begin
-        buffer_39_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_39_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_39_address1 = grp_dedup_murmurhash_fu_2991_key_39_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_39_address1 = grp_dedup_calcHash_fu_2858_str_39_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_39_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_39_address1 = grp_dedup_calcHash_fu_3607_str_39_address1;
     end else begin
         buffer_39_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_39_ce0 = grp_dedup_murmurhash_fu_2991_key_39_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_39_ce0 = grp_dedup_calcHash_fu_2858_str_39_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_39_ce0 = grp_dedup_calcHash_fu_3607_str_39_ce0;
     end else begin
         buffer_39_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_39_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_39_ce1 = grp_dedup_murmurhash_fu_2991_key_39_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_39_ce1 = grp_dedup_calcHash_fu_2858_str_39_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_39_ce1 = grp_dedup_calcHash_fu_3607_str_39_ce1;
     end else begin
         buffer_39_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_27))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_27))) begin
         buffer_39_we1 = 1'b1;
     end else begin
         buffer_39_we1 = 1'b0;
@@ -9432,51 +9250,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_3_address0 = grp_dedup_murmurhash_fu_2991_key_3_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_3_address0 = grp_dedup_calcHash_fu_2858_str_3_address0;
-    end else begin
-        buffer_3_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_3_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_3_address1 = grp_dedup_murmurhash_fu_2991_key_3_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_3_address1 = grp_dedup_calcHash_fu_2858_str_3_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_3_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_3_address1 = grp_dedup_calcHash_fu_3607_str_3_address1;
     end else begin
         buffer_3_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_3_ce0 = grp_dedup_murmurhash_fu_2991_key_3_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_3_ce0 = grp_dedup_calcHash_fu_2858_str_3_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_3_ce0 = grp_dedup_calcHash_fu_3607_str_3_ce0;
     end else begin
         buffer_3_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_3_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_3_ce1 = grp_dedup_murmurhash_fu_2991_key_3_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_3_ce1 = grp_dedup_calcHash_fu_2858_str_3_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_3_ce1 = grp_dedup_calcHash_fu_3607_str_3_ce1;
     end else begin
         buffer_3_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_3))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_3))) begin
         buffer_3_we1 = 1'b1;
     end else begin
         buffer_3_we1 = 1'b0;
@@ -9484,51 +9286,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_40_address0 = grp_dedup_murmurhash_fu_2991_key_40_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_40_address0 = grp_dedup_calcHash_fu_2858_str_40_address0;
-    end else begin
-        buffer_40_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_40_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_40_address1 = grp_dedup_murmurhash_fu_2991_key_40_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_40_address1 = grp_dedup_calcHash_fu_2858_str_40_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_40_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_40_address1 = grp_dedup_calcHash_fu_3607_str_40_address1;
     end else begin
         buffer_40_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_40_ce0 = grp_dedup_murmurhash_fu_2991_key_40_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_40_ce0 = grp_dedup_calcHash_fu_2858_str_40_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_40_ce0 = grp_dedup_calcHash_fu_3607_str_40_ce0;
     end else begin
         buffer_40_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_40_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_40_ce1 = grp_dedup_murmurhash_fu_2991_key_40_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_40_ce1 = grp_dedup_calcHash_fu_2858_str_40_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_40_ce1 = grp_dedup_calcHash_fu_3607_str_40_ce1;
     end else begin
         buffer_40_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_28))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_28))) begin
         buffer_40_we1 = 1'b1;
     end else begin
         buffer_40_we1 = 1'b0;
@@ -9536,51 +9322,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_41_address0 = grp_dedup_murmurhash_fu_2991_key_41_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_41_address0 = grp_dedup_calcHash_fu_2858_str_41_address0;
-    end else begin
-        buffer_41_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_41_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_41_address1 = grp_dedup_murmurhash_fu_2991_key_41_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_41_address1 = grp_dedup_calcHash_fu_2858_str_41_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_41_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_41_address1 = grp_dedup_calcHash_fu_3607_str_41_address1;
     end else begin
         buffer_41_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_41_ce0 = grp_dedup_murmurhash_fu_2991_key_41_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_41_ce0 = grp_dedup_calcHash_fu_2858_str_41_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_41_ce0 = grp_dedup_calcHash_fu_3607_str_41_ce0;
     end else begin
         buffer_41_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_41_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_41_ce1 = grp_dedup_murmurhash_fu_2991_key_41_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_41_ce1 = grp_dedup_calcHash_fu_2858_str_41_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_41_ce1 = grp_dedup_calcHash_fu_3607_str_41_ce1;
     end else begin
         buffer_41_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_29))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_29))) begin
         buffer_41_we1 = 1'b1;
     end else begin
         buffer_41_we1 = 1'b0;
@@ -9588,51 +9358,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_42_address0 = grp_dedup_murmurhash_fu_2991_key_42_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_42_address0 = grp_dedup_calcHash_fu_2858_str_42_address0;
-    end else begin
-        buffer_42_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_42_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_42_address1 = grp_dedup_murmurhash_fu_2991_key_42_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_42_address1 = grp_dedup_calcHash_fu_2858_str_42_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_42_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_42_address1 = grp_dedup_calcHash_fu_3607_str_42_address1;
     end else begin
         buffer_42_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_42_ce0 = grp_dedup_murmurhash_fu_2991_key_42_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_42_ce0 = grp_dedup_calcHash_fu_2858_str_42_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_42_ce0 = grp_dedup_calcHash_fu_3607_str_42_ce0;
     end else begin
         buffer_42_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_42_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_42_ce1 = grp_dedup_murmurhash_fu_2991_key_42_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_42_ce1 = grp_dedup_calcHash_fu_2858_str_42_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_42_ce1 = grp_dedup_calcHash_fu_3607_str_42_ce1;
     end else begin
         buffer_42_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_2A))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_2A))) begin
         buffer_42_we1 = 1'b1;
     end else begin
         buffer_42_we1 = 1'b0;
@@ -9640,51 +9394,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_43_address0 = grp_dedup_murmurhash_fu_2991_key_43_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_43_address0 = grp_dedup_calcHash_fu_2858_str_43_address0;
-    end else begin
-        buffer_43_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_43_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_43_address1 = grp_dedup_murmurhash_fu_2991_key_43_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_43_address1 = grp_dedup_calcHash_fu_2858_str_43_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_43_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_43_address1 = grp_dedup_calcHash_fu_3607_str_43_address1;
     end else begin
         buffer_43_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_43_ce0 = grp_dedup_murmurhash_fu_2991_key_43_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_43_ce0 = grp_dedup_calcHash_fu_2858_str_43_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_43_ce0 = grp_dedup_calcHash_fu_3607_str_43_ce0;
     end else begin
         buffer_43_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_43_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_43_ce1 = grp_dedup_murmurhash_fu_2991_key_43_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_43_ce1 = grp_dedup_calcHash_fu_2858_str_43_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_43_ce1 = grp_dedup_calcHash_fu_3607_str_43_ce1;
     end else begin
         buffer_43_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_2B))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_2B))) begin
         buffer_43_we1 = 1'b1;
     end else begin
         buffer_43_we1 = 1'b0;
@@ -9692,51 +9430,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_44_address0 = grp_dedup_murmurhash_fu_2991_key_44_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_44_address0 = grp_dedup_calcHash_fu_2858_str_44_address0;
-    end else begin
-        buffer_44_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_44_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_44_address1 = grp_dedup_murmurhash_fu_2991_key_44_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_44_address1 = grp_dedup_calcHash_fu_2858_str_44_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_44_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_44_address1 = grp_dedup_calcHash_fu_3607_str_44_address1;
     end else begin
         buffer_44_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_44_ce0 = grp_dedup_murmurhash_fu_2991_key_44_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_44_ce0 = grp_dedup_calcHash_fu_2858_str_44_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_44_ce0 = grp_dedup_calcHash_fu_3607_str_44_ce0;
     end else begin
         buffer_44_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_44_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_44_ce1 = grp_dedup_murmurhash_fu_2991_key_44_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_44_ce1 = grp_dedup_calcHash_fu_2858_str_44_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_44_ce1 = grp_dedup_calcHash_fu_3607_str_44_ce1;
     end else begin
         buffer_44_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_2C))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_2C))) begin
         buffer_44_we1 = 1'b1;
     end else begin
         buffer_44_we1 = 1'b0;
@@ -9744,51 +9466,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_45_address0 = grp_dedup_murmurhash_fu_2991_key_45_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_45_address0 = grp_dedup_calcHash_fu_2858_str_45_address0;
-    end else begin
-        buffer_45_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_45_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_45_address1 = grp_dedup_murmurhash_fu_2991_key_45_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_45_address1 = grp_dedup_calcHash_fu_2858_str_45_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_45_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_45_address1 = grp_dedup_calcHash_fu_3607_str_45_address1;
     end else begin
         buffer_45_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_45_ce0 = grp_dedup_murmurhash_fu_2991_key_45_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_45_ce0 = grp_dedup_calcHash_fu_2858_str_45_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_45_ce0 = grp_dedup_calcHash_fu_3607_str_45_ce0;
     end else begin
         buffer_45_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_45_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_45_ce1 = grp_dedup_murmurhash_fu_2991_key_45_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_45_ce1 = grp_dedup_calcHash_fu_2858_str_45_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_45_ce1 = grp_dedup_calcHash_fu_3607_str_45_ce1;
     end else begin
         buffer_45_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_2D))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_2D))) begin
         buffer_45_we1 = 1'b1;
     end else begin
         buffer_45_we1 = 1'b0;
@@ -9796,51 +9502,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_46_address0 = grp_dedup_murmurhash_fu_2991_key_46_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_46_address0 = grp_dedup_calcHash_fu_2858_str_46_address0;
-    end else begin
-        buffer_46_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_46_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_46_address1 = grp_dedup_murmurhash_fu_2991_key_46_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_46_address1 = grp_dedup_calcHash_fu_2858_str_46_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_46_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_46_address1 = grp_dedup_calcHash_fu_3607_str_46_address1;
     end else begin
         buffer_46_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_46_ce0 = grp_dedup_murmurhash_fu_2991_key_46_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_46_ce0 = grp_dedup_calcHash_fu_2858_str_46_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_46_ce0 = grp_dedup_calcHash_fu_3607_str_46_ce0;
     end else begin
         buffer_46_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_46_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_46_ce1 = grp_dedup_murmurhash_fu_2991_key_46_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_46_ce1 = grp_dedup_calcHash_fu_2858_str_46_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_46_ce1 = grp_dedup_calcHash_fu_3607_str_46_ce1;
     end else begin
         buffer_46_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_2E))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_2E))) begin
         buffer_46_we1 = 1'b1;
     end else begin
         buffer_46_we1 = 1'b0;
@@ -9848,51 +9538,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_47_address0 = grp_dedup_murmurhash_fu_2991_key_47_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_47_address0 = grp_dedup_calcHash_fu_2858_str_47_address0;
-    end else begin
-        buffer_47_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_47_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_47_address1 = grp_dedup_murmurhash_fu_2991_key_47_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_47_address1 = grp_dedup_calcHash_fu_2858_str_47_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_47_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_47_address1 = grp_dedup_calcHash_fu_3607_str_47_address1;
     end else begin
         buffer_47_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_47_ce0 = grp_dedup_murmurhash_fu_2991_key_47_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_47_ce0 = grp_dedup_calcHash_fu_2858_str_47_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_47_ce0 = grp_dedup_calcHash_fu_3607_str_47_ce0;
     end else begin
         buffer_47_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_47_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_47_ce1 = grp_dedup_murmurhash_fu_2991_key_47_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_47_ce1 = grp_dedup_calcHash_fu_2858_str_47_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_47_ce1 = grp_dedup_calcHash_fu_3607_str_47_ce1;
     end else begin
         buffer_47_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_2F))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_2F))) begin
         buffer_47_we1 = 1'b1;
     end else begin
         buffer_47_we1 = 1'b0;
@@ -9900,51 +9574,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_48_address0 = grp_dedup_murmurhash_fu_2991_key_48_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_48_address0 = grp_dedup_calcHash_fu_2858_str_48_address0;
-    end else begin
-        buffer_48_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_48_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_48_address1 = grp_dedup_murmurhash_fu_2991_key_48_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_48_address1 = grp_dedup_calcHash_fu_2858_str_48_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_48_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_48_address1 = grp_dedup_calcHash_fu_3607_str_48_address1;
     end else begin
         buffer_48_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_48_ce0 = grp_dedup_murmurhash_fu_2991_key_48_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_48_ce0 = grp_dedup_calcHash_fu_2858_str_48_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_48_ce0 = grp_dedup_calcHash_fu_3607_str_48_ce0;
     end else begin
         buffer_48_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_48_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_48_ce1 = grp_dedup_murmurhash_fu_2991_key_48_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_48_ce1 = grp_dedup_calcHash_fu_2858_str_48_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_48_ce1 = grp_dedup_calcHash_fu_3607_str_48_ce1;
     end else begin
         buffer_48_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_30))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_30))) begin
         buffer_48_we1 = 1'b1;
     end else begin
         buffer_48_we1 = 1'b0;
@@ -9952,51 +9610,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_49_address0 = grp_dedup_murmurhash_fu_2991_key_49_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_49_address0 = grp_dedup_calcHash_fu_2858_str_49_address0;
-    end else begin
-        buffer_49_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_49_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_49_address1 = grp_dedup_murmurhash_fu_2991_key_49_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_49_address1 = grp_dedup_calcHash_fu_2858_str_49_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_49_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_49_address1 = grp_dedup_calcHash_fu_3607_str_49_address1;
     end else begin
         buffer_49_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_49_ce0 = grp_dedup_murmurhash_fu_2991_key_49_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_49_ce0 = grp_dedup_calcHash_fu_2858_str_49_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_49_ce0 = grp_dedup_calcHash_fu_3607_str_49_ce0;
     end else begin
         buffer_49_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_49_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_49_ce1 = grp_dedup_murmurhash_fu_2991_key_49_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_49_ce1 = grp_dedup_calcHash_fu_2858_str_49_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_49_ce1 = grp_dedup_calcHash_fu_3607_str_49_ce1;
     end else begin
         buffer_49_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_31))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_31))) begin
         buffer_49_we1 = 1'b1;
     end else begin
         buffer_49_we1 = 1'b0;
@@ -10004,51 +9646,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_4_address0 = grp_dedup_murmurhash_fu_2991_key_4_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_4_address0 = grp_dedup_calcHash_fu_2858_str_4_address0;
-    end else begin
-        buffer_4_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_4_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_4_address1 = grp_dedup_murmurhash_fu_2991_key_4_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_4_address1 = grp_dedup_calcHash_fu_2858_str_4_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_4_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_4_address1 = grp_dedup_calcHash_fu_3607_str_4_address1;
     end else begin
         buffer_4_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_4_ce0 = grp_dedup_murmurhash_fu_2991_key_4_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_4_ce0 = grp_dedup_calcHash_fu_2858_str_4_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_4_ce0 = grp_dedup_calcHash_fu_3607_str_4_ce0;
     end else begin
         buffer_4_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_4_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_4_ce1 = grp_dedup_murmurhash_fu_2991_key_4_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_4_ce1 = grp_dedup_calcHash_fu_2858_str_4_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_4_ce1 = grp_dedup_calcHash_fu_3607_str_4_ce1;
     end else begin
         buffer_4_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_4))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_4))) begin
         buffer_4_we1 = 1'b1;
     end else begin
         buffer_4_we1 = 1'b0;
@@ -10056,51 +9682,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_50_address0 = grp_dedup_murmurhash_fu_2991_key_50_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_50_address0 = grp_dedup_calcHash_fu_2858_str_50_address0;
-    end else begin
-        buffer_50_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_50_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_50_address1 = grp_dedup_murmurhash_fu_2991_key_50_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_50_address1 = grp_dedup_calcHash_fu_2858_str_50_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_50_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_50_address1 = grp_dedup_calcHash_fu_3607_str_50_address1;
     end else begin
         buffer_50_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_50_ce0 = grp_dedup_murmurhash_fu_2991_key_50_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_50_ce0 = grp_dedup_calcHash_fu_2858_str_50_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_50_ce0 = grp_dedup_calcHash_fu_3607_str_50_ce0;
     end else begin
         buffer_50_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_50_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_50_ce1 = grp_dedup_murmurhash_fu_2991_key_50_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_50_ce1 = grp_dedup_calcHash_fu_2858_str_50_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_50_ce1 = grp_dedup_calcHash_fu_3607_str_50_ce1;
     end else begin
         buffer_50_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_32))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_32))) begin
         buffer_50_we1 = 1'b1;
     end else begin
         buffer_50_we1 = 1'b0;
@@ -10108,51 +9718,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_51_address0 = grp_dedup_murmurhash_fu_2991_key_51_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_51_address0 = grp_dedup_calcHash_fu_2858_str_51_address0;
-    end else begin
-        buffer_51_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_51_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_51_address1 = grp_dedup_murmurhash_fu_2991_key_51_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_51_address1 = grp_dedup_calcHash_fu_2858_str_51_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_51_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_51_address1 = grp_dedup_calcHash_fu_3607_str_51_address1;
     end else begin
         buffer_51_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_51_ce0 = grp_dedup_murmurhash_fu_2991_key_51_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_51_ce0 = grp_dedup_calcHash_fu_2858_str_51_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_51_ce0 = grp_dedup_calcHash_fu_3607_str_51_ce0;
     end else begin
         buffer_51_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_51_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_51_ce1 = grp_dedup_murmurhash_fu_2991_key_51_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_51_ce1 = grp_dedup_calcHash_fu_2858_str_51_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_51_ce1 = grp_dedup_calcHash_fu_3607_str_51_ce1;
     end else begin
         buffer_51_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_33))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_33))) begin
         buffer_51_we1 = 1'b1;
     end else begin
         buffer_51_we1 = 1'b0;
@@ -10160,51 +9754,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_52_address0 = grp_dedup_murmurhash_fu_2991_key_52_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_52_address0 = grp_dedup_calcHash_fu_2858_str_52_address0;
-    end else begin
-        buffer_52_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_52_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_52_address1 = grp_dedup_murmurhash_fu_2991_key_52_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_52_address1 = grp_dedup_calcHash_fu_2858_str_52_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_52_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_52_address1 = grp_dedup_calcHash_fu_3607_str_52_address1;
     end else begin
         buffer_52_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_52_ce0 = grp_dedup_murmurhash_fu_2991_key_52_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_52_ce0 = grp_dedup_calcHash_fu_2858_str_52_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_52_ce0 = grp_dedup_calcHash_fu_3607_str_52_ce0;
     end else begin
         buffer_52_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_52_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_52_ce1 = grp_dedup_murmurhash_fu_2991_key_52_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_52_ce1 = grp_dedup_calcHash_fu_2858_str_52_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_52_ce1 = grp_dedup_calcHash_fu_3607_str_52_ce1;
     end else begin
         buffer_52_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_34))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_34))) begin
         buffer_52_we1 = 1'b1;
     end else begin
         buffer_52_we1 = 1'b0;
@@ -10212,51 +9790,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_53_address0 = grp_dedup_murmurhash_fu_2991_key_53_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_53_address0 = grp_dedup_calcHash_fu_2858_str_53_address0;
-    end else begin
-        buffer_53_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_53_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_53_address1 = grp_dedup_murmurhash_fu_2991_key_53_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_53_address1 = grp_dedup_calcHash_fu_2858_str_53_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_53_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_53_address1 = grp_dedup_calcHash_fu_3607_str_53_address1;
     end else begin
         buffer_53_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_53_ce0 = grp_dedup_murmurhash_fu_2991_key_53_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_53_ce0 = grp_dedup_calcHash_fu_2858_str_53_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_53_ce0 = grp_dedup_calcHash_fu_3607_str_53_ce0;
     end else begin
         buffer_53_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_53_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_53_ce1 = grp_dedup_murmurhash_fu_2991_key_53_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_53_ce1 = grp_dedup_calcHash_fu_2858_str_53_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_53_ce1 = grp_dedup_calcHash_fu_3607_str_53_ce1;
     end else begin
         buffer_53_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_35))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_35))) begin
         buffer_53_we1 = 1'b1;
     end else begin
         buffer_53_we1 = 1'b0;
@@ -10264,51 +9826,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_54_address0 = grp_dedup_murmurhash_fu_2991_key_54_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_54_address0 = grp_dedup_calcHash_fu_2858_str_54_address0;
-    end else begin
-        buffer_54_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_54_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_54_address1 = grp_dedup_murmurhash_fu_2991_key_54_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_54_address1 = grp_dedup_calcHash_fu_2858_str_54_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_54_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_54_address1 = grp_dedup_calcHash_fu_3607_str_54_address1;
     end else begin
         buffer_54_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_54_ce0 = grp_dedup_murmurhash_fu_2991_key_54_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_54_ce0 = grp_dedup_calcHash_fu_2858_str_54_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_54_ce0 = grp_dedup_calcHash_fu_3607_str_54_ce0;
     end else begin
         buffer_54_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_54_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_54_ce1 = grp_dedup_murmurhash_fu_2991_key_54_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_54_ce1 = grp_dedup_calcHash_fu_2858_str_54_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_54_ce1 = grp_dedup_calcHash_fu_3607_str_54_ce1;
     end else begin
         buffer_54_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_36))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_36))) begin
         buffer_54_we1 = 1'b1;
     end else begin
         buffer_54_we1 = 1'b0;
@@ -10316,51 +9862,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_55_address0 = grp_dedup_murmurhash_fu_2991_key_55_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_55_address0 = grp_dedup_calcHash_fu_2858_str_55_address0;
-    end else begin
-        buffer_55_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_55_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_55_address1 = grp_dedup_murmurhash_fu_2991_key_55_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_55_address1 = grp_dedup_calcHash_fu_2858_str_55_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_55_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_55_address1 = grp_dedup_calcHash_fu_3607_str_55_address1;
     end else begin
         buffer_55_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_55_ce0 = grp_dedup_murmurhash_fu_2991_key_55_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_55_ce0 = grp_dedup_calcHash_fu_2858_str_55_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_55_ce0 = grp_dedup_calcHash_fu_3607_str_55_ce0;
     end else begin
         buffer_55_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_55_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_55_ce1 = grp_dedup_murmurhash_fu_2991_key_55_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_55_ce1 = grp_dedup_calcHash_fu_2858_str_55_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_55_ce1 = grp_dedup_calcHash_fu_3607_str_55_ce1;
     end else begin
         buffer_55_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_37))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_37))) begin
         buffer_55_we1 = 1'b1;
     end else begin
         buffer_55_we1 = 1'b0;
@@ -10368,51 +9898,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_56_address0 = grp_dedup_murmurhash_fu_2991_key_56_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_56_address0 = grp_dedup_calcHash_fu_2858_str_56_address0;
-    end else begin
-        buffer_56_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_56_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_56_address1 = grp_dedup_murmurhash_fu_2991_key_56_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_56_address1 = grp_dedup_calcHash_fu_2858_str_56_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_56_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_56_address1 = grp_dedup_calcHash_fu_3607_str_56_address1;
     end else begin
         buffer_56_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_56_ce0 = grp_dedup_murmurhash_fu_2991_key_56_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_56_ce0 = grp_dedup_calcHash_fu_2858_str_56_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_56_ce0 = grp_dedup_calcHash_fu_3607_str_56_ce0;
     end else begin
         buffer_56_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_56_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_56_ce1 = grp_dedup_murmurhash_fu_2991_key_56_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_56_ce1 = grp_dedup_calcHash_fu_2858_str_56_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_56_ce1 = grp_dedup_calcHash_fu_3607_str_56_ce1;
     end else begin
         buffer_56_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_38))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_38))) begin
         buffer_56_we1 = 1'b1;
     end else begin
         buffer_56_we1 = 1'b0;
@@ -10420,51 +9934,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_57_address0 = grp_dedup_murmurhash_fu_2991_key_57_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_57_address0 = grp_dedup_calcHash_fu_2858_str_57_address0;
-    end else begin
-        buffer_57_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_57_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_57_address1 = grp_dedup_murmurhash_fu_2991_key_57_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_57_address1 = grp_dedup_calcHash_fu_2858_str_57_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_57_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_57_address1 = grp_dedup_calcHash_fu_3607_str_57_address1;
     end else begin
         buffer_57_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_57_ce0 = grp_dedup_murmurhash_fu_2991_key_57_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_57_ce0 = grp_dedup_calcHash_fu_2858_str_57_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_57_ce0 = grp_dedup_calcHash_fu_3607_str_57_ce0;
     end else begin
         buffer_57_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_57_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_57_ce1 = grp_dedup_murmurhash_fu_2991_key_57_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_57_ce1 = grp_dedup_calcHash_fu_2858_str_57_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_57_ce1 = grp_dedup_calcHash_fu_3607_str_57_ce1;
     end else begin
         buffer_57_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_39))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_39))) begin
         buffer_57_we1 = 1'b1;
     end else begin
         buffer_57_we1 = 1'b0;
@@ -10472,51 +9970,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_58_address0 = grp_dedup_murmurhash_fu_2991_key_58_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_58_address0 = grp_dedup_calcHash_fu_2858_str_58_address0;
-    end else begin
-        buffer_58_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_58_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_58_address1 = grp_dedup_murmurhash_fu_2991_key_58_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_58_address1 = grp_dedup_calcHash_fu_2858_str_58_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_58_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_58_address1 = grp_dedup_calcHash_fu_3607_str_58_address1;
     end else begin
         buffer_58_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_58_ce0 = grp_dedup_murmurhash_fu_2991_key_58_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_58_ce0 = grp_dedup_calcHash_fu_2858_str_58_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_58_ce0 = grp_dedup_calcHash_fu_3607_str_58_ce0;
     end else begin
         buffer_58_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_58_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_58_ce1 = grp_dedup_murmurhash_fu_2991_key_58_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_58_ce1 = grp_dedup_calcHash_fu_2858_str_58_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_58_ce1 = grp_dedup_calcHash_fu_3607_str_58_ce1;
     end else begin
         buffer_58_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_3A))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_3A))) begin
         buffer_58_we1 = 1'b1;
     end else begin
         buffer_58_we1 = 1'b0;
@@ -10524,51 +10006,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_59_address0 = grp_dedup_murmurhash_fu_2991_key_59_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_59_address0 = grp_dedup_calcHash_fu_2858_str_59_address0;
-    end else begin
-        buffer_59_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_59_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_59_address1 = grp_dedup_murmurhash_fu_2991_key_59_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_59_address1 = grp_dedup_calcHash_fu_2858_str_59_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_59_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_59_address1 = grp_dedup_calcHash_fu_3607_str_59_address1;
     end else begin
         buffer_59_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_59_ce0 = grp_dedup_murmurhash_fu_2991_key_59_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_59_ce0 = grp_dedup_calcHash_fu_2858_str_59_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_59_ce0 = grp_dedup_calcHash_fu_3607_str_59_ce0;
     end else begin
         buffer_59_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_59_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_59_ce1 = grp_dedup_murmurhash_fu_2991_key_59_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_59_ce1 = grp_dedup_calcHash_fu_2858_str_59_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_59_ce1 = grp_dedup_calcHash_fu_3607_str_59_ce1;
     end else begin
         buffer_59_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_3B))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_3B))) begin
         buffer_59_we1 = 1'b1;
     end else begin
         buffer_59_we1 = 1'b0;
@@ -10576,51 +10042,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_5_address0 = grp_dedup_murmurhash_fu_2991_key_5_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_5_address0 = grp_dedup_calcHash_fu_2858_str_5_address0;
-    end else begin
-        buffer_5_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_5_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_5_address1 = grp_dedup_murmurhash_fu_2991_key_5_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_5_address1 = grp_dedup_calcHash_fu_2858_str_5_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_5_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_5_address1 = grp_dedup_calcHash_fu_3607_str_5_address1;
     end else begin
         buffer_5_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_5_ce0 = grp_dedup_murmurhash_fu_2991_key_5_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_5_ce0 = grp_dedup_calcHash_fu_2858_str_5_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_5_ce0 = grp_dedup_calcHash_fu_3607_str_5_ce0;
     end else begin
         buffer_5_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_5_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_5_ce1 = grp_dedup_murmurhash_fu_2991_key_5_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_5_ce1 = grp_dedup_calcHash_fu_2858_str_5_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_5_ce1 = grp_dedup_calcHash_fu_3607_str_5_ce1;
     end else begin
         buffer_5_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_5))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_5))) begin
         buffer_5_we1 = 1'b1;
     end else begin
         buffer_5_we1 = 1'b0;
@@ -10628,51 +10078,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_60_address0 = grp_dedup_murmurhash_fu_2991_key_60_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_60_address0 = grp_dedup_calcHash_fu_2858_str_60_address0;
-    end else begin
-        buffer_60_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_60_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_60_address1 = grp_dedup_murmurhash_fu_2991_key_60_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_60_address1 = grp_dedup_calcHash_fu_2858_str_60_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_60_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_60_address1 = grp_dedup_calcHash_fu_3607_str_60_address1;
     end else begin
         buffer_60_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_60_ce0 = grp_dedup_murmurhash_fu_2991_key_60_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_60_ce0 = grp_dedup_calcHash_fu_2858_str_60_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_60_ce0 = grp_dedup_calcHash_fu_3607_str_60_ce0;
     end else begin
         buffer_60_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_60_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_60_ce1 = grp_dedup_murmurhash_fu_2991_key_60_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_60_ce1 = grp_dedup_calcHash_fu_2858_str_60_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_60_ce1 = grp_dedup_calcHash_fu_3607_str_60_ce1;
     end else begin
         buffer_60_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_3C))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_3C))) begin
         buffer_60_we1 = 1'b1;
     end else begin
         buffer_60_we1 = 1'b0;
@@ -10680,51 +10114,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_61_address0 = grp_dedup_murmurhash_fu_2991_key_61_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_61_address0 = grp_dedup_calcHash_fu_2858_str_61_address0;
-    end else begin
-        buffer_61_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_61_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_61_address1 = grp_dedup_murmurhash_fu_2991_key_61_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_61_address1 = grp_dedup_calcHash_fu_2858_str_61_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_61_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_61_address1 = grp_dedup_calcHash_fu_3607_str_61_address1;
     end else begin
         buffer_61_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_61_ce0 = grp_dedup_murmurhash_fu_2991_key_61_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_61_ce0 = grp_dedup_calcHash_fu_2858_str_61_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_61_ce0 = grp_dedup_calcHash_fu_3607_str_61_ce0;
     end else begin
         buffer_61_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_61_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_61_ce1 = grp_dedup_murmurhash_fu_2991_key_61_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_61_ce1 = grp_dedup_calcHash_fu_2858_str_61_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_61_ce1 = grp_dedup_calcHash_fu_3607_str_61_ce1;
     end else begin
         buffer_61_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_3D))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_3D))) begin
         buffer_61_we1 = 1'b1;
     end else begin
         buffer_61_we1 = 1'b0;
@@ -10732,51 +10150,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_62_address0 = grp_dedup_murmurhash_fu_2991_key_62_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_62_address0 = grp_dedup_calcHash_fu_2858_str_62_address0;
-    end else begin
-        buffer_62_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_62_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_62_address1 = grp_dedup_murmurhash_fu_2991_key_62_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_62_address1 = grp_dedup_calcHash_fu_2858_str_62_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_62_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_62_address1 = grp_dedup_calcHash_fu_3607_str_62_address1;
     end else begin
         buffer_62_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_62_ce0 = grp_dedup_murmurhash_fu_2991_key_62_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_62_ce0 = grp_dedup_calcHash_fu_2858_str_62_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_62_ce0 = grp_dedup_calcHash_fu_3607_str_62_ce0;
     end else begin
         buffer_62_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_62_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_62_ce1 = grp_dedup_murmurhash_fu_2991_key_62_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_62_ce1 = grp_dedup_calcHash_fu_2858_str_62_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_62_ce1 = grp_dedup_calcHash_fu_3607_str_62_ce1;
     end else begin
         buffer_62_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_3E))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_3E))) begin
         buffer_62_we1 = 1'b1;
     end else begin
         buffer_62_we1 = 1'b0;
@@ -10784,51 +10186,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_63_address0 = grp_dedup_murmurhash_fu_2991_key_63_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_63_address0 = grp_dedup_calcHash_fu_2858_str_63_address0;
-    end else begin
-        buffer_63_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_63_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_63_address1 = grp_dedup_murmurhash_fu_2991_key_63_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_63_address1 = grp_dedup_calcHash_fu_2858_str_63_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_63_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_63_address1 = grp_dedup_calcHash_fu_3607_str_63_address1;
     end else begin
         buffer_63_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_63_ce0 = grp_dedup_murmurhash_fu_2991_key_63_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_63_ce0 = grp_dedup_calcHash_fu_2858_str_63_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_63_ce0 = grp_dedup_calcHash_fu_3607_str_63_ce0;
     end else begin
         buffer_63_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_63_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_63_ce1 = grp_dedup_murmurhash_fu_2991_key_63_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_63_ce1 = grp_dedup_calcHash_fu_2858_str_63_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_63_ce1 = grp_dedup_calcHash_fu_3607_str_63_ce1;
     end else begin
         buffer_63_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_3F))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_3F))) begin
         buffer_63_we1 = 1'b1;
     end else begin
         buffer_63_we1 = 1'b0;
@@ -10836,51 +10222,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_64_address0 = grp_dedup_murmurhash_fu_2991_key_64_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_64_address0 = grp_dedup_calcHash_fu_2858_str_64_address0;
-    end else begin
-        buffer_64_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_64_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_64_address1 = grp_dedup_murmurhash_fu_2991_key_64_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_64_address1 = grp_dedup_calcHash_fu_2858_str_64_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_64_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_64_address1 = grp_dedup_calcHash_fu_3607_str_64_address1;
     end else begin
         buffer_64_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_64_ce0 = grp_dedup_murmurhash_fu_2991_key_64_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_64_ce0 = grp_dedup_calcHash_fu_2858_str_64_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_64_ce0 = grp_dedup_calcHash_fu_3607_str_64_ce0;
     end else begin
         buffer_64_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_64_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_64_ce1 = grp_dedup_murmurhash_fu_2991_key_64_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_64_ce1 = grp_dedup_calcHash_fu_2858_str_64_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_64_ce1 = grp_dedup_calcHash_fu_3607_str_64_ce1;
     end else begin
         buffer_64_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_40))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_40))) begin
         buffer_64_we1 = 1'b1;
     end else begin
         buffer_64_we1 = 1'b0;
@@ -10888,51 +10258,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_65_address0 = grp_dedup_murmurhash_fu_2991_key_65_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_65_address0 = grp_dedup_calcHash_fu_2858_str_65_address0;
-    end else begin
-        buffer_65_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_65_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_65_address1 = grp_dedup_murmurhash_fu_2991_key_65_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_65_address1 = grp_dedup_calcHash_fu_2858_str_65_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_65_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_65_address1 = grp_dedup_calcHash_fu_3607_str_65_address1;
     end else begin
         buffer_65_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_65_ce0 = grp_dedup_murmurhash_fu_2991_key_65_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_65_ce0 = grp_dedup_calcHash_fu_2858_str_65_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_65_ce0 = grp_dedup_calcHash_fu_3607_str_65_ce0;
     end else begin
         buffer_65_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_65_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_65_ce1 = grp_dedup_murmurhash_fu_2991_key_65_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_65_ce1 = grp_dedup_calcHash_fu_2858_str_65_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_65_ce1 = grp_dedup_calcHash_fu_3607_str_65_ce1;
     end else begin
         buffer_65_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_41))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_41))) begin
         buffer_65_we1 = 1'b1;
     end else begin
         buffer_65_we1 = 1'b0;
@@ -10940,51 +10294,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_66_address0 = grp_dedup_murmurhash_fu_2991_key_66_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_66_address0 = grp_dedup_calcHash_fu_2858_str_66_address0;
-    end else begin
-        buffer_66_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_66_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_66_address1 = grp_dedup_murmurhash_fu_2991_key_66_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_66_address1 = grp_dedup_calcHash_fu_2858_str_66_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_66_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_66_address1 = grp_dedup_calcHash_fu_3607_str_66_address1;
     end else begin
         buffer_66_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_66_ce0 = grp_dedup_murmurhash_fu_2991_key_66_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_66_ce0 = grp_dedup_calcHash_fu_2858_str_66_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_66_ce0 = grp_dedup_calcHash_fu_3607_str_66_ce0;
     end else begin
         buffer_66_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_66_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_66_ce1 = grp_dedup_murmurhash_fu_2991_key_66_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_66_ce1 = grp_dedup_calcHash_fu_2858_str_66_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_66_ce1 = grp_dedup_calcHash_fu_3607_str_66_ce1;
     end else begin
         buffer_66_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_42))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_42))) begin
         buffer_66_we1 = 1'b1;
     end else begin
         buffer_66_we1 = 1'b0;
@@ -10992,51 +10330,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_67_address0 = grp_dedup_murmurhash_fu_2991_key_67_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_67_address0 = grp_dedup_calcHash_fu_2858_str_67_address0;
-    end else begin
-        buffer_67_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_67_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_67_address1 = grp_dedup_murmurhash_fu_2991_key_67_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_67_address1 = grp_dedup_calcHash_fu_2858_str_67_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_67_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_67_address1 = grp_dedup_calcHash_fu_3607_str_67_address1;
     end else begin
         buffer_67_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_67_ce0 = grp_dedup_murmurhash_fu_2991_key_67_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_67_ce0 = grp_dedup_calcHash_fu_2858_str_67_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_67_ce0 = grp_dedup_calcHash_fu_3607_str_67_ce0;
     end else begin
         buffer_67_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_67_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_67_ce1 = grp_dedup_murmurhash_fu_2991_key_67_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_67_ce1 = grp_dedup_calcHash_fu_2858_str_67_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_67_ce1 = grp_dedup_calcHash_fu_3607_str_67_ce1;
     end else begin
         buffer_67_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_43))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_43))) begin
         buffer_67_we1 = 1'b1;
     end else begin
         buffer_67_we1 = 1'b0;
@@ -11044,51 +10366,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_68_address0 = grp_dedup_murmurhash_fu_2991_key_68_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_68_address0 = grp_dedup_calcHash_fu_2858_str_68_address0;
-    end else begin
-        buffer_68_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_68_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_68_address1 = grp_dedup_murmurhash_fu_2991_key_68_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_68_address1 = grp_dedup_calcHash_fu_2858_str_68_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_68_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_68_address1 = grp_dedup_calcHash_fu_3607_str_68_address1;
     end else begin
         buffer_68_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_68_ce0 = grp_dedup_murmurhash_fu_2991_key_68_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_68_ce0 = grp_dedup_calcHash_fu_2858_str_68_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_68_ce0 = grp_dedup_calcHash_fu_3607_str_68_ce0;
     end else begin
         buffer_68_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_68_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_68_ce1 = grp_dedup_murmurhash_fu_2991_key_68_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_68_ce1 = grp_dedup_calcHash_fu_2858_str_68_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_68_ce1 = grp_dedup_calcHash_fu_3607_str_68_ce1;
     end else begin
         buffer_68_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_44))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_44))) begin
         buffer_68_we1 = 1'b1;
     end else begin
         buffer_68_we1 = 1'b0;
@@ -11096,51 +10402,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_69_address0 = grp_dedup_murmurhash_fu_2991_key_69_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_69_address0 = grp_dedup_calcHash_fu_2858_str_69_address0;
-    end else begin
-        buffer_69_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_69_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_69_address1 = grp_dedup_murmurhash_fu_2991_key_69_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_69_address1 = grp_dedup_calcHash_fu_2858_str_69_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_69_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_69_address1 = grp_dedup_calcHash_fu_3607_str_69_address1;
     end else begin
         buffer_69_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_69_ce0 = grp_dedup_murmurhash_fu_2991_key_69_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_69_ce0 = grp_dedup_calcHash_fu_2858_str_69_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_69_ce0 = grp_dedup_calcHash_fu_3607_str_69_ce0;
     end else begin
         buffer_69_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_69_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_69_ce1 = grp_dedup_murmurhash_fu_2991_key_69_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_69_ce1 = grp_dedup_calcHash_fu_2858_str_69_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_69_ce1 = grp_dedup_calcHash_fu_3607_str_69_ce1;
     end else begin
         buffer_69_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_45))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_45))) begin
         buffer_69_we1 = 1'b1;
     end else begin
         buffer_69_we1 = 1'b0;
@@ -11148,51 +10438,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_6_address0 = grp_dedup_murmurhash_fu_2991_key_6_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_6_address0 = grp_dedup_calcHash_fu_2858_str_6_address0;
-    end else begin
-        buffer_6_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_6_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_6_address1 = grp_dedup_murmurhash_fu_2991_key_6_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_6_address1 = grp_dedup_calcHash_fu_2858_str_6_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_6_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_6_address1 = grp_dedup_calcHash_fu_3607_str_6_address1;
     end else begin
         buffer_6_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_6_ce0 = grp_dedup_murmurhash_fu_2991_key_6_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_6_ce0 = grp_dedup_calcHash_fu_2858_str_6_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_6_ce0 = grp_dedup_calcHash_fu_3607_str_6_ce0;
     end else begin
         buffer_6_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_6_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_6_ce1 = grp_dedup_murmurhash_fu_2991_key_6_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_6_ce1 = grp_dedup_calcHash_fu_2858_str_6_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_6_ce1 = grp_dedup_calcHash_fu_3607_str_6_ce1;
     end else begin
         buffer_6_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_6))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_6))) begin
         buffer_6_we1 = 1'b1;
     end else begin
         buffer_6_we1 = 1'b0;
@@ -11200,51 +10474,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_70_address0 = grp_dedup_murmurhash_fu_2991_key_70_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_70_address0 = grp_dedup_calcHash_fu_2858_str_70_address0;
-    end else begin
-        buffer_70_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_70_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_70_address1 = grp_dedup_murmurhash_fu_2991_key_70_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_70_address1 = grp_dedup_calcHash_fu_2858_str_70_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_70_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_70_address1 = grp_dedup_calcHash_fu_3607_str_70_address1;
     end else begin
         buffer_70_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_70_ce0 = grp_dedup_murmurhash_fu_2991_key_70_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_70_ce0 = grp_dedup_calcHash_fu_2858_str_70_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_70_ce0 = grp_dedup_calcHash_fu_3607_str_70_ce0;
     end else begin
         buffer_70_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_70_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_70_ce1 = grp_dedup_murmurhash_fu_2991_key_70_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_70_ce1 = grp_dedup_calcHash_fu_2858_str_70_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_70_ce1 = grp_dedup_calcHash_fu_3607_str_70_ce1;
     end else begin
         buffer_70_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_46))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_46))) begin
         buffer_70_we1 = 1'b1;
     end else begin
         buffer_70_we1 = 1'b0;
@@ -11252,51 +10510,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_71_address0 = grp_dedup_murmurhash_fu_2991_key_71_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_71_address0 = grp_dedup_calcHash_fu_2858_str_71_address0;
-    end else begin
-        buffer_71_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_71_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_71_address1 = grp_dedup_murmurhash_fu_2991_key_71_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_71_address1 = grp_dedup_calcHash_fu_2858_str_71_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_71_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_71_address1 = grp_dedup_calcHash_fu_3607_str_71_address1;
     end else begin
         buffer_71_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_71_ce0 = grp_dedup_murmurhash_fu_2991_key_71_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_71_ce0 = grp_dedup_calcHash_fu_2858_str_71_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_71_ce0 = grp_dedup_calcHash_fu_3607_str_71_ce0;
     end else begin
         buffer_71_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_71_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_71_ce1 = grp_dedup_murmurhash_fu_2991_key_71_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_71_ce1 = grp_dedup_calcHash_fu_2858_str_71_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_71_ce1 = grp_dedup_calcHash_fu_3607_str_71_ce1;
     end else begin
         buffer_71_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_47))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_47))) begin
         buffer_71_we1 = 1'b1;
     end else begin
         buffer_71_we1 = 1'b0;
@@ -11304,51 +10546,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_72_address0 = grp_dedup_murmurhash_fu_2991_key_72_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_72_address0 = grp_dedup_calcHash_fu_2858_str_72_address0;
-    end else begin
-        buffer_72_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_72_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_72_address1 = grp_dedup_murmurhash_fu_2991_key_72_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_72_address1 = grp_dedup_calcHash_fu_2858_str_72_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_72_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_72_address1 = grp_dedup_calcHash_fu_3607_str_72_address1;
     end else begin
         buffer_72_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_72_ce0 = grp_dedup_murmurhash_fu_2991_key_72_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_72_ce0 = grp_dedup_calcHash_fu_2858_str_72_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_72_ce0 = grp_dedup_calcHash_fu_3607_str_72_ce0;
     end else begin
         buffer_72_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_72_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_72_ce1 = grp_dedup_murmurhash_fu_2991_key_72_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_72_ce1 = grp_dedup_calcHash_fu_2858_str_72_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_72_ce1 = grp_dedup_calcHash_fu_3607_str_72_ce1;
     end else begin
         buffer_72_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_48))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_48))) begin
         buffer_72_we1 = 1'b1;
     end else begin
         buffer_72_we1 = 1'b0;
@@ -11356,51 +10582,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_73_address0 = grp_dedup_murmurhash_fu_2991_key_73_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_73_address0 = grp_dedup_calcHash_fu_2858_str_73_address0;
-    end else begin
-        buffer_73_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_73_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_73_address1 = grp_dedup_murmurhash_fu_2991_key_73_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_73_address1 = grp_dedup_calcHash_fu_2858_str_73_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_73_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_73_address1 = grp_dedup_calcHash_fu_3607_str_73_address1;
     end else begin
         buffer_73_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_73_ce0 = grp_dedup_murmurhash_fu_2991_key_73_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_73_ce0 = grp_dedup_calcHash_fu_2858_str_73_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_73_ce0 = grp_dedup_calcHash_fu_3607_str_73_ce0;
     end else begin
         buffer_73_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_73_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_73_ce1 = grp_dedup_murmurhash_fu_2991_key_73_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_73_ce1 = grp_dedup_calcHash_fu_2858_str_73_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_73_ce1 = grp_dedup_calcHash_fu_3607_str_73_ce1;
     end else begin
         buffer_73_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_49))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_49))) begin
         buffer_73_we1 = 1'b1;
     end else begin
         buffer_73_we1 = 1'b0;
@@ -11408,51 +10618,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_74_address0 = grp_dedup_murmurhash_fu_2991_key_74_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_74_address0 = grp_dedup_calcHash_fu_2858_str_74_address0;
-    end else begin
-        buffer_74_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_74_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_74_address1 = grp_dedup_murmurhash_fu_2991_key_74_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_74_address1 = grp_dedup_calcHash_fu_2858_str_74_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_74_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_74_address1 = grp_dedup_calcHash_fu_3607_str_74_address1;
     end else begin
         buffer_74_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_74_ce0 = grp_dedup_murmurhash_fu_2991_key_74_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_74_ce0 = grp_dedup_calcHash_fu_2858_str_74_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_74_ce0 = grp_dedup_calcHash_fu_3607_str_74_ce0;
     end else begin
         buffer_74_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_74_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_74_ce1 = grp_dedup_murmurhash_fu_2991_key_74_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_74_ce1 = grp_dedup_calcHash_fu_2858_str_74_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_74_ce1 = grp_dedup_calcHash_fu_3607_str_74_ce1;
     end else begin
         buffer_74_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_4A))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_4A))) begin
         buffer_74_we1 = 1'b1;
     end else begin
         buffer_74_we1 = 1'b0;
@@ -11460,51 +10654,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_75_address0 = grp_dedup_murmurhash_fu_2991_key_75_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_75_address0 = grp_dedup_calcHash_fu_2858_str_75_address0;
-    end else begin
-        buffer_75_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_75_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_75_address1 = grp_dedup_murmurhash_fu_2991_key_75_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_75_address1 = grp_dedup_calcHash_fu_2858_str_75_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_75_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_75_address1 = grp_dedup_calcHash_fu_3607_str_75_address1;
     end else begin
         buffer_75_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_75_ce0 = grp_dedup_murmurhash_fu_2991_key_75_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_75_ce0 = grp_dedup_calcHash_fu_2858_str_75_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_75_ce0 = grp_dedup_calcHash_fu_3607_str_75_ce0;
     end else begin
         buffer_75_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_75_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_75_ce1 = grp_dedup_murmurhash_fu_2991_key_75_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_75_ce1 = grp_dedup_calcHash_fu_2858_str_75_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_75_ce1 = grp_dedup_calcHash_fu_3607_str_75_ce1;
     end else begin
         buffer_75_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_4B))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_4B))) begin
         buffer_75_we1 = 1'b1;
     end else begin
         buffer_75_we1 = 1'b0;
@@ -11512,51 +10690,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_76_address0 = grp_dedup_murmurhash_fu_2991_key_76_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_76_address0 = grp_dedup_calcHash_fu_2858_str_76_address0;
-    end else begin
-        buffer_76_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_76_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_76_address1 = grp_dedup_murmurhash_fu_2991_key_76_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_76_address1 = grp_dedup_calcHash_fu_2858_str_76_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_76_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_76_address1 = grp_dedup_calcHash_fu_3607_str_76_address1;
     end else begin
         buffer_76_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_76_ce0 = grp_dedup_murmurhash_fu_2991_key_76_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_76_ce0 = grp_dedup_calcHash_fu_2858_str_76_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_76_ce0 = grp_dedup_calcHash_fu_3607_str_76_ce0;
     end else begin
         buffer_76_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_76_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_76_ce1 = grp_dedup_murmurhash_fu_2991_key_76_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_76_ce1 = grp_dedup_calcHash_fu_2858_str_76_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_76_ce1 = grp_dedup_calcHash_fu_3607_str_76_ce1;
     end else begin
         buffer_76_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_4C))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_4C))) begin
         buffer_76_we1 = 1'b1;
     end else begin
         buffer_76_we1 = 1'b0;
@@ -11564,51 +10726,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_77_address0 = grp_dedup_murmurhash_fu_2991_key_77_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_77_address0 = grp_dedup_calcHash_fu_2858_str_77_address0;
-    end else begin
-        buffer_77_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_77_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_77_address1 = grp_dedup_murmurhash_fu_2991_key_77_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_77_address1 = grp_dedup_calcHash_fu_2858_str_77_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_77_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_77_address1 = grp_dedup_calcHash_fu_3607_str_77_address1;
     end else begin
         buffer_77_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_77_ce0 = grp_dedup_murmurhash_fu_2991_key_77_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_77_ce0 = grp_dedup_calcHash_fu_2858_str_77_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_77_ce0 = grp_dedup_calcHash_fu_3607_str_77_ce0;
     end else begin
         buffer_77_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_77_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_77_ce1 = grp_dedup_murmurhash_fu_2991_key_77_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_77_ce1 = grp_dedup_calcHash_fu_2858_str_77_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_77_ce1 = grp_dedup_calcHash_fu_3607_str_77_ce1;
     end else begin
         buffer_77_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_4D))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_4D))) begin
         buffer_77_we1 = 1'b1;
     end else begin
         buffer_77_we1 = 1'b0;
@@ -11616,51 +10762,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_78_address0 = grp_dedup_murmurhash_fu_2991_key_78_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_78_address0 = grp_dedup_calcHash_fu_2858_str_78_address0;
-    end else begin
-        buffer_78_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_78_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_78_address1 = grp_dedup_murmurhash_fu_2991_key_78_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_78_address1 = grp_dedup_calcHash_fu_2858_str_78_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_78_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_78_address1 = grp_dedup_calcHash_fu_3607_str_78_address1;
     end else begin
         buffer_78_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_78_ce0 = grp_dedup_murmurhash_fu_2991_key_78_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_78_ce0 = grp_dedup_calcHash_fu_2858_str_78_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_78_ce0 = grp_dedup_calcHash_fu_3607_str_78_ce0;
     end else begin
         buffer_78_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_78_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_78_ce1 = grp_dedup_murmurhash_fu_2991_key_78_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_78_ce1 = grp_dedup_calcHash_fu_2858_str_78_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_78_ce1 = grp_dedup_calcHash_fu_3607_str_78_ce1;
     end else begin
         buffer_78_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_4E))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_4E))) begin
         buffer_78_we1 = 1'b1;
     end else begin
         buffer_78_we1 = 1'b0;
@@ -11668,51 +10798,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_79_address0 = grp_dedup_murmurhash_fu_2991_key_79_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_79_address0 = grp_dedup_calcHash_fu_2858_str_79_address0;
-    end else begin
-        buffer_79_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_79_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_79_address1 = grp_dedup_murmurhash_fu_2991_key_79_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_79_address1 = grp_dedup_calcHash_fu_2858_str_79_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_79_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_79_address1 = grp_dedup_calcHash_fu_3607_str_79_address1;
     end else begin
         buffer_79_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_79_ce0 = grp_dedup_murmurhash_fu_2991_key_79_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_79_ce0 = grp_dedup_calcHash_fu_2858_str_79_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_79_ce0 = grp_dedup_calcHash_fu_3607_str_79_ce0;
     end else begin
         buffer_79_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_79_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_79_ce1 = grp_dedup_murmurhash_fu_2991_key_79_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_79_ce1 = grp_dedup_calcHash_fu_2858_str_79_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_79_ce1 = grp_dedup_calcHash_fu_3607_str_79_ce1;
     end else begin
         buffer_79_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_4F))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_4F))) begin
         buffer_79_we1 = 1'b1;
     end else begin
         buffer_79_we1 = 1'b0;
@@ -11720,51 +10834,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_7_address0 = grp_dedup_murmurhash_fu_2991_key_7_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_7_address0 = grp_dedup_calcHash_fu_2858_str_7_address0;
-    end else begin
-        buffer_7_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_7_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_7_address1 = grp_dedup_murmurhash_fu_2991_key_7_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_7_address1 = grp_dedup_calcHash_fu_2858_str_7_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_7_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_7_address1 = grp_dedup_calcHash_fu_3607_str_7_address1;
     end else begin
         buffer_7_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_7_ce0 = grp_dedup_murmurhash_fu_2991_key_7_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_7_ce0 = grp_dedup_calcHash_fu_2858_str_7_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_7_ce0 = grp_dedup_calcHash_fu_3607_str_7_ce0;
     end else begin
         buffer_7_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_7_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_7_ce1 = grp_dedup_murmurhash_fu_2991_key_7_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_7_ce1 = grp_dedup_calcHash_fu_2858_str_7_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_7_ce1 = grp_dedup_calcHash_fu_3607_str_7_ce1;
     end else begin
         buffer_7_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_7))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_7))) begin
         buffer_7_we1 = 1'b1;
     end else begin
         buffer_7_we1 = 1'b0;
@@ -11772,51 +10870,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_80_address0 = grp_dedup_murmurhash_fu_2991_key_80_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_80_address0 = grp_dedup_calcHash_fu_2858_str_80_address0;
-    end else begin
-        buffer_80_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_80_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_80_address1 = grp_dedup_murmurhash_fu_2991_key_80_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_80_address1 = grp_dedup_calcHash_fu_2858_str_80_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_80_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_80_address1 = grp_dedup_calcHash_fu_3607_str_80_address1;
     end else begin
         buffer_80_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_80_ce0 = grp_dedup_murmurhash_fu_2991_key_80_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_80_ce0 = grp_dedup_calcHash_fu_2858_str_80_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_80_ce0 = grp_dedup_calcHash_fu_3607_str_80_ce0;
     end else begin
         buffer_80_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_80_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_80_ce1 = grp_dedup_murmurhash_fu_2991_key_80_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_80_ce1 = grp_dedup_calcHash_fu_2858_str_80_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_80_ce1 = grp_dedup_calcHash_fu_3607_str_80_ce1;
     end else begin
         buffer_80_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_50))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_50))) begin
         buffer_80_we1 = 1'b1;
     end else begin
         buffer_80_we1 = 1'b0;
@@ -11824,51 +10906,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_81_address0 = grp_dedup_murmurhash_fu_2991_key_81_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_81_address0 = grp_dedup_calcHash_fu_2858_str_81_address0;
-    end else begin
-        buffer_81_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_81_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_81_address1 = grp_dedup_murmurhash_fu_2991_key_81_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_81_address1 = grp_dedup_calcHash_fu_2858_str_81_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_81_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_81_address1 = grp_dedup_calcHash_fu_3607_str_81_address1;
     end else begin
         buffer_81_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_81_ce0 = grp_dedup_murmurhash_fu_2991_key_81_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_81_ce0 = grp_dedup_calcHash_fu_2858_str_81_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_81_ce0 = grp_dedup_calcHash_fu_3607_str_81_ce0;
     end else begin
         buffer_81_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_81_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_81_ce1 = grp_dedup_murmurhash_fu_2991_key_81_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_81_ce1 = grp_dedup_calcHash_fu_2858_str_81_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_81_ce1 = grp_dedup_calcHash_fu_3607_str_81_ce1;
     end else begin
         buffer_81_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_51))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_51))) begin
         buffer_81_we1 = 1'b1;
     end else begin
         buffer_81_we1 = 1'b0;
@@ -11876,51 +10942,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_82_address0 = grp_dedup_murmurhash_fu_2991_key_82_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_82_address0 = grp_dedup_calcHash_fu_2858_str_82_address0;
-    end else begin
-        buffer_82_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_82_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_82_address1 = grp_dedup_murmurhash_fu_2991_key_82_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_82_address1 = grp_dedup_calcHash_fu_2858_str_82_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_82_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_82_address1 = grp_dedup_calcHash_fu_3607_str_82_address1;
     end else begin
         buffer_82_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_82_ce0 = grp_dedup_murmurhash_fu_2991_key_82_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_82_ce0 = grp_dedup_calcHash_fu_2858_str_82_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_82_ce0 = grp_dedup_calcHash_fu_3607_str_82_ce0;
     end else begin
         buffer_82_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_82_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_82_ce1 = grp_dedup_murmurhash_fu_2991_key_82_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_82_ce1 = grp_dedup_calcHash_fu_2858_str_82_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_82_ce1 = grp_dedup_calcHash_fu_3607_str_82_ce1;
     end else begin
         buffer_82_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_52))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_52))) begin
         buffer_82_we1 = 1'b1;
     end else begin
         buffer_82_we1 = 1'b0;
@@ -11928,51 +10978,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_83_address0 = grp_dedup_murmurhash_fu_2991_key_83_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_83_address0 = grp_dedup_calcHash_fu_2858_str_83_address0;
-    end else begin
-        buffer_83_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_83_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_83_address1 = grp_dedup_murmurhash_fu_2991_key_83_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_83_address1 = grp_dedup_calcHash_fu_2858_str_83_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_83_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_83_address1 = grp_dedup_calcHash_fu_3607_str_83_address1;
     end else begin
         buffer_83_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_83_ce0 = grp_dedup_murmurhash_fu_2991_key_83_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_83_ce0 = grp_dedup_calcHash_fu_2858_str_83_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_83_ce0 = grp_dedup_calcHash_fu_3607_str_83_ce0;
     end else begin
         buffer_83_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_83_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_83_ce1 = grp_dedup_murmurhash_fu_2991_key_83_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_83_ce1 = grp_dedup_calcHash_fu_2858_str_83_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_83_ce1 = grp_dedup_calcHash_fu_3607_str_83_ce1;
     end else begin
         buffer_83_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_53))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_53))) begin
         buffer_83_we1 = 1'b1;
     end else begin
         buffer_83_we1 = 1'b0;
@@ -11980,51 +11014,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_84_address0 = grp_dedup_murmurhash_fu_2991_key_84_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_84_address0 = grp_dedup_calcHash_fu_2858_str_84_address0;
-    end else begin
-        buffer_84_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_84_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_84_address1 = grp_dedup_murmurhash_fu_2991_key_84_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_84_address1 = grp_dedup_calcHash_fu_2858_str_84_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_84_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_84_address1 = grp_dedup_calcHash_fu_3607_str_84_address1;
     end else begin
         buffer_84_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_84_ce0 = grp_dedup_murmurhash_fu_2991_key_84_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_84_ce0 = grp_dedup_calcHash_fu_2858_str_84_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_84_ce0 = grp_dedup_calcHash_fu_3607_str_84_ce0;
     end else begin
         buffer_84_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_84_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_84_ce1 = grp_dedup_murmurhash_fu_2991_key_84_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_84_ce1 = grp_dedup_calcHash_fu_2858_str_84_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_84_ce1 = grp_dedup_calcHash_fu_3607_str_84_ce1;
     end else begin
         buffer_84_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_54))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_54))) begin
         buffer_84_we1 = 1'b1;
     end else begin
         buffer_84_we1 = 1'b0;
@@ -12032,51 +11050,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_85_address0 = grp_dedup_murmurhash_fu_2991_key_85_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_85_address0 = grp_dedup_calcHash_fu_2858_str_85_address0;
-    end else begin
-        buffer_85_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_85_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_85_address1 = grp_dedup_murmurhash_fu_2991_key_85_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_85_address1 = grp_dedup_calcHash_fu_2858_str_85_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_85_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_85_address1 = grp_dedup_calcHash_fu_3607_str_85_address1;
     end else begin
         buffer_85_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_85_ce0 = grp_dedup_murmurhash_fu_2991_key_85_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_85_ce0 = grp_dedup_calcHash_fu_2858_str_85_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_85_ce0 = grp_dedup_calcHash_fu_3607_str_85_ce0;
     end else begin
         buffer_85_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_85_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_85_ce1 = grp_dedup_murmurhash_fu_2991_key_85_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_85_ce1 = grp_dedup_calcHash_fu_2858_str_85_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_85_ce1 = grp_dedup_calcHash_fu_3607_str_85_ce1;
     end else begin
         buffer_85_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_55))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_55))) begin
         buffer_85_we1 = 1'b1;
     end else begin
         buffer_85_we1 = 1'b0;
@@ -12084,51 +11086,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_86_address0 = grp_dedup_murmurhash_fu_2991_key_86_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_86_address0 = grp_dedup_calcHash_fu_2858_str_86_address0;
-    end else begin
-        buffer_86_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_86_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_86_address1 = grp_dedup_murmurhash_fu_2991_key_86_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_86_address1 = grp_dedup_calcHash_fu_2858_str_86_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_86_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_86_address1 = grp_dedup_calcHash_fu_3607_str_86_address1;
     end else begin
         buffer_86_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_86_ce0 = grp_dedup_murmurhash_fu_2991_key_86_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_86_ce0 = grp_dedup_calcHash_fu_2858_str_86_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_86_ce0 = grp_dedup_calcHash_fu_3607_str_86_ce0;
     end else begin
         buffer_86_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_86_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_86_ce1 = grp_dedup_murmurhash_fu_2991_key_86_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_86_ce1 = grp_dedup_calcHash_fu_2858_str_86_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_86_ce1 = grp_dedup_calcHash_fu_3607_str_86_ce1;
     end else begin
         buffer_86_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_56))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_56))) begin
         buffer_86_we1 = 1'b1;
     end else begin
         buffer_86_we1 = 1'b0;
@@ -12136,51 +11122,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_87_address0 = grp_dedup_murmurhash_fu_2991_key_87_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_87_address0 = grp_dedup_calcHash_fu_2858_str_87_address0;
-    end else begin
-        buffer_87_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_87_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_87_address1 = grp_dedup_murmurhash_fu_2991_key_87_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_87_address1 = grp_dedup_calcHash_fu_2858_str_87_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_87_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_87_address1 = grp_dedup_calcHash_fu_3607_str_87_address1;
     end else begin
         buffer_87_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_87_ce0 = grp_dedup_murmurhash_fu_2991_key_87_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_87_ce0 = grp_dedup_calcHash_fu_2858_str_87_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_87_ce0 = grp_dedup_calcHash_fu_3607_str_87_ce0;
     end else begin
         buffer_87_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_87_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_87_ce1 = grp_dedup_murmurhash_fu_2991_key_87_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_87_ce1 = grp_dedup_calcHash_fu_2858_str_87_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_87_ce1 = grp_dedup_calcHash_fu_3607_str_87_ce1;
     end else begin
         buffer_87_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_57))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_57))) begin
         buffer_87_we1 = 1'b1;
     end else begin
         buffer_87_we1 = 1'b0;
@@ -12188,51 +11158,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_88_address0 = grp_dedup_murmurhash_fu_2991_key_88_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_88_address0 = grp_dedup_calcHash_fu_2858_str_88_address0;
-    end else begin
-        buffer_88_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_88_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_88_address1 = grp_dedup_murmurhash_fu_2991_key_88_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_88_address1 = grp_dedup_calcHash_fu_2858_str_88_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_88_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_88_address1 = grp_dedup_calcHash_fu_3607_str_88_address1;
     end else begin
         buffer_88_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_88_ce0 = grp_dedup_murmurhash_fu_2991_key_88_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_88_ce0 = grp_dedup_calcHash_fu_2858_str_88_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_88_ce0 = grp_dedup_calcHash_fu_3607_str_88_ce0;
     end else begin
         buffer_88_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_88_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_88_ce1 = grp_dedup_murmurhash_fu_2991_key_88_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_88_ce1 = grp_dedup_calcHash_fu_2858_str_88_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_88_ce1 = grp_dedup_calcHash_fu_3607_str_88_ce1;
     end else begin
         buffer_88_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_58))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_58))) begin
         buffer_88_we1 = 1'b1;
     end else begin
         buffer_88_we1 = 1'b0;
@@ -12240,51 +11194,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_89_address0 = grp_dedup_murmurhash_fu_2991_key_89_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_89_address0 = grp_dedup_calcHash_fu_2858_str_89_address0;
-    end else begin
-        buffer_89_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_89_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_89_address1 = grp_dedup_murmurhash_fu_2991_key_89_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_89_address1 = grp_dedup_calcHash_fu_2858_str_89_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_89_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_89_address1 = grp_dedup_calcHash_fu_3607_str_89_address1;
     end else begin
         buffer_89_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_89_ce0 = grp_dedup_murmurhash_fu_2991_key_89_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_89_ce0 = grp_dedup_calcHash_fu_2858_str_89_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_89_ce0 = grp_dedup_calcHash_fu_3607_str_89_ce0;
     end else begin
         buffer_89_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_89_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_89_ce1 = grp_dedup_murmurhash_fu_2991_key_89_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_89_ce1 = grp_dedup_calcHash_fu_2858_str_89_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_89_ce1 = grp_dedup_calcHash_fu_3607_str_89_ce1;
     end else begin
         buffer_89_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_59))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_59))) begin
         buffer_89_we1 = 1'b1;
     end else begin
         buffer_89_we1 = 1'b0;
@@ -12292,51 +11230,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_8_address0 = grp_dedup_murmurhash_fu_2991_key_8_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_8_address0 = grp_dedup_calcHash_fu_2858_str_8_address0;
-    end else begin
-        buffer_8_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_8_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_8_address1 = grp_dedup_murmurhash_fu_2991_key_8_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_8_address1 = grp_dedup_calcHash_fu_2858_str_8_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_8_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_8_address1 = grp_dedup_calcHash_fu_3607_str_8_address1;
     end else begin
         buffer_8_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_8_ce0 = grp_dedup_murmurhash_fu_2991_key_8_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_8_ce0 = grp_dedup_calcHash_fu_2858_str_8_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_8_ce0 = grp_dedup_calcHash_fu_3607_str_8_ce0;
     end else begin
         buffer_8_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_8_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_8_ce1 = grp_dedup_murmurhash_fu_2991_key_8_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_8_ce1 = grp_dedup_calcHash_fu_2858_str_8_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_8_ce1 = grp_dedup_calcHash_fu_3607_str_8_ce1;
     end else begin
         buffer_8_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_8))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_8))) begin
         buffer_8_we1 = 1'b1;
     end else begin
         buffer_8_we1 = 1'b0;
@@ -12344,51 +11266,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_90_address0 = grp_dedup_murmurhash_fu_2991_key_90_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_90_address0 = grp_dedup_calcHash_fu_2858_str_90_address0;
-    end else begin
-        buffer_90_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_90_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_90_address1 = grp_dedup_murmurhash_fu_2991_key_90_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_90_address1 = grp_dedup_calcHash_fu_2858_str_90_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_90_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_90_address1 = grp_dedup_calcHash_fu_3607_str_90_address1;
     end else begin
         buffer_90_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_90_ce0 = grp_dedup_murmurhash_fu_2991_key_90_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_90_ce0 = grp_dedup_calcHash_fu_2858_str_90_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_90_ce0 = grp_dedup_calcHash_fu_3607_str_90_ce0;
     end else begin
         buffer_90_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_90_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_90_ce1 = grp_dedup_murmurhash_fu_2991_key_90_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_90_ce1 = grp_dedup_calcHash_fu_2858_str_90_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_90_ce1 = grp_dedup_calcHash_fu_3607_str_90_ce1;
     end else begin
         buffer_90_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_5A))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_5A))) begin
         buffer_90_we1 = 1'b1;
     end else begin
         buffer_90_we1 = 1'b0;
@@ -12396,51 +11302,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_91_address0 = grp_dedup_murmurhash_fu_2991_key_91_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_91_address0 = grp_dedup_calcHash_fu_2858_str_91_address0;
-    end else begin
-        buffer_91_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_91_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_91_address1 = grp_dedup_murmurhash_fu_2991_key_91_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_91_address1 = grp_dedup_calcHash_fu_2858_str_91_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_91_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_91_address1 = grp_dedup_calcHash_fu_3607_str_91_address1;
     end else begin
         buffer_91_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_91_ce0 = grp_dedup_murmurhash_fu_2991_key_91_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_91_ce0 = grp_dedup_calcHash_fu_2858_str_91_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_91_ce0 = grp_dedup_calcHash_fu_3607_str_91_ce0;
     end else begin
         buffer_91_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_91_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_91_ce1 = grp_dedup_murmurhash_fu_2991_key_91_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_91_ce1 = grp_dedup_calcHash_fu_2858_str_91_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_91_ce1 = grp_dedup_calcHash_fu_3607_str_91_ce1;
     end else begin
         buffer_91_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_5B))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_5B))) begin
         buffer_91_we1 = 1'b1;
     end else begin
         buffer_91_we1 = 1'b0;
@@ -12448,51 +11338,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_92_address0 = grp_dedup_murmurhash_fu_2991_key_92_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_92_address0 = grp_dedup_calcHash_fu_2858_str_92_address0;
-    end else begin
-        buffer_92_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_92_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_92_address1 = grp_dedup_murmurhash_fu_2991_key_92_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_92_address1 = grp_dedup_calcHash_fu_2858_str_92_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_92_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_92_address1 = grp_dedup_calcHash_fu_3607_str_92_address1;
     end else begin
         buffer_92_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_92_ce0 = grp_dedup_murmurhash_fu_2991_key_92_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_92_ce0 = grp_dedup_calcHash_fu_2858_str_92_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_92_ce0 = grp_dedup_calcHash_fu_3607_str_92_ce0;
     end else begin
         buffer_92_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_92_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_92_ce1 = grp_dedup_murmurhash_fu_2991_key_92_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_92_ce1 = grp_dedup_calcHash_fu_2858_str_92_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_92_ce1 = grp_dedup_calcHash_fu_3607_str_92_ce1;
     end else begin
         buffer_92_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_5C))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_5C))) begin
         buffer_92_we1 = 1'b1;
     end else begin
         buffer_92_we1 = 1'b0;
@@ -12500,51 +11374,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_93_address0 = grp_dedup_murmurhash_fu_2991_key_93_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_93_address0 = grp_dedup_calcHash_fu_2858_str_93_address0;
-    end else begin
-        buffer_93_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_93_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_93_address1 = grp_dedup_murmurhash_fu_2991_key_93_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_93_address1 = grp_dedup_calcHash_fu_2858_str_93_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_93_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_93_address1 = grp_dedup_calcHash_fu_3607_str_93_address1;
     end else begin
         buffer_93_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_93_ce0 = grp_dedup_murmurhash_fu_2991_key_93_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_93_ce0 = grp_dedup_calcHash_fu_2858_str_93_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_93_ce0 = grp_dedup_calcHash_fu_3607_str_93_ce0;
     end else begin
         buffer_93_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_93_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_93_ce1 = grp_dedup_murmurhash_fu_2991_key_93_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_93_ce1 = grp_dedup_calcHash_fu_2858_str_93_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_93_ce1 = grp_dedup_calcHash_fu_3607_str_93_ce1;
     end else begin
         buffer_93_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_5D))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_5D))) begin
         buffer_93_we1 = 1'b1;
     end else begin
         buffer_93_we1 = 1'b0;
@@ -12552,51 +11410,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_94_address0 = grp_dedup_murmurhash_fu_2991_key_94_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_94_address0 = grp_dedup_calcHash_fu_2858_str_94_address0;
-    end else begin
-        buffer_94_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_94_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_94_address1 = grp_dedup_murmurhash_fu_2991_key_94_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_94_address1 = grp_dedup_calcHash_fu_2858_str_94_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_94_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_94_address1 = grp_dedup_calcHash_fu_3607_str_94_address1;
     end else begin
         buffer_94_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_94_ce0 = grp_dedup_murmurhash_fu_2991_key_94_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_94_ce0 = grp_dedup_calcHash_fu_2858_str_94_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_94_ce0 = grp_dedup_calcHash_fu_3607_str_94_ce0;
     end else begin
         buffer_94_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_94_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_94_ce1 = grp_dedup_murmurhash_fu_2991_key_94_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_94_ce1 = grp_dedup_calcHash_fu_2858_str_94_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_94_ce1 = grp_dedup_calcHash_fu_3607_str_94_ce1;
     end else begin
         buffer_94_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_5E))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_5E))) begin
         buffer_94_we1 = 1'b1;
     end else begin
         buffer_94_we1 = 1'b0;
@@ -12604,51 +11446,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_95_address0 = grp_dedup_murmurhash_fu_2991_key_95_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_95_address0 = grp_dedup_calcHash_fu_2858_str_95_address0;
-    end else begin
-        buffer_95_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_95_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_95_address1 = grp_dedup_murmurhash_fu_2991_key_95_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_95_address1 = grp_dedup_calcHash_fu_2858_str_95_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_95_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_95_address1 = grp_dedup_calcHash_fu_3607_str_95_address1;
     end else begin
         buffer_95_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_95_ce0 = grp_dedup_murmurhash_fu_2991_key_95_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_95_ce0 = grp_dedup_calcHash_fu_2858_str_95_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_95_ce0 = grp_dedup_calcHash_fu_3607_str_95_ce0;
     end else begin
         buffer_95_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_95_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_95_ce1 = grp_dedup_murmurhash_fu_2991_key_95_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_95_ce1 = grp_dedup_calcHash_fu_2858_str_95_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_95_ce1 = grp_dedup_calcHash_fu_3607_str_95_ce1;
     end else begin
         buffer_95_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_5F))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_5F))) begin
         buffer_95_we1 = 1'b1;
     end else begin
         buffer_95_we1 = 1'b0;
@@ -12656,51 +11482,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_96_address0 = grp_dedup_murmurhash_fu_2991_key_96_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_96_address0 = grp_dedup_calcHash_fu_2858_str_96_address0;
-    end else begin
-        buffer_96_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_96_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_96_address1 = grp_dedup_murmurhash_fu_2991_key_96_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_96_address1 = grp_dedup_calcHash_fu_2858_str_96_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_96_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_96_address1 = grp_dedup_calcHash_fu_3607_str_96_address1;
     end else begin
         buffer_96_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_96_ce0 = grp_dedup_murmurhash_fu_2991_key_96_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_96_ce0 = grp_dedup_calcHash_fu_2858_str_96_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_96_ce0 = grp_dedup_calcHash_fu_3607_str_96_ce0;
     end else begin
         buffer_96_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_96_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_96_ce1 = grp_dedup_murmurhash_fu_2991_key_96_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_96_ce1 = grp_dedup_calcHash_fu_2858_str_96_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_96_ce1 = grp_dedup_calcHash_fu_3607_str_96_ce1;
     end else begin
         buffer_96_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_60))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_60))) begin
         buffer_96_we1 = 1'b1;
     end else begin
         buffer_96_we1 = 1'b0;
@@ -12708,51 +11518,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_97_address0 = grp_dedup_murmurhash_fu_2991_key_97_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_97_address0 = grp_dedup_calcHash_fu_2858_str_97_address0;
-    end else begin
-        buffer_97_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_97_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_97_address1 = grp_dedup_murmurhash_fu_2991_key_97_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_97_address1 = grp_dedup_calcHash_fu_2858_str_97_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_97_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_97_address1 = grp_dedup_calcHash_fu_3607_str_97_address1;
     end else begin
         buffer_97_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_97_ce0 = grp_dedup_murmurhash_fu_2991_key_97_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_97_ce0 = grp_dedup_calcHash_fu_2858_str_97_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_97_ce0 = grp_dedup_calcHash_fu_3607_str_97_ce0;
     end else begin
         buffer_97_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_97_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_97_ce1 = grp_dedup_murmurhash_fu_2991_key_97_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_97_ce1 = grp_dedup_calcHash_fu_2858_str_97_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_97_ce1 = grp_dedup_calcHash_fu_3607_str_97_ce1;
     end else begin
         buffer_97_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_61))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_61))) begin
         buffer_97_we1 = 1'b1;
     end else begin
         buffer_97_we1 = 1'b0;
@@ -12760,51 +11554,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_98_address0 = grp_dedup_murmurhash_fu_2991_key_98_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_98_address0 = grp_dedup_calcHash_fu_2858_str_98_address0;
-    end else begin
-        buffer_98_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_98_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_98_address1 = grp_dedup_murmurhash_fu_2991_key_98_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_98_address1 = grp_dedup_calcHash_fu_2858_str_98_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_98_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_98_address1 = grp_dedup_calcHash_fu_3607_str_98_address1;
     end else begin
         buffer_98_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_98_ce0 = grp_dedup_murmurhash_fu_2991_key_98_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_98_ce0 = grp_dedup_calcHash_fu_2858_str_98_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_98_ce0 = grp_dedup_calcHash_fu_3607_str_98_ce0;
     end else begin
         buffer_98_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_98_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_98_ce1 = grp_dedup_murmurhash_fu_2991_key_98_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_98_ce1 = grp_dedup_calcHash_fu_2858_str_98_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_98_ce1 = grp_dedup_calcHash_fu_3607_str_98_ce1;
     end else begin
         buffer_98_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_62))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_62))) begin
         buffer_98_we1 = 1'b1;
     end else begin
         buffer_98_we1 = 1'b0;
@@ -12812,51 +11590,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_99_address0 = grp_dedup_murmurhash_fu_2991_key_99_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_99_address0 = grp_dedup_calcHash_fu_2858_str_99_address0;
-    end else begin
-        buffer_99_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_99_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_99_address1 = grp_dedup_murmurhash_fu_2991_key_99_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_99_address1 = grp_dedup_calcHash_fu_2858_str_99_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_99_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_99_address1 = grp_dedup_calcHash_fu_3607_str_99_address1;
     end else begin
         buffer_99_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_99_ce0 = grp_dedup_murmurhash_fu_2991_key_99_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_99_ce0 = grp_dedup_calcHash_fu_2858_str_99_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_99_ce0 = grp_dedup_calcHash_fu_3607_str_99_ce0;
     end else begin
         buffer_99_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_99_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_99_ce1 = grp_dedup_murmurhash_fu_2991_key_99_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_99_ce1 = grp_dedup_calcHash_fu_2858_str_99_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_99_ce1 = grp_dedup_calcHash_fu_3607_str_99_ce1;
     end else begin
         buffer_99_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_63))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_63))) begin
         buffer_99_we1 = 1'b1;
     end else begin
         buffer_99_we1 = 1'b0;
@@ -12864,51 +11626,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_9_address0 = grp_dedup_murmurhash_fu_2991_key_9_address0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_9_address0 = grp_dedup_calcHash_fu_2858_str_9_address0;
-    end else begin
-        buffer_9_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        buffer_9_address1 = newIndex12_fu_3168_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_9_address1 = grp_dedup_murmurhash_fu_2991_key_9_address1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_9_address1 = grp_dedup_calcHash_fu_2858_str_9_address1;
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0))) begin
+        buffer_9_address1 = newIndex1_fu_4586_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_9_address1 = grp_dedup_calcHash_fu_3607_str_9_address1;
     end else begin
         buffer_9_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_9_ce0 = grp_dedup_murmurhash_fu_2991_key_9_ce0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_9_ce0 = grp_dedup_calcHash_fu_2858_str_9_ce0;
+    if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_9_ce0 = grp_dedup_calcHash_fu_3607_str_9_ce0;
     end else begin
         buffer_9_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~ap_sig_111)) begin
+    if ((((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)) | ((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it1) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131)))) begin
         buffer_9_ce1 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st8_fsm_7)) begin
-        buffer_9_ce1 = grp_dedup_murmurhash_fu_2991_key_9_ce1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        buffer_9_ce1 = grp_dedup_calcHash_fu_2858_str_9_ce1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_4)) begin
+        buffer_9_ce1 = grp_dedup_calcHash_fu_3607_str_9_ce1;
     end else begin
         buffer_9_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111 & (tmp_72_fu_3154_p1 == ap_const_lv7_9))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & (arrayNo_cast_fu_4572_p4 == ap_const_lv8_9))) begin
         buffer_9_we1 = 1'b1;
     end else begin
         buffer_9_we1 = 1'b0;
@@ -12916,57 +11662,59 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st2_fsm_1)) begin
-        indices_address0 = tmp_fu_3131_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st6_fsm_5)) begin
-        indices_address0 = tmp_35_fu_3317_p1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        indices_address0 = grp_dedup_calcHash_fu_2858_indices_address0;
+    if (((1'b1 == ap_reg_ppiten_pp2_it0) & (1'b1 == ap_sig_cseq_ST_pp2_stg1_fsm_9))) begin
+        hashes_address0 = tmp_54_fu_5866_p3;
+    end else if (((1'b1 == ap_sig_cseq_ST_pp2_stg0_fsm_8) & (1'b1 == ap_reg_ppiten_pp2_it0))) begin
+        hashes_address0 = tmp_50_fu_5826_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st10_fsm_7)) begin
+        hashes_address0 = grp_dedup_murmurhash128_new_fu_3851_hash_address0;
     end else begin
-        indices_address0 = 'bx;
+        hashes_address0 = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) | (1'b1 == ap_sig_cseq_ST_st6_fsm_5))) begin
-        indices_ce0 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        indices_ce0 = grp_dedup_calcHash_fu_2858_indices_ce0;
+    if (((1'b1 == ap_reg_ppiten_pp2_it0) & (1'b1 == ap_sig_cseq_ST_pp2_stg1_fsm_9))) begin
+        hashes_address1 = tmp_56_fu_5880_p3;
+    end else if (((1'b1 == ap_sig_cseq_ST_pp2_stg0_fsm_8) & (1'b1 == ap_reg_ppiten_pp2_it0))) begin
+        hashes_address1 = tmp_52_fu_5837_p3;
+    end else if ((1'b1 == ap_sig_cseq_ST_st10_fsm_7)) begin
+        hashes_address1 = grp_dedup_murmurhash128_new_fu_3851_hash_address1;
     end else begin
-        indices_ce0 = 1'b0;
+        hashes_address1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        indices_ce1 = grp_dedup_calcHash_fu_2858_indices_ce1;
+    if ((((1'b1 == ap_sig_cseq_ST_pp2_stg0_fsm_8) & (1'b1 == ap_reg_ppiten_pp2_it0) & ~((1'b1 == ap_reg_ppiten_pp2_it1) & (1'b0 == exitcond3_reg_7554) & (1'b0 == ap_sig_ioackin_outputData_TREADY))) | ((1'b1 == ap_reg_ppiten_pp2_it0) & (1'b1 == ap_sig_cseq_ST_pp2_stg1_fsm_9)))) begin
+        hashes_ce0 = 1'b1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st10_fsm_7)) begin
+        hashes_ce0 = grp_dedup_murmurhash128_new_fu_3851_hash_ce0;
     end else begin
-        indices_ce1 = 1'b0;
+        hashes_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st2_fsm_1)) begin
-        indices_d0 = ap_const_lv13_0;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        indices_d0 = grp_dedup_calcHash_fu_2858_indices_d0;
+    if ((((1'b1 == ap_sig_cseq_ST_pp2_stg0_fsm_8) & (1'b1 == ap_reg_ppiten_pp2_it0) & ~((1'b1 == ap_reg_ppiten_pp2_it1) & (1'b0 == exitcond3_reg_7554) & (1'b0 == ap_sig_ioackin_outputData_TREADY))) | ((1'b1 == ap_reg_ppiten_pp2_it0) & (1'b1 == ap_sig_cseq_ST_pp2_stg1_fsm_9)))) begin
+        hashes_ce1 = 1'b1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st10_fsm_7)) begin
+        hashes_ce1 = grp_dedup_murmurhash128_new_fu_3851_hash_ce1;
     end else begin
-        indices_d0 = 'bx;
+        hashes_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st2_fsm_1)) begin
-        indices_we0 = 1'b1;
-    end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        indices_we0 = grp_dedup_calcHash_fu_2858_indices_we0;
+    if (((1'b1 == ap_sig_cseq_ST_pp2_stg0_fsm_8) & (1'b1 == ap_reg_ppiten_pp2_it1) & (1'b0 == exitcond3_reg_7554))) begin
+        i2_phi_fu_3599_p4 = i_5_reg_7558;
     end else begin
-        indices_we0 = 1'b0;
+        i2_phi_fu_3599_p4 = i2_reg_3595;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0))) begin
         inputData_V_TDATA_blk_n = inputData_V_TVALID;
     end else begin
         inputData_V_TDATA_blk_n = 1'b1;
@@ -12974,7 +11722,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & (exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111)) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp0_stg0_fsm_2) & (1'b1 == ap_reg_ppiten_pp0_it0) & (exitcond1_fu_4560_p2 == 1'b0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131))) begin
         inputData_V_TREADY = 1'b1;
     end else begin
         inputData_V_TREADY = 1'b0;
@@ -12982,7 +11730,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_sig_cseq_ST_st9_fsm_8)) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp2_stg0_fsm_8) & (1'b1 == ap_reg_ppiten_pp2_it1) & (1'b0 == exitcond3_reg_7554))) begin
         outputData_TDATA_blk_n = outputData_TREADY;
     end else begin
         outputData_TDATA_blk_n = 1'b1;
@@ -12990,7 +11738,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st9_fsm_8) & (1'b0 == ap_reg_ioackin_outputData_TREADY))) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp2_stg0_fsm_8) & (1'b1 == ap_reg_ppiten_pp2_it1) & (1'b0 == exitcond3_reg_7554) & (1'b0 == ap_reg_ioackin_outputData_TREADY))) begin
         outputData_TVALID = 1'b1;
     end else begin
         outputData_TVALID = 1'b0;
@@ -12998,10 +11746,40 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st9_fsm_8) & (1'b0 == tmp_36_reg_3408))) begin
-        tmp_data_hashData_phi_fu_2851_p4 = item_data_hashData_reg_3422;
+    if (((1'b1 == ap_sig_cseq_ST_pp1_stg0_fsm_5) & (1'b1 == ap_reg_ppiten_pp1_it1))) begin
+        targetIndices_address0 = tmp_38_fu_5786_p1;
+    end else if (((1'b1 == ap_reg_ppiten_pp2_it0) & (1'b1 == ap_sig_cseq_ST_pp2_stg1_fsm_9))) begin
+        targetIndices_address0 = tmp_37_fu_5856_p1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st10_fsm_7)) begin
+        targetIndices_address0 = grp_dedup_murmurhash128_new_fu_3851_indices_address0;
     end else begin
-        tmp_data_hashData_phi_fu_2851_p4 = tmp_data_hashData_reg_2847;
+        targetIndices_address0 = 'bx;
+    end
+end
+
+always @ (*) begin
+    if ((((1'b1 == ap_reg_ppiten_pp2_it0) & (1'b1 == ap_sig_cseq_ST_pp2_stg1_fsm_9)) | ((1'b1 == ap_sig_cseq_ST_pp1_stg0_fsm_5) & (1'b1 == ap_reg_ppiten_pp1_it1)))) begin
+        targetIndices_ce0 = 1'b1;
+    end else if ((1'b1 == ap_sig_cseq_ST_st10_fsm_7)) begin
+        targetIndices_ce0 = grp_dedup_murmurhash128_new_fu_3851_indices_ce0;
+    end else begin
+        targetIndices_ce0 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if ((1'b1 == ap_sig_cseq_ST_st10_fsm_7)) begin
+        targetIndices_ce1 = grp_dedup_murmurhash128_new_fu_3851_indices_ce1;
+    end else begin
+        targetIndices_ce1 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((1'b1 == ap_sig_cseq_ST_pp1_stg0_fsm_5) & (1'b1 == ap_reg_ppiten_pp1_it1) & ~(1'b0 == tmp_31_reg_7547) & ~(1'b0 == or_cond_fu_5780_p2))) begin
+        targetIndices_we0 = 1'b1;
+    end else begin
+        targetIndices_we0 = 1'b0;
     end
 end
 
@@ -13015,58 +11793,62 @@ always @ (*) begin
             end
         end
         ap_ST_st2_fsm_1 : begin
-            if (~(1'b0 == tmp_s_fu_3136_p2)) begin
-                ap_NS_fsm = ap_ST_st3_fsm_2;
+            if (~(1'b0 == tmp_s_fu_4554_p2)) begin
+                ap_NS_fsm = ap_ST_pp0_stg0_fsm_2;
             end else begin
                 ap_NS_fsm = ap_ST_st2_fsm_1;
             end
         end
-        ap_ST_st3_fsm_2 : begin
-            if (((exitcond1_fu_3142_p2 == 1'b0) & ~ap_sig_111)) begin
-                ap_NS_fsm = ap_ST_st3_fsm_2;
-            end else if ((~ap_sig_111 & ~(exitcond1_fu_3142_p2 == 1'b0))) begin
-                ap_NS_fsm = ap_ST_st4_fsm_3;
+        ap_ST_pp0_stg0_fsm_2 : begin
+            if (~((1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & ~(exitcond1_fu_4560_p2 == 1'b0))) begin
+                ap_NS_fsm = ap_ST_pp0_stg0_fsm_2;
+            end else if (((1'b1 == ap_reg_ppiten_pp0_it0) & ~((1'b1 == ap_reg_ppiten_pp0_it0) & ap_sig_131) & ~(exitcond1_fu_4560_p2 == 1'b0))) begin
+                ap_NS_fsm = ap_ST_st5_fsm_3;
             end else begin
-                ap_NS_fsm = ap_ST_st3_fsm_2;
+                ap_NS_fsm = ap_ST_pp0_stg0_fsm_2;
             end
         end
-        ap_ST_st4_fsm_3 : begin
-            ap_NS_fsm = ap_ST_st5_fsm_4;
+        ap_ST_st5_fsm_3 : begin
+            ap_NS_fsm = ap_ST_st6_fsm_4;
         end
-        ap_ST_st5_fsm_4 : begin
-            if (~(1'b0 == grp_dedup_calcHash_fu_2858_ap_done)) begin
-                ap_NS_fsm = ap_ST_st6_fsm_5;
+        ap_ST_st6_fsm_4 : begin
+            if (~(1'b0 == grp_dedup_calcHash_fu_3607_ap_done)) begin
+                ap_NS_fsm = ap_ST_pp1_stg0_fsm_5;
             end else begin
-                ap_NS_fsm = ap_ST_st5_fsm_4;
+                ap_NS_fsm = ap_ST_st6_fsm_4;
             end
         end
-        ap_ST_st6_fsm_5 : begin
-            if (~(1'b0 == exitcond_fu_3305_p2)) begin
-                ap_NS_fsm = ap_ST_st1_fsm_0;
+        ap_ST_pp1_stg0_fsm_5 : begin
+            if (~((1'b1 == ap_reg_ppiten_pp1_it0) & ~(1'b0 == exitcond2_fu_4728_p2))) begin
+                ap_NS_fsm = ap_ST_pp1_stg0_fsm_5;
             end else begin
-                ap_NS_fsm = ap_ST_st7_fsm_6;
+                ap_NS_fsm = ap_ST_st9_fsm_6;
             end
         end
-        ap_ST_st7_fsm_6 : begin
-            if (~(1'b0 == tmp_36_fu_3326_p2)) begin
-                ap_NS_fsm = ap_ST_st9_fsm_8;
+        ap_ST_st9_fsm_6 : begin
+            ap_NS_fsm = ap_ST_st10_fsm_7;
+        end
+        ap_ST_st10_fsm_7 : begin
+            if (~(1'b0 == grp_dedup_murmurhash128_new_fu_3851_ap_done)) begin
+                ap_NS_fsm = ap_ST_pp2_stg0_fsm_8;
             end else begin
-                ap_NS_fsm = ap_ST_st8_fsm_7;
+                ap_NS_fsm = ap_ST_st10_fsm_7;
             end
         end
-        ap_ST_st8_fsm_7 : begin
-            if (~(1'b0 == grp_dedup_murmurhash_fu_2991_ap_done)) begin
-                ap_NS_fsm = ap_ST_st9_fsm_8;
+        ap_ST_pp2_stg0_fsm_8 : begin
+            if ((~((1'b1 == ap_reg_ppiten_pp2_it1) & (1'b0 == exitcond3_reg_7554) & (1'b0 == ap_sig_ioackin_outputData_TREADY)) & ~((1'b1 == ap_reg_ppiten_pp2_it0) & ~((1'b1 == ap_reg_ppiten_pp2_it1) & (1'b0 == exitcond3_reg_7554) & (1'b0 == ap_sig_ioackin_outputData_TREADY)) & ~(1'b0 == exitcond3_fu_5806_p2)))) begin
+                ap_NS_fsm = ap_ST_pp2_stg1_fsm_9;
+            end else if (((1'b1 == ap_reg_ppiten_pp2_it0) & ~((1'b1 == ap_reg_ppiten_pp2_it1) & (1'b0 == exitcond3_reg_7554) & (1'b0 == ap_sig_ioackin_outputData_TREADY)) & ~(1'b0 == exitcond3_fu_5806_p2))) begin
+                ap_NS_fsm = ap_ST_st14_fsm_10;
             end else begin
-                ap_NS_fsm = ap_ST_st8_fsm_7;
+                ap_NS_fsm = ap_ST_pp2_stg0_fsm_8;
             end
         end
-        ap_ST_st9_fsm_8 : begin
-            if (~(1'b0 == ap_sig_ioackin_outputData_TREADY)) begin
-                ap_NS_fsm = ap_ST_st6_fsm_5;
-            end else begin
-                ap_NS_fsm = ap_ST_st9_fsm_8;
-            end
+        ap_ST_pp2_stg1_fsm_9 : begin
+            ap_NS_fsm = ap_ST_pp2_stg0_fsm_8;
+        end
+        ap_ST_st14_fsm_10 : begin
+            ap_NS_fsm = ap_ST_st1_fsm_0;
         end
         default : begin
             ap_NS_fsm = 'bx;
@@ -13079,85 +11861,361 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    ap_sig_103 = (1'b1 == ap_CS_fsm[ap_const_lv32_1]);
+    ap_sig_124 = (1'b1 == ap_CS_fsm[ap_const_lv32_1]);
 end
 
 always @ (*) begin
-    ap_sig_111 = ((exitcond1_fu_3142_p2 == 1'b0) & (inputData_V_TVALID == 1'b0));
+    ap_sig_131 = ((exitcond1_fu_4560_p2 == 1'b0) & (inputData_V_TVALID == 1'b0));
 end
 
 always @ (*) begin
-    ap_sig_121 = (1'b1 == ap_CS_fsm[ap_const_lv32_5]);
+    ap_sig_28 = (ap_CS_fsm[ap_const_lv32_0] == 1'b1);
 end
 
 always @ (*) begin
-    ap_sig_135 = (1'b1 == ap_CS_fsm[ap_const_lv32_6]);
+    ap_sig_3210 = (1'b1 == ap_CS_fsm[ap_const_lv32_3]);
 end
 
 always @ (*) begin
-    ap_sig_152 = (1'b1 == ap_CS_fsm[ap_const_lv32_7]);
+    ap_sig_3555 = (1'b1 == ap_CS_fsm[ap_const_lv32_6]);
 end
 
 always @ (*) begin
-    ap_sig_26 = (ap_CS_fsm[ap_const_lv32_0] == 1'b1);
+    ap_sig_406 = (1'b1 == ap_CS_fsm[ap_const_lv32_5]);
 end
 
 always @ (*) begin
-    ap_sig_3287 = (1'b1 == ap_CS_fsm[ap_const_lv32_4]);
+    ap_sig_447 = (1'b1 == ap_CS_fsm[ap_const_lv32_9]);
 end
 
 always @ (*) begin
-    ap_sig_3310 = (1'b1 == ap_CS_fsm[ap_const_lv32_3]);
+    ap_sig_473 = (1'b1 == ap_CS_fsm[ap_const_lv32_4]);
 end
 
 always @ (*) begin
-    ap_sig_46 = (1'b1 == ap_CS_fsm[ap_const_lv32_2]);
+    ap_sig_48 = (1'b1 == ap_CS_fsm[ap_const_lv32_2]);
 end
 
 always @ (*) begin
-    ap_sig_58 = (1'b1 == ap_CS_fsm[ap_const_lv32_8]);
+    ap_sig_487 = (1'b1 == ap_CS_fsm[ap_const_lv32_7]);
 end
 
-assign dataLen_fu_3336_p2 = (lastIndex_fu_3322_p1 - tmp_data_index_fu_854);
+always @ (*) begin
+    ap_sig_5810 = (1'b1 == ap_CS_fsm[ap_const_lv32_A]);
+end
 
-assign exitcond1_fu_3142_p2 = ((i_reg_2824 == ap_const_lv14_2000) ? 1'b1 : 1'b0);
+always @ (*) begin
+    ap_sig_65 = (1'b1 == ap_CS_fsm[ap_const_lv32_8]);
+end
 
-assign exitcond_fu_3305_p2 = ((i1_reg_2835 == ap_const_lv3_7) ? 1'b1 : 1'b0);
+assign arrayNo_cast_fu_4572_p4 = {{i_reg_3573[ap_const_lv32_D : ap_const_lv32_6]}};
 
-assign grp_dedup_calcHash_fu_2858_ap_start = ap_reg_grp_dedup_calcHash_fu_2858_ap_start;
+assign buffer_126_address1 = newIndex1_fu_4586_p1;
 
-assign grp_dedup_murmurhash_fu_2991_ap_start = ap_reg_grp_dedup_murmurhash_fu_2991_ap_start;
+assign buffer_127_address1 = newIndex1_fu_4586_p1;
 
-assign i_5_fu_3148_p2 = (i_reg_2824 + ap_const_lv14_1);
+assign exitcond1_fu_4560_p2 = ((i_reg_3573 == ap_const_lv14_2000) ? 1'b1 : 1'b0);
 
-assign i_6_fu_3311_p2 = (i1_reg_2835 + ap_const_lv3_1);
+assign exitcond2_fu_4728_p2 = ((i1_reg_3584 == ap_const_lv7_70) ? 1'b1 : 1'b0);
 
-assign indvarinc_fu_3125_p2 = (invdar_reg_2813 + ap_const_lv3_1);
+assign exitcond3_fu_5806_p2 = ((i2_phi_fu_3599_p4 == ap_const_lv3_7) ? 1'b1 : 1'b0);
 
-assign lastIndex_fu_3322_p1 = indices_q0;
+assign grp_dedup_calcHash_fu_3607_ap_start = ap_reg_grp_dedup_calcHash_fu_3607_ap_start;
 
-assign newIndex12_fu_3168_p1 = newIndex_fu_3158_p4;
+assign grp_dedup_murmurhash128_new_fu_3851_ap_start = ap_reg_grp_dedup_murmurhash128_new_fu_3851_ap_start;
 
-assign newIndex_fu_3158_p4 = {{i_reg_2824[ap_const_lv32_D : ap_const_lv32_7]}};
+assign i2_cast1_fu_5846_p1 = i2_reg_3595;
 
-assign outputData_TDATA = {{tmp_data_hashData_phi_fu_2851_p4}, {lastIndex_reg_3403}};
+assign i_3_fu_4566_p2 = (i_reg_3573 + ap_const_lv14_1);
 
-assign outputData_TLAST = ((i1_reg_2835 == ap_const_lv3_6) ? 1'b1 : 1'b0);
+assign i_4_fu_4734_p2 = (i1_reg_3584 + ap_const_lv7_1);
 
-assign tmp_35_fu_3317_p1 = i1_reg_2835;
+assign i_5_fu_5812_p2 = (i2_phi_fu_3599_p4 + ap_const_lv3_1);
 
-assign tmp_36_fu_3326_p2 = ((indices_q0 == ap_const_lv13_0) ? 1'b1 : 1'b0);
+assign indvarinc_fu_3988_p2 = (invdar_reg_3562 + ap_const_lv7_1);
 
-assign tmp_72_fu_3154_p1 = i_reg_2824[6:0];
+assign invdar_phi_fu_3566_p4 = invdar_reg_3562;
 
-assign tmp_fu_3131_p1 = invdar_reg_2813;
+assign item_data_hashData_1_19_fu_5896_p3 = ((tmp_36_reg_7579[0:0] === 1'b1) ? item_data_hashData_1_reg_7608 : ap_const_lv32_FFFFFFFF);
 
-assign tmp_s_fu_3136_p2 = ((invdar_reg_2813 == ap_const_lv3_6) ? 1'b1 : 1'b0);
+assign item_data_hashData_2_18_fu_5889_p3 = ((tmp_36_reg_7579[0:0] === 1'b1) ? hashes_q0 : ap_const_lv32_FFFFFFFF);
+
+assign item_data_hashData_3_fu_5908_p3 = ((tmp_36_reg_7579[0:0] === 1'b1) ? hashes_q1 : ap_const_lv32_FFFFFFFF);
+
+assign item_data_hashData_fu_5902_p3 = ((tmp_36_reg_7579[0:0] === 1'b1) ? item_data_hashData_0_reg_7603 : ap_const_lv32_FFFFFFFF);
+
+assign lastIndex_1_fu_5524_p1 = $signed(indices_0_fu_1108);
+
+assign lastIndex_1_fu_5524_p10 = $signed(indices_9_fu_1144);
+
+assign lastIndex_1_fu_5524_p100 = $signed(indices_99_fu_1504);
+
+assign lastIndex_1_fu_5524_p101 = $signed(indices_100_fu_1508);
+
+assign lastIndex_1_fu_5524_p102 = $signed(indices_101_fu_1512);
+
+assign lastIndex_1_fu_5524_p103 = $signed(indices_102_fu_1516);
+
+assign lastIndex_1_fu_5524_p104 = $signed(indices_103_fu_1520);
+
+assign lastIndex_1_fu_5524_p105 = $signed(indices_104_fu_1524);
+
+assign lastIndex_1_fu_5524_p106 = $signed(indices_105_fu_1528);
+
+assign lastIndex_1_fu_5524_p107 = $signed(indices_106_fu_1532);
+
+assign lastIndex_1_fu_5524_p108 = $signed(indices_107_fu_1536);
+
+assign lastIndex_1_fu_5524_p109 = $signed(indices_108_fu_1540);
+
+assign lastIndex_1_fu_5524_p11 = $signed(indices_10_fu_1148);
+
+assign lastIndex_1_fu_5524_p110 = $signed(indices_109_fu_1544);
+
+assign lastIndex_1_fu_5524_p111 = $signed(indices_110_fu_1548);
+
+assign lastIndex_1_fu_5524_p112 = $signed(indices_111_fu_1552);
+
+assign lastIndex_1_fu_5524_p12 = $signed(indices_11_fu_1152);
+
+assign lastIndex_1_fu_5524_p13 = $signed(indices_12_fu_1156);
+
+assign lastIndex_1_fu_5524_p14 = $signed(indices_13_fu_1160);
+
+assign lastIndex_1_fu_5524_p15 = $signed(indices_14_fu_1164);
+
+assign lastIndex_1_fu_5524_p16 = $signed(indices_15_fu_1168);
+
+assign lastIndex_1_fu_5524_p17 = $signed(indices_16_fu_1172);
+
+assign lastIndex_1_fu_5524_p18 = $signed(indices_17_fu_1176);
+
+assign lastIndex_1_fu_5524_p19 = $signed(indices_18_fu_1180);
+
+assign lastIndex_1_fu_5524_p2 = $signed(indices_1_fu_1112);
+
+assign lastIndex_1_fu_5524_p20 = $signed(indices_19_fu_1184);
+
+assign lastIndex_1_fu_5524_p21 = $signed(indices_20_fu_1188);
+
+assign lastIndex_1_fu_5524_p22 = $signed(indices_21_fu_1192);
+
+assign lastIndex_1_fu_5524_p23 = $signed(indices_22_fu_1196);
+
+assign lastIndex_1_fu_5524_p24 = $signed(indices_23_fu_1200);
+
+assign lastIndex_1_fu_5524_p25 = $signed(indices_24_fu_1204);
+
+assign lastIndex_1_fu_5524_p26 = $signed(indices_25_fu_1208);
+
+assign lastIndex_1_fu_5524_p27 = $signed(indices_26_fu_1212);
+
+assign lastIndex_1_fu_5524_p28 = $signed(indices_27_fu_1216);
+
+assign lastIndex_1_fu_5524_p29 = $signed(indices_28_fu_1220);
+
+assign lastIndex_1_fu_5524_p3 = $signed(indices_2_fu_1116);
+
+assign lastIndex_1_fu_5524_p30 = $signed(indices_29_fu_1224);
+
+assign lastIndex_1_fu_5524_p31 = $signed(indices_30_fu_1228);
+
+assign lastIndex_1_fu_5524_p32 = $signed(indices_31_fu_1232);
+
+assign lastIndex_1_fu_5524_p33 = $signed(indices_32_fu_1236);
+
+assign lastIndex_1_fu_5524_p34 = $signed(indices_33_fu_1240);
+
+assign lastIndex_1_fu_5524_p35 = $signed(indices_34_fu_1244);
+
+assign lastIndex_1_fu_5524_p36 = $signed(indices_35_fu_1248);
+
+assign lastIndex_1_fu_5524_p37 = $signed(indices_36_fu_1252);
+
+assign lastIndex_1_fu_5524_p38 = $signed(indices_37_fu_1256);
+
+assign lastIndex_1_fu_5524_p39 = $signed(indices_38_fu_1260);
+
+assign lastIndex_1_fu_5524_p4 = $signed(indices_3_fu_1120);
+
+assign lastIndex_1_fu_5524_p40 = $signed(indices_39_fu_1264);
+
+assign lastIndex_1_fu_5524_p41 = $signed(indices_40_fu_1268);
+
+assign lastIndex_1_fu_5524_p42 = $signed(indices_41_fu_1272);
+
+assign lastIndex_1_fu_5524_p43 = $signed(indices_42_fu_1276);
+
+assign lastIndex_1_fu_5524_p44 = $signed(indices_43_fu_1280);
+
+assign lastIndex_1_fu_5524_p45 = $signed(indices_44_fu_1284);
+
+assign lastIndex_1_fu_5524_p46 = $signed(indices_45_fu_1288);
+
+assign lastIndex_1_fu_5524_p47 = $signed(indices_46_fu_1292);
+
+assign lastIndex_1_fu_5524_p48 = $signed(indices_47_fu_1296);
+
+assign lastIndex_1_fu_5524_p49 = $signed(indices_48_fu_1300);
+
+assign lastIndex_1_fu_5524_p5 = $signed(indices_4_fu_1124);
+
+assign lastIndex_1_fu_5524_p50 = $signed(indices_49_fu_1304);
+
+assign lastIndex_1_fu_5524_p51 = $signed(indices_50_fu_1308);
+
+assign lastIndex_1_fu_5524_p52 = $signed(indices_51_fu_1312);
+
+assign lastIndex_1_fu_5524_p53 = $signed(indices_52_fu_1316);
+
+assign lastIndex_1_fu_5524_p54 = $signed(indices_53_fu_1320);
+
+assign lastIndex_1_fu_5524_p55 = $signed(indices_54_fu_1324);
+
+assign lastIndex_1_fu_5524_p56 = $signed(indices_55_fu_1328);
+
+assign lastIndex_1_fu_5524_p57 = $signed(indices_56_fu_1332);
+
+assign lastIndex_1_fu_5524_p58 = $signed(indices_57_fu_1336);
+
+assign lastIndex_1_fu_5524_p59 = $signed(indices_58_fu_1340);
+
+assign lastIndex_1_fu_5524_p6 = $signed(indices_5_fu_1128);
+
+assign lastIndex_1_fu_5524_p60 = $signed(indices_59_fu_1344);
+
+assign lastIndex_1_fu_5524_p61 = $signed(indices_60_fu_1348);
+
+assign lastIndex_1_fu_5524_p62 = $signed(indices_61_fu_1352);
+
+assign lastIndex_1_fu_5524_p63 = $signed(indices_62_fu_1356);
+
+assign lastIndex_1_fu_5524_p64 = $signed(indices_63_fu_1360);
+
+assign lastIndex_1_fu_5524_p65 = $signed(indices_64_fu_1364);
+
+assign lastIndex_1_fu_5524_p66 = $signed(indices_65_fu_1368);
+
+assign lastIndex_1_fu_5524_p67 = $signed(indices_66_fu_1372);
+
+assign lastIndex_1_fu_5524_p68 = $signed(indices_67_fu_1376);
+
+assign lastIndex_1_fu_5524_p69 = $signed(indices_68_fu_1380);
+
+assign lastIndex_1_fu_5524_p7 = $signed(indices_6_fu_1132);
+
+assign lastIndex_1_fu_5524_p70 = $signed(indices_69_fu_1384);
+
+assign lastIndex_1_fu_5524_p71 = $signed(indices_70_fu_1388);
+
+assign lastIndex_1_fu_5524_p72 = $signed(indices_71_fu_1392);
+
+assign lastIndex_1_fu_5524_p73 = $signed(indices_72_fu_1396);
+
+assign lastIndex_1_fu_5524_p74 = $signed(indices_73_fu_1400);
+
+assign lastIndex_1_fu_5524_p75 = $signed(indices_74_fu_1404);
+
+assign lastIndex_1_fu_5524_p76 = $signed(indices_75_fu_1408);
+
+assign lastIndex_1_fu_5524_p77 = $signed(indices_76_fu_1412);
+
+assign lastIndex_1_fu_5524_p78 = $signed(indices_77_fu_1416);
+
+assign lastIndex_1_fu_5524_p79 = $signed(indices_78_fu_1420);
+
+assign lastIndex_1_fu_5524_p8 = $signed(indices_7_fu_1136);
+
+assign lastIndex_1_fu_5524_p80 = $signed(indices_79_fu_1424);
+
+assign lastIndex_1_fu_5524_p81 = $signed(indices_80_fu_1428);
+
+assign lastIndex_1_fu_5524_p82 = $signed(indices_81_fu_1432);
+
+assign lastIndex_1_fu_5524_p83 = $signed(indices_82_fu_1436);
+
+assign lastIndex_1_fu_5524_p84 = $signed(indices_83_fu_1440);
+
+assign lastIndex_1_fu_5524_p85 = $signed(indices_84_fu_1444);
+
+assign lastIndex_1_fu_5524_p86 = $signed(indices_85_fu_1448);
+
+assign lastIndex_1_fu_5524_p87 = $signed(indices_86_fu_1452);
+
+assign lastIndex_1_fu_5524_p88 = $signed(indices_87_fu_1456);
+
+assign lastIndex_1_fu_5524_p89 = $signed(indices_88_fu_1460);
+
+assign lastIndex_1_fu_5524_p9 = $signed(indices_8_fu_1140);
+
+assign lastIndex_1_fu_5524_p90 = $signed(indices_89_fu_1464);
+
+assign lastIndex_1_fu_5524_p91 = $signed(indices_90_fu_1468);
+
+assign lastIndex_1_fu_5524_p92 = $signed(indices_91_fu_1472);
+
+assign lastIndex_1_fu_5524_p93 = $signed(indices_92_fu_1476);
+
+assign lastIndex_1_fu_5524_p94 = $signed(indices_93_fu_1480);
+
+assign lastIndex_1_fu_5524_p95 = $signed(indices_94_fu_1484);
+
+assign lastIndex_1_fu_5524_p96 = $signed(indices_95_fu_1488);
+
+assign lastIndex_1_fu_5524_p97 = $signed(indices_96_fu_1492);
+
+assign lastIndex_1_fu_5524_p98 = $signed(indices_97_fu_1496);
+
+assign lastIndex_1_fu_5524_p99 = $signed(indices_98_fu_1500);
+
+assign newIndex1_fu_4586_p1 = tmp_59_fu_4582_p1;
+
+assign numOfIndex_1_fu_5791_p2 = (numOfIndex_fu_1568 + ap_const_lv32_1);
+
+assign or_cond_fu_5780_p2 = (tmp_33_fu_5768_p2 & tmp_34_fu_5774_p2);
+
+assign outputData_TDATA = {{{{{{{{{{ap_const_lv96_0}, {item_data_hashData_3_fu_5908_p3}}}, {item_data_hashData_2_18_fu_5889_p3}}}, {item_data_hashData_1_19_fu_5896_p3}}}, {item_data_hashData_fu_5902_p3}}}, {tmp_data_index_fu_5915_p3}};
+
+assign outputData_TLAST = 1'b1;
+
+assign tmp_31_fu_5754_p2 = (($signed(lastIndex_1_fu_5524_p114) > $signed(32'b00000000000000000000000000000000)) ? 1'b1 : 1'b0);
+
+assign tmp_32_fu_5763_p2 = (lastIndex_1_reg_7540 - lastIndex_fu_1564);
+
+assign tmp_33_fu_5768_p2 = (($signed(tmp_32_fu_5763_p2) > $signed(32'b10000000000)) ? 1'b1 : 1'b0);
+
+assign tmp_34_fu_5774_p2 = (($signed(numOfIndex_fu_1568) < $signed(32'b111)) ? 1'b1 : 1'b0);
+
+assign tmp_36_fu_5850_p2 = (($signed(i2_cast1_fu_5846_p1) < $signed(numOfIndex_fu_1568)) ? 1'b1 : 1'b0);
+
+assign tmp_37_fu_5856_p1 = i2_reg_3595;
+
+assign tmp_38_fu_5786_p1 = $signed(numOfIndex_fu_1568);
+
+assign tmp_49_fu_5818_p3 = {{i2_phi_fu_3599_p4}, {ap_const_lv2_0}};
+
+assign tmp_50_fu_5826_p1 = tmp_49_fu_5818_p3;
+
+assign tmp_51_fu_5831_p2 = (tmp_49_fu_5818_p3 | ap_const_lv5_1);
+
+assign tmp_52_fu_5837_p3 = {{ap_const_lv59_0}, {tmp_51_fu_5831_p2}};
+
+assign tmp_53_fu_5861_p2 = (tmp_49_reg_7563 | ap_const_lv5_2);
+
+assign tmp_54_fu_5866_p3 = {{ap_const_lv59_0}, {tmp_53_fu_5861_p2}};
+
+assign tmp_55_fu_5875_p2 = (tmp_49_reg_7563 | ap_const_lv5_3);
+
+assign tmp_56_fu_5880_p3 = {{ap_const_lv59_0}, {tmp_55_fu_5875_p2}};
+
+assign tmp_59_fu_4582_p1 = i_reg_3573[5:0];
+
+assign tmp_data_index_fu_5915_p3 = ((tmp_36_reg_7579[0:0] === 1'b1) ? targetIndices_q0 : ap_const_lv32_FFFFFFFF);
+
+assign tmp_s_fu_4554_p2 = ((invdar_reg_3562 == ap_const_lv7_6F) ? 1'b1 : 1'b0);
 
 always @ (posedge ap_clk) begin
-    lastIndex_reg_3403[31:13] <= 19'b0000000000000000000;
-    tmp_data_index_load_reg_3412[31:13] <= 19'b0000000000000000000;
-    tmp_data_index_fu_854[31:13] <= 19'b0000000000000000000;
+    tmp_49_reg_7563[1:0] <= 2'b00;
 end
 
 endmodule //dedup

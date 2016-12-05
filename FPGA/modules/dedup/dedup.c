@@ -13,6 +13,7 @@
 #include <linux/fs.h>
 #include <linux/device.h>
 #include <linux/types.h>
+#include <linux/timekeeping.h>
 
 /*  dedup.c - The simplest kernel module.
  */
@@ -33,6 +34,9 @@ struct dedup_local {
     void __iomem *base_addr;
 };
 
+static struct timespec t_start, t_end;
+static unsigned int iteration;
+static long long accumulatedComputingTime;
 static struct dedup_local *lp = NULL;
 
 static irqreturn_t dedup_irq(int irq, void *lp)
@@ -41,7 +45,8 @@ static irqreturn_t dedup_irq(int irq, void *lp)
 
     // Clear the interrupt by writing and value to the interrupt status register (ISR).
     iowrite32(1, ((struct dedup_local *)lp)->base_addr + 0xc);
-	return IRQ_HANDLED;
+    
+    return IRQ_HANDLED;
 }
 
 static int dedup_probe(struct platform_device *pdev)
@@ -195,6 +200,9 @@ static int dedup_chrdev_open(struct inode *inode, struct file *file){
 
     try_module_get(THIS_MODULE);
     
+    iteration = 0;
+    accumulatedComputingTime = 0;
+
     return 0;
 }
 

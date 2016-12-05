@@ -1,0 +1,96 @@
+#-----------------------------------------------------------
+# Vivado v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:35 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Mon Dec  5 12:25:29 2016
+# Process ID: 10715
+# Current directory: /home/insujang/cs710/HEAD/FPGA/DedupHWModule_Vivado/DedupHWModule_Vivado.runs/impl_1
+# Command line: vivado -log DedupDMADesign_wrapper.vdi -applog -messageDb vivado.pb -mode batch -source DedupDMADesign_wrapper.tcl -notrace
+# Log file: /home/insujang/cs710/HEAD/FPGA/DedupHWModule_Vivado/DedupHWModule_Vivado.runs/impl_1/DedupDMADesign_wrapper.vdi
+# Journal file: /home/insujang/cs710/HEAD/FPGA/DedupHWModule_Vivado/DedupHWModule_Vivado.runs/impl_1/vivado.jou
+#-----------------------------------------------------------
+source DedupDMADesign_wrapper.tcl -notrace
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Netlist 29-17] Analyzing 1147 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2016.2
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/insujang/cs710/HEAD/FPGA/DedupHWModule_Vivado/DedupHWModule_Vivado.srcs/sources_1/bd/DedupDMADesign/ip/DedupDMADesign_processing_system7_0_1/DedupDMADesign_processing_system7_0_1.xdc] for cell 'DedupDMADesign_i/processing_system7_0/inst'
+Finished Parsing XDC File [/home/insujang/cs710/HEAD/FPGA/DedupHWModule_Vivado/DedupHWModule_Vivado.srcs/sources_1/bd/DedupDMADesign/ip/DedupDMADesign_processing_system7_0_1/DedupDMADesign_processing_system7_0_1.xdc] for cell 'DedupDMADesign_i/processing_system7_0/inst'
+Parsing XDC File [/home/insujang/cs710/HEAD/FPGA/DedupHWModule_Vivado/DedupHWModule_Vivado.srcs/sources_1/bd/DedupDMADesign/ip/DedupDMADesign_axi_dma_0_1/DedupDMADesign_axi_dma_0_1.xdc] for cell 'DedupDMADesign_i/axi_dma_0/U0'
+Finished Parsing XDC File [/home/insujang/cs710/HEAD/FPGA/DedupHWModule_Vivado/DedupHWModule_Vivado.srcs/sources_1/bd/DedupDMADesign/ip/DedupDMADesign_axi_dma_0_1/DedupDMADesign_axi_dma_0_1.xdc] for cell 'DedupDMADesign_i/axi_dma_0/U0'
+Parsing XDC File [/home/insujang/cs710/HEAD/FPGA/DedupHWModule_Vivado/DedupHWModule_Vivado.srcs/sources_1/bd/DedupDMADesign/ip/DedupDMADesign_rst_processing_system7_0_100M_1/DedupDMADesign_rst_processing_system7_0_100M_1_board.xdc] for cell 'DedupDMADesign_i/rst_processing_system7_0_100M/U0'
+Finished Parsing XDC File [/home/insujang/cs710/HEAD/FPGA/DedupHWModule_Vivado/DedupHWModule_Vivado.srcs/sources_1/bd/DedupDMADesign/ip/DedupDMADesign_rst_processing_system7_0_100M_1/DedupDMADesign_rst_processing_system7_0_100M_1_board.xdc] for cell 'DedupDMADesign_i/rst_processing_system7_0_100M/U0'
+Parsing XDC File [/home/insujang/cs710/HEAD/FPGA/DedupHWModule_Vivado/DedupHWModule_Vivado.srcs/sources_1/bd/DedupDMADesign/ip/DedupDMADesign_rst_processing_system7_0_100M_1/DedupDMADesign_rst_processing_system7_0_100M_1.xdc] for cell 'DedupDMADesign_i/rst_processing_system7_0_100M/U0'
+Finished Parsing XDC File [/home/insujang/cs710/HEAD/FPGA/DedupHWModule_Vivado/DedupHWModule_Vivado.srcs/sources_1/bd/DedupDMADesign/ip/DedupDMADesign_rst_processing_system7_0_100M_1/DedupDMADesign_rst_processing_system7_0_100M_1.xdc] for cell 'DedupDMADesign_i/rst_processing_system7_0_100M/U0'
+Parsing XDC File [/home/insujang/cs710/HEAD/FPGA/DedupHWModule_Vivado/DedupHWModule_Vivado.srcs/sources_1/bd/DedupDMADesign/ip/DedupDMADesign_axi_dma_0_1/DedupDMADesign_axi_dma_0_1_clocks.xdc] for cell 'DedupDMADesign_i/axi_dma_0/U0'
+Finished Parsing XDC File [/home/insujang/cs710/HEAD/FPGA/DedupHWModule_Vivado/DedupHWModule_Vivado.srcs/sources_1/bd/DedupDMADesign/ip/DedupDMADesign_axi_dma_0_1/DedupDMADesign_axi_dma_0_1_clocks.xdc] for cell 'DedupDMADesign_i/axi_dma_0/U0'
+Parsing XDC File [/home/insujang/cs710/HEAD/FPGA/DedupHWModule_Vivado/DedupHWModule_Vivado.srcs/sources_1/bd/DedupDMADesign/ip/DedupDMADesign_auto_ds_0/DedupDMADesign_auto_ds_0_clocks.xdc] for cell 'DedupDMADesign_i/axi_mem_intercon/m00_couplers/auto_ds/inst'
+Finished Parsing XDC File [/home/insujang/cs710/HEAD/FPGA/DedupHWModule_Vivado/DedupHWModule_Vivado.srcs/sources_1/bd/DedupDMADesign/ip/DedupDMADesign_auto_ds_0/DedupDMADesign_auto_ds_0_clocks.xdc] for cell 'DedupDMADesign_i/axi_mem_intercon/m00_couplers/auto_ds/inst'
+Parsing XDC File [/home/insujang/cs710/HEAD/FPGA/DedupHWModule_Vivado/DedupHWModule_Vivado.srcs/sources_1/bd/DedupDMADesign/ip/DedupDMADesign_auto_us_0/DedupDMADesign_auto_us_0_clocks.xdc] for cell 'DedupDMADesign_i/axi_mem_intercon/s00_couplers/auto_us/inst'
+Finished Parsing XDC File [/home/insujang/cs710/HEAD/FPGA/DedupHWModule_Vivado/DedupHWModule_Vivado.srcs/sources_1/bd/DedupDMADesign/ip/DedupDMADesign_auto_us_0/DedupDMADesign_auto_us_0_clocks.xdc] for cell 'DedupDMADesign_i/axi_mem_intercon/s00_couplers/auto_us/inst'
+Parsing XDC File [/home/insujang/cs710/HEAD/FPGA/DedupHWModule_Vivado/DedupHWModule_Vivado.srcs/sources_1/bd/DedupDMADesign/ip/DedupDMADesign_auto_us_1/DedupDMADesign_auto_us_1_clocks.xdc] for cell 'DedupDMADesign_i/axi_mem_intercon/s01_couplers/auto_us/inst'
+Finished Parsing XDC File [/home/insujang/cs710/HEAD/FPGA/DedupHWModule_Vivado/DedupHWModule_Vivado.srcs/sources_1/bd/DedupDMADesign/ip/DedupDMADesign_auto_us_1/DedupDMADesign_auto_us_1_clocks.xdc] for cell 'DedupDMADesign_i/axi_mem_intercon/s01_couplers/auto_us/inst'
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 218 instances were transformed.
+  RAM16X1D => RAM32X1D (RAMD32, RAMD32): 47 instances
+  RAM16X1S => RAM32X1S (RAMS32): 144 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 26 instances
+  RAM32X1D => RAM32X1D (RAMD32, RAMD32): 1 instances
+
+link_design: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1394.594 ; gain = 429.805 ; free physical = 4504 ; free virtual = 26781
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:00.31 ; elapsed = 00:00:00.24 . Memory (MB): peak = 1458.625 ; gain = 64.023 ; free physical = 4503 ; free virtual = 26780
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Starting Logic Optimization Task
+Implement Debug Cores | Checksum: 17b9cd5dc
+
+Phase 1 Retarget
+INFO: [Opt 31-138] Pushed 3 inverter(s) to 10 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: 163b856ba
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1873.117 ; gain = 0.000 ; free physical = 4133 ; free virtual = 26418
+
+Phase 2 Constant Propagation
+INFO: [Opt 31-138] Pushed 4 inverter(s) to 6 load pin(s).
+INFO: [Opt 31-10] Eliminated 1224 cells.
+Phase 2 Constant Propagation | Checksum: 1fd9e64fc
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1873.117 ; gain = 0.000 ; free physical = 4132 ; free virtual = 26417
+
+Phase 3 Sweep
+INFO: [Opt 31-12] Eliminated 3061 unconnected nets.
+INFO: [Opt 31-11] Eliminated 631 unconnected cells.
+Phase 3 Sweep | Checksum: 1b1fd31e9
+
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1873.117 ; gain = 0.000 ; free physical = 4132 ; free virtual = 26416
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.08 . Memory (MB): peak = 1873.117 ; gain = 0.000 ; free physical = 4132 ; free virtual = 26416
+Ending Logic Optimization Task | Checksum: 1b1fd31e9
+
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:07 . Memory (MB): peak = 1873.117 ; gain = 0.000 ; free physical = 4132 ; free virtual = 26416
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...

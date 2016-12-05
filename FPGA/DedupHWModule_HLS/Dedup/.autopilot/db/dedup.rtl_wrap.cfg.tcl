@@ -17,7 +17,7 @@ set DataType0 "char"
 set Port0 [list $PortName0 $Interface0 $DataType0 $Pointer0 $Dims0 $Const0 $Volatile0 $ArrayOpt0]
 lappend PortList $Port0
 set PortName1 "outputData"
-set BitWidth1 "1088"
+set BitWidth1 "288"
 set ArrayOpt1 ""
 set Const1 "0"
 set Volatile1 "0"
@@ -27,7 +27,7 @@ set Dims1 [list 0]
 set Interface1 [list AP_STREAM 0] 
 set structMem1 ""
 set PortName10 "data"
-set BitWidth10 "1056"
+set BitWidth10 "256"
 set ArrayOpt10 ""
 set Const10 "0"
 set Volatile10 "0"
@@ -49,17 +49,29 @@ set DataType100 "int"
 set Port100 [list $PortName100 $Interface100 $DataType100 $Pointer100 $Dims100 $Const100 $Volatile100 $ArrayOpt100]
 lappend structMem10 $Port100
 set PortName101 "hashData"
-set BitWidth101 "1024"
+set BitWidth101 "128"
 set ArrayOpt101 ""
 set Const101 "0"
 set Volatile101 "0"
 set Pointer101 "0"
 set Reference101 "0"
-set Dims101 [list  32]
+set Dims101 [list  4]
 set Interface101 "wire"
 set DataType101 "unsigned int"
 set Port101 [list $PortName101 $Interface101 $DataType101 $Pointer101 $Dims101 $Const101 $Volatile101 $ArrayOpt101]
 lappend structMem10 $Port101
+set PortName102 "dummy"
+set BitWidth102 "96"
+set ArrayOpt102 ""
+set Const102 "0"
+set Volatile102 "0"
+set Pointer102 "0"
+set Reference102 "0"
+set Dims102 [list  3]
+set Interface102 "wire"
+set DataType102 "int"
+set Port102 [list $PortName102 $Interface102 $DataType102 $Pointer102 $Dims102 $Const102 $Volatile102 $ArrayOpt102]
+lappend structMem10 $Port102
 set structParameter10 [list ]
 set structArgument10 [list ]
 set NameSpace10 [list ]

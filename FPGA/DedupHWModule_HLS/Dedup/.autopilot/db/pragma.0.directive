@@ -1,36 +1,43 @@
 <AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
 <sourceFile name="">
-<directive functionLabel="" functionName="murmurhash" label="">
+<directive functionLabel="" functionName="calcHash" label="">
 <pragma name="ARRAY_PARTITION">
-<option name="variable" positionalBoolean="4" value="key"/>
-<option name="block" positionalBoolean="type" value=""/>
-<option name="factor" value="64"/>
+<option name="variable" positionalBoolean="4" value="indices"/>
+<option name="complete" positionalBoolean="type" value=""/>
 <option name="dim" value="1"/>
 </pragma>
 </directive>
-<directive functionLabel="" functionName="murmurhash" label="">
-<pragma name="PIPELINE"/>
-</directive>
-<directive functionLabel="" functionName="murmurhash" label="">
-<pragma name="LOOP_TRIPCOUNT">
-<option name="max" value="2048"/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="murmurhash128" label="">
+<directive functionLabel="" functionName="calcHash" label="">
 <pragma name="ARRAY_PARTITION">
-<option name="variable" positionalBoolean="4" value="key"/>
+<option name="variable" positionalBoolean="4" value="str"/>
 <option name="block" positionalBoolean="type" value=""/>
-<option name="factor" value="64"/>
+<option name="factor" value="128"/>
 <option name="dim" value="1"/>
 </pragma>
 </directive>
-<directive functionLabel="" functionName="murmurhash128" label="">
+<directive functionLabel="" functionName="calcHash" label="">
+<pragma name="ARRAY_PARTITION">
+<option name="variable" positionalBoolean="4" value="hash"/>
+<option name="complete" positionalBoolean="type" value=""/>
+<option name="dim" value="1"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="calcHash" label="">
+<pragma name="PIPELINE">
+<option name="II" value="8"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="calcHash" label="">
+<pragma name="UNROLL"/>
+</directive>
+<directive functionLabel="" functionName="calcHash" label="">
+<pragma name="UNROLL"/>
+</directive>
+<directive functionLabel="" functionName="calcHash" label="">
 <pragma name="PIPELINE"/>
 </directive>
-<directive functionLabel="" functionName="murmurhash128" label="">
-<pragma name="LOOP_TRIPCOUNT">
-<option name="max" value="512"/>
-</pragma>
+<directive functionLabel="" functionName="calcHash" label="">
+<pragma name="UNROLL"/>
 </directive>
 </sourceFile>
 </AutoPilot:ProjectResources>

@@ -1,0 +1,89 @@
+#-----------------------------------------------------------
+# Vivado v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:35 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Mon Dec  5 00:00:45 2016
+# Process ID: 5685
+# Current directory: /home/insujang/cs710/HEAD
+# Command line: vivado
+# Log file: /home/insujang/cs710/HEAD/vivado.log
+# Journal file: /home/insujang/cs710/HEAD/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/insujang/cs710/HEAD/FPGA/DedupHWModule_Vivado/DedupHWModule_Vivado.xpr
+update_compile_order -fileset sources_1
+open_bd_design {/home/insujang/cs710/HEAD/FPGA/DedupHWModule_Vivado/DedupHWModule_Vivado.srcs/sources_1/bd/DedupDMADesign/DedupDMADesign.bd}
+report_ip_status -name ip_status 
+export_ip_user_files -of_objects [get_ips  DedupDMADesign_dedup_0_0] -no_script -reset -quiet
+upgrade_ip -vlnv xilinx.com:hls:dedup:1.0 [get_ips  DedupDMADesign_dedup_0_0] -log ip_upgrade.log
+report_ip_status -name ip_status 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+validate_bd_design
+delete_bd_objs [get_bd_nets dedup_0_interrupt] [get_bd_intf_nets axi_dma_0_M_AXIS_MM2S] [get_bd_intf_nets processing_system7_0_axi_periph_M01_AXI] [get_bd_intf_nets dedup_0_outputData] [get_bd_cells dedup_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:hls:dedup:1.0 dedup_0
+endgroup
+set_property location {2 1097 770} [get_bd_cells dedup_0]
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config {Master "/processing_system7_0/M_AXI_GP0" Clk "Auto" }  [get_bd_intf_pins dedup_0/s_axi_AXILiteS]
+connect_bd_net [get_bd_pins dedup_0/interrupt] [get_bd_pins xlconcat_0/In2]
+connect_bd_intf_net [get_bd_intf_pins dedup_0/outputData] [get_bd_intf_pins axi_dma_0/S_AXIS_S2MM]
+connect_bd_intf_net [get_bd_intf_pins dedup_0/inputData_V] [get_bd_intf_pins axi_dma_0/M_AXIS_MM2S]
+startgroup
+set_property -dict [list CONFIG.c_mm2s_burst_size {256} CONFIG.c_include_s2mm_dre {1}] [get_bd_cells axi_dma_0]
+endgroup
+report_ip_status -name ip_status 
+validate_bd_design
+update_ip_catalog -rebuild -scan_changes
+report_ip_status -name ip_status
+export_ip_user_files -of_objects [get_ips  DedupDMADesign_dedup_0_1] -no_script -reset -quiet
+upgrade_ip -vlnv xilinx.com:hls:dedup:1.0 [get_ips  DedupDMADesign_dedup_0_1] -log ip_upgrade.log
+validate_bd_design
+report_ip_status -name ip_status 
+startgroup
+endgroup
+save_bd_design
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+file copy -force /home/insujang/cs710/HEAD/FPGA/DedupHWModule_Vivado/DedupHWModule_Vivado.runs/impl_1/DedupDMADesign_wrapper.sysdef /home/insujang/cs710/HEAD/FPGA/DedupHWModule_Vivado/DedupHWModule_Vivado.sdk/DedupDMADesign_wrapper.hdf
+
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_run impl_1
+open_bd_design {/home/insujang/cs710/HEAD/FPGA/DedupHWModule_Vivado/DedupHWModule_Vivado.srcs/sources_1/bd/DedupDMADesign/DedupDMADesign.bd}
+set_property range 1G [get_bd_addr_segs {axi_dma_0/Data_MM2S/SEG_processing_system7_0_HP0_DDR_LOWOCM}]
+set_property offset 0x40000000 [get_bd_addr_segs {axi_dma_0/Data_S2MM/SEG_processing_system7_0_HP0_DDR_LOWOCM}]
+set_property range 1M [get_bd_addr_segs {axi_dma_0/Data_S2MM/SEG_processing_system7_0_HP0_DDR_LOWOCM}]
+save_bd_design
+validate_bd_design
+set_property range 1G [get_bd_addr_segs {axi_dma_0/Data_SG/SEG_processing_system7_0_HP0_DDR_LOWOCM}]
+save_bd_design
+validate_bd_design
+set_property range 512M [get_bd_addr_segs {axi_dma_0/Data_MM2S/SEG_processing_system7_0_HP0_DDR_LOWOCM}]
+set_property range 512M [get_bd_addr_segs {axi_dma_0/Data_S2MM/SEG_processing_system7_0_HP0_DDR_LOWOCM}]
+save_bd_design
+set_property offset 0x20000000 [get_bd_addr_segs {axi_dma_0/Data_S2MM/SEG_processing_system7_0_HP0_DDR_LOWOCM}]
+validate_bd_design
+set_property range 1G [get_bd_addr_segs {axi_dma_0/Data_MM2S/SEG_processing_system7_0_HP0_DDR_LOWOCM}]
+set_property range 2M [get_bd_addr_segs {axi_dma_0/Data_S2MM/SEG_processing_system7_0_HP0_DDR_LOWOCM}]
+set_property offset 0x40000000 [get_bd_addr_segs {axi_dma_0/Data_S2MM/SEG_processing_system7_0_HP0_DDR_LOWOCM}]
+save_bd_design
+validate_bd_design
+set_property range 512M [get_bd_addr_segs {axi_dma_0/Data_S2MM/SEG_processing_system7_0_HP0_DDR_LOWOCM}]
+set_property range 512M [get_bd_addr_segs {axi_dma_0/Data_MM2S/SEG_processing_system7_0_HP0_DDR_LOWOCM}]
+set_property range 512M [get_bd_addr_segs {axi_dma_0/Data_SG/SEG_processing_system7_0_HP0_DDR_LOWOCM}]
+save_bd_design
+validate_bd_design
+set_property range 1G [get_bd_addr_segs {axi_dma_0/Data_MM2S/SEG_processing_system7_0_HP0_DDR_LOWOCM}]
+set_property range 1G [get_bd_addr_segs {axi_dma_0/Data_S2MM/SEG_processing_system7_0_HP0_DDR_LOWOCM}]
+set_property range 1G [get_bd_addr_segs {axi_dma_0/Data_SG/SEG_processing_system7_0_HP0_DDR_LOWOCM}]
+set_property offset 0x00000000 [get_bd_addr_segs {axi_dma_0/Data_S2MM/SEG_processing_system7_0_HP0_DDR_LOWOCM}]
+validate_bd_design
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1

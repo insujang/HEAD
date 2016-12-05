@@ -42,19 +42,29 @@
 			<location>/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/.tcls</location>
 		</link>
 		<link>
+			<name>source/calcHash.cpp</name>
+			<type>1</type>
+			<location>/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Source/calcHash.cpp</location>
+		</link>
+		<link>
 			<name>source/dedup.cpp</name>
 			<type>1</type>
-			<location>/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/dedup.cpp</location>
+			<location>/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Source/dedup.cpp</location>
 		</link>
 		<link>
 			<name>source/dedup.h</name>
 			<type>1</type>
-			<location>/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/dedup.h</location>
+			<location>/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Source/dedup.h</location>
+		</link>
+		<link>
+			<name>source/murmur.cpp</name>
+			<type>1</type>
+			<location>/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Source/murmur.cpp</location>
 		</link>
 		<link>
 			<name>testbench/dedup_test.cpp</name>
 			<type>1</type>
-			<location>/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/dedup_test.cpp</location>
+			<location>/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Source/dedup_test.cpp</location>
 		</link>
 		<link>
 			<name>Dedup/constraints/.xml.directive</name>

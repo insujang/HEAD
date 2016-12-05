@@ -45959,11 +45959,13 @@ typedef unsigned long int uintmax_t;
 #18 "DedupHWModule_HLS/Source/dedup.h"
 uint32_t murmurhash ( char* key, uint32_t len, uint32_t seed);
 void murmurhash128(char key[8192], int len, int seed, uint32_t hash[4]);
+void murmurhash128_new (char str[8192], int indices[7], int lastIndex, int seed, uint32_t hash[7][4]);
 void calcHash(char str[8192], int indices[112]);
 
 struct ap_out_item{
  int index;
- uint32_t hashData[32];
+ uint32_t hashData[4];
+ int dummy[3];
 };
 
 struct ap_out{
@@ -45977,7 +45979,7 @@ void dedup(hls::stream<char>& inputData, hls::stream<ap_out>& outputData);
 
 void calcHash(char str[8192], int indices[112]){_ssdm_SpecArrayDimSize(str,8192);_ssdm_SpecArrayDimSize(indices,112);
 _ssdm_SpecArrayPartition( indices, 1, "COMPLETE", 0, "");
-_ssdm_SpecArrayPartition( str, 1, "BLOCK", 64, "");
+_ssdm_SpecArrayPartition( str, 1, "BLOCK", 128, "");
 
  int hash[112];
 _ssdm_SpecArrayPartition( hash, 1, "COMPLETE", 0, "");
@@ -45993,7 +45995,7 @@ _ssdm_SpecArrayPartition( hash, 1, "COMPLETE", 0, "");
  // The reason inner loop = # hashes is to fully unroll
  hash_initialize_outerloop:
  for(int i=0; i<1024; i++){
-_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+_ssdm_op_SpecPipeline(8, 1, 1, 0, "");
  hash_initialize_innerloop:
   for(int j=0; j<112; j++){
 _ssdm_Unroll(0,0,0, "");

@@ -46004,11 +46004,13 @@ typedef unsigned long int uintmax_t;
 # 18 "DedupHWModule_HLS/Source/dedup.h"
 uint32_t murmurhash ( char* key, uint32_t len, uint32_t seed);
 void murmurhash128(char key[8192], int len, int seed, uint32_t hash[4]);
+void murmurhash128_new (char str[8192], int indices[7], int lastIndex, int seed, uint32_t hash[7][4]);
 void calcHash(char str[8192], int indices[112]);
 
 struct ap_out_item{
  int index;
- uint32_t hashData[32];
+ uint32_t hashData[4];
+ int dummy[3];
 };
 
 struct ap_out{
@@ -46027,8 +46029,8 @@ _ssdm_op_SpecInterface(&inputData, "axis", 0, 0, 0, 0, "", "", "", 0, 0, 0, 0, "
 _ssdm_op_SpecInterface(0, "s_axilite", 0, 0, 0, 0, "", "", "", 0, 0, 0, 0, "");
 
  char buffer[8192];
-_ssdm_op_SpecResource(buffer, "", "", "", 1, "", "", "", "", "");
-_ssdm_SpecArrayPartition( buffer, 1, "BLOCK", 64, "");
+_ssdm_op_SpecResource(buffer, "", "RAM_2P_BRAM", "", 1, "", "", "", "", "");
+_ssdm_SpecArrayPartition( buffer, 1, "BLOCK", 128, "");
 
  int indices[112];
 _ssdm_op_SpecResource(indices, "", "", "", 1, "", "", "", "", "");
@@ -46060,39 +46062,32 @@ _ssdm_op_SpecPipeline(1, 1, 1, 0, "");
  // Extract appropriate 7 indices among 112 index candidates
  std::cout << "Index candidates ===========================" << std::endl;
  for(int i=0; i<112; i++){
-  std::cout << "[" << i << "] index: " << indices[i] << std::endl;
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+ std::cout << "[" << i << "] index: " << indices[i] << std::endl;
   if(indices[i] > 0 && indices[i] - lastIndex > 1024 && numOfIndex < 7){
    targetIndices[numOfIndex] = indices[i];
    numOfIndex++;
    lastIndex = indices[i];
   }
  }
-# 59 "DedupHWModule_HLS/Source/dedup.cpp"
- // Calculate murmur hashes based on extraced 7 indices;
- calcHash:
- for(int i=0; i<7; i++){
-_ssdm_op_SpecLoopTripCount(0, 7, 3, "");
-_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
- if(i >= numOfIndex) break;
-  ap_out item;
-  int offset = (i > 0 ? targetIndices[i-1] : 0);
-  //item.data.hashData = murmurhash(&buffer[offset], targetIndices[i] - offset, 0);
-  murmurhash128(&buffer[offset], targetIndices[i] - offset, 0, item.data.hashData);
-  item.data.index = targetIndices[i];
-  item.last = (i < 6? 0 : 1);
-  outputData.write(item);
- }
+# 60 "DedupHWModule_HLS/Source/dedup.cpp"
+ uint32_t hashes[7][4];
+ murmurhash128_new(buffer, targetIndices, targetIndices[numOfIndex-1], 0, hashes);
 
- fillQueue:
- // Add remaining values to fit number of output data 7.
- for(int i=numOfIndex; i<7; i++){
+ for(int i=0; i<7; i++){
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
-_ssdm_op_SpecLoopTripCount(0, 7, 3, "");
  ap_out item;
-  //item.data.hashData = 0;
-  for(int j=0; j<4; j++) item.data.hashData[j] = 0;
-  item.data.index = 0;
-  item.last = (i < 6? 0 : 1);
+  if(i < numOfIndex){
+   item.data.index = targetIndices[i];
+   for(int j=0; j<4; j++) item.data.hashData[j] = hashes[i][j];
+  }
+  else{
+   item.data.index = -1;
+   for(int j=0; j<4; j++) item.data.hashData[j] = -1;
+  }
+
+  for(int j=0; j<3; j++) item.data.dummy[j] = 0;
+  item.last = 1;
   outputData.write(item);
  }
 }

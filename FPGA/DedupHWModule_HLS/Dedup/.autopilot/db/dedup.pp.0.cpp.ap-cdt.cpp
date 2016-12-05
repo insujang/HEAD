@@ -45959,11 +45959,13 @@ typedef unsigned long int uintmax_t;
 #pragma line 18 "DedupHWModule_HLS/Source/dedup.h"
 uint32_t murmurhash ( char* key, uint32_t len, uint32_t seed);
 void murmurhash128(char key[8192], int len, int seed, uint32_t hash[4]);
+void murmurhash128_new (char str[8192], int indices[7], int lastIndex, int seed, uint32_t hash[7][4]);
 void calcHash(char str[8192], int indices[112]);
 #pragma empty_line
 struct ap_out_item{
  int index;
- uint32_t hashData[32];
+ uint32_t hashData[4];
+ int dummy[3];
 };
 #pragma empty_line
 struct ap_out{
@@ -45982,8 +45984,8 @@ void dedup(hls::stream<char>& inputData, hls::stream<ap_out>& outputData ){
 #pragma HLS INTERFACE s_axilite port=return
 #pragma empty_line
  char buffer[8192];
-#pragma HLS RESOURCE variable=buffer latency=1
-#pragma HLS ARRAY_PARTITION variable=buffer block factor=64 dim=1
+#pragma HLS RESOURCE variable=buffer core=RAM_2P_BRAM latency=1
+#pragma HLS ARRAY_PARTITION variable=buffer block factor=128 dim=1
 #pragma empty_line
  int indices[112];
 #pragma HLS RESOURCE variable=indices latency=1
@@ -46015,39 +46017,32 @@ void dedup(hls::stream<char>& inputData, hls::stream<ap_out>& outputData ){
  // Extract appropriate 7 indices among 112 index candidates
  std::cout << "Index candidates ===========================" << std::endl;
  for(int i=0; i<112; i++){
-  std::cout << "[" << i << "] index: " << indices[i] << std::endl;
+#pragma HLS PIPELINE
+ std::cout << "[" << i << "] index: " << indices[i] << std::endl;
   if(indices[i] > 0 && indices[i] - lastIndex > 1024 && numOfIndex < 7){
    targetIndices[numOfIndex] = indices[i];
    numOfIndex++;
    lastIndex = indices[i];
   }
  }
-#pragma line 59 "DedupHWModule_HLS/Source/dedup.cpp"
- // Calculate murmur hashes based on extraced 7 indices;
- calcHash:
- for(int i=0; i<7; i++){
-#pragma HLS LOOP_TRIPCOUNT max=7
-#pragma HLS PIPELINE
- if(i >= numOfIndex) break;
-  ap_out item;
-  int offset = (i > 0 ? targetIndices[i-1] : 0);
-  //item.data.hashData = murmurhash(&buffer[offset], targetIndices[i] - offset, 0);
-  murmurhash128(&buffer[offset], targetIndices[i] - offset, 0, item.data.hashData);
-  item.data.index = targetIndices[i];
-  item.last = (i < 6? 0 : 1);
-  outputData.write(item);
- }
+#pragma line 60 "DedupHWModule_HLS/Source/dedup.cpp"
+ uint32_t hashes[7][4];
+ murmurhash128_new(buffer, targetIndices, targetIndices[numOfIndex-1], 0, hashes);
 #pragma empty_line
- fillQueue:
- // Add remaining values to fit number of output data 7.
- for(int i=numOfIndex; i<7; i++){
+ for(int i=0; i<7; i++){
 #pragma HLS PIPELINE
-#pragma HLS LOOP_TRIPCOUNT max=7
  ap_out item;
-  //item.data.hashData = 0;
-  for(int j=0; j<4; j++) item.data.hashData[j] = 0;
-  item.data.index = 0;
-  item.last = (i < 6? 0 : 1);
+  if(i < numOfIndex){
+   item.data.index = targetIndices[i];
+   for(int j=0; j<4; j++) item.data.hashData[j] = hashes[i][j];
+  }
+  else{
+   item.data.index = -1;
+   for(int j=0; j<4; j++) item.data.hashData[j] = -1;
+  }
+#pragma empty_line
+  for(int j=0; j<3; j++) item.data.dummy[j] = 0;
+  item.last = 1;
   outputData.write(item);
  }
 }

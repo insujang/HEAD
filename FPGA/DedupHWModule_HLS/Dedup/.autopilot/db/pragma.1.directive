@@ -21,6 +21,7 @@
 <directive functionLabel="" functionName="dedup" label="">
 <pragma name="RESOURCE">
 <option name="variable" positionalBoolean="4" value="buffer"/>
+<option name="core" value="RAM_2P_BRAM"/>
 <option name="latency" value="1"/>
 </pragma>
 </directive>
@@ -28,7 +29,7 @@
 <pragma name="ARRAY_PARTITION">
 <option name="variable" positionalBoolean="4" value="buffer"/>
 <option name="block" positionalBoolean="type" value=""/>
-<option name="factor" value="64"/>
+<option name="factor" value="128"/>
 <option name="dim" value="1"/>
 </pragma>
 </directive>
@@ -51,20 +52,10 @@
 </pragma>
 </directive>
 <directive functionLabel="" functionName="dedup" label="">
-<pragma name="LOOP_TRIPCOUNT">
-<option name="max" value="7"/>
-</pragma>
-</directive>
-<directive functionLabel="" functionName="dedup" label="">
 <pragma name="PIPELINE"/>
 </directive>
 <directive functionLabel="" functionName="dedup" label="">
 <pragma name="PIPELINE"/>
-</directive>
-<directive functionLabel="" functionName="dedup" label="">
-<pragma name="LOOP_TRIPCOUNT">
-<option name="max" value="7"/>
-</pragma>
 </directive>
 </sourceFile>
 </AutoPilot:ProjectResources>

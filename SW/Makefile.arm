@@ -22,7 +22,7 @@ LEVELDB := lib/arm/libleveldb.a
 
 all: $(LEVELDB) $(OBJS) # $(CRYPTO)
 	source $(XILINX_DIR)/Vivado/$(XILINX_VER)/settings64.sh && \
-	$(CXX) -o zed_dedup $(OBJS) $(LDFLAGS) $(LDLIBS)
+	$(CXX) -o zed_dedup_sw $(OBJS) $(LDFLAGS) $(LDLIBS)
 
 $(SRC_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@

@@ -135,8 +135,8 @@ ENTITY DedupDMADesign_axi_dma_0_1 IS
     m_axi_s2mm_awcache : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     m_axi_s2mm_awvalid : OUT STD_LOGIC;
     m_axi_s2mm_awready : IN STD_LOGIC;
-    m_axi_s2mm_wdata : OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-    m_axi_s2mm_wstrb : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+    m_axi_s2mm_wdata : OUT STD_LOGIC_VECTOR(255 DOWNTO 0);
+    m_axi_s2mm_wstrb : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
     m_axi_s2mm_wlast : OUT STD_LOGIC;
     m_axi_s2mm_wvalid : OUT STD_LOGIC;
     m_axi_s2mm_wready : IN STD_LOGIC;
@@ -144,8 +144,8 @@ ENTITY DedupDMADesign_axi_dma_0_1 IS
     m_axi_s2mm_bvalid : IN STD_LOGIC;
     m_axi_s2mm_bready : OUT STD_LOGIC;
     s2mm_prmry_reset_out_n : OUT STD_LOGIC;
-    s_axis_s2mm_tdata : IN STD_LOGIC_VECTOR(63 DOWNTO 0);
-    s_axis_s2mm_tkeep : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    s_axis_s2mm_tdata : IN STD_LOGIC_VECTOR(255 DOWNTO 0);
+    s_axis_s2mm_tkeep : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     s_axis_s2mm_tvalid : IN STD_LOGIC;
     s_axis_s2mm_tready : OUT STD_LOGIC;
     s_axis_s2mm_tlast : IN STD_LOGIC;
@@ -283,8 +283,8 @@ ARCHITECTURE DedupDMADesign_axi_dma_0_1_arch OF DedupDMADesign_axi_dma_0_1 IS
       m_axi_s2mm_awuser : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       m_axi_s2mm_awvalid : OUT STD_LOGIC;
       m_axi_s2mm_awready : IN STD_LOGIC;
-      m_axi_s2mm_wdata : OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-      m_axi_s2mm_wstrb : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+      m_axi_s2mm_wdata : OUT STD_LOGIC_VECTOR(255 DOWNTO 0);
+      m_axi_s2mm_wstrb : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
       m_axi_s2mm_wlast : OUT STD_LOGIC;
       m_axi_s2mm_wvalid : OUT STD_LOGIC;
       m_axi_s2mm_wready : IN STD_LOGIC;
@@ -292,8 +292,8 @@ ARCHITECTURE DedupDMADesign_axi_dma_0_1_arch OF DedupDMADesign_axi_dma_0_1 IS
       m_axi_s2mm_bvalid : IN STD_LOGIC;
       m_axi_s2mm_bready : OUT STD_LOGIC;
       s2mm_prmry_reset_out_n : OUT STD_LOGIC;
-      s_axis_s2mm_tdata : IN STD_LOGIC_VECTOR(63 DOWNTO 0);
-      s_axis_s2mm_tkeep : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+      s_axis_s2mm_tdata : IN STD_LOGIC_VECTOR(255 DOWNTO 0);
+      s_axis_s2mm_tkeep : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       s_axis_s2mm_tvalid : IN STD_LOGIC;
       s_axis_s2mm_tready : OUT STD_LOGIC;
       s_axis_s2mm_tlast : IN STD_LOGIC;
@@ -426,7 +426,7 @@ BEGIN
       C_MICRO_DMA => 0,
       C_INCLUDE_MM2S => 1,
       C_INCLUDE_MM2S_SF => 1,
-      C_MM2S_BURST_SIZE => 16,
+      C_MM2S_BURST_SIZE => 256,
       C_M_AXI_MM2S_ADDR_WIDTH => 32,
       C_M_AXI_MM2S_DATA_WIDTH => 32,
       C_M_AXIS_MM2S_TDATA_WIDTH => 8,
@@ -435,8 +435,8 @@ BEGIN
       C_INCLUDE_S2MM_SF => 1,
       C_S2MM_BURST_SIZE => 16,
       C_M_AXI_S2MM_ADDR_WIDTH => 32,
-      C_M_AXI_S2MM_DATA_WIDTH => 64,
-      C_S_AXIS_S2MM_TDATA_WIDTH => 64,
+      C_M_AXI_S2MM_DATA_WIDTH => 256,
+      C_S_AXIS_S2MM_TDATA_WIDTH => 256,
       C_INCLUDE_S2MM_DRE => 0,
       C_FAMILY => "zynq"
     )

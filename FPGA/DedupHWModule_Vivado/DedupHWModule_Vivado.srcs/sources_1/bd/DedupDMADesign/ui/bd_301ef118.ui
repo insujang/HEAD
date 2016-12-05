@@ -3,36 +3,36 @@
 #  -string -flagsOSRD
 preplace port DDR -pg 1 -y -90 -defaultsOSRD
 preplace port FIXED_IO -pg 1 -y -70 -defaultsOSRD
-preplace inst axi_dma_0 -pg 1 -lvl 2 -y 520 -defaultsOSRD
+preplace inst axi_dma_0 -pg 1 -lvl 2 -y 560 -defaultsOSRD
 preplace inst rst_processing_system7_0_100M -pg 1 -lvl 1 -y 170 -defaultsOSRD
 preplace inst xlconcat_0 -pg 1 -lvl 2 -y 180 -defaultsOSRD
-preplace inst dedup_0 -pg 1 -lvl 2 -y 730 -defaultsOSRD
+preplace inst dedup_0 -pg 1 -lvl 2 -y 800 -defaultsOSRD
 preplace inst axi_mem_intercon -pg 1 -lvl 3 -y 240 -defaultsOSRD
 preplace inst processing_system7_0_axi_periph -pg 1 -lvl 1 -y 510 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 2 -y -10 -defaultsOSRD
 preplace netloc processing_system7_0_DDR 1 2 2 NJ -90 NJ
 preplace netloc processing_system7_0_axi_periph_M00_AXI 1 1 1 NJ
-preplace netloc processing_system7_0_M_AXI_GP0 1 0 3 30 280 N 280 1270
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 3 30 -170 N -170 1330
-preplace netloc dedup_0_outputData 1 1 2 490 650 1270
-preplace netloc axi_mem_intercon_M00_AXI 1 1 3 NJ 400 NJ 420 1680
+preplace netloc processing_system7_0_M_AXI_GP0 1 0 3 30 260 N 260 1260
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 3 40 -170 N -170 1310
+preplace netloc dedup_0_outputData 1 1 2 480 690 1250
+preplace netloc axi_mem_intercon_M00_AXI 1 1 3 NJ 420 NJ 420 1640
 preplace netloc axi_dma_0_M_AXI_SG 1 2 1 NJ
-preplace netloc axi_dma_0_s2mm_introut 1 1 2 490 260 1290
-preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 0 3 30 650 440 300 1280
+preplace netloc axi_dma_0_s2mm_introut 1 1 2 480 290 1260
+preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 0 3 20 370 430 300 1290
 preplace netloc axi_dma_0_M_AXI_MM2S 1 2 1 NJ
-preplace netloc xlconcat_0_dout 1 1 2 500 -140 1280
+preplace netloc xlconcat_0_dout 1 1 2 490 -160 1290
 preplace netloc processing_system7_0_FIXED_IO 1 2 2 NJ -70 NJ
-preplace netloc axi_dma_0_mm2s_introut 1 1 2 480 290 1270
+preplace netloc axi_dma_0_mm2s_introut 1 1 2 470 280 1270
 preplace netloc axi_dma_0_M_AXI_S2MM 1 2 1 NJ
-preplace netloc dedup_0_interrupt 1 1 2 500 270 1300
-preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 0 3 20 260 430 250 1340
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 10 270 460 -150 1350
-preplace netloc axi_dma_0_M_AXIS_MM2S 1 1 2 500 640 1280
-preplace netloc processing_system7_0_axi_periph_M01_AXI 1 1 1 450
-levelinfo -pg 1 -10 260 1050 1530 1700 -top -620 -bot 810
+preplace netloc dedup_0_interrupt 1 1 2 490 270 1280
+preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 0 3 40 270 440 250 1320
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 10 280 450 -140 1330
+preplace netloc axi_dma_0_M_AXIS_MM2S 1 1 2 490 680 1250
+preplace netloc processing_system7_0_axi_periph_M01_AXI 1 1 1 440
+levelinfo -pg 1 -10 260 1030 1490 1660 -top -740 -bot 940
 ",
 }
 {
-   da_axi4_cnt: "13",
+   da_axi4_cnt: "18",
    da_ps7_cnt: "2",
 }

@@ -135,8 +135,8 @@ ENTITY DedupDMADesign_axi_dma_0_1 IS
     m_axi_s2mm_awcache : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     m_axi_s2mm_awvalid : OUT STD_LOGIC;
     m_axi_s2mm_awready : IN STD_LOGIC;
-    m_axi_s2mm_wdata : OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-    m_axi_s2mm_wstrb : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+    m_axi_s2mm_wdata : OUT STD_LOGIC_VECTOR(255 DOWNTO 0);
+    m_axi_s2mm_wstrb : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
     m_axi_s2mm_wlast : OUT STD_LOGIC;
     m_axi_s2mm_wvalid : OUT STD_LOGIC;
     m_axi_s2mm_wready : IN STD_LOGIC;
@@ -144,8 +144,8 @@ ENTITY DedupDMADesign_axi_dma_0_1 IS
     m_axi_s2mm_bvalid : IN STD_LOGIC;
     m_axi_s2mm_bready : OUT STD_LOGIC;
     s2mm_prmry_reset_out_n : OUT STD_LOGIC;
-    s_axis_s2mm_tdata : IN STD_LOGIC_VECTOR(63 DOWNTO 0);
-    s_axis_s2mm_tkeep : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    s_axis_s2mm_tdata : IN STD_LOGIC_VECTOR(255 DOWNTO 0);
+    s_axis_s2mm_tkeep : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     s_axis_s2mm_tvalid : IN STD_LOGIC;
     s_axis_s2mm_tready : OUT STD_LOGIC;
     s_axis_s2mm_tlast : IN STD_LOGIC;
@@ -283,8 +283,8 @@ ARCHITECTURE DedupDMADesign_axi_dma_0_1_arch OF DedupDMADesign_axi_dma_0_1 IS
       m_axi_s2mm_awuser : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       m_axi_s2mm_awvalid : OUT STD_LOGIC;
       m_axi_s2mm_awready : IN STD_LOGIC;
-      m_axi_s2mm_wdata : OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-      m_axi_s2mm_wstrb : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+      m_axi_s2mm_wdata : OUT STD_LOGIC_VECTOR(255 DOWNTO 0);
+      m_axi_s2mm_wstrb : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
       m_axi_s2mm_wlast : OUT STD_LOGIC;
       m_axi_s2mm_wvalid : OUT STD_LOGIC;
       m_axi_s2mm_wready : IN STD_LOGIC;
@@ -292,8 +292,8 @@ ARCHITECTURE DedupDMADesign_axi_dma_0_1_arch OF DedupDMADesign_axi_dma_0_1 IS
       m_axi_s2mm_bvalid : IN STD_LOGIC;
       m_axi_s2mm_bready : OUT STD_LOGIC;
       s2mm_prmry_reset_out_n : OUT STD_LOGIC;
-      s_axis_s2mm_tdata : IN STD_LOGIC_VECTOR(63 DOWNTO 0);
-      s_axis_s2mm_tkeep : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+      s_axis_s2mm_tdata : IN STD_LOGIC_VECTOR(255 DOWNTO 0);
+      s_axis_s2mm_tkeep : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       s_axis_s2mm_tvalid : IN STD_LOGIC;
       s_axis_s2mm_tready : OUT STD_LOGIC;
       s_axis_s2mm_tlast : IN STD_LOGIC;
@@ -317,7 +317,7 @@ ARCHITECTURE DedupDMADesign_axi_dma_0_1_arch OF DedupDMADesign_axi_dma_0_1 IS
   ATTRIBUTE CHECK_LICENSE_TYPE OF DedupDMADesign_axi_dma_0_1_arch : ARCHITECTURE IS "DedupDMADesign_axi_dma_0_1,axi_dma,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
   ATTRIBUTE CORE_GENERATION_INFO OF DedupDMADesign_axi_dma_0_1_arch: ARCHITECTURE IS "DedupDMADesign_axi_dma_0_1,axi_dma,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axi_dma,x_ipVersion=7.1,x_ipCoreRevision=10,x_ipLanguage=VERILOG,x_ipSimLanguage=VERILOG,C_S_AXI_LITE_ADDR_WIDTH=10,C_S_AXI_LITE_DATA_WIDTH=32,C_DLYTMR_RESOLUTION=125,C_PRMRY_IS_ACLK_ASYNC=0,C_ENABLE_MULTI_CHANNEL=0,C_NUM_MM2S_CHANNELS=1,C_NUM_S2MM_CHANNELS=1,C_INCLUDE_SG=1,C_SG_INCLUDE_STSCNTRL_STRM=0,C_SG_USE_STSAPP_LENGTH=0,C_SG_LENGTH_WIDTH=14,C_M_AXI_SG_ADDR_WIDTH=32,C_M_AXI_SG_DATA_W" & 
-"IDTH=32,C_M_AXIS_MM2S_CNTRL_TDATA_WIDTH=32,C_S_AXIS_S2MM_STS_TDATA_WIDTH=32,C_MICRO_DMA=0,C_INCLUDE_MM2S=1,C_INCLUDE_MM2S_SF=1,C_MM2S_BURST_SIZE=16,C_M_AXI_MM2S_ADDR_WIDTH=32,C_M_AXI_MM2S_DATA_WIDTH=32,C_M_AXIS_MM2S_TDATA_WIDTH=8,C_INCLUDE_MM2S_DRE=0,C_INCLUDE_S2MM=1,C_INCLUDE_S2MM_SF=1,C_S2MM_BURST_SIZE=16,C_M_AXI_S2MM_ADDR_WIDTH=32,C_M_AXI_S2MM_DATA_WIDTH=64,C_S_AXIS_S2MM_TDATA_WIDTH=64,C_INCLUDE_S2MM_DRE=0,C_FAMILY=zynq}";
+"IDTH=32,C_M_AXIS_MM2S_CNTRL_TDATA_WIDTH=32,C_S_AXIS_S2MM_STS_TDATA_WIDTH=32,C_MICRO_DMA=0,C_INCLUDE_MM2S=1,C_INCLUDE_MM2S_SF=1,C_MM2S_BURST_SIZE=256,C_M_AXI_MM2S_ADDR_WIDTH=32,C_M_AXI_MM2S_DATA_WIDTH=32,C_M_AXIS_MM2S_TDATA_WIDTH=8,C_INCLUDE_MM2S_DRE=0,C_INCLUDE_S2MM=1,C_INCLUDE_S2MM_SF=1,C_S2MM_BURST_SIZE=16,C_M_AXI_S2MM_ADDR_WIDTH=32,C_M_AXI_S2MM_DATA_WIDTH=256,C_S_AXIS_S2MM_TDATA_WIDTH=256,C_INCLUDE_S2MM_DRE=0,C_FAMILY=zynq}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_INFO OF s_axi_lite_aclk: SIGNAL IS "xilinx.com:signal:clock:1.0 S_AXI_LITE_ACLK CLK";
   ATTRIBUTE X_INTERFACE_INFO OF m_axi_sg_aclk: SIGNAL IS "xilinx.com:signal:clock:1.0 M_AXI_SG_CLK CLK";
@@ -433,7 +433,7 @@ BEGIN
       C_MICRO_DMA => 0,
       C_INCLUDE_MM2S => 1,
       C_INCLUDE_MM2S_SF => 1,
-      C_MM2S_BURST_SIZE => 16,
+      C_MM2S_BURST_SIZE => 256,
       C_M_AXI_MM2S_ADDR_WIDTH => 32,
       C_M_AXI_MM2S_DATA_WIDTH => 32,
       C_M_AXIS_MM2S_TDATA_WIDTH => 8,
@@ -442,8 +442,8 @@ BEGIN
       C_INCLUDE_S2MM_SF => 1,
       C_S2MM_BURST_SIZE => 16,
       C_M_AXI_S2MM_ADDR_WIDTH => 32,
-      C_M_AXI_S2MM_DATA_WIDTH => 64,
-      C_S_AXIS_S2MM_TDATA_WIDTH => 64,
+      C_M_AXI_S2MM_DATA_WIDTH => 256,
+      C_S_AXIS_S2MM_TDATA_WIDTH => 256,
       C_INCLUDE_S2MM_DRE => 0,
       C_FAMILY => "zynq"
     )

@@ -136,23 +136,26 @@ int main(){
 
 	char buffer[8192];
 	stream.read(buffer, 8192);
-
 	stream.close();
 
-	hls::stream<char> inStream;
-	hls::stream<ap_out> outStream;
-	for(int i=0; i<8192; i++) inStream.write(buffer[i]);
 
-	dedup(inStream, outStream);
+	hls::stream<char> inputStream;
+	for(int i=0; i<8192; i++) inputStream.write(buffer[i]);
+	hls::stream<ap_out> outputStream;
 
+	dedup(inputStream, outputStream);
+
+	using namespace std;
 	for(int i=0; i<7; i++){
-		ap_out result = outStream.read();
-		char out[9];
-		out[8] = '\0';
-		sprintf(out, "%08x", result.data.hashData);
+		ap_out result = outputStream.read();
 
-		using namespace std;
-		cout << "len: " << result.data.index << ", " << out << ", last: " << result.last << endl;
+		cout << "len: " << dec << result.data.index << endl;
+		char out[33];
+		snprintf(out, 32, "%08x%08x%08x%08x", result.data.hashData[0], result.data.hashData[1],
+				result.data.hashData[2], result.data.hashData[3]);
+		out[32] = '\0';
+
+		cout << "hash " << i << ": " << string(out) << endl;
 	}
 
 

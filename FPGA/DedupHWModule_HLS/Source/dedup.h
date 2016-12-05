@@ -17,12 +17,15 @@ extern "C"{
 
 uint32_t murmurhash ( char* key, uint32_t len, uint32_t seed);
 void murmurhash128(char key[BUFFER_LEN], int len, int seed, uint32_t hash[4]);
+void murmurhash128_new (char str[BUFFER_LEN], int indices[7], int lastIndex, int seed, uint32_t hash[7][4]);
 void calcHash(char str[BUFFER_LEN], int indices[INDICES_NUM]);
 
 struct ap_out_item{
 	int index;
-	uint32_t hashData[32];
+	uint32_t hashData[4];
+	int dummy[3];
 };
+// 32 bytes = 256 bits
 
 struct ap_out{
 	ap_out_item data;

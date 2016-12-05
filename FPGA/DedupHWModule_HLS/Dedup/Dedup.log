@@ -7,31 +7,4 @@ Copyright (C) 1986-2016 Xilinx, Inc. All Rights Reserved.
 
 @I [SYN-201] Setting up clock 'default' with a period of 10ns.
 @I [HLS-10] Setting target device to 'xc7z020clg484-1'
-@I [HLS-10] Analyzing design file 'DedupHWModule_HLS/Source/murmur.cpp' ... 
-@I [HLS-10] Analyzing design file 'DedupHWModule_HLS/Source/dedup.cpp' ... 
-@I [HLS-10] Analyzing design file 'DedupHWModule_HLS/Source/calcHash.cpp' ... 
-@I [HLS-10] Validating synthesis directives ...
-@I [HLS-10] Starting code transformations ...
-@I [HLS-10] Checking synthesizability ...
-@I [XFORM-602] Inlining function 'rotl32' into 'murmurhash128' (DedupHWModule_HLS/Source/murmur.cpp:109) automatically.
-@I [XFORM-1101] Packing variable 'outputData.V.data' (DedupHWModule_HLS/Source/dedup.cpp:5) into a 1056-bit variable.
-@I [XFORM-502] Unrolling all sub-loops inside loop 'hash_initialize_outerloop' (DedupHWModule_HLS/Source/calcHash.cpp:21) in function 'calcHash' for pipelining.
-@I [XFORM-502] Unrolling all sub-loops inside loop 'rolling_hash_calc_check_outerloop' (DedupHWModule_HLS/Source/calcHash.cpp:43) in function 'calcHash' for pipelining.
-@I [XFORM-502] Unrolling all loops for pipelining in function 'murmurhash128' (DedupHWModule_HLS/Source/murmur.cpp:96).
-@I [XFORM-502] Unrolling all sub-loops inside loop 'fillQueue' (DedupHWModule_HLS/Source/dedup.cpp:76) in function 'dedup' for pipelining.
-@I [XFORM-501] Unrolling loop 'hash_initialize_innerloop' (DedupHWModule_HLS/Source/calcHash.cpp:24) in function 'calcHash' completely.
-@I [XFORM-501] Unrolling loop 'fisrt_hash_comparison' (DedupHWModule_HLS/Source/calcHash.cpp:32) in function 'calcHash' completely.
-@I [XFORM-501] Unrolling loop 'rolling_hash_calc_check' (DedupHWModule_HLS/Source/calcHash.cpp:46) in function 'calcHash' completely.
-@I [XFORM-501] Unrolling loop 'Loop-1' (DedupHWModule_HLS/Source/murmur.cpp:98) in function 'murmurhash128' completely.
-@W [XFORM-503] Cannot unroll loop 'Loop-2' (DedupHWModule_HLS/Source/murmur.cpp:100) in function 'murmurhash128': cannot completely unroll a loop with a variable trip count.
-@I [XFORM-501] Unrolling loop 'Loop-5.1' (DedupHWModule_HLS/Source/dedup.cpp:81) in function 'dedup' completely.
-@I [XFORM-102] Partitioning array 'item.data.hashData' (DedupHWModule_HLS/Source/dedup.cpp:65) automatically.
-@I [XFORM-102] Partitioning array 'item.data.hashData.1' (DedupHWModule_HLS/Source/dedup.cpp:79) automatically.
-@W [XFORM-104] Completely partitioning array 'indices' (DedupHWModule_HLS/Source/dedup.cpp:14) accessed through non-constant indices on dimension 1 (DedupHWModule_HLS/Source/dedup.cpp:44:3), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
-@I [XFORM-101] Partitioning array 'indices' (DedupHWModule_HLS/Source/dedup.cpp:14) in dimension 1 completely.
-@I [XFORM-101] Partitioning array 'buffer' (DedupHWModule_HLS/Source/dedup.cpp:10) in dimension 1 with a block factor 64.
-@W [XFORM-104] Completely partitioning array 'hash' (DedupHWModule_HLS/Source/calcHash.cpp:8) accessed through non-constant indices on dimension 1 (DedupHWModule_HLS/Source/calcHash.cpp:17:2), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
-@I [XFORM-101] Partitioning array 'hash' (DedupHWModule_HLS/Source/calcHash.cpp:8) in dimension 1 completely.
-@I [XFORM-602] Inlining function 'rotl32' into 'murmurhash128' (DedupHWModule_HLS/Source/murmur.cpp:109) automatically.
-@I [XFORM-401] Performing if-conversion on hyperblock from (DedupHWModule_HLS/Source/dedup.cpp:66:48) to (DedupHWModule_HLS/Source/dedup.cpp:61:20) in function 'dedup'... converting 3 basic blocks.
-@I [XFORM-401] Performing if-conversion on hyperblock from (DedupHWModule
+@I [SIM-1] CSim done with 0 errors.

@@ -728,6 +728,5 @@
 #pragma line 34 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/clang/bin/../lib/clang/3.1/include/stdint.h" 2 3 ::: 45935
 #pragma line 9 "DedupHWModule_HLS/Source/dedup.h" 2 ::: 45936
 #pragma line 18 "DedupHWModule_HLS/Source/dedup.h" ::: 45938
-#pragma line 2 "DedupHWModule_HLS/Source/murmur.cpp" 2 ::: 45954
-#pragma line 12 "DedupHWModule_HLS/Source/murmur.cpp" ::: 45955
-#pragma line 96 "DedupHWModule_HLS/Source/murmur.cpp" ::: 46029
+#pragma line 2 "DedupHWModule_HLS/Source/murmur.cpp" 2 ::: 45956
+#pragma line 12 "DedupHWModule_HLS/Source/murmur.cpp" ::: 45957

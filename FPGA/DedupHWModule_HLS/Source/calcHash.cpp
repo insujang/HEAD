@@ -3,7 +3,7 @@
 
 void calcHash(char str[BUFFER_LEN], int indices[INDICES_NUM]){
 #pragma HLS ARRAY_PARTITION variable=indices complete dim=1
-#pragma HLS ARRAY_PARTITION variable=str block factor=64 dim=1
+#pragma HLS ARRAY_PARTITION variable=str block factor=128 dim=1
 
 	int hash[112];
 #pragma HLS ARRAY_PARTITION variable=hash complete dim=1
@@ -19,7 +19,7 @@ void calcHash(char str[BUFFER_LEN], int indices[INDICES_NUM]){
 	// The reason inner loop = # hashes is to fully unroll
 	hash_initialize_outerloop:
 	for(int i=0; i<1024; i++){
-#pragma HLS PIPELINE
+#pragma HLS PIPELINE II=8
 		hash_initialize_innerloop:
 		for(int j=0; j<112; j++){
 #pragma HLS UNROLL

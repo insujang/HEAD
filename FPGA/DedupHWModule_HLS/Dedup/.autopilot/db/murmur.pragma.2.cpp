@@ -46004,11 +46004,13 @@ typedef unsigned long int uintmax_t;
 # 18 "DedupHWModule_HLS/Source/dedup.h"
 uint32_t murmurhash ( char* key, uint32_t len, uint32_t seed);
 void murmurhash128(char key[8192], int len, int seed, uint32_t hash[4]);
+void murmurhash128_new (char str[8192], int indices[7], int lastIndex, int seed, uint32_t hash[7][4]);
 void calcHash(char str[8192], int indices[112]);
 
 struct ap_out_item{
  int index;
- uint32_t hashData[32];
+ uint32_t hashData[4];
+ int dummy[3];
 };
 
 struct ap_out{
@@ -46020,7 +46022,7 @@ void dedup(hls::stream<char>& inputData, hls::stream<ap_out>& outputData);
 # 2 "DedupHWModule_HLS/Source/murmur.cpp" 2
 # 12 "DedupHWModule_HLS/Source/murmur.cpp"
 uint32_t murmurhash (char key[8192], uint32_t len, uint32_t seed) {_ssdm_SpecArrayDimSize(key,8192);
-_ssdm_SpecArrayPartition( key, 1, "BLOCK", 64, "");
+_ssdm_SpecArrayPartition( key, 1, "BLOCK", 128, "");
  uint32_t hash = seed;
 
 
@@ -46089,47 +46091,181 @@ _ssdm_op_SpecLoopTripCount(0, 2048, 1024, "");
 
 
 
+
 inline uint32_t rotl32 (uint32_t x, int8_t r){
  return (x << r) | (x >> (32 - r));
 };
-# 96 "DedupHWModule_HLS/Source/murmur.cpp"
+/*
+#define c1 0x239b961b
+#define c2 0xab0e9789
+#define c3 0x38b34ae5
+#define c4 0xa1e38b93
+#define m 5
+#define n1 0x561ccd1b
+#define n2 0x0bcaa747
+#define n3 0x96cd1c35
+#define n4 0x32ac3b17
+*/
+
+using namespace std;
+void murmurhash128_new (char str[8192], int indices[7], int lastIndex, int seed, uint32_t hash[7][4]){_ssdm_SpecArrayDimSize(str,8192);_ssdm_SpecArrayDimSize(indices,7);_ssdm_SpecArrayDimSize(hash,7);
+_ssdm_op_SpecResource(str, "", "RAM_2P_BRAM", "", -1, "", "", "", "", "");
+_ssdm_SpecArrayPartition( str, 1, "BLOCK", 128, "");
+
+ const uint32_t c[4] = {0x239b961b, 0xab0e9789, 0x38b34ae5, 0xa1e38b93};
+_ssdm_SpecConstant(c);
+# 103 "DedupHWModule_HLS/Source/murmur.cpp"
+
+ const uint32_t n[4] = {0x561ccd1b, 0x0bcaa747, 0x96cd1c35, 0x32ac3b17};
+_ssdm_SpecConstant(n);
+# 104 "DedupHWModule_HLS/Source/murmur.cpp"
+
+
+ int keys[8192 >> 2];
+_ssdm_SpecArrayPartition( keys, 1, "BLOCK", 128, "");
+
+ for(int i=0; i<7; i++){
+_ssdm_Unroll(0,0,0, "");
+ for(int j=0; j<4; j++){
+_ssdm_Unroll(0,0,0, "");
+ hash[i][j] = seed;
+  }
+ }
+
+ for(int i=0; i<64; i+=4){
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+ for(int j=0; j<8192; j+=64){
+   int offset = i + j;
+   int index = offset >> 2;
+
+
+
+
+
+
+   keys[index] = (str[offset+3] << 24) + (str[offset+2] << 16) +
+     (str[offset+1] << 8) + (str[offset]);
+   keys[index] *= c[index & 3];
+   keys[index] = rotl32(keys[index], 15 + (index & 3));
+   keys[index] *= c[(index+1) & 3];
+  }
+
+
+
+ }
+
+ cout << "=========================================" << endl;
+ cout << "End of block calculation" << endl;
+ cout << "=========================================" << endl;
+
+ // For 2048 keys, calculate hash values
+ int offset = 0;
+
+ for(int i=0; i<(8192>>2); i+=4){
+_ssdm_op_SpecLoopTripCount(2048, 2048, 2048, "");
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+ if((i << 2) > indices[offset]){
+
+
+
+
+   offset++;
+  }
+  if(indices[offset] == 0){
+
+
+
+
+
+
+   break;
+  }
+  int hashOffset = i & 3;
+
+  for(int j=0; j<4; j++){
+   hash[offset][hashOffset+j] ^= keys[(i+j) & 3];
+   hash[offset][hashOffset+j] = rotl32(hash[offset][hashOffset+j], 19 - (j << 1));
+   hash[offset][hashOffset+j] ^= keys[(i+j+1) & 3];
+   hash[offset][hashOffset+j] = hash[offset][hashOffset+j] * 5 + n[(i+j) & 3];
+
+
+
+
+
+  }
+ }
+
+ // Key finalization
+ for(int i=0; i<7; i++){
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+ int len = indices[i] - (i == 0? 0 : indices[i-1]);
+  for(int j=0; j<4; j++){
+   hash[i][j] ^= len;
+  }
+  hash[i][0] += hash[i][1];
+  hash[i][0] += hash[i][2];
+  hash[i][0] += hash[i][3];
+
+  hash[i][1] += hash[i][0];
+  hash[i][2] += hash[i][0];
+  hash[i][3] += hash[i][0];
+ }
+
+
+ cout << "=========================================" << endl;
+ cout << "Hash finalize completed" << endl;
+ cout << "=========================================" << endl;
+
+ for(int i=0; i<7; i++){
+  for(int j=0; j<4; j++){
+   cout << "hash[" << i+1 << "][" << j+1 << "] = " << hex << hash[i][j] << endl;
+  }
+ }
+
+}
+
 void murmurhash128(char key[8192], int len, int seed, uint32_t hash[4]){_ssdm_SpecArrayDimSize(key,8192);_ssdm_SpecArrayDimSize(hash,4);
-_ssdm_SpecArrayPartition( key, 1, "BLOCK", 64, "");
- for(int i=0; i<4; i++) hash[i] = seed;
+_ssdm_op_SpecResource(key, "", "RAM_2P_BRAM", "", -1, "", "", "", "", "");
+_ssdm_SpecArrayPartition( key, 1, "BLOCK", 128, "");
+
+ const uint32_t c[4] = {0x239b961b, 0xab0e9789, 0x38b34ae5, 0xa1e38b93};
+_ssdm_SpecConstant(c);
+# 213 "DedupHWModule_HLS/Source/murmur.cpp"
+
+ const uint32_t n[4] = {0x561ccd1b, 0x0bcaa747, 0x96cd1c35, 0x32ac3b17};
+_ssdm_SpecConstant(n);
+# 214 "DedupHWModule_HLS/Source/murmur.cpp"
+
+
+ for(int i=0; i<4; i++)
+_ssdm_Unroll(0,0,0, "");
+ hash[i] = seed;
+
 
  for(int i=0; i < (len >> 4); i++){
-_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+_ssdm_op_SpecPipeline(8, 1, 1, 0, "");
 _ssdm_op_SpecLoopTripCount(0, 512, 256, "");
  int offset = (i << 4);
-  uint32_t k1 = (key[offset+3] << 24) + (key[offset+2] << 16) + (key[offset+1] << 8) + (key[offset+0]);
-  uint32_t k2 = (key[offset+7] << 24) + (key[offset+6] << 16) + (key[offset+5] << 8) + (key[offset+4]);
-  uint32_t k3 = (key[offset+11] << 24) + (key[offset+10] << 16) + (key[offset+9] << 8) + (key[offset+8]);
-  uint32_t k4 = (key[offset+15] << 24) + (key[offset+14] << 16) + (key[offset+13] << 8) + (key[offset+12]);
+  uint32_t k[4];
+  for(int i=0; i<4; i++){
+   k[i] = (key[offset+3+(i<<2)] << 24);
+   k[i] += (key[offset+2+(i<<2)] << 16);
+   k[i] += (key[offset+1+(i<<2)] << 8);
+   k[i] += (key[offset+0+(i<<2)] << 0);
+  }
 
-  k1 *= 0x239b961b; k1 = rotl32(k1, 15); k1 *= 0xab0e9789;
-  k2 *= 0xab0e9789; k2 = rotl32(k2, 16); k2 *= 0xab0e9789;
-  k3 *= 0xab0e9789; k3 = rotl32(k3, 17); k3 *= 0xab0e9789;
-  k4 *= 0xab0e9789; k4 = rotl32(k4, 18); k4 *= 0x239b961b;
+  for(int i=0; i<4; i++){
+   k[i] *= c[i];
+   k[i] = rotl32(k[i], 15+i);
+   k[i] *= (i==3 ? c[0] : c[i+1]);
+  }
 
-  hash[0] ^= k1;
-  hash[0] = rotl32(hash[0], 19);
-  hash[0] += hash[1];
-  hash[0] = hash[0] * 5 + 0x561ccd1b;
-
-  hash[1] ^= k2;
-  hash[1] = rotl32(hash[1], 17);
-  hash[1] += hash[2];
-  hash[1] = hash[1] * 5 + 0x0bcaa747;
-
-  hash[2] ^= k3;
-  hash[2] = rotl32(hash[2], 15);
-  hash[2] += hash[3];
-  hash[2] = hash[2] * 5 + 0x96cd1c35;
-
-  hash[3] ^= k4;
-  hash[3] = rotl32(hash[3], 13);
-  hash[3] += hash[0];
-  hash[3] = hash[3] * 5 + 0x32ac3b17;
+  for(int i=0; i<4; i++){
+   hash[i] ^= k[i];
+   hash[i] = rotl32(hash[i], 19 - (i<<1));
+   hash[i] += (i==3 ? hash[0] : hash[i+1]);
+   hash[i] = hash[i] * 5 + n[i];
+  }
  }
 
  const uint8_t *tail = (const uint8_t *) (key + len - (len & 15));
@@ -46142,43 +46278,40 @@ _ssdm_op_SpecLoopTripCount(0, 512, 256, "");
   case 15: k4 ^= (tail[14] << 16);
   case 14: k4 ^= (tail[13] << 8);
   case 13: k4 ^= (tail[12] << 0);
-  k4 *= 0xab0e9789;
+  k4 *= c[3];
   k4 = rotl32(k4, 18);
-  k4 *= 0x239b961b;
+  k4 *= c[0];
   hash[3] ^= k4;
 
   case 12: k3 ^= (tail[11] << 24);
   case 11: k3 ^= (tail[10] << 16);
   case 10: k3 ^= (tail[9] << 8);
   case 9: k3 ^= (tail[8] << 0);
-  k3 *= 0xab0e9789;
+  k3 *= c[2];
   k3 = rotl32(k3, 17);
-  k3 *= 0xab0e9789;
+  k3 *= c[3];
   hash[2] ^= k3;
 
   case 8: k2 ^= (tail[7] << 24);
   case 7: k2 ^= (tail[6] << 16);
   case 6: k2 ^= (tail[5] << 8);
   case 5: k2 ^= (tail[4] << 0);
-  k2 *= 0xab0e9789;
+  k2 *= c[1];
   k2 = rotl32(k2, 16);
-  k2 *= 0xab0e9789;
+  k2 *= c[2];
   hash[1] ^= k2;
 
   case 4: k1 ^= (tail[3] << 24);
   case 3: k1 ^= (tail[2] << 16);
   case 2: k1 ^= (tail[1] << 8);
   case 1: k1 ^= (tail[0] << 0);
-  k1 *= 0x239b961b;
+  k1 *= c[0];
   k1 = rotl32(k1, 15);
-  k1 *= 0xab0e9789;
+  k1 *= c[1];
   hash[0] ^= k1;
  }
 
- hash[0] ^= len;
- hash[1] ^= len;
- hash[2] ^= len;
- hash[3] ^= len;
+ for(int i=0; i<4; i++) hash[i] ^= len;
 
  hash[0] += hash[1];
  hash[0] += hash[2];

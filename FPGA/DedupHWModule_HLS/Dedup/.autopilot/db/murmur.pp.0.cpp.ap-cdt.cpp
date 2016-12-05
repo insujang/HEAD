@@ -45959,11 +45959,13 @@ typedef unsigned long int uintmax_t;
 #pragma line 18 "DedupHWModule_HLS/Source/dedup.h"
 uint32_t murmurhash ( char* key, uint32_t len, uint32_t seed);
 void murmurhash128(char key[8192], int len, int seed, uint32_t hash[4]);
+void murmurhash128_new (char str[8192], int indices[7], int lastIndex, int seed, uint32_t hash[7][4]);
 void calcHash(char str[8192], int indices[112]);
 #pragma empty_line
 struct ap_out_item{
  int index;
- uint32_t hashData[32];
+ uint32_t hashData[4];
+ int dummy[3];
 };
 #pragma empty_line
 struct ap_out{
@@ -45975,7 +45977,7 @@ void dedup(hls::stream<char>& inputData, hls::stream<ap_out>& outputData);
 #pragma line 2 "DedupHWModule_HLS/Source/murmur.cpp" 2
 #pragma line 12 "DedupHWModule_HLS/Source/murmur.cpp"
 uint32_t murmurhash (char key[8192], uint32_t len, uint32_t seed) {_ssdm_SpecArrayDimSize(key,8192);
-#pragma HLS ARRAY_PARTITION variable=key block factor=64 dim=1
+#pragma HLS ARRAY_PARTITION variable=key block factor=128 dim=1
  uint32_t hash = seed;
 #pragma empty_line
 #pragma empty_line
@@ -46044,47 +46046,181 @@ uint32_t murmurhash (char key[8192], uint32_t len, uint32_t seed) {_ssdm_SpecArr
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
+#pragma empty_line
 inline uint32_t rotl32 (uint32_t x, int8_t r){
  return (x << r) | (x >> (32 - r));
 };
-#pragma line 96 "DedupHWModule_HLS/Source/murmur.cpp"
+/*
+#define c1 0x239b961b
+#define c2 0xab0e9789
+#define c3 0x38b34ae5
+#define c4 0xa1e38b93
+#define m 5
+#define n1 0x561ccd1b
+#define n2 0x0bcaa747
+#define n3 0x96cd1c35
+#define n4 0x32ac3b17
+*/
+#pragma empty_line
+using namespace std;
+void murmurhash128_new (char str[8192], int indices[7], int lastIndex, int seed, uint32_t hash[7][4]){_ssdm_SpecArrayDimSize(str,8192);_ssdm_SpecArrayDimSize(indices,7);_ssdm_SpecArrayDimSize(hash,7);
+#pragma HLS RESOURCE variable=str core=RAM_2P_BRAM
+#pragma HLS ARRAY_PARTITION variable=str block factor=128 dim=1
+#pragma empty_line
+ const uint32_t c[4] = {0x239b961b, 0xab0e9789, 0x38b34ae5, 0xa1e38b93};
+_ssdm_SpecConstant(c);
+#pragma line 103 "DedupHWModule_HLS/Source/murmur.cpp"
+
+ const uint32_t n[4] = {0x561ccd1b, 0x0bcaa747, 0x96cd1c35, 0x32ac3b17};
+_ssdm_SpecConstant(n);
+#pragma line 104 "DedupHWModule_HLS/Source/murmur.cpp"
+
+#pragma empty_line
+ int keys[8192 >> 2];
+#pragma HLS ARRAY_PARTITION variable=keys block factor=128 dim=1
+#pragma empty_line
+ for(int i=0; i<7; i++){
+#pragma HLS UNROLL
+ for(int j=0; j<4; j++){
+#pragma HLS UNROLL
+ hash[i][j] = seed;
+  }
+ }
+#pragma empty_line
+ for(int i=0; i<64; i+=4){
+#pragma HLS PIPELINE
+ for(int j=0; j<8192; j+=64){
+   int offset = i + j;
+   int index = offset >> 2;
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+   keys[index] = (str[offset+3] << 24) + (str[offset+2] << 16) +
+     (str[offset+1] << 8) + (str[offset]);
+   keys[index] *= c[index & 3];
+   keys[index] = rotl32(keys[index], 15 + (index & 3));
+   keys[index] *= c[(index+1) & 3];
+  }
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+ }
+#pragma empty_line
+ cout << "=========================================" << endl;
+ cout << "End of block calculation" << endl;
+ cout << "=========================================" << endl;
+#pragma empty_line
+ // For 2048 keys, calculate hash values
+ int offset = 0;
+#pragma empty_line
+ for(int i=0; i<(8192>>2); i+=4){
+#pragma HLS LOOP_TRIPCOUNT min=2048 max=2048
+#pragma HLS PIPELINE
+ if((i << 2) > indices[offset]){
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+   offset++;
+  }
+  if(indices[offset] == 0){
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+   break;
+  }
+  int hashOffset = i & 3;
+#pragma empty_line
+  for(int j=0; j<4; j++){
+   hash[offset][hashOffset+j] ^= keys[(i+j) & 3];
+   hash[offset][hashOffset+j] = rotl32(hash[offset][hashOffset+j], 19 - (j << 1));
+   hash[offset][hashOffset+j] ^= keys[(i+j+1) & 3];
+   hash[offset][hashOffset+j] = hash[offset][hashOffset+j] * 5 + n[(i+j) & 3];
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+  }
+ }
+#pragma empty_line
+ // Key finalization
+ for(int i=0; i<7; i++){
+#pragma HLS PIPELINE
+ int len = indices[i] - (i == 0? 0 : indices[i-1]);
+  for(int j=0; j<4; j++){
+   hash[i][j] ^= len;
+  }
+  hash[i][0] += hash[i][1];
+  hash[i][0] += hash[i][2];
+  hash[i][0] += hash[i][3];
+#pragma empty_line
+  hash[i][1] += hash[i][0];
+  hash[i][2] += hash[i][0];
+  hash[i][3] += hash[i][0];
+ }
+#pragma empty_line
+#pragma empty_line
+ cout << "=========================================" << endl;
+ cout << "Hash finalize completed" << endl;
+ cout << "=========================================" << endl;
+#pragma empty_line
+ for(int i=0; i<7; i++){
+  for(int j=0; j<4; j++){
+   cout << "hash[" << i+1 << "][" << j+1 << "] = " << hex << hash[i][j] << endl;
+  }
+ }
+#pragma empty_line
+}
+#pragma empty_line
 void murmurhash128(char key[8192], int len, int seed, uint32_t hash[4]){_ssdm_SpecArrayDimSize(key,8192);_ssdm_SpecArrayDimSize(hash,4);
-#pragma HLS ARRAY_PARTITION variable=key block factor=64 dim=1
- for(int i=0; i<4; i++) hash[i] = seed;
+#pragma HLS RESOURCE variable=key core=RAM_2P_BRAM
+#pragma HLS ARRAY_PARTITION variable=key block factor=128 dim=1
+#pragma empty_line
+ const uint32_t c[4] = {0x239b961b, 0xab0e9789, 0x38b34ae5, 0xa1e38b93};
+_ssdm_SpecConstant(c);
+#pragma line 213 "DedupHWModule_HLS/Source/murmur.cpp"
+
+ const uint32_t n[4] = {0x561ccd1b, 0x0bcaa747, 0x96cd1c35, 0x32ac3b17};
+_ssdm_SpecConstant(n);
+#pragma line 214 "DedupHWModule_HLS/Source/murmur.cpp"
+
+#pragma empty_line
+ for(int i=0; i<4; i++)
+#pragma HLS UNROLL
+ hash[i] = seed;
+#pragma empty_line
 #pragma empty_line
  for(int i=0; i < (len >> 4); i++){
-#pragma HLS PIPELINE
+#pragma HLS PIPELINE II=8
 #pragma HLS LOOP_TRIPCOUNT max=512
  int offset = (i << 4);
-  uint32_t k1 = (key[offset+3] << 24) + (key[offset+2] << 16) + (key[offset+1] << 8) + (key[offset+0]);
-  uint32_t k2 = (key[offset+7] << 24) + (key[offset+6] << 16) + (key[offset+5] << 8) + (key[offset+4]);
-  uint32_t k3 = (key[offset+11] << 24) + (key[offset+10] << 16) + (key[offset+9] << 8) + (key[offset+8]);
-  uint32_t k4 = (key[offset+15] << 24) + (key[offset+14] << 16) + (key[offset+13] << 8) + (key[offset+12]);
+  uint32_t k[4];
+  for(int i=0; i<4; i++){
+   k[i] = (key[offset+3+(i<<2)] << 24);
+   k[i] += (key[offset+2+(i<<2)] << 16);
+   k[i] += (key[offset+1+(i<<2)] << 8);
+   k[i] += (key[offset+0+(i<<2)] << 0);
+  }
 #pragma empty_line
-  k1 *= 0x239b961b; k1 = rotl32(k1, 15); k1 *= 0xab0e9789;
-  k2 *= 0xab0e9789; k2 = rotl32(k2, 16); k2 *= 0xab0e9789;
-  k3 *= 0xab0e9789; k3 = rotl32(k3, 17); k3 *= 0xab0e9789;
-  k4 *= 0xab0e9789; k4 = rotl32(k4, 18); k4 *= 0x239b961b;
+  for(int i=0; i<4; i++){
+   k[i] *= c[i];
+   k[i] = rotl32(k[i], 15+i);
+   k[i] *= (i==3 ? c[0] : c[i+1]);
+  }
 #pragma empty_line
-  hash[0] ^= k1;
-  hash[0] = rotl32(hash[0], 19);
-  hash[0] += hash[1];
-  hash[0] = hash[0] * 5 + 0x561ccd1b;
-#pragma empty_line
-  hash[1] ^= k2;
-  hash[1] = rotl32(hash[1], 17);
-  hash[1] += hash[2];
-  hash[1] = hash[1] * 5 + 0x0bcaa747;
-#pragma empty_line
-  hash[2] ^= k3;
-  hash[2] = rotl32(hash[2], 15);
-  hash[2] += hash[3];
-  hash[2] = hash[2] * 5 + 0x96cd1c35;
-#pragma empty_line
-  hash[3] ^= k4;
-  hash[3] = rotl32(hash[3], 13);
-  hash[3] += hash[0];
-  hash[3] = hash[3] * 5 + 0x32ac3b17;
+  for(int i=0; i<4; i++){
+   hash[i] ^= k[i];
+   hash[i] = rotl32(hash[i], 19 - (i<<1));
+   hash[i] += (i==3 ? hash[0] : hash[i+1]);
+   hash[i] = hash[i] * 5 + n[i];
+  }
  }
 #pragma empty_line
  const uint8_t *tail = (const uint8_t *) (key + len - (len & 15));
@@ -46097,43 +46233,40 @@ void murmurhash128(char key[8192], int len, int seed, uint32_t hash[4]){_ssdm_Sp
   case 15: k4 ^= (tail[14] << 16);
   case 14: k4 ^= (tail[13] << 8);
   case 13: k4 ^= (tail[12] << 0);
-  k4 *= 0xab0e9789;
+  k4 *= c[3];
   k4 = rotl32(k4, 18);
-  k4 *= 0x239b961b;
+  k4 *= c[0];
   hash[3] ^= k4;
 #pragma empty_line
   case 12: k3 ^= (tail[11] << 24);
   case 11: k3 ^= (tail[10] << 16);
   case 10: k3 ^= (tail[9] << 8);
   case 9: k3 ^= (tail[8] << 0);
-  k3 *= 0xab0e9789;
+  k3 *= c[2];
   k3 = rotl32(k3, 17);
-  k3 *= 0xab0e9789;
+  k3 *= c[3];
   hash[2] ^= k3;
 #pragma empty_line
   case 8: k2 ^= (tail[7] << 24);
   case 7: k2 ^= (tail[6] << 16);
   case 6: k2 ^= (tail[5] << 8);
   case 5: k2 ^= (tail[4] << 0);
-  k2 *= 0xab0e9789;
+  k2 *= c[1];
   k2 = rotl32(k2, 16);
-  k2 *= 0xab0e9789;
+  k2 *= c[2];
   hash[1] ^= k2;
 #pragma empty_line
   case 4: k1 ^= (tail[3] << 24);
   case 3: k1 ^= (tail[2] << 16);
   case 2: k1 ^= (tail[1] << 8);
   case 1: k1 ^= (tail[0] << 0);
-  k1 *= 0x239b961b;
+  k1 *= c[0];
   k1 = rotl32(k1, 15);
-  k1 *= 0xab0e9789;
+  k1 *= c[1];
   hash[0] ^= k1;
  }
 #pragma empty_line
- hash[0] ^= len;
- hash[1] ^= len;
- hash[2] ^= len;
- hash[3] ^= len;
+ for(int i=0; i<4; i++) hash[i] ^= len;
 #pragma empty_line
  hash[0] += hash[1];
  hash[0] += hash[2];

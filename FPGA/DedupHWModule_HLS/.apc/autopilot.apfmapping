@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="dedup.cpp" path="/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/dedup.cpp"/>
-    <originFiles name="dedup.h" path="/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/dedup.h"/>
+    <originFiles name="calcHash.cpp" path="/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Source/calcHash.cpp"/>
+    <originFiles name="dedup.cpp" path="/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Source/dedup.cpp"/>
+    <originFiles name="dedup.h" path="/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Source/dedup.h"/>
+    <originFiles name="murmur.cpp" path="/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Source/murmur.cpp"/>
   </source>
   <testbench>
-    <originFiles name="dedup_test.cpp" path="/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Dedup/dedup_test.cpp"/>
+    <originFiles name="dedup_test.cpp" path="/home/insujang/cs710/HEAD/FPGA/DedupHWModule_HLS/Source/dedup_test.cpp"/>
   </testbench>
 </autopilotfilemapping:AutoPilotFileMapping>
